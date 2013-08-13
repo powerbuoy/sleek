@@ -1,4 +1,4 @@
-<section id="page">
+<section id="post-content">
 
 	<h2><?php _e('404 - Page not found', 'h5b') ?></h2>
 

@@ -3,7 +3,6 @@
 <div id="top">
 
 	<?php include TEMPLATEPATH . '/modules/header.php' ?>
-	<?php include TEMPLATEPATH . '/modules/primary-nav.php' ?>
 
 </div>
 

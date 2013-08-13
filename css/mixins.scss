@@ -1,0 +1,52 @@
+@mixin numbered-elements ($element, $where, $pos: before, $n: i_just_need_this_here_so_that_its_optional) {
+	$name: #{$element};
+
+	@if ($n != i_just_need_this_here_so_that_its_optional) {
+		$name: $n;
+	}
+
+	counter-reset: $name;
+
+	& #{$element} {
+		counter-increment: $name;
+	}
+
+	& #{$where}:#{$pos} {
+		@if ($pos == before) {
+			content: counter($name) ". ";
+		}
+		@else {
+			content: " " counter($name);
+		}
+	}
+}
+
+@mixin framed {
+	border: 5px solid $white-color;
+	@include box-shadow(0 0 8px #e2e2e2);
+}
+
+@mixin button ($size: 'big') {
+	@include linear-gradient(#6b5a76, #2d143d);
+
+	display: inline-block;
+	padding: 12px 30px;
+
+	@include font-size($h3-size);
+	line-height: 1.4;
+	color: $white-color;
+
+	border: 0;
+	@include border-radius(5px);
+}
+
+@mixin fancy-img {
+//	background: #fefefe;
+
+	display: inline-block;
+	margin: 0 0 15px;
+//	padding: 5px;
+
+	@include box-shadow(0 0 4px rgba(0, 0, 0, .8));
+	@include border-radius(5px);
+}

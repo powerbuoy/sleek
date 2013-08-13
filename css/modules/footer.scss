@@ -1,0 +1,7 @@
+#footer {
+	text-align: center;
+}
+
+	#footer ul {
+		@include separated-inline-list;
+	}

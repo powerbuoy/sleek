@@ -1,0 +1,39 @@
+#authors {
+	
+}
+
+	#authors ul {
+		@include clearfix;
+		margin: 0;
+		list-style: none;
+	}
+
+		#authors ul li {
+			position: relative;
+			width: 170px;
+			float: left;
+			margin: 0 20px 20px 0;
+			padding: 0 0 0 90px;
+			min-height: 80px;
+		}
+
+			#authors ul li h3 {
+				margin-top: 0;
+			}
+
+			#authors ul li img {
+				position: absolute;
+				left: 0;
+				top: 0;
+
+				width: 80px;
+				height: 80px;
+			}
+
+		#authors ul li:nth-child(2n) {
+			margin-right: 0;
+		}
+
+		#authors ul li:nth-child(2n) + li {
+			clear: left;
+		}

@@ -1,0 +1,178 @@
+form {
+	@include clearfix;
+}
+
+	// Try to reset fieldset and legend
+	fieldset {
+		// Pull the fieldset up the amount of pixels it is moved down by the legend (TODO: only Chrome, fix others)
+		margin: -(($h3-size * 1.2) / 2) + px 0 0;
+		padding: 0;
+		border: 0;
+	}
+
+		legend {
+			// Give it some margin-bottom + add height of half the legend
+			margin: 0 0 ($margin / 2) + (($h3-size * 1.2) / 2);
+
+			position: relative;
+			top: (($h3-size * 1.2) / 2) + (0) + px; // Move legend down half its size ((0) == padding of fieldset)
+
+			@include font-size($h3-size);
+			line-height: 1.2;
+		}
+
+		h1.legend, 
+		h2.legend, 
+		h3.legend, 
+		h4.legend, 
+		h5.legend, 
+		h6.legend {
+			margin-top: 0;
+		}
+
+		form p {
+			position: relative; // To position errors
+			margin: 0 0 $margin / 2; // Not as much as normally in forms (TODO: remove?)
+		}
+
+		form p.small {
+			width: 48%;
+			float: left;
+		}
+
+		form p.small + * {
+			clear: both;
+		}
+
+		form p.small + p.small {
+			float: right;
+			clear: none;
+		}
+
+			form p label {
+				font-weight: bold;
+			}
+
+			form p input[type=radio] + label, 
+			form p input[type=checkbox] + label {
+				font-weight: normal;
+			}
+
+			form p br {
+				// May want to display: none; if one @a11y-hide's the labels
+			}
+
+		// Text inputs, selects and textareas
+		input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), 
+		textarea, 
+		select {
+			background: #fdfdfd;
+
+			@include box-sizing(border-box);
+
+			margin: 0;
+			padding: 5px 10px;
+
+			font: #{$default-size}/1.2 $default-font;
+			color: $default-color;
+
+			border: 1px solid #d0d0d0;
+
+			width: 100%;
+
+			@include border-radius($border-radius);
+			@include box-shadow(inset 0 0 4px #ddd);
+		}
+
+		textarea {
+			padding: 5px;
+		}
+
+		input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]):hover, 
+		input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]):focus, 
+		textarea:hover, 
+		textarea:focus, 
+		select:hover, 
+		select:focus {
+			border-color: #999;
+			outline: 0;
+		}
+
+		select {
+			@include linear-gradient(#f7f7f7, #dedede);
+			padding: 5px;
+			border: 1px solid transparent;
+			text-shadow: 1px 1px 1px #fff;
+			@include box-shadow(none);
+		}
+
+		select:focus {
+			@include linear-gradient(#dedede, #f7f7f7);
+		}
+
+		// Submit button
+		fieldset:last-child p:last-child, 
+		div.fieldset:last-child p:last-child {
+			text-align: center;
+		}
+
+		form > p:last-child {
+			text-align: center;
+		}
+
+			input[type=submit] {
+				@include button(true);
+			}
+
+		// Validation styling
+		form:not([novalidate]) input.ui-state-error:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), 
+		form:not([novalidate]) select.ui-state-error, 
+		form:not([novalidate]) textarea.ui-state-error {
+			background-color: #fff3f3;
+			border-color: #e99;
+		}
+
+		form:not([novalidate]) input.ui-state-valid:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), 
+		form:not([novalidate]) select.ui-state-valid, 
+		form:not([novalidate]) textarea.ui-state-valid {
+			background-color: #f3fff3;
+			border-color: #9c9;
+		}
+
+		// Error message
+		form strong.error {
+			@include arrow(left, 5px, #fafafa, 2px, #999, 20px);
+
+			background: #fdfdfd;
+
+			@include box-sizing(border-box);
+			display: block;
+			width: 60%;
+			margin: 0 -10px 0 0;
+			padding: 10px;
+
+			position: absolute;
+			right: -60%;
+			top: 10px;
+			z-index: 99;
+
+			font-weight: normal;
+
+			border: 2px solid #999;
+			@include border-radius($border-radius);
+			@include box-shadow(0 0 6px #aaa);
+		}
+
+		// Datepicker icon
+		form img.ui-datepicker-trigger {
+			margin-left: 5px;
+		}
+
+		// Placeholder text
+		::-webkit-input-placeholder {
+			color: #666;
+		}
+
+		:-moz-placeholder {
+			color: #666;
+		}

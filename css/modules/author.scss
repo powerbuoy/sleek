@@ -1,0 +1,14 @@
+#author {
+	position: relative;
+	padding-left: 80px + $margin;
+	min-height: 80px;
+}
+
+	#author img {
+		position: absolute;
+		left: 0;
+		top: 0;
+
+		width: 80px;
+		height: 80px;
+	}

@@ -1,0 +1,120 @@
+@mixin font-size ($size: $default-size) {
+	font-size: #{$size}px;
+	font-size: ($size / 10) + rem;
+}
+
+// Layout
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font: #{$default-size}px/1.6 $default-font;
+	@include font-size($default-size);
+	color: $default-color;
+}
+
+#wrapper {
+	width: 80%;
+	margin: 0 auto;
+}
+
+	#content {
+		@include clearfix;
+	}
+
+		#primary-content {
+			width: 60%;
+			float: left;
+		}
+
+		#secondary-content {
+			width: 30%;
+			float: right;
+		}
+
+// Headings
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	font: #{$h2-size}px/1.2 $heading-font;
+	@include font-size($h2-size);
+	margin: $margin 0 ($margin / 2);
+}
+
+	h1 a, 
+	h2 a, 
+	h3 a, 
+	h4 a, 
+	h5 a, 
+	h6 a {
+		color: inherit;
+	}
+
+h1 {
+	@include font-size($h1-size);
+}
+
+h2 {
+	@include font-size($h2-size);
+}
+
+h3 {
+	@include font-size($h3-size);
+}
+
+h4, 
+h5, 
+h6 {
+	@include font-size($h4-size);
+}
+
+// Block margins
+section, 
+nav, 
+p, 
+pre, 
+dl, 
+blockquote {
+	margin: 0 0 $margin;
+}
+
+menu, 
+ul, 
+ol {
+	margin: 0 0 $margin ($margin * 2);
+	padding: 0;
+}
+
+dd {
+	margin: 0 0 0 ($margin * 2);
+}
+
+// Inline elements
+a {
+	color: $link-color;
+	text-decoration: none;
+}
+
+a:hover {
+	color: $link-color-hover;
+	text-decoration: underline;
+}
+
+img {
+	max-width: 100%;
+	height: auto !important;
+}
+
+q {
+	@include font-size($h4-size);
+	font-style: italic;
+}
+
+q:before, 
+q:after {
+	content: '"';
+}

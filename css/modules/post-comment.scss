@@ -1,0 +1,44 @@
+#post-comment {
+	
+}
+
+	#post-comment span.required {
+		color: red;
+	}
+
+	#post-comment form {
+		
+	}
+
+		#post-comment form p input:not([type=submit]), 
+		#post-comment form p textarea {
+			display: block;
+			max-width: 65%;
+		}
+
+		@media only screen and (min-width: 600px) {
+			#post-comment form p {
+				position: relative;
+				@include clearfix;
+			}
+
+				#post-comment form p label {
+					display: block;
+					float: left;
+					width: 100px;
+					padding-right: 15px;
+					text-align: right;
+				}
+
+				#post-comment form p label + span.required {
+					position: absolute;
+					left: 105px;
+					top: 0;
+				}
+
+				#post-comment form p input:not([type=submit]), 
+				#post-comment form p textarea {
+					display: block;
+					float: left;
+				}
+		}

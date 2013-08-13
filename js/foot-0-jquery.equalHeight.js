@@ -11,6 +11,6 @@ jQuery.fn.equalHeight = function () {
 
 	// Set element's min-height to tallest element's height
 	return this.each(function () {
-		jQuery(this).css('height', maxHeight + 'px');
+		jQuery(this).css('min-height', maxHeight + 'px');
 	});
 };

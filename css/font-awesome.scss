@@ -90,6 +90,7 @@
 @mixin icon-rounded ($bg, $color: false, $where: before) {
 	&:#{$where} {
 		background: $bg;
+		background: transparent\9;
 
 		display: block;
 		padding: 12px 0 0;
@@ -98,6 +99,7 @@
 
 		@if ($color) {
 			color: $color;
+			color: inherit\9;
 		}
 
 		@include border-radius(100%);
@@ -173,12 +175,15 @@ $icon-th: "\f00a";
 .icon-signal:before, .icon-signal.after:after               { content: "\f012"; }
 .icon-cog:before, .icon-cog.after:after                  { content: "\f013"; }
 .icon-trash:before, .icon-trash.after:after                { content: "\f014"; }
-.icon-home:before, .icon-home.after:after                 { content: "\f015"; }
+$icon-home: "\f015";
+.icon-home:before, .icon-home.after:after                 { content: $icon-home; }
 .icon-file:before, .icon-file.after:after                 { content: "\f016"; }
 .icon-time:before, .icon-time.after:after                 { content: "\f017"; }
 .icon-road:before, .icon-road.after:after                 { content: "\f018"; }
-.icon-download-alt:before, .icon-download-alt.after:after         { content: "\f019"; }
-.icon-download:before, .icon-download.after:after             { content: "\f01a"; }
+$icon-download-alt: "\f019";
+.icon-download-alt:before, .icon-download-alt.after:after         { content: $icon-download-alt; }
+$icon-download: "\f01a";
+.icon-download:before, .icon-download.after:after             { content: $icon-download; }
 .icon-upload:before, .icon-upload.after:after               { content: "\f01b"; }
 .icon-inbox:before, .icon-inbox.after:after                { content: "\f01c"; }
 .icon-play-circle:before, .icon-play-circle.after:after          { content: "\f01d"; }
@@ -274,7 +279,8 @@ $icon-warning-sign: "\f071";
 .icon-plane:before, .icon-plane.after:after                { content: "\f072"; }
 .icon-calendar:before, .icon-calendar.after:after             { content: "\f073"; }
 .icon-random:before, .icon-random.after:after               { content: "\f074"; }
-.icon-comment:before, .icon-comment.after:after              { content: "\f075"; }
+$icon-comment: "\f075";
+.icon-comment:before, .icon-comment.after:after              { content: $icon-comment; }
 .icon-magnet:before, .icon-magnet.after:after               { content: "\f076"; }
 .icon-chevron-up:before, .icon-chevron-up.after:after           { content: "\f077"; }
 .icon-chevron-down:before, .icon-chevron-down.after:after         { content: "\f078"; }
@@ -362,8 +368,10 @@ $icon-circle-arrow-right: "\f0a9";
 .icon-truck:before, .icon-truck.after:after                { content: "\f0d1"; }
 .icon-pinterest:before, .icon-pinterest.after:after            { content: "\f0d2"; }
 .icon-pinterest-sign:before, .icon-pinterest-sign.after:after       { content: "\f0d3"; }
-.icon-google-plus-sign:before, .icon-google-plus-sign.after:after     { content: "\f0d4"; }
-.icon-google-plus:before, .icon-google-plus.after:after          { content: "\f0d5"; }
+$icon-google-plus-sign: "\f0d4";
+.icon-google-plus-sign:before, .icon-google-plus-sign.after:after     { content: $icon-google-plus-sign; }
+$icon-google-plus: "\f0d5";
+.icon-google-plus:before, .icon-google-plus.after:after          { content: $icon-google-plus; }
 .icon-money:before, .icon-money.after:after                { content: "\f0d6"; }
 $icon-caret-down: "\f0d7";
 .icon-caret-down:before, .icon-caret-down.after:after           { content: $icon-caret-down; }

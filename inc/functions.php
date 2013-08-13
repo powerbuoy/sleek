@@ -1,8 +1,48 @@
 <?php
+function get_posts_by_simple_fields_value ($args, $postType = 'any') {
+	$rows = get_posts(array(
+		'post_type' => $postType, 
+		'numberposts' => -1
+	));
+	$return = array();
+
+	foreach ($rows as $row) {
+		$valueGroups = simple_fields_values($args['key'], $row->ID);
+
+		if ($valueGroups) {
+			foreach ($valueGroups as $values) {
+				if ($values) {
+					foreach ($values as $value) {
+						if ($value == $args['value']) {
+							$return[] = $row;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return count($return) ? $return : false;
+}
+
 function debug ($foo) {
 	header('Content-type: text/plain; charset=utf-8');
 	var_dump($foo);
 	die;
+}
+
+function h5b_get_image_id_by_filename ($filename) {
+	global $wpdb;
+
+	$filename	= preg_replace("/\\.[^.\\s]{3,4}$/", '', $filename);
+	$result		= $wpdb->get_col($wpdb->prepare("SELECT ID FROM {$wpdb->prefix}posts WHERE post_name = '%s';", $filename));
+
+	if ($result) {
+		return $result[0];
+	}
+	else {
+		return null;
+	}
 }
 
 # Ignore categories that start with an underscore

@@ -8,15 +8,21 @@ H5B.plugins.Images = {
 	}, 
 
 	cycleImages: function () {
-		var images	= $('div.images ul');
-		var pager	= $('<div class="navigation"></div>').insertAfter(images);
+		var images		= $('div.images ul');
 
-		images.cycle({
-			fx:			'scrollLeft', 
-			speed:		400, 
-			timeout:	8000, 
-			easing:		'easeInOutQuad', 
-			pager:		pager
-		});
+		if (images.find('> li').length > 1) {
+			var pager		= $('<div class="navigation"></div>').insertAfter(images);
+			var prevNext	= $('<div class="prev-next"><a href="#" class="prev">&lt;</a><a href="#" class="next">&gt;</a></div>').insertAfter(images);
+
+			images.cycle({
+				fx:			'scrollLeft', 
+				speed:		400, 
+				timeout:	8000, 
+				easing:		'easeInOutQuad', 
+				pager:		pager, 
+				prev:		prevNext.find('a.prev'), 
+				next:		prevNext.find('a.next')
+			});
+		}
 	}
 };

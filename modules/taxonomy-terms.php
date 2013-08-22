@@ -1,6 +1,10 @@
 <?php
-	$taxSlug = sanitize_title(get_the_title());
-	$terms = get_terms($taxSlug, array(
+	$slugToTax	= array(
+		'tags'			=> 'post_tag', 
+		'categories'	=> 'category'
+	);
+	$taxSlug	= sanitize_title(get_the_title());
+	$terms		= get_terms($slugToTax[$taxSlug], array(
 		
 	));
 ?>
@@ -10,18 +14,7 @@
 
 		<ul>
 			<?php foreach ($terms as $term) : ?>
-				<li>
-					<?php $tIMG = z_taxonomy_image_url($term->term_id) ?>
-					<?php if ($tIMG) : ?>
-						<img src="<?php echo $tIMG ?>">
-					<?php endif ?>
-
-					<h3><a href="<?php echo get_term_link($term) ?>"><?php echo $term->name ?></a></h3>
-
-					<?php if ($term->description) : ?>
-						<p><?php echo $term->description ?></p>
-					<?php endif ?>
-				</li>
+				<li><a href="<?php echo get_term_link($term) ?>"><?php echo $term->name ?></a> <strong><?php echo $term->count ?></strong></li>
 			<?php endforeach ?>
 		</ul>
 

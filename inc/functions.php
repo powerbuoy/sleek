@@ -29,7 +29,9 @@ function get_posts_by_simple_fields_value ($args, $postType = 'any') {
 # Debug
 function debug ($foo) {
 	header('Content-type: text/plain; charset=utf-8');
+
 	var_dump($foo);
+
 	die;
 }
 
@@ -91,7 +93,7 @@ function redirect ($to) {
 }
 
 # Redirects to referrer
-function redirectToReferrer ($append = false) {
+function redirect_back ($append = false) {
 	$ref = $_SERVER['HTTP_REFERER'];
 
 	if ($append) {
@@ -104,32 +106,6 @@ function redirectToReferrer ($append = false) {
 	}
 
 	redirect($ref);
-}
-
-# Appends 'what' to query string (should use native wp-function (dont remember name))
-function appendToQryStr ($what) {
-	$qryStr = $_SERVER['QUERY_STRING'];
-
-	if ($qryStr) {
-		$newVars = explode('&', $what);
-
-		foreach ($newVars as $var) {
-			list($key, $val)	= explode('=', $var);
-			$regExp				= "/$key=.*?(&|$)/";
-
-			if (preg_match($regExp, $qryStr)) {
-				$qryStr = preg_replace($regExp, "$key=$val" . '$1', $qryStr);
-			}
-			else {
-				$qryStr .= "&$key=$val";
-			}
-		}
-	}
-	else {
-		$qryStr = $what;
-	}
-
-	return '?' . $qryStr;
 }
 
 # Includes and returns contents instead of echo:ing

@@ -2,13 +2,13 @@
 @title:
 Image Zoom
 
-@version:
-2.0
+@version
+3.0 (2013-09-21)
 
 @author:
 Andreas Lagerkvist
 
-@date:
+@created:
 2008-08-31
 
 @url:
@@ -16,12 +16,6 @@ http://andreaslagerkvist.com/jquery/image-zoom/
 
 @license:
 http://creativecommons.org/licenses/by/3.0/
-
-@copyright:
-2008 Andreas Lagerkvist (andreaslagerkvist.com)
-
-@requires:
-jquery, jquery.imageZoom.css, jquery.imageZoom.png
 
 @does:
 This plug-in makes links pointing to images open in the "Image Zoom". Clicking a link will zoom out the clicked image to its target-image. Click anywhere on the image or the close-button to zoom the image back in. Only ~3k minified.

@@ -28,7 +28,8 @@ H5B.plugins.HTML5Forms = {
 
 				// If form has an "error" class or NO "valid" classes - don't submit form
 			//	if (form.find('.ui-state-error').length || !form.find('.ui-state-valid').length) {
-				// If for has an "error" class - don't submit form
+
+				// If form has an "error" class - don't submit form
 				if (form.find('.ui-state-error').length) {
 					form.find('.ui-state-error').eq(0).focus();
 

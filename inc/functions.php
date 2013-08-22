@@ -1,8 +1,9 @@
 <?php
+# Gets a post based on its simple field value (the plugin)
 function get_posts_by_simple_fields_value ($args, $postType = 'any') {
 	$rows = get_posts(array(
-		'post_type' => $postType, 
-		'numberposts' => -1
+		'post_type'		=> $postType, 
+		'numberposts'	=> -1
 	));
 	$return = array();
 
@@ -25,12 +26,14 @@ function get_posts_by_simple_fields_value ($args, $postType = 'any') {
 	return count($return) ? $return : false;
 }
 
+# Debug
 function debug ($foo) {
 	header('Content-type: text/plain; charset=utf-8');
 	var_dump($foo);
 	die;
 }
 
+# Gets image ID by filename
 function h5b_get_image_id_by_filename ($filename) {
 	global $wpdb;
 
@@ -42,48 +45,6 @@ function h5b_get_image_id_by_filename ($filename) {
 	}
 	else {
 		return null;
-	}
-}
-
-# Ignore categories that start with an underscore
-function h5b_the_category ($i, $echo = true, $prefix = '_') {
-	global $post;
-
-	if ($post) {
-		$id = $post->ID;
-	}
-	else {
-		$id = $i;
-	}
-
-	$catIDs = wp_get_post_categories($id);
-
-	if (!count($catIDs)) {
-		return;
-	}
-
-	$allCats	= get_categories(array('include' => implode(',', $catIDs)));
-	$cats		= array();
-
-	foreach ($allCats as $cat) {
-		if (substr($cat->slug, 0, 1) != $prefix) {
-			$cats[] = $cat;
-		}
-	}
-
-	$html = '<ul>';
-
-	foreach ($cats as $cat) {
-		$html .= '<li class="' . $cat->slug . '"><a href="' . get_category_link($cat->cat_ID) . '">' . htmlspecialchars($cat->name) . '</a></li>';
-	}
-
-	$html .= '</ul>';
-
-	if ($echo) {
-		echo $html;
-	}
-	else {
-		return $html;
 	}
 }
 
@@ -145,7 +106,7 @@ function redirectToReferrer ($append = false) {
 	redirect($ref);
 }
 
-# Appends 'what' to query string
+# Appends 'what' to query string (should use native wp-function (dont remember name))
 function appendToQryStr ($what) {
 	$qryStr = $_SERVER['QUERY_STRING'];
 
@@ -178,44 +139,12 @@ function fetch ($f, $vars = false) {
 	}
 
 	ob_start();
+
 	include $f;
+
 	$contents = ob_get_contents();
+
 	ob_end_clean();
 
 	return $contents;
-}
-
-# These are used with the attachments-plugin
-function get_img_attachments ($id) {
-	if (!function_exists('attachments_get_attachments')) {
-		return false;
-	}
-
-	$tmp = attachments_get_attachments($id);
-	$atts = array();
-
-	foreach ($tmp as $att) {
-		if (substr($att['mime'], 0, 5) == 'image') {
-			$atts[] = $att;
-		}
-	}
-
-	return count($atts) ? $atts : false;
-}
-
-function get_non_img_attachments ($id) {
-	if (!function_exists('attachments_get_attachments')) {
-		return false;
-	}
-
-	$tmp = attachments_get_attachments($id);
-	$atts = array();
-
-	foreach ($tmp as $att) {
-		if (substr($att['mime'], 0, 5) != 'image') {
-			$atts[] = $att;
-		}
-	}
-
-	return count($atts) ? $atts : false;
 }

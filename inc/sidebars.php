@@ -5,7 +5,7 @@ function h5b_register_sidebars () {
 	$sidebars = array(
 		'header'	=> __('Header', 'h5b'), 
 		'footer'	=> __('Footer', 'h5b'), 
-		'secondary'	=> __('Secondary', 'h5b')
+		'aside'		=> __('Aside', 'h5b')
 	);
 
 	foreach ($sidebars as $id => $name) {

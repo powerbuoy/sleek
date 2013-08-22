@@ -9,7 +9,7 @@
 
 <div id="secondary-content">
 
-	<?php include TEMPLATEPATH . '/modules/latest-news.php' ?>
+	<?php dynamic_sidebar('aside') ?>
 
 </div>
 

@@ -14,7 +14,7 @@
 
 		<ul>
 			<?php foreach ($terms as $term) : ?>
-				<li><a href="<?php echo get_term_link($term) ?>"><?php echo $term->name ?></a> <strong><?php echo $term->count ?></strong></li>
+				<li><a href="<?php echo get_term_link($term) ?>"><?php echo $term->name ?> <strong><?php echo $term->count ?></strong></a></li>
 			<?php endforeach ?>
 		</ul>
 

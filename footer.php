@@ -1,8 +1,8 @@
 </div>
 
-<div id="bottom">
+<div id="footer">
 
-	<?php include TEMPLATEPATH . '/modules/footer.php' ?>
+	<?php dynamic_sidebar('footer') ?>
 
 </div>
 

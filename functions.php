@@ -22,8 +22,8 @@ include TEMPLATEPATH . '/inc/data-objects.php';
 include TEMPLATEPATH . '/inc/shortcodes.php';
 include TEMPLATEPATH . '/inc/include-css-js.php';
 include TEMPLATEPATH . '/inc/pagination-css-class.php';
-include TEMPLATEPATH . '/inc/relevanssi.php';
-include TEMPLATEPATH . '/inc/ip-to-country.php';
-include TEMPLATEPATH . '/inc/user.php';
+include TEMPLATEPATH . '/inc/advanced-search.php';
 
-# include TEMPLATEPATH . '/inc/advanced-search.php'; # not in use anymore
+# include TEMPLATEPATH . '/inc/relevanssi.php';
+# include TEMPLATEPATH . '/inc/ip-to-country.php';
+# include TEMPLATEPATH . '/inc/user.php';

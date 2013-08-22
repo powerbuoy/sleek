@@ -1,9 +1,13 @@
 <?php include TEMPLATEPATH . '/modules/head.php' ?>
 
-<div id="top">
+<header id="header">
 
-	<?php include TEMPLATEPATH . '/modules/header.php' ?>
+	<h1><a href="<?php echo home_url('/') ?>"><img src="<?php echo get_template_directory_uri() ?>/css/gfx/logo.png" alt="<?php bloginfo('name') ?>"></a></h1>
 
-</div>
+	<p><?php bloginfo('description') ?></p>
+
+	<?php dynamic_sidebar('header') ?>
+
+</header>
 
 <div id="content">

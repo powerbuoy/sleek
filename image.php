@@ -2,7 +2,7 @@
 
 <div id="primary-content">
 
-	<?php include TEMPLATEPATH . '/modules/images.php' ?>
+	<?php include TEMPLATEPATH . '/modules/image.php' ?>
 
 </div>
 

@@ -3,6 +3,11 @@ A collection of useful `@mixins` like `@clearfix`, `@a11y-hide` etc.
 
 Check the SASS-file for all of them.
 ***/
+@mixin font-size ($size) {
+	font-size: #{$size}px;
+	font-size: ($size / 10) + rem;
+}
+
 // Adds an arrow to an element
 @mixin arrow ($position, $size, $background, $border-size, $border-color, $align: 50%) {
 	$invPosition: right;

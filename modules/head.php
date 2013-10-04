@@ -9,11 +9,12 @@
 	else					$htmlID = 'unknown-page';
 
 	$htmlClasses = 'page-' . strtolower(preg_replace('/[^a-zA-Z0-9-_]/', '', wp_title('', false)));
+	$htmlClasses .= ' lang-' . get_locale();
 ?>
 
 <!--[if lt IE 7]><html id="<?php echo $htmlID ?>" <?php language_attributes() ?>class="<?php echo $htmlClasses ?> no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html id="<?php echo $htmlID ?>" <?php language_attributes() ?>class="<?php echo $htmlClasses ?> no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if IE 8]><html id="<?php echo $htmlID ?>" <?php language_attributes() ?>class="<?php echo $htmlClasses ?> no-js it-ie9"><![endif]-->
+<!--[if IE 8]><html id="<?php echo $htmlID ?>" <?php language_attributes() ?>class="<?php echo $htmlClasses ?> no-js lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!--><html id="<?php echo $htmlID ?>" <?php language_attributes() ?>class="<?php echo $htmlClasses ?> no-js"><!--<![endif]-->
 	
 	<head>

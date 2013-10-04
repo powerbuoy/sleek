@@ -1,178 +1,218 @@
+
 form {
 	@include clearfix;
 }
 
-	// Try to reset fieldset and legend
 	fieldset {
-		// Pull the fieldset up the amount of pixels it is moved down by the legend (TODO: only Chrome, fix others)
-		margin: -(($h3-size * 1.2) / 2) + px 0 0;
+		margin: 0;
 		padding: 0;
 		border: 0;
 	}
 
-		legend {
-			// Give it some margin-bottom + add height of half the legend
-			margin: 0 0 ($margin / 2) + (($h3-size * 1.2) / 2);
+	form h3 {
+		text-transform: uppercase;
+		margin-bottom: 0;
+	}
 
-			position: relative;
-			top: (($h3-size * 1.2) / 2) + (0) + px; // Move legend down half its size ((0) == padding of fieldset)
+	form img.frm_ajax_loading {
+		display: none;
+	}
 
-			@include font-size($h3-size);
-			line-height: 1.2;
+	form p, 
+	form div.form-field {
+		position: relative; // To position errors
+		margin: 0 0 $margin;
+	}
+
+	form p.small, 
+	form div.form-field.short {
+		width: 48%;
+		float: left;
+	}
+
+	form p.small + *, 
+	form div.form-field.short + * {
+		clear: both;
+	}
+
+	form p.small + p.small, 
+	form div.form-field.short + div.form-field.short {
+		float: right;
+		clear: none;
+	}
+
+		label {
+			font-weight: bold;
 		}
 
-		h1.legend, 
-		h2.legend, 
-		h3.legend, 
-		h4.legend, 
-		h5.legend, 
-		h6.legend {
-			margin-top: 0;
-		}
-
-		form p {
-			position: relative; // To position errors
-			margin: 0 0 $margin / 2; // Not as much as normally in forms (TODO: remove?)
-		}
-
-		form p.small {
-			width: 48%;
-			float: left;
-		}
-
-		form p.small + * {
-			clear: both;
-		}
-
-		form p.small + p.small {
-			float: right;
-			clear: none;
-		}
-
-			form p label {
-				font-weight: bold;
-			}
-
-			form p input[type=radio] + label, 
-			form p input[type=checkbox] + label {
-				font-weight: normal;
-			}
-
-			form p br {
-				// May want to display: none; if one @a11y-hide's the labels
-			}
-
-		// Text inputs, selects and textareas
-		input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), 
-		textarea, 
-		select {
-			background: #fdfdfd;
-
-			@include box-sizing(border-box);
-
-			margin: 0;
-			padding: 5px 10px;
-
-			font: #{$default-size}/1.2 $default-font;
-			color: $default-color;
-
-			border: 1px solid #d0d0d0;
-
-			width: 100%;
-
-			@include border-radius($border-radius);
-			@include box-shadow(inset 0 0 4px #ddd);
-		}
-
-		textarea {
-			padding: 5px;
-		}
-
-		input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]):hover, 
-		input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]):focus, 
-		textarea:hover, 
-		textarea:focus, 
-		select:hover, 
-		select:focus {
-			border-color: #999;
-			outline: 0;
-		}
-
-		select {
-			@include linear-gradient(#f7f7f7, #dedede);
-			padding: 5px;
-			border: 1px solid transparent;
-			text-shadow: 1px 1px 1px #fff;
-			@include box-shadow(none);
-		}
-
-		select:focus {
-			@include linear-gradient(#dedede, #f7f7f7);
-		}
-
-		// Submit button
-		fieldset:last-child p:last-child, 
-		div.fieldset:last-child p:last-child {
-			text-align: center;
-		}
-
-		form > p:last-child {
-			text-align: center;
-		}
-
-			input[type=submit] {
-				@include button(true);
-			}
-
-		// Validation styling
-		form:not([novalidate]) input.ui-state-error:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), 
-		form:not([novalidate]) select.ui-state-error, 
-		form:not([novalidate]) textarea.ui-state-error {
-			background-color: #fff3f3;
-			border-color: #e99;
-		}
-
-		form:not([novalidate]) input.ui-state-valid:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), 
-		form:not([novalidate]) select.ui-state-valid, 
-		form:not([novalidate]) textarea.ui-state-valid {
-			background-color: #f3fff3;
-			border-color: #9c9;
-		}
-
-		// Error message
-		form strong.error {
-			@include arrow(left, 5px, #fafafa, 2px, #999, 20px);
-
-			background: #fdfdfd;
-
-			@include box-sizing(border-box);
-			display: block;
-			width: 60%;
-			margin: 0 -10px 0 0;
-			padding: 10px;
-
-			position: absolute;
-			right: -60%;
-			top: 10px;
-			z-index: 99;
-
+		input[type=radio] + label, 
+		input[type=checkbox] + label {
 			font-weight: normal;
-
-			border: 2px solid #999;
-			@include border-radius($border-radius);
-			@include box-shadow(0 0 6px #aaa);
 		}
 
-		// Datepicker icon
-		form img.ui-datepicker-trigger {
-			margin-left: 5px;
+		form br {
+			// May want to display: none; if one @a11y-hide's the labels
 		}
 
-		// Placeholder text
-		::-webkit-input-placeholder {
-			color: #666;
-		}
+	// Text inputs, selects and textareas
+	input[type=text], 
+    input[type=color], 
+    input[type=date], 
+    input[type=datetime], 
+    input[type=datetime-local], 
+    input[type=email], 
+    input[type=month], 
+    input[type=number], 
+    input[type=range], 
+    input[type=search], 
+    input[type=tel], 
+    input[type=time], 
+    input[type=url], 
+    input[type=week], 
+	textarea, 
+	select {
+		@include linear-gradient(#f3f3f3, #ffffff); // #fafafa
 
-		:-moz-placeholder {
-			color: #666;
-		}
+		@include box-sizing(border-box);
+		margin: 0;
+		padding: 5px 10px;
+
+		font: #{$default-size}/1.2 $default-font;
+		color: $default-color;
+
+	//	border: 0;
+		border: 1px solid #d9d9d9;
+
+		width: 100%;
+
+		@include border-radius($border-radius);
+		@include box-shadow(inset 1px 1px 1px #dfdfdf);
+	}
+
+	textarea {
+
+	}
+
+	input[type=text]:hover, 
+    input[type=color]:hover, 
+    input[type=date]:hover, 
+    input[type=datetime]:hover, 
+    input[type=datetime-local]:hover, 
+    input[type=email]:hover, 
+    input[type=month]:hover, 
+    input[type=number]:hover, 
+    input[type=range]:hover, 
+    input[type=search]:hover, 
+    input[type=tel]:hover, 
+    input[type=time]:hover, 
+    input[type=url]:hover, 
+    input[type=week]:hover, 
+	input[type=text]:focus, 
+    input[type=color]:focus, 
+    input[type=date]:focus, 
+    input[type=datetime]:focus, 
+    input[type=datetime-local]:focus, 
+    input[type=email]:focus, 
+    input[type=month]:focus, 
+    input[type=number]:focus, 
+    input[type=range]:focus, 
+    input[type=search]:focus, 
+    input[type=tel]:focus, 
+    input[type=time]:focus, 
+    input[type=url]:focus, 
+    input[type=week]:focus, 
+	textarea:hover, 
+	textarea:focus, 
+	select:hover, 
+	select:focus {
+		border-color: #999;
+		outline: 0;
+	}
+
+	select {
+		@include linear-gradient(#ffffff, #fafafa);
+		padding: 4px 9px;
+		border: 1px solid #e5e5e5;
+		@include box-shadow(1px 1px 1px #666);
+	}
+
+	select:focus {
+		@include linear-gradient(#fafafa, #ffffff);
+	}
+
+	// Submit button
+	form a.submit, 
+	input[type=submit] {
+		@include button;
+	}
+
+	input[type=submit] + a {
+		margin-left: 10px;
+	}
+
+	// Validation styling
+	form:not([novalidate]) input.ui-state-error:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), 
+	form:not([novalidate]) select.ui-state-error, 
+	form:not([novalidate]) textarea.ui-state-error {
+		background-color: #fff3f3;
+		border-color: #e99;
+	}
+
+	form:not([novalidate]) input.ui-state-valid:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), 
+	form:not([novalidate]) select.ui-state-valid, 
+	form:not([novalidate]) textarea.ui-state-valid {
+		background-color: #f3fff3;
+		border-color: #9c9;
+	}
+
+	// Placeholder text
+	::-webkit-input-placeholder {
+		color: #999;
+	}
+
+	:-moz-placeholder {
+		color: #999;
+	}
+
+	.placeholder {
+		color: #999;
+	}
+
+	// Error message
+	form div.frm_error_style, 
+	form div.frm_error {
+		color: #e00;
+		font-weight: bold;
+	}
+
+	form div.frm_error_style {
+		display: none; // Or not?
+	}
+
+	form strong.error {
+		@include arrow(left, 5px, #fafafa, 2px, #999, 20px);
+
+		background: #fdfdfd;
+
+		@include box-sizing(border-box);
+		display: block;
+		width: 60%;
+		margin: 0 -10px 0 0;
+		padding: 10px;
+
+		position: absolute;
+		right: -60%;
+		top: 10px;
+		z-index: 99;
+
+		font-weight: normal;
+
+		border: 2px solid #999;
+		@include border-radius($border-radius);
+		@include box-shadow(0 0 6px #aaa);
+	}
+
+	// Datepicker icon
+	form img.ui-datepicker-trigger {
+		margin-left: 5px;
+	}

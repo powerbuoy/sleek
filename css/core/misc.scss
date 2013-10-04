@@ -59,25 +59,34 @@ Check the SASS-file for all of them.
 	}
 }
 
-@mixin cols ($num: 3, $width: 300px, $margin: 20px) {
+@mixin cols ($num: 3, $width: 300px, $margin: 20px, $selector: '*') {
 	@include clearfix;
-	list-style: none;
-	margin-left: 0;
 
-	> *, 
-	> * {
+	> #{$selector} {
+		@include box-sizing(border-box);
 		width: $width;
-		margin: 0 $margin $margin 0;
+		margin-right: $margin;
+		margin-bottom: $margin;
 		float: left;
 	}
 
-	> :nth-child(#{$num}n), 
-	> :nth-child(#{$num}n) {
+	html.lt-ie9 & > * {
+		margin-right: $margin - ($margin / $num);
+	}
+
+	> #{$selector}:nth-of-type(#{$num}n) {
 		margin-right: 0;
 	}
 
-	> :nth-child(#{$num}n) + *, 
-	> :nth-child(#{$num}n) + * {
+	> #{$selector}.nth-of-type-#{$num}n {
+		margin-right: 0;
+	}
+
+	> #{$selector}:nth-of-type(#{$num}n) + * {
+		clear: left;
+	}
+
+	> #{$selector}.nth-of-type-#{$num}n + * {
 		clear: left;
 	}
 }
@@ -175,12 +184,17 @@ Check the SASS-file for all of them.
 	}
 }
 
-@mixin bullet-nav {
+@mixin bullet-nav ($align: center) {
 	margin: 0;
 	padding: 0;
-	text-align: center;
+	list-style: none;
 	line-height: 1;
 	font-size: 1px;
+	text-align: $align;
+
+	li {
+		display: inline-block;
+	}
 
 	a {
 		background: rgba(160, 160, 160, .5);
@@ -192,13 +206,22 @@ Check the SASS-file for all of them.
 		height: 12px;
 		margin: 0 5px;
 
+		@if ($align == left) {
+			margin: 0 10px 0 0;
+		}
+
+		@if ($align == right) {
+			margin: 0 0 0 10px;
+		}
+
 		text-indent: -1000000px;
 
 		@include box-shadow(inset 1px 1px 1px rgba(0, 0, 0, .6));
 		@include border-radius(6px);
 	}
 
-	a.activeSlide:before {
+	a.activeSlide:before, 
+	li.rslides_here a:before {
 		background: #eee;
 
 		display: block;

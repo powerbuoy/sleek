@@ -19,3 +19,15 @@ function h5b_cleanup () {
 }
 
 add_action('init', 'h5b_cleanup');
+
+# Allow HTML in Widget Titles (with [tags])
+function h5b_html_in_widget_titles ($title)
+{
+	$title = str_replace('[', '<', $title);
+	$title = str_replace(']', '>', $title);
+	$title = strip_tags($title, '<a><blink><br><span>');
+
+	return $title;
+}
+
+add_filter('widget_title', 'h5b_html_in_widget_titles');

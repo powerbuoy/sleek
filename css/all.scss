@@ -3,15 +3,22 @@
 @import "core/misc";
 @import "core/normalize";
 
-// Misc
-@import "mixins";
+// Fonts
 @import "fonts";
-@import "font-awesome";
+@import "font-awesome/font-awesome";
+
+// Mixins
+@import "mixins/misc";
+@import "mixins/button";
+@import "mixins/icon";
 
 // jQuery
 @import "jquery/jqModal";
+@import "jquery/jquery.imageZoom";
+@import "jquery/jquery.liveSearch";
+@import "jquery/responsiveslides";
 
-// Layout
+// General
 @import "general";
 @import "wp-classes";
 @import "forms";
@@ -19,11 +26,12 @@
 // Modules
 @import "modules/header";
 @import "modules/footer";
-@import "modules/featured";
+@import "modules/author";
+@import "modules/authors";
 @import "modules/comments";
+@import "modules/pagination";
 @import "modules/post-comment";
 @import "modules/posts";
-@import "modules/pagination";
 
 // Print
 @media print {

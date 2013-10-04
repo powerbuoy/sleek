@@ -106,6 +106,12 @@ Check the SASS-file for all of them.
 	transform-style: $transform-style;
 }
 
+// Transform origin
+@mixin transform-origin ($origin) {
+	-webkit-transform-origin: $origin;
+	transform-origin: $origin;
+}
+
 // Backface-visibility
 @mixin backface-visibility ($backface-visibility) {
 	-moz-backface-visibility: $backface-visibility;

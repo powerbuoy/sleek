@@ -1,0 +1,4 @@
+@mixin framed {
+	border: 5px solid $white-color;
+	@include box-shadow(0 0 8px #e2e2e2);
+}

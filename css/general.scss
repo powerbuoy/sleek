@@ -1,3 +1,18 @@
+// Screen Sizes
+$small-tablet-size: 'only screen and (min-width: 600px)';
+$medium-tablet-size: 'only screen and (min-width: 740px)';
+$tablet-size: 'only screen and (min-width: 900px)';
+$laptop-size: 'only screen and (min-width: 1200px)';
+$hd-size: 'only screen and (min-width: 1600px)';
+
+// Site width
+$margin: 20px;
+$site-width: 940px;
+$site-width-50: ($site-width - $margin) / 2;
+$site-width-33: ($site-width - $margin * 2) / 3;
+$site-width-25: ($site-width - $margin * 3) / 4;
+$site-width-66: $site-width - $site-width-33 - $margin;
+
 // Colors
 $default-color: #2a2a2a;
 $link-color: #d24917;
@@ -7,7 +22,11 @@ $gray-color: #595959;
 $white-color: #ffffff;
 $separator-color: #bbbbbb;
 
-// Sizes
+// Fonts
+$default-font: Helvetica, Arial, sans-serif;
+$heading-font: Helvetica, Arial, sans-serif;
+
+// Font Sizes
 $small-size: 12;
 $default-size: 14;
 $large-size: 16;
@@ -17,12 +36,8 @@ $h2-size: 30;
 $h3-size: 20;
 $h4-size: 16;
 
-$margin: 30px;
+// Misc
 $border-radius: 4px;
-
-// Fonts
-$default-font: Helvetica, Arial, sans-serif;
-$heading-font: Helvetica, Arial, sans-serif;
 
 // Layout
 html {
@@ -55,15 +70,20 @@ body {
 		}
 
 // Headings
+@mixin heading ($size: $h2-size) {
+	font: #{$size}px/1.2 $heading-font;
+	@include font-size($size);
+	font-weight: 700;
+	margin: $margin 0 ($margin / 2);
+}
+
 h1, 
 h2, 
 h3, 
 h4, 
 h5, 
 h6 {
-	font: #{$h2-size}px/1.2 $heading-font;
-	@include font-size($h2-size);
-	margin: $margin 0 ($margin / 2);
+	@include heading;
 }
 
 	h1 a, 
@@ -125,9 +145,14 @@ a:hover {
 	text-decoration: underline;
 }
 
+a.button {
+	@include button;
+}
+
 img {
+	width: inherit;
 	max-width: 100%;
-	height: auto !important;
+	height: auto;
 }
 
 q {
@@ -136,6 +161,8 @@ q {
 }
 
 q:before, 
-q:after {
+q:after, 
+blockquote > :first-child:before, 
+blockquote > :last-child:after {
 	content: '"';
 }

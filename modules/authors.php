@@ -14,7 +14,10 @@
 					</a>
 				</h3>
 
-				<p><?php echo get_user_meta($usr->ID, 'description', true) ?></p>
+				<p>
+					<?php echo get_user_meta($usr->ID, 'description', true) ?><br>
+					<a href="mailto:<?php echo $usr->user_email ?>"><?php echo $usr->user_email ?></a>
+				</p>
 			</li>
 		<?php endforeach ?>
 	</ul>

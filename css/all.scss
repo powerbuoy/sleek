@@ -3,6 +3,8 @@
 @import "core/misc";
 @import "core/normalize";
 
+@import "config";
+
 // Fonts
 @import "fonts";
 @import "font-awesome/font-awesome";
@@ -10,7 +12,6 @@
 // Mixins
 @import "mixins/misc";
 @import "mixins/button";
-@import "mixins/icon";
 
 // jQuery
 @import "jquery/jqModal";

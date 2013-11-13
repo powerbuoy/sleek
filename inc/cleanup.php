@@ -1,8 +1,7 @@
 <?php
+# From: http://www.themelab.com/2010/07/11/remove-code-wordpress-header/
+# Comment if needed
 function h5b_cleanup () {
-	# From: http://www.themelab.com/2010/07/11/remove-code-wordpress-header/
-	# Comment if needed
-
 	## Really Simple Discovery
 	remove_action('wp_head', 'rsd_link');
 

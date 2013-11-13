@@ -22,7 +22,7 @@
 ?>
 
 <?php if ($children) : ?>
-	<nav id="secondary-nav">
+	<nav id="sub-nav">
 
 		<h2><a href="<?php echo $url ?>"><?php echo $title ?></a></h2>
 	

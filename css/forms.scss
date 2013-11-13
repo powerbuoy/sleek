@@ -151,18 +151,16 @@ form {
 	}
 
 	// Validation styling
-	form:not([novalidate]) input.ui-state-error:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), 
-	form:not([novalidate]) select.ui-state-error, 
-	form:not([novalidate]) textarea.ui-state-error {
+	form:not(.dont-validate) input.ui-state-error:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), 
+	form:not(.dont-validate) select.ui-state-error, 
+	form:not(.dont-validate) textarea.ui-state-error {
 		background-color: #fff3f3;
-		border-color: #e99;
 	}
 
-	form:not([novalidate]) input.ui-state-valid:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), 
-	form:not([novalidate]) select.ui-state-valid, 
-	form:not([novalidate]) textarea.ui-state-valid {
+	form:not(.dont-validate) input.ui-state-valid:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), 
+	form:not(.dont-validate) select.ui-state-valid, 
+	form:not(.dont-validate) textarea.ui-state-valid {
 		background-color: #f3fff3;
-		border-color: #9c9;
 	}
 
 	// Placeholder text

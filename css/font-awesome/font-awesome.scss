@@ -26,10 +26,10 @@
 @font-face {
 	font-family: 'FontAwesome';
 
-	src:	url('font-awesome/fontawesome-webfont.eot?v=3.0.1');
-	src:	url('font-awesome/fontawesome-webfont.eot?#iefix&v=3.0.1') format('embedded-opentype'),
-			url('font-awesome/fontawesome-webfont.woff?v=3.0.1') format('woff'),
-			url('font-awesome/fontawesome-webfont.ttf?v=3.0.1') format('truetype');
+	src:	url('font-awesome/fonts/fontawesome-webfont.eot?v=3.0.1');
+	src:	url('font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=3.0.1') format('embedded-opentype'),
+			url('font-awesome/fonts/fontawesome-webfont.woff?v=3.0.1') format('woff'),
+			url('font-awesome/fonts/fontawesome-webfont.ttf?v=3.0.1') format('truetype');
 
 	font-weight: normal;
 	font-style: normal;
@@ -41,7 +41,7 @@
     font-style: normal;
     display: inline-block;
     text-decoration: none;
-	vertical-align: 0;
+	vertical-align: middle;
 
 	@if ($where == before) {
 		margin-right: 5px;
@@ -57,7 +57,7 @@
 }
 
 @mixin _icon-small {
-    font-size: inherit;
+    font-size: 0.8em; // inherit;
 	line-height: inherit;
 }
 
@@ -122,23 +122,42 @@
 	}
 }
 
+@mixin _icon-fixed ($where: before, $size: 16, $offset: 0) {
+	position: relative;
+
+	&:#{$where} {
+		$mt: ($size / 2);
+
+		position: absolute;
+		top: 50%;
+		margin-top: -#{$mt}px;
+
+		@if ($where == before) {
+			left: $offset;
+		}
+		@else {
+			right: $offset;
+		}
+	}
+}
+
 [class^="icon-"]:before, [class*=" icon-"]:before {
 	@include _icon(before);
-	@include _icon-large;
+	@include _icon-small;
 }
 
 [class^="icon-"].after:after, [class*=" icon-"].after:after {
 	@include _icon(after);
-	@include _icon-large;
+	@include _icon-small;
 }
 
 [class^="icon-"].after:before, [class*=" icon-"].after:before {
 	display: none;
 }
 
-[class^="icon-"].small:before, [class*=" icon-"].small:before, 
-[class^="icon-"].small.after:after, [class*=" icon-"].small.after:after {
-	@include _icon-small;
+[class^="icon-"].large:before, [class*=" icon-"].large:before, 
+[class^="icon-"].large.after:after, [class*=" icon-"].large.after:after {
+	@include _icon-large;
 }
 
 /*  Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
@@ -235,7 +254,8 @@ $icon-check: "\f046";
 .icon-step-backward:before, .icon-step-backward.after:after        { content: "\f048"; }
 .icon-fast-backward:before, .icon-fast-backward.after:after        { content: "\f049"; }
 .icon-backward:before, .icon-backward.after:after             { content: "\f04a"; }
-.icon-play:before, .icon-play.after:after                 { content: "\f04b"; }
+$icon-play: "\f04b";
+.icon-play:before, .icon-play.after:after                 { content: $icon-play; }
 .icon-pause:before, .icon-pause.after:after                { content: "\f04c"; }
 .icon-stop:before, .icon-stop.after:after                 { content: "\f04d"; }
 .icon-forward:before, .icon-forward.after:after              { content: "\f04e"; }
@@ -305,7 +325,8 @@ $icon-facebook-sign: "\f082";
 .icon-star-half:before, .icon-star-half.after:after            { content: "\f089"; }
 .icon-heart-empty:before, .icon-heart-empty.after:after          { content: "\f08a"; }
 .icon-signout:before, .icon-signout.after:after              { content: "\f08b"; }
-.icon-linkedin-sign:before, .icon-linkedin-sign.after:after        { content: "\f08c"; }
+$icon-linkedin: "\f08c";
+.icon-linkedin-sign:before, .icon-linkedin-sign.after:after        { content: $icon-linkedin; }
 .icon-pushpin:before, .icon-pushpin.after:after              { content: "\f08d"; }
 .icon-external-link:before, .icon-external-link.after:after        { content: "\f08e"; }
 

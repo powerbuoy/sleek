@@ -3,6 +3,28 @@ A collection of useful `@mixins` like `@clearfix`, `@a11y-hide` etc.
 
 Check the SASS-file for all of them.
 ***/
+// Shorthand position
+@mixin position ($pos: absolute, $left: false, $top: false, $right: false, $bottom: false) {
+	position: $pos;
+
+	@if ($left) {
+		left: $left;
+	}
+
+	@if ($top) {
+		top: $top;
+	}
+
+	@if ($right) {
+		right: $right;
+	}
+
+	@if ($bottom) {
+		bottom: $bottom;
+	}
+}
+
+// Font-size in rem and px
 @mixin font-size ($size) {
 	font-size: #{$size}px;
 	font-size: ($size / 10) + rem;
@@ -138,7 +160,7 @@ Check the SASS-file for all of them.
 	}
 }
 
-@mixin separated-inline-list ($separator: " | ") {
+@mixin separated-inline-list ($separator: " | ", $margin: 0) {
 	margin-left: 0;
 	padding-left: 0;
 	list-style: none;
@@ -149,10 +171,25 @@ Check the SASS-file for all of them.
 
 	li:after {
 		content: $separator;
+		margin: 0 $margin;
 	}
 
 	li:last-child:after {
-		content: "";
+		display: none;
+	}
+
+	// IE...
+	html.lt-ie9 & li:after {
+		display: none;
+	}
+
+	html.lt-ie9 & li:before {
+		content: $separator;
+		margin: 0 $margin;
+	}
+
+	html.lt-ie9 & li:first-child:before {
+		display: none;
 	}
 }
 

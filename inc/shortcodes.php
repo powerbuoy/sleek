@@ -1,57 +1,32 @@
 <?php
-add_shortcode('cut', 'h5b_shortcode_cut');
+# Allow shortcodes in Widgets
+add_action('init', 'h5b_allow_shortcodes_in_widgets');
 
-function h5b_shortcode_cut () {
-	return '<div class="cut"><a href="#" class="more">' . __('Read more', 'h5b') . '</a></div>';
+function h5b_allow_shortcodes_in_widgets () {
+	add_filter('widget_text', 'do_shortcode');
 }
 
-add_shortcode('include', 'h5b_shortcode_include_moule');
+# Include
+add_shortcode('include', 'h5b_shortcode_include_module');
 
-function h5b_shortcode_include_moule ($atts) {
+function h5b_shortcode_include_module ($atts) {
 	if (!isset($atts['mod'])) {
 		return 'Have to set mod';
 	}
 
-	$module = $atts['mod'];
-	$output = '';
+	extract($atts);
 
-	switch ($module) {
-		# Featured items
-		case 'featured-items' : 
-			if (isset($atts['items'])) {
-				$items = simple_fields_values($atts['items']);
-			}
-			else {
-				$items = false;
-			}
-
-			$output = fetch(TEMPLATEPATH . '/modules/' . basename($module) . '.php', array(
-				'items' => $items
-			));
-
-			break;
-
-		# Accommodations
-		case 'accommodations' : 
-			if (isset($atts['items'])) {
-				$items = simple_fields_values('accommodations_' . $atts['items']);
-			}
-			else {
-				$items = simple_fields_values('accommodations');
-			}
-
-			$output = fetch(TEMPLATEPATH . '/modules/' . basename($module) . '.php', array(
-				'items' => $items
-			));
-
-			break;
-
-		# Default
-		default : 
-			$output = fetch(TEMPLATEPATH . '/modules/' . basename($module) . '.php');
-
-			break;
-	}
+	$output = fetch(TEMPLATEPATH . '/modules/' . basename($atts['mod']) . '.php', $atts);
 
 	return $output;
+}
+
+# Button
+add_shortcode('button', 'h5b_shortcode_button');
+
+function h5b_shortcode_button ($atts, $content) {
+	$url		= isset($atts['url']) ? $atts['url'] : '#no-url-set';
+	$classes	= in_array('block', $atts) ? '' : ' inline';
+
+	return "<a href=\"$url\" class=\"button-more$classes\">$content</a>";
 }

@@ -165,30 +165,30 @@ Check the SASS-file for all of them.
 	padding-left: 0;
 	list-style: none;
 
-	li {
+	> li {
 		display: inline;
 	}
 
-	li:after {
+	> li:after {
 		content: $separator;
 		margin: 0 $margin;
 	}
 
-	li:last-child:after {
+	> li:last-child:after {
 		display: none;
 	}
 
 	// IE...
-	html.lt-ie9 & li:after {
+	html.lt-ie9 & > li:after {
 		display: none;
 	}
 
-	html.lt-ie9 & li:before {
+	html.lt-ie9 & > li:before {
 		content: $separator;
 		margin: 0 $margin;
 	}
 
-	html.lt-ie9 & li:first-child:before {
+	html.lt-ie9 & > li:first-child:before {
 		display: none;
 	}
 }

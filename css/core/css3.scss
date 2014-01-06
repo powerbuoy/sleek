@@ -26,7 +26,7 @@ Check the SASS-file for all of them.
 	@if $what == background {
 		background-color: $from;
 
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$from}', endColorstr='#{$to}',GradientType=0 ); /* IE6-9 */
+	//	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$from}', endColorstr='#{$to}',GradientType=0 ); /* IE6-9 */
 	}
 
 	#{$what}-image: -moz-linear-gradient($start, $from, $to); // FF 3.6+

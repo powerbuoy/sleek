@@ -55,6 +55,32 @@ form {
 		}
 
 	// Text inputs, selects and textareas
+	@mixin form-field {
+		@include linear-gradient(#f7f7f7, #ffffff);
+
+		@include box-sizing(border-box);
+		width: 100%;
+		margin: 0;
+		padding: 10px 15px;
+
+		font: 100px/1.2 $default-font;
+		@include font-size($small-size);
+		color: $default-color;
+
+		border: 1px solid #bbb;
+		border: 1px solid rgba(0, 0, 0, .2);
+
+		@include border-radius($border-radius);
+		@include box-shadow(inset 1px 1px 1px rgba(0, 0, 0, .2));
+
+		&:hover, 
+		&:focus {
+			border-color: #666;
+			border-color: rgba(0, 0, 0, .4);
+			outline: 0;
+		}
+	}
+
 	input[type=text], 
     input[type=color], 
     input[type=date], 
@@ -71,22 +97,7 @@ form {
     input[type=week], 
 	textarea, 
 	select {
-		@include linear-gradient(#f3f3f3, #ffffff); // #fafafa
-
-		@include box-sizing(border-box);
-		margin: 0;
-		padding: 5px 10px;
-
-		font: #{$default-size}/1.2 $default-font;
-		color: $default-color;
-
-	//	border: 0;
-		border: 1px solid #d9d9d9;
-
-		width: 100%;
-
-		@include border-radius($border-radius);
-		@include box-shadow(inset 1px 1px 1px #dfdfdf);
+		@include form-field;
 	}
 
 	textarea {

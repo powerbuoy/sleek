@@ -24,6 +24,7 @@ include TEMPLATEPATH . '/inc/include-css-js.php';
 include TEMPLATEPATH . '/inc/pagination-css-class.php';
 include TEMPLATEPATH . '/inc/advanced-search.php';
 include TEMPLATEPATH . '/inc/submit-form.php';
+include TEMPLATEPATH . '/inc/tinymce-styles.php';
 
 # include TEMPLATEPATH . '/inc/relevanssi.php';
 # include TEMPLATEPATH . '/inc/ip-to-country.php';

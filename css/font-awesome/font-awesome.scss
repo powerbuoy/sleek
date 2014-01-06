@@ -132,6 +132,8 @@
 		top: 50%;
 		margin-top: -#{$mt}px;
 
+		line-height: 1;
+
 		@if ($where == before) {
 			left: $offset;
 		}

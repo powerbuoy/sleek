@@ -12,6 +12,7 @@ $site-width-50: ($site-width - $margin) / 2;
 $site-width-33: ($site-width - $margin * 2) / 3;
 $site-width-25: ($site-width - $margin * 3) / 4;
 $site-width-66: $site-width - $site-width-33 - $margin;
+$site-width-75: $site-width - $site-width-25 - $margin;
 
 // Colors
 $default-color: #2a2a2a;

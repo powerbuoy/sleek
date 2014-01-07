@@ -7,8 +7,10 @@
 @import "config";
 
 // Fonts
-@import "fonts";
 @import "font-awesome/font-awesome";
+@import "font-awesome/variables";
+@import "font-awesome/icon";
+@import "open-sans";
 
 // Mixins
 @import "mixins/misc";

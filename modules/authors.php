@@ -9,7 +9,7 @@
 			<li>
 				<h3>
 					<a href="<?php echo get_author_posts_url($usr->ID) ?>">
-						<img src="http://www.gravatar.com/avatar/<?php echo md5($usr->user_email) ?>?s=150"> 
+						<?php echo get_avatar($usr->ID) ?> 
 						<?php echo $usr->display_name ?>
 					</a>
 				</h3>

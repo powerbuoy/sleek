@@ -1,4 +1,3 @@
-
 form {
 	@include clearfix;
 }
@@ -14,29 +13,21 @@ form {
 		margin-bottom: 0;
 	}
 
-	form img.frm_ajax_loading {
-		display: none;
-	}
-
-	form p, 
-	form div.form-field {
+	form p {
 		position: relative; // To position errors
 		margin: 0 0 $margin;
 	}
 
-	form p.small, 
-	form div.form-field.short {
+	form p.small {
 		width: 48%;
 		float: left;
 	}
 
-	form p.small + *, 
-	form div.form-field.short + * {
+	form p.small + * {
 		clear: both;
 	}
 
-	form p.small + p.small, 
-	form div.form-field.short + div.form-field.short {
+	form p.small + p.small {
 		float: right;
 		clear: none;
 	}
@@ -101,7 +92,7 @@ form {
 	}
 
 	textarea {
-
+		resize: vertical;
 	}
 
 	input[type=text]:hover, 
@@ -188,16 +179,6 @@ form {
 	}
 
 	// Error message
-	form div.frm_error_style, 
-	form div.frm_error {
-		color: #e00;
-		font-weight: bold;
-	}
-
-	form div.frm_error_style {
-		display: none; // Or not?
-	}
-
 	form strong.error {
 		@include arrow(left, 5px, #fafafa, 2px, #999, 20px);
 

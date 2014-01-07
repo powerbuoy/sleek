@@ -24,9 +24,9 @@
 	}
 
 	#pagination .prev {
-		@include icon($icon-circle-arrow-left);
+		@include icon($fa-var-arrow-circle-left);
 	}
 
 	#pagination .next {
-		@include icon($icon-circle-arrow-right, after);
+		@include icon($fa-var-arrow-circle-right, after);
 	}

@@ -30,10 +30,10 @@ body {
 
 // Headings
 @mixin heading ($size: $h2-size) {
-	font: #{$size}px/1.2 $heading-font;
-	@include font-size($size);
-	font-weight: 700;
 	margin: $margin 0 ($margin / 2);
+	font: #{$size}rem/1.2 $heading-font;
+	@include font-size($size);
+	font-weight: 200;
 }
 
 h1, 
@@ -52,6 +52,7 @@ h6 {
 	h5 a, 
 	h6 a {
 		color: inherit;
+		text-decoration: none;
 	}
 
 h1 {
@@ -64,17 +65,17 @@ h2 {
 
 h3 {
 	@include font-size($h3-size);
+	font-weight: 500;
 }
 
 h4, 
 h5, 
 h6 {
 	@include font-size($h4-size);
+	font-weight: 500;
 }
 
 // Block margins
-section, 
-nav, 
 p, 
 pre, 
 dl, 
@@ -96,22 +97,32 @@ dd {
 // Inline elements
 a {
 	color: $link-color;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 a:hover {
 	color: $link-color-hover;
-	text-decoration: underline;
+	text-decoration: none;
+}
+
+a[href^="tel:"] {
+//	@include icon($fa-var-phone);
+}
+
+strong {
+	font-weight: 500;
 }
 
 img {
-	width: inherit;
+//	width: inherit; // Some IE fix but doesn't work well with other browsers
 	max-width: 100%;
 	height: auto;
 }
 
-q {
-	@include font-size($h4-size);
+q, 
+blockquote {
+	@include font-size($large-size);
+	color: $gray-color;
 	font-style: italic;
 }
 

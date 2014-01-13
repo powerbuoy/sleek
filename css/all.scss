@@ -15,9 +15,11 @@
 // Mixins
 @import "mixins/misc";
 @import "mixins/button";
+@import "mixins/section";
+@import "mixins/cols";
+@import "mixins/box";
 
 // jQuery
-@import "jquery/jqModal";
 @import "jquery/jquery.imageZoom";
 @import "jquery/jquery.liveSearch";
 @import "jquery/responsiveslides";
@@ -30,9 +32,10 @@
 // Modules
 @import "modules/header";
 @import "modules/footer";
+@import "modules/pagination";
+
 @import "modules/author";
 @import "modules/authors";
 @import "modules/comments";
-@import "modules/pagination";
 @import "modules/post-comment";
 @import "modules/posts";

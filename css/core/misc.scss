@@ -81,38 +81,6 @@ Check the SASS-file for all of them.
 	}
 }
 
-@mixin cols ($num: 3, $width: 300px, $margin: 20px, $selector: '*') {
-	@include clearfix;
-
-	> #{$selector} {
-		@include box-sizing(border-box);
-		width: $width;
-		margin-right: $margin;
-		margin-bottom: $margin;
-		float: left;
-	}
-
-	html.lt-ie9 & > * {
-		margin-right: $margin - ($margin / $num);
-	}
-
-	> #{$selector}:nth-of-type(#{$num}n) {
-		margin-right: 0;
-	}
-
-	> #{$selector}.nth-of-type-#{$num}n {
-		margin-right: 0;
-	}
-
-	> #{$selector}:nth-of-type(#{$num}n) + * {
-		clear: left;
-	}
-
-	> #{$selector}.nth-of-type-#{$num}n + * {
-		clear: left;
-	}
-}
-
 // Clearfix - http://nicolasgallagher.com/micro-clearfix-hack/
 @mixin clearfix {
 	zoom: 1;

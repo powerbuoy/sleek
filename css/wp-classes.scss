@@ -8,11 +8,23 @@
 }
 
 .alignright {
-    float: right;
-    margin: 0 0 $margin $margin;
+	display: block;
+	margin: 0 auto $margin;
 }
 
 .alignleft {
-    float: left;
-    margin: 0 $margin $margin 0;
+	display: block;
+	margin: 0 auto $margin;
+}
+
+@media #{$bp-2} {
+	.alignright {
+		float: right;
+		margin: 0 0 $margin $margin;
+	}
+
+	.alignleft {
+		float: left;
+		margin: 0 $margin $margin 0;
+	}
 }

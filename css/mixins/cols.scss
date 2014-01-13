@@ -1,0 +1,54 @@
+@mixin cols ($num: 3, $width: 300px, $margin: 20px, $selector: '*') {
+	@include clearfix;
+
+	> #{$selector} {
+		@include box-sizing(border-box);
+		width: $width;
+		margin-right: $margin;
+		margin-bottom: $margin;
+		float: left;
+	}
+
+	html.lt-ie9 & > * {
+		margin-right: $margin - ($margin / $num);
+	}
+
+	> #{$selector}:nth-of-type(#{$num}n) {
+		margin-right: 0;
+	}
+
+	> #{$selector}.nth-of-type-#{$num}n {
+		margin-right: 0;
+	}
+
+	> #{$selector}:nth-of-type(#{$num}n) + * {
+		clear: left;
+	}
+
+	> #{$selector}.nth-of-type-#{$num}n + * {
+		clear: left;
+	}
+}
+
+ul[class^="cols-"], 
+ul[class*="cols-"] {
+	margin-left: 0;
+	list-style: none;
+}
+
+	[class^="cols-"] > *, 
+	[class*="cols-"] > * {
+		margin-bottom: $margin;
+	}
+
+.cols-1-2 {
+	@media #{$bp-2} {
+		@include cols(2, 48%, 4%);
+	}
+}
+
+.cols-1-3 {
+	@media #{$bp-2} {
+		@include cols(3, 32%, 2%);
+	}
+}

@@ -2,14 +2,16 @@
 	
 }
 
-	#header h1 {
+	#header h1, 
+	#header p.logo {
 		
 	}
 
-		#header h1 a {
+		#header h1 a, 
+		#header p.logo a {
 			
 		}
 
-	#header p {
+	#header p.tagline {
 	//	@include a11y-hide;
 	}

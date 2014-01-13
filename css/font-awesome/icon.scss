@@ -4,13 +4,15 @@
     font-style: normal;
     display: inline-block;
     text-decoration: none;
-	vertical-align: middle;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
 	@if ($where == before) {
-		margin-right: 5px;
+		margin-right: 10px;
 	}
 	@else {
-		margin-left: 5px;
+		margin-left: 10px;
 	}
 }
 

@@ -1,0 +1,19 @@
+@mixin box ($bg: $white-color) {
+	background: $white-color;
+
+	padding: 30px;
+
+	@include border-radius(8px);
+
+	> :first-child {
+		margin-top: 0;
+	}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+}
+
+.box {
+	@include box;
+}

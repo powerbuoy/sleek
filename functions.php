@@ -12,6 +12,10 @@ define('XHR', (
 	strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'
 ));
 
+# Roots stuff
+# include TEMPLATEPATH . '/inc/roots/nav.php';
+
+# My stuff
 include TEMPLATEPATH . '/inc/cleanup.php';
 include TEMPLATEPATH . '/inc/lang.php';
 include TEMPLATEPATH . '/inc/post-thumbnails.php';

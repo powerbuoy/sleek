@@ -1,0 +1,99 @@
+@mixin section {
+	background-color: $white-color;
+	background-position: 50% top;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+
+	clear: both; // It makes sense
+	margin: 0;
+	padding: 0;
+
+//	overflow: hidden; // Because 90% of sections with overflow has it hidden (in the design)
+	position: relative; // Because if we don't wanna position from @inner, we can just set it to static without having to set this
+
+	// Different colors
+	&.red, 
+	&.red .elevated {
+		background-color: $red-bg;
+		color: $white-color;
+	}
+
+	&.red.papers {
+		background-image: url(gfx/bgs/red-papers.jpg);
+	}
+
+		&.red a {
+			color: $white-color;
+		}
+
+	&.dark-blue, 
+	&.dark-blue .elevated {
+		background-color: $dark-blue-bg;
+		color: $white-color;
+	}
+
+	&.dark-blue.working-hands {
+		background-image: url(gfx/bgs/dark-blue-working-hands.jpg);
+	}
+
+	&.light-blue, 
+	&.light-blue .elevated {
+		background-color: $light-blue-bg;
+	}
+
+	&.gray, 
+	&.gray .elevated {
+		background-color: $gray-bg;
+	}
+}
+
+@mixin section-inner {
+	@include clearfix;
+	width: 90%;
+	max-width: $site-width;
+	margin: 0 auto;
+	padding: ($margin * 2) 0;
+//	position: relative; // Because most likely we're going to wanna position based on this
+
+	// Remove margin-top/bottom from first/last elements
+	> :first-child {
+		margin-top: 0;
+	}
+
+	> :last-child {
+		margin-top: 0;
+	}
+
+	// Special case for lonely h1:s
+	> h1:only-child {
+		margin: 60px 0 100px;
+		text-align: center;
+	}
+
+	// Special, elevated heading
+	.elevated {
+		margin: (-($margin * 5)) (-($margin)) ($margin * 2);
+		padding: ($margin * 2) $margin 0;
+		text-align: center;
+		@include border-top-left-radius(60px);
+		@include border-top-right-radius(60px);
+	}
+
+	// Special, stickout heading
+	.stickout {
+		background: $dark-blue-bg;
+		position: absolute;
+		left: 0;
+		top: -70px;
+		padding: 15px;
+		color: $white-color;
+	}
+}
+
+.section {
+	@include section;
+}
+
+	.section > * {
+		@include section-inner;
+	}

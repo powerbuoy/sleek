@@ -2,9 +2,13 @@
 
 <header id="header">
 
-	<h1><a href="<?php echo home_url('/') ?>"><?php bloginfo('name') ?></a></h1>
+	<?php if (is_front_page()) : ?>
+		<h1><a href="<?php echo home_url('/') ?>"><?php bloginfo('name') ?></a></h1>
+	<?php else : ?>
+		<p class="logo"><a href="<?php echo home_url('/') ?>"><?php bloginfo('name') ?></a></p>
+	<?php endif ?>
 
-	<p><?php bloginfo('description') ?></p>
+	<p class="tagline"><?php bloginfo('description') ?></p>
 
 	<?php dynamic_sidebar('header') ?>
 

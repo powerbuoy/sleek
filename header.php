@@ -1,6 +1,6 @@
 <?php include TEMPLATEPATH . '/modules/head.php' ?>
 
-<header id="header">
+<header id="header" class="section dark-blue"><div>
 
 	<?php if (is_front_page()) : ?>
 		<h1><a href="<?php echo home_url('/') ?>"><?php bloginfo('name') ?></a></h1>
@@ -12,6 +12,4 @@
 
 	<?php dynamic_sidebar('header') ?>
 
-</header>
-
-<div id="content">
+</div></header>

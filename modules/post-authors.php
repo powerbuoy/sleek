@@ -2,7 +2,7 @@
 	'exclude' => array(1) # Ignore admin (ID: 1)
 )) ?>
 
-<section id="authors">
+<section id="post-authors">
 
 	<ul>
 		<?php foreach ($users as $usr) : ?>

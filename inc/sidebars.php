@@ -1,5 +1,5 @@
 <?php
-# add_action('init', 'h5b_register_sidebars');
+add_action('init', 'h5b_register_sidebars');
 
 function h5b_register_sidebars () {
 	$sidebars = array(

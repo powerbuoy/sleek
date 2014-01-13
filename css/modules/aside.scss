@@ -1,0 +1,5 @@
+@media #{$bp-2} {
+	#aside > div {
+		@include cols(3, 32%, 2%);
+	}
+}

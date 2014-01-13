@@ -1,9 +1,7 @@
-</div>
-
-<footer id="footer">
+<footer id="footer" class="section dark-blue"><div>
 
 	<?php dynamic_sidebar('footer') ?>
 
-</footer>
+</div></footer>
 
 <?php include TEMPLATEPATH . '/modules/foot.php' ?>

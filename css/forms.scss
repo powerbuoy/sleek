@@ -50,7 +50,8 @@ form {
 		@include linear-gradient(#f7f7f7, #ffffff);
 
 		@include box-sizing(border-box);
-		width: 100%;
+		max-width: 100%;
+	//	width: 100%;
 		margin: 0;
 		padding: 10px 15px;
 
@@ -146,6 +147,7 @@ form {
 	form a.submit, 
 	input[type=submit] {
 		@include button;
+		padding: 10px 25px;
 	}
 
 	input[type=submit] + a {

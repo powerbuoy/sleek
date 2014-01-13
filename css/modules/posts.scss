@@ -12,3 +12,18 @@
 #post img {
 
 }
+
+p.pubdate {
+	margin: 10px 0;
+	@include font-size($small-size);
+}
+
+	p.pubdate a {
+		@include icon($fa-var-quote-left, before, false);
+		margin-right: $margin;
+		color: inherit;
+	}
+
+	p.pubdate time {
+		@include icon($fa-var-clock-o, before, false);
+	}

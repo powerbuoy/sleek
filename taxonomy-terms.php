@@ -1,17 +1,23 @@
 <?php /* Template Name: Taxonomy Terms */ ?>
 <?php get_header() ?>
 
-<div id="primary-content">
+<div class="section gray"><div>
+
+	<?php the_title() ?>
+
+</div></div>
+
+<div class="section"><div>
 
 	<?php include TEMPLATEPATH . '/modules/post-content.php' ?>
 	<?php include TEMPLATEPATH . '/modules/taxonomy-terms.php' ?>
 
-</div>
+</div></div>
 
-<div id="secondary-content">
+<aside id="aside" class="section light-blue"><div>
 
 	<?php dynamic_sidebar('aside') ?>
 
-</div>
+</div></aside>
 
 <?php get_footer() ?>

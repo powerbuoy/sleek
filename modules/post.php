@@ -3,11 +3,11 @@
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<header>
 
-			<h2><?php the_title() ?></h2>
+			<?php the_post_thumbnail('h5b-medium') ?>
+
+			<h1><?php the_title() ?></h1>
 
 			<?php include TEMPLATEPATH . '/modules/partials/post-pubdate.php' ?>
-
-			<?php the_post_thumbnail('h5b-100') ?>
 
 		</header>
 

@@ -2,11 +2,11 @@
 
 	<?php if (have_posts()) : ?>
 		<?php while (have_posts()) : the_post() ?>
-			<h2>
+			<h1>
 				<!-- <a href="<?php echo get_permalink($post->post_parent) ?>">
 					<?php echo get_the_title($post->post_parent) ?>
 				</a> &raquo; --><?php the_title() ?>
-			</h2>
+			</h1>
 
 			<figure>
 				<a href="<?php echo wp_get_attachment_url($post->ID) ?>">

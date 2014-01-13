@@ -7,12 +7,12 @@
 	}
 ?>
 
-<section id="author">
+<section id="post-author">
 
-	<h2>
+	<h1>
 		<?php echo get_avatar($usr->ID) ?> 
 		<?php echo $usr->display_name ?>
-	</h2>
+	</h1>
 
 	<p><?php echo $usr->description ?></p>
 

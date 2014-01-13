@@ -57,7 +57,7 @@
 	}
 
 	// Special case for lonely h1:s
-	> h1:only-child {
+	h1:only-child {
 		margin: ($margin * 2) 0;
 		text-align: center;
 	}

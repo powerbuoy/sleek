@@ -32,6 +32,7 @@ body {
 @mixin heading ($size: $h2-size) {
 	margin: $margin 0 ($margin / 2);
 	font: #{$size}rem/1.2 $heading-font;
+	letter-spacing: -.04em;
 	@include font-size($size);
 	font-weight: 200;
 }

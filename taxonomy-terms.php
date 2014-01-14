@@ -3,7 +3,7 @@
 
 <div class="section gray"><div>
 
-	<?php the_title() ?>
+	<h1><?php the_title() ?></h1>
 
 </div></div>
 

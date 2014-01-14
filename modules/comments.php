@@ -38,7 +38,7 @@
 <?php endif ?>
 
 <?php if (comments_open()) : ?>
-	<section id="post-comment" class="bar light-gray">
+	<section id="post-comment">
 
 		<?php comment_form() ?>
 

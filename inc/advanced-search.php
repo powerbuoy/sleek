@@ -20,7 +20,7 @@ function h5b_allow_empty_search ($qryVars) {
 }
 
 # http://wordpress.stackexchange.com/questions/25899/the-right-way-to-create-a-custom-search-page-for-complex-custom-post-types
-add_filter('pre_get_posts', 'h5b_pre_get_posts');
+# add_filter('pre_get_posts', 'h5b_pre_get_posts');
 
 function h5b_pre_get_posts ($qry) {
 	$priceKey		= '_simple_fields_fieldGroupID_4_fieldID_3_numInSet_0';

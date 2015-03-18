@@ -1,21 +1,16 @@
 <?php get_header() ?>
 
-<div class="section"><div>
+<main>
 
 	<?php include TEMPLATEPATH . '/modules/post.php' ?>
-
-</div></div>
-
-<div class="section dark-blue"><div>
-
 	<?php comments_template('/modules/comments.php') ?>
 
-</div></div>
+</main>
 
-<aside id="aside" class="section light-blue"><div>
+<aside id="aside">
 
 	<?php dynamic_sidebar('aside') ?>
 
-</div></aside>
+</aside>
 
 <?php get_footer() ?>

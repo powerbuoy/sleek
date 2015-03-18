@@ -1,21 +1,16 @@
 <?php get_header() ?>
 
-<div class="section gray"><div>
+<main>
 
 	<?php include TEMPLATEPATH . '/modules/posts-intro.php' ?>
-
-</div></div>
-
-<div class="section"><div>
-
 	<?php include TEMPLATEPATH . '/modules/posts.php' ?>
 
-</div></div>
+</main>
 
-<aside id="aside" class="section light-blue"><div>
+<aside id="aside">
 
 	<?php dynamic_sidebar('aside') ?>
 
-</div></aside>
+</aside>
 
 <?php get_footer() ?>

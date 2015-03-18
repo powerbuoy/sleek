@@ -20,13 +20,3 @@ function h5b_shortcode_include_module ($atts) {
 
 	return $output;
 }
-
-# Button
-add_shortcode('button', 'h5b_shortcode_button');
-
-function h5b_shortcode_button ($atts, $content) {
-	$url		= isset($atts['url']) ? $atts['url'] : '#no-url-set';
-	$classes	= in_array('block', $atts) ? '' : ' inline';
-
-	return "<a href=\"$url\" class=\"button-more$classes\">$content</a>";
-}

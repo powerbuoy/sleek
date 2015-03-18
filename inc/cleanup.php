@@ -1,4 +1,11 @@
 <?php
+function my_widget_content_wrap($content) {
+die($content);
+    $content = '<div class="some-other-div">'.$content.'</div>';
+    return $content;
+}
+add_filter('widget_nav_menu', 'my_widget_content_wrap');
+
 # Give pages excerpts
 # add_action('init', 'h5b_add_excerpts_to_pages');
 

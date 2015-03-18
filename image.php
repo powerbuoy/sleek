@@ -1,15 +1,15 @@
 <?php get_header() ?>
 
-<div class="section"><div>
+<main>
 
 	<?php include TEMPLATEPATH . '/modules/image.php' ?>
 
-</div></div>
+</main>
 
-<aside id="aside" class="section light-blue"><div>
+<aside id="aside">
 
 	<?php dynamic_sidebar('aside') ?>
 
-</div></aside>
+</aside>
 
 <?php get_footer() ?>

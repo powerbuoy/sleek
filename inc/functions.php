@@ -1,4 +1,5 @@
 <?php
+# TODO: Ctrl+h "function " => "function h5b_"
 # Gets a post based on its simple field value (the plugin)
 function get_posts_by_simple_fields_value ($args, $postType = 'any') {
 	$rows = get_posts(array(

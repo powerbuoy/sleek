@@ -1,6 +1,6 @@
 <?php
 # Show all post types when browsing author
-add_filter('pre_get_posts', 'h5b_author_pre_get_posts');
+# add_filter('pre_get_posts', 'h5b_author_pre_get_posts');
 
 function h5b_author_pre_get_posts ($qry) {
 	if ($qry->is_main_query() and $qry->is_author) {

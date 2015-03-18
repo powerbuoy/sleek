@@ -1,0 +1,8 @@
+@mixin bordered ($round: false) {
+	@if ($round) {
+		border-radius: 100%;
+	}
+
+	border: 10px solid $white-color;
+	box-shadow: 0 0 6px $shadow-color;
+}

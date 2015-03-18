@@ -1,0 +1,62 @@
+@mixin button ($bg-color: $button-color, $fade: $button-fade, $border: false, $button-border-radius: $button-border-radius) {
+	@include button-background($bg-color, $fade, $border);
+
+	display: inline-block;
+	box-sizing: border-box;
+
+	margin: 0;
+	padding: 8px 28px;
+
+	font-size: $default-size;
+	color: $white-color;
+	font-weight: bold;
+	text-decoration: none;
+	line-height: $default-line-height;
+
+	border-radius: $button-border-radius;
+
+//	box-shadow: 1px 1px 1px $shadow-color;
+
+	// Hover and visited (:active set byt button-background())
+	&:visited {
+		color: $white-color;
+	}
+
+	&:hover {
+		color: $white-color;
+	}
+}
+
+@mixin button-background ($bg, $fade: $button-fade, $border: false) {
+	// Gradient(?) background
+	@if ($fade > 0) {
+		background: linear-gradient(180deg, $bg, darken($bg, $fade));
+	
+		&:active {
+			background: linear-gradient(180deg, darken($bg, $fade), $bg);
+		}
+	}
+	@else {
+		background: $bg;
+	}
+
+	// Border
+	@if ($border == true) {
+		border: 4px solid lighten($bg, 10%);
+	}
+	@elseif ($border) {
+		border: $border;
+	}
+	@else {
+		border: 0;
+	}
+
+	// Text shadow
+	$btn-shadow-color: $shadow-color;
+
+	@if ($bg != transparent) {
+		$btn-shadow-color: darken($bg, 20%);
+	}
+
+	text-shadow: -1px -1px 0 $btn-shadow-color;
+}

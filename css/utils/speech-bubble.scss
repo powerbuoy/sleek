@@ -1,0 +1,13 @@
+@mixin speech-bubble ($where: left) {
+	@include arrow($where, 20px, $white-color, 1px, $border-color);
+
+	background: $white-color;
+
+	display: block;
+
+	margin-#{$where}: 20px + $margin;
+	padding: $margin ($margin * 1.5);
+
+	border: 1px solid $border-color;
+	border-radius: 30px;
+}

@@ -1,0 +1,123 @@
+@mixin form-field {
+	@include body-text;
+
+	background: $white-color;
+
+	display: inline-block;
+	box-sizing: border-box;
+
+	max-width: 100%;
+
+	margin: 0;
+	padding: 5px 15px;
+
+	border: 1px solid $border-color;
+	border-radius: $border-radius;
+
+	&:hover, 
+	&:focus {
+		border-color: darken($border-color, 10%);
+	}
+}
+
+form {
+	margin: 0 0 $margin;
+
+	// Labels
+	label {
+		display: block;
+
+		// Range value
+		span.value {
+			float: right;
+		}
+	}
+
+	// Error messages
+	strong {
+		display: block;
+		color: $error-color;
+	}
+
+	// "Mandatory"-*
+	abbr {
+		color: $error-color;
+		border-bottom: 0 !important;
+	}
+
+	// Fields
+	input[type=text], 
+	input[type=search], 
+	input[type=email], 
+	input[type=url], 
+	input[type=tel], 
+	input[type=number], 
+	input[type=date], 
+	input[type=month], 
+	input[type=week], 
+	input[type=time], 
+	input[type=datetime], 
+	input[type=datetime-local], 
+	input[type=color], 
+	textarea {
+		@include form-field;
+	}
+
+	textarea {
+		resize: y;
+		max-width: 100%;
+	}
+
+	select {
+		box-sizing: border-box;
+	}
+
+	// Buttons
+	input[type=submit], 
+	button {
+		@include button($button-color, $button-fade, $button-border);
+	}
+}
+
+// Range (http://codepen.io/aronwoost/pen/nlyrf)
+@mixin range-thumb {
+	-webkit-appearance: none;
+
+	background: $white-color;
+
+	width: 30px;
+	height: 30px;
+
+	border: 1px solid #bbb;
+	border-radius: 100%;
+
+	box-shadow: 1px 1px 1px $shadow-color;
+}
+
+input[type=range] {
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+
+	background: #888;
+
+//	width: 100%;
+	height: 3px;
+
+	margin: 0;
+	padding: 0;
+
+	outline: 0;
+	border: 0;
+
+	&::-webkit-slider-thumb {
+		@include range-thumb;
+	}
+
+	&::-moz-range-thumb {
+		@include range-thumb;
+	}
+
+	&::-ms-thumb {
+		@include range-thumb;
+	}
+}

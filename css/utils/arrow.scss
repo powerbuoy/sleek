@@ -1,0 +1,50 @@
+// Adds an arrow to an element
+@mixin arrow ($position, $size, $background, $border-size, $border-color, $align: 50%) {
+	$invPosition: right;
+	$horizOrVertic: top;
+
+	@if ($position == left) {
+		$invPosition: right;
+		$horizOrVertic: top;
+	}
+	@elseif ($position == top) {
+		$invPosition: bottom;
+		$horizOrVertic: left;
+	}
+	@elseif ($position == right) {
+		$invPosition: left;
+		$horizOrVertic: top;
+	}
+	@elseif ($position == bottom) {
+		$invPosition: top;
+		$horizOrVertic: left;
+	}
+
+	position: relative;
+
+	&:after, &:before {
+		#{$invPosition}: 100%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+
+	&:after {
+		border-color: rgba(250, 250, 250, 0);
+		border-#{$invPosition}-color: $background;
+		border-width: $size;
+		#{$horizOrVertic}: $align;
+		margin-#{$horizOrVertic}: -$size;
+	}
+
+	&:before {
+		border-color: rgba(102, 102, 102, 0);
+		border-#{$invPosition}-color: $border-color;
+		border-width: $size + $border-size + 1px;
+		#{$horizOrVertic}: $align;
+		margin-#{$horizOrVertic}: -($size + $border-size + 1px);
+	}
+}

@@ -1,0 +1,25 @@
+body {
+
+}
+
+#header {
+	@include section(#f1f1f1);
+}
+
+#footer {
+	@include section(#123);
+	color: $white-color;
+}
+
+main, 
+aside {
+	margin: 0;
+
+	> * {
+		@include section;
+
+		&:nth-child(even) {
+			background: $gray-bg;
+		}
+	}
+}

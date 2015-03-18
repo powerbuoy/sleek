@@ -1,0 +1,26 @@
+@mixin card-flip {
+	position: relative;
+	perspective: 800;
+	transform-style: preserve-3d;
+	transition: transform .2s ease-in-out;
+
+	&:hover {
+		transform: rotateY(-180deg);
+	}
+
+	> * {
+		backface-visibility: hidden;
+	}
+
+	> * + * {
+		position: absolute;
+		left: 0;
+		top: 0;
+
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+
+		transform: rotateY(180deg);
+	}
+}

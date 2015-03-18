@@ -1,0 +1,51 @@
+@function strip-units ($number) {
+	@return $number / ($number * 0 + 1);
+}
+
+/**
+ * Clearfix
+ */
+@mixin clearfix {
+	zoom: 1;
+
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+/**
+ * Separated Inline List
+ *
+ * @arg $separator String
+ * @arg $margin Int
+ */
+@mixin separated-inline-list ($separator: ' | ', $margin: 0) {
+	margin-left: 0;
+	list-style: none;
+
+	> li {
+		display: inline-block;
+	}
+
+	> li:after {
+		content: $separator;
+		margin: 0 $margin;
+	}
+
+	> li:last-child:after {
+		display: none;
+	}
+}
+
+/**
+ * Grayscale
+ */
+@mixin grayscale {
+	-webkit-filter: grayscale(1);
+	-webkit-filter: grayscale(100%);
+	filter: gray;
+	filter: grayscale(100%);
+	filter: url(desaturate.svg#greyscale);
+}

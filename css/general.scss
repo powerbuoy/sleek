@@ -1,0 +1,255 @@
+@mixin body-text ($font-size: $default-size) {
+	font-family: $default-font;
+	font-weight: $default-font-weight;
+	font-size: $font-size;
+	line-height: $default-line-height;
+}
+
+@mixin heading ($font-size: $h1-size) {
+	margin: 0 0 ($margin / 2);
+
+	font-family: $heading-font;
+	font-weight: $heading-font-weight;
+	font-size: $font-size;
+	line-height: $heading-line-height;
+	letter-spacing: $heading-letter-spacing;
+
+	a {
+		color: inherit;
+		text-decoration: none;
+
+		&:hover {
+		//	text-decoration: underline;
+		}
+	}
+
+	small {
+		display: block;
+		font-size: 60%;
+		letter-spacing: $heading-letter-spacing / 2;
+		line-height: 1.2;
+	}
+
+	// Smaller headings on mobile
+	@media #{$bp-3-max} {
+		font-size: $font-size * .6;
+	}
+}
+
+// Base styling
+html {
+	background: $white-color;
+	font-size: 100%;
+}
+
+body {
+	@include body-text;
+	color: $default-color;
+	word-wrap: break-word;
+}
+
+// Wrapping elements (margin could be annoying?)
+main, 
+aside, 
+section, 
+article, 
+header, 
+footer {
+	margin: 0 0 ($margin * 2);
+}
+
+// Headings
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	@include heading($h1-size);
+}
+
+h2 {
+	font-size: $h2-size;
+}
+
+h3 {
+	font-size: $h3-size;
+}
+
+h4 {
+	font-size: $h4-size;
+}
+
+h5 {
+	font-size: $h5-size;
+}
+
+h6 {
+	font-size: $h6-size;
+}
+
+// Paragraphs, lists and other block elements
+p {
+	margin: 0 0 $margin;
+}
+
+// Bigger opening paragraphs
+main > :first-child > h1:first-child + p, 
+main > :first-child > h2:first-child + p {
+	font-size: 120%;
+	font-style: italic;
+}
+
+ul, 
+ol {
+	margin: 0 0 $margin ($margin * 2);
+	padding: 0;
+}
+
+ul.tags {
+	@include tags;
+}
+
+dl {
+	margin: 0 0 $margin;
+}
+
+	dt {
+		font-weight: bold;
+	}
+
+	dd {
+		margin: 0 0 0 $margin;
+	}
+
+blockquote {
+	margin: 0 0 $margin ($margin * 2);
+
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-weight: lighter;
+	color: $gray-color;
+	font-size: 120%;
+
+	@media #{$bp-3} {
+		font-size: 140%;
+	}
+
+	& > :last-child {
+		margin-bottom: 0;
+	}
+
+	& > :first-child:before, 
+	& > :last-child:after {
+		font-weight: bolder;
+		content: open-quote; // "\201C";
+	}
+
+	& > :last-child:after {
+		content: close-quote; // "\201D";
+	}
+}
+
+hr {
+	margin: ($margin * 1.5) 0;
+	border-top: 1px solid $border-color;
+}
+
+pre {
+	background: $gray-bg;
+
+	margin: 0 0 $margin;
+	padding: $margin;
+
+	max-height: 300px;
+	overflow: auto;
+
+	border: 1px solid $border-color;
+}
+
+// Tables
+table {
+	margin: 0 0 $margin;
+}
+
+	th, 
+	td {
+		padding: ($margin / 2) $margin;
+		border: 1px solid $border-color;
+		text-align: left;
+		vertical-align: top;
+	}
+
+	th, 
+	tr:hover td {
+		background: $gray-bg;
+	}
+
+// Inline elements
+a {
+	color: $link-color;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: $link-color-hover;
+	text-decoration: none;
+}
+
+a:visited {
+//	color: $link-color-visited;
+}
+
+small {
+	display: inline-block;
+	line-height: $default-line-height * .9;
+	font-size: 80%;
+	color: $gray-color;
+
+	a {
+		color: inherit;
+	}
+}
+
+abbr {
+	cursor: help;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	box-sizing: border-box; // TODO: Use autoprefixer
+}
+
+// Buttons
+.button {
+	@include button($button-color, $button-fade, $button-border);
+
+	&.secondary {
+		@include button-background($button-secondary-color, $button-fade, $button-border);
+	}
+
+	&.disabled {
+		@include button-background($button-disabled-color, $button-fade, $button-border);
+	}
+
+	&.up:after {
+		content: "▲";
+		margin-left: 15px;
+	}
+
+	&.next:after {
+		content: "▶";
+		margin-left: 15px;
+	}
+
+	&.down:after {
+		content: "▼";
+		margin-left: 15px;
+	}
+
+	&.prev:before {
+		content: "◀";
+		margin-right: 15px;
+	}
+}

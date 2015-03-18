@@ -11,12 +11,17 @@ add_shortcode('include', 'h5b_shortcode_include_module');
 
 function h5b_shortcode_include_module ($atts) {
 	if (!isset($atts['mod'])) {
-		return 'Have to set mod';
+		return '<p><strong>[include error: Have to set mod]</strong></p>';
+	}
+
+#	$include_path = TEMPLATEPATH . '/modules/' . basename($atts['mod']) . '.php';
+	$include_path = TEMPLATEPATH . '/modules/' . $atts['mod'] . '.php'; # No basename() so we can do forms/foo for example
+
+	if (!file_exists($include_path)) {
+		return '<p><strong>[include error: Module "' . $atts['mod'] . '" does not exist]</strong></p>';
 	}
 
 	extract($atts);
 
-	$output = fetch(TEMPLATEPATH . '/modules/' . basename($atts['mod']) . '.php', $atts);
-
-	return $output;
+	return fetch($include_path, $atts);
 }

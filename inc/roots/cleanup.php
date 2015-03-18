@@ -192,8 +192,8 @@ function roots_excerpt_length($length) {
 function roots_excerpt_more($more) {
   return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'roots') . '</a>';
 }
-add_filter('excerpt_length', 'roots_excerpt_length');
-add_filter('excerpt_more', 'roots_excerpt_more');
+# add_filter('excerpt_length', 'roots_excerpt_length');
+# add_filter('excerpt_more', 'roots_excerpt_more');
 
 /**
  * Remove unnecessary self-closing tags

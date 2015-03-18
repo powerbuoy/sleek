@@ -18,7 +18,7 @@
 
 		<meta charset="<?php bloginfo('charset') ?>">
 
-		<title><?php wp_title('|', true, 'right') ?></title>
+		<title><?php wp_title(' - ', true, 'right') ?></title>
 
 		<script>
 			AJAX_URL = '<?php echo admin_url('admin-ajax.php') ?>';

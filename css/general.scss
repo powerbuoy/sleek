@@ -8,9 +8,10 @@
 @mixin heading ($font-size: $h1-size) {
 	margin: 0 0 ($margin / 2);
 
+	@include heading-size($font-size);
+
 	font-family: $heading-font;
 	font-weight: $heading-font-weight;
-	font-size: $font-size;
 	line-height: $heading-line-height;
 	letter-spacing: $heading-letter-spacing;
 
@@ -29,10 +30,14 @@
 		letter-spacing: $heading-letter-spacing / 2;
 		line-height: 1.2;
 	}
+}
+
+@mixin heading-size ($font-size) {
+	font-size: $font-size;
 
 	// Smaller headings on mobile
 	@media #{$bp-3-max} {
-		font-size: $font-size * .6;
+		font-size: $font-size * .8;
 	}
 }
 
@@ -69,23 +74,23 @@ h6 {
 }
 
 h2 {
-	font-size: $h2-size;
+	@include heading-size($h2-size);
 }
 
 h3 {
-	font-size: $h3-size;
+	@include heading-size($h3-size);
 }
 
 h4 {
-	font-size: $h4-size;
+	@include heading-size($h4-size);
 }
 
 h5 {
-	font-size: $h5-size;
+	@include heading-size($h5-size);
 }
 
 h6 {
-	font-size: $h6-size;
+	@include heading-size($h6-size);
 }
 
 // Paragraphs, lists and other block elements

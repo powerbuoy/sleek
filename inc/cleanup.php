@@ -1,10 +1,25 @@
 <?php
-function my_widget_content_wrap($content) {
-die($content);
-    $content = '<div class="some-other-div">'.$content.'</div>';
-    return $content;
+# Remove HOME from Yoast Breadcrumbs (http://wordpress.org/support/topic/how-can-i-remove-home-from-breadcrumbs)
+/* add_filter('wpseo_breadcrumb_links', 'h5b_remove_home_from_breadcrumb');
+
+function h5b_remove_home_from_breadcrumb ($links) {
+	if ($links[0]['url'] == get_home_url()) {
+		array_shift($links);
+	}
+
+	return $links;
+} */
+
+# Exclude AddThis widgets from anything other than posts
+add_filter('addthis_post_exclude', 'h5b_addthis_post_exclude');
+
+function h5b_addthis_post_exclude ($display) {
+	if (!is_singular('post')) {
+		$display = false;
+	}
+
+	return $display;
 }
-add_filter('widget_nav_menu', 'my_widget_content_wrap');
 
 # Give pages excerpts
 # add_action('init', 'h5b_add_excerpts_to_pages');
@@ -48,6 +63,9 @@ function h5b_cleanup () {
 
 	## Wordpress Generator
 	remove_action('wp_head', 'wp_generator');
+
+	## WPML Generator
+#	remove_action('wp_head', array($sitepress, 'meta_generator_tag'));
 
 	## Useless link elements
 	remove_action('wp_head', 'start_post_rel_link');

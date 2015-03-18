@@ -1,0 +1,31 @@
+.alignfull {
+	clear: both;
+	display: block;
+	margin: 0;
+}
+
+.alignnone {
+	display: block;
+	clear: both;
+    margin: 0 0 $margin;
+}
+
+.aligncenter, 
+.alignright, 
+.alignleft {
+    display: block;
+	clear: both;
+    margin: 0 auto $margin;
+}
+
+@media #{$bp-2} {
+	.alignright {
+		float: right;
+		margin: 0 0 $margin ($margin * 2);
+	}
+
+	.alignleft {
+		float: left;
+		margin: 0 $margin ($margin * 2) 0;
+	}
+}

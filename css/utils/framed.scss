@@ -1,4 +1,4 @@
-@mixin bordered ($round: false) {
+@mixin framed ($round: false) {
 	@if ($round) {
 		border-radius: 100%;
 	}

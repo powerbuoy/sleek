@@ -1,7 +1,7 @@
 <?php
 # Proxy for AJAX requests
-add_action('wp_ajax_h5b_proxy', 'h5b_proxy');
-add_action('wp_ajax_nopriv_h5b_proxy', 'h5b_proxy');
+# add_action('wp_ajax_h5b_proxy', 'h5b_proxy');
+# add_action('wp_ajax_nopriv_h5b_proxy', 'h5b_proxy');
 
 function h5b_proxy () {
 	$validURLs = array(

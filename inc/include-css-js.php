@@ -15,15 +15,15 @@ function h5b_register_css_js () {
 #	wp_enqueue_script('google_maps');
 
 	# Theme Head/Foot JS
-#	wp_register_script('h5b_head', get_template_directory_uri() . '/js/head.php', array('jquery'), filemtime(TEMPLATEPATH . '/js/head.js'));
+#	wp_register_script('h5b_head', get_template_directory_uri() . '/js/head.php', array(), filemtime(TEMPLATEPATH . '/js/head.js'));
 #	wp_enqueue_script('h5b_head');
 
-	wp_register_script('h5b_foot', get_template_directory_uri() . '/js/foot.php', array('jquery'), filemtime(TEMPLATEPATH . '/js/foot.js'), true);
+	wp_register_script('h5b_foot', get_template_directory_uri() . '/js/foot.php', array(), filemtime(TEMPLATEPATH . '/js/foot.js'), true);
 	wp_enqueue_script('h5b_foot');
 
 	# Theme CSS
-	wp_register_style('h5b', get_template_directory_uri() . '/css/all.css', array(), filemtime(TEMPLATEPATH . '/css/all.css'));
-	wp_enqueue_style('h5b');
+#	wp_register_style('h5b', get_template_directory_uri() . '/css/all.css', array(), filemtime(TEMPLATEPATH . '/css/all.css'));
+#	wp_enqueue_style('h5b');
 }
 
 # Admin CSS/JS

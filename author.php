@@ -2,8 +2,8 @@
 
 <main>
 
-	<?php include TEMPLATEPATH . '/modules/post-author.php' ?>
 	<?php include TEMPLATEPATH . '/modules/posts-intro.php' ?>
+	<?php include TEMPLATEPATH . '/modules/post-author.php' ?>
 	<?php include TEMPLATEPATH . '/modules/posts.php' ?>
 
 </main>

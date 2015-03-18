@@ -1,7 +1,8 @@
 <?php
 # add_action('init', 'h5b_register_post_types');
 
-function h5b_register_post_types () {
+# Registers custom post types (array('movies', 'directors')) and taxonomies (array('genre' => array('movies')))
+function h5b_register_post_types ($postTypes, $taxonomies) {
 	# Register Post Types
 	$postTypes = array('testimonials');
 

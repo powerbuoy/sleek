@@ -16,7 +16,7 @@ include TEMPLATEPATH . '/inc/post-thumbnails.php';
 include TEMPLATEPATH . '/inc/sidebars.php';
 include TEMPLATEPATH . '/inc/functions.php';
 include TEMPLATEPATH . '/inc/ajax.php';
-include TEMPLATEPATH . '/inc/data-objects.php';
+include TEMPLATEPATH . '/inc/post-types.php';
 include TEMPLATEPATH . '/inc/shortcodes.php';
 include TEMPLATEPATH . '/inc/include-css-js.php';
 include TEMPLATEPATH . '/inc/pagination-css-class.php';

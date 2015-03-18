@@ -1,11 +1,4 @@
-body {
-
-}
-
-#header {
-	@include section(#f1f1f1);
-}
-
+#header, 
 #footer {
 	@include section(#123);
 	color: $white-color;

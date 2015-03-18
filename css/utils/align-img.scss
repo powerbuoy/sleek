@@ -1,0 +1,19 @@
+@mixin img-left ($bp: '(min-width: 600px)') {
+	display: block;
+	margin: 0 0 $margin;
+
+	@media #{$bp} {
+		float: left;
+		margin: 0 $margin $margin 0;
+	}
+}
+
+@mixin img-right ($bp: '(min-width: 600px)') {
+	display: block;
+	margin: 0 0 $margin;
+
+	@media #{$bp} {
+		float: right;
+		margin: 0 0 $margin $margin;
+	}
+}

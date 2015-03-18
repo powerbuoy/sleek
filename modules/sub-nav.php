@@ -1,7 +1,7 @@
 <?php
 	global $post;
 
-	$sub_nav_tree = h5b_get_sub_nav_tree($post);
+	$sub_nav_tree = sleek_get_sub_nav_tree($post);
 ?>
 
 <?php if ($sub_nav_tree['children']) : ?>

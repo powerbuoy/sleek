@@ -1,5 +1,5 @@
 <?php
-	$tmp		= h5b_get_posts_intro();
+	$tmp		= sleek_get_posts_intro();
 	$title		= $tmp['title'];
 	$content	= $tmp['content'];
 ?>

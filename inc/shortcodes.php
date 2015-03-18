@@ -1,15 +1,15 @@
 <?php
 # Allow shortcodes in Widgets
-add_action('init', 'h5b_allow_shortcodes_in_widgets');
+add_action('init', 'sleek_allow_shortcodes_in_widgets');
 
-function h5b_allow_shortcodes_in_widgets () {
+function sleek_allow_shortcodes_in_widgets () {
 	add_filter('widget_text', 'do_shortcode');
 }
 
 # Include
-add_shortcode('include', 'h5b_shortcode_include_module');
+add_shortcode('include', 'sleek_shortcode_include_module');
 
-function h5b_shortcode_include_module ($atts) {
+function sleek_shortcode_include_module ($atts) {
 	if (!isset($atts['mod'])) {
 		return '<p><strong>[include error: Have to set mod]</strong></p>';
 	}

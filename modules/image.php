@@ -10,7 +10,7 @@
 
 			<figure>
 				<a href="<?php echo wp_get_attachment_url($post->ID) ?>">
-					<?php echo wp_get_attachment_image($post->ID, 'h5b-100') ?>
+					<?php echo wp_get_attachment_image($post->ID, 'sleek-100') ?>
 				</a>
 
 				<?php if (!empty($post->post_excerpt)) : ?>

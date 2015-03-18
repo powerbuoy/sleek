@@ -1,8 +1,8 @@
 <?php
 # Remove HOME from Yoast Breadcrumbs (http://wordpress.org/support/topic/how-can-i-remove-home-from-breadcrumbs)
-/* add_filter('wpseo_breadcrumb_links', 'h5b_remove_home_from_breadcrumb');
+/* add_filter('wpseo_breadcrumb_links', 'sleek_remove_home_from_breadcrumb');
 
-function h5b_remove_home_from_breadcrumb ($links) {
+function sleek_remove_home_from_breadcrumb ($links) {
 	if ($links[0]['url'] == get_home_url()) {
 		array_shift($links);
 	}
@@ -11,9 +11,9 @@ function h5b_remove_home_from_breadcrumb ($links) {
 } */
 
 # Exclude AddThis widgets from anything other than posts
-add_filter('addthis_post_exclude', 'h5b_addthis_post_exclude');
+add_filter('addthis_post_exclude', 'sleek_addthis_post_exclude');
 
-function h5b_addthis_post_exclude ($display) {
+function sleek_addthis_post_exclude ($display) {
 	if (!is_singular('post')) {
 		$display = false;
 	}
@@ -22,25 +22,25 @@ function h5b_addthis_post_exclude ($display) {
 }
 
 # Give pages excerpts
-# add_action('init', 'h5b_add_excerpts_to_pages');
+# add_action('init', 'sleek_add_excerpts_to_pages');
 
-function h5b_add_excerpts_to_pages () {
+function sleek_add_excerpts_to_pages () {
 	add_post_type_support('page', 'excerpt');
 }
 
 # Add some fields to users
-# add_filter('user_contactmethods', 'h5b_add_user_fields');
+# add_filter('user_contactmethods', 'sleek_add_user_fields');
 
-function h5b_add_user_fields ($fields) {
-	$fields['profession'] = __('Profession', 'h5b');
+function sleek_add_user_fields ($fields) {
+	$fields['profession'] = __('Profession', 'sleek');
 
 	return $fields;
 }
 
 # Allow HTML in Widget Titles (with [tags])
-add_filter('widget_title', 'h5b_html_in_widget_titles');
+add_filter('widget_title', 'sleek_html_in_widget_titles');
 
-function h5b_html_in_widget_titles ($title)
+function sleek_html_in_widget_titles ($title)
 {
 	$title = str_replace('[', '<', $title);
 	$title = str_replace(']', '>', $title);
@@ -51,9 +51,9 @@ function h5b_html_in_widget_titles ($title)
 
 # Cleanup HEAD
 # From: http://www.themelab.com/2010/07/11/remove-code-wordpress-header/
-add_action('init', 'h5b_cleanup');
+add_action('init', 'sleek_cleanup');
 
-function h5b_cleanup () {
+function sleek_cleanup () {
 	# Comment if needed
 	## Really Simple Discovery
 	remove_action('wp_head', 'rsd_link');

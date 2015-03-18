@@ -1,24 +1,24 @@
 <?php
 # Add the style button
-# add_filter('mce_buttons_2', 'h5b_add_tinymce_styleselect');
+# add_filter('mce_buttons_2', 'sleek_add_tinymce_styleselect');
 
-function h5b_add_tinymce_styleselect ($buttons) {
+function sleek_add_tinymce_styleselect ($buttons) {
 	array_unshift($buttons, 'styleselect');
 
 	return $buttons;
 }
 
 # Add our style CSS
-# add_action('init', 'h5b_tinymce_css');
+# add_action('init', 'sleek_tinymce_css');
 
-function h5b_tinymce_css () {
+function sleek_tinymce_css () {
 	add_editor_style('css/tinymce-styles.css');
 }
 
 # Add a small style
-# add_filter('tiny_mce_before_init', 'h5b_tinymce_styles');
+# add_filter('tiny_mce_before_init', 'sleek_tinymce_styles');
 
-function h5b_tinymce_styles ($init) {
+function sleek_tinymce_styles ($init) {
 	$styles = array(
 		# General
 		array(
@@ -40,9 +40,9 @@ function h5b_tinymce_styles ($init) {
 }
 
 # Add some buttons
-# add_filter('mce_buttons', 'h5b_enable_more_buttons');
+# add_filter('mce_buttons', 'sleek_enable_more_buttons');
 
-function h5b_enable_more_buttons ($buttons) {
+function sleek_enable_more_buttons ($buttons) {
 	$buttons[] = 'hr';
 
 	# Repeat with any other buttons you want to add, e.g.

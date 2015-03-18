@@ -1,8 +1,8 @@
 <?php
 # Get Posts
-add_shortcode('get-posts', 'h5b_shortcode_get_posts');
+add_shortcode('get-posts', 'sleek_shortcode_get_posts');
 
-function h5b_shortcode_get_posts ($atts) {
+function sleek_shortcode_get_posts ($atts) {
 	# Set some vars
 	$path		= TEMPLATEPATH . '/modules/get-posts/';
 	$type		= isset($atts['type']) ? (strpos($atts['type'], ',') ? explode(',', $atts['type']) : $atts['type']) : 'post';
@@ -10,7 +10,7 @@ function h5b_shortcode_get_posts ($atts) {
 	$order		= isset($atts['order']) ? $atts['order'] : 'post_date';
 	$template	= (isset($atts['template']) and file_exists($path . basename($atts['template']) . '.php')) ? basename($atts['template']) : 'list-posts';
 
-	$empty		= isset($atts['empty']) ? $atts['empty'] : __('No posts found.', 'h5b');
+	$empty		= isset($atts['empty']) ? $atts['empty'] : __('No posts found.', 'sleek');
 	$show		= isset($atts['show']) ? explode(',', $atts['show']) : false;
 	$hide		= isset($atts['hide']) ? explode(',', $atts['hide']) : false;
 
@@ -62,7 +62,7 @@ function h5b_shortcode_get_posts ($atts) {
 	# If title is asked for, but set to 1 - generate a title or use a default one
 	if (isset($atts['title']) and $atts['title'] == 1) {
 		# Set to post type
-		$atts['title'] = __(ucfirst(str_replace('_', ' ', $type)), 'h5b');
+		$atts['title'] = __(ucfirst(str_replace('_', ' ', $type)), 'sleek');
 
 		# If there is only one tax_query set, use its title
 		if (count($tax_query) === 1) {
@@ -85,7 +85,7 @@ function h5b_shortcode_get_posts ($atts) {
 	}
 
 	# Set a default image size
-	$img_size = isset($atts['img_size']) ? $atts['img_size'] : 'h5b-medium';
+	$img_size = isset($atts['img_size']) ? $atts['img_size'] : 'sleek-medium';
 
 	# Work out the archive URL for this post type (TODO: if a particular tax is set - limit to it)
 	$archive_url = false;

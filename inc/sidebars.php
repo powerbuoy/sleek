@@ -1,11 +1,11 @@
 <?php
-add_action('init', 'h5b_register_sidebars');
+add_action('init', 'sleek_register_sidebars');
 
-function h5b_register_sidebars () {
+function sleek_register_sidebars () {
 	$sidebars = array(
-		'aside'		=> __('Aside', 'h5b'), 
-		'header'	=> __('Header', 'h5b'), 
-		'footer'	=> __('Footer', 'h5b')
+		'aside'		=> __('Aside', 'sleek'), 
+		'header'	=> __('Header', 'sleek'), 
+		'footer'	=> __('Footer', 'sleek')
 	);
 
 	foreach ($sidebars as $id => $name) {

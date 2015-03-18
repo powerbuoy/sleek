@@ -1,17 +1,17 @@
 <?php
 # Show all post types when browsing author
-# add_filter('pre_get_posts', 'h5b_author_pre_get_posts');
+# add_filter('pre_get_posts', 'sleek_author_pre_get_posts');
 
-function h5b_author_pre_get_posts ($qry) {
+function sleek_author_pre_get_posts ($qry) {
 	if ($qry->is_main_query() and $qry->is_author) {
 		$qry->set('post_type', 'any');
 	}
 }
 
 # Allow empty search
-add_filter('request', 'h5b_allow_empty_search');
+add_filter('request', 'sleek_allow_empty_search');
 
-function h5b_allow_empty_search ($qryVars) {
+function sleek_allow_empty_search ($qryVars) {
     if (isset($_GET['s']) and empty($_GET['s'])) {
         $qryVars['s'] = ' ';
     }
@@ -20,9 +20,9 @@ function h5b_allow_empty_search ($qryVars) {
 }
 
 # http://wordpress.stackexchange.com/questions/25899/the-right-way-to-create-a-custom-search-page-for-complex-custom-post-types
-# add_filter('pre_get_posts', 'h5b_pre_get_posts');
+# add_filter('pre_get_posts', 'sleek_pre_get_posts');
 
-function h5b_pre_get_posts ($qry) {
+function sleek_pre_get_posts ($qry) {
 	$priceKey		= '_simple_fields_fieldGroupID_4_fieldID_3_numInSet_0';
 	$validOrders	= array('price', 'date', 'relevance');
 	$orderBy		= (isset($_GET['myorder']) and in_array($_GET['myorder'], $validOrders)) ? $_GET['myorder'] : 'relevance';

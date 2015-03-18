@@ -6,7 +6,7 @@
 
 				<header>
 
-					<h2><a href="<?php the_permalink() ?>"><?php the_post_thumbnail('h5b-medium') ?> <?php the_title() ?></a></h2>
+					<h2><a href="<?php the_permalink() ?>"><?php the_post_thumbnail('sleek-medium') ?> <?php the_title() ?></a></h2>
 
 					<?php include TEMPLATEPATH . '/modules/partials/post-pubdate.php' ?>
 
@@ -25,8 +25,8 @@
 		<?php endwhile ?>
 
 		<nav id="pagination">
-			<?php previous_posts_link(__('Previous page', 'h5b')) ?>
-			<?php next_posts_link(__('Next page', 'h5b')) ?>
+			<?php previous_posts_link(__('Previous page', 'sleek')) ?>
+			<?php next_posts_link(__('Next page', 'sleek')) ?>
 		</nav>
 	<?php else : ?>
 		<?php include TEMPLATEPATH . '/modules/partials/nothing-found.php' ?>

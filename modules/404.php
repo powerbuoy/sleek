@@ -1,7 +1,7 @@
 <section id="post-content">
 
-	<h1><?php _e('404 - Page not found', 'h5b') ?></h1>
+	<h1><?php _e('404 - Page not found', 'sleek') ?></h1>
 
-	<p><?php _e('Sorry, that page could not be found.', 'h5b') ?></p>
+	<p><?php _e('Sorry, that page could not be found.', 'sleek') ?></p>
 
 </section>

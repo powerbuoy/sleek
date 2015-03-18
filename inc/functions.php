@@ -1,5 +1,5 @@
 <?php
-function h5b_get_posts_intro () {
+function sleek_get_posts_intro () {
 	global $post;
 	global $wp_query;
 
@@ -26,12 +26,12 @@ function h5b_get_posts_intro () {
 	}
 	# Else; if we're on another listing page such as by year or category or a custom post type
 	elseif (is_category()) {
-	#	$title		= __(sprintf('News categorized <strong>"%s"</strong>', single_cat_title('', false)), 'h5b');
+	#	$title		= __(sprintf('News categorized <strong>"%s"</strong>', single_cat_title('', false)), 'sleek');
 		$title		= single_cat_title('', false);
 		$content	= false; # TODO: Grab taxonomy description
 	}
 	elseif (is_tag()) {
-		$title		= sprintf(__('News tagged with <strong>"%s"</strong>', 'h5b'), single_tag_title('', false));
+		$title		= sprintf(__('News tagged with <strong>"%s"</strong>', 'sleek'), single_tag_title('', false));
 		$content	= false; # TODO: Grab taxonomy description
 	}
 	elseif (is_tax()) {
@@ -41,30 +41,30 @@ function h5b_get_posts_intro () {
 	}
 	elseif (is_search()) {
 		if (have_posts()) {
-			$title		= sprintf(__('Search results (%s) for: <strong>"%s"</strong>', 'h5b'), $wp_query->found_posts, get_search_query());
+			$title		= sprintf(__('Search results (%s) for: <strong>"%s"</strong>', 'sleek'), $wp_query->found_posts, get_search_query());
 			$content	= false;
 		}
 		else {
-			$title		= sprintf(__('No search results for: <strong>"%s"</strong>', 'h5b'), get_search_query());
-			$content	= '<div class="left"><p>' . __("We couldn't find any matching search results for your query.", 'h5b') . '</p>';
+			$title		= sprintf(__('No search results for: <strong>"%s"</strong>', 'sleek'), get_search_query());
+			$content	= '<div class="left"><p>' . __("We couldn't find any matching search results for your query.", 'sleek') . '</p>';
 		}
 	}
 	elseif (is_author()) {
 		the_post();
 
-		$title		= sprintf(__('Posts by <strong>%s</strong>', 'h5b'), get_the_author());
+		$title		= sprintf(__('Posts by <strong>%s</strong>', 'sleek'), get_the_author());
 		$content	= false; # TODO: Grab author description
 
 		rewind_posts();
 	}
 	elseif (is_day()) {
-		$title = sprintf(__('Daily archives <strong>%s</strong>', 'h5b'), get_the_time('l, F j, Y'));
+		$title = sprintf(__('Daily archives <strong>%s</strong>', 'sleek'), get_the_time('l, F j, Y'));
 	}
 	elseif (is_month()) {
-		$title = sprintf(__('Monthly archives <strong>%s</strong>', 'h5b'), get_the_time('F Y'));
+		$title = sprintf(__('Monthly archives <strong>%s</strong>', 'sleek'), get_the_time('F Y'));
 	}
 	elseif (is_year()) {
-		$title = sprintf(__('Yearly archives <strong>%s</strong>', 'h5b'), get_the_time('Y'));
+		$title = sprintf(__('Yearly archives <strong>%s</strong>', 'sleek'), get_the_time('Y'));
 	}
 	elseif (is_post_type_archive()) {
 		ob_start();
@@ -74,10 +74,10 @@ function h5b_get_posts_intro () {
 
 		ob_end_clean();
 
-		$title = __($title, 'h5b');
+		$title = __($title, 'sleek');
 	}
 	else {
-		$title = __('News', 'h5b');
+		$title = __('News', 'sleek');
 	}
 
 	return array(
@@ -86,13 +86,13 @@ function h5b_get_posts_intro () {
 	);
 }
 
-function h5b_get_neighbouring_array_element ($array, $orig, $offset) {
+function sleek_get_neighbouring_array_element ($array, $orig, $offset) {
 	$keys = array_keys($array);
 
 	return $array[$keys[array_search($orig, $keys) + $offset]];
 }
 
-function h5b_get_sub_nav_tree ($post) {
+function sleek_get_sub_nav_tree ($post) {
 	if (is_page($post)) {
 		if ($post->post_parent) {
 			$parent = get_page($post->post_parent);
@@ -156,7 +156,7 @@ function debug ($foo) {
 }
 
 # Gets image ID by filename
-function h5b_get_image_id_by_filename ($filename) {
+function sleek_get_image_id_by_filename ($filename) {
 	global $wpdb;
 
 	$filename	= preg_replace("/\\.[^.\\s]{3,4}$/", '', $filename);
@@ -171,7 +171,7 @@ function h5b_get_image_id_by_filename ($filename) {
 }
 
 # Gets the excerpt by ID
-function h5b_get_the_excerpt ($post_id) {
+function sleek_get_the_excerpt ($post_id) {
 	global $post;
 
 	$post = get_post($post_id);

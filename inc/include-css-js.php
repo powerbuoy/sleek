@@ -1,8 +1,8 @@
 <?php
 # Theme CSS/JS
-add_action('wp_enqueue_scripts', 'h5b_register_css_js');
+add_action('wp_enqueue_scripts', 'sleek_register_css_js');
 
-function h5b_register_css_js () {
+function sleek_register_css_js () {
 	# jQuery
 #	wp_deregister_script('jquery');
 #	wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'); # 2.0.0
@@ -15,34 +15,34 @@ function h5b_register_css_js () {
 #	wp_enqueue_script('google_maps');
 
 	# Theme Head/Foot JS
-#	wp_register_script('h5b_head', get_template_directory_uri() . '/js/head.php', array(), filemtime(TEMPLATEPATH . '/js/head.js'));
-#	wp_enqueue_script('h5b_head');
+#	wp_register_script('sleek_head', get_template_directory_uri() . '/js/head.php', array(), filemtime(TEMPLATEPATH . '/js/head.js'));
+#	wp_enqueue_script('sleek_head');
 
-#	wp_register_script('h5b_foot', get_template_directory_uri() . '/js/foot.php', array(), filemtime(TEMPLATEPATH . '/js/foot.js'), true);
-#	wp_enqueue_script('h5b_foot');
+#	wp_register_script('sleek_foot', get_template_directory_uri() . '/js/foot.php', array(), filemtime(TEMPLATEPATH . '/js/foot.js'), true);
+#	wp_enqueue_script('sleek_foot');
 
 	# Theme CSS
-#	wp_register_style('h5b', get_template_directory_uri() . '/css/all.css', array(), filemtime(TEMPLATEPATH . '/css/all.css'));
-#	wp_enqueue_style('h5b');
+#	wp_register_style('sleek', get_template_directory_uri() . '/css/all.css', array(), filemtime(TEMPLATEPATH . '/css/all.css'));
+#	wp_enqueue_style('sleek');
 }
 
 # Admin CSS/JS
-# add_action('admin_enqueue_scripts', 'h5b_register_css_js_admin');
+# add_action('admin_enqueue_scripts', 'sleek_register_css_js_admin');
 
-function h5b_register_css_js_admin () {
+function sleek_register_css_js_admin () {
 	# Admin JS
-	wp_register_script('h5b_admin', get_template_directory_uri() . '/js/admin.js', array('jquery'), filemtime(TEMPLATEPATH . '/js/admin.js'));
-	wp_enqueue_script('h5b_admin');
+	wp_register_script('sleek_admin', get_template_directory_uri() . '/js/admin.js', array('jquery'), filemtime(TEMPLATEPATH . '/js/admin.js'));
+	wp_enqueue_script('sleek_admin');
 
 	# Admin CSS
-	wp_register_style('h5b_admin', get_template_directory_uri() . '/css/admin.css', array(), filemtime(TEMPLATEPATH . '/css/admin.css'));
-	wp_enqueue_style('h5b_admin');
+	wp_register_style('sleek_admin', get_template_directory_uri() . '/css/admin.css', array(), filemtime(TEMPLATEPATH . '/css/admin.css'));
+	wp_enqueue_style('sleek_admin');
 }
 
 # Upgrade Browser Script
-# add_action('wp_head', 'h5b_register_browser_update_js');
+# add_action('wp_head', 'sleek_register_browser_update_js');
 
-function h5b_register_browser_update_js () {
+function sleek_register_browser_update_js () {
 	echo str_replace(array("\n", "\t"), '', '<script>
 		var $buoop = {};
 

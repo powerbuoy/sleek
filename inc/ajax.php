@@ -1,9 +1,9 @@
 <?php
 # Proxy for AJAX requests
-# add_action('wp_ajax_h5b_proxy', 'h5b_proxy');
-# add_action('wp_ajax_nopriv_h5b_proxy', 'h5b_proxy');
+# add_action('wp_ajax_sleek_proxy', 'sleek_proxy');
+# add_action('wp_ajax_nopriv_sleek_proxy', 'sleek_proxy');
 
-function h5b_proxy () {
+function sleek_proxy () {
 	$validURLs = array(
 		'https://feeds.foursquare.com', 
 		'http://www.google.com'

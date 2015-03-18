@@ -1,5 +1,124 @@
 <?php
-# TODO: Ctrl+h "function " => "function h5b_"
+function h5b_get_posts_intro () {
+	global $post;
+	global $wp_query;
+
+	$title		= false;
+	$content	= false;
+
+	# If we're using a static front page and are on the posts home page
+	if (get_option('show_on_front') == 'page' and get_option('page_for_posts') and is_home()) {
+		$postsIndexID	= get_option('page_for_posts');
+		$post			= get_page($postsIndexID);
+
+		setup_postdata($post);
+
+		$title = get_the_title();
+
+		# Godda love WP... get_the_content() doesn't return the same thing as the_content()
+		ob_start();
+		the_content();
+
+		$content = ob_get_contents();
+
+		ob_end_clean();
+		wp_reset_postdata();
+	}
+	# Else; if we're on another listing page such as by year or category or a custom post type
+	elseif (is_category()) {
+	#	$title		= __(sprintf('News categorized <strong>"%s"</strong>', single_cat_title('', false)), 'h5b');
+		$title		= single_cat_title('', false);
+		$content	= false; # TODO: Grab taxonomy description
+	}
+	elseif (is_tag()) {
+		$title		= sprintf(__('News tagged with <strong>"%s"</strong>', 'h5b'), single_tag_title('', false));
+		$content	= false; # TODO: Grab taxonomy description
+	}
+	elseif (is_tax()) {
+		$term		= $wp_query->get_queried_object();
+		$title		= $term->name;
+		$content	= false; # TODO: Grab taxonomy description
+	}
+	elseif (is_search()) {
+		if (have_posts()) {
+			$title		= sprintf(__('Search results (%s) for: <strong>"%s"</strong>', 'h5b'), $wp_query->found_posts, get_search_query());
+			$content	= false;
+		}
+		else {
+			$title		= sprintf(__('No search results for: <strong>"%s"</strong>', 'h5b'), get_search_query());
+			$content	= '<div class="left"><p>' . __("We couldn't find any matching search results for your query.", 'h5b') . '</p>';
+		}
+	}
+	elseif (is_author()) {
+		the_post();
+
+		$title		= sprintf(__('Posts by <strong>%s</strong>', 'h5b'), get_the_author());
+		$content	= false; # TODO: Grab author description
+
+		rewind_posts();
+	}
+	elseif (is_day()) {
+		$title = sprintf(__('Daily archives <strong>%s</strong>', 'h5b'), get_the_time('l, F j, Y'));
+	}
+	elseif (is_month()) {
+		$title = sprintf(__('Monthly archives <strong>%s</strong>', 'h5b'), get_the_time('F Y'));
+	}
+	elseif (is_year()) {
+		$title = sprintf(__('Yearly archives <strong>%s</strong>', 'h5b'), get_the_time('Y'));
+	}
+	elseif (is_post_type_archive()) {
+		ob_start();
+		post_type_archive_title();
+
+		$title = ob_get_contents();
+
+		ob_end_clean();
+
+		$title = __($title, 'h5b');
+	}
+	else {
+		$title = __('News', 'h5b');
+	}
+
+	return array(
+		'title'		=> $title, 
+		'content'	=> $content
+	);
+}
+
+function h5b_get_neighbouring_array_element ($array, $orig, $offset) {
+	$keys = array_keys($array);
+
+	return $array[$keys[array_search($orig, $keys) + $offset]];
+}
+
+function h5b_get_sub_nav_tree ($post) {
+	if (is_page($post)) {
+		if ($post->post_parent) {
+			$parent = get_page($post->post_parent);
+
+			while ($parent->post_parent) {
+				$parent = get_page($parent->post_parent);
+			}
+
+			$children = wp_list_pages('title_li=&child_of=' . $parent->ID . '&echo=0&link_before=&link_after=');
+			$title = $parent->post_title;
+			$url = get_permalink($parent->ID);
+		}
+		else {
+			$children = wp_list_pages('title_li=&child_of=' . $post->ID . '&echo=0&link_before=&link_after=');
+			$title = $post->post_title;
+			$url = get_permalink($post->ID);
+		}
+	}
+
+	return array(
+		'title'		=> $title, 
+		'url'		=> $url, 
+		'children'	=> $children
+	);
+}
+
 # Gets a post based on its simple field value (the plugin)
 function get_posts_by_simple_fields_value ($args, $postType = 'any') {
 	$rows = get_posts(array(

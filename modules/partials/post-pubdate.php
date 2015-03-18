@@ -1,4 +1,4 @@
-<p class="pubdate">
+<p>
 	<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')) ?>"><?php echo get_the_author_meta('display_name') ?></a> 
 	<time datetime="<?php the_time('Y-m-j') ?>" pubdate="pubdate"><?php echo get_the_time(get_option('date_format')) ?></time>
 </p>

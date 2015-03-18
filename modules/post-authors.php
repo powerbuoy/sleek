@@ -7,12 +7,12 @@
 	<ul>
 		<?php foreach ($users as $usr) : ?>
 			<li>
-				<h3>
+				<h2>
 					<a href="<?php echo get_author_posts_url($usr->ID) ?>">
 						<?php echo get_avatar($usr->ID) ?> 
 						<?php echo $usr->display_name ?>
 					</a>
-				</h3>
+				</h2>
 
 				<p>
 					<?php echo get_user_meta($usr->ID, 'description', true) ?><br>

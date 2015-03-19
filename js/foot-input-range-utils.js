@@ -57,7 +57,7 @@ App.plugins.InputRangeUtils = {
 				var updateColor = function () {
 					var val = (input.value - input.getAttribute('min')) / (input.getAttribute('max') - input.getAttribute('min'));
 						val *= 100;
-console.log(self.rangeRightColor);
+
 					input.style.backgroundImage = 'linear-gradient(90deg, ' + self.rangeLeftColor + ' 0%, ' + self.rangeLeftColor + ' ' + val + '%, ' + self.rangeRightColor + ' ' + val + '%, ' + self.rangeRightColor + ' 100%)';
 				};
 

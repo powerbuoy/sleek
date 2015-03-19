@@ -4,6 +4,7 @@
 	font-size: $font-size;
 	line-height: $default-line-height;
 	letter-spacing: $default-letter-spacing;
+	color: $default-color;
 }
 
 @mixin heading ($font-size: $h1-size) {
@@ -15,6 +16,7 @@
 	font-weight: $heading-font-weight;
 	line-height: $heading-line-height;
 	letter-spacing: $heading-letter-spacing;
+	color: $heading-color;
 
 	a {
 		color: inherit;

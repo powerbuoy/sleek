@@ -238,9 +238,22 @@ img {
 		@include button-background($button-disabled-color, $button-fade, $button-border);
 	}
 
+	&.up:after, 
+	&.next:after, 
+	&.down:after, 
+	&.prev:after {
+		display: inline-block;
+	//	transform: translateX(0) translateY(0);
+	//	transition: transform .1s ease-out;
+	}
+
 	&.up:after {
 		content: "▲";
 		margin-left: 15px;
+	}
+
+	&.up:hover:after {
+	//	transform: translateY(-4px);
 	}
 
 	&.next:after {
@@ -248,13 +261,25 @@ img {
 		margin-left: 15px;
 	}
 
+	&.next:hover:after {
+	//	transform: translateX(4px);
+	}
+
 	&.down:after {
 		content: "▼";
 		margin-left: 15px;
 	}
 
+	&.down:hover:after {
+	//	transform: translateY(4px);
+	}
+
 	&.prev:before {
 		content: "◀";
 		margin-right: 15px;
+	}
+
+	&.prev:hover:after {
+	//	transform: translateX(-4px);
 	}
 }

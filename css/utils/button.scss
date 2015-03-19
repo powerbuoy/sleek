@@ -13,9 +13,9 @@
 	text-decoration: none;
 	line-height: $default-line-height;
 
+	transition: box-shadow .1s ease-out, transform .1s ease-out;
 	border-radius: $button-border-radius;
-
-//	box-shadow: 1px 1px 1px $shadow-color;
+	box-shadow: 1px 1px 1px $shadow-color;
 
 	// Hover and visited (:active set byt button-background())
 	&:visited {
@@ -23,6 +23,8 @@
 	}
 
 	&:hover {
+		transform: scale(1.02);
+		box-shadow: 2px 2px 6px rgba($shadow-color, .5);
 		color: $white-color;
 	}
 }

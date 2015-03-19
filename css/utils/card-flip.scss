@@ -2,7 +2,7 @@
 	position: relative;
 	perspective: 800;
 	transform-style: preserve-3d;
-	transition: transform .2s ease-in-out;
+	transition: transform .2s ease-out;
 
 	&:hover {
 		transform: rotateY(-180deg);

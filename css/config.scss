@@ -38,28 +38,33 @@ $heading-line-height: 1.05;
 $default-font-weight: normal;
 $heading-font-weight: lighter;
 
+$default-letter-spacing: 0;
 $heading-letter-spacing: -3px;
 
-// Colors
-$default-color: #333;
+// Text colors
+$default-color: #444;
 $heading-color: #555;
 $gray-color: #999;
-$link-color: #09f; // #09f;
-$link-color-hover: #09f;
+$link-color: #06c;
+$link-color-hover: #06c;
 $link-color-visited: #609;
 $error-color: #c00;
 $border-color: #ccc;
 
+// Define white once in case we want to done it down everywhere later
 $white-color: #fefefe;
 $shadow-color: rgba(0, 0, 0, .4);
 
-$dark-bg: #111;
-$dark-gray-bg: #666;
-$gray-bg: #f6f6f6;
+// Background colors
+$default-bg: $white-color;
+$alt-bg: #f6f6f6;
+$inverted-bg: #111;
 
+// Button colors
 $button-color: #fc3;
 $button-secondary-color: #234;
 $button-disabled-color: #555;
 $button-fade: 0;
 $button-border: 0;
 $button-border-radius: 4px;
+$button-shadow: true;

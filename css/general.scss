@@ -3,6 +3,7 @@
 	font-weight: $default-font-weight;
 	font-size: $font-size;
 	line-height: $default-line-height;
+	letter-spacing: $default-letter-spacing;
 }
 
 @mixin heading ($font-size: $h1-size) {
@@ -43,7 +44,7 @@
 
 // Base styling
 html {
-	background: $white-color;
+	background: $default-bg;
 	font-size: 100%;
 }
 
@@ -53,7 +54,7 @@ body {
 	word-wrap: break-word;
 }
 
-// Wrapping elements (margin could be annoying?)
+// Wrapping elements (TODO: margin could be annoying?)
 main, 
 aside, 
 section, 
@@ -98,13 +99,14 @@ p {
 	margin: 0 0 $margin;
 }
 
-// Bigger opening paragraphs
+// Bigger opening paragraphs (TODO: could be annoying?)
 main > :first-child > h1:first-child + p, 
 main > :first-child > h2:first-child + p {
 	font-size: 120%;
 	font-style: italic;
 }
 
+// Lists
 ul, 
 ol {
 	margin: 0 0 $margin ($margin * 2);
@@ -127,6 +129,7 @@ dl {
 		margin: 0 0 0 $margin;
 	}
 
+// Quotes
 blockquote {
 	margin: 0 0 $margin ($margin * 2);
 
@@ -155,18 +158,20 @@ blockquote {
 	}
 }
 
+// Rulers and code boxes
 hr {
 	margin: ($margin * 1.5) 0;
 	border-top: 1px solid $border-color;
 }
 
 pre {
-	background: $gray-bg;
+	background: $alt-bg;
 
 	margin: 0 0 $margin;
 	padding: $margin;
 
 	max-height: 300px;
+	resize: y;
 	overflow: auto;
 
 	border: 1px solid $border-color;
@@ -175,6 +180,7 @@ pre {
 // Tables
 table {
 	margin: 0 0 $margin;
+	border-spacing: 0;
 }
 
 	th, 
@@ -187,25 +193,30 @@ table {
 
 	th, 
 	tr:hover td {
-		background: $gray-bg;
+		background: $alt-bg;
 	}
 
-// Inline elements
-a {
+// Links
+@mixin link {
 	color: $link-color;
 	text-decoration: underline;
+
+	&:hover {
+		color: $link-color-hover;
+		text-decoration: none;
+	}
+
+	&:visited {
+	//	color: $link-color-visited;
+	}
 }
 
-a:hover {
-	color: $link-color-hover;
-	text-decoration: none;
+a {
+	@include link;
 }
 
-a:visited {
-//	color: $link-color-visited;
-}
-
-small {
+// Small and other inline elements
+@mixin small {
 	display: inline-block;
 	line-height: $default-line-height * .9;
 	font-size: 80%;
@@ -216,75 +227,21 @@ small {
 	}
 }
 
+small {
+	@include small;
+}
+
 abbr {
 	cursor: help;
 }
 
+// Images
 img {
 	max-width: 100%;
 	height: auto;
-	box-sizing: border-box; // TODO: Use autoprefixer
+	box-sizing: border-box;
 }
 
-// Buttons
-.button {
-	@include button($button-color, $button-fade, $button-border);
-
-	&.secondary {
-		@include button-background($button-secondary-color, $button-fade, $button-border);
-	}
-
-	&.disabled {
-		@include button-background($button-disabled-color, $button-fade, $button-border);
-	}
-
-	&.up:after, 
-	&.next:after, 
-	&.down:after, 
-	&.prev:after {
-		display: inline-block;
-	//	transform: translateX(0) translateY(0);
-	//	transition: transform .1s ease-out;
-	}
-
-	&.up:after {
-		content: "▲";
-		margin-left: 15px;
-	}
-
-	&.up:hover:after {
-	//	transform: translateY(-4px);
-	}
-
-	&.next:after {
-		content: "▶";
-		margin-left: 15px;
-	}
-
-	&.next:hover:after {
-	//	transform: translateX(4px);
-	}
-
-	&.down:after {
-		content: "▼";
-		margin-left: 15px;
-	}
-
-	&.down:hover:after {
-	//	transform: translateY(4px);
-	}
-
-	&.prev:before {
-		content: "◀";
-		margin-right: 15px;
-	}
-
-	&.prev:hover:after {
-	//	transform: translateX(-4px);
-	}
-}
-
-// Framed images
 img.framed {
 	@include framed(false);
 }

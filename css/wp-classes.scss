@@ -1,31 +1,17 @@
-.alignfull {
-	clear: both;
-	display: block;
-	margin: 0;
-}
-
-.alignnone {
-	display: block;
-	clear: both;
-    margin: 0 0 $margin;
-}
-
+.alignfull, 
+.alignnone, 
 .aligncenter, 
-.alignright, 
-.alignleft {
-    display: block;
+.alignleft, 
+.alignright {
+	display: block;
 	clear: both;
-    margin: 0 auto $margin;
+	margin: 0 0 $margin;
 }
 
-@media #{$bp-3} {
-	.alignright {
-		float: right;
-		margin: 0 0 $margin ($margin * 2);
-	}
+.alignleft {
+	@include img-left($bp-3);
+}
 
-	.alignleft {
-		float: left;
-		margin: 0 $margin ($margin * 2) 0;
-	}
+.alignright {
+	@include img-right($bp-3);
 }

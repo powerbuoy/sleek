@@ -1,14 +1,16 @@
 /**
  * Mixins
  */
-@mixin button ($bg-color, $fade, $border-radius, $border: false, $shadow: true) {
+@mixin button ($bg-color, $fade, $border-radius, $border: false, $shadow: true, $padding-top: .8rem, $padding-side: 2.6rem) {
 	@include button-background($bg-color, $fade, $border);
 
 	display: inline-block;
+	vertical-align: middle;
+
 	box-sizing: border-box;
 
 	margin: 0;
-	padding: 8px 28px;
+	padding: $padding-top $padding-side;
 
 	font-size: $default-size;
 	color: $white-color;
@@ -91,7 +93,7 @@
  * Classes
  */
 .button {
-	@include button($button-color, $button-fade, $button-border-radius, $button-border, $button-shadow);
+	@include button($button-color, $button-fade, $button-border-radius, $button-border, $button-shadow, $button-padding-top, $button-padding-side);
 
 	// Alignment, block etc
 	&.block {

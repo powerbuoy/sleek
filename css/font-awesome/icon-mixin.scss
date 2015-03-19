@@ -1,0 +1,176 @@
+/**
+ * Mixins
+ */
+@mixin icon ($icon, $where) {
+	&:#{$where} {
+		// Taken directly from FontAwesome CSS
+		display: inline-block;
+		font: normal normal normal 14px/1 FontAwesome;
+		font-size: inherit;
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		transform: translate(0, 0);
+		vertical-align: middle; // Added
+
+		// Insert the icon
+		content: $icon;
+
+		// Some margin
+		@if ($where == before) {
+			margin-right: .5rem;
+		}
+		@else {
+			margin-left: .5rem;
+		}
+	}
+}
+
+@mixin icon-fixed ($where) {
+	position: relative;
+
+	&:#{$where} {
+		text-indent: 0;
+		position: absolute;
+		top: 50%;
+		margin-top: -.5rem;
+
+		@if ($where == before) {
+			left: 0;
+		}
+		@else {
+			right: 0;
+		}
+	}
+
+	// Icons inside buttons shouldnt be flush left/right
+	&.button:#{$where} {
+		@if ($where == before) {
+			left: $button-padding-side;
+		}
+		@else {
+			right: $button-padding-side;
+		}
+	}
+}
+
+@mixin icon-only {
+	font-size: 0 !important;
+	text-decoration: none !important;
+
+	&:before {
+		margin: 0;
+		font-size: $default-size;
+		line-height: inherit;
+	}
+}
+
+@mixin icon-framed {
+	&:before, 
+	&:after {
+		background: rgba(0, 0, 0, .1);
+		display: inline-block;
+		padding: 5px 6px;
+		line-height: 1;
+		border-radius: 100%;
+		box-shadow: inset 1px 1px 1px $shadow-color;
+	}
+
+	&.button:before {
+		transform: translateX(-6px);
+	}
+
+	&.button:after {
+		transform: translateX(6px);
+	}
+
+	&.button.fixed:before {
+		transform: translateY(-5px) translateX(-6px);
+	}
+
+	&.button.fixed:after {
+		transform: translateY(-5px) translateX(6px);
+	}
+}
+
+/**
+ * Classes
+ */
+// Normal icon
+[class^="icon-"], 
+[class*="icon-"] {
+	@include icon($fa-var-arrow-right, before);
+}
+
+// Small icon
+[class^="icon-"].small, 
+[class*="icon-"].small {
+	&:before, 
+	&:after {
+	    font-size: 0.8rem;
+		line-height: inherit;
+	}
+}
+
+// Large icon
+[class^="icon-"].large, 
+[class*="icon-"].large {
+	&:before, 
+	&:after {
+	    font-size: 1.3333333333333333rem;
+		line-height: .6;
+	}
+}
+
+// Icon after text
+[class^="icon-"].after, 
+[class*="icon-"].after {
+	@include icon($fa-var-arrow-right, after);
+}
+
+[class^="icon-"].after:before, 
+[class*="icon-"].after:before {
+	display: none;
+}
+
+// Icon fixed at one side
+[class^="icon-"].fixed, 
+[class*="icon-"].fixed {
+	@include icon-fixed(before);
+}
+
+[class^="icon-"].fixed.after, 
+[class*="icon-"].fixed.after {
+	@include icon-fixed(after);
+}
+
+// Before icons in left aligned buttons need some padding
+[class^="icon-"].fixed.button.left:not(.after), 
+[class*="icon-"].fixed.button.left:not(.after) {
+	padding-left: calc(#{$button-padding-side} + 2rem);
+}
+
+[class^="icon-"].fixed.after.button.right, 
+[class*="icon-"].fixed.after.button.right {
+	padding-left: $button-padding-side;
+	padding-right: calc(#{$button-padding-side} + 2rem);
+}
+
+// Show only icon
+[class^="icon-"].only, 
+[class*="icon-"].only {
+	@include icon-only;
+}
+
+// Framed icon
+[class^="icon-"].framed, 
+[class*="icon-"].framed {
+	@include icon-framed;
+}
+
+[class^="icon-"].framed.after, 
+[class*="icon-"].framed.after {
+	&:before {
+		display: none;
+	}
+}

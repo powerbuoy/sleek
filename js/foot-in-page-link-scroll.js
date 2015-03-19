@@ -1,17 +1,12 @@
 /**
  * Hooks click event's too all in page links to smoothly scroll down
  * The scrolling code is from: http://www.cssscript.com/smooth-scroll-to-animation-with-anchor-scrolling-js-library/
- *
- * TODO: Add one click event to body instead + make sure href needs to be #[a-z]+ so that JS-links ("#") aren't affected
  */
 App.plugins.InPageLinkScroll = {
 	offset: 0, 
 
 	init: function () {
-		var links = document.querySelectorAll('a[href^="#"]');
-		var i = links.length;
 		var root = /firefox|trident/i.test(navigator.userAgent) ? document.documentElement : document.body;
-
 		var easeInOutCubic = function(t, b, c, d) {
 			if ((t/=d/2) < 1) {
 				return c/2*t*t*t + b;
@@ -20,29 +15,42 @@ App.plugins.InPageLinkScroll = {
 			return c/2*((t-=2)*t*t + 2) + b;
 		};
 
-		while (i--) {
-			links.item(i).addEventListener('click', function (e) {
-				var startTime;
-				var startPos = root.scrollTop;
-				var endPos = document.getElementById(/[^#]+$/.exec(this.href)[0]).getBoundingClientRect().top;
-					endPos -= App.plugins.InPageLinkScroll.offset;
-				var maxScroll = root.scrollHeight - window.innerHeight;
-				var scrollEndValue = startPos + endPos < maxScroll ? endPos : maxScroll - startPos;
-				var duration = 900;
+		document.body.addEventListener('click', function (e) {
+			var clicked = e.target;
+			var href = clicked.tagName.toUpperCase() == 'A' ? clicked.getAttribute('href') : false;
 
-				var scroll = function (timestamp) {
-					startTime = startTime || timestamp;
+			if (!href) {
+				return;
+			}
 
-					var elapsed = timestamp - startTime;
-					var progress = easeInOutCubic(elapsed, startPos, scrollEndValue, duration);
+			var targetID = href.match(/#(.*?)$/);
 
-					root.scrollTop = progress;
-					elapsed < duration && requestAnimationFrame(scroll);
-				};   
+			if (!(targetID[1] && targetID[1].length)) {
+				return;
+			}
 
-				requestAnimationFrame(scroll);
-				e.preventDefault();
-			});
-		}
+			targetID = targetID[1];
+
+			var startTime;
+			var startPos = root.scrollTop;
+			var endPos = document.getElementById(targetID).getBoundingClientRect().top;
+				endPos -= App.plugins.InPageLinkScroll.offset;
+			var maxScroll = root.scrollHeight - window.innerHeight;
+			var scrollEndValue = startPos + endPos < maxScroll ? endPos : maxScroll - startPos;
+			var duration = 900;
+
+			var scroll = function (timestamp) {
+				startTime = startTime || timestamp;
+
+				var elapsed = timestamp - startTime;
+				var progress = easeInOutCubic(elapsed, startPos, scrollEndValue, duration);
+
+				root.scrollTop = progress;
+				elapsed < duration && requestAnimationFrame(scroll);
+			};   
+
+			requestAnimationFrame(scroll);
+			e.preventDefault();
+		});
 	}
 };

@@ -1,4 +1,9 @@
-// http://www.cssscript.com/smooth-scroll-to-animation-with-anchor-scrolling-js-library/
+/**
+ * Hooks click event's too all in page links to smoothly scroll down
+ * The scrolling code is from: http://www.cssscript.com/smooth-scroll-to-animation-with-anchor-scrolling-js-library/
+ *
+ * TODO: Add one click event to body instead + make sure href needs to be #[a-z]+ so that JS-links ("#") aren't affected
+ */
 App.plugins.InPageLinkScroll = {
 	offset: 0, 
 

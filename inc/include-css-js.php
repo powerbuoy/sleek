@@ -1,6 +1,6 @@
 <?php
 # Theme CSS/JS
-add_action('wp_enqueue_scripts', 'sleek_register_css_js');
+# add_action('wp_enqueue_scripts', 'sleek_register_css_js');
 
 function sleek_register_css_js () {
 	# jQuery

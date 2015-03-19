@@ -1,4 +1,5 @@
 <?php
+# Custom post types
 # add_action('init', 'sleek_register_post_types');
 
 # Registers custom post types (array('movies', 'directors')) and taxonomies (array('genre' => array('movies')))

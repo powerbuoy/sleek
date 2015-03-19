@@ -1,9 +1,25 @@
+/**
+ * Main JS App
+ * Add all your code to this object for it to run onload.
+ *
+ * If you want to add code that runs on every page load create
+ * a new plugin with App.plugins.MyPlugin = {init: function () {}};
+ *
+ * If you want to add code that only runs when a certain part of the page
+ * is visible, for example #recent-comments, add a new MODULE 
+ * width App.modules.RecentComments = {init: function () {}};
+ * Note that the module name HAS to correspond to the ID of the
+ * element that needs to exist. So if you have #header specific code
+ * you add it to App.modules.Header, #login-screen: App.modules.LoginScreen and so on.
+ */
 App = {
+	// Init
 	init: function() {
 		this.initPlugins();
 		this.initModules();
 	}, 
 
+	// Run every plugin's init() function
 	initPlugins: function() {
 		for (var plugin in this.plugins) {
 			if (typeof(this.plugins[plugin].init) == 'function') {
@@ -12,6 +28,9 @@ App = {
 		}
 	}, 
 
+	// Run every module that is currently on the page's init function
+	// If you dynamically add or remove modules you can manually run them
+	// with App.modules.TheModuleYouJustAdded.init();
 	initModules: function() {
 		// Run through all modules
 		for (var module in this.modules) {

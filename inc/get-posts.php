@@ -1,6 +1,9 @@
 <?php
-# Get Posts
-add_shortcode('get-posts', 'sleek_shortcode_get_posts');
+/**
+ * Get posts
+ * TODO: Write docs
+ */
+# add_shortcode('get-posts', 'sleek_shortcode_get_posts');
 
 function sleek_shortcode_get_posts ($atts) {
 	# Set some vars

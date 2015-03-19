@@ -1,13 +1,8 @@
 <?php
-add_action('init', 'sleek_register_sidebars');
+# Sidebars
+# add_action('init', 'sleek_register_sidebars');
 
-function sleek_register_sidebars () {
-	$sidebars = array(
-		'aside'		=> __('Aside', 'sleek'), 
-		'header'	=> __('Header', 'sleek'), 
-		'footer'	=> __('Footer', 'sleek')
-	);
-
+function sleek_register_sidebars ($sidebars) {
 	foreach ($sidebars as $id => $name) {
 		register_sidebar(array(
 			'name'			=> $name, 

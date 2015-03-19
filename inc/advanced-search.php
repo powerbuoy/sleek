@@ -1,15 +1,15 @@
 <?php
 # Show all post types when browsing author
-# add_filter('pre_get_posts', 'sleek_author_pre_get_posts');
+# add_filter('pre_get_posts', 'sleek_show_all_post_types_for_author');
 
-function sleek_author_pre_get_posts ($qry) {
+function sleek_show_all_post_types_for_author ($qry) {
 	if ($qry->is_main_query() and $qry->is_author) {
 		$qry->set('post_type', 'any');
 	}
 }
 
 # Allow empty search
-add_filter('request', 'sleek_allow_empty_search');
+# add_filter('request', 'sleek_allow_empty_search');
 
 function sleek_allow_empty_search ($qryVars) {
     if (isset($_GET['s']) and empty($_GET['s'])) {
@@ -19,6 +19,7 @@ function sleek_allow_empty_search ($qryVars) {
     return $qryVars;
 }
 
+# This was for a specific project, I'm keeping the code for future reference
 # http://wordpress.stackexchange.com/questions/25899/the-right-way-to-create-a-custom-search-page-for-complex-custom-post-types
 # add_filter('pre_get_posts', 'sleek_pre_get_posts');
 

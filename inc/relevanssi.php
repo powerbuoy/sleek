@@ -1,4 +1,5 @@
 <?php
+# This file isn't in use - if you use relevanssi you might find it useful
 # Allow empty search
 add_filter('request', 'sleek_allow_empty_search');
 

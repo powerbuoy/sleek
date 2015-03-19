@@ -7,7 +7,7 @@
  */
 App.plugins.InputRangeUtils = {
 	rangeLeftColor: '#06c', 
-	rangeRightColor: '#333', 
+	rangeRightColor: '#888', 
 
 	// Init
 	init: function () {

@@ -1,4 +1,7 @@
-@mixin button ($bg-color: $button-color, $fade: $button-fade, $border: false, $button-border-radius: $button-border-radius) {
+/**
+ * Mixins
+ */
+@mixin button ($bg-color, $fade, $border-radius, $border: false, $shadow: true) {
 	@include button-background($bg-color, $fade, $border);
 
 	display: inline-block;
@@ -11,11 +14,22 @@
 	color: $white-color;
 	font-weight: bold;
 	text-decoration: none;
+	text-align: center;
 	line-height: $default-line-height;
 
 	transition: box-shadow .05s ease-out, transform .05s ease-out;
 	border-radius: $button-border-radius;
-	box-shadow: 1px 1px 1px $shadow-color;
+
+	// Box shadow
+	@if ($shadow == true) {
+		box-shadow: 1px 1px 1px $shadow-color;
+	}
+	@elseif ($shadow) {
+		box-shadow: $shadow;
+	}
+	@else {
+		box-shadow: 0;
+	}
 
 	// Hover and visited (:active set byt button-background())
 	&:visited {
@@ -23,9 +37,19 @@
 	}
 
 	&:hover {
-		transform: scale(1.02);
-		box-shadow: 2px 2px 6px rgba($shadow-color, .5);
 		color: $white-color;
+		transform: scale(1.02);
+
+		// Box shadow
+		@if ($shadow == true) {
+			box-shadow: 2px 2px 6px rgba($shadow-color, .5);
+		}
+		@elseif ($shadow) {
+			box-shadow: $shadow; // TODO: So it can't be animated??
+		}
+		@else {
+			box-shadow: 0;
+		}
 	}
 }
 
@@ -61,4 +85,34 @@
 	}
 
 	text-shadow: -1px -1px 0 $btn-shadow-color;
+}
+
+/**
+ * Classes
+ */
+.button {
+	@include button($button-color, $button-fade, $button-border-radius, $button-border, $button-shadow);
+
+	// Alignment, block etc
+	&.block {
+		display: block;
+		margin-bottom: $margin;
+	}
+
+	&.left {
+		text-align: left;
+	}
+
+	&.right {
+		text-align: right;
+	}
+
+	// Different colors
+	&.secondary {
+		@include button-background($button-secondary-color, $button-fade, $button-border);
+	}
+
+	&.disabled {
+		@include button-background($button-disabled-color, $button-fade, $button-border);
+	}
 }

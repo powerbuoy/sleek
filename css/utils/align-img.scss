@@ -20,12 +20,12 @@
 
 	@if ($bp) {
 		@media #{$bp} {
-			float: left;
+			float: right;
 			margin: 0 0 $margin $margin;
 		}
 	}
 	@else {
-		float: left;
+		float: right;
 		margin: 0 0 $margin $margin;
 	}
 }

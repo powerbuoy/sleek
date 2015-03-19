@@ -11,17 +11,26 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		transform: translate(0, 0);
-		vertical-align: middle; // Added
+	//	vertical-align: middle; // Added
 
 		// Insert the icon
 		content: $icon;
 
 		// Some margin
 		@if ($where == before) {
-			margin-right: .5rem;
+			margin-right: .4rem;
 		}
 		@else {
-			margin-left: .5rem;
+			margin-left: .4rem;
+		}
+	}
+
+	&.button:not(.fixed):#{$where} {
+		@if ($where == before) {
+			margin-left: -($button-padding-side - ($button-padding-top * 2)); // TODO: Assuming there's more left padding than top
+		}
+		@else {
+			margin-right: -($button-padding-side - ($button-padding-top * 2));
 		}
 	}
 }
@@ -33,7 +42,7 @@
 		text-indent: 0;
 		position: absolute;
 		top: 50%;
-		margin-top: -.5rem;
+		transform: translateY(-50%);
 
 		@if ($where == before) {
 			left: 0;
@@ -46,11 +55,23 @@
 	// Icons inside buttons shouldnt be flush left/right
 	&.button:#{$where} {
 		@if ($where == before) {
-			left: $button-padding-side;
+			left: $button-padding-top * 2;
 		}
 		@else {
-			right: $button-padding-side;
+			right: $button-padding-top * 2;
 		}
+	}
+
+
+	&.button.left:not(.after), 
+	&.button.left:not(.after) {
+		padding-left: calc(#{$button-padding-top * 2} + 2rem);
+	}
+
+	&.after.button.right, 
+	&.after.button.right {
+		padding-left: $button-padding-side;
+		padding-right: calc(#{$button-padding-top * 2} + 2rem);
 	}
 }
 
@@ -85,11 +106,11 @@
 	}
 
 	&.button.fixed:before {
-		transform: translateY(-5px) translateX(-6px);
+		transform: translateY(-50%) translateX(-6px);
 	}
 
 	&.button.fixed:after {
-		transform: translateY(-5px) translateX(6px);
+		transform: translateY(-50%) translateX(6px);
 	}
 }
 
@@ -100,6 +121,17 @@
 [class^="icon-"], 
 [class*="icon-"] {
 	@include icon($fa-var-arrow-right, before);
+}
+
+// Icon after text
+[class^="icon-"].after, 
+[class*="icon-"].after {
+	@include icon($fa-var-arrow-right, after);
+}
+
+[class^="icon-"].after:before, 
+[class*="icon-"].after:before {
+	display: none;
 }
 
 // Small icon
@@ -122,17 +154,6 @@
 	}
 }
 
-// Icon after text
-[class^="icon-"].after, 
-[class*="icon-"].after {
-	@include icon($fa-var-arrow-right, after);
-}
-
-[class^="icon-"].after:before, 
-[class*="icon-"].after:before {
-	display: none;
-}
-
 // Icon fixed at one side
 [class^="icon-"].fixed, 
 [class*="icon-"].fixed {
@@ -142,18 +163,6 @@
 [class^="icon-"].fixed.after, 
 [class*="icon-"].fixed.after {
 	@include icon-fixed(after);
-}
-
-// Before icons in left aligned buttons need some padding
-[class^="icon-"].fixed.button.left:not(.after), 
-[class*="icon-"].fixed.button.left:not(.after) {
-	padding-left: calc(#{$button-padding-side} + 2rem);
-}
-
-[class^="icon-"].fixed.after.button.right, 
-[class*="icon-"].fixed.after.button.right {
-	padding-left: $button-padding-side;
-	padding-right: calc(#{$button-padding-side} + 2rem);
 }
 
 // Show only icon

@@ -2,7 +2,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', true);
 
-$vars = file('variables.scss');
+header('Content-type: text/plain');
+
+$vars = file('fa-variables.scss');
 
 foreach ($vars as $var) {
 	preg_match('/\$fa\-var\-(.*?): (.*?);/', $var, $matches);

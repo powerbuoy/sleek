@@ -3,6 +3,13 @@
 		border-radius: 100%;
 	}
 
+	transition: transform .2s ease-out, box-shadow .2s ease-out;
+
 	border: 10px solid $white-color;
-	box-shadow: 0 0 6px $shadow-color;
+	box-shadow: 2px 2px 8px $shadow-color;
+
+	a:hover & {
+		transform: rotate(-.4deg) scale(1.01);
+		box-shadow: 4px 4px 12px $shadow-color;
+	}
 }

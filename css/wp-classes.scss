@@ -18,7 +18,7 @@
     margin: 0 auto $margin;
 }
 
-@media #{$bp-2} {
+@media #{$bp-3} {
 	.alignright {
 		float: right;
 		margin: 0 0 $margin ($margin * 2);

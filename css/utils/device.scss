@@ -21,7 +21,7 @@
 
 	border: 1px solid $color;
 	border-width: $bt $br $bb $bl;
-	box-shadow: 0 0 0 ($bl / 4) lighten($color, 10%);
+	box-shadow: 0 0 0 ($bl / 4) lighten($color, 10%), 5px 5px 40px rgba($shadow-color, .8);
 	border-radius: #{$bt}/#{round($bt / 2)};
 
 	// Oh fuck, these won't work with overflow hidden...

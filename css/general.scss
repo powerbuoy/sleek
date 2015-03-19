@@ -283,3 +283,12 @@ img {
 	//	transform: translateX(-4px);
 	}
 }
+
+// Framed images
+img.framed {
+	@include framed(false);
+}
+
+img.framed.rounded {
+	@include framed(true);
+}

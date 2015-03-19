@@ -5,12 +5,12 @@
 	@if ($bp) {
 		@media #{$bp} {
 			float: left;
-			margin: 0 $margin $margin 0;
+			margin-right: $gutter;
 		}
 	}
 	@else {
 		float: left;
-		margin: 0 $margin $margin 0;
+		margin-right: $gutter;
 	}
 }
 
@@ -21,11 +21,11 @@
 	@if ($bp) {
 		@media #{$bp} {
 			float: right;
-			margin: 0 0 $margin $margin;
+			margin-left: $gutter;
 		}
 	}
 	@else {
 		float: right;
-		margin: 0 0 $margin $margin;
+		margin-left: $gutter;
 	}
 }

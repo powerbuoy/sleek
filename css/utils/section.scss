@@ -16,6 +16,10 @@
 		padding-left: calc(50% - #{$max-site-width / 2});
 		padding-right: calc(50% - #{$max-site-width / 2});
 	}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
 }
 
 // Version where gutter is made with borders instead

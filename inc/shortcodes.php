@@ -23,14 +23,16 @@ function sleek_allow_shortcodes_in_widgets () {
 
 function sleek_shortcode_include_module ($atts) {
 	if (!isset($atts['mod'])) {
-		return '<p><strong>[include error: Have to set mod]</strong></p>';
+		return '<p><strong>[ include error: Have to set mod ]</strong></p>';
 	}
 
-#	$include_path = TEMPLATEPATH . '/modules/' . basename($atts['mod']) . '.php';
-	$include_path = TEMPLATEPATH . '/modules/' . $atts['mod'] . '.php'; # No basename() so we can do forms/foo for example
+	$suffix			= '/modules/' . basename($atts['mod']) . '.php';
+	$suffix			= '/modules/' . $atts['mod'] . '.php';  # No basename() so we can do forms/foo for example
+	$include_path	= get_stylesheet_directory() . $suffix;
+	$include_path	= file_exists($include_path) ? $include_path : TEMPLATEPATH . $suffix;
 
 	if (!file_exists($include_path)) {
-		return '<p><strong>[include error: Module "' . $atts['mod'] . '" does not exist]</strong></p>';
+		return '<p><strong>[ include error: Module "' . $atts['mod'] . '" does not exist ]</strong></p>';
 	}
 
 	extract($atts);

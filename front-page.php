@@ -2,7 +2,7 @@
 
 <main>
 
-	<?php include TEMPLATEPATH . '/modules/post-content.php' ?>
+	<?php sleek_include_module('post-content') ?>
 
 </main>
 

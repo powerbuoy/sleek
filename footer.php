@@ -1,2 +1,2 @@
-<?php include TEMPLATEPATH . '/modules/footer.php' ?>
-<?php include TEMPLATEPATH . '/modules/foot.php' ?>
+<?php sleek_include_module('footer') ?>
+<?php sleek_include_module('foot') ?>

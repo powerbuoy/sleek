@@ -2,8 +2,8 @@
 
 <main>
 
-	<?php include TEMPLATEPATH . '/modules/post-content.php' ?>
-	<?php include TEMPLATEPATH . '/modules/sub-nav.php' ?>
+	<?php sleek_include_module('post-content') ?>
+	<?php sleek_include_module('sub-nav') ?>
 	<?php comments_template('/modules/comments.php') ?>
 
 </main>

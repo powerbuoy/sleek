@@ -2,9 +2,9 @@
 
 <main>
 
-	<?php include TEMPLATEPATH . '/modules/posts-intro.php' ?>
-	<?php include TEMPLATEPATH . '/modules/post-author.php' ?>
-	<?php include TEMPLATEPATH . '/modules/posts.php' ?>
+	<?php sleek_include_module('posts-intro') ?>
+	<?php sleek_include_module('post-author') ?>
+	<?php sleek_include_module('posts') ?>
 
 </main>
 

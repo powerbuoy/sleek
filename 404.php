@@ -2,7 +2,7 @@
 
 <main>
 
-	<?php include TEMPLATEPATH . '/modules/404.php' ?>
+	<?php sleek_include_module('404') ?>
 
 </main>
 

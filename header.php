@@ -1,2 +1,2 @@
-<?php include TEMPLATEPATH . '/modules/head.php' ?>
-<?php include TEMPLATEPATH . '/modules/header.php' ?>
+<?php sleek_include_module('head') ?>
+<?php sleek_include_module('header') ?>

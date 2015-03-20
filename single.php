@@ -2,7 +2,7 @@
 
 <main>
 
-	<?php include TEMPLATEPATH . '/modules/post.php' ?>
+	<?php sleek_include_module('post') ?>
 	<?php comments_template('/modules/comments.php') ?>
 
 </main>

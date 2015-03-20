@@ -1,12 +1,8 @@
-@mixin card-flip {
+@mixin card-flip ($hover: true) {
 	position: relative;
 	perspective: 800;
 	transform-style: preserve-3d;
 	transition: transform .2s ease-out;
-
-	&:hover {
-		transform: rotateY(-180deg);
-	}
 
 	> * {
 		backface-visibility: hidden;
@@ -22,5 +18,11 @@
 		box-sizing: border-box;
 
 		transform: rotateY(180deg);
+	}
+
+	@if ($hover) {
+		&:hover {
+			transform: rotateY(-180deg);
+		}
 	}
 }

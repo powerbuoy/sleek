@@ -203,13 +203,13 @@ table {
 	color: $link-color;
 	text-decoration: underline;
 
+	&:visited {
+	//	color: $link-color-visited;
+	}
+
 	&:hover {
 		color: $link-color-hover;
 		text-decoration: none;
-	}
-
-	&:visited {
-	//	color: $link-color-visited;
 	}
 }
 

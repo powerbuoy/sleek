@@ -1,4 +1,11 @@
 <?php
+# http://wordpress.stackexchange.com/questions/59442/how-do-i-get-the-avatar-url-instead-of-an-html-img-tag-when-using-get-avatar
+function sleek_get_avatar_url ($get_avatar) {
+	preg_match("/src='(.*?)'/i", $get_avatar, $matches);
+
+	return $matches[1];
+}
+
 function sleek_include_module ($mod) {
 	$path = get_stylesheet_directory() . '/modules/' . $mod . '.php';
 	$path = file_exists($path) ? $path : TEMPLATEPATH . '/modules/' . $mod . '.php';

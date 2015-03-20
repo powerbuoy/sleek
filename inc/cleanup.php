@@ -28,15 +28,6 @@ function sleek_add_excerpts_to_pages () {
 	add_post_type_support('page', 'excerpt');
 }
 
-# Add some fields to users
-# add_filter('user_contactmethods', 'sleek_add_user_fields');
-
-function sleek_add_user_fields ($fields) {
-	$fields['profession'] = __('Profession', 'sleek');
-
-	return $fields;
-}
-
 # Cleanup HEAD
 # From: http://www.themelab.com/2010/07/11/remove-code-wordpress-header/
 # add_action('init', 'sleek_cleanup_head');

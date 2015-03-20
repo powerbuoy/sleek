@@ -6,11 +6,13 @@ function sleek_get_avatar_url ($get_avatar) {
 	return $matches[1];
 }
 
-function sleek_get_module ($mod) {
+function sleek_get_module ($mod, $args = array()) {
 	$path = get_stylesheet_directory() . '/modules/' . $mod . '.php';
 	$path = file_exists($path) ? $path : TEMPLATEPATH . '/modules/' . $mod . '.php';
 
 	if (file_exists($path)) {
+		extract($args);
+
 		include $path;
 	}
 	else {

@@ -30,11 +30,17 @@ die('goodbye');
 	$cacheSrc = 'cache/' . $cacheSrc . '.' . $ext;
 
 	if (file_exists($cacheSrc)) {
-		# TODO: Load file directly and die
+		header('Content-type: image/jpeg');
+		imagejpeg($cacheSrc);
+		die;
 	}
 
+	# NEW IMAGEMAGICK CODE
+#	$img = new Imagick($src);
+
+	# OLD SIMPLE IMAGE CODE
 	# Get the rest of the params TODO: Add all options: https://github.com/claviska/SimpleImage
-	$blur = isset($_GET['blur']) ? $_GET['blur'] : false;
+/*	$blur = isset($_GET['blur']) ? $_GET['blur'] : false;
 
 	# Run SimpleImage
 	include 'SimpleImage.php';
@@ -52,5 +58,5 @@ die('goodbye');
 	}
 	catch (Exception $e) {
 		echo $e->getMessage();
-	}
+	} */
 ?>

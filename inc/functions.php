@@ -1,4 +1,16 @@
 <?php
+function sleek_include_module ($mod) {
+	$path = get_stylesheet_directory() . '/modules/' . $mod . '.php';
+	$path = file_exists($path) ? $path : TEMPLATEPATH . '/modules/' . $mod . '.php';
+
+	if (file_exists($path)) {
+		include $path;
+	}
+	else {
+		echo "[ No such module: $mod ]";
+	}
+}
+
 function sleek_get_neighbouring_array_element ($array, $orig, $offset) {
 	$keys = array_keys($array);
 

@@ -1,2 +1,2 @@
-<?php sleek_include_module('head') ?>
-<?php sleek_include_module('header') ?>
+<?php sleek_get_module('head') ?>
+<?php sleek_get_module('header') ?>

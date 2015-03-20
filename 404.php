@@ -2,7 +2,7 @@
 
 <main>
 
-	<?php sleek_include_module('404') ?>
+	<?php sleek_get_module('404') ?>
 
 </main>
 

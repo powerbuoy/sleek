@@ -26,6 +26,8 @@ function sleek_register_post_types ($postTypes, $taxonomies) {
 
 	# Register Taxonomies
 	foreach ($taxonomies as $taxonomy => $forPostTypes) {
+		$hierarchical = strpos($taxonomy, 'tag') !== false ? false : true;
+
 		register_taxonomy($taxonomy, $forPostTypes, array(
 			'labels'			=> array(
 				'name'			=> __(ucfirst(str_replace('_', ' ', $taxonomy)), 'sleek'), 
@@ -36,7 +38,7 @@ function sleek_register_post_types ($postTypes, $taxonomies) {
 				'slug'			=> __('url_' . $taxonomy, 'sleek')
 			), 
 			'sort'				=> true, 
-			'hierarchical'		=> true
+			'hierarchical'		=> $hierarchical
 		));
 	}
 }

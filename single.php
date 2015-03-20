@@ -2,7 +2,7 @@
 
 <main>
 
-	<?php sleek_include_module('post') ?>
+	<?php sleek_get_module('post') ?>
 	<?php comments_template('/modules/comments.php') ?>
 
 </main>

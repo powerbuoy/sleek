@@ -2,7 +2,7 @@
 
 <main>
 
-	<?php sleek_include_module('post-content') ?>
+	<?php sleek_get_module('post-content') ?>
 
 </main>
 

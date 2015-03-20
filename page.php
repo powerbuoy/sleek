@@ -2,8 +2,8 @@
 
 <main>
 
-	<?php sleek_include_module('post-content') ?>
-	<?php sleek_include_module('sub-nav') ?>
+	<?php sleek_get_module('post-content') ?>
+	<?php sleek_get_module('sub-nav') ?>
 	<?php comments_template('/modules/comments.php') ?>
 
 </main>

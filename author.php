@@ -2,9 +2,9 @@
 
 <main>
 
-	<?php sleek_include_module('posts-intro') ?>
-	<?php sleek_include_module('post-author') ?>
-	<?php sleek_include_module('posts') ?>
+	<?php sleek_get_module('posts-intro') ?>
+	<?php sleek_get_module('post-author') ?>
+	<?php sleek_get_module('posts') ?>
 
 </main>
 

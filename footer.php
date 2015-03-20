@@ -1,2 +1,2 @@
-<?php sleek_include_module('footer') ?>
-<?php sleek_include_module('foot') ?>
+<?php sleek_get_module('footer') ?>
+<?php sleek_get_module('foot') ?>

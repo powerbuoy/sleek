@@ -6,7 +6,7 @@ function sleek_get_avatar_url ($get_avatar) {
 	return $matches[1];
 }
 
-function sleek_include_module ($mod) {
+function sleek_get_module ($mod) {
 	$path = get_stylesheet_directory() . '/modules/' . $mod . '.php';
 	$path = file_exists($path) ? $path : TEMPLATEPATH . '/modules/' . $mod . '.php';
 

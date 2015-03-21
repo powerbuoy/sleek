@@ -1,10 +1,15 @@
 <?php
 	$tag2ico = array(
 		'design' => 'apple', 
-		'development' => 'terminal', 
+		'responsive' => 'crop', 
+		'rwd' => 'crop', 
+
+		'php' => 'terminal', 
+		'php' => 'file-code-o', 
 		'css' => 'css3', 
-		'sass' => 'css3', 
-		'responsive' => 'crop'
+		'sass' => 'puzzle', 
+		'sass-mixin' => 'puzzle', 
+		'html' => 'code'
 	);
 
 	global $post;

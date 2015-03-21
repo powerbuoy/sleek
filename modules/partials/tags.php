@@ -3,7 +3,8 @@
 		'design' => 'apple', 
 		'development' => 'terminal', 
 		'css' => 'css3', 
-		'sass' => 'css3'
+		'sass' => 'css3', 
+		'responsive' => 'crop'
 	);
 
 	global $post;

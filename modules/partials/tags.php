@@ -4,11 +4,18 @@
 		'responsive' => 'crop', 
 		'rwd' => 'crop', 
 
+		'wordpress' => 'wordpress', 
+		'wordpress-plugin' => 'wordpress', 
+		'font-awesome' => 'star', 
+		'geo-location' => 'globe', 
+		'map' => 'map-marker', 
+		'maps' => 'map-marker', 
+
 		'php' => 'terminal', 
 		'php' => 'file-code-o', 
 		'css' => 'css3', 
-		'sass' => 'puzzle', 
-		'sass-mixin' => 'puzzle', 
+		'sass' => 'file-code-o', 
+		'sass-mixin' => 'puzzle-piece', 
 		'html' => 'code'
 	);
 

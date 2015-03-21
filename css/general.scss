@@ -101,13 +101,6 @@ p {
 	margin: 0 0 $margin;
 }
 
-// Bigger opening paragraphs (TODO: could be annoying?)
-main > :first-child > h1:first-child + p, 
-main > :first-child > h2:first-child + p {
-	font-size: 120%;
-	font-style: italic;
-}
-
 // Lists
 ul, 
 ol {

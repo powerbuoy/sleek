@@ -65,7 +65,7 @@ function roots_nav_menu_css_class($classes, $item) {
 
   $classes = array_unique($classes);
 
-#  $classes = array_filter($classes, 'is_element_empty'); # is_element_empty() doesn't exist for me
+  $classes = array_filter($classes, 'is_element_empty');
 
   return $classes;
 }

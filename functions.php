@@ -6,6 +6,7 @@ define('XHR', (
 ));
 
 # Roots stuff
+include TEMPLATEPATH . '/inc/roots/utils.php';
 include TEMPLATEPATH . '/inc/roots/cleanup.php';
 include TEMPLATEPATH . '/inc/roots/nav.php';
 

@@ -26,7 +26,7 @@
 			<?php next_image_link() ?>
 		</nav>
 	<?php else : ?>
-		<?php include TEMPLATEPATH . '/modules/partials/nothing-found.php' ?>
+		<?php sleek_get_module('partials/nothing-found') ?>
 	<?php endif ?>
 
 </section>

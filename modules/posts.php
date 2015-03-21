@@ -8,7 +8,7 @@
 
 					<h2><a href="<?php the_permalink() ?>"><?php the_post_thumbnail('sleek-medium') ?> <?php the_title() ?></a></h2>
 
-					<?php include TEMPLATEPATH . '/modules/partials/post-pubdate.php' ?>
+					<?php sleek_get_module('partials/post-pubdate') ?>
 
 				</header>
 
@@ -17,7 +17,7 @@
 
 				<footer>
 
-					<?php include TEMPLATEPATH . '/modules/partials/post-meta.php' ?>
+					<?php sleek_get_module('partials/post-meta') ?>
 
 				</footer>
 
@@ -29,7 +29,7 @@
 			<?php next_posts_link(__('Next page', 'sleek')) ?>
 		</nav>
 	<?php else : ?>
-		<?php include TEMPLATEPATH . '/modules/partials/nothing-found.php' ?>
+		<?php sleek_get_module('partials/nothing-found') ?>
 	<?php endif ?>
 
 </section>

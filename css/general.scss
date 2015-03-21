@@ -56,14 +56,14 @@ body {
 	word-wrap: break-word;
 }
 
-// Wrapping elements (TODO: margin could be annoying?)
+// Wrapping elements
 main, 
 aside, 
 section, 
 article, 
 header, 
 footer {
-	margin: 0 0 ($margin * 2);
+	margin: 0 0 $margin;
 }
 
 // Headings

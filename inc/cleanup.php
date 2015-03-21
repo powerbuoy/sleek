@@ -1,4 +1,22 @@
 <?php
+# Remove .current_page_parent from Blog-page when viewing another archive
+# http://stackoverflow.com/questions/3269878/wordpress-custom-post-type-hierarchy-and-menu-highlighting-current-page-parent/3270171#3270171
+add_filter('nav_menu_css_class', 'sleek_unset_active_blog_class', 10, 2);
+
+function sleek_unset_active_blog_class ($cssClass, $post) {
+    if (get_post_type() != 'post') {
+        if ($post->object_id == get_option('page_for_posts')) {
+            foreach ($cssClass as $k => $v) {
+                if ($v == 'active-parent') {
+					unset($cssClass[$k]);
+				}
+            }
+        }
+    }
+
+    return $cssClass;
+}
+
 # Remove HOME from Yoast Breadcrumbs (http://wordpress.org/support/topic/how-can-i-remove-home-from-breadcrumbs)
 # add_filter('wpseo_breadcrumb_links', 'sleek_remove_home_from_breadcrumb');
 

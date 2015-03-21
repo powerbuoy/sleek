@@ -1,5 +1,7 @@
 <?php
 die('goodbye');
+	include 'SimpleImage.php';
+
 	error_reporting(E_ALL);
 	ini_set('display_errors', true);
 
@@ -30,27 +32,29 @@ die('goodbye');
 	$cacheSrc = 'cache/' . $cacheSrc . '.' . $ext;
 
 	if (file_exists($cacheSrc)) {
-		header('Content-type: image/jpeg');
-		imagejpeg($cacheSrc);
+		try {
+			$img = new abeautifulsite\SimpleImage($cacheSrc);
+
+			$img->output();
+		}
+		catch (Exception $e) {
+			echo $e->getMessage();
+		}
+
 		die;
 	}
 
-	# NEW IMAGEMAGICK CODE
-#	$img = new Imagick($src);
-
 	# OLD SIMPLE IMAGE CODE
 	# Get the rest of the params TODO: Add all options: https://github.com/claviska/SimpleImage
-/*	$blur = isset($_GET['blur']) ? $_GET['blur'] : false;
+	$blur = isset($_GET['blur']) ? $_GET['blur'] : false;
 
 	# Run SimpleImage
-	include 'SimpleImage.php';
-
 	try {
 		$img = new abeautifulsite\SimpleImage($docRoot . $src);
 
 		# TODO: Add all options
 		if ($blur > 0) {
-			
+			$img->blur('gaussian', $blur);
 		}
 
 		$img->save($cacheSrc);
@@ -58,5 +62,5 @@ die('goodbye');
 	}
 	catch (Exception $e) {
 		echo $e->getMessage();
-	} */
+	}
 ?>

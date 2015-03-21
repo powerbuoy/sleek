@@ -19,13 +19,13 @@
 			<?php sleek_get_module('partials/post-meta') ?>
 
 		</footer>
-
-		<nav id="pagination">
-			<?php previous_post_link('<span class="prev">%link</span>', '%title') ?>
-			<?php next_post_link('<span class="next">%link</span>', '%title') ?>
-		</nav>
 	<?php endwhile; else : ?>
 		<?php sleek_get_module('partials/nothing-found') ?>
 	<?php endif ?>
 
 </section>
+
+<nav id="pagination">
+	<?php previous_post_link('<span class="prev">%link</span>', '%title') ?>
+	<?php next_post_link('<span class="next">%link</span>', '%title') ?>
+</nav>

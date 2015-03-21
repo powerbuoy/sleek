@@ -20,13 +20,13 @@
 
 			<?php the_content() ?>
 		<?php endwhile ?>
-
-		<nav id="pagination">
-			<?php previous_image_link() ?>
-			<?php next_image_link() ?>
-		</nav>
 	<?php else : ?>
 		<?php sleek_get_module('partials/nothing-found') ?>
 	<?php endif ?>
 
 </section>
+
+<nav id="pagination">
+	<?php previous_image_link() ?>
+	<?php next_image_link() ?>
+</nav>

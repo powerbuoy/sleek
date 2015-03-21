@@ -251,3 +251,10 @@ img.framed {
 img.framed.rounded {
 	@include framed(true);
 }
+
+// Iframes
+iframe {
+	width: 100%;
+	height: 360px;
+	border: 0;
+}

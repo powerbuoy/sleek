@@ -7,7 +7,19 @@
 	position: relative;
 
 	margin: 0;
-	padding: ($margin * 3) ((100% - $site-width) / 2);
+	padding-top: $margin * 3;
+	padding-bottom: $margin * 3;
+
+	@include section-centering;
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+}
+
+@mixin section-centering {
+	padding-left: ((100% - $site-width) / 2);
+	padding-right: ((100% - $site-width) / 2);
 
 	@media (min-width: $max-site-width + 100) {
 		padding-left: 5%; // For non-calc-support
@@ -15,10 +27,6 @@
 
 		padding-left: calc(50% - #{$max-site-width / 2});
 		padding-right: calc(50% - #{$max-site-width / 2});
-	}
-
-	> :last-child {
-		margin-bottom: 0;
 	}
 }
 

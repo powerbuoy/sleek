@@ -1,4 +1,4 @@
-@mixin card-flip ($hover: true) {
+@mixin card-flip ($hover: true, $rotate: Y) {
 	position: relative;
 	perspective: 800;
 	transform-style: preserve-3d;
@@ -17,12 +17,12 @@
 		height: 100%;
 		box-sizing: border-box;
 
-		transform: rotateY(180deg);
+		transform: rotate#{$rotate + "(180deg)"};
 	}
 
 	@if ($hover) {
 		&:hover {
-			transform: rotateY(-180deg);
+			transform: rotate#{$rotate + "(-180deg)"};
 		}
 	}
 }

@@ -8,7 +8,7 @@
 
 	width: $width;
 	margin-right: $gutter;
-	margin-bottom: $margin; // Global $margin
+//	margin-bottom: $margin; // Global $margin
 
 	&:nth-of-type(#{$num}n) {
 		margin-right: 0;
@@ -54,9 +54,9 @@ ul[class*="cols-"] {
 	list-style: none;
 }
 
-	[class*="cols-"] > * {
+/*	[class*="cols-"] > * {
 		margin-bottom: $margin;
-	}
+	} */
 
 .cols-1-2 {
 	@media #{$bp-1-max} {

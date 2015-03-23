@@ -25,5 +25,6 @@ include TEMPLATEPATH . '/inc/advanced-search.php';
 include TEMPLATEPATH . '/inc/tinymce-styles.php';
 include TEMPLATEPATH . '/inc/get-posts.php';
 include TEMPLATEPATH . '/inc/get-posts-intro.php';
+include TEMPLATEPATH . '/inc/more-markdown.php';
 # include TEMPLATEPATH . '/inc/submit-form.php';
 # include TEMPLATEPATH . '/inc/relevanssi.php';

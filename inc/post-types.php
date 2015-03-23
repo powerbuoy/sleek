@@ -18,7 +18,7 @@ function sleek_register_post_types ($postTypes, $taxonomies) {
 			'has_archive'		=> true, 
 			'public'			=> true,
 			'supports'			=> array(
-				'title', 'editor', 'author', 'thumbnail', 'excerpt', 
+				'title', 'editor', 'author', 'thumbnail', 'excerpt', 'wpcom-markdown', 
 				'trackbacks', 'custom-fields', 'revisions', 'page-attributes'
 			)
 		));

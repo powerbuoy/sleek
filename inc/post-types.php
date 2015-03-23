@@ -20,7 +20,7 @@ function sleek_register_post_types ($postTypes, $taxonomies) {
 			'public'			=> true,
 			'supports'			=> array(
 				'title', 'editor', 'author', 'thumbnail', 'excerpt', 'wpcom-markdown', 
-				'trackbacks', 'custom-fields', 'revisions', 'page-attributes'
+				'trackbacks', 'custom-fields', 'revisions', 'page-attributes', 'comments'
 			)
 		));
 	}

@@ -6,6 +6,7 @@
 App.plugins.AddScrollClasses = {
 	init: function () {
 		var lastST = 0;
+		var lastSTns = 0; // Last scroll top (no sensitivity)
 		var sensitivity = 100;
 
 		window.addEventListener('scroll', function (e) {
@@ -22,15 +23,30 @@ App.plugins.AddScrollClasses = {
 			// Check direction
 			if (Math.abs(lastST - st) > sensitivity) {
 				if (st > lastST) {
+					document.body.classList.remove('scrolling-up-far');
+					document.body.classList.add('scrolling-down-far');
+				}
+				else {
+					document.body.classList.remove('scrolling-down-far');
+					document.body.classList.add('scrolling-up-far');
+				}
+
+				lastST = st;
+			}
+
+			if (Math.abs(lastSTns - st) > 0) {
+				if (st > lastSTns) {
 					document.body.classList.remove('scrolling-up');
+					document.body.classList.remove('scrolling-up-far');
 					document.body.classList.add('scrolling-down');
 				}
 				else {
 					document.body.classList.remove('scrolling-down');
+					document.body.classList.remove('scrolling-down-far');
 					document.body.classList.add('scrolling-up');
 				}
 
-				lastST = st;
+				lastSTns = st;
 			}
 		});
 	}

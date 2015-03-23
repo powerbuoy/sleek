@@ -25,7 +25,7 @@ App.plugins.InPageLinkScroll = {
 
 			var targetID = href.match(/#(.*?)$/);
 
-			if (!(targetID[1] && targetID[1].length)) {
+			if (!(targetID && targetID[1] && targetID[1].length)) {
 				return;
 			}
 

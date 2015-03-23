@@ -31,6 +31,7 @@ var imageZoom = function (wrap, duration) {
 			while (child.parentNode) {
 				if (isIMGLink(child.parentNode)) {
 					clicked = child.parentNode;
+
 					break;
 				}
 
@@ -47,24 +48,25 @@ var imageZoom = function (wrap, duration) {
 
 		var link			= clicked;
 		var img				= link.getElementsByTagName('img');
-			img				= img ? img[0] : false;
+			img				= img.length ? img[0] : link; // Use the link as the "img" if there is no img
 		var targetIMG		= document.createElement('img');
 			targetIMG.src	= link.getAttribute('href');
 		var targetIMGSize	= {};
+		var imgSize			= {};
 
 		document.body.appendChild(targetIMG);
 
 		// Initial styling
-		targetIMG.style.position = 'fixed';
-		targetIMG.style.transition = 'left ' + duration + ' ease-out, top ' + duration + ' ease-out, width ' + duration + ' ease-out, height ' + duration + ' ease-out, box-shadow ' + duration + ' ease-out';
+		targetIMG.style.position = 'absolute';
+		targetIMG.style.maxHeight = '90%';
+		targetIMG.style.maxWidth = '90%';
+		targetIMG.style.transition = 'all ' + duration + ' ease-out';
 
 		// Position target on top
 		var positionOnTop = function () {
-			var imgSize = img.getBoundingClientRect();
-
 			targetIMG.style.display		= 'block';
 			targetIMG.style.left		= imgSize.left + 'px';
-			targetIMG.style.top			= imgSize.top + 'px';
+			targetIMG.style.top			= document.body.scrollTop + imgSize.top + 'px';
 			targetIMG.style.width		= imgSize.width + 'px';
 			targetIMG.style.height		= imgSize.height + 'px';
 			targetIMG.style.boxShadow	= '0 0 0 rgba(0, 0, 0, .4)';
@@ -73,17 +75,19 @@ var imageZoom = function (wrap, duration) {
 		// Position target center
 		var positionCenter = function () {
 			var winSize = getWinSize();
+			var newTargetIMGSize = {width: targetIMGSize.width, height: targetIMGSize.height};
 
 			targetIMG.style.display		= 'block';
-			targetIMG.style.left		= (winSize.width - targetIMGSize.width) / 2 + 'px';
-			targetIMG.style.top			= (winSize.height - targetIMGSize.height) / 2 + 'px';
-			targetIMG.style.width		= targetIMGSize.width + 'px';
-			targetIMG.style.height		= targetIMGSize.height + 'px';
+			targetIMG.style.left		= (winSize.width - newTargetIMGSize.width) / 2 + 'px';
+			targetIMG.style.top			= document.body.scrollTop + (winSize.height - newTargetIMGSize.height) / 2 + 'px';
+			targetIMG.style.width		= newTargetIMGSize.width + 'px';
+			targetIMG.style.height		= newTargetIMGSize.height + 'px';
 			targetIMG.style.boxShadow	= '0 0 60px rgba(0, 0, 0, .4)';
 		};
 
 		// When target has loaded
 		var goOn = function () {
+			imgSize = img.getBoundingClientRect();
 			targetIMGSize = targetIMG.getBoundingClientRect();
 
 			positionOnTop();
@@ -92,7 +96,7 @@ var imageZoom = function (wrap, duration) {
 
 			setTimeout(function () {
 				positionCenter();
-			}, 100);
+			}, 50);
 		};
 
 		// Check if already cached (load does not trigger in IE)
@@ -112,7 +116,7 @@ var imageZoom = function (wrap, duration) {
 			setTimeout(function () {
 				img.style.visibility = 'visible';
 				targetIMG.style.display = 'none';
-			}, 100);
+			}, 50);
 		});
 	});
 };

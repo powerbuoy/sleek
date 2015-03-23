@@ -5,12 +5,13 @@
 # Registers custom post types (array('movies', 'directors')) and taxonomies (array('genre' => array('movies')))
 function sleek_register_post_types ($postTypes, $taxonomies) {
 	# Register Post Types
-	foreach ($postTypes as $postType) {
+	foreach ($postTypes as $postType => $description) {
 		register_post_type($postType, array(
 			'labels'			=> array(
 				'name'			=> __(ucfirst($postType), 'sleek'),
 				'singular_label'=> __(ucfirst($postType), 'sleek')
 			), 
+			'description'		=> $description, 
 			'rewrite'			=> array(
 				'with_front'	=> false, 
 				'slug'			=> __('url_' . $postType, 'sleek')

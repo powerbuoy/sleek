@@ -25,12 +25,14 @@
 		}
 	}
 
-	&.button:not(.fixed):#{$where} {
+	&.button:not(.fixed):not(.only):#{$where} {
 		@if ($where == before) {
 			margin-left: -($button-padding-side - ($button-padding-top * 2)); // TODO: Assuming there's more left padding than top
+			margin-right: .5rem;
 		}
 		@else {
 			margin-right: -($button-padding-side - ($button-padding-top * 2));
+			margin-left: .5rem;
 		}
 	}
 }

@@ -71,14 +71,10 @@ function sleek_get_posts_intro () {
 		$title = sprintf(__('Yearly archives <strong>%s</strong>', 'sleek'), get_the_time('Y'));
 	}
 	elseif (is_post_type_archive()) {
-		ob_start();
-		post_type_archive_title();
+		$postType = get_post_type_object($wp_query->query['post_type']);
 
-		$title = ob_get_contents();
-
-		ob_end_clean();
-
-		$title = __($title, 'sleek');
+		$title = $postType->labels->name;
+		$content = '<p>' . nl2br($postType->description) . '</p>';
 	}
 	else {
 		$title = __('Posts', 'sleek');

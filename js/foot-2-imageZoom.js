@@ -57,10 +57,11 @@ var imageZoom = function (wrap, duration) {
 		document.body.appendChild(targetIMG);
 
 		// Initial styling
-		targetIMG.style.position = 'absolute';
-		targetIMG.style.maxHeight = '90%';
-		targetIMG.style.maxWidth = '90%';
-		targetIMG.style.transition = 'all ' + duration + ' ease-out';
+		targetIMG.style.position	= 'absolute';
+		targetIMG.style.zIndex		= '99';
+		targetIMG.style.maxHeight	= '90%';
+		targetIMG.style.maxWidth	= '90%';
+		targetIMG.style.transition	= 'all ' + duration + ' ease-out';
 
 		// Position target on top
 		var positionOnTop = function () {

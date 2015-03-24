@@ -45,18 +45,18 @@
 	}
 }
 
-/* @mixin device ($src, $render-width, $width, $height, $offset-top, $offset-right, $offset-bottom, $offset-left) {
-	$ratio: $render-width / $width;
-	$border-top-width: strip-units($offset-top / 100) * $height * $ratio;
-	$border-right-width: strip-units($offset-right / 100) * $width * $ratio;
-	$border-bottom-width: strip-units($offset-bottom / 100) * $height * $ratio;
-	$border-left-width: strip-units($offset-left / 100) * $width * $ratio;
-
-	border-image: url($src) $offset-top $offset-right $offset-bottom $offset-left;
-	border-width: #{$border-top-width}px #{$border-right-width}px #{$border-bottom-width}px #{$border-left-width}px;
-
-	width: #{$render-width - $border-left-width - $border-right-width}px;
-	height: #{$height * $ratio - $border-top-width - $border-bottom-width}px;
-
-	overflow: hidden;
-} */
+//@mixin device ($src, $render-width, $width, $height, $offset-top, $offset-right, $offset-bottom, $offset-left) {
+//	$ratio: $render-width / $width;
+//	$border-top-width: strip-units($offset-top / 100) * $height * $ratio;
+//	$border-right-width: strip-units($offset-right / 100) * $width * $ratio;
+//	$border-bottom-width: strip-units($offset-bottom / 100) * $height * $ratio;
+//	$border-left-width: strip-units($offset-left / 100) * $width * $ratio;
+//
+//	border-image: url($src) $offset-top $offset-right $offset-bottom $offset-left;
+//	border-width: #{$border-top-width}px #{$border-right-width}px #{$border-bottom-width}px #{$border-left-width}px;
+//
+//	width: #{$render-width - $border-left-width - $border-right-width}px;
+//	height: #{$height * $ratio - $border-top-width - $border-bottom-width}px;
+//
+//	overflow: hidden;
+//}

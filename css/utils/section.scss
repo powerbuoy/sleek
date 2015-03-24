@@ -17,6 +17,11 @@
 	}
 }
 
+@mixin unsection {
+	background: trasparent;
+	padding: 0;
+}
+
 @mixin section-centering {
 	padding-left: ((100% - $site-width) / 2);
 	padding-right: ((100% - $site-width) / 2);

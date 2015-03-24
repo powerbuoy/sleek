@@ -12,7 +12,7 @@
 	$htmlClasses .= ' lang-' . get_locale();
 ?>
 
-<html id="<?php echo $htmlID ?>" <?php language_attributes() ?>class="<?php echo $htmlClasses ?> no-js">
+<html id="<?php echo $htmlID ?>" <?php language_attributes() ?> class="<?php echo $htmlClasses ?> no-js">
 	
 	<head>
 

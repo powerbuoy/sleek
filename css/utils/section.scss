@@ -30,10 +30,36 @@
 	}
 }
 
-// Version where gutter is made with borders instead
-/* @mixin section ($bg: transparent) {
-	padding: ($margin * 2) 0;
+@mixin section-right {
+	right: 5%;
 
+	@media (min-width: $max-site-width + 100) {
+		right: 5%;
+		right: calc(50% - #{$max-site-width / 2});
+	}
+}
+
+@mixin section-left {
+	left: 5%;
+
+	@media (min-width: $max-site-width + 100) {
+		left: 5%;
+		left: calc(50% - #{$max-site-width / 2});
+	}
+}
+
+@mixin section-bottom {
+	bottom: $margin * 3;
+}
+
+@mixin section-top {
+	top: $margin * 3;
+}
+
+// Version where gutter is made with borders instead
+@mixin section-border-centering {
+	padding-left: 0;
+	padding-right: 0;
 	border-left: #{strip-units((100% - $site-width) / 2)}vw solid transparent;
 	border-right: #{strip-units((100% - $site-width) / 2)}vw solid transparent;
 
@@ -41,4 +67,4 @@
 		border-left-width: calc(50vw - #{$max-site-width / 2});
 		border-right-width: calc(50vw - #{$max-site-width / 2});
 	}
-} */
+}

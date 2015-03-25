@@ -11,14 +11,72 @@ App.plugins.AjaxForm = {
 		var self = this;
 
 		form.addEventListener('submit', function (e) {
+			var form = this;
+
 			e.preventDefault();
 
+			// Remove error/success classes - set loading
+			form.classList.remove('error');
+			form.classList.remove('success');
+			form.classList.add('loading');
+
+			// Remove potential old message
+			var oldMessage = form.parentNode.querySelector('p.form-message');
+
+			if (oldMessage) {
+				oldMessage.parentNode.removeChild(oldMessage);
+			} else console.dir(oldMessage);
+
+			// Remove potential old error messsages
+			var errorMessages = form.querySelectorAll('strong');
+
+			for (var i = 0; i < errorMessages.length; i++) {
+				errorMessages[i].parentNode.removeChild(errorMessages[i]);
+			}
+
 			self.ajax({
-				method: this.method, 
-				url: this.action, 
-				data: self.serialize(this), 
-				callback: function (data) {
-					console.log(data);
+				method:		form.method, 
+				url:		form.action, 
+				data:		self.serialize(form), 
+				callback:	function (data) {
+					var data = JSON.parse(data);
+
+					form.classList.remove('loading');
+
+					// Success! Do cool stuff
+					if (data.success) {
+						form.classList.add('success');
+					}
+					// The backend returned an error
+					else {
+						form.classList.add('error');
+					}
+
+					// The backend returned a message - display it
+					if (data.msg && data.msg.length) {
+						var newMessage = document.createElement('p');
+
+						newMessage.classList.add('form-message');
+						newMessage.innerHTML = data.msg;
+
+						form.parentNode.insertBefore(newMessage, form);
+
+						form.reset();
+					}
+
+					// The backend returned errors - display them
+					if (data.errors) {
+						for (var fieldName in data.errors) {
+							var strong = document.createElement('strong');
+							var field = form.querySelector('[name="' + fieldName + '"]');
+
+							strong.innerHTML = data.errors[fieldName];
+
+							if (field) {
+								field.parentNode.insertBefore(strong, field.nextSibling);
+							}
+						}
+					}
 				}
 			});
 		});

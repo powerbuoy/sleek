@@ -22,16 +22,19 @@
 	padding: 0;
 }
 
-@mixin section-centering {
+@mixin section-centering ($offset: 0px) {
 	padding-left: ((100% - $site-width) / 2);
 	padding-right: ((100% - $site-width) / 2);
 
-	@media (min-width: $max-site-width + 100) {
-		padding-left: 5%; // For non-calc-support
-		padding-right: 5%; // For non-calc-support
+	padding-left: calc(((100% - $site-width) / 2) + #{$offset});
+	padding-right: calc(((100% - $site-width) / 2) + #{$offset});
 
-		padding-left: calc(50% - #{$max-site-width / 2});
-		padding-right: calc(50% - #{$max-site-width / 2});
+	@media (min-width: $max-site-width + 100) {
+		padding-left: ((100% - $site-width) / 2); // For non-calc-support
+		padding-right: ((100% - $site-width) / 2); // For non-calc-support
+
+		padding-left: calc(50% - #{$max-site-width / 2} + #{$offset});
+		padding-right: calc(50% - #{$max-site-width / 2} + #{$offset});
 	}
 }
 

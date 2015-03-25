@@ -26,6 +26,8 @@ App.plugins.InputRangeUtils = {
 				var label	= document.querySelector('label[for="' + input.id + '"]');
 				var prefix	= input.getAttribute('data-value-prefix') ? input.getAttribute('data-value-prefix') : '';
 				var suffix	= input.getAttribute('data-value-suffix') ? input.getAttribute('data-value-suffix') : '';
+				var minTxt	= input.getAttribute('data-min-text') ? input.getAttribute('data-min-text') : false;
+				var maxTxt	= input.getAttribute('data-max-text') ? input.getAttribute('data-max-text') : false;
 				var value	= document.createElement('span');
 
 				value.classList.add('value');
@@ -33,8 +35,12 @@ App.plugins.InputRangeUtils = {
 
 				var updateValue = function () {
 					var niceVal = typeof(number_format) == 'undefined' ? input.value : number_format(input.value, 0, ',', ' ');
+						niceVal	= prefix + niceVal + suffix;
 
-					value.innerHTML = prefix + niceVal + suffix;
+					niceVal = (input.value == input.getAttribute('max') && maxTxt) ? maxTxt : niceVal;
+					niceVal = (input.value == input.getAttribute('min') && minTxt) ? minTxt : niceVal;
+
+					value.innerHTML = niceVal;
 				};
 
 				updateValue();

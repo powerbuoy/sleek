@@ -31,13 +31,18 @@ var LiveSearch = function (input, url, appendTo) {
 			}
 
 			this.liveSearchTimer = setTimeout(function () {
-				SimpleAjax({
-					method: 'get', 
-					url: url + q, 
-					callback: function (data) {
-						console.dir(data);
-					}
-				});
+				if (q) {
+					SimpleAjax({
+						method: 'get', 
+						url: url + q, 
+						callback: function (data) {
+							container.innerHTML = data;
+						}
+					});
+				}
+				else {
+					container.innerHTML = '';
+				}
 			}, 200);
 
 			this.liveSearchLastValue = this.value;

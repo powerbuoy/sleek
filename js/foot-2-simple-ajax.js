@@ -30,7 +30,7 @@ var SimpleAjax = function (conf, updateID) {
 		xhr.send(config.data);
 	}
 	else {
-		xhr.open('GET', config.url + '?' + config.data, true);
+		xhr.open('GET', config.url + (config.data ? '?' + config.data : ''), true);
 		xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 		xhr.onreadystatechange = onReadyStateChange;
 		xhr.send(null);

@@ -34,7 +34,7 @@ form {
 	}
 
 	// Error messages
-	strong {
+	strong.error {
 		display: block;
 		color: $error-color;
 	}

@@ -28,7 +28,7 @@ App.plugins.AjaxForm = {
 			}
 
 			// Remove potential old error messsages
-			var errorMessages = form.querySelectorAll('strong');
+			var errorMessages = form.querySelectorAll('strong.error');
 
 			for (var i = 0; i < errorMessages.length; i++) {
 				errorMessages[i].parentNode.removeChild(errorMessages[i]);
@@ -41,6 +41,7 @@ App.plugins.AjaxForm = {
 				if (!grecaptcha.getResponse(captcha.getAttribute('captcha-data-widget-id'))) {
 					var errorMsg = document.createElement('strong');
 
+					errorMsg.classList.add('error');
 					errorMsg.innerHTML = 'Please verify that you are human';
 
 					captcha.appendChild(errorMsg);
@@ -62,6 +63,7 @@ App.plugins.AjaxForm = {
 					// Success! Do cool stuff
 					if (data.success) {
 						form.classList.add('success');
+						form.reset();
 					}
 					// The backend returned an error
 					else {
@@ -76,8 +78,6 @@ App.plugins.AjaxForm = {
 						newMessage.innerHTML = data.msg;
 
 						form.parentNode.insertBefore(newMessage, form);
-
-						form.reset();
 					}
 
 					// The backend returned errors - display them
@@ -86,6 +86,7 @@ App.plugins.AjaxForm = {
 							var strong = document.createElement('strong');
 							var field = form.querySelector('[name="' + fieldName + '"]');
 
+							strong.classList.add('error');
 							strong.innerHTML = data.errors[fieldName];
 
 							if (field) {

@@ -3,7 +3,7 @@ ApppluginsCaptchasrender = function () {
 
 	for (var i = 0; i < captchas.length; i++) {
 		var widgetID = grecaptcha.render(captchas[i], {
-			sitekey: '6Ld0FQQTAAAAADAb-WQKUveGUHFP6IAYjuIWthBv'
+			sitekey: '6Ld0FQQTAAAAADAb-WQKUveGUHFP6IAYjuIWthBv' // TODO: Move to config
 		});
 
 		captchas[i].setAttribute('data-captcha-widget-id', widgetID);

@@ -38,7 +38,7 @@ App.plugins.AjaxForm = {
 			var captcha = document.querySelector('div.captcha');
 
 			if (captcha && typeof(grecaptcha) != 'undefined') {
-				if (!grecaptcha.getResponse(captcha.getAttribute('captcha-data-widget-id'))) {
+				if (!grecaptcha.getResponse(captcha.getAttribute('data-captcha-widget-id'))) {
 					var errorMsg = document.createElement('strong');
 
 					errorMsg.classList.add('error');
@@ -65,9 +65,13 @@ App.plugins.AjaxForm = {
 						form.classList.add('success');
 						form.reset();
 					}
-					// The backend returned an error
+					// The backend did not return success
 					else {
 						form.classList.add('error');
+
+						if (captcha && typeof(grecaptcha) != 'undefined') {
+							grecaptcha.reset(captcha.getAttribute('data-captcha-widget-id'));
+						}
 					}
 
 					// The backend returned a message - display it

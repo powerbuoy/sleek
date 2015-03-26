@@ -1,6 +1,6 @@
 		<?php wp_footer() ?>
 
-		<script>App.init()</script>
+		<?php # <script>App.init()</script> ?>
 
 	</body>
 

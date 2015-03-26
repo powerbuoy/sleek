@@ -51,7 +51,7 @@ App.plugins.AjaxForm = {
 			}
 
 			// AJAX the form away
-			self.ajax({
+			SimpleAjax({
 				method:		form.method, 
 				url:		form.action, 
 				data:		self.serialize(form), 
@@ -102,46 +102,6 @@ App.plugins.AjaxForm = {
 			});
 		});
 	}, 
-
-	// Or maybe : https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest/Using_XMLHttpRequest
-	ajax: function (conf, updateID) {
-		// Create config
-		var config = {
-			method:		conf.method || 'get', 
-			url:		conf.url, 
-			data:		conf.data || '', 
-			callback:	conf.callback || function (data) {
-				if (updateID) {
-					document.getElementById(updateID).innerHTML = data;
-				}
-			}
-		};
-
-		// Create ajax request object
-		var xhr = new XMLHttpRequest();
-
-		// This runs when request is complete
-		var onReadyStateChange = function () {
-			if (xhr.readyState == 4) {
-				config.callback(xhr.responseText);
-			}
-		};
-
-		// Send the request
-		if (config.method.toUpperCase() == 'POST') {
-			xhr.open('POST', config.url, true);
-			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-			xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-			xhr.onreadystatechange = onReadyStateChange;
-			xhr.send(config.data);
-		}
-		else {
-			xhr.open('GET', config.url + '?' + config.data, true);
-			xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-			xhr.onreadystatechange = onReadyStateChange;
-			xhr.send(null);
-		}
-	},
 
 	// https://code.google.com/p/form-serialize/
 	serialize: function (form) {

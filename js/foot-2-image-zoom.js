@@ -1,4 +1,4 @@
-var imageZoom = function (wrap, duration) {
+var ImageZoom = function (wrap, duration) {
 	var wrap		= wrap || document.body;
 	var duration	= duration || '.1s';
 

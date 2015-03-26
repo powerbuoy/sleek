@@ -44,7 +44,7 @@ App.plugins.AjaxForm = {
 					errorMsg.classList.add('error');
 					errorMsg.innerHTML = 'Please verify that you are human';
 
-					captcha.appendChild(errorMsg);
+					captcha.parentNode.appendChild(errorMsg);
 
 					return;
 				}
@@ -84,7 +84,7 @@ App.plugins.AjaxForm = {
 					if (data.errors) {
 						for (var fieldName in data.errors) {
 							var strong = document.createElement('strong');
-							var field = form.querySelector('[name="' + fieldName + '"]');
+							var field = fieldName == 'captcha' ? form.querySelector('div.captcha') : form.querySelector('[name="' + fieldName + '"]');
 
 							strong.classList.add('error');
 							strong.innerHTML = data.errors[fieldName];

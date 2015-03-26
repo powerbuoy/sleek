@@ -4,7 +4,7 @@ class Form {
 	private $method;
 	private $action;
 	private $id;
-	private $classes;
+	private $cssClass;
 
 	public $fields;
 	public $errors;
@@ -26,7 +26,7 @@ class Form {
 	public function __construct ($name) {
 		$this->name				= $name;
 		$this->id				= str_replace('_', '-', $name) . '-form';
-		$this->classes			= false;
+		$this->cssClass			= false;
 		$this->hasFiles			= false;
 		$this->hasSubmit		= false;
 		$this->hiddenFields		= array();
@@ -198,7 +198,7 @@ class Form {
 				. ' id="' 
 				. $this->id 
 				. '"' 
-				. ($this->classes ? ' class="' . $this->classes . '"' : '') 
+				. ($this->cssClass ? ' class="' . $this->cssClass . '"' : '') 
 				. '>' 
 				. $html 
 				. ($this->hasSubmit ? implode('', $this->hiddenFields) : $this->buildSubmitHTML(implode('', $this->hiddenFields)))
@@ -487,14 +487,14 @@ class Form {
 		return $this->action;
 	}
 
-	public function classes ($v = false) {
+	public function cssClass ($v = false) {
 		if ($v !== false) {
-			$this->classes = $v;
+			$this->cssClass = $v;
 
 			return $this;
 		}
 
-		return $this->classes;
+		return $this->cssClass;
 	}
 
 	public function wrapEl ($v = false) {

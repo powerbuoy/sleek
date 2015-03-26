@@ -39,6 +39,30 @@ function sleek_register_css_js_admin () {
 	wp_enqueue_style('sleek_admin');
 }
 
+add_action('wp_head', 'sleek_add_js_class');
+
+function sleek_add_js_class () {
+	echo "<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>";
+}
+
+add_action('wp_head', 'sleek_add_config_vars');
+
+function sleek_add_config_vars () {
+	echo '<script>';
+
+	echo 'AJAX_URL = "' . admin_url('admin-ajax.php') . '";';
+
+	if (defined('RECAPTCHA_SITE_KEY')) {
+		echo 'RECAPTCHA_SITE_KEY = "' . RECAPTCHA_SITE_KEY . '";';
+	}
+
+#	if (defined('RECAPTCHA_SECRET')) {
+#		echo 'RECAPTCHA_SECRET = "' . RECAPTCHA_SECRET . '"';
+#	}
+
+	echo '</script>';
+}
+
 # Upgrade Browser Script
 # add_action('wp_head', 'sleek_register_browser_update_js');
 

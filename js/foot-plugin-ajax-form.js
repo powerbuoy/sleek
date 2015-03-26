@@ -37,7 +37,7 @@ App.plugins.AjaxForm = {
 			// Check potential captcha
 			var captcha = document.querySelector('div.captcha');
 
-			if (captcha) {
+			if (captcha && typeof(grecaptcha) != 'undefined') {
 				if (!grecaptcha.getResponse(captcha.getAttribute('captcha-data-widget-id'))) {
 					var errorMsg = document.createElement('strong');
 

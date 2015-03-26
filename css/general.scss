@@ -121,6 +121,19 @@ dl {
 	}
 
 // Quotes
+q, 
+blockquote {
+	quotes: "“" "”" "‘" "’";
+}
+
+q:before {
+	content: open-quote;
+}
+
+q:after {
+	content: close-quote;
+}
+
 blockquote {
 	margin: 0 0 $margin ($margin * 2);
 
@@ -141,11 +154,11 @@ blockquote {
 	& > :first-child:before, 
 	& > :last-child:after {
 		font-weight: bolder;
-		content: open-quote; // "\201C";
+		content: open-quote;
 	}
 
 	& > :last-child:after {
-		content: close-quote; // "\201D";
+		content: close-quote;
 	}
 }
 

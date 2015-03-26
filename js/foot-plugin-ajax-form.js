@@ -25,7 +25,7 @@ App.plugins.AjaxForm = {
 
 			if (oldMessage) {
 				oldMessage.parentNode.removeChild(oldMessage);
-			} else console.dir(oldMessage);
+			}
 
 			// Remove potential old error messsages
 			var errorMessages = form.querySelectorAll('strong');
@@ -34,6 +34,22 @@ App.plugins.AjaxForm = {
 				errorMessages[i].parentNode.removeChild(errorMessages[i]);
 			}
 
+			// Check potential captcha
+			var captcha = document.querySelector('div.captcha');
+
+			if (captcha) {
+				if (!grecaptcha.getResponse(captcha.getAttribute('captcha-data-widget-id'))) {
+					var errorMsg = document.createElement('strong');
+
+					errorMsg.innerHTML = 'Please verify that you are human';
+
+					captcha.appendChild(errorMsg);
+
+					return;
+				}
+			}
+
+			// AJAX the form away
 			self.ajax({
 				method:		form.method, 
 				url:		form.action, 

@@ -77,6 +77,11 @@ form {
 	button {
 		@include button($button-color, $button-fade, $button-border-radius, $button-border, $button-shadow, $button-padding-top, $button-padding-side);
 	}
+
+	// Captchas
+	div.captcha {
+		margin: 0 0 $margin;
+	}
 }
 
 // Range (http://codepen.io/aronwoost/pen/nlyrf)

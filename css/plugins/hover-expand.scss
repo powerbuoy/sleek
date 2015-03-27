@@ -1,0 +1,26 @@
+pre.hover-expand {
+	position: relative;
+	z-index: 1;
+
+	min-width: calc(100% - 42px); // HACK: 42px == border/padding
+	max-width: calc(100% - 42px);
+
+	padding: $margin;
+	border: 1px solid $border-color;
+
+	box-shadow: 0 0 0 $shadow-color;
+	overflow-x: scroll;
+
+	transition: all .2s ease-out;
+
+	&:hover {
+		box-shadow: 4px 4px 12px $shadow-color;
+		transform: scale(1.02);
+	}
+}
+
+@media #{$bp-3} {
+	pre.hover-expand:hover {
+		max-width: 200%;
+	}
+}

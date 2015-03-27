@@ -7,13 +7,11 @@
 
 		<?php if (have_comments()) : ?>
 			<h2>
-				<?php
-					comments_number(
-						sprintf(__('No comments on "%s"', 'sleek'), get_the_title()), 
-						sprintf(__('One comment on "%s"', 'sleek'), get_the_title()), 
-						sprintf(__('%% comments on "%s"', 'sleek'), get_the_title())
-					)
-				?> 
+				<?php comments_number(
+					sprintf(__('No comments on "%s"', 'sleek'), get_the_title()), 
+					sprintf(__('One comment on "%s"', 'sleek'), get_the_title()), 
+					sprintf(__('%% comments on "%s"', 'sleek'), get_the_title())
+				)?> 
 			</h2>
 
 			<ol>

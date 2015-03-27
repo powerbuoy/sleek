@@ -9,7 +9,7 @@
 	else					$htmlID = 'unknown-page';
 ?>
 
-<html id="<?php echo $htmlID ?>" <?php language_attributes() ?> class="<?php echo $htmlClasses ?> no-js">
+<html id="<?php echo $htmlID ?>" <?php language_attributes() ?> class="no-js">
 	
 	<head>
 

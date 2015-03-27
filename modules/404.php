@@ -51,11 +51,11 @@
 	<?php if (!$referrer) : ?>
 		<p><?php _e("It seems you arrived directly at this page, maybe it's because of:", 'sleek') ?></p>
 
-		<ol>
+		<ul>
 			<li><?php _e('An <strong>out-of-date bookmark</strong>', 'sleek') ?></li>
 			<li><?php _e('A search engine that has an <strong>out-of-date listing</strong> for us', 'sleek') ?></li>
 			<li><?php _e('A <strong>miss-typed address</strong>', 'sleek') ?></li>
-		</ol>
+		</ul>
 	<?php elseif ($internalRef) : ?>
 		<p><?php _e('Woops! Looks like one of our internal links are out-of-date. <strong>Sincerly sorry</strong> about that! :)', 'sleek') ?></p>
 	<?php elseif ($searchRef) : ?>

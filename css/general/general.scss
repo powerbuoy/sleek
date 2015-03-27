@@ -221,8 +221,7 @@ a {
 // Small and other inline elements
 @mixin small {
 	display: inline-block;
-	line-height: $default-line-height * .9;
-	font-size: 80%;
+	font-size: $default-size * .8;
 	color: $gray-color;
 
 	a {

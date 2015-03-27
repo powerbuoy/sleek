@@ -21,13 +21,13 @@
 }
 
 /**
- * @inner-section
+ * @section-inner
  *
  * Creates a section within a section, so you can have an article as section, and article header as an inner section for example
  *
  * @param	string	$align: top/bottom; if you want to pull it up towards to top or down towards the bottom
  */
-@mixin inner-section ($align: false) {
+@mixin section-inner ($align: false) {
 	// We're so clever
 	box-sizing: border-box;
 	width: 100vw; // GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH Why does Chromes count the fucking scrollbar!=? - OK, all browsers except FF seem to do that (stoopid) but we can set body overflow-x hidden so... (https://bugzilla.mozilla.org/show_bug.cgi?id=811403)

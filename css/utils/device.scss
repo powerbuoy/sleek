@@ -5,8 +5,9 @@
  *
  * @param	unit	$width: the width of the device
  * @param	color	$color: color of the device
+ * @param	bool	$h: whether to set height (if used on an img height should be auto)
  */
-@mixin device ($width, $color: #222) {
+@mixin device ($width, $color: #222, $h: true) {
 	$orig-w: 300;
 	$orig-h: 530;
 	$orig-bt: 60;
@@ -23,7 +24,10 @@
 	position: relative;
 
 	width: $width;
-	height: $height;
+
+	@if ($h) {
+		height: $height;
+	}
 
 	overflow: hidden;
 

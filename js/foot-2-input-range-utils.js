@@ -7,9 +7,9 @@
  */
 var InputRangeUtils = {
 	// Init
-	init: function (leftColor, rightColor) {
+	init: function () {
 		this.values();
-		this.colors(leftColor || '#06c', rightColor || '#888');
+		this.colors();
 	}, 
 
 	// Appends a span to the label containing the value of the range input
@@ -50,7 +50,8 @@ var InputRangeUtils = {
 
 	// Gives the left and right side of the input different colors (done with CSS for IE11)
 	colors: function (leftColor, rightColor) {
-		var self = this;
+		var leftColor = leftColor || '#06c';
+		var rightColor = rightColor || '#888';
 		var inputs = document.querySelectorAll('input[type=range]');
 
 		for (var i = 0; i < inputs.length; i++) {

@@ -3,10 +3,8 @@
  * The scrolling code is from: http://www.cssscript.com/smooth-scroll-to-animation-with-anchor-scrolling-js-library/
  */
 var SmoothScrolling = {
-	offset: 0, 
-
 	init: function (offset) {
-		this.offset = offset || 0;
+		var offset = offset || 0;
 
 		var root = /firefox|trident/i.test(navigator.userAgent) ? document.documentElement : document.body;
 		var easeInOutCubic = function(t, b, c, d) {
@@ -36,7 +34,7 @@ var SmoothScrolling = {
 			var startTime;
 			var startPos = root.scrollTop;
 			var endPos = document.getElementById(targetID).getBoundingClientRect().top;
-				endPos -= App.plugins.InPageLinkScroll.offset;
+				endPos -= offset;
 			var maxScroll = root.scrollHeight - window.innerHeight;
 			var scrollEndValue = startPos + endPos < maxScroll ? endPos : maxScroll - startPos;
 			var duration = 900;

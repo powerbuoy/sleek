@@ -75,7 +75,7 @@ form {
 	// Buttons
 	input[type=submit], 
 	button {
-		@include button($button-color, $button-fade, $button-border-radius, $button-border, $button-shadow, $button-padding-top, $button-padding-side);
+		@include button;
 	}
 
 	// Captchas

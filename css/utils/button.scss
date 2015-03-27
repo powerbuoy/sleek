@@ -1,8 +1,26 @@
 /**
- * Mixins
+ * @button
+ *
+ * Creates a button
+ *
+ * @param	color		$color: the background-color of the button, also used for border color, gradient and text-shadow if set
+ * @param	percent		$fade: the amount of fade/gradient the button should have
+ * @param	unit		$border-radius: the amount of border radius
+ * @param	border		$border: a border declaration like "1px dashed red" OR "true" in which case a default border based on $color will be used
+ * @param	shadow		$shadow: a box-shadow declaration like "1px 1px 2px black" OR "true" in which case a default box-shadow will be used
+ * @param	unit		$padding-vertical: top and bottom padding
+ * @param	unit		$padding-horizontal: left and right padding
  */
-@mixin button ($bg-color, $fade, $border-radius, $border: false, $shadow: true, $padding-top: .8rem, $padding-side: 2.6rem) {
-	@include button-background($bg-color, $fade, $border);
+@mixin button (
+	$color: $button-color, 
+	$fade: $button-fade, 
+	$border-radius: $button-border-radius, 
+	$border: $button-border, 
+	$shadow: $button-shadow, 
+	$padding-vertical: $button-padding-vertical, 
+	$padding-horizontal: $button-padding-horizontal
+) {
+	@include button-background($color, $fade, $border);
 
 	display: inline-block;
 	vertical-align: middle;
@@ -10,7 +28,7 @@
 	box-sizing: border-box;
 
 	margin: 0;
-	padding: $padding-top $padding-side;
+	padding: $padding-vertical $padding-horizontal;
 
 	font-size: $default-size;
 	color: $white-color;
@@ -19,7 +37,7 @@
 	text-align: center;
 	line-height: $default-line-height;
 
-	transition: box-shadow .05s ease-out, transform .05s ease-out;
+	transition: all $transition-speed $transition-easing;
 	border-radius: $button-border-radius;
 
 	// Box shadow
@@ -40,7 +58,6 @@
 
 	&:hover {
 		color: $white-color;
-		transform: scale(1.02);
 
 		// Box shadow
 		@if ($shadow == true) {
@@ -55,22 +72,27 @@
 	}
 }
 
-@mixin button-background ($bg, $fade: $button-fade, $border: false) {
+/**
+ * @button-background
+ *
+ * Used to only set color specific stuff like background, border and text-shadow
+ */
+@mixin button-background ($color: $button-color, $fade: $button-fade, $border: $button-border) {
 	// Gradient(?) background
 	@if ($fade > 0) {
-		background: linear-gradient(180deg, $bg, darken($bg, $fade));
+		background: linear-gradient(180deg, $color, darken($color, $fade));
 	
 		&:active {
-			background: linear-gradient(180deg, darken($bg, $fade), $bg);
+			background: linear-gradient(180deg, darken($color, $fade), $color);
 		}
 	}
 	@else {
-		background: $bg;
+		background: $color;
 	}
 
 	// Border
 	@if ($border == true) {
-		border: 4px solid lighten($bg, 10%);
+		border: 4px solid lighten($color, 10%);
 	}
 	@elseif ($border) {
 		border: $border;
@@ -82,18 +104,18 @@
 	// Text shadow
 	$btn-shadow-color: $shadow-color;
 
-	@if ($bg != transparent) {
-		$btn-shadow-color: darken($bg, 20%);
+	@if ($color != transparent) {
+		$btn-shadow-color: darken($color, 20%);
 	}
 
 	text-shadow: -1px -1px 0 $btn-shadow-color;
 }
 
 /**
- * Classes
+ * CSS Classes
  */
 .button {
-	@include button($button-color, $button-fade, $button-border-radius, $button-border, $button-shadow, $button-padding-top, $button-padding-side);
+	@include button();
 
 	// Alignment, block etc
 	&.block {
@@ -111,10 +133,10 @@
 
 	// Different colors
 	&.secondary {
-		@include button-background($button-secondary-color, $button-fade, $button-border);
+		@include button-background($button-secondary-color);
 	}
 
 	&.disabled {
-		@include button-background($button-disabled-color, $button-fade, $button-border);
+		@include button-background($button-disabled-color);
 	}
 }

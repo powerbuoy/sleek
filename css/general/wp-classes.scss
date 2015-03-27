@@ -9,9 +9,9 @@
 }
 
 .alignleft {
-	@include img-left($bp-3);
+	@include align-left($bp-3);
 }
 
 .alignright {
-	@include img-right($bp-3);
+	@include align-right($bp-3);
 }

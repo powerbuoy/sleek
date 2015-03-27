@@ -1,8 +1,16 @@
+/**
+ * @card-flip
+ *
+ * Use on a container with two children, the first child will be visible and on hover the container will rotate to reveal the second child
+ *
+ * @param	bool	$hover: whether to rotate the "card" on hover (you may wanna do this manually)
+ * @param:	string	$rotate: X or Y - in which direction to rotate
+ */
 @mixin card-flip ($hover: true, $rotate: Y) {
 	position: relative;
 	perspective: 800;
 	transform-style: preserve-3d;
-	transition: transform .2s ease-out;
+	transition: transform ($transition-speed * 2) $transition-easing;
 
 	> * {
 		backface-visibility: hidden;

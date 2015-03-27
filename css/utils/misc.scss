@@ -1,7 +1,19 @@
+/**
+ * @strip-units
+ *
+ * Removes any unit (%, px, rem etc) from a number
+ *
+ * @param	int		$number: the number
+ */
 @function strip-units ($number) {
 	@return $number / ($number * 0 + 1);
 }
 
+/**
+ * @ellipsis
+ *
+ * Prevents text from wrapping and instead adds an ellipsis to the end
+ */
 @mixin ellipsis {
 	white-space: nowrap;
 	overflow: hidden;
@@ -9,7 +21,9 @@
 }
 
 /**
- * Clearfix
+ * @clearfix
+ *
+ * Classic clearfix
  */
 @mixin clearfix {
 	zoom: 1;
@@ -22,10 +36,12 @@
 }
 
 /**
- * Separated Inline List
+ * @separated-inline-list
  *
- * @arg $separator String
- * @arg $margin Int
+ * Displays a list of items inline, separating them with a character and margin
+ *
+ * @param	string	$separator: text to separate items with
+ * @param	unit	$margin: potential margin between items
  */
 @mixin separated-inline-list ($separator: ' | ', $margin: 0) {
 	margin-left: 0;

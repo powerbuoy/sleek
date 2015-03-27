@@ -1,7 +1,18 @@
+//Default config
+$button-padding-vertical: .8rem !default;
+$button-padding-horizontal: 2.6rem !default;
+$default-size: 1rem !default;
+$shadow-color: rgba(0, 0, 0, .2) !default;
+
 /**
- * Mixins
+ * @icon
+ *
+ * Adds an icon to an element
+ *
+ * @param	string		$icon: the icon to use, for example "\f150" or $fa-var-toggle-down
+ * @param	string		$where: where the icon should be placed "before" or "after"
  */
-@mixin icon ($icon, $where) {
+@mixin icon ($icon, $where: before) {
 	&:#{$where} {
 		// Taken directly from FontAwesome CSS
 		display: inline-block;
@@ -27,17 +38,24 @@
 
 	&.button:not(.fixed):not(.only):#{$where} {
 		@if ($where == before) {
-			margin-left: -($button-padding-side - ($button-padding-top * 2)); // TODO: Assuming there's more left padding than top
+			margin-left: -($button-padding-horizontal - ($button-padding-vertical * 2)); // TODO: Assuming there's more left padding than top
 			margin-right: .5rem;
 		}
 		@else {
-			margin-right: -($button-padding-side - ($button-padding-top * 2));
+			margin-right: -($button-padding-horizontal - ($button-padding-vertical * 2));
 			margin-left: .5rem;
 		}
 	}
 }
 
-@mixin icon-fixed ($where) {
+/**
+ * @icon-fixed
+ *
+ * Fixes the position of the icon on either side of the element (useful for icons inside block-elements)
+ *
+ * @param	string		$where: where the icon should be placed "before" or "after"
+ */
+@mixin icon-fixed ($where: before) {
 	position: relative;
 
 	&:#{$where} {
@@ -57,27 +75,34 @@
 	// Icons inside buttons shouldnt be flush left/right
 	&.button:#{$where} {
 		@if ($where == before) {
-			left: $button-padding-top * 2;
+			left: $button-padding-vertical * 2;
 		}
 		@else {
-			right: $button-padding-top * 2;
+			right: $button-padding-vertical * 2;
 		}
 	}
 
 
 	&.button.left:not(.after), 
 	&.button.left:not(.after) {
-		padding-left: calc(#{$button-padding-top * 2} + 2rem);
+		padding-left: calc(#{$button-padding-vertical * 2} + 2rem);
 	}
 
 	&.after.button.right, 
 	&.after.button.right {
-		padding-left: $button-padding-side;
-		padding-right: calc(#{$button-padding-top * 2} + 2rem);
+		padding-left: $button-padding-horizontal;
+		padding-right: calc(#{$button-padding-vertical * 2} + 2rem);
 	}
 }
 
-@mixin icon-only {
+/**
+ * @icon-only
+ *
+ * Removes any text inside the element and displays only the icon
+ *
+ * @param	string		$where: should only be needed if you for some reason include the button "after"
+ */
+@mixin icon-only ($where: before) {
 	font-size: 0 !important;
 	text-decoration: none !important;
 
@@ -88,6 +113,12 @@
 	}
 }
 
+/**
+ * @icon-framed
+ *
+ * Gives the button a round frame with some shadow
+ * Affects both before and after so you may need to set either to display: none too
+ */
 @mixin icon-framed {
 	&:before, 
 	&:after {
@@ -117,7 +148,7 @@
 }
 
 /**
- * Classes
+ * CSS Classes
  */
 // Normal icon
 [class^="icon-"], 

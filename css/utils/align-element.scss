@@ -1,0 +1,45 @@
+/**
+ * @align-left
+ *
+ * Floats an element to the left at the set breakpoint and gives it some sensible margin
+ *
+ * @param	min-width-declaration	$bp: at which breakpoint the floating should occur or false for no difference in resolutions
+ */
+@mixin align-left ($bp: '(min-width: 600px)') {
+	display: block;
+	margin: 0 0 $margin;
+
+	@if ($bp) {
+		@media #{$bp} {
+			float: left;
+			margin-right: $gutter;
+		}
+	}
+	@else {
+		float: left;
+		margin-right: $gutter;
+	}
+}
+
+/**
+ * @align-right
+ *
+ * Floats an element to the right at the set breakpoint and gives it some sensible margin
+ *
+ * @param	min-width-declaration	$bp: at which breakpoint the floating should occur or false for no difference in resolutions
+ */
+@mixin align-right ($bp: '(min-width: 600px)') {
+	display: block;
+	margin: 0 0 $margin;
+
+	@if ($bp) {
+		@media #{$bp} {
+			float: right;
+			margin-left: $gutter;
+		}
+	}
+	@else {
+		float: right;
+		margin-left: $gutter;
+	}
+}

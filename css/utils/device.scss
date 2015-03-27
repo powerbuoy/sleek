@@ -1,3 +1,11 @@
+/**
+ * @device
+ *
+ * Turns an element into a mobile device (Nexus 5-looking)
+ *
+ * @param	unit	$width: the width of the device
+ * @param	color	$color: color of the device
+ */
 @mixin device ($width, $color: #222) {
 	$orig-w: 300;
 	$orig-h: 530;

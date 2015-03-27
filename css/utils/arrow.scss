@@ -1,5 +1,16 @@
-// Adds an arrow to an element
-@mixin arrow ($position, $size, $background, $border-size, $border-color, $align: 50%) {
+/**
+ * @arrow
+ *
+ * Adds an arrow to an element
+ *
+ * @param		position	$position: where the arrow should be added; left/top/right/bottom
+ * @param		unit		$size: size of arrow (20px for example)
+ * @param		color		$background: the arrow's background color
+ * @param		unit		$border-width: the width of the arrow's border
+ * @param		color		$border-color: color of the border
+ * @param		percent		$align: how to align the arrow
+ */
+@mixin arrow ($position: left, $size: 20px, $background: $white-color, $border-width: 1px, $border-color: $border-color, $align: 50%) {
 	$invPosition: right;
 	$horizOrVertic: top;
 
@@ -43,8 +54,8 @@
 	&:before {
 		border-color: rgba(102, 102, 102, 0);
 		border-#{$invPosition}-color: $border-color;
-		border-width: $size + $border-size + 1px;
+		border-width: $size + $border-width + 1px;
 		#{$horizOrVertic}: $align;
-		margin-#{$horizOrVertic}: -($size + $border-size + 1px);
+		margin-#{$horizOrVertic}: -($size + $border-width + 1px);
 	}
 }

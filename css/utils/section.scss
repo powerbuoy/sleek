@@ -1,3 +1,10 @@
+/**
+ * @section
+ *
+ * Creates a full width section with centered content based on preferred site width
+ *
+ * @param	color	$bg: section background color
+ */
 @mixin section ($bg: transparent) {
 	@include clearfix;
 
@@ -7,37 +14,81 @@
 	position: relative;
 
 	margin: 0;
-	padding-top: $margin * 3;
-	padding-bottom: $margin * 3;
+	padding-top: $section-padding;
+	padding-bottom: $section-padding;
 
 	@include section-centering;
+}
 
-	> :last-child {
-		margin-bottom: 0;
+/**
+ * @inner-section
+ *
+ * Creates a section within a section, so you can have an article as section, and article header as an inner section for example
+ *
+ * @param	string	$align: top/bottom; if you want to pull it up towards to top or down towards the bottom
+ */
+@mixin inner-section ($align: false) {
+	// We're so clever
+	box-sizing: border-box;
+	width: 100vw; // GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH Why does Chromes count the fucking scrollbar!=? - OK, all browsers except FF seem to do that (stoopid) but we can set body overflow-x hidden so... (https://bugzilla.mozilla.org/show_bug.cgi?id=811403)
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+
+	// Centering
+	padding-left: #{strip-units((100% - $site-width) / 2)}vw;
+	padding-right: #{strip-units((100% - $site-width) / 2)}vw;
+
+	@media (min-width: $max-site-width + 100) {
+		padding-left: calc(50vw - #{$max-site-width / 2});
+		padding-right: calc(50vw - #{$max-site-width / 2});
+	}
+
+	// Some styling
+	padding-top: $section-padding;
+	padding-bottom: $section-padding;
+	margin-top: $section-padding;
+	margin-bottom: $section-padding;
+
+	@if ($align == top) {
+		margin-top: -$section-padding;
+	}
+	@if ($align == bottom) {
+		margin-bottom: -$section-padding;
 	}
 }
 
+/**
+ * @unsection
+ *
+ * Utility mixin for removing section styling
+ */
 @mixin unsection {
 	background: trasparent;
 	padding: 0;
 }
 
+/**
+ * @section-centering
+ *
+ * Takes care of centering the section content using padding and calc
+ */
 @mixin section-centering ($offset: 0px) {
-	padding-left: ((100% - $site-width) / 2);
-	padding-right: ((100% - $site-width) / 2);
-
-	padding-left: calc(((100% - #{$site-width}) / 2) + #{$offset});
-	padding-right: calc(((100% - #{$site-width}) / 2) + #{$offset});
+	padding-left: calc((100% - #{$site-width} + #{$offset}) / 2);
+	padding-right: calc((100% - #{$site-width} + #{$offset}) / 2);
 
 	@media (min-width: $max-site-width + 100) {
-		padding-left: ((100% - #{$site-width}) / 2); // For non-calc-support
-		padding-right: ((100% - #{$site-width}) / 2); // For non-calc-support
-
 		padding-left: calc(50% - #{$max-site-width / 2} + #{$offset});
 		padding-right: calc(50% - #{$max-site-width / 2} + #{$offset});
+
 	}
 }
 
+/**
+ * @section-right
+ *
+ * Positions an element at the right edge of the inner content of the section
+ */
 @mixin section-right {
 	right: 5%;
 
@@ -47,6 +98,11 @@
 	}
 }
 
+/**
+ * @section-left
+ *
+ * Positions an element at the right left of the inner content of the section
+ */
 @mixin section-left {
 	left: 5%;
 
@@ -56,15 +112,29 @@
 	}
 }
 
+/**
+ * @section-bottom
+ *
+ * Positions an element at the bottom edge of the inner content of the section
+ */
 @mixin section-bottom {
-	bottom: $margin * 3;
+	bottom: $section-padding;
 }
 
+/**
+ * @section-top
+ *
+ * Positions an element at the top edge of the inner content of the section
+ */
 @mixin section-top {
-	top: $margin * 3;
+	top: $section-padding;
 }
 
-// Version where gutter is made with borders instead
+/**
+ * @section-border-centering
+ *
+ * Same as @section-centering but uses border instead of padding
+ */
 @mixin section-border-centering {
 	padding-left: 0;
 	padding-right: 0;

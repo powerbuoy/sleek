@@ -1,3 +1,10 @@
+/**
+ * @speech-bubble
+ *
+ * Creates a speec bubble
+ *
+ * @param	string	$where: left/right; which side to place the arrow
+ */
 @mixin speech-bubble ($where: left) {
 	@include arrow($where, 20px, $white-color, 1px, $border-color);
 

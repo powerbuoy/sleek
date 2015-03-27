@@ -1,42 +1,18 @@
-@mixin col ($num: 3, $gutter: 3%) {
+/**
+ * @col
+ *
+ * FLoats elements into columns
+ *
+ * @param	int		$num: how many columns
+ * @param	unit	$gutter: space between columns
+ * @param	string	$selector: child-selector
+ */
+@mixin cols ($num: 3, $gutter: $gutter, $selector: '*') {
 	@include clearfix;
 
-	$width: (100% - (($num - 1) * $gutter)) / $num;
-	box-sizing: border-box;
-
-	float: left;
-
-	width: $width;
-	margin-right: $gutter;
-//	margin-bottom: $margin; // Global $margin
-
-	&:nth-of-type(#{$num}n) {
-		margin-right: 0;
-	}
-
-	html.lt-ie9 & {
-		margin-right: $gutter - ($gutter / $num);
-	}
-
-	[dir=rtl] & {
-		float: right;
-		margin-right: 0;
-		margin-left: $gutter;
-	}
-
-	[dir=rtl] &:nth-of-type(#{$num}n) {
-		margin-left: 0;
-	}
-
-	html[dir=rtl].lt-ie9 & {
-		margin-right: 0;
-		margin-left: $gutter - ($gutter / $num);
-	}
-}
-
-@mixin cols ($num: 3, $gutter: 3%, $selector: '*') {
-	@include clearfix;
 	clear: both;
+
+	// In case it's used on a UL
 	margin-left: 0;
 	list-style: none;
 
@@ -49,6 +25,43 @@
 	}
 }
 
+/**
+ * @col
+ *
+ * A single column
+ *
+ * @param	int		$num: how many items per row
+ * @param	unit	$gutter: space between cols
+ */
+@mixin col ($num: 3, $gutter: $gutter) {
+	@include clearfix;
+
+	float: left;
+
+	box-sizing: border-box;
+	width: calc(#{(100% / $num)} - #{$gutter});
+	margin-right: $gutter;
+
+	// Remove margin from last element in row
+	&:nth-of-type(#{$num}n) {
+		margin-right: 0;
+	}
+
+	// RTL support
+	[dir=rtl] & {
+		float: right;
+		margin-right: 0;
+		margin-left: $gutter;
+	}
+
+	[dir=rtl] &:nth-of-type(#{$num}n) {
+		margin-left: 0;
+	}
+}
+
+/**
+ * CSS Classes
+ */
 ul[class*="cols-"] {
 	margin-left: 0;
 	list-style: none;

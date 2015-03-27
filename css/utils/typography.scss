@@ -50,7 +50,12 @@
 	color: $gray-color;
 
 	a {
-		color: inherit;
+		color: $gray-color;
+		text-decoration: none;
+
+		&:hover {
+			color: $link-color-hover;
+		}
 	}
 }
 

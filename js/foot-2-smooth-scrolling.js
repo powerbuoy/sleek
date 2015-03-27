@@ -2,10 +2,12 @@
  * Hooks click event's too all in page links to smoothly scroll down
  * The scrolling code is from: http://www.cssscript.com/smooth-scroll-to-animation-with-anchor-scrolling-js-library/
  */
-App.plugins.InPageLinkScroll = {
+var SmoothScrolling = {
 	offset: 0, 
 
-	init: function () {
+	init: function (offset) {
+		this.offset = offset || 0;
+
 		var root = /firefox|trident/i.test(navigator.userAgent) ? document.documentElement : document.body;
 		var easeInOutCubic = function(t, b, c, d) {
 			if ((t/=d/2) < 1) {

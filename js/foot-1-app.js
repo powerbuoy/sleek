@@ -2,30 +2,23 @@
  * Main JS App
  * Add all your code to this object for it to run onload.
  *
+ * If you want to add code that only runs when a certain part of the page
+ * is visible, for example #recent-comments, add a new MODULE 
+ * with App.modules.RecentComments = {init: function () {}};
+ * Note that the module name HAS to correspond to the ID of the
+ * element it's tied to. So if you have #header specific code
+ * you add it to App.modules.Header, #login-screen: App.modules.LoginScreen and so on.
+ *
+ * DEPRACATED: 
  * If you want to add code that runs on every page load create
  * a new plugin with App.plugins.MyPlugin = {init: function () {}};
  *
- * If you want to add code that only runs when a certain part of the page
- * is visible, for example #recent-comments, add a new MODULE 
- * width App.modules.RecentComments = {init: function () {}};
- * Note that the module name HAS to correspond to the ID of the
- * element that needs to exist. So if you have #header specific code
- * you add it to App.modules.Header, #login-screen: App.modules.LoginScreen and so on.
+ * Instead just create your own object; ImageZoom = {init: function () ... }; and then call it from the (global) Header-module
  */
 App = {
 	// Init
 	init: function() {
-		this.initPlugins();
 		this.initModules();
-	}, 
-
-	// Run every plugin's init() function
-	initPlugins: function() {
-		for (var plugin in this.plugins) {
-			if (typeof(this.plugins[plugin].init) == 'function') {
-				this.plugins[plugin].init();
-			}
-		}
 	}, 
 
 	// Run every module that is currently on the page's init function
@@ -48,6 +41,5 @@ App = {
 		}
 	}, 
 
-	modules: [], 
-	plugins: []
+	modules: []
 };

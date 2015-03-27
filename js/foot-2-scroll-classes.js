@@ -3,14 +3,14 @@
  * e.g. "has-scrolled", "scrolling-up" or "scrolling-down".
  * These are used for styling purposes in some themes.
  */
-App.plugins.AddScrollClasses = {
+var ScrollClasses = {
 	init: function () {
 		var lastST = 0;
 		var lastSTns = 0; // Last scroll top (no sensitivity)
 		var sensitivity = 100;
 
 		window.addEventListener('scroll', function (e) {
-			var st = document.documentElement.scrollTop || document.body.parentNode.scrollTop || document.body.scrollTop;
+			var st = document.body.scrollTop || document.body.parentNode.scrollTop || document.body.scrollTop;
 
 			// Check if at top
 			if (st) {

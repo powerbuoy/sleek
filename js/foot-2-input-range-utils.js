@@ -5,14 +5,11 @@
  * You can change the colors of the input from your child theme with
  * App.plugins.InputRangeUtils.rangeLeftColor = 'red'; for example
  */
-App.plugins.InputRangeUtils = {
-	rangeLeftColor: '#06c', 
-	rangeRightColor: '#888', 
-
+var InputRangeUtils = {
 	// Init
-	init: function () {
+	init: function (leftColor, rightColor) {
 		this.values();
-		this.colors();
+		this.colors(leftColor || '#06c', rightColor || '#888');
 	}, 
 
 	// Appends a span to the label containing the value of the range input
@@ -52,7 +49,7 @@ App.plugins.InputRangeUtils = {
 	}, 
 
 	// Gives the left and right side of the input different colors (done with CSS for IE11)
-	colors: function () {
+	colors: function (leftColor, rightColor) {
 		var self = this;
 		var inputs = document.querySelectorAll('input[type=range]');
 
@@ -64,7 +61,7 @@ App.plugins.InputRangeUtils = {
 					var val = (input.value - input.getAttribute('min')) / (input.getAttribute('max') - input.getAttribute('min'));
 						val *= 100;
 
-					input.style.backgroundImage = 'linear-gradient(90deg, ' + self.rangeLeftColor + ' 0%, ' + self.rangeLeftColor + ' ' + val + '%, ' + self.rangeRightColor + ' ' + val + '%, ' + self.rangeRightColor + ' 100%)';
+					input.style.backgroundImage = 'linear-gradient(90deg, ' + leftColor + ' 0%, ' + leftColor + ' ' + val + '%, ' + rightColor + ' ' + val + '%, ' + rightColor + ' 100%)';
 				};
 
 				updateColor();

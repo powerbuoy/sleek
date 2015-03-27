@@ -1,6 +1,7 @@
-App.plugins.AjaxForm = {
-	init: function () {
-		var forms = document.querySelectorAll('form.ajax');
+var AjaxForms = {
+	init: function (selector) {
+		var selector = selector || 'form.ajax';
+		var forms = document.querySelectorAll(selector);
 
 		for (var i = 0; i < forms.length; i++) {
 			this.ajaxForm(forms[i]);
@@ -51,7 +52,7 @@ App.plugins.AjaxForm = {
 			}
 
 			// AJAX the form away
-			SimpleAjax({
+			SimpleAjax.xhr({
 				method:		form.method, 
 				url:		form.action, 
 				data:		self.serialize(form), 

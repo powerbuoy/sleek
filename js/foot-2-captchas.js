@@ -1,4 +1,4 @@
-ApppluginsCaptchasrender = function () {
+var Captchas = function () {
 	var captchas = document.querySelectorAll('div.captcha');
 
 	for (var i = 0; i < captchas.length; i++) {

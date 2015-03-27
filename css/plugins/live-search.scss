@@ -22,7 +22,7 @@
 		box-shadow: 2px 2px 8px $shadow-color;
 
 		h2 {
-			font-size: $default-size;
+			@include body-text;
 			font-weight: bold;
 			padding: 10px 10px 5px;
 		}

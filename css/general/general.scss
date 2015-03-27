@@ -1,49 +1,3 @@
-@mixin body-text ($font-size: $default-size) {
-	font-family: $default-font;
-	font-weight: $default-font-weight;
-	font-size: $font-size;
-	line-height: $default-line-height;
-	letter-spacing: $default-letter-spacing;
-	color: $default-color;
-}
-
-@mixin heading ($font-size: $h1-size) {
-	margin: 0 0 ($margin / 2);
-
-	@include heading-size($font-size);
-
-	font-family: $heading-font;
-	font-weight: $heading-font-weight;
-	line-height: $heading-line-height;
-	letter-spacing: $heading-letter-spacing;
-	color: $heading-color;
-
-	a {
-		color: inherit;
-		text-decoration: none;
-
-		&:hover {
-		//	text-decoration: underline;
-		}
-	}
-
-	small {
-		display: block;
-		font-size: 60%;
-		letter-spacing: $heading-letter-spacing / 2;
-		line-height: 1.2;
-	}
-}
-
-@mixin heading-size ($font-size) {
-	font-size: $font-size;
-
-	// Smaller headings on mobile
-	@media #{$bp-3-max} {
-		font-size: $font-size * .8;
-	}
-}
-
 // Base styling
 html {
 	background: $default-bg;
@@ -200,35 +154,11 @@ table {
 	}
 
 // Links
-@mixin link {
-	color: $link-color;
-	text-decoration: underline;
-
-	&:visited {
-	//	color: $link-color-visited;
-	}
-
-	&:hover {
-		color: $link-color-hover;
-		text-decoration: none;
-	}
-}
-
 a {
 	@include link;
 }
 
 // Small and other inline elements
-@mixin small {
-	display: inline-block;
-	font-size: $default-size * .8;
-	color: $gray-color;
-
-	a {
-		color: inherit;
-	}
-}
-
 small {
 	@include small;
 }

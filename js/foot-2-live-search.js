@@ -7,7 +7,7 @@ var LiveSearch = {
 	init: function (input, url, appendTo) {
 		var appendTo = appendTo || 'after';
 
-		input.autocomplete = false;
+		input.setAttribute('autocomplete', 'off');
 
 		// Create search container
 		var container = document.createElement('div');
@@ -50,7 +50,7 @@ var LiveSearch = {
 					else {
 						container.innerHTML = '';
 					}
-				}, 200);
+				}, 300);
 
 				this.liveSearchLastValue = this.value;
 			}

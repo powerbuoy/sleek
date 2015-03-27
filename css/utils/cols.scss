@@ -39,7 +39,7 @@
 	float: left;
 
 	box-sizing: border-box;
-	width: calc(#{(100% / $num)} - #{$gutter});
+	width: calc(#{(100% / $num)} - #{$gutter / 2});
 	margin-right: $gutter;
 
 	// Remove margin from last element in row

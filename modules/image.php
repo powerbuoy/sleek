@@ -2,31 +2,29 @@
 
 <section id="image">
 
-	<?php if (have_posts()) : ?>
-		<?php while (have_posts()) : the_post() ?>
-			<header>
+	<?php if (have_posts()) : while (have_posts()) : the_post() ?>
+		<header>
 
-				<h1>
-					<!-- <a href="<?php echo get_permalink($post->post_parent) ?>">
-						<?php echo get_the_title($post->post_parent) ?>
-					</a> &raquo; --><?php the_title() ?>
-				</h1>
+			<h1>
+				<!-- <a href="<?php echo get_permalink($post->post_parent) ?>">
+					<?php echo get_the_title($post->post_parent) ?>
+				</a> &raquo; --><?php the_title() ?>
+			</h1>
 
-				<figure>
-					<a href="<?php echo wp_get_attachment_url($post->ID) ?>">
-						<?php echo wp_get_attachment_image($post->ID, 'sleek-100') ?>
-					</a>
+			<figure>
+				<a href="<?php echo wp_get_attachment_url($post->ID) ?>">
+					<?php echo wp_get_attachment_image($post->ID, 'sleek-100') ?>
+				</a>
 
-					<?php if (!empty($post->post_excerpt)) : ?>
-						<figcaption><?php the_excerpt() ?></figcaption>
-					<?php endif ?>
-				</figure>
+				<?php if (!empty($post->post_excerpt)) : ?>
+					<figcaption><?php the_excerpt() ?></figcaption>
+				<?php endif ?>
+			</figure>
 
-			</header>
+		</header>
 
-			<?php the_content() ?>
-		<?php endwhile ?>
-	<?php else : ?>
+		<?php the_content() ?>
+	<?php endwhile; else : ?>
 		<?php sleek_get_module('partials/nothing-found') ?>
 	<?php endif ?>
 

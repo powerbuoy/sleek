@@ -8,6 +8,7 @@
 
 	if (XHR and $module) {
 		sleek_get_module(basename($module));
+		die;
 	}
 	else {
 		sleek_get_module('head');

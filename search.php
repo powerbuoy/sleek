@@ -1,5 +1,5 @@
 <?php if (XHR) : ?>
-	<?php sleek_get_module('ajax-posts') ?>
+	<?php sleek_get_module('ajax-posts'); die ?>
 <?php else : ?>
 	<?php get_header() ?>
 

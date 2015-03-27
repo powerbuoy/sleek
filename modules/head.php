@@ -7,9 +7,6 @@
 	elseif (is_page())		$htmlID = 'page-page';
 	elseif (is_search())	$htmlID = 'search-page';
 	else					$htmlID = 'unknown-page';
-
-	$htmlClasses = 'page-' . strtolower(preg_replace('/[^a-zA-Z0-9-_]/', '', wp_title('', false)));
-	$htmlClasses .= ' lang-' . get_locale();
 ?>
 
 <html id="<?php echo $htmlID ?>" <?php language_attributes() ?> class="<?php echo $htmlClasses ?> no-js">

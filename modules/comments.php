@@ -6,16 +6,15 @@
 		<?php return; endif ?>
 
 		<?php if (have_comments()) : ?>
-			<h3>
-				<?php comments_number(__('No comments', 'sleek'), __('One comment', 'sleek'), __('% comments', 'sleek')) ?> 
-				<?php _e('on', 'sleek') ?> 
-				&#8220;<?php the_title(); ?>&#8221;
-			</h3>
-
-			<nav>
-				<?php previous_comments_link() ?>
-				<?php next_comments_link() ?>
-			</nav>
+			<h2>
+				<?php
+					comments_number(
+						sprintf(__('No comments on "%s"', 'sleek'), get_the_title()), 
+						sprintf(__('One comment on "%s"', 'sleek'), get_the_title()), 
+						sprintf(__('%% comments on "%s"', 'sleek'), get_the_title())
+					)
+				?> 
+			</h2>
 
 			<ol>
 				<?php wp_list_comments(); ?>

@@ -84,6 +84,27 @@ form {
 	}
 }
 
+// Form message
+p.message {
+	// Error message
+	&.error {
+		@include icon($fa-var-exclamation-triangle);
+
+		&:before {
+			color: $error-color;
+		}
+	}
+
+	// Success message
+	&.success {
+		@include icon($fa-var-check);
+
+		&:before {
+			color: $success-color;
+		}
+	}
+}
+
 // Range (http://codepen.io/aronwoost/pen/nlyrf)
 @mixin range-thumb {
 	-webkit-appearance: none;

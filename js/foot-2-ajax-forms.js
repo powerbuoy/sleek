@@ -22,7 +22,7 @@ var AjaxForms = {
 			form.classList.add('loading');
 
 			// Remove potential old message
-			var oldMessage = form.parentNode.querySelector('p.form-message');
+			var oldMessage = form.parentNode.querySelector('p.message');
 
 			if (oldMessage) {
 				oldMessage.parentNode.removeChild(oldMessage);
@@ -69,18 +69,21 @@ var AjaxForms = {
 					// The backend did not return success
 					else {
 						form.classList.add('error');
+					}
 
-						if (captcha && typeof(grecaptcha) != 'undefined') {
-							grecaptcha.reset(captcha.getAttribute('data-captcha-widget-id'));
-						}
+					// Reset potential captcha
+					if (captcha && typeof(grecaptcha) != 'undefined') {
+						grecaptcha.reset(captcha.getAttribute('data-captcha-widget-id'));
 					}
 
 					// The backend returned a message - display it
 					if (data.msg && data.msg.length) {
 						var newMessage = document.createElement('p');
 
-						newMessage.classList.add('form-message');
-						newMessage.innerHTML = data.msg;
+						newMessage.classList.add('message');
+						newMessage.classList.add((data.success ? 'success' : 'error'));
+
+						newMessage.innerHTML = '<strong>' + data.msg + '</strong>';
 
 						form.parentNode.insertBefore(newMessage, form);
 					}

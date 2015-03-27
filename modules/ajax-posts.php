@@ -21,9 +21,4 @@
 			</li>
 		<?php endwhile ?>
 	</ul>
-
-	<nav>
-		<?php previous_posts_link(__('Previous page', 'sleek')) ?>
-		<?php next_posts_link(__('Next page', 'sleek')) ?>
-	</nav>
 <?php endif ?>

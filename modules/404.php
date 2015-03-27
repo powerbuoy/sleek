@@ -48,24 +48,34 @@
 
 	</header>
 
-	<?php if (!$referrer) : ?>
-		<p><?php _e("It seems you arrived directly at this page, maybe it's because of:", 'sleek') ?></p>
+	<article>
 
-		<ul>
-			<li><?php _e('An <strong>out-of-date bookmark</strong>', 'sleek') ?></li>
-			<li><?php _e('A search engine that has an <strong>out-of-date listing</strong> for us', 'sleek') ?></li>
-			<li><?php _e('A <strong>miss-typed address</strong>', 'sleek') ?></li>
-		</ul>
-	<?php elseif ($internalRef) : ?>
-		<p><?php _e('Woops! Looks like one of our internal links are out-of-date. <strong>Sincerly sorry</strong> about that! :)', 'sleek') ?></p>
-	<?php elseif ($searchRef) : ?>
-		<p><?php printf(__('You did a search on <a href="%s">%s</a> for <strong>%s</strong>. However, their index appears to be out of date.', 'sleek'), str_replace('&', '&amp;', $referrer), $referrerSite, $q) ?></p>
-	<?php else : ?>
-		<p><?php printf(__('You were incorrectly referred to this page by <a href="%s">%s</a>.', 'sleek'), str_replace('&', '&amp;', $referrer), $referrerSite) ?></p>
-	<?php endif ?>
+		<?php if (!$referrer) : ?>
+			<p><?php _e("It seems you arrived directly at this page, maybe it's because of:", 'sleek') ?></p>
 
-	<p><?php printf(__('Perhaps you can go back to the <a href="%s">home page</a> and try to navigate your way from there?<br>Or try a search below:', 'sleek'), home_url('/')) ?></p>
+			<ul>
+				<li><?php _e('An <strong>out-of-date bookmark</strong>', 'sleek') ?></li>
+				<li><?php _e('A search engine that has an <strong>out-of-date listing</strong> for us', 'sleek') ?></li>
+				<li><?php _e('A <strong>miss-typed address</strong>', 'sleek') ?></li>
+			</ul>
+		<?php elseif ($internalRef) : ?>
+			<p><?php _e('Woops! Looks like one of our internal links are out-of-date. <strong>Sincerly sorry</strong> about that! :)', 'sleek') ?></p>
+		<?php elseif ($searchRef) : ?>
+			<p><?php printf(__('You did a search on <a href="%s">%s</a> for <strong>%s</strong>. However, their index appears to be out of date.', 'sleek'), str_replace('&', '&amp;', $referrer), $referrerSite, $q) ?></p>
+		<?php else : ?>
+			<p><?php printf(__('You were incorrectly referred to this page by <a href="%s">%s</a>.', 'sleek'), str_replace('&', '&amp;', $referrer), $referrerSite) ?></p>
+		<?php endif ?>
 
-	<?php sleek_get_module('search') ?>
+		<p><?php printf(__('Perhaps you can go back to the <a href="%s">home page</a> and try to navigate your way from there?', 'sleek'), home_url('/')) ?></p>
+
+	</article>
+
+	<aside>
+
+		<p><?php _e('...or try a search?', 'sleek') ?></p>
+
+		<?php sleek_get_module('search') ?>
+
+	</aside>
 
 </section>

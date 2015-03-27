@@ -5,7 +5,7 @@
  */
 var LiveSearch = {
 	init: function (input, url, appendTo) {
-		var appendTo = appendTo || document.body;
+		var appendTo = appendTo || 'after';
 
 		input.autocomplete = false;
 
@@ -18,6 +18,7 @@ var LiveSearch = {
 
 		// Append search container
 		if (appendTo == 'after') {
+			input.parentNode.classList.add('live-search-wrap');
 			input.parentNode.insertBefore(container, input.nextSibling);
 		}
 		else {
@@ -38,7 +39,7 @@ var LiveSearch = {
 
 				this.liveSearchTimer = setTimeout(function () {
 					if (q) {
-						SimpleAjax({
+						SimpleAjax.xhr({
 							method: 'get', 
 							url: url + q, 
 							callback: function (data) {

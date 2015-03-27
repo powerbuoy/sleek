@@ -34,3 +34,16 @@ function sleek_proxy () {
 
 	die;
 }
+
+# Show all search results on AJAX search
+add_action('pre_get_posts', 'sleek_set_posts_per_page');
+
+function sleek_set_posts_per_page ($query) {
+	global $wp_the_query;
+
+	if ((!is_admin() and $query === $wp_the_query) and (is_search() and XHR)) {
+		$query->set('posts_per_page', -1);
+	}
+
+	return $query;
+}

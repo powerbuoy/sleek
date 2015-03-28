@@ -2,10 +2,10 @@ pre.hover-expand {
 	position: relative;
 	z-index: 1;
 
-	min-width: calc(100% - 42px); // HACK: 42px == border/padding
+	min-width: calc(100% - 42px); // 42px == border/padding
 	max-width: calc(100% - 42px);
 
-	padding: $margin;
+	padding: 20px;
 	border: 1px solid $border-color;
 
 	box-shadow: 0 0 0 $shadow-color;

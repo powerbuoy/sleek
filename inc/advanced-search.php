@@ -8,17 +8,6 @@ function sleek_show_all_post_types_for_author ($qry) {
 	}
 }
 
-# Allow empty search
-# add_filter('request', 'sleek_allow_empty_search');
-
-function sleek_allow_empty_search ($qryVars) {
-    if (isset($_GET['s']) and empty($_GET['s'])) {
-        $qryVars['s'] = ' ';
-    }
-
-    return $qryVars;
-}
-
 # This was for a specific project, I'm keeping the code for future reference
 # http://wordpress.stackexchange.com/questions/25899/the-right-way-to-create-a-custom-search-page-for-complex-custom-post-types
 # add_filter('pre_get_posts', 'sleek_pre_get_posts');

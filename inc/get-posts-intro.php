@@ -45,8 +45,14 @@ function sleek_get_posts_intro () {
 	}
 	elseif (is_search()) {
 		if (have_posts()) {
-			$title		= sprintf(__('Search results (%s) for: <strong>"%s"</strong>', 'sleek'), $wp_query->found_posts, get_search_query());
-			$content	= false;
+			if (strlen(trim(get_search_query())) > 0) {
+				$title		= sprintf(__('Search results (%s) for: <strong>"%s"</strong>', 'sleek'), $wp_query->found_posts, get_search_query());
+				$content	= false;
+			}
+			else {
+				$title		= sprintf(__('Empty search', 'sleek'), $wp_query->found_posts, get_search_query());
+				$content	= '<p>' . __("You didn't search for anything in particular so I'm showing you everything") . '</p>';
+			}
 		}
 		else {
 			$title		= sprintf(__('No search results for: <strong>"%s"</strong>', 'sleek'), get_search_query());

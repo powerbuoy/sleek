@@ -28,17 +28,6 @@ function sleek_remove_home_from_breadcrumb ($links) {
 	return $links;
 }
 
-# Exclude AddThis widgets from anything other than posts
-# add_filter('addthis_post_exclude', 'sleek_addthis_post_exclude');
-
-function sleek_addthis_post_exclude ($display) {
-	if (!is_singular('post')) {
-		$display = false;
-	}
-
-	return $display;
-}
-
 # Give pages excerpts
 # add_action('init', 'sleek_add_excerpts_to_pages');
 

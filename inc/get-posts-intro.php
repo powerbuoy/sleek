@@ -30,12 +30,12 @@ function sleek_get_posts_intro () {
 	}
 	# Else; if we're on another listing page such as by year or category or a custom post type
 	elseif (is_category()) {
-	#	$title		= __(sprintf('Posts categorized <strong>"%s"</strong>', single_cat_title('', false)), 'sleek');
+	#	$title		= __(sprintf('Posts categorized <strong>“%s”</strong>', single_cat_title('', false)), 'sleek');
 		$title		= single_cat_title('', false);
 		$content	= false; # TODO: Grab taxonomy description
 	}
 	elseif (is_tag()) {
-		$title		= sprintf(__('Posts tagged with <strong>"%s"</strong>', 'sleek'), single_tag_title('', false));
+		$title		= sprintf(__('Posts tagged with <strong>“%s”</strong>', 'sleek'), single_tag_title('', false));
 		$content	= false; # TODO: Grab taxonomy description
 	}
 	elseif (is_tax()) {
@@ -46,7 +46,7 @@ function sleek_get_posts_intro () {
 	elseif (is_search()) {
 		if (have_posts()) {
 			if (strlen(trim(get_search_query())) > 0) {
-				$title		= sprintf(__('Search results (%s) for: <strong>"%s"</strong>', 'sleek'), $wp_query->found_posts, get_search_query());
+				$title		= sprintf(__('Search results (%s) for: <strong>“%s”</strong>', 'sleek'), $wp_query->found_posts, get_search_query());
 				$content	= false;
 			}
 			else {
@@ -55,7 +55,7 @@ function sleek_get_posts_intro () {
 			}
 		}
 		else {
-			$title		= sprintf(__('No search results for: <strong>"%s"</strong>', 'sleek'), get_search_query());
+			$title		= sprintf(__('No search results for: <strong>“%s”</strong>', 'sleek'), get_search_query());
 			$content	= '<p>' . __("We couldn't find any matching search results for your query.", 'sleek') . '</p>';
 		}
 	}

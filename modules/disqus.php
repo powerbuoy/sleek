@@ -1,6 +1,6 @@
 <?php global $post ?>
 
-<?php if (comments_open()) : ?>
+<?php if (defined('DISQUS_SHORTNAME') and comments_open()) : ?>
 	<section id="disqus">
 
 		<div id="disqus_thread"></div>
@@ -9,7 +9,7 @@
 			/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 			var disqus_shortname = '<?php echo DISQUS_SHORTNAME ?>'; // Required - Replace '<example>' with your forum shortname
 
-			<?php if ($disqusID = get_field('disqus_id')) : ?>
+			<?php if (function_exists('get_field') and $disqusID = get_field('disqus_id')) : ?>
 				var disqus_identifier = '<?php echo $disqusID ?>';
 			<?php else : ?>
 				var disqus_identifier = 'post-<?php echo $post->ID ?>';

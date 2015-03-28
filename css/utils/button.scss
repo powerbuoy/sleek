@@ -18,7 +18,8 @@
 	$border: $button-border, 
 	$shadow: $button-shadow, 
 	$padding-vertical: $button-padding-vertical, 
-	$padding-horizontal: $button-padding-horizontal
+	$padding-horizontal: $button-padding-horizontal, 
+	$font-size: $button-font-size
 ) {
 	@include button-background($color, $fade, $border);
 
@@ -30,7 +31,7 @@
 	margin: 0;
 	padding: $padding-vertical $padding-horizontal;
 
-	font-size: $default-size;
+	font-size: $font-size;
 	color: $white-color;
 	font-weight: bold;
 	text-decoration: none;

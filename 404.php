@@ -6,10 +6,12 @@
 
 </main>
 
-<aside id="aside">
+<?php if is_active_sidebar('aside') : ?>
+	<aside id="aside">
 
-	<?php dynamic_sidebar('aside') ?>
+		<?php dynamic_sidebar('aside') ?>
 
-</aside>
+	</aside>
+<?php endif ?>
 
 <?php get_footer() ?>

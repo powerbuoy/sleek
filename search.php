@@ -10,11 +10,13 @@
 
 	</main>
 
-	<aside id="aside">
+	<?php if is_active_sidebar('aside') : ?>
+		<aside id="aside">
 
-		<?php sleek_get_module('contact') ?>
+			<?php dynamic_sidebar('aside') ?>
 
-	</aside>
+		</aside>
+	<?php endif ?>
 
 	<?php get_footer() ?>
 <?php endif ?>

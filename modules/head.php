@@ -9,7 +9,7 @@
 	else					$htmlID = 'unknown-page';
 ?>
 
-<html id="<?php echo $htmlID ?>" <?php language_attributes() ?> class="no-js">
+<html id="<?php echo $htmlID ?>" <?php language_attributes() ?> <?php body_class('no-js') ?>>
 	
 	<head>
 
@@ -22,4 +22,4 @@
 
 	</head>
 
-	<body <?php body_class() ?>>
+	<body>

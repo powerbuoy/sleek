@@ -18,13 +18,14 @@
 		$referrerSite = $referrerSite[2];
 	}
 
-	if ($searchRef) {
+/*	if ($searchRef) {
 		$qryStrings = array(
 			'q', 
 			'p', 
 			'ask', 
 			'key'
 		);
+
 		$params = explode('?', $referrer);
 		$params = explode('&', $params[1]);
 
@@ -35,7 +36,9 @@
 				$q = str_replace('+', ' ', $ps[1]);
 			}
 		}
-	}
+	} */
+
+	$q = "?";
 ?>
 
 <section id="four-o-four">
@@ -61,7 +64,7 @@
 		<?php elseif ($internalRef) : ?>
 			<p><?php _e('Woops! Looks like one of our internal links are out-of-date. <strong>Sincerly sorry</strong> about that! :)', 'sleek') ?></p>
 		<?php elseif ($searchRef) : ?>
-			<p><?php printf(__('You did a search on <a href="%s">%s</a> for <strong>%s</strong>. However, their index appears to be out of date.', 'sleek'), str_replace('&', '&amp;', $referrer), $referrerSite, $q) ?></p>
+			<p><?php printf(__('You did a search on %s, however, their index appears to be out of date.', 'sleek'), $referrerSite, $q) ?></p>
 		<?php else : ?>
 			<p><?php printf(__('You were incorrectly referred to this page by <a href="%s">%s</a>.', 'sleek'), str_replace('&', '&amp;', $referrer), $referrerSite) ?></p>
 		<?php endif ?>

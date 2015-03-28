@@ -37,12 +37,15 @@ var LiveSearch = {
 					clearTimeout(this.liveSearchTimer);
 				}
 
+				var self = this;
+
 				this.liveSearchTimer = setTimeout(function () {
 					if (q) {
 						SimpleAjax.xhr({
 							method: 'get', 
 							url: url + q, 
 							callback: function (data) {
+								self.classList.remove('loading');
 								container.innerHTML = data;
 							}
 						});

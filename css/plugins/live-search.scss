@@ -14,9 +14,9 @@
 		z-index: 99;
 
 		width: 100%;
-		max-height: 300px;
+		height: 300px;
 		overflow: auto;
-		transition: max-height .1s ease-out;
+		transition: all .1s ease-out;
 
 		border: 1px solid $white-color;
 		box-shadow: 2px 2px 8px $shadow-color;
@@ -73,7 +73,7 @@
 	}
 
 	div.live-search:empty {
-		max-height: 0;
+		height: 0;
 		box-shadow: none;
 	}
 }

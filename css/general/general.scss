@@ -134,6 +134,14 @@ pre {
 	border: 1px solid $border-color;
 }
 
+code {
+	word-wrap: break-word;
+}
+
+pre code {
+	word-wrap: normal;
+}
+
 // Tables
 table {
 	margin: 0 0 $margin;

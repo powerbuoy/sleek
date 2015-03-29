@@ -6,25 +6,25 @@ define('XHR', (
 ));
 
 # Roots stuff
-include TEMPLATEPATH . '/inc/roots/utils.php';
-include TEMPLATEPATH . '/inc/roots/cleanup.php';
-include TEMPLATEPATH . '/inc/roots/nav.php';
+include get_template_directory() . '/inc/roots/utils.php';
+include get_template_directory() . '/inc/roots/cleanup.php';
+include get_template_directory() . '/inc/roots/nav.php';
 
 # My stuff
-include TEMPLATEPATH . '/inc/functions.php';
-include TEMPLATEPATH . '/inc/cleanup.php';
-include TEMPLATEPATH . '/inc/lang.php';
-include TEMPLATEPATH . '/inc/post-thumbnails.php';
-include TEMPLATEPATH . '/inc/sidebars.php';
-include TEMPLATEPATH . '/inc/ajax.php';
-include TEMPLATEPATH . '/inc/post-types.php';
-include TEMPLATEPATH . '/inc/shortcodes.php';
-include TEMPLATEPATH . '/inc/include-css-js.php';
-include TEMPLATEPATH . '/inc/pagination-css-class.php';
-include TEMPLATEPATH . '/inc/advanced-search.php';
-include TEMPLATEPATH . '/inc/tinymce-styles.php';
-include TEMPLATEPATH . '/inc/get-posts-intro.php';
-include TEMPLATEPATH . '/inc/more-markdown.php';
-# include TEMPLATEPATH . '/inc/submit-form.php';
-# include TEMPLATEPATH . '/inc/relevanssi.php';
-# include TEMPLATEPATH . '/inc/get-posts/get-posts.php';
+include get_template_directory() . '/inc/functions.php';
+include get_template_directory() . '/inc/cleanup.php';
+include get_template_directory() . '/inc/lang.php';
+include get_template_directory() . '/inc/post-thumbnails.php';
+include get_template_directory() . '/inc/sidebars.php';
+include get_template_directory() . '/inc/ajax.php';
+include get_template_directory() . '/inc/post-types.php';
+include get_template_directory() . '/inc/shortcodes.php';
+include get_template_directory() . '/inc/include-css-js.php';
+include get_template_directory() . '/inc/pagination-css-class.php';
+include get_template_directory() . '/inc/advanced-search.php';
+include get_template_directory() . '/inc/tinymce-styles.php';
+include get_template_directory() . '/inc/get-posts-intro.php';
+include get_template_directory() . '/inc/more-markdown.php';
+# include get_template_directory() . '/inc/submit-form.php';
+# include get_template_directory() . '/inc/relevanssi.php';
+# include get_template_directory() . '/inc/get-posts/get-posts.php';

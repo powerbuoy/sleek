@@ -29,7 +29,7 @@ function sleek_shortcode_include_module ($atts) {
 	$suffix			= '/modules/' . basename($atts['mod']) . '.php';
 	$suffix			= '/modules/' . $atts['mod'] . '.php';  # No basename() so we can do forms/foo for example
 	$include_path	= get_stylesheet_directory() . $suffix;
-	$include_path	= file_exists($include_path) ? $include_path : TEMPLATEPATH . $suffix;
+	$include_path	= file_exists($include_path) ? $include_path : get_template_directory() . $suffix;
 
 	if (!file_exists($include_path)) {
 		return '<p><strong>[ Include Error: Module "' . $atts['mod'] . '" does not exist ]</strong></p>';

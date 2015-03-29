@@ -8,7 +8,7 @@ function sleek_get_avatar_url ($get_avatar) {
 
 function sleek_get_module ($mod, $args = array()) {
 	$path = get_stylesheet_directory() . '/modules/' . $mod . '.php';
-	$path = file_exists($path) ? $path : TEMPLATEPATH . '/modules/' . $mod . '.php';
+	$path = file_exists($path) ? $path : get_template_directory() . '/modules/' . $mod . '.php';
 
 	if (file_exists($path)) {
 		extract($args);

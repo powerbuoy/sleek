@@ -7,7 +7,7 @@
 
 function sleek_shortcode_get_posts ($atts) {
 	# Set some vars
-	$path		= TEMPLATEPATH . '/inc/get-posts/';
+	$path		= get_template_directory() . '/inc/get-posts/';
 	$type		= isset($atts['type']) ? (strpos($atts['type'], ',') ? explode(',', $atts['type']) : $atts['type']) : 'post';
 	$limit		= isset($atts['limit']) ? $atts['limit'] : -1;
 	$order		= isset($atts['order']) ? $atts['order'] : 'post_date';

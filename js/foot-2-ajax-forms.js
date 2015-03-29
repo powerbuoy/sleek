@@ -51,6 +51,9 @@ var AjaxForms = {
 
 					captcha.parentNode.appendChild(errorMsg);
 
+					form.classList.remove('loading');
+					form.classList.add('error');
+
 					return;
 				}
 			}

@@ -6,7 +6,7 @@ html {
 
 body {
 	@include body-text;
-	color: $default-color;
+	color: $body-color;
 	word-wrap: break-word;
 }
 

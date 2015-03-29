@@ -1,10 +1,10 @@
-@mixin body-text ($font-size: $default-size) {
-	font-family: $default-font;
-	font-weight: $default-font-weight;
+@mixin body-text ($font-size: $body-font-size) {
+	font-family: $body-font;
+	font-weight: $body-font-weight;
 	font-size: $font-size;
-	line-height: $default-line-height;
-	letter-spacing: $default-letter-spacing;
-	color: $default-color;
+	line-height: $body-line-height;
+	letter-spacing: $body-letter-spacing;
+	color: $body-color;
 }
 
 @mixin heading ($font-size: $h1-size) {
@@ -46,7 +46,7 @@
 
 @mixin small {
 	display: inline-block;
-	font-size: $default-size * .8;
+	font-size: $body-font-size * .8;
 	color: $gray-color;
 
 	a {

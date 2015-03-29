@@ -28,12 +28,12 @@ $transition-easing: ease-out !default;
 $border-radius: .5rem !default;
 
 // Typography
-$default-font: Arial, sans-serif !default;
-$default-color: #333 !default;
-$default-font-weight: normal !default;
-$default-letter-spacing: 0 !default;
-$default-size: 1rem !default;
-$default-line-height: 1.6 !default;
+$body-font: Arial, sans-serif !default;
+$body-color: #333 !default;
+$body-font-weight: normal !default;
+$body-letter-spacing: 0 !default;
+$body-font-size: 1rem !default;
+$body-line-height: 1.6 !default;
 
 $heading-font: Arial, sans-serif !default;
 $heading-color: #111 !default;
@@ -75,4 +75,4 @@ $button-border-radius: .5rem !default;
 $button-shadow: true !default;
 $button-padding-vertical: .4rem !default;
 $button-padding-horizontal: 1.6rem !default;
-$button-font-size: $default-size !default;
+$button-font-size: $body-font-size !default;

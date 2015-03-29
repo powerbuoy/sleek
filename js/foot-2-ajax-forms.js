@@ -16,6 +16,10 @@ var AjaxForms = {
 
 			e.preventDefault();
 
+			if (form.classList.contains('loading')) {
+				return;
+			}
+
 			// Remove error/success classes - set loading
 			form.classList.remove('error');
 			form.classList.remove('success');

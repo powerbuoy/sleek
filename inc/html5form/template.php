@@ -1,4 +1,4 @@
-<?php $ignore = array('contact_submit', 'sleek_module', 'g-recaptcha-response', ''); ?>
+<?php $ignore = array('contact_submit', 'sleek_module', 'g-recaptcha-response'); ?>
 
 <!doctype html>
 
@@ -9,23 +9,23 @@
 		<style>
 			table {
 				width: 100%;
-				border: 1px solid #eee;
+				border: 1px solid #ddd;
 				border-collapse: collapse;
 				border-spacing: 0;
 			}
 
 			th, 
 			td {
-				text-align: center;
+				text-align: left;
 				vertical-align: top;
 				padding: 5px 10px;
-				border: 1px solid #eee;
+				border: 1px solid #ddd;
 			}
 		</style>
 	</head>
 	<body>
 		<table>
-			<?php foreach ($fields as $field => $value) : if (!in_array($ignore, $field)) : ?>
+			<?php foreach ($fields as $field => $value) : if (!in_array($field, $ignore)) : ?>
 				<tr>
 					<th scope="row"><?php echo ucfirst(str_replace('_', ' ', $field)) ?></th>
 					<td>

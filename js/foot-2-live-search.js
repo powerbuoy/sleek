@@ -4,7 +4,13 @@
  * TODO
  */
 var LiveSearch = {
-	init: function (input, url, appendTo) {
+	init: function (input, conf) {
+		var config = {
+			url: conf.url || false, 
+			appendTo: conf.appendTo || 'after', 
+			data: conf.data || {}
+		};
+
 		var appendTo = appendTo || 'after';
 
 		input.setAttribute('autocomplete', 'off');
@@ -37,13 +43,26 @@ var LiveSearch = {
 					clearTimeout(this.liveSearchTimer);
 				}
 
+				// Build the URL
+				var url = config.url + q;
+
+				if (config.data) {
+					if (url.indexOf('&') != -1 || url.indexOf('?') != -1) {
+						url += '&' + LiveSearch.serialize(config.data);
+					}
+					else {
+						url += '?' + LiveSearch.serialize(config.data);
+					}
+				}
+
+				// Wait a little then send the request
 				var self = this;
 
 				this.liveSearchTimer = setTimeout(function () {
 					if (q) {
 						SimpleAjax.xhr({
 							method: 'get', 
-							url: url + q, 
+							url: url, 
 							callback: function (data) {
 								self.classList.remove('loading');
 								container.innerHTML = data;
@@ -58,13 +77,25 @@ var LiveSearch = {
 				this.liveSearchLastValue = this.value;
 			}
 		});
+	}, 
+
+	serialize: function (obj) {
+		var str = [];
+
+		for(var p in obj) {
+			if (obj.hasOwnProperty(p)) {
+				str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
+			}
+		}
+
+		return str.join('&');
 	}
 };
 
 if (typeof(jQuery) != 'undefined') {
-	jQuery.fn.liveSearch = function (url, appendTo) {
+	jQuery.fn.liveSearch = function (conf) {
 		return this.each(function () {
-			LiveSearch.init(this, url, appendTo);
+			LiveSearch.init(this, conf);
 		});
 	};
 }

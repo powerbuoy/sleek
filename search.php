@@ -1,22 +1,18 @@
-<?php if (XHR) : ?>
-	<?php sleek_get_module('ajax-posts'); die ?>
-<?php else : ?>
-	<?php get_header() ?>
+<?php get_header() ?>
 
-	<main>
+<main>
 
-		<?php sleek_get_module('posts-intro') ?>
-		<?php sleek_get_module('posts') ?>
+	<?php sleek_get_module('posts-intro') ?>
+	<?php sleek_get_module('posts') ?>
 
-	</main>
+</main>
 
-	<?php if is_active_sidebar('aside') : ?>
-		<aside id="aside">
+<?php if is_active_sidebar('aside') : ?>
+	<aside id="aside">
 
-			<?php dynamic_sidebar('aside') ?>
+		<?php dynamic_sidebar('aside') ?>
 
-		</aside>
-	<?php endif ?>
-
-	<?php get_footer() ?>
+	</aside>
 <?php endif ?>
+
+<?php get_footer() ?>

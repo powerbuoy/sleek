@@ -47,7 +47,15 @@ function sleek_get_posts_intro () {
 		if (have_posts()) {
 			if (strlen(trim(get_search_query())) > 0) {
 				$title		= sprintf(__('Search results (%s) for: <strong>“%s”</strong>', 'sleek'), $wp_query->found_posts, get_search_query());
-				$content	= false;
+
+				$total		= $wp_query->found_posts;
+				$currPage	= $wp_query->query_vars['paged'] ? $wp_query->query_vars['paged'] : 1;
+				$numPerPage	= $wp_query->query_vars['posts_per_page'];
+				$resFrom	= ($currPage * $numPerPage - $numPerPage) + 1;
+				$resTo		= ($resFrom + $numPerPage) - 1;
+				$resTo		= $resTo > $total ? $total : $resTo;
+
+				$content	= '<p>' . sprintf(__('Displaying results %d through %d'), $resFrom, $resTo) . '</p>';
 			}
 			else {
 				$title		= sprintf(__('Empty search', 'sleek'), $wp_query->found_posts, get_search_query());
@@ -58,14 +66,29 @@ function sleek_get_posts_intro () {
 			$title		= sprintf(__('No search results for: <strong>“%s”</strong>', 'sleek'), get_search_query());
 			$content	= '<p>' . __("We couldn't find any matching search results for your query.", 'sleek') . '</p>';
 		}
+
+	#	$content = '<pre>' . var_export($wp_query, true) . '</pre>';
 	}
 	elseif (is_author()) {
-		the_post();
+		if (get_query_var('author_name')) {
+			$usr = get_user_by('slug', get_query_var('author_name'));
+		}
+		else {
+			$usr = get_user_by('id', get_query_var('author'));
+		}
 
-		$title		= sprintf(__('Posts by <strong>%s</strong>', 'sleek'), get_the_author());
-		$content	= false; # TODO: Grab author description
+		if (!$usr) {
+			$usr = get_user_by('id', get_the_author_meta('ID'));
+		}
 
-		rewind_posts();
+		$prefix		= $usr->user_url ? '<a href="' . $usr->user_url . '">' : '';
+		$suffix		= $usr->user_url ? '</a>' : '';
+
+		$firstP		= explode("\n", get_user_meta($usr->ID, 'description', true));
+		$firstP		= count($firstP) ? $firstP[0] : $firstP;
+
+		$title		= $prefix . get_avatar($usr->ID, 320) . sprintf(__('Posts by <strong>%s</strong>', 'sleek'), $usr->display_name) . $suffix;
+		$content	= '<p>' . $firstP . '</p>';
 	}
 	elseif (is_day()) {
 		$title = sprintf(__('Daily archives <strong>%s</strong>', 'sleek'), get_the_time('l, F j, Y'));

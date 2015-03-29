@@ -1,0 +1,66 @@
+// Normal icon
+[class^="icon-"], 
+[class*="icon-"] {
+	@include icon($fa-var-arrow-right, before);
+}
+
+// Icon after text
+[class^="icon-"].after, 
+[class*="icon-"].after {
+	@include icon($fa-var-arrow-right, after);
+}
+
+[class^="icon-"].after:before, 
+[class*="icon-"].after:before {
+	display: none;
+}
+
+// Small icon
+[class^="icon-"].small, 
+[class*="icon-"].small {
+	&:before, 
+	&:after {
+	    font-size: 0.8rem;
+		line-height: inherit;
+	}
+}
+
+// Large icon
+[class^="icon-"].large, 
+[class*="icon-"].large {
+	&:before, 
+	&:after {
+	    font-size: 1.3333333333333333rem;
+		line-height: .6;
+	}
+}
+
+// Icon fixed at one side
+[class^="icon-"].fixed, 
+[class*="icon-"].fixed {
+	@include icon-fixed(before);
+}
+
+[class^="icon-"].fixed.after, 
+[class*="icon-"].fixed.after {
+	@include icon-fixed(after);
+}
+
+// Show only icon
+[class^="icon-"].only, 
+[class*="icon-"].only {
+	@include icon-only;
+}
+
+// Framed icon
+[class^="icon-"].framed, 
+[class*="icon-"].framed {
+	@include icon-framed;
+}
+
+[class^="icon-"].framed.after, 
+[class*="icon-"].framed.after {
+	&:before {
+		display: none;
+	}
+}

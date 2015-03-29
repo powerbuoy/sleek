@@ -23,6 +23,8 @@ add_action('wp_head', 'sleek_add_config_vars');
 function sleek_add_config_vars () {
 	echo '<script>';
 
+	echo 'TEMPLATE_DIRECTORY = "' . get_template_directory_uri() . '";';
+	echo 'STYLSHEET_DIRECTORY = "' . get_stylesheet_directory_uri() . '";';
 	echo 'AJAX_URL = "' . admin_url('admin-ajax.php') . '";';
 
 	if (defined('RECAPTCHA_SITE_KEY')) {

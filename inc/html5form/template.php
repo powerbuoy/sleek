@@ -18,8 +18,13 @@
 			td {
 				text-align: left;
 				vertical-align: top;
-				padding: 5px 10px;
+				padding: 15px;
 				border: 1px solid #ddd;
+			}
+
+			tr:nth-child(event) th, 
+			tr:nth-child(event) td {
+				background: #eee;
 			}
 		</style>
 	</head>

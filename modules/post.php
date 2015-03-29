@@ -1,6 +1,6 @@
 <section id="post">
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+	<?php while (have_posts()) : the_post(); ?>
 		<header>
 
 			<?php the_post_thumbnail('sleek-medium') ?>
@@ -19,9 +19,7 @@
 			<?php sleek_get_module('partials/post-meta') ?>
 
 		</footer>
-	<?php endwhile; else : ?>
-		<?php sleek_get_module('partials/nothing-found') ?>
-	<?php endif ?>
+	<?php endwhile ?>
 
 </section>
 

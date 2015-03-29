@@ -2,7 +2,7 @@
 
 <section id="image">
 
-	<?php if (have_posts()) : while (have_posts()) : the_post() ?>
+	<?php while (have_posts()) : the_post() ?>
 		<header>
 
 			<h1>
@@ -24,9 +24,7 @@
 		</header>
 
 		<?php the_content() ?>
-	<?php endwhile; else : ?>
-		<?php sleek_get_module('partials/nothing-found') ?>
-	<?php endif ?>
+	<?php endwhile ?>
 
 </section>
 

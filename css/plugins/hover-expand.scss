@@ -3,7 +3,6 @@ pre.hover-expand {
 	z-index: 1;
 
 	min-width: calc(100% - 42px); // 42px == border/padding
-	max-width: calc(100% - 42px);
 
 	padding: 20px;
 	border: 1px solid $border-color;
@@ -17,10 +16,14 @@ pre.hover-expand {
 		box-shadow: 4px 4px 12px $shadow-color;
 		transform: scale(1.02);
 	}
-}
 
-@media #{$bp-3} {
-	pre.hover-expand:hover {
-		max-width: 200%;
+	&:not(:hover) {
+		max-width: calc(100% - 42px) !important;
+	}
+
+	@media #{$bp-3-max} {
+		width: calc(100% - 42px);
+		min-width: calc(100% - 42px);
+		max-width: calc(100% - 42px);
 	}
 }

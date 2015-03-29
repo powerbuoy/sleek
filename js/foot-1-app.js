@@ -16,6 +16,8 @@
  * Instead just create your own object; ImageZoom = {init: function () ... }; and then call it from the (global) Header-module
  */
 App = {
+	modules: [], 
+
 	// Init
 	init: function() {
 		this.initModules();
@@ -39,7 +41,5 @@ App = {
 				this.modules[module].init(mod);
 			}
 		}
-	}, 
-
-	modules: []
+	}
 };

@@ -79,6 +79,7 @@ var LiveSearch = {
 		});
 	}, 
 
+	// http://stackoverflow.com/questions/1714786/querystring-encoding-of-a-javascript-object
 	serialize: function (obj) {
 		var str = [];
 

@@ -11,7 +11,7 @@ SleekChild only consists of a couple of files, but they're a perfect starting po
 
 Once you have SleekWP and SleekChild in your `wp-content/themes/` directory you can set your theme as the active one and have a look at the home page.
 
-**In order for your theme to take advantage of SleekWP you need to set the `Template:`-comment in `style.css` to the name of the SleekWP directory. It should already be set to `sleek` but if you named the folder differently remember to also change the `Template:`-comment.**
+**It is recommended you name the SleekWP theme directory "sleek". Some of the example code, and the `Template` comment in SleekChild rely on it being called "sleek".**
 
 As you can see there's some basic styling in place. Don't worry! they're just placeholder. The CSS is all yours. If you don't want to use anything of SleekWP's CSS you don't have to. That said, it does come with plenty of useful SASS @mixins and other smart code.
 
@@ -27,11 +27,17 @@ There are comments above each block of code in the included config so it should 
 
 **You may want to keep the `functions.php` file open while reading this.**
 
+### Some (optional) configuration
+
+The first thing you'll see are some configuration CONSTANTS. If you don't want to use ReCaptcha, Google Analytics or whatever is set here just ignore them, if you _do_ want to use them, just set them here and SleekWP takes care of the rest.
+
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=0:5"></script>
+
 ### Register CSS & JS
 
-First thing we do is register our CSS and JS file. This is done exactly the same way with or without SleekPHP:
+Then we register our CSS and JS file. This is done exactly the same way with or without SleekPHP:
 
-<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=0:25"></script>
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=5:30"></script>
 
 **Prefix all functions `the_name_of_your_theme_` instead of `sleek_child_`.**
 
@@ -43,7 +49,7 @@ Next we add the thumbnail sizes we need. SleekWP already adds theme support for 
 
 After you can register sidebars, and if you'll be using those just uncomment the `add_action()` call and add/remove the sidebars you want in the `sleek_register_sidebars()` call. The array key is the sidebar slug and the array value is the nice name of the sidebar. You may wanna make it translatable with `__()`.
 
-<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=26:44"></script>
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=31:49"></script>
 
 ### Cusomt post types & taxonomies
 
@@ -51,7 +57,7 @@ I use custom post types and taxonomies in more or less every theme I create nowa
 
 Registering them in WP isn't particularly hard, but SleekWP makes it slightly even less hard :P
 
-<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=45:63"></script>
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=50:68"></script>
 
 As you can see we use `sleek_register_post_types()` to register both post types and taxonomies. The function takes three arguments;
 
@@ -65,7 +71,7 @@ SleekWP also come with a couple of shortcodes. One in particular which can be qu
 
 It's recommended that you do this in the actual templates instead, but sometimes it can come in handy to include an about-box or ad in the middle of an article.
 
-<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=64:77"></script>
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=69:82"></script>
 
 ### Cleanup & fixes
 
@@ -73,7 +79,7 @@ The rest of the code in `functions.php` is mostly minor stuff like cleaning up `
 
 Like most of SleekWP the things you're not interested in can be left commented, and the things you are interested in just enable. All the code related to your theme's `functions.php` can be found in sleek/inc/.
 
-<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=78:"></script>
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=83:"></script>
 
 ## The page templates
 

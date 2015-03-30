@@ -1,11 +1,11 @@
-@mixin increment-transition ($el, $time, $num) {
+@mixin increment-transition ($el, $time, $num, $offset: 0) {
 	$chain: '';
 
 	@for $i from 1 through $num {
-		$chain: $chain + ' + li';
+		$chain: $chain + ' + ' + $el;
 
 		& #{$chain} {
-			transition-delay: #{$i * $time}s;
+			transition-delay: #{$i * $time + $offset}s;
 		}
 	}
 }

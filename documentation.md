@@ -1,48 +1,39 @@
 SleekWP Documentation
 =====================
 
-SleekWP is really just a normal WordPress theme, so if you're familiar with theme development much of this will come natural.
-
-But in order to best take advantage of SleekWP's features you should read this short documentation.
+SleekWP is really just a normal WordPress theme, so if you're familiar with theme development much of this will be easy. However, in order to best take advantage of SleekWP's features you should read this short documentation.
 
 ## Getting Started
 
-You'll obviously need to first download and install [WordPress](#), when that's done you can download [SleekWP](https://github.com/powerbuoy/SleekWP/master.zip) and as a blueprint for your own theme it's recommended you also download [SleekChild](https://github.com/powerbuoy/SleekChild/master.zip).
+You'll obviously first need to download and install [WordPress](//wordpress.org), when that's done you can download [SleekWP](//github.com/powerbuoy/SleekWP/master.zip) and as a blueprint for your own theme it's recommended you also download [SleekChild](//github.com/powerbuoy/SleekChild/master.zip).
 
-SleekChild only consists of a couple of files, but they're a perfect starting point for building your own site. After you've downloaded it, place it with the other themes and name it your sitename.
+SleekChild only consists of a couple of files, but they're a perfect starting point for building your own site. After you've downloaded it, place it with the other themes and rename the folder your site or theme name.
 
 Once you have SleekWP and SleekChild in your `wp-content/themes/` directory you can set your theme as the active one and have a look at the home page.
 
 **In order for your theme to take advantage of SleekWP you need to set the `Template:`-comment in `style.css` to the name of the SleekWP directory. It should already be set to `sleek` but if you named the folder differently remember to also change the `Template:`-comment.**
 
-As you can see there's some basic styling in place. Don't worry, they're just placeholder. The CSS is all yours. If you don't want to use anything of SleekWP's CSS you don't have to. That said, it does come with plenty of useful SASS @mixins and other smart code.
+As you can see there's some basic styling in place. Don't worry! they're just placeholder. The CSS is all yours. If you don't want to use anything of SleekWP's CSS you don't have to. That said, it does come with plenty of useful SASS @mixins and other smart code.
 
 We're going to go through each part of SleekWP. From WP-fixes and cleanup to CSS, JS and HTML. We'll start with the functions file.
+
+**SleekWP is still very much in development so things change - a lot.**
 
 ## The `functions.php` file
 
 The function file may look overwhelming at first, but it's mostly a bunch of `add_action()` calls that tell SleekWP to do stuff at certain points.
 
-**You may want to keep the `functions.php` file open while reading this.**
-
 There are comments above each block of code in the included config so it should hopefully be pretty self explanatory, but I'll go through the basics.
+
+**You may want to keep the `functions.php` file open while reading this.**
 
 ### Register CSS & JS
 
 First thing we do is register our CSS and JS file. This is done exactly the same way with or without SleekPHP:
 
-	add_action('wp_enqueue_scripts', 'sleek_child_register_css_js');
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=0:25"></script>
 
-	function sleek_child_register_css_js () {
-		wp_register_script('sleek_child_foot', get_stylesheet_directory_uri() . '/js/foot.php', array(), filemtime(get_stylesheet_directory() . '/js/foot.js'), true);
-		wp_enqueue_script('sleek_child_foot');
-
-		# Theme CSS
-		wp_register_style('sleek_child', get_stylesheet_directory_uri() . '/css/all.css', array(), filemtime(get_stylesheet_directory() . '/css/all.css'));
-		wp_enqueue_style('sleek_child');
-	}
-
-**Prefix all functions `mysite_` instead of `sleek_child_`.**
+**Prefix all functions `the_name_of_your_theme_` instead of `sleek_child_`.**
 
 Business as usual here, except you may notice we're including a `php` file when registering our JavaScript, what's this sorcery you might ask, and we'll get to that later in the JavaScript section.
 
@@ -50,7 +41,9 @@ Business as usual here, except you may notice we're including a `php` file when 
 
 Next we add the thumbnail sizes we need. SleekWP already adds theme support for thumbnails as well as a default size, so we just need to set the sizes specific to our theme: `add_action('init', 'sleek_child_post_thumbnails');`.
 
-Next up we got sidebars, and if you'll be using those just uncomment the `add_action()` call and add/remove the sidebars you want in the `sleek_register_sidebars()` call. The array key is the sidebar slug and the array value is the nice name of the sidebar. You may wanna make it translatable with `__()`.
+After you can register sidebars, and if you'll be using those just uncomment the `add_action()` call and add/remove the sidebars you want in the `sleek_register_sidebars()` call. The array key is the sidebar slug and the array value is the nice name of the sidebar. You may wanna make it translatable with `__()`.
+
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=26:44"></script>
 
 ### Cusomt post types & taxonomies
 
@@ -58,29 +51,21 @@ I use custom post types and taxonomies in more or less every theme I create nowa
 
 Registering them in WP isn't particularly hard, but SleekWP makes it slightly even less hard :P
 
-	add_action('init', 'sleek_child_register_post_types');
-
-	function sleek_child_register_post_types () {
-		sleek_register_post_types(
-			# Post types (slug => description)
-			array('movies' => 'My movie collection', 'directors' => 'My favorite directors.'), 
-
-			# Taxonomies and which post types they belong to
-			array(
-				'genres' => array('movies'), 
-				'countries' => array('directors', 'movies')
-			), 
-
-			# Translation textdomain (for URLs)
-			'sleek_child'
-		);
-	}
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=45:63"></script>
 
 As you can see we use `sleek_register_post_types()` to register both post types and taxonomies. The function takes three arguments;
 
 1. An array of post types and descriptions in the form of `'movies' => 'My movie collection'`.
 2. An array of taxonomies and which post types they should belong to in the form of `'taxonomy_name => array('post_type_one', 'post_type_two')`
-3. An optional textdomain. See the function sets the post type slugs to "url_[post-type-name]", and in production you most likely don't want that so by passing in a textdomain here you can later translate "url_movies" to just "movies" or perhaps "films" for the UK version of the site.
+3. An optional textdomain. The function sets the post type slugs to "url_[post-type-name]", and once you're live you most likely don't want that so by passing in a textdomain here you can later translate "url_movies" to just "movies" or perhaps "films" for the UK version of the site.
+
+### Shortcodes
+
+SleekWP also come with a couple of shortcodes. One in particular which can be quite useful; `[include]`. It allows you to include any module from either your theme or SleekWP into any page.
+
+It's recommended that you do this in the actual templates instead, but sometimes it can come in handy to include an about-box or ad in the middle of an article.
+
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=64:77"></script>
 
 ### Cleanup & fixes
 
@@ -183,7 +168,7 @@ If you look inside your `css/` directory you'll see 4 files:
 3. config.scss - configuration variables for more or less every aspect of SleekWP's base styling
 4. layout.scss - example of how you can design your own theme
 
-### all.scss or @import all the things!
+### all.scss - or: @import all the things!
 
 Here's what all.scss looks like:
 
@@ -208,7 +193,7 @@ Out of all those files only general will actually make a difference to the page 
 
 That sounded well high tech, but what I mean is it contains styling for things like `a {}` or `p {}` etc. Nothing specific, only generic. And more or less everything can be changed using the...
 
-### config.scss or change all the things!
+### config.scss - or: change all the things!
 
 Open up the config and you should be able to understand what to do immediately. Everything is commented and config variables have sensible names (and defaults). Here's what (parts of it) looks like:
 
@@ -235,11 +220,32 @@ Animation speeds, typography and colors should hopefully be self explanatory.
 
 **It's important that when you start developing your own design that you too use these configs so that later on, if you want to change something, changing it in the config file will change both SleekWP's mixins and general styling as well as your own CSS.**
 
-To know more about the mixins or classes I recommend checking the code in SleekWP/css/. You can also check the [projects section](http://andreaslagerkvist.com/projects/) on my website as I tend to put some of the stuff there.
+To know more about the mixins or classes I recommend checking the code in SleekWP/css/. You can also check the [projects section](//andreaslagerkvist.com/projects/) on my website as I tend to put some of the stuff there.
 
 ## The JavaScript
 
 modules / running plugins from header
+
+SleekWP comes with a few handy JavaScript/jQuery plug-ins and code snippets and in order for your child theme to take advantage of them it needs to include the `js/head.php` and `js/foot.php` files.
+
+Those PHP scripts take care of merging and compressing your theme's JS as well as SleekWP's into one file each; `foot.js` and `head.js`. If you don't need any JavaScript in the `<head>` just comment out including `js/head.php`. You can of course include any other JS you like as usual.
+
+For your JavaScript files to be included in the generated file you need to prefix them with either `foot-` or `head-` depending on where you want them included, for example; `foot-plugin-image-zoom.js`. The files are included in order of filename so you may want to include a number for it to be higher up in the generated code; `foot-1-plugin-image-zoom.js`.
+
+It is recommended that you add your own JS code to SleekWP's `App` object in order to keep everything nice and namespaced. When you want to add JavaScript code that affects a certain part of the page (i.e. `#recent-comments`) you add a JS object to `App.modules`;
+
+	App.modules.RecentComments = {
+		// this function will run IF your module (#recent-comments in this case) exists
+		init: function (mod) {
+			// mod is the element connected to this code (#recent-comments)
+		}
+	};
+
+Code added this way will only run if the corresponding element (`#recent-comments` in this case) exists on the page. Should you add a module dynamically you can always run the code manually; `App.modules.RecentComments.init()`.
+
+**It's important you name your module object exactly the same* as the ID of the element the code is connected to so that SleekWP knows which element to look for**
+
+If you for example have added an AddThis widget (`<div id="add-this"></div>`) and you want to attach some 
 
 ## That's it
 

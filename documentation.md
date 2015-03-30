@@ -148,9 +148,7 @@ Open up the config and you should be able to understand what to do immediately. 
 
 A couple of things that may need further explaining; the `$bp-`-configs are for @media query breakpoints. The `$site-width` and `$max-site-width` are used in various @mixins (like @section) and they should most likely be set in % for site-width and px/em for max-site-width.
 
-Margin & gutter are used for vertical and horizontal spacing respectively. I find I like to have more space between items horizontally than vertically but your mileage may vary.
-
-Animation speeds, typography and colors should hopefully be self explanatory.
+Margin & gutter are used for vertical and horizontal spacing respectively. Animation speeds, typography and colors should hopefully be self explanatory.
 
 **It's important that when you start developing your own design that you too use these configs so that later on, if you want to change something, changing it in the config file will change both SleekWP's mixins and general styling as well as your own CSS.**
 

@@ -1,4 +1,5 @@
-# SleekWP Documentation
+SleekWP Documentation
+=====================
 
 SleekWP is really just a normal WordPress theme, so if you're familiar with theme development much of this will come natural.
 
@@ -14,7 +15,7 @@ Once you have SleekWP and SleekChild in your `wp-content/themes/` directory you 
 
 **In order for your theme to take advantage of SleekWP you need to set the `Template:`-comment in `style.css` to the name of the SleekWP directory. It should already be set to `sleek` but if you named the folder differently remember to also change the `Template:`-comment.**
 
-As you can see there's some basic styling in place. **Don't worry**, they're just placeholder. The CSS is all yours. If you don't want to use anything of SleekWP's CSS you don't have to. That said, it does come with plenty of useful SASS @mixins and other smart code.
+As you can see there's some basic styling in place. Don't worry, they're just placeholder. The CSS is all yours. If you don't want to use anything of SleekWP's CSS you don't have to. That said, it does come with plenty of useful SASS @mixins and other smart code.
 
 We're going to go through each part of SleekWP. From WP-fixes and cleanup to CSS, JS and HTML. We'll start with the functions file.
 

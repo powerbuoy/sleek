@@ -4,8 +4,8 @@ pre.hover-expand {
 
 	min-width: calc(100% - 42px); // 42px == border/padding
 
-	padding: 20px;
-	border: 1px solid $border-color;
+	padding: 20px !important;
+	border: 1px solid $border-color !important;
 
 	box-shadow: 0 0 0 $shadow-color;
 	overflow-x: scroll;

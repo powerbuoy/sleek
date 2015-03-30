@@ -28,7 +28,6 @@
 
 	box-sizing: border-box;
 
-	margin: 0;
 	padding: $padding-vertical $padding-horizontal;
 
 	font-size: $font-size;
@@ -82,14 +81,14 @@
 @mixin button-background ($color: $button-color, $fade: $button-fade, $border: $button-border) {
 	// Gradient(?) background
 	@if ($fade > 0) {
-		background: linear-gradient(180deg, $color, darken($color, $fade));
+		background-image: linear-gradient(180deg, $color, darken($color, $fade));
 	
 		&:active {
-			background: linear-gradient(180deg, darken($color, $fade), $color);
+			background-image: linear-gradient(180deg, darken($color, $fade), $color);
 		}
 	}
 	@else {
-		background: $color;
+		background-color: $color;
 	}
 
 	// Border

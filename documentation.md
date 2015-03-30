@@ -73,6 +73,8 @@ The rest of the code in `functions.php` is mostly minor stuff like cleaning up `
 
 Like most of SleekWP the things you're not interested in can be left commented, and the things you are interested in just enable. All the code related to your theme's `functions.php` can be found in sleek/inc/.
 
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=78:"></script>
+
 ## The page templates
 
 Now that we got the backend configuration out of the way, let's start thinking about what the page will look like.
@@ -83,25 +85,7 @@ On most WordPress themes, if you open one of these files, you'll find all the PH
 
 If you have a look at a random "page template" in SleekWP you'll notice it's rather empty;
 
-	<?php get_header() ?>
-
-	<main>
-
-		<?php sleek_get_module('posts-intro') ?>
-		<?php sleek_get_module('post-author') ?>
-		<?php sleek_get_module('posts') ?>
-
-	</main>
-
-	<?php if is_active_sidebar('aside') : ?>
-		<aside id="aside">
-
-			<?php dynamic_sidebar('aside') ?>
-
-		</aside>
-	<?php endif ?>
-
-	<?php get_footer() ?>
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekWP/blob/master/author.php"></script>
 
 None of the actual meat of the code is present here, and the reason for that is that we want to keep it modular. Both PostsIntro and Posts are used on several other pages, so being able to include them like this is much easier than copy/pasting the code or creating functions similar to `get_header()` or `get_footer()`.
 
@@ -111,43 +95,13 @@ You'll notice yet another `sleek_` function; `sleek_get_module()`. This is a sim
 
 ## The modules that make up the pages
 
-Unlike what you might be used to, there was hardly any HTML or PHP in the WP page templates. No, instead we put all the individual module's code in their own files inside `modules/` so they can be easily shared and moved around across any number of sites.
+Unlike what you might be used to, there was hardly any HTML or PHP in the WP page templates. Instead we put all the individual module's code in their own files inside `modules/` so they can be easily shared and moved around across any number of sites.
 
-SleekWP contains modules for all of WordPress' built in pages like archives, author listings, image attachment pages etc. The SleekWP modules are written to be as clean and semantically correct as possible. They all have a unique ID (corresponding to their filename) so that you can target the with CSS or JS specifically.
+SleekWP contains modules for all of WordPress' built in pages like archives, author listings, image attachment pages etc. The SleekWP modules are written to be as clean and semantically correct as possible. They all have a unique ID (corresponding to their filename) so that you can target them with CSS or JS specifically.
 
 To show you what I mean, here's the code for displaying a single Post. Or, the PostModule:
 
-	<section id="post">
-
-		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-			<header>
-
-				<?php the_post_thumbnail('sleek-medium') ?>
-
-				<h1><?php the_title() ?></h1>
-
-				<?php sleek_get_module('partials/post-pubdate') ?>
-
-			</header>
-
-			<?php the_content() ?>
-
-			<footer>
-
-				<?php wp_link_pages(array('before' => '<p>' . __('Pages', 'sleek') . ': ', 'after' => '</p>', 'next_or_number' => 'number')) ?>
-				<?php sleek_get_module('partials/post-meta') ?>
-
-			</footer>
-		<?php endwhile; else : ?>
-			<?php sleek_get_module('partials/nothing-found') ?>
-		<?php endif ?>
-
-	</section>
-
-	<nav id="pagination">
-		<?php previous_post_link('%link', '%title') ?>
-		<?php next_post_link('%link', '%title') ?>
-	</nav>
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekWP/blob/master/modules/post.php"></script>
 
 As you can see, a unique #id same as the filename and semantic HTML5 with no design related classes or other clutter. For the modules you don't really care about in your theme this is very nice to have as you automatically get a nice and clean 404, search page or any other built in WordPress page.
 
@@ -166,51 +120,25 @@ If you look inside your `css/` directory you'll see 4 files:
 1. all.css - the generated CSS, this is what's served to the browser
 2. all.scss - the file used to generate all.css, this file @import:s all other css be it from SleekWP or from your own theme
 3. config.scss - configuration variables for more or less every aspect of SleekWP's base styling
-4. layout.scss - example of how you can design your own theme
+4. layout.scss - boilerplate for a new theme
 
 ### all.scss - or: @import all the things!
 
 Here's what all.scss looks like:
 
-	// Config
-	@import "../../sleek/css/default-config";
-	@import "config";
-
-	// Sleek stuff
-	@import "../../sleek/css/font-awesome/all";
-	@import "../../sleek/css/all-utils";
-	// @import "../../sleek/css/all-plugins";
-	@import "../../sleek/css/all-general";
-
-	// Our layout
-	@import "layout";
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/css/all.scss?slice="></script>
 
 Now let me explain that. `default-config` contains every config variable used by SleekWP's built in @mixins and generic CSS styling. You should always start by including it, and then override the configs that are relevant to you from your own config file; `config`.
 
 Next we include the nice starter CSS SleekWP offers. First of all FontAwesome and related classes and @mixins, then a bunch of handy utilities (in the form of @mixins - they don't actually add any CSS unless you use them), plugins (which are basically CSS/JS combinations like ImageZoom or CodeHighlight) and finally general.
 
-Out of all those files only general will actually make a difference to the page as it's the only one that actually outputs any CSS that directly affects things. The general CSS consists of Normalize, WP-Classes, Forms and General. You should be familiar with Normalize, but it's a much better way to reset your CSS than traditional CSS resets. WP-Classes just contains styling for the align-classes WP adds to images. Forms contains some basic form styling and finally General contains styling on single element selector level.
-
-That sounded well high tech, but what I mean is it contains styling for things like `a {}` or `p {}` etc. Nothing specific, only generic. And more or less everything can be changed using the...
+Out of all those files only general will actually make a difference to the page as it's the only one that actually outputs any CSS that directly affects things. The general CSS consists of `normalize.css`, `wp-classes.css`, `forms.css` and `general.css`. You should be familiar with Normalize, but it's a much better way to reset your CSS than traditional CSS resets. WP-Classes just contains styling for the align-classes WP adds to images. Forms contains some basic form styling and finally General contains styling on single elements like `h1` or `p` - nothing specific, and pretty much everything set in there can be changed in `config.scss`.
 
 ### config.scss - or: change all the things!
 
 Open up the config and you should be able to understand what to do immediately. Everything is commented and config variables have sensible names (and defaults). Here's what (parts of it) looks like:
 
-	// Animations and effects
-	$transition-speed: .1s;
-	$transition-easing: ease-out;
-	$border-radius: 5px;
-
-	// Colors
-	$link-color: #777;
-	$link-color-hover: #333;
-	$link-color-visited: #609;
-
-	$error-color: #c00;
-	$success-color: #0c0;
-	$white-color: #fefefe;
-	$gray-color: #999;
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/css/config.scss?slice="></script>
 
 A couple of things that may need further explaining; the `$bp-`-configs are for @media query breakpoints. The `$site-width` and `$max-site-width` are used in various @mixins (like @section) and they should most likely be set in % for site-width and px/em for max-site-width.
 
@@ -224,29 +152,22 @@ To know more about the mixins or classes I recommend checking the code in SleekW
 
 ## The JavaScript
 
-modules / running plugins from header
-
 SleekWP comes with a few handy JavaScript/jQuery plug-ins and code snippets and in order for your child theme to take advantage of them it needs to include the `js/head.php` and `js/foot.php` files.
 
 Those PHP scripts take care of merging and compressing your theme's JS as well as SleekWP's into one file each; `foot.js` and `head.js`. If you don't need any JavaScript in the `<head>` just comment out including `js/head.php`. You can of course include any other JS you like as usual.
 
-For your JavaScript files to be included in the generated file you need to prefix them with either `foot-` or `head-` depending on where you want them included, for example; `foot-plugin-image-zoom.js`. The files are included in order of filename so you may want to include a number for it to be higher up in the generated code; `foot-1-plugin-image-zoom.js`.
+For your JavaScript files to be included in the generated file you need to place them in the `js/` directory and prefix them with either `foot-` or `head-` depending on where you want them included, for example; `js/foot-plugin-image-zoom.js`. The files are included in order of filename (though all of SleekWP's code is included before your theme's) so you may want to include a number for it to be higher up in the generated code; `foot-1-plugin-image-zoom.js`.
 
-It is recommended that you add your own JS code to SleekWP's `App` object in order to keep everything nice and namespaced. When you want to add JavaScript code that affects a certain part of the page (i.e. `#recent-comments`) you add a JS object to `App.modules`;
+It is recommended that you add your own JS code to SleekWP's `App` object in order to keep everything nice and namespaced. When you want to add JavaScript code that affects a certain part of the page (i.e. `#portfolio`) you add a JS object to `App.modules.Portfolio = {}`;
 
-	App.modules.RecentComments = {
-		// this function will run IF your module (#recent-comments in this case) exists
-		init: function (mod) {
-			// mod is the element connected to this code (#recent-comments)
-		}
-	};
+<script src="http://gist-it.appspot.com/github/powerbuoy/ALCom/blob/master/js/foot-module-portfolios.js?slice="></script>
 
-Code added this way will only run if the corresponding element (`#recent-comments` in this case) exists on the page. Should you add a module dynamically you can always run the code manually; `App.modules.RecentComments.init()`.
+Code added this way will only run if the corresponding element (`#portfolio` in this case) exists on the page. Should you add a module dynamically you can always run the code manually; `App.modules.Portfolio.init()`.
 
 **It's important you name your module object exactly the same* as the ID of the element the code is connected to so that SleekWP knows which element to look for**
 
-If you for example have added an AddThis widget (`<div id="add-this"></div>`) and you want to attach some 
+**The JavaScript object should be in camel case (`RecentComments`), while the HTML id should be dash separated (`#recent-comments`).**
 
 ## That's it
 
-...
+That should be it. Use the comments if you have questions.

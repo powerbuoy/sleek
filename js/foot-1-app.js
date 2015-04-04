@@ -41,5 +41,17 @@ App = {
 				this.modules[module].init(mod);
 			}
 		}
+	}, 
+
+	utils: {
+		loadScript: function (src, callback) {
+			var s = document.createElement('script');
+
+			s.src = src;
+
+			document.body.appendChild(s);
+
+			s.addEventListener('load', callback);
+		}
 	}
 };

@@ -188,4 +188,9 @@ iframe {
 	height: 300px;
 	border: 0;
 	resize: y;
+
+	// Fix for iOS responsive bug
+	width: 1px;
+	min-width: 100%;
+	*width: 100%;
 }

@@ -17,6 +17,14 @@ function sleek_unset_active_blog_class ($cssClass, $post) {
     return $cssClass;
 }
 
+# Remo Emoji CSS/JS from head added since WP 4.2.2
+# add_action('init', 'sleek_remove_emoji_css_js');
+
+function sleek_remove_emoji_css_js () {
+	remove_action('wp_head', 'print_emoji_detection_script', 7);
+	remove_action('wp_print_styles', 'print_emoji_styles');
+}
+
 # Remove HOME from Yoast Breadcrumbs (http://wordpress.org/support/topic/how-can-i-remove-home-from-breadcrumbs)
 # add_filter('wpseo_breadcrumb_links', 'sleek_remove_home_from_breadcrumb');
 

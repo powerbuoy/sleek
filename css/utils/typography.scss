@@ -60,7 +60,7 @@
 
 @mixin link {
 	color: $link-color;
-	text-decoration: underline;
+	text-decoration: $link-decoration;
 
 	&:visited {
 	//	color: $link-color-visited;
@@ -68,7 +68,13 @@
 
 	&:hover {
 		color: $link-color-hover;
-		text-decoration: none;
+
+		@if ($link-decoration == underline) {
+			text-decoration: none;
+		}
+		@else {
+			text-decoration: underline;
+		}
 	}
 }
 

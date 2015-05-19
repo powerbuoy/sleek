@@ -1,4 +1,32 @@
 /**
+ * @a11y-hide
+ *
+ * Hides an element in such a way that it's still read by screen readers
+ */
+@mixin a11y-hide {
+	position: absolute;
+	left: -1000000px;
+	top: -1000000px;
+
+	[dir=rtl] & {
+		left: auto;
+		right: -1000000px;
+	}
+}
+
+/**
+ * @a11y-show
+ *
+ * Un-hides an a11y-hidden element
+ */
+@mixin a11y-show {
+	position: static;
+	left: auto;
+	rigth: auto;
+	top: auto;
+}
+
+/**
  * @strip-units
  *
  * Removes any unit (%, px, rem etc) from a number
@@ -58,5 +86,31 @@
 
 	> li:last-child:after {
 		display: none;
+	}
+}
+
+/**
+ * @data-definition
+ *
+ * Displays a DL with DT/DD combo as key: value pairs
+ */
+@mixin data-definition {
+	dt {
+		display: inline;
+		font-weight: bold;
+	}
+
+	dt:after {
+		content: ": ";
+	}
+
+	dd {
+		display: inline;
+		margin: 0;
+	}
+
+	dd:after {
+		content: "\a";
+		white-space: pre;
 	}
 }

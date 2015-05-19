@@ -59,6 +59,7 @@
 
 	&:hover {
 		color: $white-color;
+		text-decoration: none;
 
 		// Box shadow
 		@if ($shadow == true) {

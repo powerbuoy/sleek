@@ -106,7 +106,7 @@ $shadow-color: rgba(0, 0, 0, .2) !default;
 	font-size: 0 !important;
 	text-decoration: none !important;
 
-	&:before {
+	&:#{$where} {
 		margin: 0;
 		font-size: $default-size;
 		line-height: inherit;

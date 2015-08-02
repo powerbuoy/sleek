@@ -8,8 +8,8 @@ function sleek_register_post_types ($postTypes, $taxonomies, $textdomain = 'slee
 	foreach ($postTypes as $postType => $description) {
 		register_post_type($postType, array(
 			'labels'			=> array(
-				'name'			=> __(ucfirst($postType), $textdomain),
-				'singular_label'=> __(ucfirst($postType), $textdomain)
+				'name'			=> __(ucfirst(str_replace('_', ' ', $postType)), $textdomain),
+				'singular_label'=> __(ucfirst(str_replace('_', ' ', $postType)), $textdomain)
 			), 
 			'description'		=> $description, 
 			'rewrite'			=> array(

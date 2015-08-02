@@ -1,0 +1,42 @@
+// https://www.liquidlight.co.uk/blog/article/tables-in-responsive-design/ & https://css-tricks.com/examples/ResponsiveTables/responsive.php
+@mixin responsive-table ($bp: 600px, $th-width: 50%, $cell-padding: $margin) {
+	@media (max-width: $bp) {
+		width: 100%;
+		display: block;
+
+		thead {
+			display: none;
+		}
+
+		tbody {
+			display: block;
+		}
+
+		tr {
+			display: block;
+
+			td {
+				display: block;
+				position: relative;
+				padding-left: $th-width;
+
+				&:before {
+					content: attr(data-th) ":";
+					display: block;
+					width: calc(#{$th-width} - #{$cell-padding * 2});
+
+					position: absolute;
+					left: $cell-padding;
+
+					font-weight: bold;
+
+					@include ellipsis;
+				}
+			}
+
+			&:not(:last-child) td {
+				border-bottom: 0; // Borders won't collapse anymore since it's not a table
+			}
+		}
+	}
+}

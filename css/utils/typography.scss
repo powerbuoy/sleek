@@ -8,7 +8,7 @@
 }
 
 @mixin heading ($font-size: $h1-size) {
-	margin: 0 0 ($margin / 2);
+	margin: 0 0 $heading-margin;
 
 	@include heading-size($font-size);
 
@@ -16,14 +16,15 @@
 	font-weight: $heading-font-weight;
 	line-height: $heading-line-height;
 	letter-spacing: $heading-letter-spacing;
+	text-transform: $heading-text-transform;
 	color: $heading-color;
 
 	a {
 		color: inherit;
 		text-decoration: none;
+		font-weight: inherit;
 
 		&:hover {
-			color: inherit;
 			text-decoration: none;
 		}
 	}
@@ -51,20 +52,17 @@
 	color: $gray-color;
 
 	a {
-		color: $gray-color;
-
-		&:hover {
-			color: $link-color-hover;
-		}
+		color: inherit;
 	}
 }
 
 @mixin link {
 	color: $link-color;
 	text-decoration: $link-decoration;
+	font-weight: $link-font-weight;
 
 	&:visited {
-	//	color: $link-color-visited;
+		color: $link-color-visited;
 	}
 
 	&:hover {

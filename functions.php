@@ -25,6 +25,8 @@ include get_template_directory() . '/inc/advanced-search.php';
 include get_template_directory() . '/inc/tinymce-styles.php';
 include get_template_directory() . '/inc/get-posts-intro.php';
 include get_template_directory() . '/inc/more-markdown.php';
+include get_template_directory() . '/inc/get-posts/get-posts.php';
+
+# WIP
 # include get_template_directory() . '/inc/submit-form.php';
 # include get_template_directory() . '/inc/relevanssi.php';
-# include get_template_directory() . '/inc/get-posts/get-posts.php';

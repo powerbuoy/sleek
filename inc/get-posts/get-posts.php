@@ -11,7 +11,7 @@ function sleek_shortcode_get_posts ($atts) {
 	$type		= isset($atts['type']) ? (strpos($atts['type'], ',') ? explode(',', $atts['type']) : $atts['type']) : 'post';
 	$limit		= isset($atts['limit']) ? $atts['limit'] : -1;
 	$order		= isset($atts['order']) ? $atts['order'] : 'post_date';
-	$template	= (isset($atts['template']) and file_exists($path . basename($atts['template']) . '.php')) ? basename($atts['template']) : 'list-posts';
+	$template	= (isset($atts['template']) and file_exists($path . basename($atts['template']) . '.php')) ? basename($atts['template']) : 'template';
 
 	$empty		= isset($atts['empty']) ? $atts['empty'] : __('No posts found.', 'sleek');
 	$show		= isset($atts['show']) ? explode(',', $atts['show']) : false;
@@ -88,7 +88,7 @@ function sleek_shortcode_get_posts ($atts) {
 	}
 
 	# Set a default image size
-	$img_size = isset($atts['img_size']) ? $atts['img_size'] : 'sleek-medium';
+	$img_size = isset($atts['img_size']) ? $atts['img_size'] : 'full';
 
 	# Work out the archive URL for this post type (TODO: if a particular tax is set - limit to it)
 	$archive_url = false;

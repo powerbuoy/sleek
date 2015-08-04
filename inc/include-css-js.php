@@ -84,3 +84,10 @@ function sleek_register_browser_update_js () {
 		};
 	</script>');
 }
+
+# Disable jQuery NoConflict
+# add_action('wp_head', 'sleek_disable_jquery_noconflict');
+
+function sleek_disable_jquery_noconflict () {
+	echo '<script>$ = jQuery.noConflict()</script>';
+}

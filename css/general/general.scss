@@ -117,7 +117,10 @@ blockquote {
 
 // Rulers and code boxes
 hr {
+	background: transparent;
 	margin: ($margin * 1.5) 0;
+	outline: 0;
+	border: 0;
 	border-top: 1px solid $border-color;
 }
 

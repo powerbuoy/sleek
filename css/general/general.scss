@@ -64,7 +64,6 @@ ol {
 
 dl {
 	margin: 0 0 $margin;
-}
 
 	dt {
 		font-weight: bold;
@@ -73,6 +72,7 @@ dl {
 	dd {
 		margin: 0 0 0 $margin;
 	}
+}
 
 // Quotes
 q, 
@@ -149,20 +149,19 @@ pre code {
 table {
 	margin: 0 0 $margin;
 	border-spacing: 0;
-}
 
 	th, 
 	td {
-		padding: ($margin / 2) $margin;
+		padding: ($margin / 2);
 		border: 1px solid $border-color;
 		text-align: left;
 		vertical-align: top;
 	}
 
-	th, 
-	tr:hover td {
+	tr:nth-child(even) td {
 		background: $alt-bg;
 	}
+}
 
 // Links
 a {

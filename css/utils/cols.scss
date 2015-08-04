@@ -79,7 +79,7 @@ ul[class*="cols-"] {
 	//	text-align: center;
 	}
 
-	@media #{$bp-1} {
+	@media #{$bp-2} {
 		@include cols(2, $gutter);
 	}
 }
@@ -89,7 +89,7 @@ ul[class*="cols-"] {
 	//	text-align: center;
 	}
 
-	@media #{$bp-1} and #{$bp-3-max} {
+	@media #{$bp-2} and #{$bp-3-max} {
 		@include cols(2, $gutter);
 	}
 
@@ -103,11 +103,11 @@ ul[class*="cols-"] {
 	//	text-align: center;
 	}
 
-	@media #{$bp-1} and #{$bp-2-max} {
+	@media #{$bp-2} and #{$bp-2-max} {
 		@include cols(2, $gutter);
 	}
 
-	@media #{$bp-2} {
+	@media #{$bp-3} {
 		@include cols(4, $gutter);
 	}
 }
@@ -117,15 +117,15 @@ ul[class*="cols-"] {
 	//	text-align: center;
 	}
 
-	@media #{$bp-1} and #{$bp-2-max} {
+	@media #{$bp-2} and #{$bp-3-max} {
 		@include cols(2, $gutter);
 	}
 
-	@media #{$bp-2} and #{$bp-3-max} {
+	@media #{$bp-3} and #{$bp-4-max} {
 		@include cols(3, $gutter);
 	}
 
-	@media #{$bp-3} {
+	@media #{$bp-4} {
 		@include cols(5, $gutter);
 	}
 }

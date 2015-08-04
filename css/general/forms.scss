@@ -11,6 +11,7 @@
 	margin: 0;
 	padding: 5px 15px;
 
+	outline: 0;
 	border: 1px solid $border-color;
 	border-radius: $border-radius;
 
@@ -21,7 +22,7 @@
 }
 
 form {
-	margin: 0 0 $margin;
+	margin: 0; // 0 $margin;
 
 	// Labels
 	label {
@@ -76,6 +77,7 @@ form {
 	input[type=submit], 
 	button {
 		@include button;
+		outline: 0;
 	}
 
 	// Captchas

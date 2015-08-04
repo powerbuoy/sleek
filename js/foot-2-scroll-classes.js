@@ -2,6 +2,7 @@
  * Adds classes to the body element reflecting the user's current scroll behaviour
  * e.g. "has-scrolled", "scrolling-up" or "scrolling-down".
  * These are used for styling purposes in some themes.
+ * TODO: Add "at-top" "at-bottom"-classes
  */
 var ScrollClasses = {
 	init: function () {

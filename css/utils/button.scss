@@ -31,12 +31,15 @@
 	padding: $padding-vertical $padding-horizontal;
 
 	font-size: $font-size;
+	line-height: $body-line-height;
 	color: $white-color;
-	font-weight: bold;
+
+	font-weight: $button-font-weight;
+	font-style: normal;
+
 	text-decoration: none;
 	text-align: center;
-	line-height: $body-line-height;
-	font-style: normal;
+	text-transform: $button-text-transform;
 
 	transition: all $transition-speed $transition-easing;
 	border-radius: $button-border-radius;

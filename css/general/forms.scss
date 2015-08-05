@@ -1,19 +1,32 @@
-@mixin form-field {
-	@include body-text;
+$form-fields: "input[type=text], input[type=search], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=date], input[type=month], input[type=week], input[type=time], input[type=datetime], input[type=datetime-local], input[type=color], textarea";
 
-	background: $white-color;
+@mixin form-field () {
+	background: $form-field-bg;
 
 	display: inline-block;
-	box-sizing: border-box;
+	vertical-align: middle;
 
+	box-sizing: border-box;
 	max-width: 100%;
 
 	margin: 0;
-	padding: 5px 15px;
+	padding: $form-padding-vertical $form-padding-horizontal;
+
+	@include body-text;
+	color: $form-field-color;
+
+	@if ($form-field-border == true) {
+		border: 1px solid $border-color;
+	}
+	@elseif ($form-field-border) {
+		border: $form-field-border;
+	}
+	@else {
+		border: 0;
+	}
 
 	outline: 0;
-	border: 1px solid $border-color;
-	border-radius: $border-radius;
+	border-radius: $form-field-border-radius;
 
 	&:hover, 
 	&:focus {
@@ -47,20 +60,7 @@ form {
 	}
 
 	// Fields
-	input[type=text], 
-	input[type=search], 
-	input[type=email], 
-	input[type=url], 
-	input[type=tel], 
-	input[type=number], 
-	input[type=date], 
-	input[type=month], 
-	input[type=week], 
-	input[type=time], 
-	input[type=datetime], 
-	input[type=datetime-local], 
-	input[type=color], 
-	textarea {
+	#{$form-fields} {
 		@include form-field;
 	}
 

@@ -81,3 +81,13 @@ $button-shadow: true !default;
 $button-padding-vertical: .4rem !default;
 $button-padding-horizontal: 1.6rem !default;
 $button-font-size: $body-font-size !default;
+$button-text-transform: none !default;
+$button-font-weight: normal !default;
+
+// Forms
+$form-field-bg: $white-color !default;
+$form-field-color: $body-color !default;
+$form-field-border: true !default;
+$form-field-border-radius: $border-radius !default;
+$form-padding-vertical: 5px !default;
+$form-padding-horizontal: 15px !default;

@@ -88,7 +88,7 @@ function sleek_get_posts_intro () {
 		$firstP		= count($firstP) ? $firstP[0] : $firstP;
 
 		$title		= $prefix . get_avatar($usr->ID, 320) . sprintf(__('Posts by <strong>%s</strong>', 'sleek'), $usr->display_name) . $suffix;
-		$content	= '<p>' . $firstP . '</p>';
+		$content	= $firstP ? '<p>' . $firstP . '</p>' : false;
 	}
 	elseif (is_day()) {
 		$title = sprintf(__('Daily archives <strong>%s</strong>', 'sleek'), get_the_time('l, F j, Y'));
@@ -104,6 +104,14 @@ function sleek_get_posts_intro () {
 
 		$title = $postType->labels->name;
 		$content = '<p>' . nl2br($postType->description) . '</p>';
+	}
+	elseif (is_page() or is_single() or (get_option('show_on_front') == 'page' and is_front_page())) {
+		setup_postdata($post);
+
+		$title = get_the_title();
+		$content = sleek_get_the_excerpt($post->ID);
+
+		wp_reset_postdata();
 	}
 	else {
 		$title = __('Posts', 'sleek');

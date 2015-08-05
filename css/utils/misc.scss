@@ -110,7 +110,11 @@
 	}
 
 	dd:after {
-		content: "\a";
-		white-space: pre;
+	//	content: "\a";
+	//	white-space: pre;
+
+		display: block;
+		content: "";
+		margin-bottom: $margin / 4;
 	}
 }

@@ -102,13 +102,13 @@ $shadow-color: rgba(0, 0, 0, .2) !default;
  *
  * @param	string		$where: should only be needed if you for some reason include the button "after"
  */
-@mixin icon-only ($where: before) {
+@mixin icon-only ($where: before, $size: $body-font-size) {
 	font-size: 0 !important;
 	text-decoration: none !important;
 
 	&:#{$where} {
 		margin: 0;
-		font-size: $default-size;
+		font-size: $size;
 		line-height: inherit;
 	}
 }

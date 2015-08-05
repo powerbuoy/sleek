@@ -25,7 +25,7 @@
  *
  * Creates a section within a section, so you can have an article as section, and article header as an inner section for example
  *
- * @param	string	$align: top/bottom; if you want to pull it up towards to top or down towards the bottom
+ * @param	string	$align: top/bottom; if you want to pull it up towards the top or down towards the bottom
  */
 @mixin section-inner ($align: false) {
 	// We're so clever
@@ -142,6 +142,8 @@
 	border-right: #{strip-units((100% - $site-width) / 2)}vw solid transparent;
 
 	@media (min-width: $max-site-width + 100) {
+		padding-left: 0;
+		padding-right: 0;
 		border-left-width: calc(50vw - #{$max-site-width / 2});
 		border-right-width: calc(50vw - #{$max-site-width / 2});
 	}

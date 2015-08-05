@@ -74,6 +74,9 @@
  * Takes care of centering the section content using padding and calc
  */
 @mixin section-centering ($offset: 0px) {
+	padding-left: #{100% - $site-width};
+	padding-right: #{100% - $site-width};
+
 	padding-left: calc((100% - #{$site-width} + #{$offset}) / 2);
 	padding-right: calc((100% - #{$site-width} + #{$offset}) / 2);
 

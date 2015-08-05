@@ -14,6 +14,7 @@ $form-fields: "input[type=text], input[type=search], input[type=email], input[ty
 
 	@include body-text;
 	color: $form-field-color;
+	line-height: 1.2\9;
 
 	@if ($form-field-border == true) {
 		border: 1px solid $border-color;

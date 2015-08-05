@@ -42,6 +42,7 @@
 	$width-subtract: $total-gutter / $num;
 
 	box-sizing: border-box;
+	width: #{(100% / $num) - 3%};
 	width: calc(#{(100% / $num)} - #{$width-subtract});
 	margin-right: $gutter;
 

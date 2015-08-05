@@ -5,13 +5,14 @@
  */
 # add_shortcode('get-posts', 'sleek_shortcode_get_posts');
 
-function sleek_shortcode_get_posts ($atts) {
+function sleek_shortcode_get_posts ($atts, $returnDataOnly = false) {
 	# Set some vars
 	$path		= get_template_directory() . '/inc/get-posts/';
 	$type		= isset($atts['type']) ? (strpos($atts['type'], ',') ? explode(',', $atts['type']) : $atts['type']) : 'post';
 	$limit		= isset($atts['limit']) ? $atts['limit'] : -1;
+	$offset		= isset($atts['offset']) ? $atts['offset'] : 0;
 	$order		= isset($atts['order']) ? $atts['order'] : 'post_date';
-	$template	= (isset($atts['template']) and file_exists($path . basename($atts['template']) . '.php')) ? basename($atts['template']) : 'template';
+	$template	= (isset($atts['template']) and file_exists($path . 'templates/' . basename($atts['template']) . '.php')) ? basename($atts['template']) : 'default';
 
 	$empty		= isset($atts['empty']) ? $atts['empty'] : __('No posts found.', 'sleek');
 	$show		= isset($atts['show']) ? explode(',', $atts['show']) : false;
@@ -26,6 +27,7 @@ function sleek_shortcode_get_posts ($atts) {
 	$args = array(
 		'post_type'		=> $type, 
 		'numberposts'	=> $limit, 
+		'offset'		=> $offset, 
 		'orderby'		=> $order, 
 		'supress_filters' => false # Fix for WPML returning all languages
 	);
@@ -109,24 +111,31 @@ function sleek_shortcode_get_posts ($atts) {
 		}
 	}
 
-	# Fetch the template - pass in all args sent through shortcode + some we've created
+	$returnData = array_merge($atts, array(
+		'sql'			=> $GLOBALS['wp_query']->request, 
+		'rows'			=> $rows, 
+		'limit'			=> $limit, 
+		'type'			=> $type, 
+		'order'			=> $order, 
+		'empty'			=> $empty, 
+		'show'			=> $show, 
+		'hide'			=> $hide, 
+		'cols'			=> $cols, 
+		'archive_url'	=> $archive_url, 
+		'args'			=> $args, 
+		'atts'			=> $atts
+	));
+
+	# Return false if no posts were found
 	if (!$rows) {
 		return false; # 'No posts found';
 	}
+	# If template is set to false, just return the data
+	else if ($returnDataOnly) {
+		return $returnData;
+	}
+	# Fetch the template - pass in all args sent through shortcode + some we've created
 	else {
-		return fetch("$path$template.php", array_merge($atts, array(
-			'sql'			=> $GLOBALS['wp_query']->request, 
-			'rows'			=> $rows, 
-			'limit'			=> $limit, 
-			'type'			=> $type, 
-			'order'			=> $order, 
-			'empty'			=> $empty, 
-			'show'			=> $show, 
-			'hide'			=> $hide, 
-			'cols'			=> $cols, 
-			'archive_url'	=> $archive_url, 
-			'args'			=> $args, 
-			'atts'			=> $atts
-		)));
+		return fetch($path . 'templates/' . $template . '.php', $returnData);
 	}
 }

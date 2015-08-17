@@ -16,7 +16,7 @@
 
 		<h2>
 			<?php if ($usr->user_url) : ?><a href="<?php echo $usr->user_url ?>"><?php endif ?>
-				<?php echo get_avatar($usr->ID) ?> 
+				<?php echo get_avatar($usr->ID, 320) ?> 
 				<?php echo $usr->display_name ?>
 			<?php if ($usr->user_url) : ?></a><?php endif ?>
 		</h2>

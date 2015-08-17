@@ -9,6 +9,7 @@ function sleek_get_posts_intro () {
 
 	$title		= false;
 	$content	= false;
+	$extraData	= array();
 
 	# If we're using a static front page and are on the posts home page
 	if (get_option('show_on_front') == 'page' and get_option('page_for_posts') and is_home()) {
@@ -32,7 +33,7 @@ function sleek_get_posts_intro () {
 	elseif (is_category()) {
 	#	$title		= __(sprintf('Posts categorized <strong>“%s”</strong>', single_cat_title('', false)), 'sleek');
 		$title		= single_cat_title('', false);
-		$content	= false; # TODO: Grab taxonomy description
+		$content	= category_description();
 	}
 	elseif (is_tag()) {
 		$title		= sprintf(__('Posts tagged with <strong>“%s”</strong>', 'sleek'), single_tag_title('', false));
@@ -84,11 +85,19 @@ function sleek_get_posts_intro () {
 		$prefix		= $usr->user_url ? '<a href="' . $usr->user_url . '">' : '';
 		$suffix		= $usr->user_url ? '</a>' : '';
 
-		$firstP		= explode("\n", get_user_meta($usr->ID, 'description', true));
+		$description= get_user_meta($usr->ID, 'description', true);
+		$firstP		= explode("\n", $description);
 		$firstP		= count($firstP) ? $firstP[0] : $firstP;
 
 		$title		= $prefix . get_avatar($usr->ID, 320) . sprintf(__('Posts by <strong>%s</strong>', 'sleek'), $usr->display_name) . $suffix;
 		$content	= $firstP ? '<p>' . $firstP . '</p>' : false;
+
+		$extraData	= array(
+			'username'		=> $usr->display_name, 
+			'url'			=> $usr->user_url, 
+			'description'	=> $description, 
+			'avatar'		=> get_avatar($usr->ID, 320)
+		);
 	}
 	elseif (is_day()) {
 		$title = sprintf(__('Daily archives <strong>%s</strong>', 'sleek'), get_the_time('l, F j, Y'));
@@ -119,6 +128,7 @@ function sleek_get_posts_intro () {
 
 	return array(
 		'title'		=> $title, 
-		'content'	=> $content
+		'content'	=> $content, 
+		'extra'		=> $extraData
 	);
 }

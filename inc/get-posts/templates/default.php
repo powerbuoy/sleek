@@ -10,10 +10,20 @@
 <?php if ($rows) : ?>
 	<ul>
 		<?php global $post; foreach ($rows as $post) : setup_postdata($post) ?>
+			<?php if (function_exists('simple_fields_register_field_group')) $ytID = simple_fields_fieldgroup('youtube_id_group') ?>
 			<li>
 				<h3>
 					<a href="<?php the_permalink() ?>">
-						<?php the_post_thumbnail($img_size) ?> <?php the_title() ?>
+						<?php if (has_post_thumbnail()) : ?>
+							<?php if ($ytID) : ?>
+								<span class="youtube"><?php the_post_thumbnail($img_size) ?></span> 
+							<?php else : ?>
+								<?php the_post_thumbnail($img_size) ?> 
+							<?php endif ?>
+						<?php elseif ($ytID) : ?>
+							<span class="youtube"><img src="//img.youtube.com/vi/<?php echo $ytID ?>/maxresdefault.jpg"></span> 
+						<?php endif ?>
+						<?php the_title() ?>
 					</a>
 				</h3>
 

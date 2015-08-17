@@ -1,3 +1,4 @@
+// TODO: Confa VILKA som ska visas + custom path
 App.modules.SocialMediaButtons = {
 	init: function (mod) {
 		var path		= window.location.pathname;

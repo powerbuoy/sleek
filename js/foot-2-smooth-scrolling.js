@@ -1,5 +1,5 @@
 /**
- * Hooks click event's too all in page links to smoothly scroll down
+ * Hooks click events to all in page links to smoothly scroll down
  * The scrolling code is from: http://www.cssscript.com/smooth-scroll-to-animation-with-anchor-scrolling-js-library/
  */
 var SmoothScrolling = {

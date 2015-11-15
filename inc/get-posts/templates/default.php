@@ -1,6 +1,10 @@
 <?php if ($title) : ?>
 	<h2>
-		<?php echo $title ?>
+		<?php if ($link_title) : ?>
+			<a href="<?php echo $archive_url ?>"><?php echo $title ?></a>
+		<?php else : ?>
+			<?php echo $title ?>
+		<?php endif ?>
 		<?php if ($all_link) : ?>
 			 <a href="<?php echo $archive_url ?>"><?php echo $all_link ?></a>
 		<?php endif ?>

@@ -11,8 +11,6 @@ var LiveSearch = {
 			data: conf.data || {}
 		};
 
-		var appendTo = appendTo || 'after';
-
 		input.setAttribute('autocomplete', 'off');
 
 		// Create search container
@@ -23,12 +21,12 @@ var LiveSearch = {
 		container.classList.add('live-search');
 
 		// Append search container
-		if (appendTo == 'after') {
+		if (config.appendTo == 'after') {
 			input.parentNode.classList.add('live-search-wrap');
 			input.parentNode.insertBefore(container, input.nextSibling);
 		}
 		else {
-			appendTo.appendChild(container);
+			config.appendTo.appendChild(container);
 		}
 
 		// Hook up keyup on input

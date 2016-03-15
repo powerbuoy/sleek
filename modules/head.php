@@ -10,7 +10,7 @@
 ?>
 
 <html id="<?php echo $htmlID ?>-page" <?php language_attributes() ?> <?php body_class('no-js') ?>>
-	
+
 	<head>
 
 		<meta charset="<?php bloginfo('charset') ?>">

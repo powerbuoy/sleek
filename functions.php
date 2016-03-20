@@ -1,7 +1,7 @@
 <?php
 # Is AJAX call?
 define('XHR', (
-	isset($_SERVER['HTTP_X_REQUESTED_WITH']) and 
+	isset($_SERVER['HTTP_X_REQUESTED_WITH']) and
 	strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'
 ));
 

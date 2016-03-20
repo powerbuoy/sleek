@@ -6,6 +6,7 @@
 	elseif (is_archive())	$htmlID = 'archive';
 	elseif (is_page())		$htmlID = 'page';
 	elseif (is_search())	$htmlID = 'search';
+	elseif (is_home())		$htmlID = 'blog';
 	else					$htmlID = 'unknown';
 ?>
 

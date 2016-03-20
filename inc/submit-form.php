@@ -82,10 +82,10 @@ function sleek_submit_form () {
 	}
 	else {
 		if (isset($_POST['redirect_to'])) {
-			redirect($_POST['redirect_to']);
+			sleek_redirect($_POST['redirect_to']);
 		}
 		else {
-			redirectToReferrer('submitted=1');
+			sleek_redirect_back('submitted=1');
 		}
 	}
 

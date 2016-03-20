@@ -37,7 +37,7 @@ function sleek_shortcode_include_module ($atts) {
 
 	extract($atts);
 
-	return fetch($include_path, $atts);
+	return sleek_fetch($include_path, $atts);
 }
 
 # MarkdownFile

@@ -56,11 +56,11 @@ function sleek_get_posts_intro () {
 				$resTo		= ($resFrom + $numPerPage) - 1;
 				$resTo		= $resTo > $total ? $total : $resTo;
 
-				$content	= '<p>' . sprintf(__('Displaying results %d through %d'), $resFrom, $resTo) . '</p>';
+				$content	= '<p>' . sprintf(__('Displaying results %d through %d', 'sleek'), $resFrom, $resTo) . '</p>';
 			}
 			else {
 				$title		= sprintf(__('Empty search', 'sleek'), $wp_query->found_posts, get_search_query());
-				$content	= '<p>' . __("You didn't search for anything in particular so I'm showing you everything") . '</p>';
+				$content	= '<p>' . __("You didn't search for anything in particular so I'm showing you everything", 'sleek') . '</p>';
 			}
 		}
 		else {
@@ -93,9 +93,9 @@ function sleek_get_posts_intro () {
 		$content	= $firstP ? '<p>' . $firstP . '</p>' : false;
 
 		$extraData	= array(
-			'username'		=> $usr->display_name, 
-			'url'			=> $usr->user_url, 
-			'description'	=> $description, 
+			'username'		=> $usr->display_name,
+			'url'			=> $usr->user_url,
+			'description'	=> $description,
 			'avatar'		=> get_avatar($usr->ID, 320)
 		);
 	}
@@ -127,8 +127,8 @@ function sleek_get_posts_intro () {
 	}
 
 	return array(
-		'title'		=> $title, 
-		'content'	=> $content, 
+		'title'		=> $title,
+		'content'	=> $content,
 		'extra'		=> $extraData
 	);
 }

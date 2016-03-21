@@ -1,4 +1,9 @@
 <?php
+# http://stackoverflow.com/questions/965235/how-can-i-truncate-a-string-to-the-first-20-words-in-php#answer-965343
+function sleek_limit_words ($str, $limit) {
+	return trim(preg_replace('/((\w+\W*){' . ($limit + 1) . '}(\w+))(.*)/', '${1}', $str));
+}
+
 function sleek_get_social_media_links () {
 	$links = array();
 

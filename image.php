@@ -2,7 +2,7 @@
 
 <main>
 
-	<?php sleek_get_module('image') ?>
+	<?php get_template_part('modules/image') ?>
 
 </main>
 

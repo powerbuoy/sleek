@@ -13,7 +13,7 @@
 						</a>
 					</h2>
 
-					<?php sleek_get_module('partials/post-pubdate') ?>
+					<?php get_template_part('modules/partials/post-pubdate') ?>
 
 				</header>
 
@@ -21,16 +21,16 @@
 
 				<footer>
 
-					<?php sleek_get_module('partials/post-meta') ?>
+					<?php get_template_part('modules/partials/post-meta') ?>
 
 				</footer>
 
 			</article>
 		<?php endwhile ?>
 	<?php else : ?>
-		<?php sleek_get_module('partials/nothing-found') ?>
+		<?php get_template_part('modules/partials/nothing-found') ?>
 	<?php endif ?>
 
 </section>
 
-<?php sleek_get_module('posts-pagination') ?>
+<?php get_template_part('modules/posts-pagination') ?>

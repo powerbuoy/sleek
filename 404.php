@@ -2,7 +2,7 @@
 
 <main>
 
-	<?php sleek_get_module('404') ?>
+	<?php get_template_part('modules/404') ?>
 
 </main>
 

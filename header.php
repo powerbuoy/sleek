@@ -1,4 +1,4 @@
 <?php
-	sleek_get_module('head');
-	sleek_get_module('header');
+	get_template_part('modules/head');
+	get_template_part('modules/header');
 ?>

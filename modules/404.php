@@ -77,7 +77,7 @@
 
 		<p><?php _e('...or try a search?', 'sleek') ?></p>
 
-		<?php sleek_get_module('search') ?>
+		<?php get_template_part('modules/search') ?>
 
 	</aside>
 

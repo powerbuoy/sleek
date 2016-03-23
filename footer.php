@@ -1,2 +1,2 @@
-<?php sleek_get_module('footer') ?>
-<?php sleek_get_module('foot') ?>
+<?php get_template_part('modules/footer') ?>
+<?php get_template_part('modules/foot') ?>

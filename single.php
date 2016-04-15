@@ -2,8 +2,9 @@
 
 <main>
 
-	<?php sleek_get_module('post') ?>
+	<?php get_template_part('modules/post') ?>
 	<?php comments_template('/modules/comments.php') ?>
+	<?php get_template_part('modules/post-comment') ?>
 
 </main>
 

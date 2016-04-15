@@ -16,47 +16,47 @@ msgstr ""
 
 #: inc/get-posts-intro.php:38
 msgid "Posts tagged with <strong>\"%s\"</strong>"
-msgstr "Posts tagged with <strong>\"%s\"</strong>"
+msgstr "Inlägg taggade med <strong>\"%s\"</strong>"
 
 #: inc/get-posts-intro.php:48
 msgid "Search results (%s) for: <strong>\"%s\"</strong>"
-msgstr "Search results (%s) for: <strong>\"%s\"</strong>"
+msgstr "Sökresultat (%s) för: <strong>\"%s\"</strong>"
 
 #: inc/get-posts-intro.php:52
 msgid "No search results for: <strong>\"%s\"</strong>"
-msgstr "No search results for: <strong>\"%s\"</strong>"
+msgstr "Inga sökresutlat för: <strong>\"%s\"</strong>"
 
 #: inc/get-posts-intro.php:53
 msgid "We couldn't find any matching search results for your query."
-msgstr "We couldn't find any matching search results for your query."
+msgstr "Det gick inte att hitta några matchande sökresultat för ditt sökord."
 
 #: inc/get-posts-intro.php:59
 msgid "Posts by <strong>%s</strong>"
-msgstr "Posts by <strong>%s</strong>"
+msgstr "Inlägg av <strong>%s</strong>"
 
 #: inc/get-posts-intro.php:65
 msgid "Daily archives <strong>%s</strong>"
-msgstr "Daily archives <strong>%s</strong>"
+msgstr "Dagligt arkiv <strong>%s</strong>"
 
 #: inc/get-posts-intro.php:68
 msgid "Monthly archives <strong>%s</strong>"
-msgstr "Monthly archives <strong>%s</strong>"
+msgstr "Månatligt arkiv <strong>%s</strong>"
 
 #: inc/get-posts-intro.php:71
 msgid "Yearly archives <strong>%s</strong>"
-msgstr "Yearly archives <strong>%s</strong>"
+msgstr "Årligt arkiv <strong>%s</strong>"
 
 #: inc/get-posts-intro.php:80
 msgid "Posts"
-msgstr "Posts"
+msgstr "Inlägg"
 
 #: inc/get-posts.php:16
 msgid "No posts found."
-msgstr "No posts found."
+msgstr "Inga inlägg hittades."
 
 #: inc/roots/cleanup.php:193
 msgid "Continued"
-msgstr "Continued"
+msgstr "Fortsättning"
 
 #: inc/submit-form.php:42
 msgid "IP"
@@ -72,121 +72,124 @@ msgstr "User Agent"
 
 #: inc/submit-form.php:58 inc/submit-form.php:65
 msgid "Email from %s"
-msgstr "Email from %s"
+msgstr "Email från %s"
 
 #: modules/404.php:43
 msgid "404 - Page not found"
-msgstr "404 - Page not found"
+msgstr "404 - Sidan hittades inte"
 
 #: modules/404.php:45
 msgid "Sorry, that page could not be found."
-msgstr "Sorry, that page could not be found."
+msgstr "Ledsen, den sidan gick inte att hitta."
 
 #: modules/404.php:48
 msgid "It seems you arrived directly at this page, maybe it's because of:"
-msgstr "It seems you arrived directly at this page, maybe it's because of:"
+msgstr ""
+"Det verkar som att du landade direkt på den här sidan, kanske beror det på:"
 
 #: modules/404.php:51
 msgid "An <strong>out-of-date bookmark</strong>"
-msgstr "An <strong>out-of-date bookmark</strong>"
+msgstr "Ett <strong>gammalt bokmärke</strong>"
 
 #: modules/404.php:52
 msgid "A search engine that has an <strong>out-of-date listing</strong> for us"
-msgstr ""
-"A search engine that has an <strong>out-of-date listing</strong> for us"
+msgstr "En sökmotor som har en <strong>gammal länk</strong> till oss"
 
 #: modules/404.php:53
 msgid "A <strong>miss-typed address</strong>"
-msgstr "A <strong>miss-typed address</strong>"
+msgstr "En <strong>felstavad adress</strong>"
 
 #: modules/404.php:56
 msgid ""
 "Woops! Looks like one of our internal links are out-of-date. "
 "<strong>Sincerly sorry</strong> about that! :)"
 msgstr ""
-"Woops! Looks like one of our internal links are out-of-date. "
-"<strong>Sincerly sorry</strong> about that! :)"
+"Hoppsan! Verkar som att en av våra interna länkar är utdaterade. "
+"<strong>Riktigt ledsen</strong> för det! :)"
 
 #: modules/404.php:58
 msgid ""
 "You did a search on <a href=\"%s\">%s</a> for <strong>%s</strong>. However, "
 "their index appears to be out of date."
 msgstr ""
-"You did a search on <a href=\"%s\">%s</a> for <strong>%s</strong>. However, "
-"their index appears to be out of date."
+"Du sökte på <a href=\"%s\">%s</a> efter <strong>%s</strong>. Däremot verkar "
+"deras index vara utdaterat."
 
 #: modules/404.php:60
 msgid "You were incorrectly referred to this page by <a href=\"%s\">%s</a>."
-msgstr "You were incorrectly referred to this page by <a href=\"%s\">%s</a>."
+msgstr "Du blev inkorrekt refererad hit av <a href=\"%s\">%s</a>."
 
 #: modules/404.php:63
 msgid ""
 "Perhaps you can go back to the <a href=\"%s\">home page</a> and try to "
 "navigate your way from there?"
 msgstr ""
-"Perhaps you can go back to the <a href=\"%s\">home page</a> and try to "
-"navigate your way from there?"
+"Du kan prova navigera till <a href=\"%s\">förstasidan</a> och försöka hitta "
+"det du söker därifrån?"
 
 msgid "...or try a search?"
 msgstr "...eller prova en sökning?"
 
 #: modules/comments.php:5
 msgid "This post is password protected. Enter the password to view comments."
-msgstr "This post is password protected. Enter the password to view comments."
+msgstr ""
+"Det här inlägget är lösenordsskyddat. Ange lösenordet för att se kommentarer."
 
 #: modules/comments.php:10
 msgid "No comments"
-msgstr "No comments"
+msgstr "Inga kommentarer"
 
 #: modules/comments.php:10
 msgid "One comment"
-msgstr "One comment"
+msgstr "En kommentar"
 
 #: modules/comments.php:10
 msgid "% comments"
-msgstr "% comments"
+msgstr "% kommentarer"
 
 msgid "No comments on \"%s\""
-msgstr "No comments on \"%s\""
+msgstr "Inga kommentarer på \"%s\""
 
 msgid "One comment on \"%s\""
-msgstr "One comment on \"%s\""
+msgstr "En kommentar på \"%s\""
 
 msgid "%s comments on \"%s\""
-msgstr "%s comments on \"%s\""
+msgstr "%s kommentarer på \"%s\""
 
 #: modules/comments.php:11
 msgid "on"
-msgstr "on"
+msgstr "på"
 
 #: modules/comments.php:30
 msgid "No comments yet, why not <a href=\"#post-comment\">post the first</a>?"
-msgstr "No comments yet, why not <a href=\"#post-comment\">post the first</a>?"
+msgstr ""
+"Inga kommentarer än, varför inte <a href=\"#post-comment\">skriva den "
+"första</a>?"
 
 #: modules/comments.php:32
 msgid "Comments are closed."
-msgstr "Comments are closed."
+msgstr "Kommentarer är avstängda."
 
 #: modules/partials/nothing-found.php:1
 msgid "Sorry, nothing was found here."
-msgstr "Sorry, nothing was found here."
+msgstr "Ledsen, inget gick att hitta här."
 
 #: modules/post.php:18
 msgid "Pages"
-msgstr "Pages"
+msgstr "Sidor"
 
 #: modules/posts.php:33
 msgid "Previous page"
-msgstr "Previous page"
+msgstr "Föregående sida"
 
 #: modules/posts.php:34
 msgid "Next page"
-msgstr "Next page"
+msgstr "Nästa sida"
 
 #: modules/search.php:4
 msgid "Search..."
-msgstr "Search..."
+msgstr "Sök..."
 
 #: modules/search.php:5
 msgid "Find"
-msgstr "Find"
+msgstr "Hitta"

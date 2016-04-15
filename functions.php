@@ -1,7 +1,7 @@
 <?php
 # Is AJAX call?
 define('XHR', (
-	isset($_SERVER['HTTP_X_REQUESTED_WITH']) and 
+	isset($_SERVER['HTTP_X_REQUESTED_WITH']) and
 	strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'
 ));
 
@@ -26,6 +26,10 @@ include get_template_directory() . '/inc/tinymce-styles.php';
 include get_template_directory() . '/inc/get-posts-intro.php';
 include get_template_directory() . '/inc/more-markdown.php';
 include get_template_directory() . '/inc/get-posts/get-posts.php';
+include get_template_directory() . '/inc/disable-single-post-types.php';
+include get_template_directory() . '/inc/open-graph-tags.php';
+include get_template_directory() . '/inc/add-favicon.php';
+include get_template_directory() . '/inc/comment-form-placeholders.php';
 
 # WIP
 # include get_template_directory() . '/inc/submit-form.php';

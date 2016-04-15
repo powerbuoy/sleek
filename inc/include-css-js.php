@@ -19,19 +19,13 @@ function sleek_add_extra_js () {
 			ga('send', 'pageview');
 		</script>";
 	}
-}
 
-# Admin CSS/JS
-# add_action('admin_enqueue_scripts', 'sleek_register_css_js_admin');
-
-function sleek_register_css_js_admin () {
-	# Admin JS
-	wp_register_script('sleek_admin', get_template_directory_uri() . '/js/admin.js', array('jquery'), filemtime(get_template_directory() . '/js/admin.js'));
-	wp_enqueue_script('sleek_admin');
-
-	# Admin CSS
-	wp_register_style('sleek_admin', get_template_directory_uri() . '/css/admin.css', array(), filemtime(get_template_directory() . '/css/admin.css'));
-	wp_enqueue_style('sleek_admin');
+	# Google Tag Manager
+	if (defined('GOOGLE_TAG_MANAGER') and GOOGLE_TAG_MANAGER) {
+		echo "<script>
+			// TODO
+		</script>";
+	}
 }
 
 add_action('wp_head', 'sleek_add_js_class');
@@ -90,4 +84,25 @@ function sleek_register_browser_update_js () {
 
 function sleek_disable_jquery_noconflict () {
 	echo '<script>$ = jQuery.noConflict()</script>';
+}
+# Move jQuery to bottom of page
+# add_action('wp_default_scripts', 'sleek_enqueue_jquery_in_footer');
+
+/* function sleek_enqueue_jquery_in_footer (&$scripts) {
+	if (!is_admin()) {
+		# TODO does not work
+		$scripts->add_data('jquery', 'group', 1);
+		$scripts->add_data('jquery-core', 'group', 1);
+		$scripts->add_data('jquery-migrate', 'group', 1);
+	}
+} */
+
+# add_action('wp_enqueue_scripts', 'sleek_enqueue_jquery_cdn_in_footer');
+
+function sleek_enqueue_jquery_cdn_in_footer () {
+	if (!is_admin()) {
+		wp_deregister_script('jquery');
+		wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js', false, '2.2.2', true);
+		wp_enqueue_script('jquery');
+	}
 }

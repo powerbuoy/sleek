@@ -1,4 +1,33 @@
 <?php
+# http://stackoverflow.com/questions/965235/how-can-i-truncate-a-string-to-the-first-20-words-in-php#answer-965343
+function sleek_limit_words ($str, $limit) {
+	return trim(preg_replace('/((\w+\W*){' . ($limit + 1) . '}(\w+))(.*)/', '${1}', $str));
+}
+
+function sleek_get_social_media_links () {
+	$links = array();
+
+	$links[] = array(
+		'title' => 'Facebook',
+		'url' => '//www.facebook.com/sharer/sharer.php?u={url}&t={title}'
+	);
+	$links[] = array(
+		'title' => 'Twitter',
+		'url' => '//twitter.com/intent/tweet?url={url}&text={title}'
+	);
+	$links[] = array(
+		'title' => 'LinkedIn',
+		'url' => '//www.linkedin.com/shareArticle?mini=true&url={url}&title={title}&summary=&source=' . home_url('/')
+	);
+
+	for ($i = 0; $i < count($links); $i++) {
+		$links[$i]['url'] = str_replace(array('{url}', '{title}'), array(urlencode(sleek_curr_page_url(false)), urlencode(wp_title('|', false, 'right'))), $links[$i]['url']);
+		$links[$i]['slug'] = sanitize_title($links[$i]['title']);
+	}
+
+	return $links;
+}
+
 # http://wordpress.stackexchange.com/questions/59442/how-do-i-get-the-avatar-url-instead-of-an-html-img-tag-when-using-get-avatar
 function sleek_get_avatar_url ($get_avatar) {
 	preg_match("/src='(.*?)'/i", $get_avatar, $matches);
@@ -47,16 +76,16 @@ function sleek_get_sub_nav_tree ($post) {
 	}
 
 	return array(
-		'title'		=> $title, 
-		'url'		=> $url, 
+		'title'		=> $title,
+		'url'		=> $url,
 		'children'	=> $children
 	);
 }
 
 # Gets a post based on its simple field value (the plugin)
-function get_posts_by_simple_fields_value ($args, $postType = 'any') {
+function sleek_get_posts_by_simple_fields_value ($args, $postType = 'any') {
 	$rows = get_posts(array(
-		'post_type'		=> $postType, 
+		'post_type'		=> $postType,
 		'numberposts'	=> -1
 	));
 	$return = array();
@@ -81,7 +110,7 @@ function get_posts_by_simple_fields_value ($args, $postType = 'any') {
 }
 
 # Debug
-function debug ($foo) {
+function sleek_debug ($foo) {
 	header('Content-type: text/plain; charset=utf-8');
 
 	var_dump($foo);
@@ -126,7 +155,7 @@ function sleek_get_the_excerpt ($post_id) {
 }
 
 # Returns the current page URL
-function curr_page_url ($withQry = true) {
+function sleek_curr_page_url ($withQry = true) {
 	$isHTTPS	= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on');
 	$port		= (isset($_SERVER['SERVER_PORT']) && ((!$isHTTPS && $_SERVER['SERVER_PORT'] != "80") || ($isHTTPS && $_SERVER['SERVER_PORT'] != '443')));
 	$port		= ($port) ? ':' . $_SERVER['SERVER_PORT'] : '';
@@ -141,13 +170,13 @@ function curr_page_url ($withQry = true) {
 }
 
 # Redirects and dies
-function redirect ($to) {
+function sleek_redirect ($to) {
 	header('Location: ' . $to);
 	die('Redirect failed, please go to <a href="' . $to . '">' . $to . '</a>');
 }
 
 # Redirects to referrer
-function redirect_back ($append = false) {
+function sleek_redirect_back ($append = false) {
 	$ref = $_SERVER['HTTP_REFERER'];
 
 	if ($append) {
@@ -163,7 +192,7 @@ function redirect_back ($append = false) {
 }
 
 # Includes and returns contents instead of echo:ing
-function fetch ($f, $vars = false) {
+function sleek_fetch ($f, $vars = false) {
 	if ($vars) {
 		extract($vars);
 	}

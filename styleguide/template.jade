@@ -1,0 +1,56 @@
+doctype html
+
+html
+
+  head
+
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+
+    title Styleguide
+
+    style
+      #{css}
+
+    style
+      |!{ templateCss }
+
+  body.styleguide
+
+    nav.styleguide__nav
+      ul
+        for elements, section in docs
+          li
+            a(href="##{section.replace(/[^a-z0-9]/ig,'')}") #{section}
+
+    Styleguide
+
+    for elements, section in docs
+      section.styleguide__section(id=section.replace(/[^a-z0-9]/ig,''))
+        h2 #{section}
+
+        for element, i in elements
+          article.styleguide__element
+            h3 #{element.title}
+
+            if element.description
+              p !{marked(element.description)}
+
+            if element.example
+              h4 Example
+
+              div.styleguide__example
+
+              h4 Example Code
+
+              pre.styleguide__example-code
+                code
+                  if Array.isArray(element.example)
+                    | !{element.example.join(' ').trim()}
+                  else
+                    | !{element.example.trim()}
+
+    script
+      |!{ templateJs }
+    script(src="https://code.jquery.com/jquery-1.12.2.js")
+    script(src="app.js")

@@ -4,17 +4,17 @@
 add_filter('nav_menu_css_class', 'sleek_unset_active_blog_class', 10, 2);
 
 function sleek_unset_active_blog_class ($cssClass, $post) {
-    if (get_post_type() != 'post') {
-        if ($post->object_id == get_option('page_for_posts')) {
-            foreach ($cssClass as $k => $v) {
-                if ($v == 'active-parent') {
+	if (get_post_type() != 'post') {
+		if ($post->object_id == get_option('page_for_posts')) {
+			foreach ($cssClass as $k => $v) {
+				if ($v == 'active-parent') {
 					unset($cssClass[$k]);
 				}
-            }
-        }
-    }
+			}
+		}
+	}
 
-    return $cssClass;
+	return $cssClass;
 }
 
 # Remo Emoji CSS/JS from head added since WP 4.2.2

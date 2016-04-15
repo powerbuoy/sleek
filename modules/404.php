@@ -4,11 +4,11 @@
 	$referrerSite	= false;
 	$internalRef	= stristr($referrer, $_SERVER['SERVER_NAME']);
 	$searchRef		= (
-		stristr($referrer, 'looksmart.co') or 
-		stristr($referrer, 'ifind.freeserve.co') or 
-		stristr($referrer, 'ask.co') or 
-		stristr($referrer, 'google.') or 
-		stristr($referrer, 'altavista.co') or 
+		stristr($referrer, 'looksmart.co') or
+		stristr($referrer, 'ifind.freeserve.co') or
+		stristr($referrer, 'ask.co') or
+		stristr($referrer, 'google.') or
+		stristr($referrer, 'altavista.co') or
 		stristr($referrer, 'msn.co') or
 		stristr($referrer, 'yahoo.co')
 	);
@@ -20,9 +20,9 @@
 
 /*	if ($searchRef) {
 		$qryStrings = array(
-			'q', 
-			'p', 
-			'ask', 
+			'q',
+			'p',
+			'ask',
 			'key'
 		);
 
@@ -38,7 +38,7 @@
 		}
 	} */
 
-	$q = "?";
+	$q = '?';
 ?>
 
 <section id="four-o-four">
@@ -77,7 +77,7 @@
 
 		<p><?php _e('...or try a search?', 'sleek') ?></p>
 
-		<?php sleek_get_module('search') ?>
+		<?php get_template_part('modules/search') ?>
 
 	</aside>
 

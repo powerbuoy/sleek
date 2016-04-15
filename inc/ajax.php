@@ -5,7 +5,7 @@
 
 function sleek_proxy () {
 	$validURLs = array(
-		'https://feeds.foursquare.com', 
+		'https://feeds.foursquare.com',
 		'http://www.google.com'
 	);
 	$valid = false;

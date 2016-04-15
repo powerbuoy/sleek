@@ -7,7 +7,7 @@
 
 			<h1><?php the_title() ?></h1>
 
-			<?php sleek_get_module('partials/post-pubdate') ?>
+			<?php get_template_part('modules/partials/post-pubdate') ?>
 
 		</header>
 
@@ -16,7 +16,7 @@
 		<footer>
 
 			<?php wp_link_pages(array('before' => '<p>' . __('Pages', 'sleek') . ': ', 'after' => '</p>', 'next_or_number' => 'number')) ?>
-			<?php sleek_get_module('partials/post-meta') ?>
+			<?php get_template_part('modules/partials/post-meta') ?>
 
 		</footer>
 	<?php endwhile ?>

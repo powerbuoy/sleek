@@ -2,8 +2,8 @@
 
 <main>
 
-	<?php sleek_get_module('posts-intro') ?>
-	<?php sleek_get_module('posts') ?>
+	<?php get_template_part('modules/posts-intro') ?>
+	<?php get_template_part('modules/posts') ?>
 
 </main>
 

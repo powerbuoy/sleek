@@ -1,0 +1,129 @@
+html {
+    background: #f4f4f4;
+}
+
+.styleguide {
+    width: 95%;
+    max-width: 960px;
+    margin: 12rem auto 5rem;
+}
+
+/* Navigation */
+.styleguide__nav {
+    background: #e4e4e4;
+
+    width: 100%;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
+
+    text-align: center;
+
+    border-bottom: 1px solid #ccc;
+}
+
+.styleguide__nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.styleguide__nav ul li {
+    display: inline-block;
+}
+
+.styleguide__nav ul li a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    padding: .5rem;
+}
+
+.styleguide__nav ul li a:hover {
+    background: #f4f4f4;
+}
+
+/* Each Section */
+.styleguide__section {
+    background: #fff;
+    margin: 3rem 0;
+    padding: 1.5rem;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .2);
+}
+
+/* Each Element in every section */
+.styleguide__element {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.styleguide__element:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+
+/* Example */
+.styleguide__example {
+    background-image: linear-gradient(45deg, #f4f4f4 25%, transparent 25%, transparent 75%, #f4f4f4 75%, #f4f4f4), linear-gradient(45deg, #f4f4f4 25%, transparent 25%, transparent 75%, #f4f4f4 75%, #f4f4f4);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+
+    margin: 0 0 1.5rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Example Code */
+.styleguide__example-code {
+    background: #393939;
+
+    margin: 0 0 1.5rem;
+    max-height: 18rem;
+    overflow: auto;
+
+    padding: 1rem;
+    color: #c6c6c6;
+    font-size: .8rem;
+}
+
+/* Syntax Highlight */
+.hljs-tag {
+    color: #ddc982;
+}
+
+.hljs-title {
+    color: #ddc982;
+}
+
+.hljs-attribute {
+    color: #c6c6c6;
+}
+
+.hljs-value {
+    color: #a9c978;
+}
+
+/* Some high res fixes */
+@media (min-width: 750px) {
+    .styleguide {
+        margin-top: 5rem;
+    }
+
+    .styleguide__nav {
+        position: fixed;
+    }
+}
+
+@media (max-width: 749px) {
+    /* Hide fixed component in low res because it covers the entire styleguide :P */
+    .fixed {
+        display: none;
+    }
+}

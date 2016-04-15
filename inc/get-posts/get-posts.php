@@ -25,10 +25,10 @@ function sleek_shortcode_get_posts ($atts, $returnDataOnly = false) {
 
 	# Create get_posts args
 	$args = array(
-		'post_type'		=> $type, 
-		'numberposts'	=> $limit, 
-		'offset'		=> $offset, 
-		'orderby'		=> $order, 
+		'post_type'		=> $type,
+		'numberposts'	=> $limit,
+		'offset'		=> $offset,
+		'orderby'		=> $order,
 		'supress_filters' => false # Fix for WPML returning all languages
 	);
 
@@ -47,7 +47,7 @@ function sleek_shortcode_get_posts ($atts, $returnDataOnly = false) {
 	foreach ($atts as $k => $v) {
 		if (strpos($k, 'tax_') === 0) {
 			$tax_query[] = array(
-				'taxonomy'	=> substr($k, 4), 
+				'taxonomy'	=> substr($k, 4),
 				'field'		=> 'slug', # TODO: check if int and use id instead
 				'terms'		=> $v
 			);
@@ -112,17 +112,17 @@ function sleek_shortcode_get_posts ($atts, $returnDataOnly = false) {
 	}
 
 	$returnData = array_merge($atts, array(
-		'sql'			=> $GLOBALS['wp_query']->request, 
-		'rows'			=> $rows, 
-		'limit'			=> $limit, 
-		'type'			=> $type, 
-		'order'			=> $order, 
-		'empty'			=> $empty, 
-		'show'			=> $show, 
-		'hide'			=> $hide, 
-		'cols'			=> $cols, 
-		'archive_url'	=> $archive_url, 
-		'args'			=> $args, 
+		'sql'			=> $GLOBALS['wp_query']->request,
+		'rows'			=> $rows,
+		'limit'			=> $limit,
+		'type'			=> $type,
+		'order'			=> $order,
+		'empty'			=> $empty,
+		'show'			=> $show,
+		'hide'			=> $hide,
+		'cols'			=> $cols,
+		'archive_url'	=> $archive_url,
+		'args'			=> $args,
 		'atts'			=> $atts
 	));
 
@@ -136,6 +136,6 @@ function sleek_shortcode_get_posts ($atts, $returnDataOnly = false) {
 	}
 	# Fetch the template - pass in all args sent through shortcode + some we've created
 	else {
-		return fetch($path . 'templates/' . $template . '.php', $returnData);
+		return sleek_fetch($path . 'templates/' . $template . '.php', $returnData);
 	}
 }

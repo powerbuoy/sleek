@@ -4,11 +4,11 @@
 add_filter('request', 'sleek_allow_empty_search');
 
 function sleek_allow_empty_search ($qryVars) {
-    if (isset($_GET['s']) and empty($_GET['s'])) {
-        $qryVars['s'] = ' ';
-    }
+	if (isset($_GET['s']) and empty($_GET['s'])) {
+		$qryVars['s'] = ' ';
+	}
 
-    return $qryVars;
+	return $qryVars;
 }
 
 add_filter('relevanssi_hits_filter', 'sleek_allow_empty_search_filter');
@@ -19,22 +19,22 @@ function sleek_allow_empty_search_filter ($hits) {
 
 		if (!empty($_GET['countries'])) {
 			$taxQry[] = array(
-				'taxonomy' => 'countries', 
-				'field' => 'slug', 
+				'taxonomy' => 'countries',
+				'field' => 'slug',
 				'terms' => $_GET['countries']
 			);
 		}
 
 		if (!empty($_GET['specialities'])) {
 			$taxQry[] = array(
-				'taxonomy' => 'specialities', 
-				'field' => 'slug', 
+				'taxonomy' => 'specialities',
+				'field' => 'slug',
 				'terms' => $_GET['specialities']
 			);
 		}
 
 		$args = array(
-			'numberposts' => -1, 
+			'numberposts' => -1,
 			'post_type' => 'any'
 		);
 

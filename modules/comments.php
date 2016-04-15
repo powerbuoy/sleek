@@ -8,10 +8,10 @@
 		<?php if (have_comments()) : ?>
 			<h2>
 				<?php comments_number(
-					sprintf(__('No comments on "%s"', 'sleek'), get_the_title()), 
-					sprintf(__('One comment on "%s"', 'sleek'), get_the_title()), 
-					sprintf(__('%% comments on "%s"', 'sleek'), get_the_title())
-				)?> 
+					sprintf(__('No comments on "%s"', 'sleek'), get_the_title()),
+					sprintf(__('One comment on "%s"', 'sleek'), get_the_title()),
+					sprintf(__('%s comments on "%s"', 'sleek'), get_comments_number(), get_the_title())
+				)?>
 			</h2>
 
 			<ol>
@@ -29,15 +29,6 @@
 				<p><strong><?php _e('Comments are closed.', 'sleek') ?></strong></p>
 			<?php endif ?>
 		<?php endif ?>
-
-	</section>
-
-<?php endif ?>
-
-<?php if (comments_open()) : ?>
-	<section id="post-comment">
-
-		<?php comment_form() ?>
 
 	</section>
 <?php endif ?>

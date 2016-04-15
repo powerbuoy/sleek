@@ -27,6 +27,7 @@ include get_template_directory() . '/inc/get-posts-intro.php';
 include get_template_directory() . '/inc/more-markdown.php';
 include get_template_directory() . '/inc/get-posts/get-posts.php';
 include get_template_directory() . '/inc/disable-single-post-types.php';
+include get_template_directory() . '/inc/show-all-cpt-posts.php';
 include get_template_directory() . '/inc/open-graph-tags.php';
 include get_template_directory() . '/inc/add-favicon.php';
 include get_template_directory() . '/inc/comment-form-placeholders.php';

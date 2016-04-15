@@ -19,7 +19,7 @@ function sleek_get_social_media_links () {
 		'title' => 'LinkedIn',
 		'url' => '//www.linkedin.com/shareArticle?mini=true&url={url}&title={title}&summary=&source=' . home_url('/')
 	);
-
+	
 	for ($i = 0; $i < count($links); $i++) {
 		$links[$i]['url'] = str_replace(array('{url}', '{title}'), array(urlencode(sleek_curr_page_url(false)), urlencode(wp_title('|', false, 'right'))), $links[$i]['url']);
 		$links[$i]['slug'] = sanitize_title($links[$i]['title']);

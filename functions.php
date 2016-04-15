@@ -31,6 +31,7 @@ include get_template_directory() . '/inc/show-all-cpt-posts.php';
 include get_template_directory() . '/inc/open-graph-tags.php';
 include get_template_directory() . '/inc/add-favicon.php';
 include get_template_directory() . '/inc/comment-form-placeholders.php';
+include get_template_directory() . '/inc/hide-sleek-from-admin.php';
 
 # WIP
 # include get_template_directory() . '/inc/submit-form.php';

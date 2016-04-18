@@ -32,6 +32,8 @@ include get_template_directory() . '/inc/open-graph-tags.php';
 include get_template_directory() . '/inc/add-favicon.php';
 include get_template_directory() . '/inc/comment-form-placeholders.php';
 include get_template_directory() . '/inc/hide-sleek-from-admin.php';
+include get_template_directory() . '/inc/allow-svg-uploads.php';
+include get_template_directory() . '/inc/active-archive-link-on-taxonomies.php';
 
 # WIP
 # include get_template_directory() . '/inc/submit-form.php';

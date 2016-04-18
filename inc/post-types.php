@@ -10,16 +10,16 @@ function sleek_register_post_types ($postTypes, $taxonomies, $textdomain = 'slee
 			'labels'			=> array(
 				'name'			=> __(ucfirst(str_replace('_', ' ', $postType)), $textdomain),
 				'singular_label'=> __(ucfirst(str_replace('_', ' ', $postType)), $textdomain)
-			), 
-			'description'		=> $description, 
+			),
+			'description'		=> $description,
 			'rewrite'			=> array(
-				'with_front'	=> false, 
+				'with_front'	=> false,
 				'slug'			=> __('url_' . $postType, $textdomain)
-			), 
-			'has_archive'		=> true, 
+			),
+			'has_archive'		=> true,
 			'public'			=> true,
 			'supports'			=> array(
-				'title', 'editor', 'author', 'thumbnail', 'excerpt', 'wpcom-markdown', 
+				'title', 'editor', 'author', 'thumbnail', 'excerpt', 'wpcom-markdown',
 				'trackbacks', 'custom-fields', 'revisions', 'page-attributes', 'comments'
 			)
 		));
@@ -31,14 +31,14 @@ function sleek_register_post_types ($postTypes, $taxonomies, $textdomain = 'slee
 
 		register_taxonomy($taxonomy, $forPostTypes, array(
 			'labels'			=> array(
-				'name'			=> __(ucfirst(str_replace('_', ' ', $taxonomy)), $textdomain), 
+				'name'			=> __(ucfirst(str_replace('_', ' ', $taxonomy)), $textdomain),
 				'singular_label'=> __(ucfirst(str_replace('_', ' ', $taxonomy)), $textdomain)
-			), 
+			),
 			'rewrite'			=> array(
-				'with_front'	=> false, 
+				'with_front'	=> false,
 				'slug'			=> __('url_' . $taxonomy, $textdomain)
-			), 
-			'sort'				=> true, 
+			),
+			'sort'				=> true,
 			'hierarchical'		=> $hierarchical
 		));
 	}

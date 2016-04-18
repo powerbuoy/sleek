@@ -4,24 +4,29 @@
 # add_filter('comment_form_defaults', 'sleek_comment_form_placeholders');
 
 function sleek_comment_form_placeholders ($fields) {
-	$fields['fields']['author'] = str_replace(
-		'name="author"',
-		'name="author" placeholder="' . __('Name') . '"',
-		$fields['fields']['author']
+	# All fields we want to add placeholders to
+	$fieldsToReplace = array(
+		'author' => __('Name'),
+		'email' => __('Email'),
+		'url' => __('Website')
 	);
-	$fields['fields']['email'] = str_replace(
-		'name="email"',
-		'name="email" placeholder="' . __('Email') . '"',
-		$fields['fields']['email']
-	);
-	$fields['fields']['url'] = str_replace(
-		'name="url"',
-		'name="url" placeholder="' . __('Website') . '"',
-		$fields['fields']['url']
-	);
+
+	foreach ($fieldsToReplace as $field => $value) {
+		# Add asterisk if required
+		$required = strstr($fields['fields'][$field], 'required') ? ' *' : '';
+
+		# Insert placeholder
+		$fields['fields'][$field] = str_replace(
+			'name="' . $field . '"',
+			'name="' . $field . '" placeholder="' . $value . $required . '"',
+			$fields['fields'][$field]
+		);
+	}
+
+	# Comment field is special and always required
 	$fields['comment_field'] = str_replace(
 		'name="comment"',
-		'name="comment" placeholder="' . _x('Comment', 'noun') . '"',
+		'name="comment" placeholder="' . _x('Comment', 'noun') . ' *"',
 		$fields['comment_field']
 	);
 

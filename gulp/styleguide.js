@@ -15,9 +15,9 @@ module.exports = function (file, dest) {
 			browsers: ['last 1 version', 'IE 9', '> 2%']
 		}))
 		.pipe(styleguidejs(dest + 'styleguide.html', {
-			templateCss: '../sleek/styleguide/style.css',
-			templateJs: '../sleek/styleguide/script.js',
-			template: '../sleek/styleguide/template.jade'
+			templateCss: __dirname + '/styleguide/style.css',
+			templateJs: __dirname + '/styleguide/script.js',
+			template: __dirname + '/styleguide/template.jade'
 		}))
 		.pipe(gulp.dest(dest));
 };

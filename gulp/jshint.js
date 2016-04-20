@@ -1,8 +1,10 @@
 var gulp = require('gulp');
+var plumber = require('gulp-plumber');
 var jsHint = require('gulp-jshint');
 
 module.exports = function (src) {
 	return gulp.src(src + '**/*.js')
+		.pipe(plumber())
 		.pipe(jsHint({
 			// undef: true, // To check undefined vars
 			curly: true,

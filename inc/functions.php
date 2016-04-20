@@ -1,4 +1,16 @@
 <?php
+function sleek_get_img_src_by_id ($id, $size = 'full') {
+	if ($id) {
+		$imgSrc = wp_get_attachment_image_src($id, $size);
+
+		if ($imgSrc) {
+			return $imgSrc[0];
+		}
+	}
+
+	return false;
+}
+
 # http://stackoverflow.com/questions/965235/how-can-i-truncate-a-string-to-the-first-20-words-in-php#answer-965343
 function sleek_limit_words ($str, $limit) {
 	return trim(preg_replace('/((\w+\W*){' . ($limit + 1) . '}(\w+))(.*)/', '${1}', $str));
@@ -19,7 +31,7 @@ function sleek_get_social_media_links () {
 		'title' => 'LinkedIn',
 		'url' => '//www.linkedin.com/shareArticle?mini=true&url={url}&title={title}&summary=&source=' . home_url('/')
 	);
-	
+
 	for ($i = 0; $i < count($links); $i++) {
 		$links[$i]['url'] = str_replace(array('{url}', '{title}'), array(urlencode(sleek_curr_page_url(false)), urlencode(wp_title('|', false, 'right'))), $links[$i]['url']);
 		$links[$i]['slug'] = sanitize_title($links[$i]['title']);

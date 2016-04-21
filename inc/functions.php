@@ -1,4 +1,47 @@
 <?php
+# Looks for container--modifier-1--modifier--2.php then container--modifier-1.php then container.php
+function sleek_locate_acf_container_template ($container, $modifiers) {
+	$modifiers = $modifiers ? explode(' ', $modifiers) : array();
+	$numModifiers = count($modifiers);
+
+	for ($i = 0; $i < $numModifiers; $i++) {
+		$templateName = 'modules/acf-containers/' . $container . '--' . implode('--', $modifiers);
+
+		if (locate_template($templateName . '.php')) {
+			return $templateName;
+		}
+		else {
+			array_pop($modifiers);
+		}
+	}
+
+	$templateName = 'modules/acf-containers/' . $container;
+
+	if (locate_template($templateName . '.php')) {
+		return $templateName;
+	}
+
+	return false;
+}
+
+# http://stackoverflow.com/questions/1019076/how-to-search-by-key-value-in-a-multidimensional-array-in-php
+function sleek_array_search_r ($array, $key, $value = false) {
+	$results = array();
+
+	if (is_array($array)) {
+		if (isset($array[$key]) && ($value === false or ($value !== false && $array[$key] == $value))) {
+			$results[] = $array;
+		}
+
+		foreach ($array as $subarray) {
+			$results = array_merge($results, sleek_array_search_r($subarray, $key, $value));
+		}
+	}
+
+	return $results;
+}
+
+# Return image URL by ID
 function sleek_get_img_src_by_id ($id, $size = 'full') {
 	if ($id) {
 		$imgSrc = wp_get_attachment_image_src($id, $size);

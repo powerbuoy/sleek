@@ -34,6 +34,7 @@ include get_template_directory() . '/inc/comment-form-placeholders.php';
 include get_template_directory() . '/inc/hide-sleek-from-admin.php';
 include get_template_directory() . '/inc/allow-svg-uploads.php';
 include get_template_directory() . '/inc/active-archive-link-on-taxonomies.php';
+include get_template_directory() . '/inc/disable-upw-styles.php';
 
 # WIP
 # include get_template_directory() . '/inc/submit-form.php';

@@ -1,5 +1,15 @@
+<?php $socialMediaButtons = sleek_get_social_media_links() ?>
+
 <nav id="social-media-buttons">
 
-	<p>Loading...</p>
+	<ul>
+		<?php foreach ($socialMediaButtons as $smb) : ?>
+			<li>
+				<a href="<?php echo $smb['url'] ?>" class="icon-<?php echo $smb['slug'] ?>" target="_blank">
+					<?php echo __($smb['title'], 'wiseit') ?>
+				</a>
+			</li>
+		<?php endforeach ?>
+	</ul>
 
 </nav>

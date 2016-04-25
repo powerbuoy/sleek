@@ -1,4 +1,16 @@
 <?php
+# Returns array of category names
+function sleek_get_category_names_by_post_id ($id) {
+	$tmp = get_the_category($id);
+	$postCats = array();
+
+	foreach ($tmp as $t) {
+		$postCats[] = $t->cat_name;
+	}
+
+	return $postCats;
+}
+
 # Looks for container--modifier-1--modifier--2.php then container--modifier-1.php then container.php
 function sleek_locate_acf_container_template ($container, $modifiers) {
 	$modifiers = $modifiers ? explode(' ', $modifiers) : array();

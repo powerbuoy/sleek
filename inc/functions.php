@@ -1,4 +1,16 @@
 <?php
+function sleek_get_first_post_thumbnail_url ($rows, $size) {
+	global $post;
+
+	setup_postdata($rows[0]);
+
+	$url = the_post_thumbnail_url($size);
+
+	wp_reset_postdata();
+
+	return $url;
+}
+
 # Returns array of category names
 function sleek_get_category_names_by_post_id ($id) {
 	$tmp = get_the_category($id);

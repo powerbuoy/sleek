@@ -135,6 +135,8 @@ function sleek_get_neighbouring_array_element ($array, $orig, $offset) {
 }
 
 function sleek_get_sub_nav_tree ($post) {
+	$allfather = $post;
+
 	if (is_page($post)) {
 		if ($post->post_parent) {
 			$parent = get_page($post->post_parent);
@@ -143,20 +145,21 @@ function sleek_get_sub_nav_tree ($post) {
 				$parent = get_page($parent->post_parent);
 			}
 
+			$allfather = $parent;
 			$children = wp_list_pages('title_li=&child_of=' . $parent->ID . '&echo=0&link_before=&link_after=');
-			$title = $parent->post_title;
-			$url = get_permalink($parent->ID);
 		}
 		else {
 			$children = wp_list_pages('title_li=&child_of=' . $post->ID . '&echo=0&link_before=&link_after=');
-			$title = $post->post_title;
-			$url = get_permalink($post->ID);
 		}
 	}
+
+	$title = $allfather->post_title;
+	$url = get_permalink($allfather->ID);
 
 	return array(
 		'title'		=> $title,
 		'url'		=> $url,
+		'allfather'	=> $allfather,
 		'children'	=> $children
 	);
 }

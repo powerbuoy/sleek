@@ -8,7 +8,12 @@ var minifyCSS = require('gulp-minify-css');
 
 module.exports = function (file, dest) {
 	return gulp.src(file)
-		.pipe(plumber())
+		.pipe(plumber({
+			errorHandler: function (err) {
+				console.log(err);
+				this.emit('end');
+			}
+		}))
 		.pipe(sourcemaps.init())
 		.pipe(sassGlob())
 		.pipe(sass())

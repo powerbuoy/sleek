@@ -8,7 +8,12 @@ var styleguidejs = require('gulp-styleguidejs');
 
 module.exports = function (file, dest) {
 	return gulp.src(file)
-		.pipe(plumber())
+		.pipe(plumber({
+			errorHandler: function (err) {
+				console.log(err);
+				this.emit('end');
+			}
+		}))
 		.pipe(sassGlob())
 		.pipe(sass())
 		.pipe(autoprefixer({

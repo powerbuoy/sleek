@@ -4,7 +4,12 @@ var jsHint = require('gulp-jshint');
 
 module.exports = function (src) {
 	return gulp.src(src + '**/*.js')
-		.pipe(plumber())
+		.pipe(plumber({
+			errorHandler: function (err) {
+				console.log(err);
+				this.emit('end');
+			}
+		}))
 		.pipe(jsHint({
 			// undef: true, // To check undefined vars
 			curly: true,

@@ -1,4 +1,8 @@
 <?php
+/**
+ * Gets the first thumbnail from a list of posts
+ * TODO: Should check if has_post_thumbnail
+ */
 function sleek_get_first_post_thumbnail_url ($rows, $size) {
 	global $post;
 
@@ -11,7 +15,9 @@ function sleek_get_first_post_thumbnail_url ($rows, $size) {
 	return $url;
 }
 
-# Returns array of category names
+/**
+ * Returns an array of category names for a given post ID
+ */
 function sleek_get_category_names_by_post_id ($id) {
 	$tmp = get_the_category($id);
 	$postCats = array();
@@ -23,7 +29,10 @@ function sleek_get_category_names_by_post_id ($id) {
 	return $postCats;
 }
 
-# Looks for container--modifier-1--modifier--2.php then container--modifier-1.php then container.php
+/**
+ * Similar to locate_template but looks for templates named
+ * container--modifier-1--modifier--2.php then container--modifier-1.php then finally container.php
+ */
 function sleek_locate_acf_container_template ($container, $modifiers) {
 	$modifiers = $modifiers ? explode(' ', $modifiers) : array();
 	$numModifiers = count($modifiers);
@@ -48,7 +57,11 @@ function sleek_locate_acf_container_template ($container, $modifiers) {
 	return false;
 }
 
-# http://stackoverflow.com/questions/1019076/how-to-search-by-key-value-in-a-multidimensional-array-in-php
+/**
+ * Search a multidimensional array for key/value
+ *
+ * http://stackoverflow.com/questions/1019076/how-to-search-by-key-value-in-a-multidimensional-array-in-php
+ */
 function sleek_array_search_r ($array, $key, $value = false) {
 	$results = array();
 
@@ -66,6 +79,11 @@ function sleek_array_search_r ($array, $key, $value = false) {
 }
 
 # Return image URL by ID
+/**
+ * Return image URL by attacment ID
+ * (like the_post_thumbnail_url but GET_post_thumbnail_url -
+ * why the HELL did they add one and not the other? :P)
+ */
 function sleek_get_img_src_by_id ($id, $size = 'full') {
 	if ($id) {
 		$imgSrc = wp_get_attachment_image_src($id, $size);
@@ -78,11 +96,18 @@ function sleek_get_img_src_by_id ($id, $size = 'full') {
 	return false;
 }
 
-# http://stackoverflow.com/questions/965235/how-can-i-truncate-a-string-to-the-first-20-words-in-php#answer-965343
+/**
+ * Limit str's length to limit words
+ *
+ * http://stackoverflow.com/questions/965235/how-can-i-truncate-a-string-to-the-first-20-words-in-php#answer-965343
+ */
 function sleek_limit_words ($str, $limit) {
 	return trim(preg_replace('/((\w+\W*){' . ($limit + 1) . '}(\w+))(.*)/', '${1}', $str));
 }
 
+/**
+ * Returns array of social media URLs and titles
+ */
 function sleek_get_social_media_links () {
 	$links = array();
 
@@ -107,13 +132,20 @@ function sleek_get_social_media_links () {
 	return $links;
 }
 
-# http://wordpress.stackexchange.com/questions/59442/how-do-i-get-the-avatar-url-instead-of-an-html-img-tag-when-using-get-avatar
+/**
+ * Returns the avatar URL only from the return value of get_avatar($userID, $size)
+ *
+ * http://wordpress.stackexchange.com/questions/59442/how-do-i-get-the-avatar-url-instead-of-an-html-img-tag-when-using-get-avatar
+ */
 function sleek_get_avatar_url ($get_avatar) {
 	preg_match("/src='(.*?)'/i", $get_avatar, $matches);
 
 	return $matches[1];
 }
 
+/**
+ * Like locate_template (TODO: Depracate)
+ */
 function sleek_get_module ($mod, $args = array()) {
 	$path = get_stylesheet_directory() . '/modules/' . $mod . '.php';
 	$path = file_exists($path) ? $path : get_template_directory() . '/modules/' . $mod . '.php';
@@ -128,12 +160,18 @@ function sleek_get_module ($mod, $args = array()) {
 	}
 }
 
+/**
+ * Returns neighbouring array element with optional offset
+ */
 function sleek_get_neighbouring_array_element ($array, $orig, $offset) {
 	$keys = array_keys($array);
 
 	return $array[$keys[array_search($orig, $keys) + $offset]];
 }
 
+/**
+ * Returns a full navigation tree based on a post
+ */
 function sleek_get_sub_nav_tree ($post) {
 	$allfather = $post;
 
@@ -164,7 +202,9 @@ function sleek_get_sub_nav_tree ($post) {
 	);
 }
 
-# Gets a post based on its simple field value (the plugin)
+/**
+ * Gets a post based on its simple field value (the plugin)
+ */
 function sleek_get_posts_by_simple_fields_value ($args, $postType = 'any') {
 	$rows = get_posts(array(
 		'post_type'		=> $postType,
@@ -191,16 +231,9 @@ function sleek_get_posts_by_simple_fields_value ($args, $postType = 'any') {
 	return count($return) ? $return : false;
 }
 
-# Debug
-function sleek_debug ($foo) {
-	header('Content-type: text/plain; charset=utf-8');
-
-	var_dump($foo);
-
-	die;
-}
-
-# Gets image ID by filename
+/**
+ * Returns image ID based on filename
+ */
 function sleek_get_image_id_by_filename ($filename) {
 	global $wpdb;
 
@@ -215,7 +248,9 @@ function sleek_get_image_id_by_filename ($filename) {
 	}
 }
 
-# Gets the excerpt by ID
+/**
+ * Returns post excerpt based on post ID
+ */
 function sleek_get_the_excerpt ($post_id) {
 	global $post;
 
@@ -236,7 +271,9 @@ function sleek_get_the_excerpt ($post_id) {
 	return $output;
 }
 
-# Returns the current page URL
+/**
+ * Returns current page URL (with or without ?query)
+ */
 function sleek_curr_page_url ($withQry = true) {
 	$isHTTPS	= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on');
 	$port		= (isset($_SERVER['SERVER_PORT']) && ((!$isHTTPS && $_SERVER['SERVER_PORT'] != '80') || ($isHTTPS && $_SERVER['SERVER_PORT'] != '443')));
@@ -252,12 +289,17 @@ function sleek_curr_page_url ($withQry = true) {
 }
 
 # Redirects and dies
+/**
+ * Redirects to $to and dies
+ */
 function sleek_redirect ($to) {
 	header('Location: ' . $to);
 	die('Redirect failed, please go to <a href="' . $to . '">' . $to . '</a>');
 }
 
-# Redirects to referrer
+/**
+ * Redirects to referrer and adds an optional query parameter
+ */
 function sleek_redirect_back ($append = false) {
 	$ref = $_SERVER['HTTP_REFERER'];
 
@@ -273,7 +315,9 @@ function sleek_redirect_back ($append = false) {
 	redirect($ref);
 }
 
-# Includes and returns contents instead of echo:ing
+/**
+ * Includes and returns contents instead of echo:ing
+ */
 function sleek_fetch ($f, $vars = false) {
 	if ($vars) {
 		extract($vars);

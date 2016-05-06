@@ -1,6 +1,6 @@
 ## About SleekWP
 
-SleekWP is a barebones HTML5 based WordPress theme that comes bundled with plenty of clever (and optional!) SASS, JavaScript and WordPress tweaks.
+SleekWP is a barebones HTML5 based WordPress theme that comes bundled with clean templates and plenty of clever (and optional!) WordPress tweaks.
 
 SleekWP’s templates are written to be as semantically correct and accessible as possible, leaving all design and behavior to CSS and JS. You’ll be hard pressed to find a redundant div or class.
 

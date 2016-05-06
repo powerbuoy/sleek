@@ -31,14 +31,14 @@ function sleek_get_category_names_by_post_id ($id) {
 
 /**
  * Similar to locate_template but looks for templates named
- * container--modifier-1--modifier--2.php then container--modifier-1.php then finally container.php
+ * section--modifier-1--modifier--2.php then section--modifier-1.php then finally section.php
  */
-function sleek_locate_acf_container_template ($container, $modifiers) {
+function sleek_locate_acf_section_template ($section, $modifiers) {
 	$modifiers = $modifiers ? explode(' ', $modifiers) : array();
 	$numModifiers = count($modifiers);
 
 	for ($i = 0; $i < $numModifiers; $i++) {
-		$templateName = 'modules/acf-containers/' . $container . '--' . implode('--', $modifiers);
+		$templateName = 'modules/acf-sections/' . $section . '--' . implode('--', $modifiers);
 
 		if (locate_template($templateName . '.php')) {
 			return $templateName;
@@ -48,7 +48,7 @@ function sleek_locate_acf_container_template ($container, $modifiers) {
 		}
 	}
 
-	$templateName = 'modules/acf-containers/' . $container;
+	$templateName = 'modules/acf-sections/' . $section;
 
 	if (locate_template($templateName . '.php')) {
 		return $templateName;

@@ -1,8 +1,11 @@
 <?php
-# Proxy for AJAX requests
+/**
+ * Proxy for AJAX requests
+ */
 # add_action('wp_ajax_sleek_proxy', 'sleek_proxy');
 # add_action('wp_ajax_nopriv_sleek_proxy', 'sleek_proxy');
 
+# TODO: Improve security here if ever used again
 function sleek_proxy () {
 	$validURLs = array(
 		'https://feeds.foursquare.com',
@@ -36,7 +39,7 @@ function sleek_proxy () {
 }
 
 # Show all search results on AJAX search
-add_action('pre_get_posts', 'sleek_set_posts_per_page');
+# add_action('pre_get_posts', 'sleek_set_posts_per_page');
 
 function sleek_set_posts_per_page ($query) {
 	global $wp_the_query;

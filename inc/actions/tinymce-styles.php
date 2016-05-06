@@ -1,4 +1,7 @@
 <?php
+/**
+ * Modifications to the TinyMCE editor in the admin
+ */
 # Add the style button
 # add_filter('mce_buttons_2', 'sleek_add_tinymce_styleselect');
 
@@ -25,7 +28,7 @@ function sleek_tinymce_styles ($init) {
 			'title' => 'Small',
 			'inline' => 'small',
 			'wrapper' => false
-		), 
+		),
 		array(
 			'title' => 'Aside',
 			'block' => 'aside',

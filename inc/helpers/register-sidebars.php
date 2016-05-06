@@ -1,7 +1,9 @@
 <?php
-# Sidebars
-# add_action('init', 'sleek_register_sidebars');
-
+/**
+ * Register sidebars
+ *
+ * Takes $sidebars as 'slug' => 'Name of sidebar' or optional config array.
+ */
 function sleek_register_sidebars ($sidebars) {
 	foreach ($sidebars as $id => $name) {
 		$config = array(
@@ -13,6 +15,7 @@ function sleek_register_sidebars ($sidebars) {
 			'after_title'	=> '</h2>'
 		);
 
+		# If $name isn't string, consider it config
 		if (is_array($name)) {
 			$config = array_merge($config, $name);
 		}

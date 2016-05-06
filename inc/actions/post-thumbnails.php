@@ -1,5 +1,7 @@
 <?php
-# Eable post thumbnails
+/**
+ * Eable post thumbnails
+ */
 add_action('after_setup_theme', 'sleek_post_thumbnails');
 
 function sleek_post_thumbnails () {

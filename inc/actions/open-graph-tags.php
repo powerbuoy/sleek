@@ -1,4 +1,7 @@
 <?php
+/**
+ * Add open graph tags to posts
+ */
 # add_action('wp_head', 'sleek_open_graph_tags');
 
 function sleek_open_graph_tags () {

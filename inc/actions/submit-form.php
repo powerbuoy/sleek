@@ -1,7 +1,9 @@
 <?php
-# Emails $_POST['form_data'] to admin
-add_action('wp_ajax_sleek_submit_form', 'sleek_submit_form');
-add_action('wp_ajax_nopriv_sleek_submit_form', 'sleek_submit_form');
+/**
+ * Emails $_POST['form_data'] to admin
+ */
+# add_action('wp_ajax_sleek_submit_form', 'sleek_submit_form');
+# add_action('wp_ajax_nopriv_sleek_submit_form', 'sleek_submit_form');
 
 function sleek_set_html_content_type () {
 	return 'text/html';

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Add a favicon.ico if it exists in the theme directory
+ */
 # add_action('wp_head', 'sleek_add_favicon');
 
 function sleek_add_favicon () {

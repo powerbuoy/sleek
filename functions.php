@@ -10,32 +10,53 @@ include get_template_directory() . '/inc/roots/utils.php';
 include get_template_directory() . '/inc/roots/cleanup.php';
 include get_template_directory() . '/inc/roots/nav.php';
 
-# My stuff
-include get_template_directory() . '/inc/functions.php';
-include get_template_directory() . '/inc/cleanup.php';
-include get_template_directory() . '/inc/lang.php';
-include get_template_directory() . '/inc/post-thumbnails.php';
-include get_template_directory() . '/inc/sidebars.php';
-include get_template_directory() . '/inc/ajax.php';
-include get_template_directory() . '/inc/post-types.php';
-include get_template_directory() . '/inc/shortcodes.php';
-include get_template_directory() . '/inc/include-css-js.php';
-include get_template_directory() . '/inc/pagination-css-class.php';
-include get_template_directory() . '/inc/advanced-search.php';
-include get_template_directory() . '/inc/tinymce-styles.php';
-include get_template_directory() . '/inc/get-posts-intro.php';
-include get_template_directory() . '/inc/more-markdown.php';
-include get_template_directory() . '/inc/disable-single-post-types.php';
-include get_template_directory() . '/inc/show-all-cpt-posts.php';
-include get_template_directory() . '/inc/open-graph-tags.php';
-include get_template_directory() . '/inc/add-favicon.php';
-include get_template_directory() . '/inc/comment-form-placeholders.php';
-include get_template_directory() . '/inc/hide-sleek-from-admin.php';
-include get_template_directory() . '/inc/allow-svg-uploads.php';
-include get_template_directory() . '/inc/active-archive-link-on-taxonomies.php';
-include get_template_directory() . '/inc/disable-upw-styles.php';
-include get_template_directory() . '/inc/exclude-current-post-in-upw.php';
+# Helper functions
+include get_template_directory() . '/inc/helpers/disable-single-post-types.php';
+include get_template_directory() . '/inc/helpers/misc.php';
+include get_template_directory() . '/inc/helpers/register-post-types.php';
+include get_template_directory() . '/inc/helpers/register-sidebars.php';
+include get_template_directory() . '/inc/helpers/register-taxonomies.php';
 
-# WIP
-# include get_template_directory() . '/inc/submit-form.php';
-# include get_template_directory() . '/inc/relevanssi.php';
+# Shortcodes (TODO: Move to separate plugins)
+include get_template_directory() . '/inc/shortcodes/hubspot-form.php';
+include get_template_directory() . '/inc/shortcodes/include.php';
+include get_template_directory() . '/inc/shortcodes/markdown-file.php';
+
+# HTML5Form (TODO: Move to plugin)
+# include get_template_directory() . '/inc/html5form/html5form.php';
+
+# Actions
+include get_template_directory() . '/inc/actions/add-excerpts-to-pages.php';
+include get_template_directory() . '/inc/actions/add-extra-js.php';
+include get_template_directory() . '/inc/actions/add-favicon.php';
+include get_template_directory() . '/inc/actions/add-js-class.php';
+include get_template_directory() . '/inc/actions/add-js-config-vars.php';
+include get_template_directory() . '/inc/actions/add-upgrade-browser-script.php';
+# include get_template_directory() . '/inc/actions/ajax.php';
+include get_template_directory() . '/inc/actions/allow-shortcodes-in-widgets.php';
+include get_template_directory() . '/inc/actions/cleanup-head.php';
+include get_template_directory() . '/inc/actions/disable-jquery-noconflict.php';
+include get_template_directory() . '/inc/actions/jquery-cdn-in-foot.php';
+include get_template_directory() . '/inc/actions/more-markdown.php';
+include get_template_directory() . '/inc/actions/open-graph-tags.php';
+include get_template_directory() . '/inc/actions/post-thumbnails.php';
+include get_template_directory() . '/inc/actions/remove-emoji-css-js.php';
+include get_template_directory() . '/inc/actions/setup-lang.php';
+# include get_template_directory() . '/inc/actions/submit-form.php';
+# include get_template_directory() . '/inc/actions/tinymce-styles.php';
+
+# Filters
+include get_template_directory() . '/inc/filters/active-archive-link-on-taxonomies.php';
+# include get_template_directory() . '/inc/filters/advanced-search.php';
+include get_template_directory() . '/inc/filters/allow-svg-uploads.php';
+include get_template_directory() . '/inc/filters/comment-form-placeholders.php';
+include get_template_directory() . '/inc/filters/disable-upw-styles.php';
+include get_template_directory() . '/inc/filters/exclude-current-post-in-upw.php';
+include get_template_directory() . '/inc/filters/hide-sleek-from-admin.php';
+include get_template_directory() . '/inc/filters/html-in-widget-titles.php';
+include get_template_directory() . '/inc/filters/pagination-css-class.php';
+# include get_template_directory() . '/inc/filters/relevanssi.php';
+include get_template_directory() . '/inc/filters/remove-home-from-yoast-breadcrumbs.php';
+include get_template_directory() . '/inc/filters/show-all-cpt-posts.php';
+include get_template_directory() . '/inc/filters/show-all-post-types-for-auhors.php';
+include get_template_directory() . '/inc/filters/unset-active-blog-class.php';

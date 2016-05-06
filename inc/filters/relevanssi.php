@@ -1,7 +1,11 @@
 <?php
-# This file isn't in use - if you use relevanssi you might find it useful
+/**
+ * Some tweaks to Relevanssi search plugin
+ *
+ * This file isn't in use - if you use relevanssi you might find it useful
+ */
 # Allow empty search
-add_filter('request', 'sleek_allow_empty_search');
+# add_filter('request', 'sleek_allow_empty_search');
 
 function sleek_allow_empty_search ($qryVars) {
 	if (isset($_GET['s']) and empty($_GET['s'])) {
@@ -11,7 +15,7 @@ function sleek_allow_empty_search ($qryVars) {
 	return $qryVars;
 }
 
-add_filter('relevanssi_hits_filter', 'sleek_allow_empty_search_filter');
+# add_filter('relevanssi_hits_filter', 'sleek_allow_empty_search_filter');
 
 function sleek_allow_empty_search_filter ($hits) {
 	if (isset($_GET['s']) and empty($_GET['s']) and !count($hits[0])) {
@@ -49,7 +53,7 @@ function sleek_allow_empty_search_filter ($hits) {
 }
 
 # Allow sorting by price
-add_filter('relevanssi_hits_filter', 'sleek_hits_filter');
+# add_filter('relevanssi_hits_filter', 'sleek_hits_filter');
 
 function sleek_hits_filter ($hits) {
 	global $wp_query;

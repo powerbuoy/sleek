@@ -1,15 +1,9 @@
 <?php
-# Show all post types when browsing author
-# add_filter('pre_get_posts', 'sleek_show_all_post_types_for_author');
-
-function sleek_show_all_post_types_for_author ($qry) {
-	if ($qry->is_main_query() and $qry->is_author) {
-		$qry->set('post_type', 'any');
-	}
-}
-
-# This was for a specific project, I'm keeping the code for future reference
-# http://wordpress.stackexchange.com/questions/25899/the-right-way-to-create-a-custom-search-page-for-complex-custom-post-types
+/**
+ * This was for a specific project, I'm keeping the code for future reference
+ *
+ * http://wordpress.stackexchange.com/questions/25899/the-right-way-to-create-a-custom-search-page-for-complex-custom-post-types
+ */
 # add_filter('pre_get_posts', 'sleek_pre_get_posts');
 
 function sleek_pre_get_posts ($qry) {
@@ -19,13 +13,13 @@ function sleek_pre_get_posts ($qry) {
 
 	# Only run on search, custom post type archive and taxonomy pages
 	if (
-		!is_admin() and 
+		!is_admin() and
 		(
 			(
-				$qry->is_search or 
-				$qry->is_post_type_archive(array('items', 'locations')) or 
+				$qry->is_search or
+				$qry->is_post_type_archive(array('items', 'locations')) or
 				$qry->is_tax
-			) 
+			)
 			and $qry->is_main_query()
 		)
 	) {
@@ -36,8 +30,8 @@ function sleek_pre_get_posts ($qry) {
 			foreach ($_GET['tax'] as $tax => $val) {
 				if (!empty($val)) {
 					$taxQry[] = array(
-						'taxonomy' => $tax, 
-						'field' => 'id', 
+						'taxonomy' => $tax,
+						'field' => 'id',
 						'terms' => $val
 					);
 				}

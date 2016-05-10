@@ -12,6 +12,7 @@ include get_template_directory() . '/inc/roots/nav.php';
 
 # Helper functions
 include get_template_directory() . '/inc/helpers/disable-single-post-types.php';
+include get_template_directory() . '/inc/helpers/get-posts-intro.php';
 include get_template_directory() . '/inc/helpers/misc.php';
 include get_template_directory() . '/inc/helpers/register-post-types.php';
 include get_template_directory() . '/inc/helpers/register-sidebars.php';
@@ -36,6 +37,7 @@ include get_template_directory() . '/inc/actions/add-upgrade-browser-script.php'
 include get_template_directory() . '/inc/actions/allow-shortcodes-in-widgets.php';
 include get_template_directory() . '/inc/actions/cleanup-head.php';
 include get_template_directory() . '/inc/actions/disable-jquery-noconflict.php';
+include get_template_directory() . '/inc/actions/hide-acf-section-fields.php';
 include get_template_directory() . '/inc/actions/jquery-cdn-in-foot.php';
 include get_template_directory() . '/inc/actions/more-markdown.php';
 include get_template_directory() . '/inc/actions/open-graph-tags.php';

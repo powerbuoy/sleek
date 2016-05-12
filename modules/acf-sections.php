@@ -1,11 +1,7 @@
 <?php
 if (have_rows('sections')) {
-	$sectionNumber = 0;
-
 	while (have_rows('sections')) {
 		the_row();
-
-		$sectionNumber++;
 
 		# Get the entire section array
 		$section = get_sub_field('section');
@@ -58,23 +54,4 @@ if (have_rows('sections')) {
 		echo '</section>';
 	}
 }
-?>
-
-<?php
-/*
-# If an entire section template is defined (example: section--hero.php)
-if ($sectionTemplate = sleek_locate_acf_section_template('section', $sectionName . ' ' . $sectionModifiers)) {
-	include locate_template($sectionTemplate . '.php');
-}
-else {
-	# If a wrapper--template exist for this section name - use that (example: wrapper--hero.php)
-	if ($wrapperTemplate = sleek_locate_acf_section_template('wrapper', $sectionName . ' ' . $sectionModifiers)) {
-		include locate_template($wrapperTemplate . '.php');
-	}
-	# Default to a section with sectionName classes and a unique ID
-	else {
-		# echo '<section id="acf-section-' . $sectionNumber . '"' . ($sectionName ? ' class="' . $sectionName . '"' : '' ) .'>';
-		echo '<section id="' . $sectionName . '">';
-	}
-*/
 ?>

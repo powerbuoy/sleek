@@ -1,7 +1,38 @@
 <?php
 /**
+ * Returns the current author either on /author/username/ or a single blog post
+ */
+function sleek_get_current_author () {
+	$usr = false;
+
+	if (get_query_var('author_name')) {
+		$usr = get_user_by('slug', get_query_var('author_name'));
+	}
+	else {
+		$usr = get_user_by('id', get_query_var('author'));
+	}
+
+	if (!$usr) {
+		$usr = get_user_by('id', get_the_author_meta('ID'));
+	}
+
+	return $usr;
+}
+
+/**
+ * Returns array of users with certain $roles
+ */
+function sleek_get_users_by_role ($roles) {
+	$user_query = new WP_User_Query(array(
+		'role__in' => $roles
+	));
+
+	return $user_query->results;
+}
+
+/**
  * Gets the first thumbnail from a list of posts
- * TODO: Should check if has_post_thumbnail
+ * TODO: Should check if has_post_thumbnail and return first one that exists
  */
 function sleek_get_first_post_thumbnail_url ($rows, $size) {
 	global $post;

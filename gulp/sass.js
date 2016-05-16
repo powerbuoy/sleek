@@ -14,7 +14,7 @@ module.exports = function (file, dest) {
 				this.emit('end');
 			}
 		}))
-		.pipe(sourcemaps.init())
+		// .pipe(sourcemaps.init())
 		.pipe(sassGlob())
 		.pipe(sass())
 		.pipe(autoprefixer({
@@ -23,6 +23,6 @@ module.exports = function (file, dest) {
 		.pipe(minifyCSS({
 			advanced: false
 		}))
-		.pipe(sourcemaps.write('./'))
+		// .pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(dest));
 };

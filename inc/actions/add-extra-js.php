@@ -7,7 +7,7 @@ add_action('wp_footer', 'sleek_add_extra_js');
 function sleek_add_extra_js () {
 	# ReCaptcha
 	if (defined('RECAPTCHA_SITE_KEY') and RECAPTCHA_SITE_KEY and defined('RECAPTCHA_SECRET') and RECAPTCHA_SECRET) {
-		echo '<script src="https://www.google.com/recaptcha/api.js?onload=RenderCaptchas&amp;render=explicit" async defer></script>';
+		echo '<script src="https://www.google.com/recaptcha/api.js"></script>';
 	}
 
 	# Google Analytics

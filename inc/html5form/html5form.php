@@ -1,9 +1,9 @@
 <?php
 	require_once 'form.php';
 	require_once 'validEmail.php';
-	require_once 'phpmailer/PHPMailerAutoload.php';
+	# require_once 'phpmailer/PHPMailerAutoload.php';
 
-	function sendMail ($to, $subject, $html, $files = false) {
+	/* function sendMail ($to, $subject, $html, $files = false) {
 		$mail = new PHPMailer;
 
 		$mail->Host = 'smtp.gmail.com';
@@ -39,6 +39,5 @@
 		else {
 			return $mail->ErrorInfo;
 		}
-	}
+	} */
 ?>
-

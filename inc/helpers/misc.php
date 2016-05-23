@@ -175,7 +175,7 @@ function sleek_get_avatar_url ($get_avatar) {
 }
 
 /**
- * Like locate_template (TODO: Depracate)
+ * Like locate_template (TODO: Depracate, TODO: use locate_template())
  */
 function sleek_get_module ($mod, $args = array()) {
 	$path = get_stylesheet_directory() . '/modules/' . $mod . '.php';
@@ -188,6 +188,17 @@ function sleek_get_module ($mod, $args = array()) {
 	}
 	else {
 		echo "[ No such module: $mod ]";
+	}
+}
+
+function sleek_get_template_part ($path, $args = array()) {
+	if ($locatedPath = locate_template($path . '.php')) {
+		extract($args);
+
+		include $locatedPath;
+	}
+	else {
+		echo "[ No such module: $path ]";
 	}
 }
 

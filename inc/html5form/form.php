@@ -75,11 +75,11 @@ class Form {
 		if ($f['type'] == 'captcha') {
 			# Make sure it's filled out
 			if (isset($method['g-recaptcha-response'])) {
-				$url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . 
-						RECAPTCHA_SECRET . 
-						'&response=' . 
-						$method['g-recaptcha-response'] . 
-						'&remoteip=' . 
+				$url = 'https://www.google.com/recaptcha/api/siteverify?secret=' .
+						RECAPTCHA_SECRET .
+						'&response=' .
+						$method['g-recaptcha-response'] .
+						'&remoteip=' .
 						$_SERVER['REMOTE_ADDR'];
 
 				# Verify with google
@@ -89,7 +89,7 @@ class Form {
 				curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 				curl_setopt($curl, CURLOPT_TIMEOUT, 15);
 				curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-				curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false); 
+				curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
 
 				$curlData = curl_exec($curl);
 
@@ -189,18 +189,18 @@ class Form {
 			}
 		}
 
-		$html = '<form method="' 
-				. $this->method 
-				. '" action="' 
-				. $this->action 
-				. '"' 
-				. ($this->hasFiles ? ' enctype="multipart/form-data"' : '') 
-				. ' id="' 
-				. $this->id 
-				. '"' 
-				. ($this->cssClass ? ' class="' . $this->cssClass . '"' : '') 
-				. '>' 
-				. $html 
+		$html = '<form method="'
+				. $this->method
+				. '" action="'
+				. $this->action
+				. '"'
+				. ($this->hasFiles ? ' enctype="multipart/form-data"' : '')
+				. ' id="'
+				. $this->id
+				. '"'
+				. ($this->cssClass ? ' class="' . $this->cssClass . '"' : '')
+				. '>'
+				. $html
 				. ($this->hasSubmit ? implode('', $this->hiddenFields) : $this->buildSubmitHTML(implode('', $this->hiddenFields)))
 				. '</form>';
 
@@ -280,13 +280,13 @@ class Form {
 				break;
 
 			# Checkboxes
-			case 'checkbox' : 
+			case 'checkbox' :
 				$html .= '<input type="checkbox" name="' . $field['name'] . '" value="' . $field['value'] . '"' . $id . $checked . $readonly . $disabled . $attributes . '> ' . $label;
 
 				break;
 
 			# Select elements
-			case 'select' : 
+			case 'select' :
 				$html .= $label . '<select name="' . $field['name'] . '"' . $id . $readonly . $disabled . $attributes . '>';
 
 				foreach ($field['options'] as $k => $v) {
@@ -299,35 +299,35 @@ class Form {
 				break;
 
 			# Submit button
-			case 'submit' : 
+			case 'submit' :
 				$html .= '<input type="hidden" name="' . $this->name . '_submit" value="1">';
 				$html .= '<input type="submit"' . ($field['value'] ? ' value="' . $field['value'] . '"' : '') . $attributes . '>';
 
 				break;
 
 			# Hidden
-			case 'hidden' : 
+			case 'hidden' :
 				$html .= '<input type="' . $field['type'] . '" name="' . $field['name'] . '"' . $id . $pattern . $readonly . $disabled . $attributes . ' value="' . $field['value'] . '">';
 
 				break;
 
 			# Arbitrary HTML
-			case 'html' : 
+			case 'html' :
 				$html .= $field['value'];
 
 				break;
 
-			case 'captcha' : 
-				$html .= '<div class="captcha-wrap"><div class="captcha"></div>' . 
-						(isset($this->errors[$field['name']]) ? 
-							'<strong class="error">' . $this->errors[$field['name']] . '</strong>' : 
+			case 'captcha' :
+				$html .= '<div class="captcha-wrap"><div class="g-recaptcha" data-sitekey="' . RECAPTCHA_SITE_KEY . '"></div>' . 
+						(isset($this->errors[$field['name']]) ?
+							'<strong class="error">' . $this->errors[$field['name']] . '</strong>' :
 							''
 						) . '</div>';
 
 				break;
 
 			# Other input types
-			default : 
+			default :
 				$html .= $label . '<input type="' . $field['type'] . '" name="' . $field['name'] . '"' . $id . $placeholder . $min . $max . $step . $required . $pattern . $readonly . $disabled . $attributes . ' value="' . $field['value'] . '">';
 
 				break;
@@ -441,27 +441,27 @@ class Form {
 		}
 
 		return array(
-			'name'			=> $f['name'], 
-			'id'			=> $this->id . '-' . $f['name'] . $i++, 
-			'type'			=> isset($f['type']) ? $f['type'] : 'text', 
-			'value'			=> isset($f['value']) ? $f['value'] : $value, 
-			'label'			=> isset($f['label']) ? $f['label'] : false, 
-			'options'		=> isset($f['options']) ? $f['options'] : false, 
-			'fields'		=> isset($f['fields']) ? $f['fields'] : array(), 
-			'error'			=> isset($f['error']) ? $f['error'] : false, 
-			'legend'		=> isset($f['legend']) ? $f['legend'] : false, 
-			'placeholder'	=> isset($f['placeholder']) ? $f['placeholder'] : false, 
-			'required'		=> isset($f['required']) ? $f['required'] : false, 
-			'pattern'		=> isset($f['pattern']) ? $f['pattern'] : false, 
-			'class'			=> isset($f['class']) ? $f['class'] : false, 
-			'checked'		=> $checked, 
-			'readonly'		=> isset($f['readonly']) ? $f['readonly'] : false, 
-			'disabled'		=> isset($f['disabled']) ? $f['disabled'] : false, 
-			'description'	=> isset($f['description']) ? $f['description'] : false, 
-			'min'			=> isset($f['min']) ? $f['min'] : false, 
-			'max'			=> isset($f['max']) ? $f['max'] : false, 
-			'step'			=> isset($f['step']) ? $f['step'] : false, 
-			'attributes'	=> isset($f['attributes']) ? $f['attributes'] : array(), 
+			'name'			=> $f['name'],
+			'id'			=> $this->id . '-' . $f['name'] . $i++,
+			'type'			=> isset($f['type']) ? $f['type'] : 'text',
+			'value'			=> isset($f['value']) ? $f['value'] : $value,
+			'label'			=> isset($f['label']) ? $f['label'] : false,
+			'options'		=> isset($f['options']) ? $f['options'] : false,
+			'fields'		=> isset($f['fields']) ? $f['fields'] : array(),
+			'error'			=> isset($f['error']) ? $f['error'] : false,
+			'legend'		=> isset($f['legend']) ? $f['legend'] : false,
+			'placeholder'	=> isset($f['placeholder']) ? $f['placeholder'] : false,
+			'required'		=> isset($f['required']) ? $f['required'] : false,
+			'pattern'		=> isset($f['pattern']) ? $f['pattern'] : false,
+			'class'			=> isset($f['class']) ? $f['class'] : false,
+			'checked'		=> $checked,
+			'readonly'		=> isset($f['readonly']) ? $f['readonly'] : false,
+			'disabled'		=> isset($f['disabled']) ? $f['disabled'] : false,
+			'description'	=> isset($f['description']) ? $f['description'] : false,
+			'min'			=> isset($f['min']) ? $f['min'] : false,
+			'max'			=> isset($f['max']) ? $f['max'] : false,
+			'step'			=> isset($f['step']) ? $f['step'] : false,
+			'attributes'	=> isset($f['attributes']) ? $f['attributes'] : array(),
 			'validation'	=> isset($f['validation']) ? $f['validation'] : false
 		);
 	}

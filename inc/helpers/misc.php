@@ -175,22 +175,8 @@ function sleek_get_avatar_url ($get_avatar) {
 }
 
 /**
- * Like locate_template (TODO: Depracate, TODO: use locate_template())
+ * Like get_template_part but accepts arguments
  */
-function sleek_get_module ($mod, $args = array()) {
-	$path = get_stylesheet_directory() . '/modules/' . $mod . '.php';
-	$path = file_exists($path) ? $path : get_template_directory() . '/modules/' . $mod . '.php';
-
-	if (file_exists($path)) {
-		extract($args);
-
-		include $path;
-	}
-	else {
-		echo "[ No such module: $mod ]";
-	}
-}
-
 function sleek_get_template_part ($path, $args = array()) {
 	if ($locatedPath = locate_template($path . '.php')) {
 		extract($args);

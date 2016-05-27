@@ -35,11 +35,13 @@ The first thing you'll see are some configuration CONSTANTS. If you don't want t
 
 Next we add the thumbnail sizes we need. SleekWP already adds theme support for thumbnails as well as a default size, so we just need to set the sizes specific to our theme: `add_action('init', 'sleek_child_post_thumbnails');`.
 
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=9:19"></script>
+
 After that we register sidebars, and if you'll be using those just uncomment the `add_action()` call and add/remove the sidebars you want in the `sleek_register_sidebars()` call. The array key is the sidebar slug and the array value is the nice name of the sidebar. You may wanna make it translatable with `__()`.
 
 Note: `sleek_register_sidebars()` is just a wrapper around WP's `register_sidebar()`, you can see exactly what it does in [`sleek/inc/helpers/register-sidebars.php`](https://github.com/powerbuoy/SleekWP/blob/master/inc/helpers/register-sidebars.php).
 
-<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=9:35"></script>
+<script src="http://gist-it.appspot.com/github/powerbuoy/SleekChild/blob/master/functions.php?slice=19:35"></script>
 
 ### Cusomt post types & taxonomies
 
@@ -57,11 +59,11 @@ Then we register our CSS and JS file. This is done exactly the same way with or 
 
 **Prefix all functions `the_name_of_your_theme_` instead of `sleek_child_`.**
 
-The files in dist/ will be generator from our gulpfile. We'll get to that later. If you need google web fonts you'll see a couple of commented lines of code for that too.
+The files in dist/ will be generated from our gulpfile. We'll get to that later. If you need google web fonts you'll see a couple of commented lines of code for that too.
 
 ### Shortcodes
 
-SleekWP also come with a couple of shortcodes. One in particular which can be quite useful; `[include]`. It allows you to include any module from either your theme or SleekWP into any page.
+SleekWP also comes with a couple of shortcodes. One in particular which can be quite useful; `[include]`. It allows you to include any module from either your theme or SleekWP into any page.
 
 It's recommended that you do this in the actual templates instead, but sometimes it can come in handy to include an about-box or ad in the middle of an article.
 
@@ -162,6 +164,10 @@ The CSS and JS is very much up to you, but for gulp to work you need to put your
 		// require('slick-carousel');
 		// $('.slideshow').slick();
 	})();
+
+## Yeoman (BETA)
+
+If you're feeling adventurous you can [check out the SleekWP Yeoman Generator](https://github.com/powerbuoy/SleekWPGenerator), `npm link` it locally, and then run `yo sleekwp` and it will do _a lot_ of this stuff (and more!) for you. Please note though that this is a generator I'm using for work, and a lot of the things in there (like the Bitbucket and WPEngine related stuff) might not be for everyone. You may wanna open the `index.js` file up and comment out some of the tasks (in particular `initGIT()`) before running it.
 
 ## That's it
 

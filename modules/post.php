@@ -1,6 +1,6 @@
 <section id="post">
 
-	<?php while (have_posts()) : the_post(); ?>
+	<?php while (have_posts()) : the_post() ?>
 		<header>
 
 			<?php the_post_thumbnail('sleek-medium') ?>

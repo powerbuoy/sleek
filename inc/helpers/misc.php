@@ -61,6 +61,20 @@ function sleek_get_category_names_by_post_id ($id) {
 }
 
 /**
+ * Returns an array of category links for a given post ID
+ */
+function sleek_get_category_links_by_post_id ($id) {
+	$tmp = get_the_category($id);
+	$postCats = array();
+
+	foreach ($tmp as $t) {
+		$postCats[] = '<a href="' . get_term_link($t) . '">' . $t->cat_name . '</a>';
+	}
+
+	return $postCats;
+}
+
+/**
  * Similar to locate_template but looks for templates named
  * section--modifier-1--modifier--2.php then section--modifier-1.php then finally section.php
  */
@@ -114,6 +128,7 @@ function sleek_array_search_r ($array, $key, $value = false) {
  * Return image URL by attacment ID
  * (like the_post_thumbnail_url but GET_post_thumbnail_url -
  * why the HELL did they add one and not the other? :P)
+ * TODO: It IS added :P https://developer.wordpress.org/reference/functions/get_the_post_thumbnail_url/
  */
 function sleek_get_img_src_by_id ($id, $size = 'full') {
 	if ($id) {

@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-05-30 16:16+0200\n"
+"PO-Revision-Date: 2016-06-07 12:04+0200\n"
 "Language: en\n"
 "X-Generator: Poedit 1.8.7.1\n"
 "Last-Translator: \n"
@@ -196,3 +196,15 @@ msgstr "Hitta"
 
 msgid "All posts"
 msgstr "Alla inlägg"
+
+msgid "Choose category"
+msgstr "Välj kategori här"
+
+msgid "Show:"
+msgstr "Visa:"
+
+msgid "Send"
+msgstr "Skicka"
+
+msgid "Ok"
+msgstr "Ok"

@@ -18,15 +18,13 @@
 <?php if ($title or $content) : ?>
 	<header id="posts-intro">
 
-		<?php if ($postType === 'knowledge_base') : ?>
-			<h1><?php _e('Download from our Knowledge base', 'netsurvey') ?></h1>
-		<?php elseif ($title) : ?>
+		<?php if ($title) : ?>
 			<h1><?php echo $title ?></h1>
 		<?php endif ?>
 
-		<?php /* if ($content) : ?>
+		<?php if ($content) : ?>
 			<?php echo $content ?>
-		<?php endif */ ?>
+		<?php endif ?>
 
 		<?php if ($taxs) : ?>
 			<form method="get" action="<?php echo get_post_type_archive_link($postType) ?>" data-submit-onchange>

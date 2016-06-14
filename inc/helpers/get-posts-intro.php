@@ -86,11 +86,9 @@ function sleek_get_posts_intro () {
 		$suffix		= $usr->user_url ? '</a>' : '';
 
 		$description= get_user_meta($usr->ID, 'description', true);
-		$firstP		= explode("\n", $description);
-		$firstP		= count($firstP) ? $firstP[0] : $firstP;
 
 		$title		= $prefix . get_avatar($usr->ID, 320) . sprintf(__('Posts by <strong>%s</strong>', 'sleek'), $usr->display_name) . $suffix;
-		$content	= $firstP ? '<p>' . $firstP . '</p>' : false;
+		$content	= $description ? '<p>' . $description . '</p>' : false;
 
 		$extraData	= array(
 			'username'		=> $usr->display_name,

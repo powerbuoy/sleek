@@ -3,7 +3,7 @@
 	$title			= $tmp['title'];
 	$content		= $tmp['content'];
 	$postType		= get_post_type();
-	$taxs			= (is_search() or is_author()) ? false : get_object_taxonomies(get_post_type(), 'names');
+	$taxs			= (is_search() or is_author() or is_tax() or is_date() or is_month() or is_year() or is_category()) ? false : get_object_taxonomies(get_post_type(), 'names');
 	$taxConverter	= array(
 		'category' => array(
 			'rewrite' => 'cat',
@@ -45,7 +45,7 @@
 					<?php if (count($txTerms) > 3) : ?>
 						<p>
 							<select name="<?php echo $tx ?>">
-								<option value=""><?php _e('Choose category', 'sleek') ?></option>
+								<option value=""><?php _e('Choose ' . $tx, 'sleek') ?></option>
 								<?php foreach ($txTerms as $txTerm) : ?>
 									<option value="<?php echo $txTerm->{$property} ?>"<?php if (isset($_GET[$tx]) and $txTerm->{$property} == $_GET[$tx]) : ?> selected<?php endif ?>><?php echo $txTerm->name ?></option>
 								<?php endforeach ?>

@@ -8,6 +8,8 @@
 function sleek_register_post_types ($postTypes, $textdomain = 'sleek') {
 	# Register Post Types
 	foreach ($postTypes as $postType => $description) {
+		$slug = $textdomain ? __('url_' . $postType, $textdomain) : $postType;
+
 		$config = array(
 			'labels'				=> array(
 				'name'					=> __(ucfirst(str_replace('_', ' ', $postType)), $textdomain),
@@ -15,7 +17,7 @@ function sleek_register_post_types ($postTypes, $textdomain = 'sleek') {
 			),
 			'rewrite'				=> array(
 				'with_front'			=> false,
-				'slug'					=> __('url_' . $postType, $textdomain)
+				'slug'					=> $slug
 			),
 			'exclude_from_search'	=> false,
 			'has_archive'			=> true,

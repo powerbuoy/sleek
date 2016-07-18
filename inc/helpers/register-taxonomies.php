@@ -7,6 +7,8 @@
  */
 function sleek_register_taxonomies ($taxonomies, $textdomain = 'sleek') {
 	foreach ($taxonomies as $taxonomy => $forPostTypes) {
+		$slug = $textdomain ? __('url_' . $taxonomy, $textdomain) : $taxonomy;
+
 		# Assume it should be treated as a tag (non hierarchical) if the slug has "tag" in the name
 		$hierarchical = strpos($taxonomy, 'tag') !== false ? false : true;
 		# $hierarchical = true;
@@ -18,7 +20,7 @@ function sleek_register_taxonomies ($taxonomies, $textdomain = 'sleek') {
 			),
 			'rewrite'			=> array(
 				'with_front'	=> false,
-				'slug'			=> __('url_' . $taxonomy, $textdomain)
+				'slug'			=> $slug
 			),
 			'sort'				=> true,
 			'hierarchical'		=> $hierarchical

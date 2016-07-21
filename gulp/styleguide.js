@@ -19,10 +19,10 @@ module.exports = function (file, dest) {
 		.pipe(autoprefixer({
 			browsers: ['last 1 version', 'IE 9', '> 2%']
 		}))
-		.pipe(styleguidejs(dest + 'styleguide.html', {
+		.pipe(styleguidejs({
 			templateCss: __dirname + '/styleguide/style.css',
 			templateJs: __dirname + '/styleguide/script.js',
-			template: __dirname + '/styleguide/template.jade'
-		}))
-		.pipe(gulp.dest(dest));
+			template: __dirname + '/styleguide/template.jade',
+			outputFile: dest + 'styleguide.html'
+		}));
 };

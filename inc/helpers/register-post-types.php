@@ -48,8 +48,9 @@ function sleek_register_post_types ($postTypes, $textdomain = 'sleek') {
 }
 
 function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek') {
-	add_action('admin_print_styles', function () {
-		echo '<style>
+	add_action('admin_head', function () {
+		?>
+		<style>
 			div.sleek-cpt-meta-data {
 			}
 
@@ -58,21 +59,32 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek') 
 			}
 
 			div.sleek-cpt-meta-data div.form-field {
+				overflow: hidden;
 				margin: 0 0 2rem;
+			}
+
+			div.sleek-cpt-meta-data div.form-field img {
+				display: block;
+				margin-bottom: 1rem;
+				max-width: 160px;
+			}
+
+			div.sleek-cpt-meta-data div.wp-media-buttons {
+				float: none;
 			}
 
 			/* Copied from WPs normal title field... */
 			div.sleek-cpt-meta-data div.form-field.title input {
+				background-color: #fff;
+				width: 100%;
 				padding: 3px 8px;
 				font-size: 1.7em;
 				line-height: 100%;
 				height: 1.7em;
-				width: 100%;
 				outline: 0;
-				margin: 0 0 3px;
-				background-color: #fff;
 			}
-		</style>';
+		</style>
+		<?php
 	});
 
 	foreach ($postTypes as $postType => $data) {
@@ -103,6 +115,10 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek') 
 
 			# The function that adds the settings screen
 			function () use ($postType, $textdomain, $name) {
+				$uploadURL = get_upload_iframe_src('image', null);
+				$imgID = get_option($postType . '_image');
+				$imgSrc = wp_get_attachment_image_src($imgID, 'thumbnail');
+				$hasImg = is_array($imgSrc);
 				?>
 				<div class="wrap sleek-cpt-meta-data">
 
@@ -115,6 +131,23 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek') 
 								name="<?php echo $postType ?>_title"
 								value="<?php echo stripslashes(get_option($postType . '_title')) ?>"
 								placeholder="<?php _e('Title', $textdomain) ?>">
+						</div>
+
+						<div class="form-field">
+							<?php if ($hasImg) : ?>
+								<img id="<?php echo $postType ?>-image" src="<?php echo $imgSrc[0] ?>">
+							<?php else : ?>
+								<img id="<?php echo $postType ?>-image">
+							<?php endif ?>
+
+							<button class="button <?php if ($hasImg) : ?>hidden<?php endif ?>" id="<?php echo $postType ?>-add-image">
+								<?php _e('Upload an Image', $textdomain) ?>
+							</button>
+							<button class="button <?php if (!$hasImg) : ?>hidden<?php endif ?>" id="<?php echo $postType ?>-remove-image">
+								<?php _e('Remove Image', $textdomain) ?>
+							</button>
+
+							<input id="<?php echo $postType ?>-image-id" name="<?php echo $postType ?>_image" type="hidden" value="<?php echo esc_attr($imgID); ?>">
 						</div>
 
 						<?php wp_editor(
@@ -132,6 +165,58 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek') 
 				<?php
 			}
 		);
+
+		# Add upload scripts
+		add_action('admin_head', function () use ($postType, $textdomain, $name) {
+			?>
+			<script>
+				jQuery(function ($) {
+					var frame;
+					var add = $('#<?php echo $postType ?>-add-image');
+					var remove = $('#<?php echo $postType ?>-remove-image');
+					var img = $('#<?php echo $postType ?>-image');
+					var id = $('#<?php echo $postType ?>-image-id');
+
+					add.on('click', function (e) {
+						e.preventDefault();
+
+						if (frame) {
+							frame.open();
+							return;
+						}
+
+						frame = wp.media({
+							title: '<?php _e('Upload an Image', $textdomain) ?>',
+							button: {
+								text: '<?php _e('Use this image', $textdomain) ?>'
+							},
+							multiple: false
+						});
+
+						frame.on('select', function () {
+							var attachment = frame.state().get('selection').first().toJSON();
+
+							img.attr('src', attachment.url);
+							id.val(attachment.id);
+							add.addClass('hidden');
+							remove.removeClass('hidden');
+						});
+
+						frame.open();
+					});
+
+					remove.on('click', function (e) {
+						e.preventDefault();
+
+						img.attr('src', '');
+						id.val('');
+						add.removeClass('hidden');
+						remove.addClass('hidden');
+					});
+				});
+			</script>
+			<?php
+		});
 
 		# Add our new options
 		add_action('admin_init', function () use ($postType, $textdomain, $name) {

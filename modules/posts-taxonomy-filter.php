@@ -1,6 +1,6 @@
 <?php
 	$postType		= get_post_type();
-	$taxs			= (is_search() or is_author() or is_tax() or is_date() or is_month() or is_year() or is_category()) ? false : get_object_taxonomies(get_post_type(), 'names');
+	$taxs			= (is_search() or is_author() or is_tag() or is_category() or is_date()) ? false : get_object_taxonomies(get_post_type(), 'names');
 	$taxConverter	= array(
 		'category' => array(
 			'rewrite' => 'cat',

@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var fontello = require('gulp-fontello');
 var replace = require('gulp-replace');
+var rename = require('gulp-rename');
 
 module.exports = {
 	download: function (file, dest) {
@@ -26,6 +27,17 @@ module.exports = {
 			.pipe(replace(baseFind, baseReplace))
 			.pipe(replace(iconFind, iconReplace))
 			.pipe(replace(pathFind, pathReplace))
+			.pipe(rename('icons.scss'))
+			.pipe(gulp.dest(dest));
+	},
+
+	generateIconVars: function (src, dest) {
+		var find = /\.icon-(.*?):before \{ content: '(.*?)'; \} \/\*.*?\*\//g;
+		var rep = '\$icon-$1: "$2";';
+
+		return gulp.src(src + 'css/fontello-codes.css')
+			.pipe(replace(find, rep))
+			.pipe(rename('icon-vars.scss'))
 			.pipe(gulp.dest(dest));
 	}
 };

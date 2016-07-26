@@ -19,28 +19,28 @@ function sleek_allow_empty_search ($qryVars) {
 
 function sleek_allow_empty_search_filter ($hits) {
 	if (isset($_GET['s']) and empty($_GET['s']) and !count($hits[0])) {
-		$taxQry = array('relation' => 'AND');
+		$taxQry = ['relation' => 'AND'];
 
 		if (!empty($_GET['countries'])) {
-			$taxQry[] = array(
+			$taxQry[] = [
 				'taxonomy' => 'countries',
 				'field' => 'slug',
 				'terms' => $_GET['countries']
-			);
+			];
 		}
 
 		if (!empty($_GET['specialities'])) {
-			$taxQry[] = array(
+			$taxQry[] = [
 				'taxonomy' => 'specialities',
 				'field' => 'slug',
 				'terms' => $_GET['specialities']
-			);
+			];
 		}
 
-		$args = array(
+		$args = [
 			'numberposts' => -1,
 			'post_type' => 'any'
-		);
+		];
 
 		if (count($taxQry) > 1) {
 			$args['tax_query'] = $taxQry;

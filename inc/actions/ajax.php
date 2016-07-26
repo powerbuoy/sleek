@@ -7,10 +7,10 @@
 
 # TODO: Improve security here if ever used again
 function sleek_proxy () {
-	$validURLs = array(
+	$validURLs = [
 		'https://feeds.foursquare.com',
 		'http://www.google.com'
-	);
+	];
 	$valid = false;
 
 	foreach ($validURLs as $validURL) {

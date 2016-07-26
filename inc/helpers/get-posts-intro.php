@@ -9,7 +9,7 @@ function sleek_get_posts_intro () {
 
 	$title		= false;
 	$content	= false;
-	$extraData	= array();
+	$extraData	= [];
 
 	# If we're using a static front page and are on the posts home page
 	if (get_option('show_on_front') == 'page' and get_option('page_for_posts') and is_home()) {
@@ -90,12 +90,12 @@ function sleek_get_posts_intro () {
 		$title		= $prefix . get_avatar($usr->ID, 320) . sprintf(__('Posts by <strong>%s</strong>', 'sleek'), $usr->display_name) . $suffix;
 		$content	= $description ? '<p>' . $description . '</p>' : false;
 
-		$extraData	= array(
+		$extraData	= [
 			'username'		=> $usr->display_name,
 			'url'			=> $usr->user_url,
 			'description'	=> $description,
 			'avatar'		=> get_avatar($usr->ID, 320)
-		);
+		];
 	}
 	elseif (is_day()) {
 		$title = sprintf(__('Daily archives <strong>%s</strong>', 'sleek'), get_the_time('l, F j, Y'));
@@ -124,9 +124,9 @@ function sleek_get_posts_intro () {
 		$title = __('Posts', 'sleek');
 	}
 
-	return array(
+	return [
 		'title'		=> $title,
 		'content'	=> $content,
 		'extra'		=> $extraData
-	);
+	];
 }

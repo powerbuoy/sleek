@@ -17,8 +17,8 @@ function sleek_cleanup_head () {
 	## Wordpress Generator
 	remove_action('wp_head', 'wp_generator');
 
-	## WPML Generator
-#	remove_action('wp_head', array($sitepress, 'meta_generator_tag'));
+	## WPML Generator (TODO: What's this?? :P)
+#	remove_action('wp_head', [$sitepress, 'meta_generator_tag']);
 
 	## Useless link elements
 	remove_action('wp_head', 'start_post_rel_link');

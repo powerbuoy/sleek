@@ -5,7 +5,7 @@
 add_action('acf/load_field', 'sleek_hide_acf_section_fields', 10, 1);
 
 function sleek_hide_acf_section_fields ($field) {
-	$hide = array('section_name', 'section_modifiers', 'modifiers');
+	$hide = ['section_name', 'section_modifiers', 'modifiers'];
 
 	global $current_user;
 
@@ -19,7 +19,7 @@ function sleek_hide_acf_section_fields ($field) {
 add_action('admin_head', 'sleek_hide_acf_section_fields_css');
 
 function sleek_hide_acf_section_fields_css () {
-	$hide = array('section_name', 'section_modifiers', 'modifiers');
+	$hide = ['section_name', 'section_modifiers', 'modifiers'];
 
 	global $current_user;
 

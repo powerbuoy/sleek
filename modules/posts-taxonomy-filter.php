@@ -1,21 +1,21 @@
 <?php
 	$postType		= get_post_type();
 	$taxs			= (is_search() or is_author() or is_tag() or is_category() or is_date()) ? false : get_object_taxonomies(get_post_type(), 'names');
-	$taxConverter	= array(
-		'category' => array(
+	$taxConverter	= [
+		'category' => [
 			'rewrite' => 'cat',
 			'property' => 'term_id'
-		),
-		'post_tag' => array(
+		],
+		'post_tag' => [
 			'rewrite' => 'tag'
-		)
-	);
+		]
+	];
 ?>
 
 <?php if ($taxs) : ?>
 	<form method="get" action="<?php echo get_post_type_archive_link($postType) ?>" data-submit-onchange>
 
-		<?php foreach ($taxs as $tx) : $txTerms = get_terms(array('taxonomy' => $tx, 'hide_empty' => true)) ?>
+		<?php foreach ($taxs as $tx) : $txTerms = get_terms(['taxonomy' => $tx, 'hide_empty' => true]) ?>
 			<?php
 				$property = 'slug';
 

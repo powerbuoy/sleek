@@ -16,7 +16,7 @@
 
 		<h2>
 			<?php if ($usr->user_url) : ?><a href="<?php echo $usr->user_url ?>"><?php endif ?>
-				<?php echo get_avatar($usr->ID, 320) ?> 
+				<?php echo get_avatar($usr->ID, 320) ?>
 				<?php echo $usr->display_name ?>
 			<?php if ($usr->user_url) : ?></a><?php endif ?>
 		</h2>
@@ -35,7 +35,7 @@
 
 		<?php /* <nav>
 			<ul>
-				<?php foreach (array('twitter', 'facebok', 'linkedin', 'googleplus', 'skype') as $sn) : ?>
+				<?php foreach (['twitter', 'facebok', 'linkedin', 'googleplus', 'skype'] as $sn) : ?>
 					<?php if ($snlink = get_the_author_meta($sn, $usr->ID)) : ?>
 						<li><a href="<?php echo $snlink ?>"><?php echo ucfirst($sn) ?></a></li>
 					<?php endif ?>

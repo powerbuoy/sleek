@@ -22,19 +22,19 @@ function sleek_tinymce_css () {
 # add_filter('tiny_mce_before_init', 'sleek_tinymce_styles');
 
 function sleek_tinymce_styles ($init) {
-	$styles = array(
+	$styles = [
 		# General
-		array(
+		[
 			'title' => 'Small',
 			'inline' => 'small',
 			'wrapper' => false
-		),
-		array(
+		],
+		[
 			'title' => 'Aside',
 			'block' => 'aside',
 			'wrapper' => true
-		)
-	);
+		]
+	];
 
 	# Insert the array, JSON ENCODED, into 'style_formats'
 	$init['style_formats'] = json_encode($styles);

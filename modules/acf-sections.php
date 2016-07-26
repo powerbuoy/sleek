@@ -7,7 +7,7 @@ if (have_rows('sections')) {
 		$section = get_sub_field('section');
 
 		# Fields to ignore later in loop
-		$ignore = array('section_name', 'section_modifiers', 'background_image');
+		$ignore = ['section_name', 'section_modifiers', 'background_image'];
 
 		# Find the section name block
 		$sectionName = sleek_array_search_r($section, 'section_name');

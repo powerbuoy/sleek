@@ -1,6 +1,6 @@
 <?php
 	$big = 999999;
-	$pagination = paginate_links(array(
+	$pagination = paginate_links([
 		# All args
 		/* 'base' => '%_%',
 		'format' => '/page/%#%',
@@ -24,7 +24,7 @@
 		'format' => '?paged=%#%',
 		'current' => max(1, get_query_var('paged')),
 		'total' => $wp_query->max_num_pages
-	));
+	]);
 ?>
 
 <?php if ($pagination) : ?>

@@ -19,7 +19,7 @@ function sleek_replace_post_vars ($str) {
 
 function sleek_submit_form () {
 	# Store data in session for later use
-	$_SESSION['form_data'] = isset($_SESSION['form_data']) ? $_SESSION['form_data'] : array();
+	$_SESSION['form_data'] = isset($_SESSION['form_data']) ? $_SESSION['form_data'] : [];
 	$_SESSION['form_data'] = array_merge($_SESSION['form_data'], $_POST['form_data']);
 
 	# Create email HTML
@@ -34,7 +34,7 @@ function sleek_submit_form () {
 			$adminEmail	.= $tableRow;
 
 			# Ignore some fields for the user's email
-			if (!in_array($k, array('email_again'))) {
+			if (!in_array($k, ['email_again'])) {
 				$userEmail .= $tableRow;
 			}
 		}
@@ -58,7 +58,7 @@ function sleek_submit_form () {
 	$prefix		= isset($_POST['admin_email']) ? __($_POST['admin_email'], 'sleek') . '<hr>' : '';
 	$prefix		= $prefix ? sleek_replace_post_vars($prefix) : $prefix;
 	$subject	= sprintf(__('Email from %s', 'sleek'), get_bloginfo('name'));
-	$to			= array(get_option('admin_email'));
+	$to			= [get_option('admin_email')];
 
 	wp_mail($to, $subject, $prefix . $adminEmail);
 

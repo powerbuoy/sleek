@@ -19,13 +19,7 @@
 	}
 
 /*	if ($searchRef) {
-		$qryStrings = array(
-			'q',
-			'p',
-			'ask',
-			'key'
-		);
-
+		$qryStrings = ['q', 'p', 'ask', 'key'];
 		$params = explode('?', $referrer);
 		$params = explode('&', $params[1]);
 

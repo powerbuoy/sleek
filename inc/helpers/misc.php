@@ -23,9 +23,9 @@ function sleek_get_current_author () {
  * Returns array of users with certain $roles
  */
 function sleek_get_users_by_role ($roles) {
-	$user_query = new WP_User_Query(array(
+	$user_query = new WP_User_Query([
 		'role__in' => $roles
-	));
+	]);
 
 	return $user_query->results;
 }
@@ -51,7 +51,7 @@ function sleek_get_first_post_thumbnail_url ($rows, $size) {
  */
 function sleek_get_category_names_by_post_id ($id) {
 	$tmp = get_the_category($id);
-	$postCats = array();
+	$postCats = [];
 
 	foreach ($tmp as $t) {
 		$postCats[] = $t->cat_name;
@@ -65,7 +65,7 @@ function sleek_get_category_names_by_post_id ($id) {
  */
 function sleek_get_category_links_by_post_id ($id) {
 	$tmp = get_the_category($id);
-	$postCats = array();
+	$postCats = [];
 
 	foreach ($tmp as $t) {
 		$postCats[] = '<a href="' . get_term_link($t) . '">' . $t->cat_name . '</a>';
@@ -79,7 +79,7 @@ function sleek_get_category_links_by_post_id ($id) {
  * section--modifier-1--modifier--2.php then section--modifier-1.php then finally section.php
  */
 function sleek_locate_acf_section_template ($section, $modifiers) {
-	$modifiers = $modifiers ? explode(' ', $modifiers) : array();
+	$modifiers = $modifiers ? explode(' ', $modifiers) : [];
 	$numModifiers = count($modifiers);
 
 	for ($i = 0; $i < $numModifiers; $i++) {
@@ -108,7 +108,7 @@ function sleek_locate_acf_section_template ($section, $modifiers) {
  * http://stackoverflow.com/questions/1019076/how-to-search-by-key-value-in-a-multidimensional-array-in-php
  */
 function sleek_array_search_r ($array, $key, $value = false) {
-	$results = array();
+	$results = [];
 
 	if (is_array($array)) {
 		if (isset($array[$key]) && ($value === false or ($value !== false && $array[$key] == $value))) {
@@ -155,23 +155,23 @@ function sleek_limit_words ($str, $limit) {
  * Returns array of social media URLs and titles
  */
 function sleek_get_social_media_links () {
-	$links = array();
+	$links = [];
 
-	$links[] = array(
+	$links[] = [
 		'title' => 'Facebook',
 		'url' => '//www.facebook.com/sharer/sharer.php?u={url}&t={title}'
-	);
-	$links[] = array(
+	];
+	$links[] = [
 		'title' => 'Twitter',
 		'url' => '//twitter.com/intent/tweet?url={url}&text={title}'
-	);
-	$links[] = array(
+	];
+	$links[] = [
 		'title' => 'LinkedIn',
 		'url' => '//www.linkedin.com/shareArticle?mini=true&url={url}&title={title}&summary=&source=' . home_url('/')
-	);
+	];
 
 	for ($i = 0; $i < count($links); $i++) {
-		$links[$i]['url'] = str_replace(array('{url}', '{title}'), array(urlencode(sleek_curr_page_url(false)), urlencode(wp_title('|', false, 'right'))), $links[$i]['url']);
+		$links[$i]['url'] = str_replace(['{url}', '{title}'], [urlencode(sleek_curr_page_url(false)), urlencode(wp_title('|', false, 'right')]), $links[$i]['url']);
 		$links[$i]['slug'] = sanitize_title($links[$i]['title']);
 	}
 
@@ -192,7 +192,7 @@ function sleek_get_avatar_url ($get_avatar) {
 /**
  * Like get_template_part but accepts arguments
  */
-function sleek_get_template_part ($path, $args = array()) {
+function sleek_get_template_part ($path, $args = []) {
 	if ($locatedPath = locate_template($path . '.php')) {
 		extract($args);
 
@@ -237,23 +237,23 @@ function sleek_get_sub_nav_tree ($post) {
 	$title = $allfather->post_title;
 	$url = get_permalink($allfather->ID);
 
-	return array(
+	return [
 		'title'		=> $title,
 		'url'		=> $url,
 		'allfather'	=> $allfather,
 		'children'	=> $children
-	);
+	];
 }
 
 /**
  * Gets a post based on its simple field value (the plugin)
  */
 function sleek_get_posts_by_simple_fields_value ($args, $postType = 'any') {
-	$rows = get_posts(array(
+	$rows = get_posts([
 		'post_type'		=> $postType,
 		'numberposts'	=> -1
-	));
-	$return = array();
+	]);
+	$return = [];
 
 	foreach ($rows as $row) {
 		$valueGroups = simple_fields_values($args['key'], $row->ID);

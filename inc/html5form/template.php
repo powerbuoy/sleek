@@ -1,4 +1,4 @@
-<?php $ignore = array('contact_submit', 'sleek_module', 'g-recaptcha-response'); ?>
+<?php $ignore = ['contact_submit', 'sleek_module', 'g-recaptcha-response'] ?>
 
 <!doctype html>
 
@@ -14,7 +14,7 @@
 				border-spacing: 0;
 			}
 
-			th, 
+			th,
 			td {
 				text-align: left;
 				vertical-align: top;
@@ -22,7 +22,7 @@
 				border: 1px solid #ddd;
 			}
 
-			tr:nth-child(event) th, 
+			tr:nth-child(event) th,
 			tr:nth-child(event) td {
 				background: #eee;
 			}

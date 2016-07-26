@@ -29,7 +29,7 @@ class Form {
 		$this->cssClass			= false;
 		$this->hasFiles			= false;
 		$this->hasSubmit		= false;
-		$this->hiddenFields		= array();
+		$this->hiddenFields		= [];
 		$this->wrapEl			= 'p';
 		$this->fieldsetEl		= 'fieldset';
 		$this->legendEl			= 'legend';
@@ -44,7 +44,7 @@ class Form {
 	}
 
 	public function validate () {
-		$this->errors = array();
+		$this->errors = [];
 		$valid = true;
 		$method = $this->method == 'post' ? $_POST : $_GET;
 
@@ -318,7 +318,7 @@ class Form {
 				break;
 
 			case 'captcha' :
-				$html .= '<div class="captcha-wrap"><div class="g-recaptcha" data-sitekey="' . RECAPTCHA_SITE_KEY . '"></div>' . 
+				$html .= '<div class="captcha-wrap"><div class="g-recaptcha" data-sitekey="' . RECAPTCHA_SITE_KEY . '"></div>' .
 						(isset($this->errors[$field['name']]) ?
 							'<strong class="error">' . $this->errors[$field['name']] . '</strong>' :
 							''
@@ -394,7 +394,7 @@ class Form {
 	public function addFields ($fields) {
 		foreach ($fields as $field) {
 			if (isset($field['fields'])) {
-				$fsFields = array();
+				$fsFields = [];
 
 				foreach ($field['fields'] as $fsField) {
 					$fsFields[] = $this->completeField($fsField);
@@ -440,14 +440,14 @@ class Form {
 			$checked = isset($f['checked']) ? true : false;
 		}
 
-		return array(
+		return [
 			'name'			=> $f['name'],
 			'id'			=> $this->id . '-' . $f['name'] . $i++,
 			'type'			=> isset($f['type']) ? $f['type'] : 'text',
 			'value'			=> isset($f['value']) ? $f['value'] : $value,
 			'label'			=> isset($f['label']) ? $f['label'] : false,
 			'options'		=> isset($f['options']) ? $f['options'] : false,
-			'fields'		=> isset($f['fields']) ? $f['fields'] : array(),
+			'fields'		=> isset($f['fields']) ? $f['fields'] : [],
 			'error'			=> isset($f['error']) ? $f['error'] : false,
 			'legend'		=> isset($f['legend']) ? $f['legend'] : false,
 			'placeholder'	=> isset($f['placeholder']) ? $f['placeholder'] : false,
@@ -461,9 +461,9 @@ class Form {
 			'min'			=> isset($f['min']) ? $f['min'] : false,
 			'max'			=> isset($f['max']) ? $f['max'] : false,
 			'step'			=> isset($f['step']) ? $f['step'] : false,
-			'attributes'	=> isset($f['attributes']) ? $f['attributes'] : array(),
+			'attributes'	=> isset($f['attributes']) ? $f['attributes'] : [],
 			'validation'	=> isset($f['validation']) ? $f['validation'] : false
-		);
+		];
 	}
 
 	# Simple setters/getters

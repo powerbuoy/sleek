@@ -8,11 +8,11 @@
 
 function sleek_comment_form_placeholders ($fields) {
 	# All fields we want to add placeholders to
-	$fieldsToReplace = array(
+	$fieldsToReplace = [
 		'author' => __('Name'),
 		'email' => __('Email'),
 		'url' => __('Website')
-	);
+	];
 
 	foreach ($fieldsToReplace as $field => $value) {
 		# Add asterisk if required

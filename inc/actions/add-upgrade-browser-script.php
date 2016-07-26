@@ -5,7 +5,7 @@
 # add_action('wp_head', 'sleek_register_browser_update_js');
 
 function sleek_register_browser_update_js () {
-	echo str_replace(array("\n", "\t"), '', '<script>
+	echo str_replace(["\n", "\t"], '', '<script>
 		var $buoop = {};
 
 		$buoop.ol = window.onload;

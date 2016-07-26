@@ -1,6 +1,6 @@
 <?php
-	$title = str_replace(array('&lt;', '&gt;'), array('<', '>'), get_bloginfo('name'));
-	$tagline = str_replace(array('&lt;', '&gt;'), array('<', '>'), get_bloginfo('description'));
+	$title = str_replace(['&lt;', '&gt;'], ['<', '>'], get_bloginfo('name'));
+	$tagline = str_replace(['&lt;', '&gt;'], ['<', '>'], get_bloginfo('description'));
 ?>
 
 <header id="header">

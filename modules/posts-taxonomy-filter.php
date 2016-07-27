@@ -1,6 +1,8 @@
 <?php
-	$postType		= get_post_type();
-	$taxs			= (is_search() or is_author() or is_tag() or is_category() or is_date()) ? false : get_object_taxonomies(get_post_type(), 'names');
+	$postType = get_post_type();
+	$taxs = (is_search() or is_author() or is_tag() or is_category() or is_date()) ? false : get_object_taxonomies($postType, 'names');
+
+	# WordPress is so shit, we need to rename some (built in) taxonomies
 	$taxConverter	= [
 		'category' => [
 			'rewrite' => 'cat',

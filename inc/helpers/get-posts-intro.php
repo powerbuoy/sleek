@@ -9,7 +9,7 @@ function sleek_get_posts_intro () {
 
 	$title		= false;
 	$content	= false;
-	$extraData	= [];
+	$extraData	= array();
 
 	# If we're using a static front page and are on the posts home page
 	if (get_option('show_on_front') == 'page' and get_option('page_for_posts') and is_home()) {
@@ -90,12 +90,12 @@ function sleek_get_posts_intro () {
 		$title		= $prefix . get_avatar($usr->ID, 320) . sprintf(__('Posts by <strong>%s</strong>', 'sleek'), $usr->display_name) . $suffix;
 		$content	= $description ? '<p>' . $description . '</p>' : false;
 
-		$extraData	= [
+		$extraData	= array(
 			'username'		=> $usr->display_name,
 			'url'			=> $usr->user_url,
 			'description'	=> $description,
 			'avatar'		=> get_avatar($usr->ID, 320)
-		];
+		);
 	}
 	elseif (is_day()) {
 		$title = sprintf(__('Daily archives <strong>%s</strong>', 'sleek'), get_the_time('l, F j, Y'));
@@ -106,12 +106,14 @@ function sleek_get_posts_intro () {
 	elseif (is_year()) {
 		$title = sprintf(__('Yearly archives <strong>%s</strong>', 'sleek'), get_the_time('Y'));
 	}
+	# Custom post type archive
 	elseif (is_post_type_archive()) {
 		$postType = get_post_type_object($wp_query->query['post_type']);
 
 		$title = $postType->labels->name;
-		$content = '<p>' . nl2br($postType->description) . '</p>';
+		$content = $postType->description ? '<p>' . nl2br($postType->description) . '</p>' : false;
 	}
+	# Hmmm??
 	elseif (is_page() or is_single() or (get_option('show_on_front') == 'page' and is_front_page())) {
 		setup_postdata($post);
 
@@ -120,13 +122,14 @@ function sleek_get_posts_intro () {
 
 		wp_reset_postdata();
 	}
+	# Default
 	else {
 		$title = __('Posts', 'sleek');
 	}
 
-	return [
+	return array(
 		'title'		=> $title,
 		'content'	=> $content,
 		'extra'		=> $extraData
-	];
+	);
 }

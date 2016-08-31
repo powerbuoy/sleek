@@ -171,7 +171,7 @@ function sleek_get_social_media_links () {
 	];
 
 	for ($i = 0; $i < count($links); $i++) {
-		$links[$i]['url'] = str_replace(['{url}', '{title}'], [urlencode(sleek_curr_page_url(false)), urlencode(wp_title('|', false, 'right')]), $links[$i]['url']);
+		$links[$i]['url'] = str_replace(['{url}', '{title}'], [urlencode(sleek_curr_page_url(false)), urlencode(wp_title('|', false, 'right'))], $links[$i]['url']);
 		$links[$i]['slug'] = sanitize_title($links[$i]['title']);
 	}
 

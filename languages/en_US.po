@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-07 16:42+0200\n"
+"PO-Revision-Date: 2016-08-18 16:57+0200\n"
 "Language: en\n"
 "X-Generator: Poedit 1.8.7.1\n"
 "Last-Translator: \n"
@@ -29,6 +29,9 @@ msgstr "No search results for: <strong>\"%s\"</strong>"
 #: inc/get-posts-intro.php:53
 msgid "We couldn't find any matching search results for your query."
 msgstr "We couldn't find any matching search results for your query."
+
+msgid "Displaying results %d through %d"
+msgstr "Displaying results %d through %d"
 
 #: inc/get-posts-intro.php:59
 msgid "Posts by <strong>%s</strong>"

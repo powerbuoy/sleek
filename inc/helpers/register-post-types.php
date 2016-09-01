@@ -102,10 +102,10 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek') 
 			'edit.php?post_type=' . $postType,
 
 			# Page title
-			sprintf(__('%s Meta Data', $textdomain), $name),
+			sprintf(__('%s meta data', $textdomain), $name),
 
 			# Menu title
-			sprintf(__('%s Meta Data', $textdomain), $name),
+			sprintf(__('%s meta data', $textdomain), $name),
 
 			# Capability needed
 			'manage_options',

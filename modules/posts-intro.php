@@ -23,9 +23,9 @@
 		}
 
 		# For the blog archive
-		if (!$image and has_post_thumbnail()) {
+		if (!$image and has_post_thumbnail(get_option('page_for_posts'))) {
 			$image = true;
-			$imageSrc = [get_the_post_thumbnail_url($post->ID, 'sleek-hd')];
+			$imageSrc = [get_the_post_thumbnail_url(get_option('page_for_posts'), 'sleek-hd')];
 		}
 	}
 ?>

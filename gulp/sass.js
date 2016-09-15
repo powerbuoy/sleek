@@ -18,7 +18,7 @@ module.exports = function (file, dest) {
 		.pipe(sassGlob())
 		.pipe(sass())
 		.pipe(autoprefixer({
-			browsers: ['last 1 version', 'IE 9', 'IE 10', '> 2%']
+			browsers: ['last 1 version', 'IE 9', 'IE 10', '> 2%', 'Safari >= 8']
 		}))
 		.pipe(minifyCSS({
 			advanced: false

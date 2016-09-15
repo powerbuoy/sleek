@@ -15,12 +15,10 @@
 
 		<footer>
 
-			<?php wp_link_pages(['before' => '<p>' . __('Pages', 'sleek') . ': ', 'after' => '</p>', 'next_or_number' => 'number']) ?>
+			<?php wp_link_pages() ?>
 			<?php get_template_part('modules/partials/post-meta') ?>
 
 		</footer>
 	<?php endwhile ?>
 
 </section>
-
-<?php get_template_part('modules/post-pagination') ?>

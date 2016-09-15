@@ -12,7 +12,7 @@ include get_template_directory() . '/inc/roots/nav.php';
 
 # Helper functions
 include get_template_directory() . '/inc/helpers/disable-single-post-types.php';
-include get_template_directory() . '/inc/helpers/get-posts-intro.php';
+include get_template_directory() . '/inc/helpers/get-archive-data.php';
 include get_template_directory() . '/inc/helpers/misc.php';
 include get_template_directory() . '/inc/helpers/register-post-types.php';
 include get_template_directory() . '/inc/helpers/register-sidebars.php';

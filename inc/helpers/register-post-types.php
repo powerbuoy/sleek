@@ -108,7 +108,7 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek') 
 			sprintf(__('%s meta data', $textdomain), $name),
 
 			# Capability needed
-			'manage_options',
+			'edit_theme_options',
 
 			# Page slug
 			'edit-' . $postType . '-meta',

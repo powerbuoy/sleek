@@ -1,47 +1,44 @@
-<?php
-	# Get a title and description based on the type of archive
-	$tmp = sleek_get_posts_intro();
-	$title = $tmp['title'];
-	$content = $tmp['content'];
-	$image = false;
+<?php $introData = sleek_get_archive_data([
+	'image_size' => 'sleek-medium-wide'
+]) ?>
 
-	# If we're not on one of these built in archives
-	if (!(is_search() or is_author() or is_tag() or is_category() or is_date())) {
-		# Look for cpt_option fields
-		$postType = get_post_type();
+<?php if ($introData) : ?>
+	<section id="posts-intro">
 
-		if (get_option($postType . '_title')) {
-			$title = get_option($postType . '_title');
-			$content = false; # If a cpt title is set, remove the auto-generated description
-		}
-		if (get_option($postType . '_description')) {
-			$content = get_option($postType . '_description');
-		}
-		if (get_option($postType . '_image')) {
-			$image = get_option($postType . '_image');
-			$imageSrc = wp_get_attachment_image_src($image, 'sleek-hd');
-		}
+		<header>
 
-		# For the blog archive
-		if (!$image and has_post_thumbnail(get_option('page_for_posts'))) {
-			$image = true;
-			$imageSrc = [get_the_post_thumbnail_url(get_option('page_for_posts'), 'sleek-hd')];
-		}
-	}
-?>
+			<?php if ($introData['image']) : ?>
+				<img src="<?php echo $introData['image'] ?>">
+			<?php endif ?>
 
-<?php if ($title or $content) : ?>
-	<header id="posts-intro">
+			<?php if ($introData['title']) : ?>
+				<h1><?php echo $introData['title'] ?></h1>
+			<?php endif ?>
 
-		<?php if ($title) : ?>
-			<h1><?php echo $title ?></h1>
+			<?php echo $introData['content'] ?>
+
+		</header>
+
+		<?php if ($introData['taxonomies']) : ?>
+			<nav class="taxonomies">
+
+				<?php foreach ($introData['taxonomies'] as $tax) : ?>
+					<ul class="list--inline">
+						<li<?php if (!$tax['has_selected']) : ?> class="selected"<?php endif ?>>
+							<a href="<?php echo get_post_type_archive_link($introData['post_type']) ?>"><?php _e('All', 'sleek') ?></a>
+						</li>
+						<?php foreach ($tax['terms'] as $term) : ?>
+							<li<?php if ($term['permalink_selected']) : ?> class="selected"<?php endif ?>>
+								<a href="<?php echo $term['permalink'] ?>">
+									<?php echo $term['term']->name ?>
+								</a>
+							</li>
+						<?php endforeach ?>
+					</ul>
+				<?php endforeach ?>
+
+			</nav>
 		<?php endif ?>
 
-		<?php if ($content) : ?>
-			<?php echo $content ?>
-		<?php endif ?>
-
-		<?php get_template_part('modules/posts-taxonomy-filter') ?>
-
-	</header>
+	</section>
 <?php endif ?>

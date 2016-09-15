@@ -4,7 +4,7 @@
  * based on the currently viewed type of archive
  * (cpt, blog, category, date, search etc)
  */
-function sleek_get_archive_data ($args) {
+function sleek_get_archive_data ($args = []) {
 	global $post;
 	global $wp_query;
 

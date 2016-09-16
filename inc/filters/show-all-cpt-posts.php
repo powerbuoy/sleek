@@ -5,7 +5,7 @@
 # add_filter('pre_get_posts', 'sleek_show_all_cpt_posts');
 
 function sleek_show_all_cpt_posts () {
-	if (!is_admin()) {
+	if (!is_admin() and is_main_query()) {
 		$limit = get_option('posts_per_page');
 
 		if (is_post_type_archive()) {

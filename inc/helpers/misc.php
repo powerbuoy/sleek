@@ -21,6 +21,7 @@ function sleek_get_current_author () {
 
 /**
  * Returns array of users with certain $roles
+ * TODO: Remove(?)
  */
 function sleek_get_users_by_role ($roles) {
 	$user_query = new WP_User_Query([
@@ -48,6 +49,7 @@ function sleek_get_first_post_thumbnail_url ($rows, $size) {
 
 /**
  * Returns an array of category names for a given post ID
+ * TODO: Rmove/improve (any PT & taxonomy)
  */
 function sleek_get_category_names_by_post_id ($id) {
 	$tmp = get_the_category($id);
@@ -62,6 +64,7 @@ function sleek_get_category_names_by_post_id ($id) {
 
 /**
  * Returns an array of category links for a given post ID
+ * TODO: Rmove/improve (any PT & taxonomy)
  */
 function sleek_get_category_links_by_post_id ($id) {
 	$tmp = get_the_category($id);
@@ -77,6 +80,7 @@ function sleek_get_category_links_by_post_id ($id) {
 /**
  * Similar to locate_template but looks for templates named
  * section--modifier-1--modifier--2.php then section--modifier-1.php then finally section.php
+ * TODO: Remove/Improve
  */
 function sleek_locate_acf_section_template ($section, $modifiers) {
 	$modifiers = $modifiers ? explode(' ', $modifiers) : [];
@@ -104,7 +108,6 @@ function sleek_locate_acf_section_template ($section, $modifiers) {
 
 /**
  * Search a multidimensional array for key/value
- *
  * http://stackoverflow.com/questions/1019076/how-to-search-by-key-value-in-a-multidimensional-array-in-php
  */
 function sleek_array_search_r ($array, $key, $value = false) {
@@ -123,12 +126,9 @@ function sleek_array_search_r ($array, $key, $value = false) {
 	return $results;
 }
 
-# Return image URL by ID
 /**
  * Return image URL by attacment ID
- * (like the_post_thumbnail_url but GET_post_thumbnail_url -
- * why the HELL did they add one and not the other? :P)
- * TODO: It IS added :P https://developer.wordpress.org/reference/functions/get_the_post_thumbnail_url/
+ * TODO: Remove in favor of https://developer.wordpress.org/reference/functions/get_the_post_thumbnail_url/
  */
 function sleek_get_img_src_by_id ($id, $size = 'full') {
 	if ($id) {
@@ -144,7 +144,6 @@ function sleek_get_img_src_by_id ($id, $size = 'full') {
 
 /**
  * Limit str's length to limit words
- *
  * http://stackoverflow.com/questions/965235/how-can-i-truncate-a-string-to-the-first-20-words-in-php#answer-965343
  */
 function sleek_limit_words ($str, $limit) {
@@ -153,6 +152,7 @@ function sleek_limit_words ($str, $limit) {
 
 /**
  * Returns array of social media URLs and titles
+ * TODO: Move elsewhere + improve (plugin?)
  */
 function sleek_get_social_media_links () {
 	$links = [];
@@ -180,7 +180,6 @@ function sleek_get_social_media_links () {
 
 /**
  * Returns the avatar URL only from the return value of get_avatar($userID, $size)
- *
  * http://wordpress.stackexchange.com/questions/59442/how-do-i-get-the-avatar-url-instead-of-an-html-img-tag-when-using-get-avatar
  */
 function sleek_get_avatar_url ($get_avatar) {
@@ -205,6 +204,7 @@ function sleek_get_template_part ($path, $args = []) {
 
 /**
  * Returns neighbouring array element with optional offset
+ * TODO: URL? Where is this from
  */
 function sleek_get_neighbouring_array_element ($array, $orig, $offset) {
 	$keys = array_keys($array);
@@ -213,7 +213,7 @@ function sleek_get_neighbouring_array_element ($array, $orig, $offset) {
 }
 
 /**
- * Returns a full navigation tree based on a post
+ * Returns a full navigation tree based on a page
  */
 function sleek_get_sub_nav_tree ($post) {
 	$allfather = $post;
@@ -247,6 +247,7 @@ function sleek_get_sub_nav_tree ($post) {
 
 /**
  * Gets a post based on its simple field value (the plugin)
+ * TODO: Remove in favor of ACF
  */
 function sleek_get_posts_by_simple_fields_value ($args, $postType = 'any') {
 	$rows = get_posts([
@@ -276,6 +277,7 @@ function sleek_get_posts_by_simple_fields_value ($args, $postType = 'any') {
 
 /**
  * Returns image ID based on filename
+ * TODO: Check usage
  */
 function sleek_get_image_id_by_filename ($filename) {
 	global $wpdb;
@@ -293,6 +295,7 @@ function sleek_get_image_id_by_filename ($filename) {
 
 /**
  * Returns post excerpt based on post ID
+ * TODO: Remove in favor of get_the_excerpt / make sure this is needed
  */
 function sleek_get_the_excerpt ($post_id) {
 	global $post;
@@ -331,9 +334,9 @@ function sleek_curr_page_url ($withQry = true) {
 	return $url;
 }
 
-# Redirects and dies
 /**
  * Redirects to $to and dies
+ * TODO: Definitely remove (use wp_redirect or whatever)
  */
 function sleek_redirect ($to) {
 	header('Location: ' . $to);
@@ -342,6 +345,7 @@ function sleek_redirect ($to) {
 
 /**
  * Redirects to referrer and adds an optional query parameter
+ * TODO: Same as above
  */
 function sleek_redirect_back ($append = false) {
 	$ref = $_SERVER['HTTP_REFERER'];

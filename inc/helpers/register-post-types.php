@@ -19,24 +19,24 @@ function sleek_register_post_types ($postTypes, $textdomain = 'sleek') {
 		$name = __(ucfirst(str_replace('_', ' ', $postType)), $textdomain);
 
 		# Create the config
-		$config = array(
-			'labels' => array(
+		$config = [
+			'labels' => [
 				'name' => $name,
 				'singular_label' => $name
-			),
-			'rewrite' => array(
+			],
+			'rewrite' => [
 				'with_front' => false,
 				'slug' => $slug
-			),
+			],
 			'exclude_from_search' => false,
 			'has_archive' => true,
 			'public' => true,
-			'supports' => array(
+			'supports' => [
 				'title', 'editor', 'author', 'thumbnail', 'excerpt',
 				'wpcom-markdown', 'trackbacks', 'custom-fields',
 				'revisions', 'page-attributes', 'comments'
-			)
-		);
+			]
+		];
 
 		# If a config array was specified
 		if (is_array($data)) {
@@ -153,7 +153,7 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek') 
 						<?php wp_editor(
 							stripslashes(get_option($postType . '_description')),
 							$postType . '_settings',
-							array('textarea_name' => $postType . '_description')
+							['textarea_name' => $postType . '_description']
 						) ?>
 
 						<?php settings_fields($postType . '_settings') ?>

@@ -18,17 +18,17 @@ function sleek_register_taxonomies ($taxonomies, $textdomain = 'sleek') {
 		$hierarchical = strpos($taxonomy, 'tag') !== false ? false : true;
 
 		# Register the taxonomy
-		register_taxonomy($taxonomy, $forPostTypes, array(
-			'labels' => array(
+		register_taxonomy($taxonomy, $forPostTypes, [
+			'labels' => [
 				'name' => $name,
 				'singular_label' => $name
-			),
-			'rewrite' => array(
+			],
+			'rewrite' => [
 				'with_front' => false,
 				'slug' => $slug
-			),
+			],
 			'sort' => true,
 			'hierarchical' => $hierarchical
-		));
+		]);
 	}
 }

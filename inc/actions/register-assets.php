@@ -110,3 +110,18 @@ add_action('wp_footer', function () {
 add_action('wp_head', function () {
 	echo "<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>";
 });
+
+/**
+ * Add Google Maps API Key to ACF
+ */
+add_action('init', function () {
+	$googleMaps = get_theme_mod('google_maps_api_key');
+
+	if ($googleMaps) {
+		add_filter('acf/fields/google_map/api', function ($api) use ($googleMaps) {
+			$api['key'] = $googleMaps;
+
+			return $api;
+		});
+	}
+});

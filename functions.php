@@ -51,7 +51,6 @@ include get_template_directory() . '/inc/filters/active-archive-link-on-taxonomi
 include get_template_directory() . '/inc/filters/add-post-type-arg-to-get-terms.php';
 # include get_template_directory() . '/inc/filters/advanced-search.php';
 include get_template_directory() . '/inc/filters/comment-form-placeholders.php';
-include get_template_directory() . '/inc/filters/disable-upw-styles.php';
 include get_template_directory() . '/inc/filters/exclude-current-post-in-upw.php';
 include get_template_directory() . '/inc/filters/hide-sleek-from-admin.php';
 include get_template_directory() . '/inc/filters/html-in-widget-titles.php';

@@ -15,7 +15,7 @@ function sleek_get_site_logo () {
 	}
 	# Check site-logo.svg.php
 	elseif ($svgLogo = locate_template('dist/assets/svg/site-logo.svg')) {
-		$logo = file_get_contents($svgLogo);
+		$logo = str_replace('<svg', '<svg aria-label="' . get_bloginfo('name') . '"', file_get_contents($svgLogo)); # TODO: Is aria-label still correct?
 	}
 	# Default to text (with <tag> support)
 	else {

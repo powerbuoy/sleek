@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var globby = require('globby');
 var rename = require('gulp-rename');
 var svgstore = require('gulp-svgstore');
 var svgmin = require('gulp-svgmin');
@@ -40,5 +41,21 @@ module.exports = {
 			.pipe(svgstore())
 			.pipe(rename('svg-defs.svg'))
 			.pipe(gulp.dest(dest));
+	},
+
+	css: function (src, dest) {
+		var css = '';
+
+		globby.sync(src).forEach(function (file) {
+			var basename = path.basename(file);
+			var className = 'svg-' + basename.substr(0, basename.length - path.extname(file).length);
+			var paths = file.split('/');
+
+			paths.shift();
+
+			css += '.' + className + ':before {content: url(' + paths.join('/') + ')}\n';
+		});
+
+		return require('fs').writeFileSync(dest, css);
 	}
 };

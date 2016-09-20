@@ -53,7 +53,7 @@ module.exports = {
 
 			paths.shift();
 
-			css += '.' + className + ':before {content: url(' + paths.join('/') + ')}\n';
+			css += '.' + className + ':before {background-image: url(' + paths.join('/') + ')}\n';
 		});
 
 		return require('fs').writeFileSync(dest, css);

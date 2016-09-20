@@ -14,8 +14,8 @@ function sleek_get_site_logo () {
 		$logo = '<img src="' . wp_get_attachment_image_src($customLogoId, 'full')[0] . '" alt="' . get_bloginfo('name') . '">';
 	}
 	# Check site-logo.svg.php
-	elseif ($svgLogo = locate_template('modules/site-logo.svg.php')) {
-		$logo = sleek_fetch($svgLogo);
+	elseif ($svgLogo = locate_template('dist/assets/svg/site-logo.svg')) {
+		$logo = file_get_contents($svgLogo);
 	}
 	# Default to text (with <tag> support)
 	else {

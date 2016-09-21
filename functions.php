@@ -29,7 +29,6 @@ include get_template_directory() . '/inc/shortcodes/markdown-file.php';
 
 # Actions
 include get_template_directory() . '/inc/actions/add-excerpts-to-pages.php';
-include get_template_directory() . '/inc/actions/add-favicon.php';
 include get_template_directory() . '/inc/actions/add-upgrade-browser-script.php';
 # include get_template_directory() . '/inc/actions/ajax.php';
 include get_template_directory() . '/inc/actions/allow-shortcodes-in-widgets.php';

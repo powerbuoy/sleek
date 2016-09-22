@@ -2,55 +2,61 @@ doctype html
 
 html
 
-  head
+    head
 
-    meta(charset="utf-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1")
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
 
-    title Styleguide
+        title SleekCSS Styleguide
 
-    style
-      #{css}
+        style
+            #{css}
 
-    style
-      |!{ templateCss }
+        style
+            |!{ templateCss }
 
-  body.styleguide
+    body
 
-    nav.styleguide__nav
-      ul
-        for elements, section in docs
-          li
-            a(href="##{section.replace(/[^a-z0-9]/ig,'')}") #{section}
+        header
+            h1 Styleguide
+            p Examples of all CSS components and configuration.
 
-    Styleguide
+        nav
+            ul
+                for elements, section in docs
+                    li
+                        a(href="##{section.replace(/[^a-z0-9]/ig,'').toLowerCase()}") #{section}
 
-    for elements, section in docs
-      section.styleguide__section(id=section.replace(/[^a-z0-9]/ig,''))
-        h2 #{section}
+        main
+            for elements, section in docs
+                section(id=section.replace(/[^a-z0-9]/ig,'').toLowerCase())
+                    header
+                        h2 #{section}
 
-        for element, i in elements
-          article.styleguide__element
-            h3 #{element.title}
+                    for element, i in elements
+                        article
 
-            if element.description
-              p !{marked(element.description)}
+                            header
+                                h3 #{element.title}
 
-            if element.example
-              h4 Example
+                                if element.description
+                                    p !{marked(element.description)}
 
-              div.styleguide__example
+                            if element.example
+                                div.example-container
+                                    h4 Example
+                                    div.example
 
-              h4 Example Code
+                            div.example-code-container
+                                h4 Example Code
+                                pre.example-code
+                                    code
+                                        if Array.isArray(element.example)
+                                            | !{element.example.join(' ').trim()}
+                                        else
+                                            | !{element.example.trim()}
 
-              pre.styleguide__example-code
-                code
-                  if Array.isArray(element.example)
-                    | !{element.example.join(' ').trim()}
-                  else
-                    | !{element.example.trim()}
-
-    script
-      |!{ templateJs }
-    script(src="https://code.jquery.com/jquery-1.12.2.js")
-    script(src="all.js")
+        script
+            |!{ templateJs }
+            //- script(src="https://code.jquery.com/jquery-1.12.2.js")
+            //- script(src="all.js")

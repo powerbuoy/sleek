@@ -1,6 +1,6 @@
-<section id="post">
+<?php while (have_posts()) : the_post() ?>
+	<section id="post">
 
-	<?php while (have_posts()) : the_post() ?>
 		<header>
 
 			<?php the_post_thumbnail('sleek-medium') ?>
@@ -19,6 +19,6 @@
 			<?php get_template_part('modules/partials/post-meta') ?>
 
 		</footer>
-	<?php endwhile ?>
 
-</section>
+	</section>
+<?php endwhile ?>

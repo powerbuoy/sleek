@@ -1,26 +1,28 @@
 <?php
-function sleek_attachment_archives ($slug = 'url_media', $textdomain = 'sleek', $taxonomies = []) {
-	# Give attachment post type archive and slug
+function sleek_attachment_archives ($slug = 'attachments', $taxonomies = []) {
+	# Give attachments an archive page
+	# Doesn't work :/
 	# https://wordpress.org/ideas/topic/archive-attachmentphp
 	/* add_filter('register_post_type_args', function ($args, $postType) {
 		if ($postType == 'attachment'){
 			$args['has_archive'] = true;
 			$args['rewrite'] = [
-				'slug' => __($slug, $textdomain)
+				'slug' => $slug
 			];
 		}
 
 		return $args;
 	}, 10, 2); */
 
+	# This doesn't work either... :/
 	/* $obj = get_post_type_object('attachment');
 
 	$obj->has_archive = true;
 	$obj->rewrite = [
-		'slug' => __($slug, $textdomain)
+		'slug' => $slug
 	]; */
 
-	# Remove post parent when uploading attachments
+	# Remove post parent when uploading attachments (to keep attachment-URLs the same)
 	add_action('add_attachment', function ($postId) {
 		wp_update_post([
 			'ID' => $postId,
@@ -46,7 +48,7 @@ function sleek_attachment_archives ($slug = 'url_media', $textdomain = 'sleek', 
 			# When inside a custom taxonomy archive include attachments
 			if ($isTax) {
 				$wp_query->query_vars['post_type'] = ['attachment'];
-				$wp_query->query_vars['post_status'] =  [null];
+				$wp_query->query_vars['post_status'] = [null];
 
 				return $wp_query;
 			}

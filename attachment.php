@@ -2,7 +2,7 @@
 
 <main>
 
-	<?php get_template_part('modules/image') ?>
+	<?php get_template_part('modules/attachment') ?>
 
 </main>
 

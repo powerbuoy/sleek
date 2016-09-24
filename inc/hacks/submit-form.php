@@ -79,7 +79,7 @@ function sleek_submit_form () {
 	}
 
 	# Dump data or redirect
-	if (XHR) {
+	if (is_defined('DOING_AJAX') and DOING_AJAX) {
 		echo json_encode($_POST['form_data']);
 	}
 	else {

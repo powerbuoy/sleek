@@ -2,8 +2,8 @@
 /**
  * Registers CSS and JS
  */
-function sleek_register_assets ($extraCss = []) {
-	add_action('wp_enqueue_scripts', function () use ($extraCss) {
+function sleek_register_assets ($extraAssets = []) {
+	add_action('wp_enqueue_scripts', function () use ($extraAssets) {
 		# Theme JS
 		wp_register_script('sleek', get_stylesheet_directory_uri() . '/dist/all.js?v=' . filemtime(get_stylesheet_directory() . '/dist/all.js'), ['jquery'], null, true);
 		wp_enqueue_script('sleek');
@@ -28,11 +28,24 @@ function sleek_register_assets ($extraCss = []) {
 		# Potential additional styles
 		$id = 0;
 
-		foreach ($extraCss as $path) {
-			$i++;
+		foreach ($extraAssets as $path => $dependencies) {
+			$id++;
 
-			wp_register_style('sleek_extra_css_' . $id, $path);
-			wp_enqueue_style('sleek_extra_css_' . $id);
+			if (!is_array($dependencies)) {
+				$path = $dependencies;
+				$dependencies = [];
+			}
+
+			$ext = pathinfo($path, PATHINFO_EXTENSION);
+
+			if ($ext == 'js') {
+				wp_register_script('sleek_extra_js_' . $id, $path, $dependencies, null, true);
+				wp_enqueue_script('sleek_extra_js_' . $id);
+			}
+			else {
+				wp_register_style('sleek_extra_css_' . $id, $path);
+				wp_enqueue_style('sleek_extra_css_' . $id);
+			}
 		}
 
 		# Remove duplicate post CSS

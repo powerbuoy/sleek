@@ -1,9 +1,8 @@
 <?php
 	global $post;
 
-	$tmp		= sleek_get_posts_intro();
+	$tmp		= sleek_get_archive_data();
 	$title		= $tmp['title'];
-	$content	= $tmp['content'];
 ?>
 
 <?php if ($title) : ?>
@@ -15,7 +14,7 @@
 		<?php while (have_posts()) : the_post() ?>
 			<li>
 				<a href="<?php the_permalink() ?>">
-					<?php the_post_thumbnail() ?> 
+					<?php the_post_thumbnail() ?>
 					<?php the_title() ?>
 				</a>
 			</li>

@@ -1,5 +1,3 @@
-<?php global $post ?>
-
 <?php if (defined('DISQUS_SHORTNAME') and comments_open()) : ?>
 	<section id="disqus">
 

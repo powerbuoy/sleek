@@ -28,7 +28,7 @@
 			</article>
 		<?php endwhile ?>
 	<?php else : ?>
-		<?php get_template_part('modules/partials/nothing-found') ?>
+		<p><strong><?php _e('Sorry, nothing was found here.', 'sleek') ?></strong></p>
 	<?php endif ?>
 
 </section>

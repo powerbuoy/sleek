@@ -7,8 +7,6 @@ include get_template_directory() . '/inc/roots/nav.php';
 # Sleek stuff
 include get_template_directory() . '/inc/utils.php';
 
-include get_template_directory() . '/inc/shortcodes/markdown-file.php'; # TODO: Move to plugin
-
 include get_template_directory() . '/inc/active-archive-link-on-taxonomies.php';
 include get_template_directory() . '/inc/add-post-type-arg-to-get-terms.php';
 include get_template_directory() . '/inc/attachments-archive.php';

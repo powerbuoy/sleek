@@ -1,10 +1,6 @@
 <?php
 # Add custom logo support
 add_theme_support('custom-logo', [
-	'width' => 120,
-	'height' => 40,
-	'flex-width' => true,
-	'flex-height' => true,
 	'header-text' => [get_bloginfo('name'), get_bloginfo('description')]
 ]);
 
@@ -15,7 +11,7 @@ function sleek_get_site_logo () {
 	}
 	# Check site-logo.svg.php
 	elseif ($svgLogo = locate_template('dist/assets/svg/site-logo.svg')) {
-		$logo = str_replace('<svg', '<svg aria-label="' . get_bloginfo('name') . '"', file_get_contents($svgLogo)); # TODO: Is aria-label still correct?
+		$logo = str_replace('<svg', '<svg aria-label="' . get_bloginfo('name') . '"', file_get_contents($svgLogo)); # TODO: Is aria-label still correct? # TODO: Do I need to remove <?xml etc?
 	}
 	# Default to text (with <tag> support)
 	else {

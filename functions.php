@@ -5,11 +5,9 @@ include get_template_directory() . '/inc/roots/cleanup.php';
 include get_template_directory() . '/inc/roots/nav.php';
 
 # This is needed by include and markdown-file, move this down when shortcodes are moved to plugins
-include get_template_directory() . '/inc/misc.php';
+include get_template_directory() . '/inc/utils.php';
 
 # Shortcodes (TODO: Move to separate plugins)
-include get_template_directory() . '/inc/shortcodes/hubspot-form.php';
-include get_template_directory() . '/inc/shortcodes/include.php';
 include get_template_directory() . '/inc/shortcodes/markdown-file.php';
 
 # WP fixes and hacks

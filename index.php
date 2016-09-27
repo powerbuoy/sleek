@@ -2,7 +2,7 @@
 
 <main>
 
-	<?php get_template_part('modules/posts-intro') ?>
+	<?php get_template_part('modules/archive-header') ?>
 	<?php get_template_part('modules/posts') ?>
 
 </main>

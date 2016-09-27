@@ -1,9 +1,9 @@
 <?php $introData = sleek_get_archive_data([
-	'image_size' => 'sleek-medium-wide'
+	'image_size' => 'sleek-medium'
 ]) ?>
 
 <?php if ($introData) : ?>
-	<section id="posts-intro">
+	<section id="archive-header">
 
 		<header>
 

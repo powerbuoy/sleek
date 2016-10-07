@@ -47,7 +47,7 @@ function sleek_reduce_requests ($except = []) {
 		}
 
 		# Duplicate post CSS
-		if (!in_array('duplicate-post')) {
+		if (!in_array('duplicate-post', $except)) {
 			wp_dequeue_style('duplicate-post');
 		}
 	}

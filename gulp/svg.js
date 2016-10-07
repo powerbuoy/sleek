@@ -19,8 +19,8 @@ module.exports = {
 						}
 					}]
 				};
-		   }))
-		   .pipe(gulp.dest(dest));
+			}))
+			.pipe(gulp.dest(dest));
 	},
 
 	store: function (src, dest) {

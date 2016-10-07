@@ -1,6 +1,6 @@
 <header id="header">
 
-	<?php if (get_theme_mod('header_text')) : ?>
+	<?php # if (get_theme_mod('header_text')) : ?>
 		<?php if (is_front_page()) : ?>
 			<h1 class="site-logo">
 				<a href="<?php echo home_url('/') ?>">
@@ -20,7 +20,7 @@
 				<?php echo str_replace(['&lt;', '&gt;'], ['<', '>'], get_bloginfo('description')) ?>
 			</p>
 		<?php endif ?>
-	<?php endif ?>
+	<?php # endif ?>
 
 	<?php dynamic_sidebar('header') ?>
 

@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var plumber = require('gulp-plumber');
 var fontello = require('gulp-fontello');
 var replace = require('gulp-replace');
 var rename = require('gulp-rename');

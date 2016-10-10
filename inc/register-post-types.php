@@ -47,13 +47,10 @@ function sleek_register_post_types ($postTypes, $textdomain = 'sleek') {
 	}
 }
 
-function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek') {
+function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', $extraFields = []) {
 	add_action('admin_head', function () {
 		?>
 		<style>
-			div.sleek-cpt-meta-data {
-			}
-
 			div.sleek-cpt-meta-data form {
 				padding-top: 10px;
 			}
@@ -89,6 +86,7 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek') 
 
 	foreach ($postTypes as $postType => $data) {
 		# If no data was supplied - a one-dimensional array is assumed
+		# TODO: This isn't even in use???
 		if (!is_array($data)) {
 			$postType = $data;
 		}
@@ -114,7 +112,7 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek') 
 			'edit-' . $postType . '-meta',
 
 			# The function that adds the settings screen
-			function () use ($postType, $textdomain, $name) {
+			function () use ($postType, $textdomain, $name, $extraFields) {
 				$uploadURL = get_upload_iframe_src('image', null);
 				$imgID = get_option($postType . '_image');
 				$imgSrc = wp_get_attachment_image_src($imgID, 'thumbnail');
@@ -132,6 +130,15 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek') 
 								value="<?php echo stripslashes(get_option($postType . '_title')) ?>"
 								placeholder="<?php _e('Title', $textdomain) ?>">
 						</div>
+
+						<?php foreach ($extraFields as $field => $type) : ?>
+							<div class="form-field title">
+								<input type="text"
+									name="<?php echo $postType ?>_<?php echo $field ?>"
+									value="<?php echo stripslashes(get_option($postType . '_' . $field)) ?>"
+									placeholder="<?php _e(ucfirst(str_replace('_', ' ', $field)), $textdomain) ?>">
+							</div>
+						<?php endforeach ?>
 
 						<div class="form-field">
 							<?php if ($hasImg) : ?>
@@ -219,10 +226,14 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek') 
 		});
 
 		# Add our new options
-		add_action('admin_init', function () use ($postType, $textdomain, $name) {
+		add_action('admin_init', function () use ($postType, $textdomain, $name, $extraFields) {
 			register_setting($postType . '_settings', $postType . '_title');
 			register_setting($postType . '_settings', $postType . '_description');
 			register_setting($postType . '_settings', $postType . '_image', 'intval');
+
+			foreach ($extraFields as $field => $type) {
+				register_setting($postType . '_settings', $postType . '_' . $field);
+			}
 		});
 	}
 }

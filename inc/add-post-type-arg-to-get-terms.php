@@ -11,8 +11,10 @@ function sleek_terms_clauses ($clauses, $taxonomy, $args) {
 
 		$post_types = [];
 
-		foreach ($args['post_type'] as $cpt)	{
-			$post_types[] = "'" . $cpt . "'";
+		if (isset($args['post_type']) and is_array($args['post_type'])) {
+			foreach ($args['post_type'] as $cpt)	{
+				$post_types[] = "'" . $cpt . "'";
+			}
 		}
 
 		if (!empty($post_types))	{

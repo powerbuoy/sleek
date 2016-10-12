@@ -3,7 +3,7 @@
  * Reduces the number of HTTP requests by removing
  * unwanted CSS and JS files from WP and plug-ins
  */
-function sleek_reduce_requests ($except = []) {
+function sleek_reduce_requests ($except = ['wpcf7_js']) {
 	if (!is_admin()) {
 		# WP Embed (URL missing)
 		if (!in_array('wp_oembed', $except)) {

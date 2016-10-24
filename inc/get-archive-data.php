@@ -196,9 +196,6 @@ function sleek_get_taxonomies_by_post_type ($pt = 'post') {
 		'category' => [
 			'rewrite' => 'cat',
 			'property' => 'term_id'
-		],
-		'post_tag' => [
-			'rewrite' => 'tag'
 		]
 	];
 
@@ -227,6 +224,14 @@ function sleek_get_taxonomies_by_post_type ($pt = 'post') {
 		# Only continue if this taxonomy actually has terms
 		if ($tmp) {
 			foreach ($tmp as $term) {
+				# See if this term is selected
+				if (isset($_GET[$taxQueryName]) and is_array($_GET[$taxQueryName])) {
+					$filterLinkSelected = in_array($term->{$property}, $_GET[$taxQueryName]) ? true : false;
+				}
+				else {
+					$filterLinkSelected = isset($_GET[$taxQueryName]) and $term->{$property} == $_GET[$taxQueryName];
+				}
+
 				# Store some additional data about each term
 				$term = [
 					'taxonomy' => $tax,
@@ -234,7 +239,7 @@ function sleek_get_taxonomies_by_post_type ($pt = 'post') {
 					'permalink' => get_term_link($term),
 					'filter_link' => get_post_type_archive_link($pt) . '?' . $taxQueryName . '=' . $term->{$property},
 					'property_value' => $term->{$property},
-					'filter_link_selected' => isset($_GET[$taxQueryName]) and $term->{$property} == $_GET[$taxQueryName],
+					'filter_link_selected' => $filterLinkSelected,
 					'permalink_selected' => $term->{$property} == get_query_var($taxQueryName),
 					'term' => $term
 				];
@@ -259,3 +264,21 @@ function sleek_get_taxonomies_by_post_type ($pt = 'post') {
 
 	return $return;
 }
+
+# Add support for filtering on post_tag (everything else works out of the box in WP...)
+add_filter('pre_get_posts', function ($query) {
+	if (!is_admin() and $query->is_main_query()) {
+		if (is_home()) { # is_post_type_archive('post') doesn't work
+			if (isset($_GET['post_tag'])) {
+				$taxQuery = $query->get('tax_query');
+				$taxQuery[] = [
+					'taxonomy' => 'post_tag',
+					'field' => 'slug',
+					'terms' => $_GET['post_tag'],
+					'operator' => 'IN'
+				];
+				$query->set('tax_query', $taxQuery);
+			}
+		}
+	}
+});

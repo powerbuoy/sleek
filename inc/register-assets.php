@@ -77,9 +77,7 @@ function sleek_register_assets ($extraAssets = []) {
  */
 add_action('wp_footer', function () {
 	# Google Maps
-	$googleMaps = get_theme_mod('google_maps_api_key');
-
-	if ($googleMaps) {
+	if ($googleMaps = get_theme_mod('google_maps_api_key')) {
 		echo "<script>
 			// Make sure this exists when GM loads
 			window.gmAsyncInit = function () {};
@@ -102,9 +100,7 @@ add_action('wp_footer', function () {
 	}
 
 	# Google Analytics
-	$googleAnalytics = get_theme_mod('google_analytics_id');
-
-	if ($googleAnalytics) {
+	if ($googleAnalytics = get_theme_mod('google_analytics_id')) {
 		echo "<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

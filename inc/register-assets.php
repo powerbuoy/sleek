@@ -48,26 +48,10 @@ function sleek_register_assets ($extraAssets = []) {
 			}
 		}
 
-		# Remove duplicate post CSS
-		if (!is_user_logged_in()) {
-			wp_dequeue_style('duplicate-post');
-		}
-
 		# Add google maps?
-		$googleMaps = get_theme_mod('google_maps_api_key');
-
-		if ($googleMaps) {
+		if ($googleMaps = get_theme_mod('google_maps_api_key')) {
 			wp_register_script('google_maps', 'https://maps.googleapis.com/maps/api/js?key=' . $googleMaps . '&callback=gmAsyncInit', [], null, true);
 			wp_enqueue_script('google_maps');
-		}
-
-		# Recaptcha?
-		$recaptchaSiteKey = get_theme_mod('recaptcha_site_key');
-		$recaptchaSecret = get_theme_mod('recaptcha_secret');
-
-		if ($recaptchaSiteKey and $recaptchaSecret) {
-			wp_register_script('recaptcha', 'https://www.google.com/recaptcha/api.js', [], null, true);
-			wp_enqueue_script('recaptcha');
 		}
 	});
 }
@@ -124,9 +108,7 @@ add_action('wp_head', function () {
  * Add Google Maps API Key to ACF
  */
 add_action('init', function () {
-	$googleMaps = get_theme_mod('google_maps_api_key');
-
-	if ($googleMaps) {
+	if ($googleMaps = get_theme_mod('google_maps_api_key')) {
 		add_filter('acf/fields/google_map/api', function ($api) use ($googleMaps) {
 			$api['key'] = $googleMaps;
 

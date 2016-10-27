@@ -48,7 +48,9 @@ function sleek_reduce_requests ($except = ['wpcf7_js']) {
 
 		# Duplicate post CSS
 		if (!in_array('duplicate-post', $except)) {
-			wp_dequeue_style('duplicate-post');
+			if (!is_user_logged_in()) {
+				wp_dequeue_style('duplicate-post');
+			}
 		}
 	}
 }

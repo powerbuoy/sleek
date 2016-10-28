@@ -44,7 +44,7 @@ function sleek_proxy () {
 function sleek_set_posts_per_page ($query) {
 	global $wp_the_query;
 
-	if ((!is_admin() and $query === $wp_the_query) and (is_search() and is_defined('DOING_AJAX') and DOING_AJAX)) {
+	if ((!is_admin() and $query === $wp_the_query) and (is_search() and defined('DOING_AJAX') and DOING_AJAX)) {
 		$query->set('posts_per_page', -1);
 	}
 

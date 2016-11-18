@@ -20,10 +20,10 @@
 		</header>
 
 		<?php if ($introData['taxonomies']) : ?>
-			<nav class="taxonomies">
+			<nav>
 
 				<?php foreach ($introData['taxonomies'] as $tax) : ?>
-					<ul class="list--inline">
+					<ul>
 						<li<?php if (!$tax['has_selected']) : ?> class="selected"<?php endif ?>>
 							<a href="<?php echo get_post_type_archive_link($introData['post_type']) ?>"><?php _e('All', 'sleek') ?></a>
 						</li>

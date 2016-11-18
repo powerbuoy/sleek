@@ -23,6 +23,8 @@ function sleek_attachment_archives ($slug = 'attachments', $taxonomies = []) {
 	]; */
 
 	# Remove post parent when uploading attachments (to keep attachment-URLs the same)
+	# TODO: This works fine when uploading an attachment directly to a post - but if the attachment is
+	# first uploaded and _then_ added to a post it will still get "attached" to that post...
 	add_action('add_attachment', function ($postId) {
 		wp_update_post([
 			'ID' => $postId,

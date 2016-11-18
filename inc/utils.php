@@ -190,6 +190,7 @@ function sleek_get_avatar_url ($get_avatar) {
 
 /**
  * Like get_template_part but accepts arguments
+ * TODO: Make everything get_template_part makes global global here too
  */
 function sleek_get_template_part ($path, $args = []) {
 	if ($locatedPath = locate_template($path . '.php')) {

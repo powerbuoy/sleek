@@ -100,10 +100,10 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', 
 			'edit.php?post_type=' . $postType,
 
 			# Page title
-			sprintf(__('%s meta data', $textdomain), $name),
+			__('Title and Description', $textdomain),
 
 			# Menu title
-			sprintf(__('%s meta data', $textdomain), $name),
+			sprintf(__('Title and Description', $textdomain), $name),
 
 			# Capability needed
 			'manage_options',
@@ -120,27 +120,35 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', 
 				?>
 				<div class="wrap sleek-cpt-meta-data">
 
-					<h1><?php printf(__('Edit %s Meta Data', $textdomain), $name) ?></h1>
+					<h1><?php echo $name ?></h1>
 
 					<form method="post" action="options.php">
 
 						<div class="form-field title">
-							<input type="text"
-								name="<?php echo $postType ?>_title"
-								value="<?php echo stripslashes(get_option($postType . '_title')) ?>"
-								placeholder="<?php _e('Title', $textdomain) ?>">
+							<label>
+								<?php _e('Title', $textdomain) ?>
+								<input type="text"
+									name="<?php echo $postType ?>_title"
+									value="<?php echo stripslashes(get_option($postType . '_title')) ?>"
+									placeholder="<?php _e('Title', $textdomain) ?>">
+							</label>
 						</div>
 
-						<?php foreach ($extraFields as $field => $type) : ?>
+						<?php foreach ($extraFields as $field => $type) : $title = ucfirst(str_replace('_', ' ', $field)) ?>
 							<div class="form-field title">
-								<input type="text"
-									name="<?php echo $postType ?>_<?php echo $field ?>"
-									value="<?php echo stripslashes(get_option($postType . '_' . $field)) ?>"
-									placeholder="<?php _e(ucfirst(str_replace('_', ' ', $field)), $textdomain) ?>">
+								<label>
+									<?php _e($title, $textdomain) ?>
+									<input type="text"
+										name="<?php echo $postType ?>_<?php echo $field ?>"
+										value="<?php echo stripslashes(get_option($postType . '_' . $field)) ?>"
+										placeholder="<?php _e($title, $textdomain) ?>">
+								</label>
 							</div>
 						<?php endforeach ?>
 
 						<div class="form-field">
+							<?php _e('Select an image', $textdomain) ?>
+
 							<?php if ($hasImg) : ?>
 								<img id="<?php echo $postType ?>-image" src="<?php echo $imgSrc[0] ?>">
 							<?php else : ?>
@@ -148,10 +156,10 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', 
 							<?php endif ?>
 
 							<button class="button <?php if ($hasImg) : ?>hidden<?php endif ?>" id="<?php echo $postType ?>-add-image">
-								<?php _e('Upload an Image', $textdomain) ?>
+								<?php _e('Choose image', $textdomain) ?>
 							</button>
 							<button class="button <?php if (!$hasImg) : ?>hidden<?php endif ?>" id="<?php echo $postType ?>-remove-image">
-								<?php _e('Remove Image', $textdomain) ?>
+								<?php _e('Remove image', $textdomain) ?>
 							</button>
 
 							<input id="<?php echo $postType ?>-image-id" name="<?php echo $postType ?>_image" type="hidden" value="<?php echo esc_attr($imgID); ?>">
@@ -160,7 +168,10 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', 
 						<?php wp_editor(
 							stripslashes(get_option($postType . '_description')),
 							$postType . '_settings',
-							['textarea_name' => $postType . '_description']
+							[
+								'textarea_name' => $postType . '_description',
+								'media_buttons' => false
+							]
 						) ?>
 
 						<?php settings_fields($postType . '_settings') ?>

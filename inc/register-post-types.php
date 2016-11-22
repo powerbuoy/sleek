@@ -66,8 +66,8 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', 
 				max-width: 160px;
 			}
 
-			div.sleek-cpt-meta-data div.wp-media-buttons {
-				float: none;
+			div.sleek-cpt-meta-data hr {
+				margin: 2rem 0;
 			}
 
 			/* Copied from WPs normal title field... */
@@ -147,7 +147,7 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', 
 						<?php endforeach ?>
 
 						<div class="form-field">
-							<?php _e('Select an image', $textdomain) ?>
+							<?php _e('Background Image', $textdomain) ?>
 
 							<?php if ($hasImg) : ?>
 								<img id="<?php echo $postType ?>-image" src="<?php echo $imgSrc[0] ?>">
@@ -165,12 +165,14 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', 
 							<input id="<?php echo $postType ?>-image-id" name="<?php echo $postType ?>_image" type="hidden" value="<?php echo esc_attr($imgID); ?>">
 						</div>
 
+						<hr>
+
 						<?php wp_editor(
 							stripslashes(get_option($postType . '_description')),
 							$postType . '_settings',
 							[
 								'textarea_name' => $postType . '_description',
-								'media_buttons' => false
+								# 'media_buttons' => false # This makes the other image uploader not work
 							]
 						) ?>
 

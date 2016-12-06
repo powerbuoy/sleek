@@ -15,7 +15,8 @@ function sleek_get_archive_data ($args = []) {
 			'yearly' => 'Y',
 			'monthly' => 'F Y',
 			'daily' => 'l, F j, Y'
-		]
+		],
+		'hide_empty_terms' => true
 	], $args);
 
 	# Return data
@@ -35,7 +36,7 @@ function sleek_get_archive_data ($args = []) {
 		$data['content'] = apply_filters('the_content', get_post_field('post_content', get_option('page_for_posts')));
 		$data['image'] = has_post_thumbnail(get_option('page_for_posts')) ? get_the_post_thumbnail_url(get_option('page_for_posts'), $args['image_size']) : false;
 		$data['image_id'] = get_post_thumbnail_id(get_option('page_for_posts'));
-		$data['taxonomies'] = sleek_get_taxonomies_by_post_type('post');
+		$data['taxonomies'] = sleek_get_taxonomies_by_post_type('post', ['hide_empty' => $args['hide_empty_terms']]);
 	}
 
 	# A blog category
@@ -47,7 +48,7 @@ function sleek_get_archive_data ($args = []) {
 		$data['content'] = wpautop($term->description);
 		$data['image'] = has_post_thumbnail(get_option('page_for_posts')) ? get_the_post_thumbnail_url(get_option('page_for_posts'), $args['image_size']) : false;
 		$data['image_id'] = get_post_thumbnail_id(get_option('page_for_posts'));
-		$data['taxonomies'] = sleek_get_taxonomies_by_post_type('post');
+		$data['taxonomies'] = sleek_get_taxonomies_by_post_type('post', ['hide_empty' => $args['hide_empty_terms']]);
 	}
 
 	# A blog tag
@@ -59,7 +60,7 @@ function sleek_get_archive_data ($args = []) {
 		$data['content'] = wpautop($term->description);
 		$data['image'] = has_post_thumbnail(get_option('page_for_posts')) ? get_the_post_thumbnail_url(get_option('page_for_posts'), $args['image_size']) : false;
 		$data['image_id'] = get_post_thumbnail_id(get_option('page_for_posts'));
-		$data['taxonomies'] = sleek_get_taxonomies_by_post_type('post');
+		$data['taxonomies'] = sleek_get_taxonomies_by_post_type('post', ['hide_empty' => $args['hide_empty_terms']]);
 	}
 
 	# Date blog archives
@@ -67,7 +68,7 @@ function sleek_get_archive_data ($args = []) {
 		$data['post_type'] = 'post';
 		$data['image'] = has_post_thumbnail(get_option('page_for_posts')) ? get_the_post_thumbnail_url(get_option('page_for_posts'), $args['image_size']) : false;
 		$data['image_id'] = get_post_thumbnail_id(get_option('page_for_posts'));
-		$data['taxonomies'] = sleek_get_taxonomies_by_post_type('post');
+		$data['taxonomies'] = sleek_get_taxonomies_by_post_type('post', ['hide_empty' => $args['hide_empty_terms']]);
 
 		if (is_year()) {
 			$data['title'] = sprintf(__('Yearly archives', 'sleek'));
@@ -123,7 +124,7 @@ function sleek_get_archive_data ($args = []) {
 		$data['post_type'] = get_post_type();
 		$data['title'] = $term->name;
 		$data['content'] = wpautop($term->description);
-		$data['taxonomies'] = sleek_get_taxonomies_by_post_type($data['post_type']);
+		$data['taxonomies'] = sleek_get_taxonomies_by_post_type($data['post_type'], ['hide_empty' => $args['hide_empty_terms']]);
 
 		if ($imageId = get_option($data['post_type'] . '_image')) {
 			$data['image'] = wp_get_attachment_image_src($imageId, $args['image_size'])[0];
@@ -138,7 +139,7 @@ function sleek_get_archive_data ($args = []) {
 		$data['post_type'] = $wp_query->query['post_type'];
 		$data['title'] = $postType->labels->name;
 		$data['content'] = $postType->description ? wpautop($postType->description) : false;
-		$data['taxonomies'] = sleek_get_taxonomies_by_post_type($data['post_type']);
+		$data['taxonomies'] = sleek_get_taxonomies_by_post_type($data['post_type'], ['hide_empty' => $args['hide_empty_terms']]);
 
 		if ($title = get_option($data['post_type'] . '_title')) {
 			$data['title'] = $title;
@@ -190,7 +191,12 @@ function sleek_get_archive_data ($args = []) {
 	return $data;
 }
 
-function sleek_get_taxonomies_by_post_type ($pt = 'post') {
+function sleek_get_taxonomies_by_post_type ($pt = 'post', $args = []) {
+	# Args
+	$args = array_merge([
+		'hide_empty' => true
+	], $args);
+
 	# We need these to convert some query params
 	$taxConverter	= [
 		'category' => [
@@ -206,7 +212,7 @@ function sleek_get_taxonomies_by_post_type ($pt = 'post') {
 	# Go through them all
 	foreach ($taxs as $tax) {
 		# Get all the terms
-		$tmp = get_terms(['taxonomy' => $tax, 'hide_empty' => true]);
+		$tmp = get_terms(['taxonomy' => $tax, 'hide_empty' => $args['hide_empty']]);
 		$terms = [];
 		$taxQueryName = $tax;
 		$property = 'slug';

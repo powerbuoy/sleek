@@ -135,7 +135,7 @@ function sleek_get_archive_data ($args = []) {
 	elseif (is_post_type_archive()) {
 		$postType = get_post_type_object($wp_query->query['post_type']);
 
-		$data['post_type'] = get_post_type();
+		$data['post_type'] = $wp_query->query['post_type'];
 		$data['title'] = $postType->labels->name;
 		$data['content'] = $postType->description ? wpautop($postType->description) : false;
 		$data['taxonomies'] = sleek_get_taxonomies_by_post_type($data['post_type']);

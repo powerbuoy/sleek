@@ -235,7 +235,7 @@ function sleek_get_taxonomies_by_post_type ($pt = 'post', $args = []) {
 					$filterLinkSelected = in_array($term->{$property}, $_GET[$taxQueryName]) ? true : false;
 				}
 				else {
-					$filterLinkSelected = isset($_GET[$taxQueryName]) and $term->{$property} == $_GET[$taxQueryName];
+					$filterLinkSelected = (isset($_GET[$taxQueryName]) and $term->{$property} == $_GET[$taxQueryName]) ? true : false;
 				}
 
 				# Store some additional data about each term

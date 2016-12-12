@@ -1,7 +1,7 @@
 <?php
 function sleek_register_acf ($fields) {
 	foreach ($fields as $field => $location) {
-		$path = 'acf/' . basename($field) . '.definition.php';
+		$path = 'acf/' . basename($field) . '.php';
 		$absPath = locate_template($path);
 
 		if ($absPath) {

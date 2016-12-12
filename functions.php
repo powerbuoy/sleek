@@ -42,3 +42,50 @@ include get_template_directory() . '/inc/unset-active-blog-class.php';
 # include get_template_directory() . '/inc/ajax.php';
 # include get_template_directory() . '/inc/relevanssi.php';
 # include get_template_directory() . '/inc/tinymce-styles.php';
+
+# Remove a bunch of unwanted CSS/JS added by WP and plug-ins
+add_action('init', function () {
+	sleek_reduce_requests();
+});
+
+# Allow shortcodes in Widgets
+/* add_action('init', function () {
+	add_filter('widget_text', 'do_shortcode');
+}); */
+
+# Move jQuery to bottom of page + include from CDN
+add_action('wp_enqueue_scripts', 'sleek_enqueue_jquery_cdn_in_footer');
+
+# Add an "active-parent" class to archive pages when browsing their taxonomies
+add_filter('nav_menu_css_class', 'sleek_active_archive_link_on_taxonomies', 10, 2);
+
+# Allow a 'post_type' => [] argument in get_terms()
+add_filter('terms_clauses', 'sleek_terms_clauses', 10, 3);
+
+# Add placeholders to comment form
+add_filter('comment_form_defaults', 'sleek_comment_form_placeholders');
+
+# Remove .current_page_parent from Blog-page when viewing another archive
+add_filter('nav_menu_css_class', 'sleek_unset_active_blog_class', 10, 2);
+
+# Allow HTML in Widget Titles (with [tags])
+# add_filter('widget_title', 'sleek_html_in_widget_titles');
+
+# Allow Markdown in excerpts and ACF
+# add_action('init', 'sleek_more_markdown');
+
+# Give editors access to theme options
+/* $editorRole = get_role('editor');
+
+if (!$editorRole->has_cap('edit_theme_options')) {
+	$editorRole->add_cap('edit_theme_options');
+}
+
+if (!$editorRole->has_cap('manage_options')) {
+	$editorRole->add_cap('manage_options');
+} */
+
+# Give attachments an archive and make attachment taxonomy archives work (TODO: Doesn't work properly)
+/* add_action('init', function () {
+	sleek_attachment_archives(__('url_attachment', 'sleek'), []); # Pass in any potential attachment taxonomies (image_category for example) as the last array to enable taxonomy archives
+}); */

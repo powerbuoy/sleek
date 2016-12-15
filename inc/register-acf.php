@@ -1,5 +1,9 @@
 <?php
 function sleek_register_acf ($fields) {
+	if (!function_exists('acf_add_local_field_group')) {
+		return false;
+	}
+
 	foreach ($fields as $field => $location) {
 		$path = 'acf/' . basename($field) . '.php';
 		$absPath = locate_template($path);

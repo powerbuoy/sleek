@@ -22,6 +22,7 @@ function sleek_get_archive_data ($args = []) {
 	# Return data
 	$data = [
 		'title' => false,
+		'post_type_title' => false,
 		'content' => false,
 		'image' => false,
 		'image_id' => false,
@@ -32,6 +33,7 @@ function sleek_get_archive_data ($args = []) {
 	# The normal blog archive
 	if (is_home()) {
 		$data['post_type'] = 'post';
+		$data['post_type_title'] = get_the_title(get_option('page_for_posts'));
 		$data['title'] = get_the_title(get_option('page_for_posts'));
 		$data['content'] = apply_filters('the_content', get_post_field('post_content', get_option('page_for_posts')));
 		$data['image'] = has_post_thumbnail(get_option('page_for_posts')) ? get_the_post_thumbnail_url(get_option('page_for_posts'), $args['image_size']) : false;
@@ -44,6 +46,7 @@ function sleek_get_archive_data ($args = []) {
 		$term = get_category(get_query_var('cat'));
 
 		$data['post_type'] = 'post';
+		$data['post_type_title'] = get_the_title(get_option('page_for_posts'));
 		$data['title'] = $term->name;
 		$data['content'] = wpautop($term->description);
 		$data['image'] = has_post_thumbnail(get_option('page_for_posts')) ? get_the_post_thumbnail_url(get_option('page_for_posts'), $args['image_size']) : false;
@@ -56,6 +59,7 @@ function sleek_get_archive_data ($args = []) {
 		$term = get_term_by('slug', get_query_var('tag'), 'post_tag');
 
 		$data['post_type'] = 'post';
+		$data['post_type_title'] = get_the_title(get_option('page_for_posts'));
 		$data['title'] = $term->name;
 		$data['content'] = wpautop($term->description);
 		$data['image'] = has_post_thumbnail(get_option('page_for_posts')) ? get_the_post_thumbnail_url(get_option('page_for_posts'), $args['image_size']) : false;
@@ -66,6 +70,7 @@ function sleek_get_archive_data ($args = []) {
 	# Date blog archives
 	elseif (is_year() or is_month() or is_day()) {
 		$data['post_type'] = 'post';
+		$data['post_type_title'] = get_the_title(get_option('page_for_posts'));
 		$data['image'] = has_post_thumbnail(get_option('page_for_posts')) ? get_the_post_thumbnail_url(get_option('page_for_posts'), $args['image_size']) : false;
 		$data['image_id'] = get_post_thumbnail_id(get_option('page_for_posts'));
 		$data['taxonomies'] = sleek_get_taxonomies_by_post_type('post', ['hide_empty' => $args['hide_empty_terms']]);
@@ -120,8 +125,10 @@ function sleek_get_archive_data ($args = []) {
 	# Custom taxonomy term
 	elseif (is_tax()) {
 		$term = $wp_query->get_queried_object();
+		$postType = get_post_type_object(get_post_type());
 
 		$data['post_type'] = get_post_type();
+		$data['post_type_title'] = $postType->labels->name;
 		$data['title'] = $term->name;
 		$data['content'] = wpautop($term->description);
 		$data['taxonomies'] = sleek_get_taxonomies_by_post_type($data['post_type'], ['hide_empty' => $args['hide_empty_terms']]);
@@ -130,6 +137,9 @@ function sleek_get_archive_data ($args = []) {
 			$data['image'] = wp_get_attachment_image_src($imageId, $args['image_size'])[0];
 			$data['image_id'] = $imageId;
 		}
+		if ($title = get_option($data['post_type'] . '_title')) {
+			$data['post_type_title'] = $title;
+		}
 	}
 
 	# Post type archive
@@ -137,6 +147,7 @@ function sleek_get_archive_data ($args = []) {
 		$postType = get_post_type_object($wp_query->query['post_type']);
 
 		$data['post_type'] = $wp_query->query['post_type'];
+		$data['post_type_title'] = $postType->labels->name;
 		$data['title'] = $postType->labels->name;
 		$data['content'] = $postType->description ? wpautop($postType->description) : false;
 		$data['taxonomies'] = sleek_get_taxonomies_by_post_type($data['post_type'], ['hide_empty' => $args['hide_empty_terms']]);

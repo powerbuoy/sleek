@@ -153,7 +153,7 @@ function sleek_get_archive_data ($args = []) {
 		$data['taxonomies'] = sleek_get_taxonomies_by_post_type($data['post_type'], ['hide_empty' => $args['hide_empty_terms']]);
 
 		if ($title = get_option($data['post_type'] . '_title')) {
-			$data['title'] = $title;
+			$data['post_type_title'] = $data['title'] = $title;
 		}
 		if ($description = get_option($data['post_type'] . '_description')) {
 			$data['content'] = wpautop($description);

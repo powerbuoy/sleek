@@ -120,6 +120,25 @@ function sleek_get_archive_data ($args = []) {
 
 		$data['title'] = $title;
 		$data['content'] = $content;
+
+		# If searching a specific PT, fetch its data
+		# TODO: Create function for fetching this PT data as it's now used in is_search, is_tax AND is_pt_archive
+		if (isset($_GET['post_type'])) {
+			$postType = get_post_type_object($_GET['post_type']);
+
+			if ($postType) {
+				$data['post_type'] = $_GET['post_type'];
+				$data['post_type_title'] = $postType->labels->name;
+
+				if ($imageId = get_option($data['post_type'] . '_image')) {
+					$data['image'] = wp_get_attachment_image_src($imageId, $args['image_size'])[0];
+					$data['image_id'] = $imageId;
+				}
+				if ($title = get_option($data['post_type'] . '_title')) {
+					$data['post_type_title'] = $title;
+				}
+			}
+		}
 	}
 
 	# Custom taxonomy term

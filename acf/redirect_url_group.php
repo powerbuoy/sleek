@@ -10,7 +10,7 @@ add_filter('the_permalink', function ($url) {
 
 # Redirect single pages to the redirect URL
 add_action('the_post', function ($po) {
-	if (is_single() or is_page()) {
+	if (is_single($po->ID) or is_page($po->ID)) {
 		$redirectUrl = get_field('redirect_url', $po->ID);
 
 		if ($redirectUrl) {

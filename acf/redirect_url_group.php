@@ -12,7 +12,7 @@ add_filter('the_permalink', function ($url) {
 add_action('the_post', function () {
 	global $post;
 
-	if (is_single()) {
+	if (is_single() or is_page()) {
 		$redirectUrl = get_field('redirect_url', $post->ID);
 
 		if ($redirectUrl) {

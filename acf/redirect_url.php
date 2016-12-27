@@ -1,30 +1,30 @@
 <?php
-# Make sure the_permalink() points to the external URL
+# Make sure the_permalink() points to the redirect URL
 add_filter('the_permalink', function ($url) {
 	global $post;
 
-	$externalUrl = get_field('external_url', $post->ID);
+	$redirectUrl = get_field('redirect_url', $post->ID);
 
-	return $externalUrl ? $externalUrl : $url;
+	return $redirectUrl ? $redirectUrl : $url;
 });
 
-# Redirect single pages to the external URL
+# Redirect single pages to the redirect URL
 add_action('the_post', function () {
 	global $post;
 
 	if (is_single()) {
-		$externalUrl = get_field('external_url', $post->ID);
+		$redirectUrl = get_field('redirect_url', $post->ID);
 
-		if ($externalUrl) {
-			wp_redirect($externalUrl);
+		if ($redirectUrl) {
+			wp_redirect($redirectUrl);
 		}
 	}
 });
 
 # ACF Definition
 return [
-	'key' => 'external_url_group',
-	'title' => __('External URL', 'sleek'),
+	'key' => 'redirect_url_group',
+	'title' => __('Redirect URL', 'sleek'),
 	'position' => 'side',
 
 	# Location
@@ -41,10 +41,10 @@ return [
 	# Fields
 	'fields' => [
 		[
-			'key' => 'external_url',
-			'name' => 'external_url',
+			'key' => 'redirect_url',
+			'name' => 'redirect_url',
 			'instructions' => __('Enter a URL to have this post redirect there.', 'sleek'),
-			'label' => __('External URL', 'sleek'),
+			'label' => __('Redirect URL', 'sleek'),
 			'type' => 'url'
 		]
 	]

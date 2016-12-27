@@ -24,19 +24,9 @@ add_action('the_post', function () {
 # ACF Definition
 return [
 	'key' => 'redirect_url_group',
+	'name' => 'redirect_url_group',
 	'title' => __('Redirect URL', 'sleek'),
 	'position' => 'side',
-
-	# Location
-	'location' => [
-		[
-			[
-				'param' => 'post_type',
-				'operator' => '==',
-				'value' => 'page'
-			]
-		]
-	],
 
 	# Fields
 	'fields' => [

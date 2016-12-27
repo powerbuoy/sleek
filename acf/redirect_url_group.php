@@ -9,11 +9,9 @@ add_filter('the_permalink', function ($url) {
 });
 
 # Redirect single pages to the redirect URL
-add_action('the_post', function () {
-	global $post;
-
+add_action('the_post', function ($po) {
 	if (is_single() or is_page()) {
-		$redirectUrl = get_field('redirect_url', $post->ID);
+		$redirectUrl = get_field('redirect_url', $po->ID);
 
 		if ($redirectUrl) {
 			wp_redirect($redirectUrl);

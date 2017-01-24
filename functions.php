@@ -15,9 +15,8 @@ include get_template_directory() . '/inc/comment-form-placeholders.php';
 include get_template_directory() . '/inc/get-archive-data.php';
 include get_template_directory() . '/inc/get-site-logo.php';
 
-include get_template_directory() . '/inc/hide-acf-section-fields.php'; # TODO: Move to ACF/
+include get_template_directory() . '/inc/default-meta-boxes.php';
 include get_template_directory() . '/inc/hide-sleek-from-admin.php';
-
 include get_template_directory() . '/inc/html-in-widget-titles.php';
 include get_template_directory() . '/inc/jquery-cdn-in-foot.php';
 include get_template_directory() . '/inc/more-markdown.php';

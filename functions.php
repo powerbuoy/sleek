@@ -22,7 +22,6 @@ include get_template_directory() . '/inc/pagination-css-class.php';
 include get_template_directory() . '/inc/get-archive-data.php';
 include get_template_directory() . '/inc/get-site-logo.php';
 
-include get_template_directory() . '/inc/post-thumbnails.php';
 include get_template_directory() . '/inc/reduce-requests.php';
 include get_template_directory() . '/inc/setup-lang.php';
 
@@ -37,6 +36,12 @@ include get_template_directory() . '/inc/register-theme-options.php';
 # include get_template_directory() . '/inc/ajax.php';
 # include get_template_directory() . '/inc/relevanssi.php';
 # include get_template_directory() . '/inc/tinymce-styles.php';
+
+# Eable post thumbnails
+add_action('after_setup_theme', function () {
+	add_theme_support('post-thumbnails');
+	set_post_thumbnail_size(320, 320, true);
+});
 
 # Remove a bunch of unwanted CSS/JS added by WP and plug-ins
 add_action('init', function () {

@@ -47,6 +47,22 @@ function sleek_register_post_types ($postTypes, $textdomain = 'sleek') {
 	}
 }
 
+function sleek_set_cpt_in_search ($pts = [], $override = false) {
+	$postTypes = array_merge(['post', 'page'], $pts);
+
+	if ($override) {
+		$postTypes = $pts;
+	}
+
+	add_filter('pre_get_posts', function ($query) use ($postTypes) {
+		if ($query->is_search() and !$query->is_admin() and $query->is_main_query() and !isset($_GET['post_type'])) {
+			$query->set('post_type', $postTypes);
+		}
+
+		return $query;
+	});
+}
+
 function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', $extraFields = []) {
 	add_action('admin_head', function () {
 		?>
@@ -100,10 +116,10 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', 
 			'edit.php?post_type=' . $postType,
 
 			# Page title
-			__('Title and Description', $textdomain),
+			__('Archive Title & Description', $textdomain),
 
 			# Menu title
-			sprintf(__('Title and Description', $textdomain), $name),
+			__('Archive Title & Description', $textdomain),
 
 			# Capability needed
 			'manage_options',
@@ -120,7 +136,9 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', 
 				?>
 				<div class="wrap sleek-cpt-meta-data">
 
-					<h1><?php echo $name ?></h1>
+					<h1><?php printf(__('%s Archive Title', $textdomain), $name) ?></h1>
+
+					<p><?php _e('Enter a title, description and image here and it will be used on the archive page for this post type.', $textdomain) ?></p>
 
 					<form method="post" action="options.php">
 

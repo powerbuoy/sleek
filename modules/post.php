@@ -7,18 +7,16 @@
 
 			<h1><?php the_title() ?></h1>
 
-			<?php get_template_part('modules/partials/post-pubdate') ?>
+			<p>
+				<time datetime="<?php echo get_the_time('Y-m-j') ?>"><?php echo get_the_time(get_option('date_format')) ?></time> |
+				<?php echo get_the_author_meta('display_name') ?> |
+				<?php echo implode(', ', sleek_get_post_terms($post->ID, get_post_type())) ?>
+			</p>
 
 		</header>
 
 		<?php the_content() ?>
-
-		<footer>
-
-			<?php wp_link_pages() ?>
-			<?php get_template_part('modules/partials/post-meta') ?>
-
-		</footer>
+		<?php wp_link_pages() ?>
 
 	</section>
 <?php endwhile ?>

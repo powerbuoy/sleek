@@ -1,5 +1,5 @@
 <?php $introData = sleek_get_archive_data([
-	'image_size' => 'sleek-medium'
+	'image_size' => 'sleek-hd'
 ]) ?>
 
 <?php if ($introData) : ?>

@@ -63,7 +63,7 @@ function sleek_set_cpt_in_search ($pts = [], $override = false) {
 	});
 }
 
-function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', $extraFields = []) {
+function sleek_register_post_type_meta_data ($postTypes, $extraFields = []) {
 	add_action('admin_head', function () {
 		?>
 		<style>
@@ -107,19 +107,16 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', 
 			$postType = $data;
 		}
 
-		# Create the nice name
-		$name = __(ucfirst(str_replace('_', ' ', $postType)), $textdomain);
-
 		# Add the admin menu
 		add_submenu_page(
 			# Parent slug
 			'edit.php?post_type=' . $postType,
 
 			# Page title
-			__('Archive Title & Description', $textdomain),
+			__('Archive Title & Description', 'sleek'),
 
 			# Menu title
-			__('Archive Title & Description', $textdomain),
+			__('Archive Title & Description', 'sleek'),
 
 			# Capability needed
 			'manage_options',
@@ -128,7 +125,7 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', 
 			'edit-' . $postType . '-meta',
 
 			# The function that adds the settings screen
-			function () use ($postType, $textdomain, $name, $extraFields) {
+			function () use ($postType, $extraFields) {
 				$uploadURL = get_upload_iframe_src('image', null);
 				$imgID = get_option($postType . '_image');
 				$imgSrc = wp_get_attachment_image_src($imgID, 'thumbnail');
@@ -136,36 +133,36 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', 
 				?>
 				<div class="wrap sleek-cpt-meta-data">
 
-					<h1><?php printf(__('%s Archive Title', $textdomain), $name) ?></h1>
+					<h1><?php _e('Archive Title & Description', 'sleek') ?></h1>
 
-					<p><?php _e('Enter a title, description and image here and it will be used on the archive page for this post type.', $textdomain) ?></p>
+					<p><?php _e('Enter a title, description and image here and it will be used on the archive page for this post type.', 'sleek') ?></p>
 
 					<form method="post" action="options.php">
 
 						<div class="form-field title">
 							<label>
-								<?php _e('Title', $textdomain) ?>
+								<?php _e('Title', 'sleek') ?>
 								<input type="text"
 									name="<?php echo $postType ?>_title"
 									value="<?php echo stripslashes(get_option($postType . '_title')) ?>"
-									placeholder="<?php _e('Title', $textdomain) ?>">
+									placeholder="<?php _e('Title', 'sleek') ?>">
 							</label>
 						</div>
 
 						<?php foreach ($extraFields as $field => $type) : $title = ucfirst(str_replace('_', ' ', $field)) ?>
 							<div class="form-field title">
 								<label>
-									<?php _e($title, $textdomain) ?>
+									<?php _e($title, 'sleek') ?>
 									<input type="text"
 										name="<?php echo $postType ?>_<?php echo $field ?>"
 										value="<?php echo stripslashes(get_option($postType . '_' . $field)) ?>"
-										placeholder="<?php _e($title, $textdomain) ?>">
+										placeholder="<?php _e($title, 'sleek') ?>">
 								</label>
 							</div>
 						<?php endforeach ?>
 
 						<div class="form-field">
-							<?php _e('Background Image', $textdomain) ?>
+							<?php _e('Background Image', 'sleek') ?>
 
 							<?php if ($hasImg) : ?>
 								<img id="<?php echo $postType ?>-image" src="<?php echo $imgSrc[0] ?>">
@@ -174,10 +171,10 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', 
 							<?php endif ?>
 
 							<button class="button <?php if ($hasImg) : ?>hidden<?php endif ?>" id="<?php echo $postType ?>-add-image">
-								<?php _e('Choose image', $textdomain) ?>
+								<?php _e('Choose image', 'sleek') ?>
 							</button>
 							<button class="button <?php if (!$hasImg) : ?>hidden<?php endif ?>" id="<?php echo $postType ?>-remove-image">
-								<?php _e('Remove image', $textdomain) ?>
+								<?php _e('Remove image', 'sleek') ?>
 							</button>
 
 							<input id="<?php echo $postType ?>-image-id" name="<?php echo $postType ?>_image" type="hidden" value="<?php echo esc_attr($imgID); ?>">
@@ -205,7 +202,7 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', 
 		);
 
 		# Add upload scripts
-		add_action('admin_head', function () use ($postType, $textdomain, $name) {
+		add_action('admin_head', function () use ($postType) {
 			?>
 			<script>
 				jQuery(function ($) {
@@ -224,9 +221,9 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', 
 						}
 
 						frame = wp.media({
-							title: '<?php _e('Upload an Image', $textdomain) ?>',
+							title: '<?php _e('Upload an Image', 'sleek') ?>',
 							button: {
-								text: '<?php _e('Use this image', $textdomain) ?>'
+								text: '<?php _e('Use this image', 'sleek') ?>'
 							},
 							multiple: false
 						});
@@ -257,7 +254,7 @@ function sleek_register_post_type_meta_data ($postTypes, $textdomain = 'sleek', 
 		});
 
 		# Add our new options
-		add_action('admin_init', function () use ($postType, $textdomain, $name, $extraFields) {
+		add_action('admin_init', function () use ($postType, $extraFields) {
 			register_setting($postType . '_settings', $postType . '_title');
 			register_setting($postType . '_settings', $postType . '_description');
 			register_setting($postType . '_settings', $postType . '_image', 'intval');

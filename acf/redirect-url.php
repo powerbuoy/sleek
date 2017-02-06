@@ -24,6 +24,7 @@ add_action('the_post', function ($po) {
 return [
 	[
 		'name' => 'redirect-url',
+		'key' => 'redirect-url',
 		'instructions' => __('Enter a URL to have this post redirect there.', 'sleek'),
 		'label' => __('Redirect URL', 'sleek'),
 		'type' => 'url'

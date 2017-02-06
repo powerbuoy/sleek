@@ -50,7 +50,7 @@ function sleek_register_acf ($locations, $textdomain = 'sleek') {
 
 				# Generate a unique key for every field
 				for ($i = 0; $i < count($fields); $i++) {
-					$fields[$i]['key'] = 'field_' . $key . '-' . $fields[$i]['name'];
+				#	$fields[$i]['key'] = 'field_' . $key . '-' . $fields[$i]['name'];
 
 					# Add the field
 					$definition['fields'][] = $fields[$i];
@@ -115,7 +115,7 @@ function sleek_register_acf_options ($locations, $textdomain = 'sleek') {
 
 				# Generate a unique key for every field
 				for ($i = 0; $i < count($fields); $i++) {
-					$fields[$i]['key'] = 'field_' . $key . '-' . $fields[$i]['name'];
+				#	$fields[$i]['key'] = 'field_' . $key . '-' . $fields[$i]['name'];
 
 					# Add the field
 					$definition['fields'][] = $fields[$i];
@@ -213,7 +213,7 @@ function sleek_register_acf_modules ($locations, $textdomain = 'sleek') {
 
 					# Generate a unique key for every field
 					for ($i = 0; $i < count($fields); $i++) {
-						$fields[$i]['key'] = 'field_' . $groupKey . '-' . $fields[$i]['name'];
+					#	$fields[$i]['key'] = 'field_' . $groupKey . '-' . $fields[$i]['name'];
 
 						# Add the field
 						$flexFieldLayout['sub_fields'][] = $fields[$i];

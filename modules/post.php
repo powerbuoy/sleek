@@ -3,7 +3,7 @@
 
 		<header>
 
-			<?php the_post_thumbnail('sleek-medium') ?>
+			<?php the_post_thumbnail('sleek-hd') ?>
 
 			<h1><?php the_title() ?></h1>
 

@@ -14,7 +14,7 @@ function sleek_register_taxonomies ($taxonomies, $textdomain = 'sleek') {
 		$name = __(ucfirst(str_replace('_', ' ', $taxonomy)), $textdomain);
 
 		# Assume it should be treated as a tag (non hierarchical) if the slug has "tag" in the name
-		# TODO: Is this a shit assumtion?? :P
+		# TODO: Is this a shit assumtion?? :P Maybe, and at least do /_tag$/
 		$hierarchical = strpos($taxonomy, 'tag') !== false ? false : true;
 
 		# Register the taxonomy

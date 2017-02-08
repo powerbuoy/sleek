@@ -1,4 +1,5 @@
 <?php
+	# TODO: Is this still needed?
 	if (get_query_var('author_name')) {
 		$usr = get_user_by('slug', get_query_var('author_name'));
 	}

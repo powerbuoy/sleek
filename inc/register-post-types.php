@@ -28,7 +28,7 @@ function sleek_register_post_types ($postTypes, $textdomain = 'sleek') {
 				'with_front' => false,
 				'slug' => $slug
 			],
-			'exclude_from_search' => false,
+			'exclude_from_search' => false, # Never exclude from search because it prevents taxonomy archives for this post type (https://core.trac.wordpress.org/ticket/20234)
 			'has_archive' => true,
 			'public' => true,
 			'supports' => [
@@ -47,6 +47,7 @@ function sleek_register_post_types ($postTypes, $textdomain = 'sleek') {
 	}
 }
 
+# Instead of exclude_from_search we can use this to specifically tell WP which CPTs to include in search
 function sleek_set_cpt_in_search ($pts = [], $override = false) {
 	$postTypes = array_merge(['post', 'page'], $pts);
 
@@ -63,6 +64,7 @@ function sleek_set_cpt_in_search ($pts = [], $override = false) {
 	});
 }
 
+# Registers CPT meta data such as title, description and image (for use in archive pages)
 function sleek_register_post_type_meta_data ($postTypes, $extraFields = []) {
 	add_action('admin_head', function () {
 		?>

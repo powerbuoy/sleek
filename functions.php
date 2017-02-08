@@ -6,7 +6,6 @@ include get_template_directory() . '/inc/roots/nav.php';
 
 # Sleek stuff
 include get_template_directory() . '/inc/utils.php';
-
 include get_template_directory() . '/inc/active-archive-link-on-taxonomies.php';
 include get_template_directory() . '/inc/add-post-type-arg-to-get-terms.php';
 include get_template_directory() . '/inc/attachments-archive.php';
@@ -18,13 +17,9 @@ include get_template_directory() . '/inc/html-in-widget-titles.php';
 include get_template_directory() . '/inc/jquery-cdn-in-foot.php';
 include get_template_directory() . '/inc/more-markdown.php';
 include get_template_directory() . '/inc/pagination-css-class.php';
-
 include get_template_directory() . '/inc/get-archive-data.php';
 include get_template_directory() . '/inc/get-site-logo.php';
-
 include get_template_directory() . '/inc/reduce-requests.php';
-include get_template_directory() . '/inc/setup-lang.php';
-
 include get_template_directory() . '/inc/register-acf.php';
 include get_template_directory() . '/inc/register-assets.php';
 include get_template_directory() . '/inc/register-post-types.php';
@@ -36,6 +31,11 @@ include get_template_directory() . '/inc/register-theme-options.php';
 # include get_template_directory() . '/inc/ajax.php';
 # include get_template_directory() . '/inc/relevanssi.php';
 # include get_template_directory() . '/inc/tinymce-styles.php';
+
+# Set up for translation
+add_action('after_setup_theme', function () {
+	load_theme_textdomain('sleek', get_template_directory() . '/languages');
+});
 
 # Eable post thumbnails
 add_action('after_setup_theme', function () {

@@ -1,6 +1,6 @@
 <header id="header">
 
-	<?php # if (get_theme_mod('header_text')) : ?>
+	<?php # if (get_theme_mod('header_text')) : # This is a built in WP option but doesn't seem to be true unless it's changed inside the admin... :/ ?>
 		<?php if (is_front_page()) : ?>
 			<h1 class="site-logo">
 				<a href="<?php echo home_url('/') ?>">

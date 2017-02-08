@@ -48,11 +48,8 @@ function sleek_register_acf ($locations, $textdomain = 'sleek') {
 				# Get all the fields from the definition file
 				$fields = include $absPath;
 
-				# Generate a unique key for every field
+				# Add all the fields in the group
 				for ($i = 0; $i < count($fields); $i++) {
-				#	$fields[$i]['key'] = 'field_' . $key . '-' . $fields[$i]['name'];
-
-					# Add the field
 					$definition['fields'][] = $fields[$i];
 				}
 			}
@@ -113,11 +110,8 @@ function sleek_register_acf_options ($locations, $textdomain = 'sleek') {
 				# Get all the fields from the definition file
 				$fields = include $absPath;
 
-				# Generate a unique key for every field
+				# Add all the fields in the group
 				for ($i = 0; $i < count($fields); $i++) {
-				#	$fields[$i]['key'] = 'field_' . $key . '-' . $fields[$i]['name'];
-
-					# Add the field
 					$definition['fields'][] = $fields[$i];
 				}
 			}
@@ -170,8 +164,8 @@ function sleek_register_acf_modules ($locations, $textdomain = 'sleek') {
 			$flexField = [
 				'key' => 'field_' . $key . '-modules-' . $mg,
 				'name' => 'modules-' . $mg,
-				'label' => __('Modules', 'strongpoint'),
-				'button_label' => __('Add a module', 'strongpoint'),
+				'label' => __('Modules', 'sleek'),
+				'button_label' => __('Add a module', 'sleek'),
 				'type' => 'flexible_content',
 				'layouts' => []
 			];
@@ -194,7 +188,7 @@ function sleek_register_acf_modules ($locations, $textdomain = 'sleek') {
 						'title' => $groupTitle,
 						'label' => $groupTitle,
 						'sub_fields' => [
-							# Automatically add the layout field
+							# Automatically add the layout/template field
 							[
 								'key' => 'field_' . $groupKey . '-template',
 								'name' => 'template',
@@ -211,11 +205,8 @@ function sleek_register_acf_modules ($locations, $textdomain = 'sleek') {
 					# Get all the fields from the definition file
 					$fields = include $absPath;
 
-					# Generate a unique key for every field
+					# Add all the fields
 					for ($i = 0; $i < count($fields); $i++) {
-					#	$fields[$i]['key'] = 'field_' . $groupKey . '-' . $fields[$i]['name'];
-
-						# Add the field
 						$flexFieldLayout['sub_fields'][] = $fields[$i];
 					}
 				}
@@ -244,19 +235,25 @@ function sleek_get_acf_group_templates ($acfGroup) {
 	return $templates;
 }
 
+# TODO
+function sleek_generate_unique_keys ($definition) {
+	$newDefinition = $definition;
+
+	return $newDefinition;
+}
+
 # Nicer Flexible Content Titles (https://www.advancedcustomfields.com/resources/acf-fields-flexible_content-layout_title/)
-/* add_filter('acf/fields/flexible_content/layout_title', function ($title, $field, $layout, $i) {
-	$fieldName = $layout['key'];
+add_filter('acf/fields/flexible_content/layout_title', function ($title, $field, $layout, $i) {
+	$fieldName = strtolower(str_replace(' ', '-', $layout['label']));
 	$newTitle = $title;
 
-	if ($t = get_sub_field($fieldName . '_title')) {
+	if ($t = get_sub_field($fieldName . '-title')) {
 		$newTitle .= ": \"$t\"";
 	}
 
-	if ($t = get_sub_field($fieldName . '_template')) {
+	if ($t = get_sub_field('field_' . $layout['key'] . '-template')) {
 		$newTitle .= ' (' . ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php'))) . ')';
 	}
 
 	return $newTitle;
 }, 10, 4);
-*/

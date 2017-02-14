@@ -217,7 +217,8 @@ function sleek_register_acf_options ($locations, $textdomain = 'sleek') {
 function sleek_generate_unique_keys ($definition, $prefix) {
 	foreach ($definition as $k => $v) {
 		if (is_array($v)) {
-			$definition[$k]= sleek_generate_unique_keys($v, $prefix . '_' . $definition['name']);
+			$newPrefix = isset($definition['name']) ? $prefix . '_' . $definition['name'] : $prefix;
+			$definition[$k]= sleek_generate_unique_keys($v, $newPrefix);
 		}
 		elseif ($k == 'name') {
 			$definition['key'] = $prefix . '_' . $definition[$k];

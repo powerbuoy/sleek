@@ -50,10 +50,6 @@ function sleek_register_acf ($locations, $textdomain = 'sleek') {
 			}
 		}
 
-	/*	echo "<div style='margin-left: 200px;'>";
-		var_dump($definition);
-		echo "</div>"; */
-
 		# Now that every field group is added (with a preceding tab), create the entire definition
 		acf_add_local_field_group($definition);
 	}
@@ -157,31 +153,65 @@ function sleek_register_acf_modules ($locations, $textdomain = 'sleek') {
 			$definition['fields'][] = $flexField;
 		}
 
-	/*	echo "<div style='margin-left: 200px;'>";
-		var_dump($definition);
-		echo "</div>"; */
-
 		acf_add_local_field_group($definition);
 	}
 }
 
 # Registers ACF on options pages, automatically creates tabs if multiple fields are inserted
-/* function sleek_register_acf_options ($locations, $textdomain = 'sleek') {
-	foreach ($locations as $slug => $groups) {
-		acf_add_options_page(ucfirst(str_replace(['_', '-'], ' ', $slug))); # Mustn't be translated as it changes the slug
+function sleek_register_acf_options ($locations, $textdomain = 'sleek') {
+	# Go through every post type
+	foreach ($locations as $pt => $fieldGroups) {
+		# Create a title based on the post-type (knowledge_base => Knowledge base)
+		$mainTitle = __(ucfirst(str_replace(['_', '-'], ' ', $pt)), $textdomain);
 
-		# TODO: Exactly the same as sleek_register_acf except for the location which should be
-		[
-			[
-				[
-					'param' => 'options_page',
-					'operator' => '==',
-					'value' => 'acf-options-' . $slug
-				]
-			]
-		]
+		# Create the main key for this group
+		$mainKey = 'group_' . $pt;
+
+		# Add the options page
+		acf_add_options_page([
+			'page_title' => $mainTitle,
+			'menu_slug' => 'acf-options-' . $pt
+		]);
+
+		# Create the group definition, we will fill it with the fields later
+		$definition = [
+			'key' => $mainKey,
+			'title' => $mainTitle,
+			'fields' => [], # These will be populated below
+			'location' => [[['param' => 'options_page', 'operator' => '==', 'value' => 'acf-options-' . $pt]]]
+		];
+
+		# Now go through all the field groups (video, page-options, etc)
+		foreach ($fieldGroups as $fg) {
+			# Make sure the field definition exists
+			if ($path = locate_template('acf/' . basename($fg) . '.php')) {
+				# Create the field group title
+				$groupTitle = __(ucfirst(str_replace(['_', '-'], ' ', $fg)), $textdomain);
+
+				# Add a tab
+				$definition['fields'][] = [
+					'key' => $mainKey . '_' . $fg . '_tab',
+					'label' => $groupTitle,
+					'type' => 'tab'
+				];
+
+				# Now get all the fields from the definition file
+				$fgFields = include $path;
+
+				# Automatically generate unique keys
+				$fgFields = sleek_generate_unique_keys($fgFields, $mainKey);
+
+				# Now go through all the fields in the definition file and add them to the group
+				foreach ($fgFields as $f) {
+					$definition['fields'][] = $f;
+				}
+			}
+		}
+
+		# Now that every field group is added (with a preceding tab), create the entire definition
+		acf_add_local_field_group($definition);
 	}
-} */
+}
 
 # Recursively inserts unique keys for every field that has a name
 function sleek_generate_unique_keys ($definition, $prefix) {

@@ -222,7 +222,7 @@ add_filter('acf/fields/flexible_content/layout_title', function ($title, $field,
 		$newTitle .= ": \"$t\"";
 	}
 
-	if ($t = get_sub_field('field_' . $layout['key'] . '-template')) {
+	if ($t = get_sub_field($layout['key'] . '-template')) {
 		$newTitle .= ' (' . ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php'))) . ')';
 	}
 

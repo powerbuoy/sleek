@@ -15,7 +15,7 @@ function sleek_register_post_types ($postTypes, $textdomain = 'sleek') {
 		# Create the post type slug - if a textdomain is specified make it translatable, otherwise make it dash-separated
 		$slug = $textdomain ? __('url_' . $postType, $textdomain) : str_replace('_', '-', $postType);
 
-		# Create the post type nice-name based on the the postType name
+		# Create the post type nice-name based on the the post type slug
 		$name = __(ucfirst(str_replace('_', ' ', $postType)), $textdomain);
 
 		# Create the config

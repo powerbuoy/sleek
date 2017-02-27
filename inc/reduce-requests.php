@@ -52,5 +52,8 @@ function sleek_reduce_requests ($except = ['wpcf7_js']) {
 				wp_dequeue_style('duplicate-post');
 			}
 		}
+
+		# WPML Language Switcher
+		define('ICL_DONT_LOAD_LANGUAGE_SELECTOR_CSS', true);
 	}
 }

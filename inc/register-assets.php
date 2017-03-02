@@ -18,6 +18,9 @@ function sleek_register_assets ($extraAssets = []) {
 		if (get_theme_mod('recaptcha_site_key')) {
 			$jsConfig['RECAPTCHA_SITE_KEY'] = get_theme_mod('recaptcha_site_key');
 		}
+		if (get_theme_mod('google_maps_api_key')) {
+			$jsConfig['GOOGLE_MAPS_API_KEY'] = get_theme_mod('google_maps_api_key');
+		}
 
 		wp_localize_script('sleek', 'config', $jsConfig);
 

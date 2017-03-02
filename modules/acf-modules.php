@@ -19,7 +19,7 @@
 			sleek_get_template_part('acf/' . $module['template'], [
 				'data' => $module,
 				'count' => ++$i,
-				'templateCount' => $templateCount[$module['template']]
+				'template_count' => $templateCount[$module['template']]
 			]);
 		}
 	}

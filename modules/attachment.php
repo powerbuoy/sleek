@@ -1,5 +1,3 @@
-<?php global $post ?>
-
 <section id="image">
 
 	<?php while (have_posts()) : the_post() ?>

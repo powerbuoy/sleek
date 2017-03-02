@@ -39,12 +39,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/powerbuoy/SleekWP.git"
+    "url": "git+https://github.com/powerbuoy/sleek.git"
   },
   "author": "Andreas Lagerkvist",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/powerbuoy/SleekWP/issues"
+    "url": "https://github.com/powerbuoy/sleek/issues"
   },
-  "homepage": "https://github.com/powerbuoy/SleekWP#readme"
+  "homepage": "https://github.com/powerbuoy/sleek#readme"
 }

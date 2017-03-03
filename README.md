@@ -1,1 +1,1 @@
-A barebones WP developer theme.
+A simple HTML5 WordPress developer theme.

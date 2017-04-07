@@ -128,8 +128,12 @@ function sleek_register_post_type_meta_data ($postTypes, $extraFields = []) {
 
 			# The function that adds the settings screen
 			function () use ($postType, $extraFields) {
+				# WPML...
+				$lang = defined('ICL_LANGUAGE_CODE') ? ICL_LANGUAGE_CODE : '';
+
+				# Stuff we need
 				$uploadURL = get_upload_iframe_src('image', null);
-				$imgID = get_option($postType . '_image');
+				$imgID = get_option($postType . $lang . '_image');
 				$imgSrc = wp_get_attachment_image_src($imgID, 'thumbnail');
 				$hasImg = is_array($imgSrc);
 				?>
@@ -145,8 +149,8 @@ function sleek_register_post_type_meta_data ($postTypes, $extraFields = []) {
 							<label>
 								<?php _e('Title', 'sleek') ?>
 								<input type="text"
-									name="<?php echo $postType ?>_title"
-									value="<?php echo stripslashes(get_option($postType . '_title')) ?>"
+									name="<?php echo $postType . $lang ?>_title"
+									value="<?php echo stripslashes(get_option($postType . $lang . '_title')) ?>"
 									placeholder="<?php _e('Title', 'sleek') ?>">
 							</label>
 						</div>
@@ -156,8 +160,8 @@ function sleek_register_post_type_meta_data ($postTypes, $extraFields = []) {
 								<label>
 									<?php _e($title, 'sleek') ?>
 									<input type="text"
-										name="<?php echo $postType ?>_<?php echo $field ?>"
-										value="<?php echo stripslashes(get_option($postType . '_' . $field)) ?>"
+										name="<?php echo $postType . $lang ?>_<?php echo $field ?>"
+										value="<?php echo stripslashes(get_option($postType . $lang . '_' . $field)) ?>"
 										placeholder="<?php _e($title, 'sleek') ?>">
 								</label>
 							</div>
@@ -179,16 +183,16 @@ function sleek_register_post_type_meta_data ($postTypes, $extraFields = []) {
 								<?php _e('Remove image', 'sleek') ?>
 							</button>
 
-							<input id="<?php echo $postType ?>-image-id" name="<?php echo $postType ?>_image" type="hidden" value="<?php echo esc_attr($imgID); ?>">
+							<input id="<?php echo $postType ?>-image-id" name="<?php echo $postType . $lang ?>_image" type="hidden" value="<?php echo esc_attr($imgID); ?>">
 						</div>
 
 						<hr>
 
 						<?php wp_editor(
-							stripslashes(get_option($postType . '_description')),
+							stripslashes(get_option($postType . $lang . '_description')),
 							$postType . '_settings',
 							[
-								'textarea_name' => $postType . '_description',
+								'textarea_name' => $postType . $lang . '_description',
 								# 'media_buttons' => false # This makes the other image uploader not work
 							]
 						) ?>
@@ -257,12 +261,14 @@ function sleek_register_post_type_meta_data ($postTypes, $extraFields = []) {
 
 		# Add our new options
 		add_action('admin_init', function () use ($postType, $extraFields) {
-			register_setting($postType . '_settings', $postType . '_title');
-			register_setting($postType . '_settings', $postType . '_description');
-			register_setting($postType . '_settings', $postType . '_image', 'intval');
+			$lang = defined('ICL_LANGUAGE_CODE') ? ICL_LANGUAGE_CODE : '';
+
+			register_setting($postType . '_settings', $postType . $lang . '_title');
+			register_setting($postType . '_settings', $postType . $lang . '_description');
+			register_setting($postType . '_settings', $postType . $lang . '_image', 'intval');
 
 			foreach ($extraFields as $field => $type) {
-				register_setting($postType . '_settings', $postType . '_' . $field);
+				register_setting($postType . '_settings', $postType . $lang . '_' . $field);
 			}
 		});
 	}

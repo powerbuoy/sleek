@@ -251,14 +251,14 @@ function sleek_get_acf_group_templates ($acfGroup) {
 # Nicer Flexible Content Titles (https://www.advancedcustomfields.com/resources/acf-fields-flexible_content-layout_title/)
 add_filter('acf/fields/flexible_content/layout_title', function ($title, $field, $layout, $i) {
 	$fieldName = strtolower(str_replace(' ', '-', $layout['label']));
-	$newTitle = $title;
+	$newTitle = '<strong>' . $title . '</strong>';
 
 	if ($t = get_sub_field($fieldName . '-title')) {
 		$newTitle .= ": \"$t\"";
 	}
 
 	if ($t = get_sub_field($layout['key'] . '-template')) {
-		$newTitle .= ' (' . ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php'))) . ')';
+		$newTitle .= ' <small>(' . ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php'))) . ' template)</small>';
 	}
 
 	return $newTitle;

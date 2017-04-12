@@ -11,35 +11,14 @@
 
 			<?php the_excerpt() ?>
 
-			<?php sleek_get_template_part('modules/acf-modules', ['where' => 'inside-hero']) ?>
-
 		</header>
 
-		<?php if (get_field('modules-right-of-content')) : ?>
-			<div>
+		<article>
 
-				<article>
+			<?php the_content() ?>
+			<?php wp_link_pages() ?>
 
-					<?php the_content() ?>
-					<?php wp_link_pages() ?>
-
-				</article>
-
-				<aside>
-
-					<?php sleek_get_template_part('modules/acf-modules', ['where' => 'right-of-content']) ?>
-
-				</aside>
-
-			</div>
-		<?php else : ?>
-			<article>
-
-				<?php the_content() ?>
-				<?php wp_link_pages() ?>
-
-			</article>
-		<?php endif ?>
+		</article>
 	<?php endwhile ?>
 
 </section>

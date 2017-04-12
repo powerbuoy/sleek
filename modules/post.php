@@ -17,8 +17,12 @@
 
 		</header>
 
-		<?php the_content() ?>
-		<?php wp_link_pages() ?>
+		<article>
+
+			<?php the_content() ?>
+			<?php wp_link_pages() ?>
+
+		</article>
 
 	</section>
 <?php endwhile ?>

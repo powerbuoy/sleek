@@ -8,7 +8,9 @@
 		<header>
 
 			<?php if ($archiveData['image']) : ?>
-				<img src="<?php echo $archiveData['image'] ?>">
+				<figure>
+					<img src="<?php echo $archiveData['image'] ?>">
+				</figure>
 			<?php endif ?>
 
 			<?php if ($archiveData['title']) : ?>

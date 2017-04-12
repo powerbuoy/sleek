@@ -1,16 +1,4 @@
-<?php
-	# TODO: Is this still needed?
-	if (get_query_var('author_name')) {
-		$usr = get_user_by('slug', get_query_var('author_name'));
-	}
-	else {
-		$usr = get_user_by('id', get_query_var('author'));
-	}
-
-	if (!$usr) {
-		$usr = get_user_by('id', get_the_author_meta('ID'));
-	}
-?>
+<?php $usr = sleek_get_current_author() ?>
 
 <?php if ($usr) : ?>
 	<section id="post-author">

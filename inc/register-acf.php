@@ -129,6 +129,7 @@ function sleek_register_acf_modules ($locations, $textdomain = 'sleek') {
 								'key' => $lgKey . '-template',
 								'name' => 'template',
 								'label' => __('Layout', $textdomain),
+								'instructions' => __('Select a different layout for this module to change its appearance on the website.', 'sleek'),
 								'type' => 'select',
 								'choices' => sleek_get_acf_group_templates($fg)
 							]

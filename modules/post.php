@@ -3,9 +3,11 @@
 
 		<header>
 
-			<?php the_post_thumbnail('sleek-hd') ?>
-
 			<h1><?php the_title() ?></h1>
+
+			<figure>
+				<?php the_post_thumbnail('sleek-hd') ?>
+			</figure>
 
 			<p>
 				<time datetime="<?php echo get_the_time('Y-m-j') ?>"><?php echo get_the_time(get_option('date_format')) ?></time> |

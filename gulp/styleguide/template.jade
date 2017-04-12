@@ -17,39 +17,37 @@ html
 
     body
 
-        header
+        div#styleguide-header
             h1 Styleguide
             p Examples of all CSS components and configuration.
 
-        nav
-            ul
-                for elements, section in docs
-                    li
-                        a(href="##{section.replace(/[^a-z0-9]/ig,'').toLowerCase()}") #{section}
-
-        main
+        div#styleguide-nav
             for elements, section in docs
-                section(id=section.replace(/[^a-z0-9]/ig,'').toLowerCase())
-                    header
+                    a(href="##{'styleguide-section-' + section.replace(/[^a-z0-9]/ig,'').toLowerCase()}") #{section}
+
+        div#styleguide-sections
+            for elements, section in docs
+                div.styleguide-section(id='styleguide-section-' + section.replace(/[^a-z0-9]/ig,'').toLowerCase())
+                    div.styleguide-section-header
                         h2 #{section}
 
                     for element, i in elements
-                        article
+                        div.styleguide-component
 
-                            header
+                            div.styleguide-component-header
                                 h3 #{element.title}
 
                                 if element.description
                                     p !{marked(element.description)}
 
                             if element.example
-                                div.example-container
+                                div.styleguide-component-example-container
                                     h4 Example
-                                    div.example
+                                    div.styleguide-component-example
 
-                            div.example-code-container
+                            div.styleguide-component-code-container
                                 h4 Example Code
-                                pre.example-code
+                                pre.styleguide-component-code-block
                                     code
                                         if Array.isArray(element.example)
                                             | !{element.example.join(' ').trim()}

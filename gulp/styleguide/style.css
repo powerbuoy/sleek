@@ -1,93 +1,88 @@
+@font-face {
+	font-family: 'fontello';
+	src: url('icons/font/fontello.eot?97264397');
+	src: url('icons/font/fontello.eot?97264397#iefix') format('embedded-opentype'),
+		url('icons/font/fontello.woff2?97264397') format('woff2'),
+		url('icons/font/fontello.woff?97264397') format('woff'),
+		url('icons/font/fontello.ttf?97264397') format('truetype'),
+		url('icons/font/fontello.svg?97264397#fontello') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 body {
 	padding: 0;
 	margin: 0;
 }
 
 /* Header */
-body > header {
+#styleguide-header {
 	padding: 2rem;
 	border-bottom: 1px solid rgba(100, 100, 100, .4);
 }
 
-	body > header p {
+	#styleguide-header p {
 		margin: 0;
 	}
 
 /* Nav */
-body > nav {
+#styleguide-nav {
 }
 
-	body > nav ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
+	#styleguide-nav a {
+		display: block;
+		border-bottom: 1px solid rgba(100, 100, 100, .4);
+		padding: 1rem 2rem;
+		color: inherit;
 	}
 
-		body > nav ul li {
-			display: block;
-			border-bottom: 1px solid rgba(100, 100, 100, .4);
-		}
-
-			body > nav ul li a {
-				display: block;
-				padding: 1rem 2rem;
-				color: inherit;
-			}
-
 /* Each section */
-main section {
+.styleguide-section {
 }
 
 	/* Section header */
-	main section > header {
+	.styleguide-section-header {
 		background: rgba(50, 50, 50, .2);
 		padding: 2rem;
 		border-bottom: 1px solid rgba(100, 100, 100, .4);
 	}
 
-		main section > header h2 {
+		.styleguide-section-header h2 {
 			margin: 0;
 		}
 
 	/* Each component */
-	main section article {
+	.styleguide-component {
 		padding: 2rem;
 		border-bottom: 1px solid rgba(100, 100, 100, .4);
 	}
 
 		/* Example and code */
-		main section article > div {
+		.styleguide-component-example {
+			background-image: linear-gradient(45deg, #f4f4f4 25%, transparent 25%, transparent 75%, #f4f4f4 75%, #f4f4f4), linear-gradient(45deg, #f4f4f4 25%, transparent 25%, transparent 75%, #f4f4f4 75%, #f4f4f4);
+			background-size: 20px 20px;
+			background-position: 0 0, 10px 10px;
 
+			margin: 0 0 1.5rem;
+			padding: 1rem;
+			border: 1px solid rgba(100, 100, 100, .4);
+
+			position: relative;
+			overflow: hidden;
 		}
 
-			main section article div.example-container div.example {
-				background-image: linear-gradient(45deg, #f4f4f4 25%, transparent 25%, transparent 75%, #f4f4f4 75%, #f4f4f4), linear-gradient(45deg, #f4f4f4 25%, transparent 25%, transparent 75%, #f4f4f4 75%, #f4f4f4);
-			    background-size: 20px 20px;
-			    background-position: 0 0, 10px 10px;
-
-			    margin: 0 0 1.5rem;
-			    padding: 1rem;
-			    border: 1px solid rgba(100, 100, 100, .4);
-
-			    position: relative;
-			    overflow: hidden;
-			}
-
 @media (min-width: 1000px) {
-	main section article {
+	.styleguide-component {
 		overflow: hidden;
 	}
 
-		main section article header {
-
-		}
-
-		main section article > div {
+		.styleguide-component-example-container,
+		.styleguide-component-code-container {
 			width: calc(50% - 1rem);
 			float: left;
 		}
 
-		main section article > div + div {
+		.styleguide-component-code-container {
 			float: right;
 		}
 }
@@ -99,14 +94,14 @@ main section {
 		clear: both;
 	}
 
-	body > nav {
+	#styleguide-nav {
 		width: 20rem;
 		float: left;
 		position: sticky;
 		top: 0;
 	}
 
-	main {
+	#styleguide-sections {
 		width: calc(100% - 20rem);
 		float: right;
 		border-left: 1px solid rgba(100, 100, 100, .4);
@@ -117,27 +112,27 @@ main section {
 pre {
 	background: #393939;
 
-    margin: 0 0 1.5rem;
-    max-height: 30rem;
-    overflow: auto;
+	margin: 0 0 1.5rem;
+	max-height: 30rem;
+	overflow: auto;
 
-    padding: 1rem;
-    color: #c6c6c6;
-    font-size: .8rem;
+	padding: 1rem;
+	color: #c6c6c6;
+	font-size: .8rem;
 }
 
 .hljs-tag {
-    color: #ddc982;
+	color: #ddc982;
 }
 
 .hljs-title {
-    color: #ddc982;
+	color: #ddc982;
 }
 
 .hljs-attribute {
-    color: #c6c6c6;
+	color: #c6c6c6;
 }
 
 .hljs-value {
-    color: #a9c978;
+	color: #a9c978;
 }

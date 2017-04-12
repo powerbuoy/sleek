@@ -16,11 +16,23 @@
 			}
 
 			# Include the template
-			sleek_get_template_part('acf/' . $module['template'], [
-				'data' => $module,
-				'count' => ++$i,
-				'template_count' => $templateCount[$module['template']]
-			]);
+			if (locate_template('acf/' . $module['template'] . '.php')) {
+				sleek_get_template_part('acf/' . $module['template'], [
+					'data' => $module,
+					'count' => ++$i,
+					'template_count' => $templateCount[$module['template']]
+				]);
+			}
+			# Or dump data if template doesn't exist
+			else {
+				echo '<section>';
+				echo '<h2>No template defined</h2>';
+				echo '<p><small>' . $module['acf_fc_layout'] . '</small></p>';
+				echo '<pre>';
+				var_dump($module);
+				echo '</pre>';
+				echo '</section>';
+			}
 		}
 	}
 ?>

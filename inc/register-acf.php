@@ -231,13 +231,17 @@ function sleek_generate_unique_keys ($definition, $prefix) {
 
 # Returns a list of templates available for a specific field group
 function sleek_get_acf_group_templates ($acfGroup) {
-	$tmp = scandir(get_stylesheet_directory() . '/acf/' . $acfGroup . '/');
-	$tmp = array_diff($tmp, ['.', '..']); # Remove ./.. and "main" template
+	$path = get_stylesheet_directory() . '/acf/' . $acfGroup . '/';
 	$templates = [];
 
-	foreach ($tmp as $t) {
-		if (substr(basename($t), 0, 2) != '__' and substr(basename($t), 0, 1) != '.') {
-			$templates[$acfGroup . '/' . basename($t, '.php')] = ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php')));
+	if (file_exists($path)) {
+		$tmp = scandir($path);
+		$tmp = array_diff($tmp, ['.', '..']); # Remove ./.. and "main" template
+
+		foreach ($tmp as $t) {
+			if (substr(basename($t), 0, 2) != '__' and substr(basename($t), 0, 1) != '.') {
+				$templates[$acfGroup . '/' . basename($t, '.php')] = ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php')));
+			}
 		}
 	}
 

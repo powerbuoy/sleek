@@ -14,6 +14,6 @@
 		<?php dynamic_sidebar('header') ?>
 	</nav>
 
-	<a href="#header" class="menu-toggle" title="<?php _e('Open menu', 'sleek') ?>"></a>
+	<a href="#header" class="menu-toggle" title="<?php _e('Open menu', 'sleek') ?>" data-toggle-hash></a>
 
 </header>

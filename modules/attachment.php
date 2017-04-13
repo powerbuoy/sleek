@@ -21,7 +21,13 @@
 
 		</header>
 
-		<?php the_content() ?>
+		<?php get_template_part('modules/breadcrumbs') ?>
+
+		<article>
+
+			<?php the_content() ?>
+
+		</article>
 	<?php endwhile ?>
 
 </section>

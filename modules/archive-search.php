@@ -1,6 +1,4 @@
-<?php $archiveData = sleek_get_archive_data([
-	'image_size' => 'large'
-]) ?>
+<?php $archiveData = sleek_get_archive_data() ?>
 
 <?php # TODO: Create a real search form with ?s and all taxonomies ?>
 <?php if ($archiveData and $archiveData['taxonomies']) : ?>

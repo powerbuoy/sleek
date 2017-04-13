@@ -1,6 +1,6 @@
-<section id="attachment">
+<?php while (have_posts()) : the_post() ?>
+	<section id="attachment">
 
-	<?php while (have_posts()) : the_post() ?>
 		<header>
 
 			<h1><?php the_title() ?></h1>
@@ -24,11 +24,13 @@
 			<?php the_content() ?>
 
 		</article>
-	<?php endwhile ?>
 
-</section>
+	</section>
+<?php endwhile ?>
 
 <nav id="pagination">
+
 	<?php previous_image_link() ?>
 	<?php next_image_link() ?>
+
 </nav>

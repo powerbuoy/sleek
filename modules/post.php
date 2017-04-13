@@ -28,3 +28,10 @@
 
 	</section>
 <?php endwhile ?>
+
+<nav id="pagination">
+
+	<?php previous_post_link() ?>
+	<?php next_post_link() ?>
+
+</nav>

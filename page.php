@@ -3,8 +3,8 @@
 <main>
 
 	<?php get_template_part('modules/page') ?>
-	<?php get_template_part('modules/sub-nav') ?>
 	<?php comments_template('/modules/comments.php') ?>
+	<?php get_template_part('modules/post-comment') ?>
 
 </main>
 

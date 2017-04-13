@@ -24,6 +24,8 @@
 
 				<?php the_excerpt() ?>
 
+				<a href="<?php the_permalink() ?>"><?php _e('Read more', 'sleek') ?></a>
+
 			</article>
 		<?php endwhile ?>
 	<?php else : ?>

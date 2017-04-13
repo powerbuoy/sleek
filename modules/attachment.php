@@ -1,13 +1,9 @@
-<section id="image">
+<section id="attachment">
 
 	<?php while (have_posts()) : the_post() ?>
 		<header>
 
-			<h1>
-				<!-- <a href="<?php echo get_permalink($post->post_parent) ?>">
-					<?php echo get_the_title($post->post_parent) ?>
-				</a> &raquo; --><?php the_title() ?>
-			</h1>
+			<h1><?php the_title() ?></h1>
 
 			<figure>
 				<a href="<?php echo wp_get_attachment_url($post->ID) ?>">

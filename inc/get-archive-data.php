@@ -3,6 +3,7 @@
  * Returns valuable data such as title/description
  * based on the currently viewed type of archive
  * (cpt, blog, category, date, search etc)
+ * TODO: Never assume that get_post_type_object() returns an object!
  */
 function sleek_get_archive_data ($args = []) {
 	global $post;

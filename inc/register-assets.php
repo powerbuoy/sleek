@@ -60,7 +60,7 @@ function sleek_register_assets ($extraAssets = []) {
 }
 
 /**
- * Add Google Analytics etc based on theme options
+ * Add some stuff before </body>
  */
 add_action('wp_footer', function () {
 	# Google Maps
@@ -85,6 +85,13 @@ add_action('wp_footer', function () {
 			}
 		</script>";
 	}
+});
+
+/**
+ * Add some stuff to <head></head>
+ */
+add_action('wp_head', function () {
+	echo "<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>";
 
 	# Google Analytics
 	if ($googleAnalytics = get_theme_mod('google_analytics_id')) {
@@ -98,13 +105,6 @@ add_action('wp_footer', function () {
 			ga('send', 'pageview');
 		</script>";
 	}
-});
-
-/**
- * Add a "no-js" or "js" class to <html>
- */
-add_action('wp_head', function () {
-	echo "<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>";
 });
 
 /**

@@ -24,8 +24,11 @@ function sleek_register_assets ($extraAssets = []) {
 
 		wp_localize_script('sleek', 'config', $jsConfig);
 
-		# Theme CSS
-		if (file_exists(get_stylesheet_directory() . '/dist/critical.css')) {
+		# Child theme is using a critical.scss - only include that to begin with
+		$hasCriticalCss = file_exists(get_stylesheet_directory() . '/dist/critical.css');
+
+		if ($hasCriticalCss) {
+			# Inline the critical CSS in the head section
 			add_action('wp_head', function () {
 				$critical = file_get_contents(get_stylesheet_directory() . '/dist/critical.css');
 				$critical = str_replace(['icons/', 'assets/'], [get_stylesheet_directory_uri() . '/dist/icons/', get_stylesheet_directory_uri() . '/dist/assets/'], $critical);
@@ -33,10 +36,15 @@ function sleek_register_assets ($extraAssets = []) {
 				echo '<style>' . $critical . '</style>';
 			});
 
-			add_action('wp_footer', function () {
+			# Load the rest of the CSS with JS
+			add_action('wp_footer', function () use ($extraAssets) {
 				?>
 				<noscript id="deferred-styles">
 					<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri() . '/dist/all.css?v=' . filemtime(get_stylesheet_directory() . '/dist/all.css') ?>">
+
+					<?php foreach ($extraAssets as $path) : if (pathinfo($path, PATHINFO_EXTENSION) != 'js') : ?>
+						<link rel="stylesheet" type="text/css" href="<?php echo $path ?>">
+					<?php endif; endforeach ?>
 				</noscript>
 				<script>
 					// https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
@@ -63,6 +71,7 @@ function sleek_register_assets ($extraAssets = []) {
 				<?php
 			});
 		}
+		# Only an all.css exists - just include it normally
 		else {
 			wp_register_style('sleek', get_stylesheet_directory_uri() . '/dist/all.css?v=' . filemtime(get_stylesheet_directory() . '/dist/all.css'), [], null);
 			wp_enqueue_style('sleek');
@@ -74,18 +83,22 @@ function sleek_register_assets ($extraAssets = []) {
 		foreach ($extraAssets as $path => $dependencies) {
 			$id++;
 
+			# Dependencies can be passed in like ['my-file.js' => ['jquery']]
 			if (!is_array($dependencies)) {
 				$path = $dependencies;
 				$dependencies = [];
 			}
 
+			# Figure out the extension (css/js)
 			$ext = pathinfo($path, PATHINFO_EXTENSION);
 
+			# JS
 			if ($ext == 'js') {
 				wp_register_script('sleek_extra_js_' . $id, $path, $dependencies, null, true);
 				wp_enqueue_script('sleek_extra_js_' . $id);
 			}
-			else {
+			# Only add CSS if there's no critical CSS
+			elseif (!$hasCriticalCss) {
 				wp_register_style('sleek_extra_css_' . $id, $path);
 				wp_enqueue_style('sleek_extra_css_' . $id);
 			}

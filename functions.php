@@ -19,6 +19,7 @@ include get_template_directory() . '/inc/more-markdown.php';
 include get_template_directory() . '/inc/pagination-css-class.php';
 include get_template_directory() . '/inc/get-archive-data.php';
 include get_template_directory() . '/inc/get-site-logo.php';
+include get_template_directory() . '/inc/get-page-type.php';
 include get_template_directory() . '/inc/reduce-requests.php';
 include get_template_directory() . '/inc/register-acf.php';
 include get_template_directory() . '/inc/register-assets.php';

@@ -9,6 +9,8 @@ function sleek_get_archive_data ($args = []) {
 	global $post;
 	global $wp_query;
 
+	$lang = defined('ICL_LANGUAGE_CODE') ? ICL_LANGUAGE_CODE : '';
+
 	# Args
 	$args = array_merge([
 		'image_size' => 'full',
@@ -131,11 +133,11 @@ function sleek_get_archive_data ($args = []) {
 				$data['post_type'] = $_GET['post_type'];
 				$data['post_type_title'] = $postType->labels->name;
 
-				if ($imageId = get_option($data['post_type'] . '_image')) {
+				if ($imageId = get_option($data['post_type'] . $lang . '_image')) {
 					$data['image'] = wp_get_attachment_image_src($imageId, $args['image_size'])[0];
 					$data['image_id'] = $imageId;
 				}
-				if ($title = get_option($data['post_type'] . '_title')) {
+				if ($title = get_option($data['post_type'] . $lang . '_title')) {
 					$data['post_type_title'] = $title;
 				}
 			}
@@ -153,11 +155,11 @@ function sleek_get_archive_data ($args = []) {
 		$data['content'] = wpautop($term->description);
 		$data['taxonomies'] = sleek_get_taxonomies_by_post_type($data['post_type'], ['hide_empty' => $args['hide_empty_terms']]);
 
-		if ($imageId = get_option($data['post_type'] . '_image')) {
+		if ($imageId = get_option($data['post_type'] . $lang . '_image')) {
 			$data['image'] = wp_get_attachment_image_src($imageId, $args['image_size'])[0];
 			$data['image_id'] = $imageId;
 		}
-		if ($title = get_option($data['post_type'] . '_title')) {
+		if ($title = get_option($data['post_type'] . $lang . '_title')) {
 			$data['post_type_title'] = $title;
 		}
 	}
@@ -172,13 +174,13 @@ function sleek_get_archive_data ($args = []) {
 		$data['content'] = $postType->description ? wpautop($postType->description) : false;
 		$data['taxonomies'] = sleek_get_taxonomies_by_post_type($data['post_type'], ['hide_empty' => $args['hide_empty_terms']]);
 
-		if ($title = get_option($data['post_type'] . '_title')) {
+		if ($title = get_option($data['post_type'] . $lang . '_title')) {
 			$data['post_type_title'] = $data['title'] = $title;
 		}
-		if ($description = get_option($data['post_type'] . '_description')) {
+		if ($description = get_option($data['post_type'] . $lang . '_description')) {
 			$data['content'] = wpautop($description);
 		}
-		if ($imageId = get_option($data['post_type'] . '_image')) {
+		if ($imageId = get_option($data['post_type'] . $lang . '_image')) {
 			$data['image'] = wp_get_attachment_image_src($imageId, $args['image_size'])[0];
 			$data['image_id'] = $imageId;
 		}

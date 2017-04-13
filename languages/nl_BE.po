@@ -1,5 +1,3 @@
-# Copyright (C) 2015 Andreas Lagerkvist
-# This file is distributed under the GPL.
 msgid ""
 msgstr ""
 "Project-Id-Version: SleekWP 1.0\n"
@@ -16,38 +14,38 @@ msgstr ""
 
 #: inc/get-posts-intro.php:38
 msgid "Posts tagged with <strong>\"%s\"</strong>"
-msgstr "Posts tagged with <strong>\"%s\"</strong>"
+msgstr "Posts aangeduid met \"%s\""
 
 #: inc/get-posts-intro.php:48
 msgid "Search results (%s) for: <strong>\"%s\"</strong>"
-msgstr "Search results (%s) for: <strong>\"%s\"</strong>"
+msgstr "Zoekresultaten (%s) voor: \"%s\""
 
 #: inc/get-posts-intro.php:52
 msgid "No search results for: <strong>\"%s\"</strong>"
-msgstr "No search results for: <strong>\"%s\"</strong>"
+msgstr "Geen zoekresultaten voor: \"%s\""
 
 #: inc/get-posts-intro.php:53
 msgid "We couldn't find any matching search results for your query."
-msgstr "We couldn't find any matching search results for your query."
+msgstr "We vonden geen resultaten voor uw zoekopdracht."
 
 msgid "Displaying results %d through %d"
-msgstr "Displaying results %d through %d"
+msgstr "Resultaten %d weergeven via %d"
 
 #: inc/get-posts-intro.php:59
 msgid "Posts by <strong>%s</strong>"
-msgstr "Posts by <strong>%s</strong>"
+msgstr "Posts door %s"
 
 #: inc/get-posts-intro.php:65
 msgid "Daily archives"
-msgstr "Daily archives"
+msgstr "Dagelijks archief"
 
 #: inc/get-posts-intro.php:68
 msgid "Monthly archives"
-msgstr "Monthly archives"
+msgstr "Maandelijks archief"
 
 #: inc/get-posts-intro.php:71
 msgid "Yearly archives"
-msgstr "Yearly archives"
+msgstr "Jaarlijks archief"
 
 #: inc/get-posts-intro.php:80
 msgid "Posts"
@@ -55,11 +53,11 @@ msgstr "Posts"
 
 #: inc/get-posts.php:16
 msgid "No posts found."
-msgstr "No posts found."
+msgstr "Geen posts gevonden."
 
 #: inc/roots/cleanup.php:193
 msgid "Continued"
-msgstr "Continued"
+msgstr "Vervolg"
 
 #: inc/submit-form.php:42
 msgid "IP"
@@ -71,133 +69,121 @@ msgstr "Referrer"
 
 #: inc/submit-form.php:48
 msgid "User Agent"
-msgstr "User Agent"
+msgstr "Agent gebruiker"
 
 #: inc/submit-form.php:58 inc/submit-form.php:65
 msgid "Email from %s"
-msgstr "Email from %s"
+msgstr "E-mail van %s"
 
 #: modules/404.php:43
 msgid "404 - Page not found"
-msgstr "404 - Page not found"
+msgstr "404 - Pagina niet gevonden"
 
 #: modules/404.php:45
 msgid "Sorry, that page could not be found."
-msgstr "Sorry, that page could not be found."
+msgstr "Sorry, deze pagina bestaat niet."
 
 #: modules/404.php:48
 msgid "It seems you arrived directly at this page, maybe it's because of:"
-msgstr "It seems you arrived directly at this page, maybe it's because of:"
+msgstr "Blijkbaar bent u rechtstreeks op deze pagina terechtgekomen. Dat kan de volgende oorzaken hebben:"
 
 #: modules/404.php:51
 msgid "An <strong>out-of-date bookmark</strong>"
-msgstr "An <strong>out-of-date bookmark</strong>"
+msgstr "Verlopen bladwijzer"
 
 #: modules/404.php:52
 msgid "A search engine that has an <strong>out-of-date listing</strong> for us"
-msgstr "A search engine that has an <strong>out-of-date listing</strong> for us"
+msgstr "Een zoekmachine met een <strong>verouderde lijst</strong> voor ons"
 
 #: modules/404.php:53
 msgid "A <strong>miss-typed address</strong>"
-msgstr "A <strong>miss-typed address</strong>"
+msgstr "Een verkeerd gespeld adres"
 
 #: modules/404.php:56
-msgid ""
-"Woops! Looks like one of our internal links are out-of-date. <strong>Sincerly "
-"sorry</strong> about that! :)"
-msgstr ""
-"Woops! Looks like one of our internal links are out-of-date. <strong>Sincerly "
-"sorry</strong> about that! :)"
+msgid "Woops! Looks like one of our internal links are out-of-date. <strong>Sincerly sorry</strong> about that! :)"
+msgstr "Oeps! Blijkbaar zijn uw interne links verlopen. <strong>Sorry</strong> hiervoor! :)"
 
 #: modules/404.php:58
-msgid ""
-"You did a search on <a href=\"%s\">%s</a> for <strong>%s</strong>. However, "
-"their index appears to be out of date."
-msgstr ""
-"You did a search on <a href=\"%s\">%s</a> for <strong>%s</strong>. However, "
-"their index appears to be out of date."
+msgid "You did a search on <a href=\"%s\">%s</a> for <strong>%s</strong>. However, their index appears to be out of date."
+msgstr "U zocht op %s naar %s. Maar blijkbaar is hun index verouderd."
 
 #: modules/404.php:60
 msgid "You were incorrectly referred to this page by <a href=\"%s\">%s</a>."
-msgstr "You were incorrectly referred to this page by <a href=\"%s\">%s</a>."
+msgstr "U bent verkeerd doorgestuurd naar deze pagina door <a href=\"%s\">%s</a>."
 
 msgid "Empty search"
-msgstr "Empty search"
+msgstr "De zoekopdracht is leeg"
 
 msgid "You didn't search for anything in particular so I'm showing you everything"
-msgstr "You didn't search for anything in particular so I'm showing you everything"
+msgstr "U zocht niets specifiek en daarom toon ik alles"
 
 #: modules/404.php:63
-msgid ""
-"Perhaps you can go back to the <a href=\"%s\">home page</a> and try to navigate "
-"your way from there?"
-msgstr ""
-"Perhaps you can go back to the <a href=\"%s\">home page</a> and try to navigate "
-"your way from there?"
+msgid "Perhaps you can go back to the <a href=\"%s\">home page</a> and try to navigate your way from there?"
+msgstr "Misschien kunt u teruggaan naar de startpagina en het langs daar opnieuw proberen?"
 
 msgid "...or try a search?"
-msgstr "...or try a search?"
+msgstr "... of een zoekopdracht ingeven?"
 
 #: modules/comments.php:5
 msgid "This post is password protected. Enter the password to view comments."
-msgstr "This post is password protected. Enter the password to view comments."
+msgstr "Deze post is beveiligd met een wachtwoord. Geef het wachtwoord in om de comments te zien."
 
 #: modules/comments.php:10
 msgid "No comments"
-msgstr "No comments"
+msgstr "Geen comments"
 
 #: modules/comments.php:10
 msgid "One comment"
-msgstr "One comment"
+msgstr "Één comment"
 
 #: modules/comments.php:10
 msgid "% comments"
 msgstr "% comments"
 
 msgid "No comments on \"%s\""
-msgstr "No comments on \"%s\""
+msgstr "Geen comments op \"%s\""
 
 msgid "One comment on \"%s\""
-msgstr "One comment on \"%s\""
+msgstr "Één comment op \"%s\""
 
 msgid "%s comments on \"%s\""
-msgstr "%s comments on \"%s\""
+msgstr "%s comments op \"%s\""
 
 #: modules/comments.php:11
 msgid "on"
-msgstr "on"
+msgstr "op"
 
 #: modules/comments.php:30
 msgid "No comments yet, why not <a href=\"#post-comment\">post the first</a>?"
-msgstr "No comments yet, why not <a href=\"#post-comment\">post the first</a>?"
+msgstr "Nog geen comments, Waarom niet iets posten voor de eerste keer?"
 
 #: modules/comments.php:32
 msgid "Comments are closed."
-msgstr "Comments are closed."
+msgstr "Comments zijn gesloten."
 
 #: modules/partials/nothing-found.php:1
 msgid "Sorry, nothing was found here."
-msgstr "Sorry, nothing was found here."
+msgstr "Sorry, hier werd niets gevonden."
 
 #: modules/post.php:18
 msgid "Pages"
-msgstr "Pages"
+msgstr "Pagina’s"
 
 #: modules/posts.php:33
 msgid "Previous page"
-msgstr "Previous page"
+msgstr "Vorige pagina"
 
 #: modules/posts.php:34
 msgid "Next page"
-msgstr "Next page"
+msgstr "Volgende pagina"
 
 #: modules/search.php:4
 msgid "Search..."
-msgstr "Search..."
+msgstr "Zoeken..."
 
 #: modules/search.php:5
 msgid "Find"
-msgstr "Find"
+msgstr "Vinden"
 
 msgid "All"
-msgstr "All"
+msgstr "Alle"

@@ -129,6 +129,7 @@ function sleek_register_acf_modules ($locations, $textdomain = 'sleek') {
 								'key' => $lgKey . '-template',
 								'name' => 'template',
 								'label' => __('Layout', $textdomain),
+								'instructions' => __('Select a different layout for this module to change its appearance on the website.', 'sleek'),
 								'type' => 'select',
 								'choices' => sleek_get_acf_group_templates($fg)
 							]
@@ -230,13 +231,17 @@ function sleek_generate_unique_keys ($definition, $prefix) {
 
 # Returns a list of templates available for a specific field group
 function sleek_get_acf_group_templates ($acfGroup) {
-	$tmp = scandir(get_stylesheet_directory() . '/acf/' . $acfGroup . '/');
-	$tmp = array_diff($tmp, ['.', '..']); # Remove ./.. and "main" template
+	$path = get_stylesheet_directory() . '/acf/' . $acfGroup . '/';
 	$templates = [];
 
-	foreach ($tmp as $t) {
-		if (substr(basename($t), 0, 2) != '__' and substr(basename($t), 0, 1) != '.') {
-			$templates[$acfGroup . '/' . basename($t, '.php')] = ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php')));
+	if (file_exists($path)) {
+		$tmp = scandir($path);
+		$tmp = array_diff($tmp, ['.', '..']); # Remove ./.. and "main" template
+
+		foreach ($tmp as $t) {
+			if (substr(basename($t), 0, 2) != '__' and substr(basename($t), 0, 1) != '.') {
+				$templates[$acfGroup . '/' . basename($t, '.php')] = ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php')));
+			}
 		}
 	}
 
@@ -245,15 +250,19 @@ function sleek_get_acf_group_templates ($acfGroup) {
 
 # Nicer Flexible Content Titles (https://www.advancedcustomfields.com/resources/acf-fields-flexible_content-layout_title/)
 add_filter('acf/fields/flexible_content/layout_title', function ($title, $field, $layout, $i) {
-	$fieldName = strtolower(str_replace(' ', '-', $layout['label']));
-	$newTitle = $title;
+	# Figure out the field name
+	$nameBits = explode('_', $layout['name']);
+	$fieldName = end($nameBits);
+	$newTitle = '<strong>' . $title . '</strong>';
 
+	# See if it has a title
 	if ($t = get_sub_field($fieldName . '-title')) {
 		$newTitle .= ": \"$t\"";
 	}
 
+	# Or template
 	if ($t = get_sub_field($layout['key'] . '-template')) {
-		$newTitle .= ' (' . ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php'))) . ')';
+		$newTitle .= ' <small>(' . ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php'))) . ' layout)</small>';
 	}
 
 	return $newTitle;

@@ -11,7 +11,7 @@
 
 			<figure>
 				<a href="<?php echo wp_get_attachment_url($post->ID) ?>">
-					<?php echo wp_get_attachment_image($post->ID, 'sleek-100') ?>
+					<?php echo wp_get_attachment_image($post->ID, 'large') ?>
 				</a>
 
 				<?php if (!empty($post->post_excerpt)) : ?>
@@ -21,7 +21,13 @@
 
 		</header>
 
-		<?php the_content() ?>
+		<?php get_template_part('modules/breadcrumbs') ?>
+
+		<article>
+
+			<?php the_content() ?>
+
+		</article>
 	<?php endwhile ?>
 
 </section>

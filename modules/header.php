@@ -1,27 +1,19 @@
 <header id="header">
 
-	<?php # if (get_theme_mod('header_text')) : # This is a built in WP option but doesn't seem to be true unless it's changed inside the admin... :/ ?>
-		<?php if (is_front_page()) : ?>
-			<h1 class="site-logo">
-				<a href="<?php echo home_url('/') ?>">
-					<?php echo sleek_get_site_logo() ?>
-				</a>
-			</h1>
-		<?php else : ?>
-			<p class="site-logo">
-				<a href="<?php echo home_url('/') ?>">
-					<?php echo sleek_get_site_logo() ?>
-				</a>
-			</p>
-		<?php endif ?>
+	<a href="<?php echo home_url('/') ?>" class="site-logo">
+		<?php echo sleek_get_site_logo() ?>
+	</a>
 
-		<?php if (get_bloginfo('description')) : ?>
-			<p class="tagline">
-				<?php echo str_replace(['&lt;', '&gt;'], ['<', '>'], get_bloginfo('description')) ?>
-			</p>
-		<?php endif ?>
-	<?php # endif ?>
+	<?php if (get_bloginfo('description')) : ?>
+		<p class="tagline">
+			<?php echo str_replace(['&lt;', '&gt;'], ['<', '>'], get_bloginfo('description')) # Support for HTML in site tagline ?>
+		</p>
+	<?php endif ?>
 
-	<?php dynamic_sidebar('header') ?>
+	<nav>
+		<?php dynamic_sidebar('header') ?>
+	</nav>
+
+	<a href="#header" class="menu-toggle" title="<?php _e('Open menu', 'sleek') ?>" data-toggle-hash></a>
 
 </header>

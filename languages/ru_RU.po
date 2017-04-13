@@ -1,0 +1,189 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SleekWP 1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/sleek\n"
+"POT-Creation-Date: 2015-03-25 17:53:26+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-10-10 21:26+0200\n"
+"Language: en\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+
+#: inc/get-posts-intro.php:38
+msgid "Posts tagged with <strong>\"%s\"</strong>"
+msgstr "Сообщения, отмеченные <strong>\"%s\"</strong>"
+
+#: inc/get-posts-intro.php:48
+msgid "Search results (%s) for: <strong>\"%s\"</strong>"
+msgstr "Искать результаты (%s) для: <strong>\"%s\"</strong>"
+
+#: inc/get-posts-intro.php:52
+msgid "No search results for: <strong>\"%s\"</strong>"
+msgstr "Нет результатов поиска для: <strong>\"%s\"</strong>"
+
+#: inc/get-posts-intro.php:53
+msgid "We couldn't find any matching search results for your query."
+msgstr "По вашему запросу ничего не найдено."
+
+msgid "Displaying results %d through %d"
+msgstr "Отображение результатов %d через %d"
+
+#: inc/get-posts-intro.php:59
+msgid "Posts by <strong>%s</strong>"
+msgstr "Сообщения от <strong>%s</strong>"
+
+#: inc/get-posts-intro.php:65
+msgid "Daily archives"
+msgstr "Архивы за день"
+
+#: inc/get-posts-intro.php:68
+msgid "Monthly archives"
+msgstr "Архивы за месяц"
+
+#: inc/get-posts-intro.php:71
+msgid "Yearly archives"
+msgstr "Архивы за год"
+
+#: inc/get-posts-intro.php:80
+msgid "Posts"
+msgstr "Сообщения"
+
+#: inc/get-posts.php:16
+msgid "No posts found."
+msgstr "Сообщения не найдены."
+
+#: inc/roots/cleanup.php:193
+msgid "Continued"
+msgstr "Продолжается"
+
+#: inc/submit-form.php:42
+msgid "IP"
+msgstr "IP"
+
+#: inc/submit-form.php:45
+msgid "Referrer"
+msgstr "Отправитель"
+
+#: inc/submit-form.php:48
+msgid "User Agent"
+msgstr "Агент пользователя"
+
+#: inc/submit-form.php:58 inc/submit-form.php:65
+msgid "Email from %s"
+msgstr "Эл.сообщения от %s"
+
+#: modules/404.php:43
+msgid "404 - Page not found"
+msgstr "404 - Страница не найдена"
+
+#: modules/404.php:45
+msgid "Sorry, that page could not be found."
+msgstr "Извините, эта страница не найдена."
+
+#: modules/404.php:48
+msgid "It seems you arrived directly at this page, maybe it's because of:"
+msgstr "Похоже вы попали прямо на эту страницу, возможно это из-за:"
+
+#: modules/404.php:51
+msgid "An <strong>out-of-date bookmark</strong>"
+msgstr "<strong>просроченная закладка</strong>"
+
+#: modules/404.php:52
+msgid "A search engine that has an <strong>out-of-date listing</strong> for us"
+msgstr "Поисковая система, имеющая <strong>просроченный список </strong> для нас"
+
+#: modules/404.php:53
+msgid "A <strong>miss-typed address</strong>"
+msgstr "<strong>неправильно набранный адрес</strong>"
+
+#: modules/404.php:56
+msgid "Woops! Looks like one of our internal links are out-of-date. <strong>Sincerly sorry</strong> about that! :)"
+msgstr "Упс! Похоже, что один из наших внутренних линков просрочен. <strong> Очень извиняемся </strong>  за это! :)"
+
+#: modules/404.php:58
+msgid "You did a search on <a href=\"%s\">%s</a> for <strong>%s</strong>. However, their index appears to be out of date."
+msgstr "Вы сделали запрос на поиск <a href=\"%s\">%s</a> для <strong>%s</strong>. Хотя похоже, что индекс оказался просроченным."
+
+#: modules/404.php:60
+msgid "You were incorrectly referred to this page by <a href=\"%s\">%s</a>."
+msgstr "Вы были ошибочно переправлены на эту страницу с <a href=\"%s\">%s</a>."
+
+msgid "Empty search"
+msgstr "Пустой поиск"
+
+msgid "You didn't search for anything in particular so I'm showing you everything"
+msgstr "Вы не искали что-то конкретное, поэтому я показываю вам все"
+
+#: modules/404.php:63
+msgid "Perhaps you can go back to the <a href=\"%s\">home page</a> and try to navigate your way from there?"
+msgstr "Возможно вы можете вернуться обратно на <a href=\"%s\">домашнюю страницу</a>  и попробовать найти путь оттуда?"
+
+msgid "...or try a search?"
+msgstr "...или попробовать поиск?"
+
+#: modules/comments.php:5
+msgid "This post is password protected. Enter the password to view comments."
+msgstr "Сообщение защищено паролем. Введите пароль чтобы просмотреть комментарии."
+
+#: modules/comments.php:10
+msgid "No comments"
+msgstr "Нет комментариев"
+
+#: modules/comments.php:10
+msgid "One comment"
+msgstr "Один комментарий"
+
+#: modules/comments.php:10
+msgid "% comments"
+msgstr "% комментариев"
+
+msgid "No comments on \"%s\""
+msgstr "Нет комментариев по \"%s\""
+
+msgid "One comment on \"%s\""
+msgstr "Один комментарий по \"%s\""
+
+msgid "%s comments on \"%s\""
+msgstr "%s комментариев на \"%s\""
+
+#: modules/comments.php:11
+msgid "on"
+msgstr "по"
+
+#: modules/comments.php:30
+msgid "No comments yet, why not <a href=\"#post-comment\">post the first</a>?"
+msgstr "Пока нет комментариев, почему бы <a href=\"#post-comment\">не оставить сообщение первым</a>?"
+
+#: modules/comments.php:32
+msgid "Comments are closed."
+msgstr "Комментарии закрыты."
+
+#: modules/partials/nothing-found.php:1
+msgid "Sorry, nothing was found here."
+msgstr "Извините, ничего не найдено."
+
+#: modules/post.php:18
+msgid "Pages"
+msgstr "Страницы"
+
+#: modules/posts.php:33
+msgid "Previous page"
+msgstr "Предыдущая страница"
+
+#: modules/posts.php:34
+msgid "Next page"
+msgstr "Следующая страница"
+
+#: modules/search.php:4
+msgid "Search..."
+msgstr "Поиск..."
+
+#: modules/search.php:5
+msgid "Find"
+msgstr "Найти"
+
+msgid "All"
+msgstr "Все"

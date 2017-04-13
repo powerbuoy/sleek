@@ -4,20 +4,27 @@
 		<?php while (have_posts()) : the_post() ?>
 			<article>
 
+				<figure>
+					<a href="<?php the_permalink() ?>">
+						<?php the_post_thumbnail('sleek-medium') ?>
+					</a>
+				</figure>
+
 				<header>
 
 					<h2>
 						<a href="<?php the_permalink() ?>">
-							<?php the_post_thumbnail('sleek-medium') ?>
 							<?php the_title() ?>
 						</a>
 					</h2>
 
 					<p>
-						<time datetime="<?php echo get_the_time('Y-m-j') ?>"><?php echo get_the_time(get_option('date_format')) ?></time> |
-						<?php echo get_the_author_meta('display_name') ?>
-						<?php $postTerms = sleek_get_post_terms($post->ID, get_post_type()) ?>
-						<?php if ($postTerms) : ?> | <?php echo implode(', ', $postTerms) ?><?php endif ?>
+						<small>
+							<time datetime="<?php echo get_the_time('Y-m-j') ?>"><?php echo get_the_time(get_option('date_format')) ?></time> |
+							<?php echo get_the_author_meta('display_name') ?>
+							<?php $postTerms = sleek_get_post_terms($post->ID, get_post_type()) ?>
+							<?php if ($postTerms) : ?> | <?php echo implode(', ', $postTerms) ?><?php endif ?>
+						</small>
 					</p>
 
 				</header>

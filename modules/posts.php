@@ -6,7 +6,7 @@
 
 				<figure>
 					<a href="<?php the_permalink() ?>">
-						<?php the_post_thumbnail('sleek-medium') ?>
+						<?php the_post_thumbnail('medium') ?>
 					</a>
 				</figure>
 

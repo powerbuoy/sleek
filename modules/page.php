@@ -6,7 +6,7 @@
 			<h1><?php the_title() ?></h1>
 
 			<figure>
-				<?php the_post_thumbnail('sleek-hd') ?>
+				<?php the_post_thumbnail('large') ?>
 			</figure>
 
 			<?php the_excerpt() ?>

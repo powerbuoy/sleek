@@ -25,8 +25,48 @@ function sleek_register_assets ($extraAssets = []) {
 		wp_localize_script('sleek', 'config', $jsConfig);
 
 		# Theme CSS
-		wp_register_style('sleek', get_stylesheet_directory_uri() . '/dist/all.css?v=' . filemtime(get_stylesheet_directory() . '/dist/all.css'), [], null);
-		wp_enqueue_style('sleek');
+		if (file_exists(get_stylesheet_directory() . '/dist/critical.css')) {
+			add_action('wp_head', function () {
+				$critical = file_get_contents(get_stylesheet_directory() . '/dist/critical.css');
+				$critical = str_replace(['icons/', 'assets/'], [get_stylesheet_directory_uri() . '/dist/icons/', get_stylesheet_directory_uri() . '/dist/assets/'], $critical);
+
+				echo '<style>' . $critical . '</style>';
+			});
+
+			add_action('wp_footer', function () {
+				?>
+				<noscript id="deferred-styles">
+					<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri() . '/dist/all.css?v=' . filemtime(get_stylesheet_directory() . '/dist/all.css') ?>">
+				</noscript>
+				<script>
+					// https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
+					var loadDeferredStyles = function () {
+						var addStylesNode = document.getElementById("deferred-styles");
+						var replacement = document.createElement("div");
+							replacement.innerHTML = addStylesNode.textContent;
+
+						document.body.appendChild(replacement)
+						addStylesNode.parentElement.removeChild(addStylesNode);
+					};
+
+					var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+
+					if (raf) {
+						raf(function () {
+							window.setTimeout(loadDeferredStyles, 0);
+						});
+					}
+					else {
+						window.addEventListener('load', loadDeferredStyles);
+					}
+				</script>
+				<?php
+			});
+		}
+		else {
+			wp_register_style('sleek', get_stylesheet_directory_uri() . '/dist/all.css?v=' . filemtime(get_stylesheet_directory() . '/dist/all.css'), [], null);
+			wp_enqueue_style('sleek');
+		}
 
 		# Potential additional styles
 		$id = 0;

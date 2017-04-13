@@ -14,56 +14,50 @@ msgstr ""
 
 #: inc/get-posts-intro.php:38
 msgid "Posts tagged with <strong>\"%s\"</strong>"
-msgstr "Inlägg taggade med <strong>\"%s\"</strong>"
+msgstr "Сообщения, отмеченные <strong>\"%s\"</strong>"
 
 #: inc/get-posts-intro.php:48
 msgid "Search results (%s) for: <strong>\"%s\"</strong>"
-msgstr "Sökresultat (%s) för: <strong>\"%s\"</strong>"
+msgstr "Искать результаты (%s) для: <strong>\"%s\"</strong>"
 
 #: inc/get-posts-intro.php:52
 msgid "No search results for: <strong>\"%s\"</strong>"
-msgstr "Inga sökresultat för: <strong>\"%s\"</strong>"
+msgstr "Нет результатов поиска для: <strong>\"%s\"</strong>"
 
 #: inc/get-posts-intro.php:53
 msgid "We couldn't find any matching search results for your query."
-msgstr "Det gick inte att hitta några matchande sökresultat för ditt sökord."
-
-msgid "Empty search"
-msgstr "Tom sökning"
-
-msgid "You didn't search for anything in particular so I'm showing you everything"
-msgstr "Eftersom du inte sökte på något specifikt visar jag dig allt jag har"
+msgstr "По вашему запросу ничего не найдено."
 
 msgid "Displaying results %d through %d"
-msgstr "Visar sökresultat %d till %d"
+msgstr "Отображение результатов %d через %d"
 
 #: inc/get-posts-intro.php:59
 msgid "Posts by <strong>%s</strong>"
-msgstr "Inlägg av <strong>%s</strong>"
+msgstr "Сообщения от <strong>%s</strong>"
 
 #: inc/get-posts-intro.php:65
 msgid "Daily archives"
-msgstr "Dagligt arkiv"
+msgstr "Архивы за день"
 
 #: inc/get-posts-intro.php:68
 msgid "Monthly archives"
-msgstr "Månatligt arkiv"
+msgstr "Архивы за месяц"
 
 #: inc/get-posts-intro.php:71
 msgid "Yearly archives"
-msgstr "Årligt arkiv"
+msgstr "Архивы за год"
 
 #: inc/get-posts-intro.php:80
 msgid "Posts"
-msgstr "Inlägg"
+msgstr "Сообщения"
 
 #: inc/get-posts.php:16
 msgid "No posts found."
-msgstr "Inga inlägg hittades."
+msgstr "Сообщения не найдены."
 
 #: inc/roots/cleanup.php:193
 msgid "Continued"
-msgstr "Fortsättning"
+msgstr "Продолжается"
 
 #: inc/submit-form.php:42
 msgid "IP"
@@ -71,134 +65,125 @@ msgstr "IP"
 
 #: inc/submit-form.php:45
 msgid "Referrer"
-msgstr "Referrer"
+msgstr "Отправитель"
 
 #: inc/submit-form.php:48
 msgid "User Agent"
-msgstr "User Agent"
+msgstr "Агент пользователя"
 
 #: inc/submit-form.php:58 inc/submit-form.php:65
 msgid "Email from %s"
-msgstr "Email från %s"
+msgstr "Эл.сообщения от %s"
 
 #: modules/404.php:43
 msgid "404 - Page not found"
-msgstr "404 - Sidan hittades inte"
+msgstr "404 - Страница не найдена"
 
 #: modules/404.php:45
 msgid "Sorry, that page could not be found."
-msgstr "Ledsen, den sidan gick inte att hitta."
+msgstr "Извините, эта страница не найдена."
 
 #: modules/404.php:48
 msgid "It seems you arrived directly at this page, maybe it's because of:"
-msgstr "Det verkar som att du landade direkt på den här sidan, kanske beror det på:"
+msgstr "Похоже вы попали прямо на эту страницу, возможно это из-за:"
 
 #: modules/404.php:51
 msgid "An <strong>out-of-date bookmark</strong>"
-msgstr "Ett <strong>gammalt bokmärke</strong>"
+msgstr "<strong>просроченная закладка</strong>"
 
 #: modules/404.php:52
 msgid "A search engine that has an <strong>out-of-date listing</strong> for us"
-msgstr "En sökmotor som har en <strong>gammal länk</strong> till oss"
+msgstr "Поисковая система, имеющая <strong>просроченный список </strong> для нас"
 
 #: modules/404.php:53
 msgid "A <strong>miss-typed address</strong>"
-msgstr "En <strong>felstavad adress</strong>"
+msgstr "<strong>неправильно набранный адрес</strong>"
 
 #: modules/404.php:56
 msgid "Woops! Looks like one of our internal links are out-of-date. <strong>Sincerly sorry</strong> about that! :)"
-msgstr "Hoppsan! Verkar som att en av våra interna länkar är utdaterade. <strong>Riktigt ledsen</strong> för det! :)"
+msgstr "Упс! Похоже, что один из наших внутренних линков просрочен. <strong> Очень извиняемся </strong>  за это! :)"
 
 #: modules/404.php:58
 msgid "You did a search on <a href=\"%s\">%s</a> for <strong>%s</strong>. However, their index appears to be out of date."
-msgstr "Du sökte på <a href=\"%s\">%s</a> efter <strong>%s</strong>. Däremot verkar deras index vara utdaterat."
+msgstr "Вы сделали запрос на поиск <a href=\"%s\">%s</a> для <strong>%s</strong>. Хотя похоже, что индекс оказался просроченным."
 
 #: modules/404.php:60
 msgid "You were incorrectly referred to this page by <a href=\"%s\">%s</a>."
-msgstr "Du blev inkorrekt refererad hit av <a href=\"%s\">%s</a>."
+msgstr "Вы были ошибочно переправлены на эту страницу с <a href=\"%s\">%s</a>."
+
+msgid "Empty search"
+msgstr "Пустой поиск"
+
+msgid "You didn't search for anything in particular so I'm showing you everything"
+msgstr "Вы не искали что-то конкретное, поэтому я показываю вам все"
 
 #: modules/404.php:63
 msgid "Perhaps you can go back to the <a href=\"%s\">home page</a> and try to navigate your way from there?"
-msgstr "Du kan prova navigera till <a href=\"%s\">förstasidan</a> och försöka hitta det du söker därifrån?"
+msgstr "Возможно вы можете вернуться обратно на <a href=\"%s\">домашнюю страницу</a>  и попробовать найти путь оттуда?"
 
 msgid "...or try a search?"
-msgstr "...eller prova en sökning?"
+msgstr "...или попробовать поиск?"
 
 #: modules/comments.php:5
 msgid "This post is password protected. Enter the password to view comments."
-msgstr "Det här inlägget är lösenordsskyddat. Ange lösenordet för att se kommentarer."
+msgstr "Сообщение защищено паролем. Введите пароль чтобы просмотреть комментарии."
 
 #: modules/comments.php:10
 msgid "No comments"
-msgstr "Inga kommentarer"
+msgstr "Нет комментариев"
 
 #: modules/comments.php:10
 msgid "One comment"
-msgstr "En kommentar"
+msgstr "Один комментарий"
 
 #: modules/comments.php:10
 msgid "% comments"
-msgstr "% kommentarer"
+msgstr "% комментариев"
 
 msgid "No comments on \"%s\""
-msgstr "Inga kommentarer på \"%s\""
+msgstr "Нет комментариев по \"%s\""
 
 msgid "One comment on \"%s\""
-msgstr "En kommentar på \"%s\""
+msgstr "Один комментарий по \"%s\""
 
 msgid "%s comments on \"%s\""
-msgstr "%s kommentarer på \"%s\""
+msgstr "%s комментариев на \"%s\""
 
 #: modules/comments.php:11
 msgid "on"
-msgstr "på"
+msgstr "по"
 
 #: modules/comments.php:30
 msgid "No comments yet, why not <a href=\"#post-comment\">post the first</a>?"
-msgstr "Inga kommentarer än, varför inte <a href=\"#post-comment\">skriva den första</a>?"
+msgstr "Пока нет комментариев, почему бы <a href=\"#post-comment\">не оставить сообщение первым</a>?"
 
 #: modules/comments.php:32
 msgid "Comments are closed."
-msgstr "Kommentarer är avstängda."
+msgstr "Комментарии закрыты."
 
 #: modules/partials/nothing-found.php:1
 msgid "Sorry, nothing was found here."
-msgstr "Ledsen, inget gick att hitta här."
+msgstr "Извините, ничего не найдено."
 
 #: modules/post.php:18
 msgid "Pages"
-msgstr "Sidor"
+msgstr "Страницы"
 
 #: modules/posts.php:33
 msgid "Previous page"
-msgstr "Föregående sida"
+msgstr "Предыдущая страница"
 
 #: modules/posts.php:34
 msgid "Next page"
-msgstr "Nästa sida"
+msgstr "Следующая страница"
 
 #: modules/search.php:4
 msgid "Search..."
-msgstr "Sök..."
+msgstr "Поиск..."
 
 #: modules/search.php:5
 msgid "Find"
-msgstr "Hitta"
-
-msgid "All posts"
-msgstr "Alla inlägg"
-
-msgid "Choose category"
-msgstr "Välj kategori här"
-
-msgid "Show:"
-msgstr "Visa:"
-
-msgid "Send"
-msgstr "Skicka"
-
-msgid "Ok"
-msgstr "Ok"
+msgstr "Найти"
 
 msgid "All"
-msgstr "Alla"
+msgstr "Все"

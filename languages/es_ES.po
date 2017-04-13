@@ -1,5 +1,3 @@
-# Copyright (C) 2015 Andreas Lagerkvist
-# This file is distributed under the GPL.
 msgid ""
 msgstr ""
 "Project-Id-Version: SleekWP 1.0\n"
@@ -16,50 +14,50 @@ msgstr ""
 
 #: inc/get-posts-intro.php:38
 msgid "Posts tagged with <strong>\"%s\"</strong>"
-msgstr "Posts tagged with <strong>\"%s\"</strong>"
+msgstr "Entradas etiquetadas con \"%s\""
 
 #: inc/get-posts-intro.php:48
 msgid "Search results (%s) for: <strong>\"%s\"</strong>"
-msgstr "Search results (%s) for: <strong>\"%s\"</strong>"
+msgstr "Entradas etiquetadas con <strong>\"%s\"</strong>"
 
 #: inc/get-posts-intro.php:52
 msgid "No search results for: <strong>\"%s\"</strong>"
-msgstr "No search results for: <strong>\"%s\"</strong>"
+msgstr "Resultados de la búsqueda (%s) para: <strong>\"%s\"</strong>"
 
 #: inc/get-posts-intro.php:53
 msgid "We couldn't find any matching search results for your query."
-msgstr "We couldn't find any matching search results for your query."
+msgstr "No se han encontrado resultados para: <strong>\"%s\"</strong>"
 
 msgid "Displaying results %d through %d"
-msgstr "Displaying results %d through %d"
+msgstr "Mostrando resultados %d a %d"
 
 #: inc/get-posts-intro.php:59
 msgid "Posts by <strong>%s</strong>"
-msgstr "Posts by <strong>%s</strong>"
+msgstr "Entradas por %s"
 
 #: inc/get-posts-intro.php:65
 msgid "Daily archives"
-msgstr "Daily archives"
+msgstr "Archivos diarios"
 
 #: inc/get-posts-intro.php:68
 msgid "Monthly archives"
-msgstr "Monthly archives"
+msgstr "Archivos mensuales"
 
 #: inc/get-posts-intro.php:71
 msgid "Yearly archives"
-msgstr "Yearly archives"
+msgstr "Archivos anuales"
 
 #: inc/get-posts-intro.php:80
 msgid "Posts"
-msgstr "Posts"
+msgstr "Entradas"
 
 #: inc/get-posts.php:16
 msgid "No posts found."
-msgstr "No posts found."
+msgstr "No se ha encontrado ninguna entrada."
 
 #: inc/roots/cleanup.php:193
 msgid "Continued"
-msgstr "Continued"
+msgstr "Continuación"
 
 #: inc/submit-form.php:42
 msgid "IP"
@@ -67,137 +65,125 @@ msgstr "IP"
 
 #: inc/submit-form.php:45
 msgid "Referrer"
-msgstr "Referrer"
+msgstr "Referenciador"
 
 #: inc/submit-form.php:48
 msgid "User Agent"
-msgstr "User Agent"
+msgstr "Agente de usuario"
 
 #: inc/submit-form.php:58 inc/submit-form.php:65
 msgid "Email from %s"
-msgstr "Email from %s"
+msgstr "Correo electrónico de %s"
 
 #: modules/404.php:43
 msgid "404 - Page not found"
-msgstr "404 - Page not found"
+msgstr "404 – Página no encontrada"
 
 #: modules/404.php:45
 msgid "Sorry, that page could not be found."
-msgstr "Sorry, that page could not be found."
+msgstr "Lo sentimos, no hemos podido encontrar esa página."
 
 #: modules/404.php:48
 msgid "It seems you arrived directly at this page, maybe it's because of:"
-msgstr "It seems you arrived directly at this page, maybe it's because of:"
+msgstr "Parece que ha llegado directamente a esta página, puede deberse a:"
 
 #: modules/404.php:51
 msgid "An <strong>out-of-date bookmark</strong>"
-msgstr "An <strong>out-of-date bookmark</strong>"
+msgstr "Un <strong>marcador no actualizado</strong>"
 
 #: modules/404.php:52
 msgid "A search engine that has an <strong>out-of-date listing</strong> for us"
-msgstr "A search engine that has an <strong>out-of-date listing</strong> for us"
+msgstr "Un buscador que tiene un <strong>listado desactualizado</strong> de nuestra página"
 
 #: modules/404.php:53
 msgid "A <strong>miss-typed address</strong>"
-msgstr "A <strong>miss-typed address</strong>"
+msgstr "Una <strong>dirección mal escrita</strong>"
 
 #: modules/404.php:56
-msgid ""
-"Woops! Looks like one of our internal links are out-of-date. <strong>Sincerly "
-"sorry</strong> about that! :)"
-msgstr ""
-"Woops! Looks like one of our internal links are out-of-date. <strong>Sincerly "
-"sorry</strong> about that! :)"
+msgid "Woops! Looks like one of our internal links are out-of-date. <strong>Sincerly sorry</strong> about that! :)"
+msgstr "¡Lo sentimos! Parece que uno de nuestros enlaces internos está desactualizado. <strong>Disculpas</strong> :)"
 
 #: modules/404.php:58
-msgid ""
-"You did a search on <a href=\"%s\">%s</a> for <strong>%s</strong>. However, "
-"their index appears to be out of date."
-msgstr ""
-"You did a search on <a href=\"%s\">%s</a> for <strong>%s</strong>. However, "
-"their index appears to be out of date."
+msgid "You did a search on <a href=\"%s\">%s</a> for <strong>%s</strong>. However, their index appears to be out of date."
+msgstr "Ha hecho una búsqueda en <a href=\"%s\">%s</a> sobre <strong>%s</strong>. Sin embargo, parece que su índice está desactualizado."
 
 #: modules/404.php:60
 msgid "You were incorrectly referred to this page by <a href=\"%s\">%s</a>."
-msgstr "You were incorrectly referred to this page by <a href=\"%s\">%s</a>."
+msgstr "Ha sido redireccionado erróneamente a esta página por <a href=\"%s\">%s</a>."
 
 msgid "Empty search"
-msgstr "Empty search"
+msgstr "Búsqueda vacía"
 
 msgid "You didn't search for anything in particular so I'm showing you everything"
-msgstr "You didn't search for anything in particular so I'm showing you everything"
+msgstr "No ha buscado nada en concreto, así que le mostramos todo"
 
 #: modules/404.php:63
-msgid ""
-"Perhaps you can go back to the <a href=\"%s\">home page</a> and try to navigate "
-"your way from there?"
-msgstr ""
-"Perhaps you can go back to the <a href=\"%s\">home page</a> and try to navigate "
-"your way from there?"
+msgid "Perhaps you can go back to the <a href=\"%s\">home page</a> and try to navigate your way from there?"
+msgstr "Puede volver a la <a href=\"%s\">página de inicio</a> y tratar de navegar desde ahí"
 
 msgid "...or try a search?"
-msgstr "...or try a search?"
+msgstr "...o puede intentar hacer una búsqueda"
 
 #: modules/comments.php:5
 msgid "This post is password protected. Enter the password to view comments."
-msgstr "This post is password protected. Enter the password to view comments."
+msgstr "Esta entrada está protegida por contraseña. Introduzca la contraseña para ver los comentarios."
 
 #: modules/comments.php:10
 msgid "No comments"
-msgstr "No comments"
+msgstr "No hay comentarios"
 
 #: modules/comments.php:10
 msgid "One comment"
-msgstr "One comment"
+msgstr "Un comentario"
 
 #: modules/comments.php:10
 msgid "% comments"
-msgstr "% comments"
+msgstr "% comentarios"
 
 msgid "No comments on \"%s\""
-msgstr "No comments on \"%s\""
+msgstr "No hay comentarios en “%s”"
 
 msgid "One comment on \"%s\""
-msgstr "One comment on \"%s\""
+msgstr "Un comentario en “%s”"
 
 msgid "%s comments on \"%s\""
-msgstr "%s comments on \"%s\""
+msgstr "%s comentarios en “%s”"
 
 #: modules/comments.php:11
 msgid "on"
-msgstr "on"
+msgstr "en"
 
 #: modules/comments.php:30
 msgid "No comments yet, why not <a href=\"#post-comment\">post the first</a>?"
-msgstr "No comments yet, why not <a href=\"#post-comment\">post the first</a>?"
+msgstr "Todavía no hay comentarios, ¿por qué no <a href=\"#post-comment\">escribe el primero</a>?"
 
 #: modules/comments.php:32
 msgid "Comments are closed."
-msgstr "Comments are closed."
+msgstr "Los comentarios están cerrados."
 
 #: modules/partials/nothing-found.php:1
 msgid "Sorry, nothing was found here."
-msgstr "Sorry, nothing was found here."
+msgstr "Lo sentimos, no hemos podido encontrar nada."
 
 #: modules/post.php:18
 msgid "Pages"
-msgstr "Pages"
+msgstr "Páginas"
 
 #: modules/posts.php:33
 msgid "Previous page"
-msgstr "Previous page"
+msgstr "Página anterior"
 
 #: modules/posts.php:34
 msgid "Next page"
-msgstr "Next page"
+msgstr "Página siguiente"
 
 #: modules/search.php:4
 msgid "Search..."
-msgstr "Search..."
+msgstr "Buscar..."
 
 #: modules/search.php:5
 msgid "Find"
-msgstr "Find"
+msgstr "Encontrar"
 
 msgid "All"
-msgstr "All"
+msgstr "Todo"

@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-14 15:08+0200\n"
+"PO-Revision-Date: 2017-04-14 15:18+0200\n"
 "Language: en\n"
 "X-Generator: Poedit 1.8.12\n"
 "Last-Translator: \n"
@@ -206,5 +206,14 @@ msgstr "Alla"
 msgid "Read more"
 msgstr "Läs mer"
 
+msgid "Layout"
+msgstr "Layout"
+
 msgid "Select a different layout for this module to change its appearance on the website."
 msgstr "Välj en annan layout för att ändra utseende på den här modulen."
+
+msgid "Add a module"
+msgstr "Lägg till en modul"
+
+msgid "Modules"
+msgstr "Moduler"

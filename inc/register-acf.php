@@ -72,7 +72,7 @@ function sleek_register_acf_modules ($locations, $textdomain = 'sleek') {
 	# Go through every post type
 	foreach ($locations as $pt => $moduleGroups) {
 		# Create a title
-		$mainTitle = __('Modules', $textdomain);
+		$mainTitle = __('Modules', 'sleek');
 
 		# Create the main key for this group
 		$mainKey = 'group_' . $pt . '_modules';
@@ -128,7 +128,7 @@ function sleek_register_acf_modules ($locations, $textdomain = 'sleek') {
 							[
 								'key' => $lgKey . '-template',
 								'name' => 'template',
-								'label' => __('Layout', $textdomain),
+								'label' => __('Layout', 'sleek'),
 								'instructions' => __('Select a different layout for this module to change its appearance on the website.', 'sleek'),
 								'type' => 'select',
 								'choices' => sleek_get_acf_group_templates($fg)

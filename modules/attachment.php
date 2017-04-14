@@ -6,14 +6,10 @@
 			<h1><?php the_title() ?></h1>
 
 			<figure>
-				<a href="<?php echo wp_get_attachment_url($post->ID) ?>">
-					<?php echo wp_get_attachment_image($post->ID, 'large') ?>
-				</a>
-
-				<?php if (!empty($post->post_excerpt)) : ?>
-					<figcaption><?php the_excerpt() ?></figcaption>
-				<?php endif ?>
+				<?php echo wp_get_attachment_image($post->ID, 'large') ?>
 			</figure>
+
+			<?php the_excerpt() ?>
 
 		</header>
 
@@ -21,7 +17,22 @@
 
 		<article>
 
-			<?php the_content() ?>
+			<figure>
+
+				<a href="<?php echo wp_get_attachment_url($post->ID) ?>">
+					<?php echo wp_get_attachment_image($post->ID, 'large') ?>
+				</a>
+
+				<figcaption>
+
+					<h2><?php the_title() ?></h2>
+
+					<?php the_excerpt() ?>
+					<?php the_content() ?>
+
+				</figcaption>
+
+			</figure>
 
 		</article>
 

@@ -2,7 +2,7 @@
 
 <?php # TODO: Create a real search form with ?s and all taxonomies ?>
 <?php if ($archiveData and $archiveData['taxonomies']) : ?>
-	<nav id="archive-search">
+	<nav id="archive-taxonomies">
 
 		<?php foreach ($archiveData['taxonomies'] as $tax) : ?>
 			<ul>

@@ -3,8 +3,11 @@
 <main>
 
 	<?php get_template_part('modules/page') ?>
-	<?php comments_template('/modules/comments.php') ?>
-	<?php get_template_part('modules/post-comment') ?>
+
+	<?php if (!post_password_required()) : ?>
+		<?php comments_template('/modules/comments.php') ?>
+		<?php get_template_part('modules/post-comment') ?>
+	<?php endif ?>
 
 </main>
 

@@ -15,7 +15,7 @@
 			</h2>
 
 			<ol>
-				<?php wp_list_comments(); ?>
+				<?php wp_list_comments() ?>
 			</ol>
 
 			<nav>

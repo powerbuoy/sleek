@@ -1,4 +1,6 @@
 <?php
+	global $wp_query;
+
 	$big = 999999;
 	$pagination = paginate_links([
 		# All args
@@ -19,6 +21,7 @@
 		'after_page_number' => '', */
 
 		# From https://codex.wordpress.org/Function_Reference/paginate_links
+		# TODO: Surely all this can't be needed?!
 		'type' => 'list',
 		'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
 		'format' => '?paged=%#%',

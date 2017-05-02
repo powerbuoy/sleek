@@ -3,9 +3,12 @@
 <main>
 
 	<?php get_template_part('modules/post') ?>
-	<?php get_template_part('modules/social-media-buttons') ?>
-	<?php comments_template('/modules/comments.php') ?>
-	<?php get_template_part('modules/post-comment') ?>
+
+	<?php if (!post_password_required()) : ?>
+		<?php get_template_part('modules/social-media-buttons') ?>
+		<?php comments_template('/modules/comments.php') ?>
+		<?php get_template_part('modules/post-comment') ?>
+	<?php endif ?>
 
 </main>
 

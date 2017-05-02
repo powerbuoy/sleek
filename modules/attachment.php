@@ -1,38 +1,31 @@
-<section id="image">
+<?php get_template_part('modules/breadcrumbs') ?>
 
-	<?php while (have_posts()) : the_post() ?>
-		<header>
+<?php while (have_posts()) : the_post() ?>
+	<section id="attachment">
 
-			<h1>
-				<!-- <a href="<?php echo get_permalink($post->post_parent) ?>">
-					<?php echo get_the_title($post->post_parent) ?>
-				</a> &raquo; --><?php the_title() ?>
-			</h1>
+		<figure>
 
-			<figure>
-				<a href="<?php echo wp_get_attachment_url($post->ID) ?>">
-					<?php echo wp_get_attachment_image($post->ID, 'large') ?>
-				</a>
+			<a href="<?php echo wp_get_attachment_url($post->ID) ?>">
+				<?php echo wp_get_attachment_image($post->ID, 'large') ?>
+			</a>
 
-				<?php if (!empty($post->post_excerpt)) : ?>
-					<figcaption><?php the_excerpt() ?></figcaption>
-				<?php endif ?>
-			</figure>
+			<figcaption>
 
-		</header>
+				<h1><?php the_title() ?></h1>
 
-		<?php get_template_part('modules/breadcrumbs') ?>
+				<?php the_excerpt() ?>
+				<?php the_content() ?>
 
-		<article>
+			</figcaption>
 
-			<?php the_content() ?>
+		</figure>
 
-		</article>
-	<?php endwhile ?>
-
-</section>
+	</section>
+<?php endwhile ?>
 
 <nav id="pagination">
+
 	<?php previous_image_link() ?>
 	<?php next_image_link() ?>
+
 </nav>

@@ -1,6 +1,6 @@
-<section id="page">
+<?php while (have_posts()) : the_post() ?>
+	<section id="page">
 
-	<?php while (have_posts()) : the_post() ?>
 		<header>
 
 			<h1><?php the_title() ?></h1>
@@ -21,6 +21,6 @@
 			<?php wp_link_pages() ?>
 
 		</article>
-	<?php endwhile ?>
 
-</section>
+	</section>
+<?php endwhile ?>

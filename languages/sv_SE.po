@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-13 03:11+0200\n"
+"PO-Revision-Date: 2017-05-02 17:15+0200\n"
 "Language: en\n"
 "X-Generator: Poedit 1.8.12\n"
 "Last-Translator: \n"
@@ -106,7 +106,7 @@ msgid "A <strong>miss-typed address</strong>"
 msgstr "En <strong>felstavad adress</strong>"
 
 #: modules/404.php:56
-msgid "Woops! Looks like one of our internal links are out-of-date. <strong>Sincerly sorry</strong> about that! :)"
+msgid "Woops! Looks like one of our internal links are out-of-date. <strong>Sincerely sorry</strong> about that! :)"
 msgstr "Hoppsan! Verkar som att en av våra interna länkar är utdaterade. <strong>Riktigt ledsen</strong> för det! :)"
 
 #: modules/404.php:58

@@ -56,7 +56,7 @@
 				<li><?php _e('A <strong>miss-typed address</strong>', 'sleek') ?></li>
 			</ul>
 		<?php elseif ($internalRef) : ?>
-			<p><?php _e('Woops! Looks like one of our internal links are out-of-date. <strong>Sincerly sorry</strong> about that! :)', 'sleek') ?></p>
+			<p><?php _e('Woops! Looks like one of our internal links are out-of-date. <strong>Sincerely sorry</strong> about that! :)', 'sleek') ?></p>
 		<?php elseif ($searchRef) : ?>
 			<p><?php printf(__('You did a search on %s, however, their index appears to be out of date.', 'sleek'), $referrerSite, $q) ?></p>
 		<?php else : ?>

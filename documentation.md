@@ -46,7 +46,7 @@ For example:
 
 **search.php**
 
-```
+```php
 <?php get_header() ?>
 
 <main>
@@ -62,7 +62,7 @@ For example:
 
 **modules/search-header.php**
 
-```
+```php
 <header id="search-header">
 
 	<h1><?php printf(__('Search results for "%s"', 'my-textdomain'), get_search_query()) ?></h1>
@@ -74,7 +74,7 @@ For example:
 
 **modules/search-results.php**
 
-```
+```php
 <section id="search-results">
 
 	<?php while (have_posts()) : the_post() ?>
@@ -104,7 +104,7 @@ For example:
 
 **inc/sort-employees-by-name.php**
 
-```
+```php
 <?php
 add_filter('pre_get_posts', function ($query) {
 	if (!is_admin() and $query->is_main_query()) {
@@ -118,7 +118,7 @@ add_filter('pre_get_posts', function ($query) {
 
 And then include your file from `functions.php`:
 
-```
+```php
 <?php
 require_once 'inc/sort-employees-by-name.php';
 
@@ -145,7 +145,8 @@ This is nothing special just the standard WordPress way of registering your thum
 
 Because WordPress automatically creates three thumbnail sizes and use them internally (in the admin, or by plugins) it's much better to simply modify their sizes and use them throughout your theme as much as possible;
 
-```
+```php
+<?php
 add_action('after_setup_theme', function () {
 	update_option('thumbnail_size_w', 640);
 	update_option('thumbnail_size_h', 480);
@@ -163,7 +164,8 @@ add_action('after_setup_theme', function () {
 
 Sleek comes with a utility function for registering custom post types. Simply pass an array of post type slugs into the function and they'll be registered using WordPress' `register_post_type()`. Should you want to override Sleek's default config for the post type you can pass in an associative array instead;
 
-```
+```php
+<?php
 sleek_register_post_types([
 	'office',
 	'employee',
@@ -194,7 +196,8 @@ Similarly to `sleek_register_post_types()` there's also a `sleek_register_taxono
 
 In rare cases you want a taxonomy shared between several CPTs, simply pass in multiple post type names if that's the case, and don't prefix the taxonomy name:
 
-```
+```php
+<?php
 sleek_register_taxonomies([
 	'case_category' => ['case'],
 	'country' => ['office', 'employee']
@@ -219,7 +222,8 @@ If you want to include more CSS or JS, simply pass the paths as an array to the 
 
 Once again Sleek comes with a wrapper function for WordPress' `register_sidebar()`; `sleek_register_sidebars()`. Simply pass in an array of sidebar slugs and titles. You can optionally override Sleek's default config by passing in an associative array;
 
-```
+```php
+<?php
 sleek_register_sidebars([
 	'aside' => [
 		'name' => __('Aside', 'my-textdomain'),
@@ -235,7 +239,8 @@ sleek_register_sidebars([
 
 Sleek provides a utility function for easily adding fields to WordPress' Customize screen. These fields are useful for storing configuration variables like Google Analytics ID, Google Maps API Key etc. Simply register the field you need:
 
-```
+```php
+<?php
 add_action('customize_register', function ($wpCustomize) {
 	sleek_register_theme_options($wpCustomize, [
 		'my_cool_field' => 'text'

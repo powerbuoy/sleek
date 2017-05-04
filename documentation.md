@@ -46,7 +46,8 @@ For example:
 
 **search.php**
 
-`<?php get_header() ?>
+```
+<?php get_header() ?>
 
 <main>
 
@@ -56,21 +57,25 @@ For example:
 
 </main>
 
-<?php get_footer() ?>`
+<?php get_footer() ?>
+```
 
 **modules/search-header.php**
 
-`<header id="search-header">
+```
+<header id="search-header">
 
 	<h1><?php printf(__('Search results for "%s"', 'my-textdomain'), get_search_query()) ?></h1>
 
 	<p><?php printf(__('%s posts were found!', 'my-textdomain'), $wp_query->found_posts) ?></p>
 
-</header>`
+</header>
+```
 
 **modules/search-results.php**
 
-`<section id="search-results">
+```
+<section id="search-results">
 
 	<?php while (have_posts()) : the_post() ?>
 		<article>
@@ -84,7 +89,8 @@ For example:
 		</article>
 	<?php endwhile ?>
 
-</section>`
+</section>
+```
 
 Sleek contains templates and modules for all of WordPress' page types but more often than not you're going to want to override them. If that's the case, simply copy the file from `sleek/modules/posts.php` (for example) to `my-theme/modules/posts.php` and it'll be used instead.
 
@@ -98,7 +104,8 @@ For example:
 
 **inc/sort-employees-by-name.php**
 
-`<?php
+```
+<?php
 add_filter('pre_get_posts', function ($query) {
 	if (!is_admin() and $query->is_main_query()) {
 		if (is_post_type_archive('employee') or is_tax('employee_category')) {
@@ -106,14 +113,17 @@ add_filter('pre_get_posts', function ($query) {
 			$query->set('order', 'ASC');
 		}
 	}
-});`
+});
+```
 
 And then include your file from `functions.php`:
 
-`<?php
+```
+<?php
 require_once 'inc/sort-employees-by-name.php';
 
-# More code here...`
+# More code here...
+```
 
 ## The functions.php file
 
@@ -135,7 +145,8 @@ This is nothing special just the standard WordPress way of registering your thum
 
 Because WordPress automatically creates three thumbnail sizes and use them internally (in the admin, or by plugins) it's much better to simply modify their sizes and use them throughout your theme as much as possible;
 
-`add_action('after_setup_theme', function () {
+```
+add_action('after_setup_theme', function () {
 	update_option('thumbnail_size_w', 640);
 	update_option('thumbnail_size_h', 480);
 	update_option('thumbnail_crop', 1);
@@ -145,18 +156,21 @@ Because WordPress automatically creates three thumbnail sizes and use them inter
 	update_option('large_size_w', 1920);
 	update_option('large_size_h', 1080);
 	update_option('large_crop', 1);
-});`
+});
+```
 
 ### Register custom post types and taxonomies
 
 Sleek comes with a utility function for registering custom post types. Simply pass an array of post type slugs into the function and they'll be registered using WordPress' `register_post_type()`. Should you want to override Sleek's default config for the post type you can pass in an associative array instead;
 
-`sleek_register_post_types([
+```
+sleek_register_post_types([
 	'office',
 	'employee',
 	'case',
 	'guide' => ['hierarchical' => true]
-], 'my-textdomain');`
+], 'my-textdomain');
+```
 
 The last argument is your theme's textdomain. The registered post type's name and URL will be run through the `__()` function so that it can be translated using your theme's PO files.
 
@@ -164,11 +178,13 @@ The CPT's URL will be `url_name-of-post-type` so you'll want to translate that t
 
 **languages/sv_SE.po**
 
-`msgid "Office"
+```
+msgid "Office"
 msgstr "Kontor"
 
 msgid "url_office"
-msgstr "kontor"`
+msgstr "kontor"
+```
 
 Remember to flush permalinks after you've made changes to URLs.
 
@@ -178,11 +194,12 @@ Similarly to `sleek_register_post_types()` there's also a `sleek_register_taxono
 
 In rare cases you want a taxonomy shared between several CPTs, simply pass in multiple post type names if that's the case, and don't prefix the taxonomy name:
 
-`sleek_register_taxonomies([
+```
+sleek_register_taxonomies([
 	'case_category' => ['case'],
 	'country' => ['office', 'employee']
-], 'my-textdomain');`
-
+], 'my-textdomain');
+```
 
 By default WordPress will show all registered post types on the search results page. While WP's `register_post_type()` function provides a method of disabling a CPT from appearing in search, using it also disables the CPTs archive page (it's a bug https://core.trac.wordpress.org/ticket/20234). Instead you can use `sleek_set_cpt_in_search(['case', 'guide'])` to tell WP which post types you want to display on the SERP. Note that `post` and `page` are always displayed.
 
@@ -198,12 +215,12 @@ If you want to include more CSS or JS, simply pass the paths as an array to the 
 
 `sleek_register_assets(['https://fonts.googleapis.com/css?family=Lato:300,900'])`
 
-
 ### Register sidebars
 
 Once again Sleek comes with a wrapper function for WordPress' `register_sidebar()`; `sleek_register_sidebars()`. Simply pass in an array of sidebar slugs and titles. You can optionally override Sleek's default config by passing in an associative array;
 
-`sleek_register_sidebars([
+```
+sleek_register_sidebars([
 	'aside' => [
 		'name' => __('Aside', 'my-textdomain'),
 		'before_title' => '<h3>',
@@ -211,17 +228,20 @@ Once again Sleek comes with a wrapper function for WordPress' `register_sidebar(
 	],
 	'header' => __('Header', 'my-textdomain'),
 	'footer' => __('Footer', 'my-textdomain')
-]);`
+]);
+```
 
 ### Add more options to Appearance -> Customize -> Theme Options
 
 Sleek provides a utility function for easily adding fields to WordPress' Customize screen. These fields are useful for storing configuration variables like Google Analytics ID, Google Maps API Key etc. Simply register the field you need:
 
-`add_action('customize_register', function ($wpCustomize) {
+```
+add_action('customize_register', function ($wpCustomize) {
 	sleek_register_theme_options($wpCustomize, [
 		'my_cool_field' => 'text'
 	], 'my-textdomain');
-});`
+});
+```
 
 And then use the field however you want; `$myCoolField = get_theme_mod('my_cool_field')`. Sleek has built-in handling of Google Analytics and Google Maps (as well as integration with ACF's Google Map field).
 

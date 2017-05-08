@@ -133,7 +133,9 @@ Here I'll explain each of its functions/sections from top to bottom.
 
 ### Enable search inside custom fields (including ACF)
 
-Uncommenting this `require` will make the built-in WordPress search look inside custom fields as well as the "`the_content`". This is helpful if you have a lot of content inside advanced custom fields and you want that content to be considered when the user searches the site.
+`require_once get_template_directory() . '/inc/include-postmeta-in-search.php';`
+
+Uncommenting this `require` will make the built-in WordPress search look inside custom fields as well as "`the_content`". This is helpful if you have a lot of content inside advanced custom fields and you want that content to be considered when the user searches the site.
 
 This functionality is commented by default as it modifies the main query and adds additional `JOIN`s. If you don't need this functionality it's unnecessary to run the code.
 
@@ -266,8 +268,136 @@ This code just adds your PO/MO files and textdomain. If you need to override som
 
 ## Advanced Custom Fields
 
-TODO...
+While it's possible to register ACF using the GUI in the admin, doing so provides zero version control and makes it a hassle to deploy changes to your ACFs.
+
+It's much better to register all ACF's using PHP. Advanced Custom Fields even recommends doing so.
+
+However, using ACF's method of registering fields is a little limiting in that registering a field also requires you to specify _where_ said field should be used. In other words, it's difficult to create a field and use it in several places like a repeater, flexible content, options page _and_ on a specific post type.
+
+Sleek comes with three utility functions for making this a breeze.
+
+### Registering your fields
+
+First start by creating your field group definition by adding a file to the `acf/` folder with the same name as your field group. In this example I'll be creating a simple video field (**Note:** _always_ prefix your field names with your field group name to avoid collisions with other fields!);
+
+```php
+<?php
+return [
+	[
+		'name' => 'video-title',
+		'label' => __('Title', 'my-textdomain'),
+		'instructions' => __('Enter a title to display above the video.', 'my-textdomain'),
+		'type' => 'text'
+	],
+	[
+		'name' => 'video-description',
+		'label' => __('Description', 'my-textdomain'),
+		'instructions' => __('Enter a description for the video.', 'my-textdomain'),
+		'type' => 'wysiwyg'
+	],
+	[
+		'name' => 'video-code',
+		'label' => __('Video', 'my-textdomain'),
+		'instructions' => __('Copy the YouTube/Vimeo URL and paste it here.', 'my-textdomain'),
+		'type' => 'oembed',
+		'required' => true
+	]
+];
+```
+
+Comparing this with the way ACF creates a field by default you'll notice a few differences;
+
+```php
+acf_add_local_field_group(array (
+	'key' => 'group-video',
+	'title' => 'Video Group',
+	'fields' => array (
+		# Note that this list of arrays is the only thing we added to the sleek version
+		array (
+			'key' => 'video-title',
+			'label' => 'Title',
+			'name' => 'video-title',
+			'type' => 'text'
+		),
+		array (
+			'key' => 'video-description',
+			'label' => 'Description',
+			'name' => 'video-description',
+			'type' => 'wysiwyf'
+		),
+		array (
+			'key' => 'video-code',
+			'label' => 'Description',
+			'name' => 'video-code',
+			'type' => 'oembed',
+			'required' => true
+		)
+	),
+	'location' => array (
+		array (
+			array (
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	)
+));
+```
+
+As you can see, using the default ACF method for registering the field requires us to 1) specify a field group where our fields will be located and 2) specify a location where our field group will be shown. This prevents us from easily adding this group to several places at once.
+
+Using the Sleek method we instead omit the group and location definitions, as well as all `key`s. This is because we will specify the group's location later on when using the field.
+
+### Using your fields
+
+Now say we want all our posts to have a video, we can simply do: `sleek_register_acf(['post' => ['video']])` (**Note:** you can just keep adding other fields to the array containing `'video'`). This will create a new group and add it to the `post` post type.
+
+Now imagine you also want a video in the footer so we need to add it to an options page, simply use `sleek_register_acf_options(['theme-settings' => ['video']])`. This will create an options page with the name "Theme settings" (and slug `theme-settings`) and add a "Video" tab to it.
+
+Finally, you can also create a flexible content field and add the video as a flexible content field group to it; `sleek_register_acf_modules(['page' => ['name-of-flexible-content-field' => ['video']]])`. This will create a flexible content field called "Name of flexible content field" on pages which allow you to add the `video` field. Again, just keep adding field names (`acf/field-name.php` => `field-name`) to the array to add more fields.
+
+With this in place you should see all the fields in the admin (please make sure ACF Pro is activated if you don't see anything). To use your fields you simply use the normal ACF functions like `get_field()` or `the_field()` etc.
+
+### Using flexible content fields
+
+_However_, when it comes to flexible content fields, Sleek once again has a nice utility function for looping through the flexible content field and automatically include any templates associated with the field.
+
+First, let's create a template for the video field, just add a folder and file to the `acf/` folder; `acf/video/default.php`. The `video` folder name needs to be exactly the same name as your `video.php` field definition filename. The template filename can be anything you want, and if more than one are added a dropdown will appear in the admin allowing the user to select from all available templates. This is useful when you want a field group/module to have several different appearances but always use the same data.
+
+Here's what a default video template might look like:
+
+```
+php
+<section id="video">
+
+	<?php if ($data['video-title'] or $data['video-description']) : ?>
+		<header>
+
+			<?php if ($data['video-title']) : ?>
+				<h2><?php echo $data['video-title'] ?></h2>
+			<?php endif ?>
+
+			<?php echo $data['video-description'] ?>
+
+		</header>
+	<?php endif ?>
+
+	<div class="video"><?php echo $data['video-code'] ?></div>
+
+</section>
+```
+
+Now to loop through the flexible content field and automatically include all included module templates simply go; `sleek_get_template_part('modules/acf-modules', ['where' => 'name-of-flexible-content-field'])`. (**TODO:** Convert this to a function! `sleek_render_acf_modules('name-of-flexible-content-field')`).
+
+And that's it! Using ACF fields this way is much more flexible than what is built in to ACF, while still managing to stay less verbose in that you don't need to supply `key`s or `locations`.
 
 ## SRC/ (the frontend code)
 
-TODO...
+There's not much to the `src/` folder other than to put your SASS in `sass/`, JavaScript in `js/` and whatever assets you might have in `assets/`. SVG files should go in `assets/svg/` for them to run through the optimization tasks in gulp.
+
+Icons are downloaded from Fontello based on the `icons.json` file. Import that to Fontello, add or remove whatever icons you want and download a new `config.json` replacing the previous `icons.json` and gulp will generate a new icon font and CSS classes.
+
+JS is run through Browserify so you can include node modules using `var $ = require('jquery');` and so on.
+
+Happy coding!

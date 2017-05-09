@@ -1,37 +1,38 @@
 <?php
 # Roots stuff
-include get_template_directory() . '/inc/roots/utils.php';
-include get_template_directory() . '/inc/roots/cleanup.php';
-include get_template_directory() . '/inc/roots/nav.php';
+require_once get_template_directory() . '/inc/roots/utils.php';
+require_once get_template_directory() . '/inc/roots/cleanup.php';
+require_once get_template_directory() . '/inc/roots/nav.php';
 
 # Sleek stuff
-include get_template_directory() . '/inc/utils.php';
-include get_template_directory() . '/inc/active-archive-link-on-taxonomies.php';
-include get_template_directory() . '/inc/add-post-type-arg-to-get-terms.php';
-include get_template_directory() . '/inc/attachments-archive.php';
-include get_template_directory() . '/inc/comment-form-placeholders.php';
-include get_template_directory() . '/inc/unset-active-blog-class.php';
-include get_template_directory() . '/inc/default-meta-boxes.php';
-include get_template_directory() . '/inc/hide-sleek-from-admin.php';
-include get_template_directory() . '/inc/html-in-widget-titles.php';
-include get_template_directory() . '/inc/jquery-cdn-in-foot.php';
-include get_template_directory() . '/inc/more-markdown.php';
-include get_template_directory() . '/inc/pagination-css-class.php';
-include get_template_directory() . '/inc/get-archive-data.php';
-include get_template_directory() . '/inc/get-site-logo.php';
-include get_template_directory() . '/inc/get-page-type.php';
-include get_template_directory() . '/inc/reduce-requests.php';
-include get_template_directory() . '/inc/register-acf.php';
-include get_template_directory() . '/inc/register-assets.php';
-include get_template_directory() . '/inc/register-post-types.php';
-include get_template_directory() . '/inc/register-sidebars.php';
-include get_template_directory() . '/inc/register-taxonomies.php';
-include get_template_directory() . '/inc/register-theme-options.php';
+require_once get_template_directory() . '/inc/utils.php';
+require_once get_template_directory() . '/inc/active-archive-link-on-taxonomies.php';
+require_once get_template_directory() . '/inc/add-post-type-arg-to-get-terms.php';
+require_once get_template_directory() . '/inc/attachments-archive.php';
+require_once get_template_directory() . '/inc/comment-form-placeholders.php';
+require_once get_template_directory() . '/inc/unset-active-blog-class.php';
+require_once get_template_directory() . '/inc/default-meta-boxes.php';
+require_once get_template_directory() . '/inc/hide-sleek-from-admin.php';
+require_once get_template_directory() . '/inc/html-in-widget-titles.php';
+require_once get_template_directory() . '/inc/jquery-cdn-in-foot.php';
+require_once get_template_directory() . '/inc/more-markdown.php';
+require_once get_template_directory() . '/inc/pagination-css-class.php';
+require_once get_template_directory() . '/inc/get-archive-data.php';
+require_once get_template_directory() . '/inc/get-site-logo.php';
+require_once get_template_directory() . '/inc/get-page-type.php';
+require_once get_template_directory() . '/inc/reduce-requests.php';
+require_once get_template_directory() . '/inc/render-acf-modules.php';
+require_once get_template_directory() . '/inc/register-acf.php';
+require_once get_template_directory() . '/inc/register-assets.php';
+require_once get_template_directory() . '/inc/register-post-types.php';
+require_once get_template_directory() . '/inc/register-sidebars.php';
+require_once get_template_directory() . '/inc/register-taxonomies.php';
+require_once get_template_directory() . '/inc/register-theme-options.php';
 
 # Currently unused
-# include get_template_directory() . '/inc/ajax.php';
-# include get_template_directory() . '/inc/relevanssi.php';
-# include get_template_directory() . '/inc/tinymce-styles.php';
+# require_once get_template_directory() . '/inc/ajax.php';
+# require_once get_template_directory() . '/inc/relevanssi.php';
+# require_once get_template_directory() . '/inc/tinymce-styles.php';
 
 # Set up for translation
 add_action('after_setup_theme', function () {

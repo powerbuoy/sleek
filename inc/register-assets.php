@@ -4,9 +4,11 @@
  */
 function sleek_register_assets ($extraAssets = []) {
 	add_action('wp_enqueue_scripts', function () use ($extraAssets) {
-		# Theme JS
-		wp_register_script('sleek', get_stylesheet_directory_uri() . '/dist/all.js?v=' . filemtime(get_stylesheet_directory() . '/dist/all.js'), ['jquery'], null, true);
-		wp_enqueue_script('sleek');
+		# Theme JS (all.js)
+		if (file_exists(get_stylesheet_directory() . '/dist/all.js')) {
+			wp_register_script('sleek', get_stylesheet_directory_uri() . '/dist/all.js?v=' . filemtime(get_stylesheet_directory() . '/dist/all.js'), ['jquery'], null, true);
+			wp_enqueue_script('sleek');
+		}
 
 		# Some useful vars in config
 		$jsConfig = [
@@ -72,7 +74,7 @@ function sleek_register_assets ($extraAssets = []) {
 			});
 		}
 		# Only an all.css exists - just include it normally
-		else {
+		elseif (file_exists(get_stylesheet_directory() . '/dist/all.css')) {
 			wp_register_style('sleek', get_stylesheet_directory_uri() . '/dist/all.css?v=' . filemtime(get_stylesheet_directory() . '/dist/all.css'), [], null);
 			wp_enqueue_style('sleek');
 		}
@@ -97,20 +99,24 @@ function sleek_register_assets ($extraAssets = []) {
 				wp_register_script('sleek_extra_js_' . $id, $path, $dependencies, null, true);
 				wp_enqueue_script('sleek_extra_js_' . $id);
 			}
-			# Only add CSS if there's no critical CSS
+			# Only add CSS if there's no critical CSS (if there is critical CSS it's already been added above)
 			elseif (!$hasCriticalCss) {
 				wp_register_style('sleek_extra_css_' . $id, $path);
 				wp_enqueue_style('sleek_extra_css_' . $id);
 			}
 		}
-
-		# Add google maps?
-		if ($googleMaps = get_theme_mod('google_maps_api_key')) {
-			wp_register_script('google_maps', 'https://maps.googleapis.com/maps/api/js?key=' . $googleMaps . '&callback=gmAsyncInit', [], null, true);
-			wp_enqueue_script('google_maps');
-		}
 	});
 }
+
+/**
+ * Add Google Maps if specified in theme options
+ */
+add_action('wp_enqueue_scripts', function () {
+	if ($googleMaps = get_theme_mod('google_maps_api_key')) {
+		wp_register_script('google_maps', 'https://maps.googleapis.com/maps/api/js?key=' . $googleMaps . '&callback=gmAsyncInit', [], null, true);
+		wp_enqueue_script('google_maps');
+	}
+});
 
 /**
  * Add some stuff before </body>

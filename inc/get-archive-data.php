@@ -33,8 +33,8 @@ function sleek_get_archive_data ($args = []) {
 		'post_type' => false
 	];
 
-	# The normal blog archive
-	if (is_home()) {
+	# The normal blog archive when using a static home page (TODO: Add support for NONE static home page)
+	if (is_home() && get_option('page_for_posts')) {
 		$data['post_type'] = 'post';
 		$data['post_type_title'] = get_the_title(get_option('page_for_posts'));
 		$data['title'] = get_the_title(get_option('page_for_posts'));

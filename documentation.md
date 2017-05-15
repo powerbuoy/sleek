@@ -388,7 +388,7 @@ php
 </section>
 ```
 
-Now to loop through the flexible content field and automatically include all included module templates simply go; `sleek_get_template_part('modules/acf-modules', ['where' => 'name-of-flexible-content-field'])`. (**TODO:** Convert this to a function! `sleek_render_acf_modules('name-of-flexible-content-field')`).
+Now to loop through the flexible content field and automatically include all included module templates simply go: `sleek_render_acf_modules('name-of-flexible-content-field')`.
 
 And that's it! Using ACF fields this way is much more flexible than what is built in to ACF, while still managing to stay less verbose in that you don't need to supply `key`s or `locations`.
 

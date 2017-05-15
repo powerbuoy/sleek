@@ -1,6 +1,8 @@
 <?php
-	# TODO: Convert to function!!
-	# This template should be called with sleek_get_template_part('modules/acf-modules', ['where' => 'module-area'])
+/**
+ * Renders ACF flexible content modules in the $where container
+ */
+function sleek_render_acf_modules ($where) {
 	global $post;
 
 	if ($modules = get_field('modules-' . $where)) {
@@ -36,4 +38,4 @@
 			}
 		}
 	}
-?>
+}

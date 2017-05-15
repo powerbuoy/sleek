@@ -14,3 +14,5 @@
 	</head>
 
 	<body>
+
+		<?php do_action('sleek_after_body_tag_open') ?>

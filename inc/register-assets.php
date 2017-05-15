@@ -1,6 +1,6 @@
 <?php
 /**
- * Registers CSS and JS
+ * Registers all.css and all.js along with some config variables
  */
 function sleek_register_assets ($extraAssets = []) {
 	add_action('wp_enqueue_scripts', function () use ($extraAssets) {
@@ -119,6 +119,49 @@ add_action('wp_enqueue_scripts', function () {
 });
 
 /**
+ * Add some stuff to <head></head>
+ */
+add_action('wp_head', function () {
+	echo "<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>";
+
+	# Google Analytics
+	if ($googleAnalytics = get_theme_mod('google_analytics_id')) {
+		echo "<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', '$googleAnalytics', 'auto');
+			ga('send', 'pageview');
+		</script>";
+	}
+
+	# Google Tag Manager
+	if ($gtmId = get_theme_mod('google_tag_manager_id')) {
+		echo "<script>
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','$gtmId');
+		</script>";
+	}
+});
+
+/**
+ * Add some stuff before <body>
+ */
+add_action('sleek_after_body_tag_open', function () {
+	# Google Tag Manager again
+	if ($gtmId = get_theme_mod('google_tag_manager_id')) {
+		echo '<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id='. $gtmId .'" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>';
+	}
+});
+
+/**
  * Add some stuff before </body>
  */
 add_action('wp_footer', function () {
@@ -142,26 +185,6 @@ add_action('wp_footer', function () {
 					};
 				}
 			}
-		</script>";
-	}
-});
-
-/**
- * Add some stuff to <head></head>
- */
-add_action('wp_head', function () {
-	echo "<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>";
-
-	# Google Analytics
-	if ($googleAnalytics = get_theme_mod('google_analytics_id')) {
-		echo "<script>
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-			ga('create', '$googleAnalytics', 'auto');
-			ga('send', 'pageview');
 		</script>";
 	}
 });

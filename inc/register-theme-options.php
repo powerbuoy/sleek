@@ -11,9 +11,7 @@
 	sleek_register_theme_options($wpCustomize, [
 		'google_maps_api_key' => 'text',
 		'google_analytics_id' => 'text',
-	#	'recaptcha_site_key' => 'text',
-	#	'recaptcha_secret' => 'text',
-	#	'disqus_shortname' => 'text'
+		'google_tag_manager_id' => 'text'
 	], 'sleek');
 });
 

@@ -5,9 +5,11 @@
 
 			<h1><?php the_title() ?></h1>
 
-			<figure>
-				<?php the_post_thumbnail('large') ?>
-			</figure>
+			<?php if (has_post_thumbnail()) : ?>
+				<figure>
+					<?php the_post_thumbnail('large') ?>
+				</figure>
+			<?php endif ?>
 
 			<p>
 				<time datetime="<?php echo get_the_time('Y-m-j') ?>"><?php echo get_the_time(get_option('date_format')) ?></time> |

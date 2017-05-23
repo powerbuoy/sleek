@@ -5,9 +5,11 @@
 
 			<h1><?php the_title() ?></h1>
 
-			<figure>
-				<?php the_post_thumbnail('large') ?>
-			</figure>
+			<?php if (has_post_thumbnail()) : ?>
+				<figure>
+					<?php the_post_thumbnail('large') ?>
+				</figure>
+			<?php endif ?>
 
 			<?php the_excerpt() ?>
 

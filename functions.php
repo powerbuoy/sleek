@@ -66,3 +66,12 @@ add_filter('nav_menu_css_class', 'sleek_unset_active_blog_class', 10, 2);
 /* add_action('init', function () {
 	sleek_attachment_archives(__('url_attachment', 'sleek'), []); # Pass in any potential attachment taxonomies (image_category for example) as the last array to enable taxonomy archives
 }); */
+
+# Remove "Protected:" from protected post titles
+add_filter('private_title_format', function () {
+	return '%s';
+});
+
+add_filter('protected_title_format', function () {
+	return '%s';
+});

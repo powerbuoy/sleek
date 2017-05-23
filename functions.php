@@ -50,11 +50,6 @@ add_action('init', function () {
 	sleek_reduce_requests();
 });
 
-# Allow shortcodes in Text Widgets
-/* add_action('init', function () {
-	add_filter('widget_text', 'do_shortcode');
-}); */
-
 # Move jQuery to bottom of page + include from CDN
 add_action('wp_enqueue_scripts', 'sleek_enqueue_jquery_cdn_in_footer');
 
@@ -66,12 +61,6 @@ add_filter('comment_form_defaults', 'sleek_comment_form_placeholders');
 
 # Remove .current_page_parent from Blog-page when viewing another archive
 add_filter('nav_menu_css_class', 'sleek_unset_active_blog_class', 10, 2);
-
-# Allow HTML in Widget Titles (with [tags])
-# add_filter('widget_title', 'sleek_html_in_widget_titles');
-
-# Allow Markdown in excerpts and ACF
-# add_action('init', 'sleek_more_markdown');
 
 # Give attachments an archive and make attachment taxonomy archives work (TODO: Doesn't work properly)
 /* add_action('init', function () {

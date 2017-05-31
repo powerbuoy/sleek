@@ -1,37 +1,5 @@
 <?php
 /**
- * Returns an array of terms
- */
-function sleek_get_post_terms ($id, $pt, $linked = false, $type = 'category', $field = 'name') {
-	$terms = [];
-	$tmp = false;
-
-	if ($pt == 'post' and $type == 'tag') {
-		$tmp = wp_get_post_terms($id, 'post_tag');
-	}
-	elseif ($pt == 'post' and $type == 'category') {
-		$tmp = wp_get_post_terms($id, 'category');
-	}
-	elseif (taxonomy_exists($pt . '_' . $type)) {
-		$tmp = wp_get_post_terms($id, $pt . '_' . $type);
-	}
-
-	if ($tmp) {
-		foreach ($tmp as $t) {
-			if ($linked) {
-				$terms[] = '<a href="' . get_term_link($t) . '">' . $t->{$field} . '</a>';
-			}
-			else {
-				$terms[] = $t->{$field};
-			}
-		}
-	}
-
-	return $terms;
-}
-
-
-/**
  * Returns the current author either on /author/username/ or a single blog post
  */
 function sleek_get_current_author () {

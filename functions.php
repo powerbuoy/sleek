@@ -20,6 +20,7 @@ require_once get_template_directory() . '/inc/pagination-css-class.php';
 require_once get_template_directory() . '/inc/get-archive-data.php';
 require_once get_template_directory() . '/inc/get-site-logo.php';
 require_once get_template_directory() . '/inc/get-page-type.php';
+require_once get_template_directory() . '/inc/get-post-terms.php';
 require_once get_template_directory() . '/inc/reduce-requests.php';
 require_once get_template_directory() . '/inc/render-acf-modules.php';
 require_once get_template_directory() . '/inc/register-acf.php';

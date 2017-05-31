@@ -52,6 +52,9 @@ add_action('init', function () {
 	sleek_reduce_requests();
 });
 
+# Remove gallery inline styles (WP shines again!)
+add_filter('use_default_gallery_style', '__return_false');
+
 # Move jQuery to bottom of page + include from CDN
 add_action('wp_enqueue_scripts', 'sleek_enqueue_jquery_cdn_in_footer');
 

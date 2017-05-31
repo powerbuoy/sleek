@@ -35,7 +35,6 @@ require_once get_template_directory() . '/inc/register-theme-options.php';
 # Currently unused
 # require_once get_template_directory() . '/inc/ajax.php';
 # require_once get_template_directory() . '/inc/relevanssi.php';
-# require_once get_template_directory() . '/inc/tinymce-styles.php';
 
 # Set up for translation
 add_action('after_setup_theme', function () {

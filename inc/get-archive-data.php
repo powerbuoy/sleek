@@ -235,6 +235,9 @@ function sleek_get_taxonomies_by_post_type ($pt = 'post', $args = []) {
 		'category' => [
 			'rewrite' => 'cat',
 			'property' => 'term_id'
+		],
+		'post_tag' => [
+			'rewrite' => 'tag'
 		]
 	];
 
@@ -253,11 +256,11 @@ function sleek_get_taxonomies_by_post_type ($pt = 'post', $args = []) {
 
 		# If this taxonomy needs to be converted (post_tag => tag, category => cat etc)
 		if (isset($taxConverter[$tax->name])) {
+			$taxQueryName = $taxConverter[$tax->name]['rewrite'];
+
 			if (isset($taxConverter[$tax->name]['property'])) {
 				$property = $taxConverter[$tax->name]['property'];
 			}
-
-			$taxQueryName = $taxConverter[$tax->name]['rewrite'];
 		}
 
 		# Only continue if this taxonomy actually has terms
@@ -304,16 +307,17 @@ function sleek_get_taxonomies_by_post_type ($pt = 'post', $args = []) {
 	return $return;
 }
 
-# Add support for filtering on post_tag (everything else works out of the box in WP...)
+# Add support for filtering on post_tag (everything else seems to work out of the box in WP...)
 add_filter('pre_get_posts', function ($query) {
 	if (!is_admin() and $query->is_main_query()) {
 		if (is_home()) { # is_post_type_archive('post') doesn't work
-			if (isset($_GET['post_tag'])) {
+			# We need to use the 'tag' name as that it was it's called in get_query_var
+			if (isset($_GET['tag'])) {
 				$taxQuery = $query->get('tax_query');
 				$taxQuery[] = [
 					'taxonomy' => 'post_tag',
 					'field' => 'slug',
-					'terms' => $_GET['post_tag'],
+					'terms' => $_GET['tag'],
 					'operator' => 'IN'
 				];
 				$query->set('tax_query', $taxQuery);

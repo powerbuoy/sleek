@@ -239,25 +239,25 @@ function sleek_get_taxonomies_by_post_type ($pt = 'post', $args = []) {
 	];
 
 	# Get all taxonomies connected to this post type
-	$taxs = get_object_taxonomies($pt, 'names');
+	$taxs = get_object_taxonomies($pt, 'objects');
 	$return = [];
 
 	# Go through them all
 	foreach ($taxs as $tax) {
 		# Get all the terms
-		$tmp = get_terms(['taxonomy' => $tax, 'hide_empty' => $args['hide_empty']]);
+		$tmp = get_terms(['taxonomy' => $tax->name, 'hide_empty' => $args['hide_empty']]);
 		$terms = [];
-		$taxQueryName = $tax;
+		$taxQueryName = $tax->name;
 		$property = 'slug';
 		$hasSelected = false; # Whether one of the taxonomies terms is the one currently viewed
 
 		# If this taxonomy needs to be converted (post_tag => tag, category => cat etc)
-		if (isset($taxConverter[$tax])) {
-			if (isset($taxConverter[$tax]['property'])) {
-				$property = $taxConverter[$tax]['property'];
+		if (isset($taxConverter[$tax->name])) {
+			if (isset($taxConverter[$tax->name]['property'])) {
+				$property = $taxConverter[$tax->name]['property'];
 			}
 
-			$taxQueryName = $taxConverter[$tax]['rewrite'];
+			$taxQueryName = $taxConverter[$tax->name]['rewrite'];
 		}
 
 		# Only continue if this taxonomy actually has terms

@@ -1,8 +1,4 @@
-<?php $archiveData = sleek_get_archive_data([
-	'image_size' => 'large'
-]) ?>
-
-<?php if ($archiveData) : ?>
+<?php if ($archiveData = sleek_get_archive_data(['image_size' => 'large'])) : ?>
 	<header id="archive-header">
 
 		<?php if ($archiveData['image']) : ?>

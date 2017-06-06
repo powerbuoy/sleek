@@ -1,14 +1,14 @@
 <?php
 /**
- * Returns valuable data such as title/description
- * based on the currently viewed type of archive
- * (cpt, blog, category, date, search etc)
+ * Returns valuable data such as title/description  based on the currently
+ * viewed type of archive (cpt, blog, category, date, search etc)
  * TODO: Never assume that get_post_type_object() returns an object!
  */
 function sleek_get_archive_data ($args = []) {
 	global $post;
 	global $wp_query;
 
+	# WPML Support
 	$lang = defined('ICL_LANGUAGE_CODE') ? ICL_LANGUAGE_CODE : '';
 
 	# Args
@@ -18,8 +18,7 @@ function sleek_get_archive_data ($args = []) {
 			'yearly' => 'Y',
 			'monthly' => 'F Y',
 			'daily' => 'l, F j, Y'
-		],
-		'hide_empty_terms' => true
+		]
 	], $args);
 
 	# Return data
@@ -29,19 +28,17 @@ function sleek_get_archive_data ($args = []) {
 		'content' => false,
 		'image' => false,
 		'image_id' => false,
-		'taxonomies' => false,
 		'post_type' => false
 	];
 
 	# The normal blog archive when using a static home page (TODO: Add support for NONE static home page)
-	if (is_home() && get_option('page_for_posts')) {
+	if (is_home() and get_option('page_for_posts')) {
 		$data['post_type'] = 'post';
 		$data['post_type_title'] = get_the_title(get_option('page_for_posts'));
 		$data['title'] = get_the_title(get_option('page_for_posts'));
 		$data['content'] = apply_filters('the_content', get_post_field('post_content', get_option('page_for_posts')));
 		$data['image'] = has_post_thumbnail(get_option('page_for_posts')) ? get_the_post_thumbnail_url(get_option('page_for_posts'), $args['image_size']) : false;
 		$data['image_id'] = get_post_thumbnail_id(get_option('page_for_posts'));
-		$data['taxonomies'] = sleek_get_taxonomies_by_post_type('post', ['hide_empty' => $args['hide_empty_terms']]);
 	}
 
 	# A blog category
@@ -54,7 +51,6 @@ function sleek_get_archive_data ($args = []) {
 		$data['content'] = wpautop($term->description);
 		$data['image'] = has_post_thumbnail(get_option('page_for_posts')) ? get_the_post_thumbnail_url(get_option('page_for_posts'), $args['image_size']) : false;
 		$data['image_id'] = get_post_thumbnail_id(get_option('page_for_posts'));
-		$data['taxonomies'] = sleek_get_taxonomies_by_post_type('post', ['hide_empty' => $args['hide_empty_terms']]);
 	}
 
 	# A blog tag
@@ -67,7 +63,6 @@ function sleek_get_archive_data ($args = []) {
 		$data['content'] = wpautop($term->description);
 		$data['image'] = has_post_thumbnail(get_option('page_for_posts')) ? get_the_post_thumbnail_url(get_option('page_for_posts'), $args['image_size']) : false;
 		$data['image_id'] = get_post_thumbnail_id(get_option('page_for_posts'));
-		$data['taxonomies'] = sleek_get_taxonomies_by_post_type('post', ['hide_empty' => $args['hide_empty_terms']]);
 	}
 
 	# Date blog archives
@@ -76,7 +71,6 @@ function sleek_get_archive_data ($args = []) {
 		$data['post_type_title'] = get_the_title(get_option('page_for_posts'));
 		$data['image'] = has_post_thumbnail(get_option('page_for_posts')) ? get_the_post_thumbnail_url(get_option('page_for_posts'), $args['image_size']) : false;
 		$data['image_id'] = get_post_thumbnail_id(get_option('page_for_posts'));
-		$data['taxonomies'] = sleek_get_taxonomies_by_post_type('post', ['hide_empty' => $args['hide_empty_terms']]);
 
 		if (is_year()) {
 			$data['title'] = sprintf(__('Yearly archives', 'sleek'));
@@ -153,7 +147,6 @@ function sleek_get_archive_data ($args = []) {
 		$data['post_type_title'] = $postType->labels->name;
 		$data['title'] = $term->name;
 		$data['content'] = wpautop($term->description);
-		$data['taxonomies'] = sleek_get_taxonomies_by_post_type($data['post_type'], ['hide_empty' => $args['hide_empty_terms']]);
 
 		if ($imageId = get_option($data['post_type'] . $lang . '_image')) {
 			$data['image'] = wp_get_attachment_image_src($imageId, $args['image_size'])[0];
@@ -172,7 +165,6 @@ function sleek_get_archive_data ($args = []) {
 		$data['post_type_title'] = $postType->labels->name;
 		$data['title'] = $postType->labels->name;
 		$data['content'] = $postType->description ? wpautop($postType->description) : false;
-		$data['taxonomies'] = sleek_get_taxonomies_by_post_type($data['post_type'], ['hide_empty' => $args['hide_empty_terms']]);
 
 		if ($title = get_option($data['post_type'] . $lang . '_title')) {
 			$data['post_type_title'] = $data['title'] = $title;
@@ -224,104 +216,217 @@ function sleek_get_archive_data ($args = []) {
 	return $data;
 }
 
-function sleek_get_taxonomies_by_post_type ($pt = 'post', $args = []) {
-	# Args
+/**
+ * Returns list of all taxonomies associated with $args['post_type']
+ */
+function sleek_get_post_type_taxonomies ($args = []) {
+	# Work out the post type on this archive
+	$qo = get_queried_object();
+
+	if ($qo instanceof WP_Post_Type) {
+		$pt = $qo->name;
+	}
+	elseif ($qo instanceof WP_Post) {
+		$pt = 'post';
+	}
+	else {
+		$pt = get_post_type();
+	}
+
+	# Default args
 	$args = array_merge([
+		'post_type' => $pt,
 		'hide_empty' => true
 	], $args);
 
-	# We need these to convert some query params
-	$taxConverter	= [
+	$pt = $args['post_type'];
+
+	# Get all taxonomies associated with this PT
+	$taxonomies = get_object_taxonomies($args['post_type'], 'objects');
+	$data = [];
+
+	# We need to rewrite some (built in) taxonomies
+	$taxRewrite = [
 		'category' => [
-			'rewrite' => 'cat',
+			'name' => 'cat',
 			'property' => 'term_id'
 		],
 		'post_tag' => [
-			'rewrite' => 'tag'
+			'name' => 'tag'
 		]
 	];
 
-	# Get all taxonomies connected to this post type
-	$taxs = get_object_taxonomies($pt, 'objects');
-	$return = [];
+	# Loop through them all
+	foreach ($taxonomies as $tax) {
+		$hasSelected = false; # Whether this taxonomy has any selected terms
+		$taxQueryName = $tax->name; # The get_query_var name of this taxonomy (usually the same as tax name but not for built in taxonomies...)
+		$taxQueryProperty = 'slug'; # The property stored on the query var (usually slug but not for category... fucking WordPress)
 
-	# Go through them all
-	foreach ($taxs as $tax) {
-		# Get all the terms
-		$tmp = get_terms(['taxonomy' => $tax->name, 'hide_empty' => $args['hide_empty']]);
-		$terms = [];
-		$taxQueryName = $tax->name;
-		$property = 'slug';
-		$hasSelected = false; # Whether one of the taxonomies terms is the one currently viewed
-
-		# If this taxonomy needs to be converted (post_tag => tag, category => cat etc)
-		if (isset($taxConverter[$tax->name])) {
-			$taxQueryName = $taxConverter[$tax->name]['rewrite'];
-
-			if (isset($taxConverter[$tax->name]['property'])) {
-				$property = $taxConverter[$tax->name]['property'];
-			}
+		# Rewrite query name and property for certain taxonomies
+		if (isset($taxRewrite[$tax->name])) {
+			$taxQueryName = isset($taxRewrite[$tax->name]['name']) ? $taxRewrite[$tax->name]['name'] : $taxQueryName;
+			$taxQueryProperty = isset($taxRewrite[$tax->name]['property']) ? $taxRewrite[$tax->name]['property'] : $taxQueryProperty;
 		}
 
-		# Only continue if this taxonomy actually has terms
+		# Get all the terms
+		$terms = [];
+		$tmp = get_terms([
+			'taxonomy' => $tax->name,
+			'hide_empty' => $args['hide_empty']
+		]);
+
+		# Only continue if we have terms
 		if ($tmp) {
 			foreach ($tmp as $term) {
-				# See if this term is selected
-				if (isset($_GET[$taxQueryName]) and is_array($_GET[$taxQueryName])) {
-					$filterLinkSelected = in_array($term->{$property}, $_GET[$taxQueryName]) ? true : false;
-				}
-				else {
-					$filterLinkSelected = (isset($_GET[$taxQueryName]) and $term->{$property} == $_GET[$taxQueryName]) ? true : false;
-				}
-
-				# Store some additional data about each term
+				# Store additional data about each term
 				$term = [
-					'taxonomy' => $tax,
-					'post_type_archive_link' => get_post_type_archive_link($pt),
-					'permalink' => get_term_link($term),
-					'filter_link' => get_post_type_archive_link($pt) . '?' . $taxQueryName . '=' . $term->{$property},
-					'property_value' => $term->{$property},
-					'filter_link_selected' => $filterLinkSelected,
-					'permalink_selected' => $term->{$property} == get_query_var($taxQueryName),
-					'term' => $term
+					'term' => $term, # The original term
+					'permalink' => get_term_link($term), # Permalink to term page
+					'selected' => $term->{$taxQueryProperty} == get_query_var($taxQueryName)
 				];
 
-				if ($term['filter_link_selected'] or $term['permalink_selected']) {
+				# Remember if we have a selected term in this tax
+				if ($term['selected']) {
 					$hasSelected = true;
 				}
 
+				# Store the term
 				$terms[] = $term;
 			}
 
-			# Store some additional data about the taxonomy
-			$return[] = [
+			# Store the taxonomy
+			$data[] = [
 				'taxonomy' => $tax,
-				'query_name' => $taxQueryName,
-				'property' => $property,
 				'has_selected' => $hasSelected,
+				'post_type' => $args['post_type'],
+				'post_type_archive_link' => get_post_type_archive_link($args['post_type']),
 				'terms' => $terms
 			];
 		}
 	}
 
-	return $return;
+	return $data;
 }
 
-# Add support for filtering on post_tag (everything else seems to work out of the box in WP...)
+/**
+ * Returns list of all taxonomies associated with $args['post_type']
+ * along with data used for displaying said taxonomies in a form
+ */
+function sleek_get_post_type_taxonomy_filter ($args = []) {
+	# Work out the post type on this archive
+	$qo = get_queried_object();
+
+	if ($qo instanceof WP_Post_Type) {
+		$pt = $qo->name;
+	}
+	elseif ($qo instanceof WP_Post) {
+		$pt = 'post';
+	}
+	else {
+		$pt = get_post_type();
+	}
+
+	# Default args
+	$args = array_merge([
+		'post_type' => $pt,
+		'hide_empty' => true
+	], $args);
+
+	$pt = $args['post_type'];
+
+	# Get all taxonomies associated with this PT
+	$taxonomies = get_object_taxonomies($args['post_type'], 'objects');
+	$data = [];
+
+	# Go through them all
+	foreach ($taxonomies as $tax) {
+		$hasSelected = false; # Whether this taxonomy has any terms selected
+		$taxQueryName = 'sleek_filter_taxonomy_' . $tax->name; # Name of ?get parameter
+
+		# Get all the terms
+		$terms = [];
+		$tmp = get_terms([
+			'taxonomy' => $tax->name,
+			'hide_empty' => $args['hide_empty']
+		]);
+
+		# Only continue if we have terms
+		if ($tmp) {
+			foreach ($tmp as $term) {
+				$isSelected = false;
+
+				# See if this term is selected
+				if (isset($_GET[$taxQueryName]) and is_array($_GET[$taxQueryName])) {
+					$isSelected = in_array($term->slug, $_GET[$taxQueryName]) ? true : false;
+				}
+				else {
+					$isSelected = (isset($_GET[$taxQueryName]) and $term->slug == $_GET[$taxQueryName]) ? true : false;
+				}
+
+				# Store additional data about the term
+				$term = [
+					'term' => $term,
+					'query_name' => $taxQueryName,
+					'query_value' => $term->slug,
+					'selected' => $isSelected
+				];
+
+				# Remember if this tax had any selected terms
+				if ($isSelected) {
+					$hasSelected = true;
+				}
+
+				# Store the term
+				$terms[] = $term;
+			}
+
+			# Store the taxonomy
+			$data[] = [
+				'taxonomy' => $tax,
+				'has_selected' => $hasSelected,
+				'post_type' => $args['post_type'],
+				'query_name' => $taxQueryName,
+				'query_value' => '',
+				'terms' => $terms
+			];
+		}
+	}
+
+	return $data;
+}
+
+# Add support for filtering on sleek_filter_* parameters
 add_filter('pre_get_posts', function ($query) {
 	if (!is_admin() and $query->is_main_query()) {
-		if (is_home()) { # is_post_type_archive('post') doesn't work
-			# We need to use the 'tag' name as that it was it's called in get_query_var
-			if (isset($_GET['tag'])) {
-				$taxQuery = $query->get('tax_query');
-				$taxQuery[] = [
-					'taxonomy' => 'post_tag',
-					'field' => 'slug',
-					'terms' => $_GET['tag'],
-					'operator' => 'IN'
-				];
-				$query->set('tax_query', $taxQuery);
+		# Build potential tax query
+		$taxQuery = ['relation' => 'AND']; # TODO: Shouldn't be hard coded?
+		$hasTaxQuery = false;
+
+		# Go through all get params
+		foreach ($_GET as $k => $v) {
+			# If this is a sleek filter param
+			if (substr($k, 0, strlen('sleek_filter_taxonomy_')) == 'sleek_filter_taxonomy_') {
+				$tax = substr($k, strlen('sleek_filter_taxonomy_'));
+				$val = $_GET[$k];
+
+				if ($val) {
+					$hasTaxQuery = true;
+					$taxQuery[] = [
+						'taxonomy' => $tax,
+						'field' => 'slug',
+						'terms' => $val
+					];
+				}
 			}
+		}
+
+		if ($hasTaxQuery) {
+			$query->set('tax_query', $taxQuery);
+		}
+
+		# See if a search string is provided
+		if (isset($_GET['sleek_filter_search'])) {
+			$query->set('s', $_GET['sleek_filter_search']);
 		}
 	}
 });

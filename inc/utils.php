@@ -159,6 +159,13 @@ function sleek_curr_page_url ($withQry = true) {
 	return $url;
 }
 
+function sleek_append_to_query_string ($query) {
+	parse_str($_SERVER['QUERY_STRING'], $queryString);
+	parse_str($query, $newQueryString);
+
+	return http_build_query(array_merge($queryString, $newQueryString));
+}
+
 /**
  * Includes and returns contents instead of echo:ing
  */

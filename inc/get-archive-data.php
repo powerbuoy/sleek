@@ -1,8 +1,24 @@
 <?php
+function sleek_get_archive_post_type () {
+	# Work out the post type on this archive
+	$qo = get_queried_object();
+
+	if ($qo instanceof WP_Post_Type) {
+		$pt = $qo->name;
+	}
+	elseif ($qo instanceof WP_Post) {
+		$pt = 'post';
+	}
+	else {
+		$pt = get_post_type();
+	}
+
+	return $pt;
+}
+
 /**
  * Returns valuable data such as title/description  based on the currently
  * viewed type of archive (cpt, blog, category, date, search etc)
- * TODO: Never assume that get_post_type_object() returns an object!
  */
 function sleek_get_archive_data ($args = []) {
 	global $post;
@@ -138,7 +154,7 @@ function sleek_get_archive_data ($args = []) {
 		}
 	}
 
-	# Custom taxonomy term
+	# Custom taxonomy term (TODO: get_post_type() will return empty here if the page returns no results)
 	elseif (is_tax()) {
 		$term = $wp_query->get_queried_object();
 		$postType = get_post_type_object(get_post_type());
@@ -220,26 +236,11 @@ function sleek_get_archive_data ($args = []) {
  * Returns list of all taxonomies associated with $args['post_type']
  */
 function sleek_get_post_type_taxonomies ($args = []) {
-	# Work out the post type on this archive
-	$qo = get_queried_object();
-
-	if ($qo instanceof WP_Post_Type) {
-		$pt = $qo->name;
-	}
-	elseif ($qo instanceof WP_Post) {
-		$pt = 'post';
-	}
-	else {
-		$pt = get_post_type();
-	}
-
 	# Default args
 	$args = array_merge([
-		'post_type' => $pt,
+		'post_type' => sleek_get_archive_post_type(),
 		'hide_empty' => true
 	], $args);
-
-	$pt = $args['post_type'];
 
 	# Get all taxonomies associated with this PT
 	$taxonomies = get_object_taxonomies($args['post_type'], 'objects');
@@ -313,26 +314,11 @@ function sleek_get_post_type_taxonomies ($args = []) {
  * along with data used for displaying said taxonomies in a form
  */
 function sleek_get_post_type_taxonomy_filter ($args = []) {
-	# Work out the post type on this archive
-	$qo = get_queried_object();
-
-	if ($qo instanceof WP_Post_Type) {
-		$pt = $qo->name;
-	}
-	elseif ($qo instanceof WP_Post) {
-		$pt = 'post';
-	}
-	else {
-		$pt = get_post_type();
-	}
-
 	# Default args
 	$args = array_merge([
-		'post_type' => $pt,
+		'post_type' => sleek_get_archive_post_type(),
 		'hide_empty' => true
 	], $args);
-
-	$pt = $args['post_type'];
 
 	# Get all taxonomies associated with this PT
 	$taxonomies = get_object_taxonomies($args['post_type'], 'objects');

@@ -143,12 +143,16 @@ function sleek_get_sub_nav_tree ($post) {
 
 /**
  * Returns current page URL (with or without ?query)
+ * NOTE: Where is this from?? It's oooold
  */
 function sleek_curr_page_url ($withQry = true) {
 	$isHTTPS	= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on');
 	$port		= '';
+
+	# NOTE: Causes issues with HTTPS!
 #	$port		= (isset($_SERVER['SERVER_PORT']) && ((!$isHTTPS && $_SERVER['SERVER_PORT'] != '80') || ($isHTTPS && $_SERVER['SERVER_PORT'] != '443')));
 #	$port		= ($port) ? ':' . $_SERVER['SERVER_PORT'] : '';
+
 	$url		= ($isHTTPS ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $port . $_SERVER['REQUEST_URI'];
 	$qryStart	= strpos($url, '?');
 
@@ -159,6 +163,9 @@ function sleek_curr_page_url ($withQry = true) {
 	return $url;
 }
 
+/**
+ * Appens (or replaces) $query to current query string
+ */
 function sleek_append_to_query_string ($query) {
 	parse_str($_SERVER['QUERY_STRING'], $queryString);
 	parse_str($query, $newQueryString);

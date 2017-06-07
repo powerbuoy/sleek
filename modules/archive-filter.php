@@ -1,6 +1,6 @@
 <section id="archive-filter">
 
-	<form method="get" action="">
+	<form method="get" action="<?php echo get_post_type_archive_link(sleek_get_archive_post_type()) ?>">
 
 		<p>
 			<label for="archive-filter-search"><?php _e('Search', 'sleek') ?></label>

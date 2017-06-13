@@ -2,10 +2,10 @@
 /**
  * Renders ACF flexible content modules in the $where container
  */
-function sleek_render_acf_modules ($where) {
+function sleek_render_acf_modules ($where, $postId = null) {
 	global $post;
 
-	if ($modules = get_field('modules-' . $where)) {
+	if ($modules = get_field('modules-' . $where, $postId)) {
 		$i = 0;
 		$templateCount = [];
 

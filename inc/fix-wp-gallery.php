@@ -8,3 +8,7 @@ add_filter('the_content', function ($output) {
 }, 11, 2);
 
 # TODO: https://stackoverflow.com/questions/14585538/customise-the-wordpress-gallery-html-layout
+/* add_filter('post_gallery', function ($string, $attr) {
+	var_dump($string);
+	var_dump($attr);
+}, 10, 2); */

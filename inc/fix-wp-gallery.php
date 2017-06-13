@@ -6,3 +6,5 @@ add_filter('use_default_gallery_style', '__return_false');
 add_filter('the_content', function ($output) {
 	return preg_replace('/<br style=(.*)>/mi', '', $output);
 }, 11, 2);
+
+# TODO: https://stackoverflow.com/questions/14585538/customise-the-wordpress-gallery-html-layout

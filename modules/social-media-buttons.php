@@ -6,7 +6,7 @@
 		<?php foreach ($socialMediaButtons as $smb) : ?>
 			<li>
 				<a href="<?php echo $smb['url'] ?>" class="icon-<?php echo $smb['slug'] ?>" target="_blank">
-					<?php echo __($smb['title'], 'wiseit') ?>
+					<?php echo __($smb['title'], 'sleek') ?>
 				</a>
 			</li>
 		<?php endforeach ?>

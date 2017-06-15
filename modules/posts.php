@@ -19,12 +19,11 @@
 					</h2>
 
 					<p>
-						<small>
-							<time datetime="<?php echo get_the_time('Y-m-j') ?>"><?php echo get_the_time(get_option('date_format')) ?></time> |
-							<?php echo get_the_author_meta('display_name') ?>
-							<?php $postTerms = sleek_get_post_terms($post->ID, get_post_type()) ?>
-							<?php if ($postTerms) : ?> | <?php echo implode(', ', $postTerms) ?><?php endif ?>
-						</small>
+						<time datetime="<?php echo get_the_time('Y-m-j') ?>"><?php echo get_the_time(get_option('date_format')) ?></time>
+						<?php if ($terms = sleek_get_post_terms($post->ID, get_post_type(), true)) : ?>
+							<span><?php echo implode(', ', $terms) ?></span>
+						<?php endif ?>
+						<span><?php the_author_posts_link() ?></span>
 					</p>
 
 				</header>

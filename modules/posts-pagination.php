@@ -2,6 +2,7 @@
 	global $wp_query;
 
 	$big = 999999;
+	# TODO: Use the_posts_pagination instead!?
 	$pagination = paginate_links([
 		# All args
 		/* 'base' => '%_%',

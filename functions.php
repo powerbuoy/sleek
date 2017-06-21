@@ -15,6 +15,7 @@ require_once get_template_directory() . '/inc/default-meta-boxes.php';
 require_once get_template_directory() . '/inc/fix-wp-gallery.php';
 require_once get_template_directory() . '/inc/hide-sleek-from-admin.php';
 require_once get_template_directory() . '/inc/html-in-widget-titles.php';
+require_once get_template_directory() . '/inc/include-custom-fields-in-api.php';
 require_once get_template_directory() . '/inc/insert-figure-element.php';
 require_once get_template_directory() . '/inc/jquery-cdn-in-foot.php';
 require_once get_template_directory() . '/inc/more-markdown.php';

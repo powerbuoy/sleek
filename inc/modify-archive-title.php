@@ -88,3 +88,43 @@ add_filter('get_the_archive_description', function ($description) {
 
 	return $description;
 });
+
+function sleek_get_post_type_field ($postType, $field = 'title') {
+	$lang = defined('ICL_LANGUAGE_CODE') ? ICL_LANGUAGE_CODE : '';
+	$value = false;
+
+	# Post title/description/ACF
+	if ($postType == 'post') {
+		if ($field == 'title') {
+			$value = get_the_title(get_option('page_for_posts'));
+		}
+		elseif ($field == 'description') {
+			$value = apply_filters('the_content', get_post_field('post_content', get_option('page_for_posts')));
+		}
+		else {
+			$value = get_field($field, get_option('page_for_posts'));
+		}
+	}
+	# CPT title/description/option field
+	else {
+		if ($field == 'title') {
+			$value = get_option($postType . $lang . '_title');
+
+			if (!$value) {
+				$value = get_the_archive_title();
+			}
+		}
+		elseif ($field == 'description') {
+			$value = get_option($postType . $lang . '_description');
+
+			if (!$value) {
+				$value = get_the_archive_description();
+			}
+		}
+		else {
+			$value = get_option($postType . $lang . '_' . $field);
+		}
+	}
+
+	return $value;
+}

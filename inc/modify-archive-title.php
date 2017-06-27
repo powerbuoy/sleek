@@ -37,7 +37,7 @@ add_filter('get_the_archive_title', function ($title) {
 
 	# Default (remove PREFIX:)
 	else {
-		$title = preg_replace('/^\w+: /', '', $title);
+		$title = preg_replace('/^(.*?): /', '', $title);
 	}
 
 	return $title;

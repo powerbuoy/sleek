@@ -4,7 +4,7 @@ function sleek_get_page_type () {
 
 	$htmlID = 'unknown';
 
-	if (is_front_page())		$htmlID = 'home';
+	if (is_front_page())		$htmlID = 'front';
 	elseif (is_single())		$htmlID = 'post';
 	elseif (is_attachment())	$htmlID = 'attachment';
 	elseif (is_page())			$htmlID = 'page';

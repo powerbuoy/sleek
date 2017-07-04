@@ -40,6 +40,7 @@ function sleek_render_acf_modules ($where, $postId = null) {
 	}
 }
 
+# Add shortcode to render modules [render_module module="hubspot-cta" hubspot-cta-id="abc-123"]
 add_shortcode('render_module', function ($args) {
 	$template = isset($args['template']) ? $args['template'] : 'default';
 

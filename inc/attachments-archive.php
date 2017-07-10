@@ -1,4 +1,5 @@
 <?php
+# TODO: Deprecate
 function sleek_attachment_archives ($slug = 'attachments', $taxonomies = []) {
 	# Give attachments an archive page
 	# Doesn't work :/
@@ -50,7 +51,7 @@ function sleek_attachment_archives ($slug = 'attachments', $taxonomies = []) {
 			# When inside a custom taxonomy archive include attachments
 			if ($isTax) {
 				$wp_query->query_vars['post_type'] = ['attachment'];
-				$wp_query->query_vars['post_status'] = [null];
+				$wp_query->query_vars['post_status'] = [null]; # TODO: Is this needed?
 
 				return $wp_query;
 			}

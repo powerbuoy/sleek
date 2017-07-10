@@ -39,6 +39,11 @@ add_filter('post_gallery', function ($string, $attr) {
 		'include' => $attr['ids']
 	]);
 
+	# FFS... When 3 cols are used WP doesn't set this attribute
+	if (!isset($attr['columns'])) {
+		$attr['columns'] = 3;
+	}
+
 	$html = '<div class="gallery gallery-columns-' . $attr['columns'] . '">';
 
 	foreach ($images as $image) {

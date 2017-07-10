@@ -39,3 +39,16 @@ function sleek_render_acf_modules ($where, $postId = null) {
 		}
 	}
 }
+
+# Add shortcode to render modules [render_module module="hubspot-cta" hubspot-cta-id="abc-123"]
+add_shortcode('render_module', function ($args) {
+	$template = isset($args['template']) ? $args['template'] : 'default';
+
+	if (isset($args['module']) and ($path = locate_template('acf/' . $args['module'] . '/' . $template . '.php'))) {
+		return sleek_fetch($path, [
+			'data' => $args
+		]);
+	}
+
+	return '[Unable to locate module]';
+});

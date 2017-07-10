@@ -1,6 +1,6 @@
 <?php
 /**
- * Register some options built into sleek
+ * Register some options built into sleek (see register-assets for how these settings are used)
  */
  add_action('customize_register', function ($wpCustomize) {
  	$wpCustomize->add_section('sleek_settings', [

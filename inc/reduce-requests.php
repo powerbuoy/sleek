@@ -5,7 +5,7 @@
  */
 function sleek_reduce_requests ($except = ['wpcf7_js']) {
 	if (!is_admin()) {
-		# WP Embed (URL missing)
+		# WP Embed
 		if (!in_array('wp_oembed', $except)) {
 			# Remove the REST API endpoint.
 			remove_action('rest_api_init', 'wp_oembed_register_route');

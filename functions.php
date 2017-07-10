@@ -28,7 +28,6 @@ require_once get_template_directory() . '/inc/get-page-type.php';
 require_once get_template_directory() . '/inc/get-post-terms.php';
 require_once get_template_directory() . '/inc/get-reading-time.php';
 require_once get_template_directory() . '/inc/reduce-requests.php';
-require_once get_template_directory() . '/inc/render-acf-modules.php';
 require_once get_template_directory() . '/inc/register-acf.php';
 require_once get_template_directory() . '/inc/register-assets.php';
 require_once get_template_directory() . '/inc/register-post-types.php';

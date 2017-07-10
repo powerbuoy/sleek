@@ -6,7 +6,6 @@
 	<?php get_template_part('modules/breadcrumbs') ?>
 	<?php get_template_part('modules/archive-taxonomies') ?>
 	<?php get_template_part('modules/posts') ?>
-	<?php get_template_part('modules/posts-pagination') ?>
 
 </main>
 

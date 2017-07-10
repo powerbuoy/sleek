@@ -18,7 +18,6 @@ require_once get_template_directory() . '/inc/html-in-widget-titles.php';
 require_once get_template_directory() . '/inc/include-custom-fields-in-api.php';
 require_once get_template_directory() . '/inc/jquery-cdn-in-foot.php';
 require_once get_template_directory() . '/inc/more-markdown.php';
-require_once get_template_directory() . '/inc/pagination-css-class.php';
 require_once get_template_directory() . '/inc/modify-archive-title.php';
 require_once get_template_directory() . '/inc/get-archive-data.php';
 require_once get_template_directory() . '/inc/get-archive-taxonomies.php';

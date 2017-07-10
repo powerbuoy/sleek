@@ -9,9 +9,11 @@
  	]);
 
 	sleek_register_theme_options($wpCustomize, [
-		'google_maps_api_key' => 'text',
 		'google_analytics_id' => 'text',
-		'google_tag_manager_id' => 'text'
+		'google_tag_manager_id' => 'text',
+		'google_maps_api_key' => 'text',
+		'google_search_api_key' => 'text',
+		'google_search_engine_id' => 'text'
 	], 'sleek');
 });
 

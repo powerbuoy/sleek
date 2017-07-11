@@ -8,7 +8,7 @@ add_filter('the_content', function ($content) {
 	return preg_replace('/<p>\\s*?(<a rel=\"attachment.*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '<figure>$1</figure>', $content);
 }, 99);
 
-# Replace the [caption] HTML
+# Replace the [caption] HTML (TODO: Roots does this too!)
 add_filter('img_caption_shortcode', function ($empty, $atts, $content) {
 	$atts = shortcode_atts([
 		'id' => '',

@@ -1,8 +1,5 @@
 <?php
 # Make sure the_permalink() points to the redirect URL
-remove_filter('the_permalink', 'sleek_redirect_url_permalink_filter');
-add_filter('the_permalink', 'sleek_redirect_url_permalink_filter');
-
 function sleek_redirect_url_permalink_filter ($url) {
 	global $post;
 
@@ -11,10 +8,11 @@ function sleek_redirect_url_permalink_filter ($url) {
 	return $redirectUrl ? $redirectUrl : $url;
 }
 
-# Redirect single pages to the redirect URL
-remove_action('the_post', 'sleek_redirect_url_the_post_action');
-add_action('the_post', 'sleek_redirect_url_the_post_action');
+if (!has_filter('the_permalink', 'sleek_redirect_url_permalink_filter')) {
+	add_filter('the_permalink', 'sleek_redirect_url_permalink_filter');
+}
 
+# Redirect single pages to the redirect URL
 function sleek_redirect_url_the_post_action ($po) {
 	if (is_single($po->ID) or is_page($po->ID)) {
 		$redirectUrl = get_field('redirect-url', $po->ID);
@@ -23,6 +21,10 @@ function sleek_redirect_url_the_post_action ($po) {
 			wp_redirect($redirectUrl);
 		}
 	}
+}
+
+if (!has_filter('the_post', 'sleek_redirect_url_the_post_action')) {
+	add_action('the_post', 'sleek_redirect_url_the_post_action');
 }
 
 # ACF Definition

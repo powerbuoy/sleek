@@ -4,9 +4,7 @@
  *
  * http://wordpress.stackexchange.com/questions/62742/add-placeholder-attribute-to-comment-form-fields
  */
-# add_filter('comment_form_defaults', 'sleek_comment_form_placeholders');
-
-function sleek_comment_form_placeholders ($fields) {
+add_filter('comment_form_defaults', function ($fields) {
 	# All fields we want to add placeholders to
 	$fieldsToReplace = [
 		'author' => __('Name'),
@@ -34,5 +32,4 @@ function sleek_comment_form_placeholders ($fields) {
 	);
 
 	return $fields;
-}
-?>
+});

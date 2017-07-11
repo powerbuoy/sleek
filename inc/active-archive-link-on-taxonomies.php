@@ -2,9 +2,7 @@
 /**
  * Add an "active-parent" class to archive pages when browsing their taxonomies
  */
-# add_filter('nav_menu_css_class', 'sleek_active_archive_link_on_taxonomies', 10, 2);
-
-function sleek_active_archive_link_on_taxonomies ($cssClasses, $item) {
+add_filter('nav_menu_css_class', function ($cssClasses, $item) {
 	global $wp_query;
 
 	$cssClassName = 'active-parent';
@@ -22,19 +20,24 @@ function sleek_active_archive_link_on_taxonomies ($cssClasses, $item) {
 		elseif ($item->type == 'post_type_archive') {
 			# If we're on a taxonomy and this post type has that taxonomy - make it look active
 			if (is_tax()) {
-				global $wp_taxonomies;
-
 				$term = $wp_query->get_queried_object();
+
+				if (is_object_in_taxonomy($item->object, $term->taxonomy)) {
+					$cssClasses[] = $cssClassName;
+				}
+
+				# NOTE: Old version (kept until above version is tested)
+			/*	global $wp_taxonomies;
 
 				if (isset($wp_taxonomies[$term->taxonomy])) {
 					if (in_array($item->object, $wp_taxonomies[$term->taxonomy]->object_type)) {
 						$cssClasses[] = $cssClassName;
 					}
-				}
+				} */
 			}
 		}
 	}
 
 	return $cssClasses;
 }
-?>
+, 10, 2);

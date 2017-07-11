@@ -1,5 +1,83 @@
 <?php
 /**
+ * Returns the current page type
+ */
+function sleek_get_page_type () {
+	global $post;
+
+	$pageType = 'unknown';
+
+	if (is_front_page())		$pageType = 'front';
+	elseif (is_single())		$pageType = 'post';
+	elseif (is_attachment())	$pageType = 'attachment';
+	elseif (is_page())			$pageType = 'page';
+	elseif (is_archive())		$pageType = 'archive';
+	elseif (is_search())		$pageType = 'search';
+	elseif (is_home())			$pageType = 'blog';
+
+	return $pageType;
+}
+
+/**
+ * Returns estimated reading time for $post
+ * http://ryanfrankel.com/how-to-find-the-number-of-words-in-a-post-in-wordpress/
+ */
+function sleek_get_reading_time ($post) {
+	$numWords = str_word_count(strip_tags(get_post_field('post_content', $post->ID)));
+	$min = ceil($numWords / 200); # NOTE: 200 words per minute seems normal; http://www.readingsoft.com/
+
+	return $min;
+}
+
+
+/**
+ * Returns an array of terms
+ */
+function sleek_get_post_terms ($id, $pt, $linked = false, $type = 'category', $field = 'name', &$taxonomy = null) {
+	$terms = [];
+	$tmp = false;
+
+	# Convert tag to correct tax name
+	if ($pt == 'post' and $type == 'tag') {
+		$tmp = wp_get_post_terms($id, 'post_tag');
+		$taxonomy = 'post_tag';
+	}
+	# And category...
+	elseif ($pt == 'post' and $type == 'category') {
+		$tmp = wp_get_post_terms($id, 'category');
+		$taxonomy = 'category';
+	}
+	# Custom taxonomies are assumed to be named post-type-name_category
+	elseif (taxonomy_exists($pt . '_' . $type)) {
+		$tmp = wp_get_post_terms($id, $pt . '_' . $type);
+		$taxonomy = $pt . '_' . $type;
+	}
+	# Also check to see if this pt has the category taxonomy
+	elseif ($type == 'category' and is_object_in_taxonomy($pt, 'category')) {
+		$tmp = wp_get_post_terms($id, 'category');
+		$taxonomy = 'category';
+	}
+	# Also check to see if this pt has the tag taxonomy
+	elseif ($type == 'tag' and is_object_in_taxonomy($pt, 'post_tag')) {
+		$tmp = wp_get_post_terms($id, 'post_tag');
+		$taxonomy = 'post_tag';
+	}
+
+	if ($tmp) {
+		foreach ($tmp as $t) {
+			if ($linked) {
+				$terms[] = '<a href="' . get_term_link($t) . '">' . $t->{$field} . '</a>';
+			}
+			else {
+				$terms[] = $t->{$field};
+			}
+		}
+	}
+
+	return $terms;
+}
+
+/**
  * Returns the current author either on /author/username/ or a single blog post
  */
 function sleek_get_current_author () {
@@ -37,22 +115,6 @@ function sleek_array_search_r ($array, $key, $value = false) {
 	}
 
 	return $results;
-}
-
-/**
- * Return image URL by attacment ID
- * TODO: Remove in favor of https://developer.wordpress.org/reference/functions/get_the_post_thumbnail_url/
- */
-function sleek_get_img_src_by_id ($id, $size = 'full') {
-	if ($id) {
-		$imgSrc = wp_get_attachment_image_src($id, $size);
-
-		if ($imgSrc) {
-			return $imgSrc[0];
-		}
-	}
-
-	return false;
 }
 
 /**

@@ -215,6 +215,7 @@ function sleek_register_acf_options ($locations, $textdomain = 'sleek') {
 }
 
 # Recursively inserts unique keys for every field that has a name
+# https://stackoverflow.com/questions/42121349/recursively-insert-element-next-to-other-element-in-array
 function sleek_generate_unique_keys ($definition, $prefix) {
 	foreach ($definition as $k => $v) {
 		if (is_array($v)) {
@@ -230,6 +231,7 @@ function sleek_generate_unique_keys ($definition, $prefix) {
 }
 
 # Returns a list of templates available for a specific field group
+# TODO: Should check parent theme templates and merge with child theme templates
 function sleek_get_acf_group_templates ($acfGroup) {
 	$path = get_stylesheet_directory() . '/acf/' . $acfGroup . '/';
 	$templates = [];
@@ -255,7 +257,7 @@ add_filter('acf/fields/flexible_content/layout_title', function ($title, $field,
 	$fieldName = end($nameBits);
 	$newTitle = '<strong>' . $title . '</strong>';
 
-	# See if it has a title
+	# See if it has a "title" field
 	if ($t = get_sub_field($fieldName . '-title')) {
 		$newTitle .= ": \"$t\"";
 	}
@@ -274,32 +276,38 @@ add_filter('acf/fields/flexible_content/layout_title', function ($title, $field,
 function sleek_render_acf_modules ($where, $postId = null) {
 	global $post;
 
+	if (!function_exists('get_field')) {
+		return '[ERROR: You need to activate Advanced Custom Fields]';
+	}
+
 	if ($modules = get_field('modules-' . $where, $postId)) {
 		$i = 0;
 		$templateCount = [];
+		$template = isset($module['template']) ? $module['template'] : 'default';
+		$acfLayout = isset($module['acf_fc_layout']) ? $module['acf_fc_layout'] : 'N/A';
 
 		foreach ($modules as $module) {
 			# Keep track of how many times this template is included
-			if (isset($templateCount[$module['template']])) {
-				$templateCount[$module['template']]++;
+			if (isset($templateCount[$template])) {
+				$templateCount[$template]++;
 			}
 			else {
-				$templateCount[$module['template']] = 1;
+				$templateCount[$template] = 1;
 			}
 
 			# Include the template
-			if (locate_template('acf/' . $module['template'] . '.php')) {
-				sleek_get_template_part('acf/' . $module['template'], [
+			if (locate_template('acf/' . $template . '.php')) {
+				sleek_get_template_part('acf/' . $template, [
 					'data' => $module,
 					'count' => ++$i,
-					'template_count' => $templateCount[$module['template']]
+					'template_count' => $templateCount[$template]
 				]);
 			}
 			# Or dump data if template doesn't exist
 			else {
 				echo '<section>';
 				echo '<h2>No template defined</h2>';
-				echo '<p><small>' . $module['acf_fc_layout'] . '</small></p>';
+				echo '<p><small>' . $acfLayout . '</small></p>';
 				echo '<pre>';
 				var_dump($module);
 				echo '</pre>';

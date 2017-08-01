@@ -77,9 +77,9 @@ Let your code breathe. If an HTML element has margin and padding by default, giv
 </section>
 ```
 
-### ID vs Class
+### ID vs Class vs data attribute
 
-Use `#id`:s for unique styling where you only want to affect one single module and nothing outside it. This is useful for super unique styling that has no use outside your module.
+Use `#id`:s for unique styling where you only want to affect one single module and nothing outside it. This is useful for super unique styling that has no use outside your module or so called "scoped CSS".
 
 **Bad**
 
@@ -169,6 +169,8 @@ Components should ideally have documentation. Following this template will add y
 ```
 
 Please note that while tab should always be used, the styleguide generator chokes on tabs so in these particular comments spaces are needed.
+
+Use `data-attributes` for hooking into elements with JavaScript. For example `<a href="https://www.googe.com" data-tooltip title="Visit Google">Google</a>` or `<div data-slideshow>...</div>` etc.
 
 ### Filenames
 

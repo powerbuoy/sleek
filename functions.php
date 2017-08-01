@@ -27,6 +27,11 @@ require_once get_template_directory() . '/inc/register-sidebars.php';
 require_once get_template_directory() . '/inc/register-taxonomies.php';
 require_once get_template_directory() . '/inc/register-theme-options.php';
 
+# Give pages excerpts
+add_action('init', function () {
+	add_post_type_support('page', 'excerpt');
+});
+
 # Set up for translation
 add_action('after_setup_theme', function () {
 	load_theme_textdomain('sleek', get_template_directory() . '/languages');

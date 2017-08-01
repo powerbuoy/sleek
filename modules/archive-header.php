@@ -1,17 +1,13 @@
-<?php if ($archiveData = sleek_get_archive_data(['image_size' => 'large'])) : ?>
-	<header id="archive-header">
+<header id="archive-header">
 
-		<?php if ($archiveData['image']) : ?>
-			<figure>
-				<img src="<?php echo $archiveData['image'] ?>">
-			</figure>
-		<?php endif ?>
+	<?php if ($image = sleek_get_archive_image('large')) : ?>
+		<figure>
+			<img src="<?php echo $image ?>">
+		</figure>
+	<?php endif ?>
 
-		<?php if ($archiveData['title']) : ?>
-			<h1><?php echo $archiveData['title'] ?></h1>
-		<?php endif ?>
+	<h1><?php the_archive_title() ?></h1>
 
-		<?php echo $archiveData['content'] ?>
+	<?php the_archive_description() ?>
 
-	</header>
-<?php endif ?>
+</header>

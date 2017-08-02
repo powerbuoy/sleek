@@ -283,10 +283,11 @@ function sleek_render_acf_modules ($where, $postId = null) {
 	if ($modules = get_field('modules-' . $where, $postId)) {
 		$i = 0;
 		$templateCount = [];
-		$template = isset($module['template']) ? $module['template'] : 'default';
-		$acfLayout = isset($module['acf_fc_layout']) ? $module['acf_fc_layout'] : 'N/A';
 
 		foreach ($modules as $module) {
+			$acfLayout = isset($module['acf_fc_layout']) ? $module['acf_fc_layout'] : 'N/A';
+			$template = isset($module['template']) ? $module['template'] : 'default';
+
 			# Keep track of how many times this template is included
 			if (isset($templateCount[$template])) {
 				$templateCount[$template]++;
@@ -306,7 +307,7 @@ function sleek_render_acf_modules ($where, $postId = null) {
 			# Or dump data if template doesn't exist
 			else {
 				echo '<section>';
-				echo '<h2>No template defined</h2>';
+				echo '<h2>No template found: ' . $template . '</h2>';
 				echo '<p><small>' . $acfLayout . '</small></p>';
 				echo '<pre>';
 				var_dump($module);

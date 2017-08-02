@@ -92,7 +92,7 @@ For example:
 </section>
 ```
 
-Sleek contains templates and modules for all of WordPress' page types but more often than not you're going to want to override them. If that's the case, simply copy the file from `sleek/modules/posts.php` (for example) to `my-theme/modules/posts.php` and it'll be used instead.
+Sleek contains templates and modules for all of WordPress' page types but more often than not you're going to want to override them. If that's the case, simply copy the file from `sleek/modules/*.php` to `my-theme/modules/*.php` and it'll be used instead.
 
 ## PHP libraries/functions
 
@@ -141,7 +141,7 @@ This functionality is commented by default as it modifies the main query and add
 
 ### Register thumbnail sizes
 
-This is nothing special just the standard WordPress way of registering your thumbnail sizes. Only use this if you have to specify a crop. Stick to the built-in thumbnail sizes as much as possible.
+This is nothing special just the standard WordPress way of registering your thumbnail sizes. Stick to the built-in thumbnail size names as much as possible since they will be created regardless.
 
 ### Actually, use WP's built in sizes as far as we can (cus they're gonna get created anyway on every upload)
 
@@ -355,7 +355,7 @@ Now say we want all our posts to have a video, we can simply do: `sleek_register
 
 Now imagine you also want a video in the footer so we need to add it to an options page, simply use `sleek_register_acf_options(['theme-settings' => ['video']])`. This will create an options page with the name "Theme settings" (and slug `theme-settings`) and add a "Video" tab to it.
 
-Finally, you can also create a flexible content field and add the video as a flexible content field group to it; `sleek_register_acf_modules(['page' => ['name-of-flexible-content-field' => ['video']]])`. This will create a flexible content field called "Name of flexible content field" on pages which allow you to add the `video` field. Again, just keep adding field names (`acf/field-name.php` => `field-name`) to the array to add more fields.
+Finally, you can also create a flexible content field and add the video as a flexible content field group to it; `sleek_register_acf_modules(['page' => ['name-of-flexible-content-field' => ['video']]])`. This will create a flexible content field called "Name of flexible content field" on pages which allow you to add the `video` field. Again, just keep adding field names to the array to add more fields.
 
 With this in place you should see all the fields in the admin (please make sure ACF Pro is activated if you don't see anything). To use your fields you simply use the normal ACF functions like `get_field()` or `the_field()` etc.
 

@@ -40,8 +40,10 @@
 
 	<h1><?php echo $title ?></h1>
 
-	<?php if (isset($results->queries) and isset($results->queries->request) and count($results->queries->request)) : ?>
+	<?php if ($numResults and isset($results->queries) and isset($results->queries->request) and count($results->queries->request)) : ?>
 		<p><?php printf(__('Displaying results %d through %d', 'sleek'), $results->queries->request[0]->startIndex, $results->queries->request[0]->count) ?></p>
+	<?php elseif (!$numResults) : ?>
+		<p><?php printf(__('No search results for: <strong>"%s"</strong>', 'sleek'), $query) ?></p>
 	<?php endif ?>
 
 	<?php get_template_part('modules/search') ?>

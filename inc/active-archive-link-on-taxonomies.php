@@ -25,15 +25,6 @@ add_filter('nav_menu_css_class', function ($cssClasses, $item) {
 				if (is_object_in_taxonomy($item->object, $term->taxonomy)) {
 					$cssClasses[] = $cssClassName;
 				}
-
-				# NOTE: Old version (kept until above version is tested)
-			/*	global $wp_taxonomies;
-
-				if (isset($wp_taxonomies[$term->taxonomy])) {
-					if (in_array($item->object, $wp_taxonomies[$term->taxonomy]->object_type)) {
-						$cssClasses[] = $cssClassName;
-					}
-				} */
 			}
 		}
 	}

@@ -1,24 +1,19 @@
 <?php
-# Roots stuff (TODO: Remove/move to our own files)
-require_once get_template_directory() . '/inc/roots/utils.php';
-require_once get_template_directory() . '/inc/roots/cleanup.php';
-require_once get_template_directory() . '/inc/roots/nav.php';
-
-# Sleek stuff
 require_once get_template_directory() . '/inc/utils.php';
 require_once get_template_directory() . '/inc/active-archive-link-on-taxonomies.php';
 require_once get_template_directory() . '/inc/add-post-type-arg-to-get-terms.php';
+require_once get_template_directory() . '/inc/cleanup.php';
+require_once get_template_directory() . '/inc/cleanup-nav.php';
 require_once get_template_directory() . '/inc/comment-form-placeholders.php';
-require_once get_template_directory() . '/inc/unset-active-blog-class.php';
 require_once get_template_directory() . '/inc/default-meta-boxes.php';
 require_once get_template_directory() . '/inc/fix-wp-gallery.php';
-require_once get_template_directory() . '/inc/include-custom-fields-in-api.php';
-require_once get_template_directory() . '/inc/jquery-cdn-in-foot.php';
-require_once get_template_directory() . '/inc/modify-archive-title.php';
 require_once get_template_directory() . '/inc/get-archive-data.php';
 require_once get_template_directory() . '/inc/get-archive-taxonomies.php';
 require_once get_template_directory() . '/inc/get-archive-image.php';
 require_once get_template_directory() . '/inc/get-site-logo.php';
+require_once get_template_directory() . '/inc/jquery-cdn-in-foot.php';
+require_once get_template_directory() . '/inc/modify-archive-title.php';
+require_once get_template_directory() . '/inc/more-api-data.php';
 require_once get_template_directory() . '/inc/reduce-requests.php';
 require_once get_template_directory() . '/inc/register-acf.php';
 require_once get_template_directory() . '/inc/register-assets.php';
@@ -26,6 +21,7 @@ require_once get_template_directory() . '/inc/register-post-types.php';
 require_once get_template_directory() . '/inc/register-sidebars.php';
 require_once get_template_directory() . '/inc/register-taxonomies.php';
 require_once get_template_directory() . '/inc/register-theme-options.php';
+require_once get_template_directory() . '/inc/unset-active-blog-class.php';
 
 # Give pages excerpts
 add_action('init', function () {
@@ -40,7 +36,7 @@ add_action('after_setup_theme', function () {
 # Eable post thumbnails
 add_action('after_setup_theme', function () {
 	add_theme_support('post-thumbnails');
-	set_post_thumbnail_size(320, 320, true);
+	set_post_thumbnail_size(300, 200, true);
 });
 
 # Remove a bunch of unwanted CSS/JS added by WP and plug-ins

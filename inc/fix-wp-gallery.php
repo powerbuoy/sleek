@@ -8,7 +8,7 @@ add_filter('the_content', function ($content) {
 	return preg_replace('/<p>\\s*?(<a rel=\"attachment.*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '<figure>$1</figure>', $content);
 }, 99);
 
-# Replace the [caption] HTML (TODO: Roots does this too!)
+# Replace the [caption] HTML
 add_filter('img_caption_shortcode', function ($empty, $atts, $content) {
 	$atts = shortcode_atts([
 		'id' => '',
@@ -24,12 +24,6 @@ add_filter('img_caption_shortcode', function ($empty, $atts, $content) {
 
 	return $html;
 }, 10, 3);
-
-# Remove iditic <br style="..."> from gallery
-# https://wordpress.stackexchange.com/questions/10524/add-filter-to-post-gallery-and-remove-all-brs
-/* add_filter('the_content', function ($output) {
-	return preg_replace('/<br style=(.*)>/mi', '', $output);
-}, 11, 2); */
 
 # Completely rewrite WP's ludicrous gallery output
 # https://stackoverflow.com/questions/14585538/customise-the-wordpress-gallery-html-layout

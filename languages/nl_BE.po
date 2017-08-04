@@ -1,3 +1,16 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl_BE\n"
+"X-Generator: Poedit 1.8.12\n"
+
 #: inc/get-posts-intro.php:38
 msgid "Posts tagged with <strong>\"%s\"</strong>"
 msgstr "Posts aangeduid met \"%s\""
@@ -90,12 +103,12 @@ msgid "Woops! Looks like one of our internal links are out-of-date. <strong>Sinc
 msgstr "Oeps! Blijkbaar zijn uw interne links verlopen. <strong>Sorry</strong> hiervoor! :)"
 
 #: modules/404.php:58
-msgid "You did a search on <a href=\"%s\">%s</a> for <strong>%s</strong>. However, their index appears to be out of date."
-msgstr "U zocht op %s naar %s. Maar blijkbaar is hun index verouderd."
+msgid "You did a search on %s, however, their index appears to be out of date."
+msgstr "U zocht op %s, maar blijkbaar is hun index verouderd."
 
 #: modules/404.php:60
-msgid "You were incorrectly referred to this page by <a href=\"%s\">%s</a>."
-msgstr "U bent verkeerd doorgestuurd naar deze pagina door <a href=\"%s\">%s</a>."
+msgid "You were incorrectly referred to this page by %s."
+msgstr "U bent verkeerd doorgestuurd naar deze pagina door %s."
 
 msgid "Empty search"
 msgstr "De zoekopdracht is leeg"

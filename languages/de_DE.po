@@ -1,3 +1,16 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 1.8.12\n"
+
 #: inc/get-posts-intro.php:38
 msgid "Posts tagged with <strong>\"%s\"</strong>"
 msgstr "Beiträge markiert mit <strong>\"%s\"</strong>"
@@ -90,12 +103,12 @@ msgid "Woops! Looks like one of our internal links are out-of-date. <strong>Sinc
 msgstr "Oops! Einer unserer Links scheint ungültig zu sein. Wir bitten um Entschuldigung!"
 
 #: modules/404.php:58
-msgid "You did a search on <a href=\"%s\">%s</a> for <strong>%s</strong>. However, their index appears to be out of date."
-msgstr "Ihre Suche auf <a href=\"%s\">%s</a> über <strong>%s</strong> liefert ein ungültiges Verzeichnis"
+msgid "You did a search on %s, however, their index appears to be out of date."
+msgstr "Ihre Suche auf %s liefert ein ungültiges Verzeichnis."
 
 #: modules/404.php:60
-msgid "You were incorrectly referred to this page by <a href=\"%s\">%s</a>."
-msgstr "Sie wurden fälschlicherweise auf diese Weise geführt"
+msgid "You were incorrectly referred to this page by %s."
+msgstr "Sie wurden fälschlicherweise auf diese Weise geführt %s."
 
 msgid "Empty search"
 msgstr "Leere Suche"

@@ -42,9 +42,9 @@
 		<?php elseif ($internalRef) : ?>
 			<p><?php _e('Woops! Looks like one of our internal links are out-of-date. <strong>Sincerely sorry</strong> about that! :)', 'sleek') ?></p>
 		<?php elseif ($searchRef) : ?>
-			<p><?php printf(__('You did a search on %s, however, their index appears to be out of date.', 'sleek'), $referrerSite, $q) ?></p>
+			<p><?php printf(__('You did a search on %s, however, their index appears to be out of date.', 'sleek'), $referrerSite) ?></p>
 		<?php else : ?>
-			<p><?php printf(__('You were incorrectly referred to this page by <a href="%s">%s</a>.', 'sleek'), str_replace('&', '&amp;', $referrer), $referrerSite) ?></p>
+			<p><?php printf(__('You were incorrectly referred to this page by %s.', 'sleek'), $referrerSite) ?></p>
 		<?php endif ?>
 
 		<p><?php printf(__('Perhaps you can go back to the <a href="%s">home page</a> and try to navigate your way from there?', 'sleek'), home_url('/')) ?></p>

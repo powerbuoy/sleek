@@ -168,10 +168,8 @@ add_action('wp_footer', function () {
 	# Google Maps
 	if ($googleMaps = get_theme_mod('google_maps_api_key')) {
 		echo "<script>
-			// Make sure this exists when GM loads
 			window.gmAsyncInit = function () {};
 
-			// Helper function to add to GM Init
 			function gmInit (cb) {
 				if (window.google && window.google.maps) {
 					cb(window.google);

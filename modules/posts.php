@@ -39,3 +39,5 @@
 	<?php endif ?>
 
 </section>
+
+<?php get_template_part('modules/posts-pagination') ?>

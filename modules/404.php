@@ -17,22 +17,6 @@
 		$referrerSite = explode('/', $referrer);
 		$referrerSite = $referrerSite[2];
 	}
-
-/*	if ($searchRef) {
-		$qryStrings = ['q', 'p', 'ask', 'key'];
-		$params = explode('?', $referrer);
-		$params = explode('&', $params[1]);
-
-		foreach ($params as $p) {
-			$ps = explode('=', $p);
-
-			if (in_array($ps[0], $qryStrings)) {
-				$q = str_replace('+', ' ', $ps[1]);
-			}
-		}
-	} */
-
-	$q = '?';
 ?>
 
 <section id="four-o-four">

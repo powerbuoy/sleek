@@ -1,6 +1,6 @@
 <?php $socialMediaButtons = sleek_get_social_media_links() ?>
 
-<nav id="social-media-buttons">
+<nav id="share-post">
 
 	<ul>
 		<?php foreach ($socialMediaButtons as $smb) : ?>

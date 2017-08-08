@@ -283,10 +283,19 @@ function sleek_render_acf_modules ($where, $postId = null) {
 	if ($modules = get_field('modules-' . $where, $postId)) {
 		$i = 0;
 		$templateCount = [];
+		$moduleCount = [];
 
 		foreach ($modules as $module) {
 			$acfLayout = isset($module['acf_fc_layout']) ? $module['acf_fc_layout'] : 'N/A';
 			$template = isset($module['template']) ? $module['template'] : 'default';
+
+			# Keep track of how many times this module is included
+			if (isset($moduleCount[$acfLayout])) {
+				$moduleCount[$acfLayout]++;
+			}
+			else {
+				$moduleCount[$acfLayout] = 1;
+			}
 
 			# Keep track of how many times this template is included
 			if (isset($templateCount[$template])) {
@@ -301,7 +310,9 @@ function sleek_render_acf_modules ($where, $postId = null) {
 				sleek_get_template_part('acf/' . $template, [
 					'data' => $module,
 					'count' => ++$i,
-					'template_count' => $templateCount[$template]
+					'module_area' => $where,
+					'template_count' => $templateCount[$template],
+					'module_count' => $moduleCount[$acfLayout]
 				]);
 			}
 			# Or dump data if template doesn't exist
@@ -330,3 +341,70 @@ add_shortcode('render_module', function ($args) {
 
 	return '[Unable to locate module]';
 });
+
+/**
+ * Collapse or expand flexible content fields on page load
+ */
+add_action('acf/input/admin_head', function () {
+	$moduleArea = isset($_GET['sleek_acf_module_area']) ? $_GET['sleek_acf_module_area'] : false;
+	$module = isset($_GET['sleek_acf_module']) ? $_GET['sleek_acf_module'] : false;
+	$moduleCount = isset($_GET['sleek_acf_module_count']) ? $_GET['sleek_acf_module_count'] : false;
+	?>
+	<script>
+		// Collapse all fields
+		(function ($) {
+			$(window).load(function () {
+				$('a[data-name="collapse-layout"]').filter(function () {
+					return !$(this).parents('.-collapsed').length;
+				}).click();
+			});
+		})(jQuery);
+
+		// Open specified field
+		<?php if ($module and $moduleArea and $moduleCount) : ?>
+			(function ($) {
+				$(window).load(function () {
+					// Go through all potential flexible content containers
+					$('div[id^="acf-group_"]').each(function () {
+						var wrap = $(this);
+
+						// We're inside a flexible content container
+						if (wrap.attr('id').match(/_modules$/)) {
+							var wrapId = wrap.attr('id').substr(4);
+							var moduleAreaTab = wrap.find('.acf-tab-group').find('a[data-key="' + wrapId + '_<?php echo $moduleArea ?>_tab"]');
+							var module = wrap.find('div.acf-field[data-name="modules-<?php echo $moduleArea ?>"]').find('div.layout[data-layout="<?php echo $module ?>"][data-id="<?php echo $moduleCount ?>"]');
+
+							// Trigger the tab
+							if (!moduleAreaTab.parent().is('.active')) {
+								moduleAreaTab.click();
+							}
+
+							// And expand the module
+							module.find('a[data-name="collapse-layout"]').click();
+
+							// Finally scroll down to the module
+							setTimeout(function () {
+								var top = module[0].getBoundingClientRect().top;
+
+								$('html, body').animate({scrollTop: (top - 30) + 'px'});
+							}, 1000); // Wait this long for the admin to load...
+						}
+					});
+				});
+			})(jQuery);
+		<?php endif ?>
+	</script>
+	<?php
+});
+
+/**
+ * Add module dropdown to admin toolbar
+ */
+/* add_action('admin_bar_menu', function ($admin_bar) {
+	global $post;
+
+	$admin_bar->add_menu([
+		'id' => 'sleek-acf-modules',
+		'title' => __('Edit modules', 'sleek')
+	]);
+}, 100); */

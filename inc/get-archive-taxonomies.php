@@ -46,7 +46,7 @@ function sleek_get_post_type_taxonomies ($args = []) {
 
 	# Loop through them all
 	foreach ($taxonomies as $tax) {
-		$hasSelected = false; # Whether this taxonomy has any selected terms
+		$hasActive = false; # Whether this taxonomy has any active terms
 		$taxQueryName = $tax->name; # The get_query_var name of this taxonomy (usually the same as tax name but not for built in taxonomies...)
 		$taxQueryProperty = 'slug'; # The property stored on the query var (usually slug but not for category... fucking WordPress)
 
@@ -70,12 +70,12 @@ function sleek_get_post_type_taxonomies ($args = []) {
 				$term = [
 					'term' => $term, # The original term
 					'permalink' => get_term_link($term), # Permalink to term page
-					'selected' => $term->{$taxQueryProperty} == get_query_var($taxQueryName)
+					'active' => $term->{$taxQueryProperty} == get_query_var($taxQueryName)
 				];
 
-				# Remember if we have a selected term in this tax
-				if ($term['selected']) {
-					$hasSelected = true;
+				# Remember if we have a active term in this tax
+				if ($term['active']) {
+					$hasActive = true;
 				}
 
 				# Store the term
@@ -85,7 +85,7 @@ function sleek_get_post_type_taxonomies ($args = []) {
 			# Store the taxonomy
 			$data[] = [
 				'taxonomy' => $tax,
-				'has_selected' => $hasSelected,
+				'has_active' => $hasActive,
 				'post_type' => $args['post_type'],
 				'post_type_archive_link' => get_post_type_archive_link($args['post_type']),
 				'terms' => $terms
@@ -113,7 +113,7 @@ function sleek_get_post_type_taxonomy_filter ($args = []) {
 
 	# Go through them all
 	foreach ($taxonomies as $tax) {
-		$hasSelected = false; # Whether this taxonomy has any terms selected
+		$hasActive = false; # Whether this taxonomy has any terms active
 		$taxQueryName = 'sleek_filter_taxonomy_' . $tax->name; # Name of ?get parameter
 
 		# Get all the terms
@@ -126,14 +126,14 @@ function sleek_get_post_type_taxonomy_filter ($args = []) {
 		# Only continue if we have terms
 		if ($tmp) {
 			foreach ($tmp as $term) {
-				$isSelected = false;
+				$isActive = false;
 
-				# See if this term is selected
+				# See if this term is active
 				if (isset($_GET[$taxQueryName]) and is_array($_GET[$taxQueryName])) {
-					$isSelected = in_array($term->slug, $_GET[$taxQueryName]) ? true : false;
+					$isActive = in_array($term->slug, $_GET[$taxQueryName]) ? true : false;
 				}
 				else {
-					$isSelected = (isset($_GET[$taxQueryName]) and $term->slug == $_GET[$taxQueryName]) ? true : false;
+					$isActive = (isset($_GET[$taxQueryName]) and $term->slug == $_GET[$taxQueryName]) ? true : false;
 				}
 
 				# Store additional data about the term
@@ -141,12 +141,12 @@ function sleek_get_post_type_taxonomy_filter ($args = []) {
 					'term' => $term,
 					'query_name' => $taxQueryName,
 					'query_value' => $term->slug,
-					'selected' => $isSelected
+					'active' => $isActive
 				];
 
-				# Remember if this tax had any selected terms
-				if ($isSelected) {
-					$hasSelected = true;
+				# Remember if this tax had any active terms
+				if ($isActive) {
+					$hasActive = true;
 				}
 
 				# Store the term
@@ -156,7 +156,7 @@ function sleek_get_post_type_taxonomy_filter ($args = []) {
 			# Store the taxonomy
 			$data[] = [
 				'taxonomy' => $tax,
-				'has_selected' => $hasSelected,
+				'has_active' => $hasActive,
 				'post_type' => $args['post_type'],
 				'query_name' => $taxQueryName,
 				'query_value' => '',

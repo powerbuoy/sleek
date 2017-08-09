@@ -11,14 +11,14 @@
 			<ul>
 				<li>
 					<label>
-						<input type="radio" name="<?php echo $tax['query_name'] ?>" value="" <?php echo $tax['has_selected'] ? '' : 'checked' ?>>
+						<input type="radio" name="<?php echo $tax['query_name'] ?>" value="" <?php echo $tax['has_active'] ? '' : 'checked' ?>>
 						<?php _e('All', 'sleek') ?>
 					</label>
 				</li>
 				<?php foreach ($tax['terms'] as $term) : ?>
 					<li>
 						<label>
-							<input type="radio" name="<?php echo $term['query_name'] ?>" value="<?php echo $term['query_value'] ?>" <?php echo $term['selected'] ? 'checked' : '' ?>>
+							<input type="radio" name="<?php echo $term['query_name'] ?>" value="<?php echo $term['query_value'] ?>" <?php echo $term['active'] ? 'checked' : '' ?>>
 							<?php echo $term['term']->name ?>
 						</label>
 					</li>

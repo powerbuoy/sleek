@@ -355,12 +355,13 @@ add_action('acf/input/admin_head', function () {
 		(function ($) {
 			$(window).load(function () {
 				$('a[data-name="collapse-layout"]').filter(function () {
-					return !$(this).parents('.-collapsed').length;
+					return !$(this).parents('.-collapsed').length && !$(this).parents('.acf-clone').length;
 				}).click();
 			});
 		})(jQuery);
 
 		// Open specified field
+		// TODO: Refactor to ?tab and ?module (and ?module_count) ONLY - regardless if flexible
 		<?php if ($module and $moduleArea and $moduleCount) : ?>
 			(function ($) {
 				$(window).load(function () {
@@ -398,7 +399,7 @@ add_action('acf/input/admin_head', function () {
 });
 
 /**
- * Add module dropdown to admin toolbar
+ * Add module dropdown to admin toolbar (should support all ACF - not just flexible)
  */
 /* add_action('admin_bar_menu', function ($admin_bar) {
 	global $post;

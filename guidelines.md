@@ -150,7 +150,7 @@ In other words, `.classes` are used for generic components that can be shared an
 
 Put generic components (`.classes`) inside `sass/components/`, put unique module styling (`#ids`) inside `sass/modules/`. Always name the file your module or component name (ie `modules/site-header.scss` or `components/image.scss` (do not create a file for every `image--modifier`, only one file for the entire `image` namespace)).
 
-Components should ideally have documentation. Following this template will add your component to the generated styleguide: (example: http://bibblan.wpengine.com/wp-content/themes/bibblan/dist/styleguide.html)
+Components should ideally have documentation. Following this template will add your component to the generated styleguide: (example: http://bibblan.wpengine.com/wp-content/themes/sleek-child/dist/styleguide.html)
 
 ```sass
 /***

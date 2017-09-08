@@ -47,6 +47,7 @@ function sleek_get_post_type_taxonomies ($args = []) {
 	# Loop through them all
 	foreach ($taxonomies as $tax) {
 		$hasActive = false; # Whether this taxonomy has any active terms
+		$activeTerm = false; # Store the active term
 		$taxQueryName = $tax->name; # The get_query_var name of this taxonomy (usually the same as tax name but not for built in taxonomies...)
 		$taxQueryProperty = 'slug'; # The property stored on the query var (usually slug but not for category... fucking WordPress)
 
@@ -76,6 +77,7 @@ function sleek_get_post_type_taxonomies ($args = []) {
 				# Remember if we have a active term in this tax
 				if ($term['active']) {
 					$hasActive = true;
+					$activeTerm = $term;
 				}
 
 				# Store the term
@@ -86,6 +88,7 @@ function sleek_get_post_type_taxonomies ($args = []) {
 			$data[] = [
 				'taxonomy' => $tax,
 				'has_active' => $hasActive,
+				'active_term' => $activeTerm,
 				'post_type' => $args['post_type'],
 				'post_type_archive_link' => get_post_type_archive_link($args['post_type']),
 				'terms' => $terms
@@ -114,6 +117,7 @@ function sleek_get_post_type_taxonomy_filter ($args = []) {
 	# Go through them all
 	foreach ($taxonomies as $tax) {
 		$hasActive = false; # Whether this taxonomy has any terms active
+		$activeTerm = false; # Store the active term
 		$taxQueryName = 'sleek_filter_taxonomy_' . $tax->name; # Name of ?get parameter
 
 		# Get all the terms
@@ -147,6 +151,7 @@ function sleek_get_post_type_taxonomy_filter ($args = []) {
 				# Remember if this tax had any active terms
 				if ($isActive) {
 					$hasActive = true;
+					$activeTerm = $term;
 				}
 
 				# Store the term
@@ -157,6 +162,7 @@ function sleek_get_post_type_taxonomy_filter ($args = []) {
 			$data[] = [
 				'taxonomy' => $tax,
 				'has_active' => $hasActive,
+				'active_term' => $activeTerm,
 				'post_type' => $args['post_type'],
 				'query_name' => $taxQueryName,
 				'query_value' => '',

@@ -59,3 +59,6 @@ add_filter('wp_prepare_themes_for_js', function ($themes) {
 
 	return $themes;
 });
+
+# Title tag support
+add_theme_support('title-tag');

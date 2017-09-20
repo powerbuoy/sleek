@@ -346,9 +346,9 @@ add_shortcode('render_module', function ($args) {
  * Collapse or expand flexible content fields on page load
  */
 add_action('acf/input/admin_head', function () {
-	$moduleArea = isset($_GET['sleek_acf_module_area']) ? $_GET['sleek_acf_module_area'] : false;
-	$module = isset($_GET['sleek_acf_module']) ? $_GET['sleek_acf_module'] : false;
-	$moduleCount = isset($_GET['sleek_acf_module_count']) ? $_GET['sleek_acf_module_count'] : false;
+#	$moduleArea = isset($_GET['sleek_acf_module_area']) ? $_GET['sleek_acf_module_area'] : false;
+#	$module = isset($_GET['sleek_acf_module']) ? $_GET['sleek_acf_module'] : false;
+#	$moduleCount = isset($_GET['sleek_acf_module_count']) ? $_GET['sleek_acf_module_count'] : false;
 	?>
 	<script>
 		// Collapse all fields
@@ -362,7 +362,7 @@ add_action('acf/input/admin_head', function () {
 
 		// Open specified field
 		// TODO: Refactor to ?tab and ?module (and ?module_count) ONLY - regardless if flexible
-		<?php if ($module and $moduleArea and $moduleCount) : ?>
+		<?php /* if ($module and $moduleArea and $moduleCount) : ?>
 			(function ($) {
 				$(window).load(function () {
 					// Go through all potential flexible content containers
@@ -393,7 +393,7 @@ add_action('acf/input/admin_head', function () {
 					});
 				});
 			})(jQuery);
-		<?php endif ?>
+		<?php endif */ ?>
 	</script>
 	<?php
 });

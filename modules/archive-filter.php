@@ -4,7 +4,7 @@
 
 		<p>
 			<label for="archive-filter-search"><?php _e('Search', 'sleek') ?></label>
-			<input type="search" id="archive-filter-search" name="sleek_filter_search" value="<?php echo isset($_GET['sleek_filter_search']) ? $_GET['sleek_filter_search'] : '' ?>">
+			<input type="search" id="archive-filter-search" name="sleek_filter_search" value="<?php echo isset($_GET['sleek_filter_search']) ? htmlspecialchars($_GET['sleek_filter_search']) : '' ?>">
 		</p>
 
 		<?php if ($taxonomies = sleek_get_post_type_taxonomy_filter()) : foreach ($taxonomies as $tax) : ?>

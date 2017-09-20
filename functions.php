@@ -8,7 +8,6 @@ require_once get_template_directory() . '/inc/comment-form-placeholders.php';
 require_once get_template_directory() . '/inc/default-meta-boxes.php';
 require_once get_template_directory() . '/inc/fix-wp-gallery.php';
 require_once get_template_directory() . '/inc/get-archive-data.php';
-require_once get_template_directory() . '/inc/get-archive-taxonomies.php';
 require_once get_template_directory() . '/inc/get-archive-image.php';
 require_once get_template_directory() . '/inc/get-site-logo.php';
 require_once get_template_directory() . '/inc/jquery-cdn-in-foot.php';

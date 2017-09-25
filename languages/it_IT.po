@@ -136,8 +136,8 @@ msgid "One comment"
 msgstr "Un commento"
 
 #: modules/comments.php:10
-msgid "% comments"
-msgstr "% commenti"
+msgid "%s comments"
+msgstr "%s commenti"
 
 msgid "No comments on \"%s\""
 msgstr "Nessun commento su \"%s\""

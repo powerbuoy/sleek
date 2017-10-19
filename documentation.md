@@ -367,8 +367,7 @@ First, let's create a template for the video field, just add a folder and file t
 
 Here's what a default video template might look like:
 
-```
-php
+```php
 <section id="video">
 
 	<?php if ($data['video-title'] or $data['video-description']) : ?>

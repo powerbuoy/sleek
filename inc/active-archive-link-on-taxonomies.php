@@ -10,7 +10,7 @@ add_filter('nav_menu_css_class', function ($cssClasses, $item) {
 	# Only do this on archive pages
 	if (is_archive()) {
 		# This is the link to the blog archive
-		if ($item->object_id == get_option('page_for_posts')) {
+		if (get_option('page_for_posts') and $item->object_id == get_option('page_for_posts')) {
 			# If we're on a blog archive - give the blog link the active class
 			if (is_category() or is_tag() or is_day() or is_month() or is_year()) {
 				$cssClasses[] = $cssClassName;
@@ -30,5 +30,4 @@ add_filter('nav_menu_css_class', function ($cssClasses, $item) {
 	}
 
 	return $cssClasses;
-}
-, 10, 2);
+}, 10, 2);

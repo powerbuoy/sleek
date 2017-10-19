@@ -1,0 +1,47 @@
+<?php
+# https://wordpress.stackexchange.com/questions/28095/how-can-i-tell-if-im-on-a-login-page
+function sleek_is_login_page () {
+	return in_array($GLOBALS['pagenow'], ['wp-login.php', 'wp-register.php']);
+}
+
+add_action('init', function () {
+	# Prevent subscribers from viewing admin (https://wordpress.stackexchange.com/questions/23007/how-do-i-remove-dashboard-access-from-specific-user-roles)
+	if (is_admin() and current_user_can('subscriber') and !defined('DOING_AJAX')) {
+		wp_redirect(home_url());
+	}
+
+	# Hide admin bar from subscribers
+	if (current_user_can('subscriber')) {
+		add_filter('show_admin_bar', '__return_false');
+	}
+});
+
+# Redirect subscribers to home page after login (https://codex.wordpress.org/Plugin_API/Filter_Reference/login_redirect)
+add_filter('login_redirect', function ($to, $request, $user) {
+	if (isset($user->roles) and is_array($user->roles)) {
+		if (in_array('subscriber', $user->roles)) {
+			return home_url();
+		}
+		else {
+			return $to;
+		}
+	}
+	else {
+		return $to;
+	}
+}, 10, 3);
+
+# Link logo to home page
+add_filter('login_headerurl', function () {
+	return home_url();
+});
+
+# Remove default login style (https://wordpress.stackexchange.com/questions/113501/avoid-to-load-default-wp-styles-in-login-screen)
+add_action('login_init', function() {
+	wp_deregister_style('login');
+});
+
+# Add our styles (TODO: Should add all styles and scripts added by register_assets()....)
+add_action('login_enqueue_scripts', function () {
+	sleek_register_assets();
+});

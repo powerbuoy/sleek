@@ -11,6 +11,7 @@ require_once get_template_directory() . '/inc/get-archive-image.php';
 require_once get_template_directory() . '/inc/get-archive-taxonomies.php';
 require_once get_template_directory() . '/inc/get-site-logo.php';
 require_once get_template_directory() . '/inc/jquery-cdn-in-foot.php';
+require_once get_template_directory() . '/inc/login.php';
 require_once get_template_directory() . '/inc/modify-archive-title.php';
 require_once get_template_directory() . '/inc/more-api-data.php';
 require_once get_template_directory() . '/inc/reduce-requests.php';

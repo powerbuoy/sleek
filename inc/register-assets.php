@@ -1,6 +1,7 @@
 <?php
 /**
  * Registers all.css and all.js along with some config variables, potential extra assets etc
+ * NOTE: Call this function from the wp_enqueue_scripts action (or login_enqueue_scripts or whatever)
  */
 function sleek_register_assets ($extraAssets = []) {
 	# Theme JS (all.js)
@@ -104,13 +105,17 @@ function sleek_register_assets ($extraAssets = []) {
 			wp_enqueue_style('sleek_extra_css_' . $id);
 		}
 	}
+}
 
-	# Add Google Maps if specified in theme options
+/**
+ * Add Google Maps if specified in theme options
+ */
+add_action('wp_enqueue_scripts', function () {
 	if ($googleMaps = get_theme_mod('google_maps_api_key')) {
 		wp_register_script('google_maps', 'https://maps.googleapis.com/maps/api/js?key=' . $googleMaps . '&callback=gmAsyncInit', [], null, true);
 		wp_enqueue_script('google_maps');
 	}
-}
+});
 
 /**
  * Add some stuff to <head></head>

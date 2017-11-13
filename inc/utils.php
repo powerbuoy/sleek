@@ -120,6 +120,7 @@ function sleek_array_search_r ($array, $key, $value = false) {
 /**
  * Returns array of social media URLs and titles
  * TODO: Move elsewhere + improve (plugin?)
+ * TODO: Fetch list from here: https://github.com/bradvin/social-share-urls
  */
 function sleek_get_social_media_links () {
 	$links = [];

@@ -299,8 +299,7 @@ return [
 		'name' => 'video-code',
 		'label' => __('Video', 'my-textdomain'),
 		'instructions' => __('Copy the YouTube/Vimeo URL and paste it here.', 'my-textdomain'),
-		'type' => 'oembed',
-		'required' => true
+		'type' => 'oembed'
 	]
 ];
 ```
@@ -329,8 +328,7 @@ acf_add_local_field_group(array (
 			'key' => 'video-code',
 			'label' => 'Description',
 			'name' => 'video-code',
-			'type' => 'oembed',
-			'required' => true
+			'type' => 'oembed'
 		)
 	),
 	'location' => array (

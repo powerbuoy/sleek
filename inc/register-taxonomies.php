@@ -28,7 +28,8 @@ function sleek_register_taxonomies ($taxonomies, $textdomain = 'sleek') {
 				'slug' => $slug
 			],
 			'sort' => true,
-			'hierarchical' => $hierarchical
+			'hierarchical' => $hierarchical,
+			'show_in_rest' => true
 		]);
 	}
 }

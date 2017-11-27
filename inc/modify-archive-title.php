@@ -86,6 +86,11 @@ add_filter('get_the_archive_description', function ($description) {
 		}
 	}
 
+	# Author: WP doesn't wrap this in a <p>
+	elseif (is_author()) {
+		$description = wpautop(get_the_author_meta('description'));
+	}
+
 	return $description;
 });
 

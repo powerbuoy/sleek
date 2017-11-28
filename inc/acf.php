@@ -16,14 +16,12 @@ function sleek_acf ($params) {
 	# Merge user's params with our defaults
 	$params = array_merge($defaults, $params);
 
-	# Create a key for this field group
-	$fieldGroupKey = 'group_' . md5(json_encode([
-		$params['title'],
-		$params['position'],
-		$params['style'],
-		$params['flexible'],
-		$params['location']
-	]));
+	# Make sure a key is set
+	if ((isset($params['key']) and !empty($params['key']))) {
+		return false;
+	}
+
+	$fieldGroupKey = $params['key'] = 'group_' . $params['key'];
 
 	# Remember whether this group should be a flexible content group
 	$isFlexible = (isset($params['flexible']) and $params['flexible'] == true) ? true : false;
@@ -32,7 +30,7 @@ function sleek_acf ($params) {
 	if (!(isset($params['fields']) and count($params['fields']))) {
 		$params['fields'] = [
 			[
-				'key' => $fieldGroupKey . '_message_field',
+				'key' => 'field_' . $fieldGroupKey . '_message_field',
 				'type' => 'message',
 				'label' => __('Add some fields', 'sleek'),
 				'message' => __('You have not added any fields to your field group.', 'sleek')
@@ -48,14 +46,14 @@ function sleek_acf ($params) {
 			if (is_array($fields)) {
 				# Create a tab for this flex group
 				$newFields[] = [
-					'key' => $fieldGroupKey . '_tab_' . $flexName,
+					'key' => 'field_' . $fieldGroupKey . '_tab_' . $flexName,
 					'label' => sleek_acf_nice_name($flexName),
 					'type' => 'tab'
 				];
 
 				# Create the flexible content field
 				$flexField = [
-					'key' => $fieldGroupKey . '_' . $flexName . '_modules',
+					'key' => 'field_' . $fieldGroupKey . '_' . $flexName . '_modules',
 					'name' => 'modules-' . $flexName,
 					'button_label' => __('Add a module', 'sleek'),
 					'type' => 'flexible_content',
@@ -65,7 +63,7 @@ function sleek_acf ($params) {
 				# Now go through all the fields and add them to the flex field
 				foreach ($fields as $fieldName) {
 					if ($fields = sleek_acf_include_field($fieldName, $fieldGroupKey)) {
-						$flexFieldLayoutKey = $fieldGroupKey . '_' . $flexName . '_' . $fieldName;
+						$flexFieldLayoutKey = 'field_' . $fieldGroupKey . '_' . $flexName . '_' . $fieldName;
 
 						# Create the layout group
 						$flexFieldLayout = [
@@ -106,14 +104,14 @@ function sleek_acf ($params) {
 			# If the field itself is an array - create tabs
 			if (is_array($value)) {
 				$newFields[] = [
-					'key' => $fieldGroupKey . '_tab' . sleek_acf_ugly_name($key),
+					'key' => 'field_' . $fieldGroupKey . '_tab' . sleek_acf_ugly_name($key),
 					'label' => $key,
 					'type' => 'tab'
 				];
 
 				foreach ($value as $fieldName) {
 					# Include field group definition and merge with previous fields
-					if ($fields = sleek_acf_include_field($fieldName, $fieldGroupKey)) {
+					if ($fields = sleek_acf_include_field($fieldName, 'field_' . $fieldGroupKey)) {
 						$newFields = array_merge($newFields, $fields);
 					}
 				}

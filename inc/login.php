@@ -36,6 +36,11 @@ add_filter('login_headerurl', function () {
 	return home_url();
 });
 
+# Change "Powered by WordPress" to site name
+add_filter('login_headertitle', function () {
+	return get_bloginfo('name');
+});
+
 # Remove default login style (https://wordpress.stackexchange.com/questions/113501/avoid-to-load-default-wp-styles-in-login-screen)
 add_action('login_init', function() {
 	wp_deregister_style('login');

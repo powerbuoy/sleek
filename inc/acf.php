@@ -17,7 +17,7 @@ function sleek_acf ($params) {
 	$params = array_merge($defaults, $params);
 
 	# Make sure a key is set
-	if ((isset($params['key']) and !empty($params['key']))) {
+	if (!(isset($params['key']) and !empty($params['key']))) {
 		return false;
 	}
 

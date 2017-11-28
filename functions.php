@@ -1,5 +1,6 @@
 <?php
 require_once get_template_directory() . '/inc/utils.php';
+require_once get_template_directory() . '/inc/acf.php';
 require_once get_template_directory() . '/inc/active-archive-link-on-taxonomies.php';
 require_once get_template_directory() . '/inc/add-post-type-arg-to-get-terms.php';
 require_once get_template_directory() . '/inc/cleanup.php';

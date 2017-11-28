@@ -72,3 +72,9 @@ add_filter('post_gallery', function ($string, $attr) {
 
 	return $html;
 }, 10, 2);
+
+# Wrap videos in div.video
+# https://wordpress.stackexchange.com/questions/50779/how-to-wrap-oembed-embedded-video-in-div-tags-inside-the-content
+add_filter('embed_oembed_html', function($html, $url, $attr, $post_id) {
+	return '<div class="video">' . $html . '</div>';
+}, 99, 4);

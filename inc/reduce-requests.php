@@ -3,8 +3,10 @@
  * Reduces the number of HTTP requests by removing
  * unwanted CSS and JS files from WP and plug-ins
  */
-function sleek_reduce_requests ($except = ['wpcf7_js']) {
-	if (!is_admin()) {
+add_action('init', function () {
+ $except = ['wpcf7_js'];
+
+ if (!is_admin()) {
 		# WP Embed
 		if (!in_array('wp_oembed', $except)) {
 			# Remove the REST API endpoint.
@@ -56,7 +58,7 @@ function sleek_reduce_requests ($except = ['wpcf7_js']) {
 		# WPML Language Switcher
 		define('ICL_DONT_LOAD_LANGUAGE_SELECTOR_CSS', true);
 	}
-}
+});
 
 /**
  * Move jQuery to bottom of page + include from CDN

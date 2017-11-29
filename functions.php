@@ -1,7 +1,6 @@
 <?php
 require_once get_template_directory() . '/inc/utils.php';
 require_once get_template_directory() . '/inc/acf.php';
-require_once get_template_directory() . '/inc/add-post-type-arg-to-get-terms.php';
 require_once get_template_directory() . '/inc/archive-meta-data.php';
 require_once get_template_directory() . '/inc/cleanup-nav.php';
 require_once get_template_directory() . '/inc/cleanup.php';
@@ -11,6 +10,7 @@ require_once get_template_directory() . '/inc/fix-active-menu-items.php';
 require_once get_template_directory() . '/inc/fix-wp-gallery.php';
 require_once get_template_directory() . '/inc/get-archive-taxonomies.php';
 require_once get_template_directory() . '/inc/get-site-logo.php';
+require_once get_template_directory() . '/inc/get-terms-post-type-arg.php';
 require_once get_template_directory() . '/inc/login.php';
 require_once get_template_directory() . '/inc/reduce-requests.php';
 require_once get_template_directory() . '/inc/register-acf.php';
@@ -20,25 +20,18 @@ require_once get_template_directory() . '/inc/register-sidebars.php';
 require_once get_template_directory() . '/inc/register-taxonomies.php';
 require_once get_template_directory() . '/inc/register-theme-options.php';
 
+# Title tag support
+add_theme_support('title-tag');
+
 # Give pages excerpts
 add_action('init', function () {
 	add_post_type_support('page', 'excerpt');
-});
-
-# Set up for translation
-add_action('after_setup_theme', function () {
-	load_theme_textdomain('sleek', get_template_directory() . '/languages');
 });
 
 # Eable post thumbnails
 add_action('after_setup_theme', function () {
 	add_theme_support('post-thumbnails');
 	set_post_thumbnail_size(300, 200, true);
-});
-
-# Remove a bunch of unwanted CSS/JS added by WP and plug-ins
-add_action('init', function () {
-	sleek_reduce_requests();
 });
 
 # Remove "Protected:" from protected post titles
@@ -57,5 +50,7 @@ add_filter('wp_prepare_themes_for_js', function ($themes) {
 	return $themes;
 });
 
-# Title tag support
-add_theme_support('title-tag');
+# Set up for translation
+add_action('after_setup_theme', function () {
+	load_theme_textdomain('sleek', get_template_directory() . '/languages');
+});

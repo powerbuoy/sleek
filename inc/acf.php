@@ -20,6 +20,9 @@ function sleek_acf ($params) {
 	# Merge user's params with our defaults
 	$params = array_merge($defaults, $params);
 
+	# Add help text to admin for selected fields
+#	sleek_acf_add_help($params);
+
 	# Make sure a key is set
 	if (!(isset($params['key']) and !empty($params['key']))) {
 		return false;
@@ -283,3 +286,47 @@ add_action('acf/input/admin_head', function () {
 	</script>
 	<?php
 });
+
+/**
+ * Add help text to admin
+ */
+function sleek_acf_add_help ($params) {
+	if (is_admin() and isset($params['location']) and count($params['location']) and count($params['location'][0])) {
+		add_action('current_screen', function () use ($params) {
+			$screen = get_current_screen();
+			$location = $params['location'][0][0];
+
+			# The fields are added to the post type we're viewing
+			if ($location['param'] == 'post_type' and $screen->post_type == $location['value'] and $screen->base == 'post') {
+				$sections = [];
+
+				foreach ($params['fields'] as $k => $v) {
+					if (is_array($v)) {
+						foreach ($v as $field) {
+							$sections[] = sleek_acf_get_help_section($field);
+						}
+					}
+					else {
+						$sections[] = sleek_acf_get_help_section($v);
+					}
+				}
+
+			/*	echo '<div style="position: fixed; right: 0; top: 0; width 30%; height: 60%; overflow: auto; background: #fed; z-index: 9999;">';
+				var_dump(get_current_screen());
+				var_dump($location);
+				var_dump($sections);
+				echo '</div>'; */
+
+				$screen->add_help_tab([
+					'id' => 'sleek_help_' . $location['value'],
+					'title' => __('Sleek', 'sleek'),
+					'content' => implode(', ', $sections)
+				]);
+			}
+		});
+	}
+}
+
+function sleek_acf_get_help_section ($field) {
+	return $field;
+}

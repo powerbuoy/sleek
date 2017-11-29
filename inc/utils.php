@@ -149,17 +149,15 @@ function sleek_get_social_media_links ($u = false) {
 
 /**
  * Like get_template_part but accepts arguments
- * TODO: Make everything get_template_part makes global global here too
+ * NOTE: Never pass in any of the reserved query vars!
+ * https://codex.wordpress.org/WordPress_Query_Vars
  */
 function sleek_get_template_part ($path, $args = []) {
-	if ($locatedPath = locate_template($path . '.php')) {
-		extract($args);
+	foreach ($args as $k => $v) {
+		set_query_var($k, $v);
+	}
 
-		include $locatedPath;
-	}
-	else {
-		echo "[ No such module: $path ]";
-	}
+	get_template_part($path);
 }
 
 /**

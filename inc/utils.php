@@ -1,5 +1,28 @@
 <?php
 /**
+ * Attempts to return the currently viewed post type
+ */
+function sleek_get_current_post_type () {
+	# Work out the post type on this archive
+	$qo = get_queried_object();
+
+	# Post type archive
+	if ($qo instanceof WP_Post_Type) {
+		$pt = $qo->name;
+	}
+	# Blog archive
+	elseif ($qo instanceof WP_Post) {
+		$pt = 'post';
+	}
+	# Try to get post type like this (NOTE: this will fetch the _first_ post's post type)
+	else {
+		$pt = get_post_type();
+	}
+
+	return $pt;
+}
+
+/**
  * Returns the current page type
  */
 function sleek_get_page_type () {
@@ -47,7 +70,7 @@ function sleek_get_post_terms ($id, $pt, $linked = false, $type = 'category', $f
 		$tmp = wp_get_post_terms($id, 'category');
 		$taxonomy = 'category';
 	}
-	# Custom taxonomies are assumed to be named post-type-name_category
+	# Custom taxonomies are assumed to be named ${post-type-name}_category
 	elseif (taxonomy_exists($pt . '_' . $type)) {
 		$tmp = wp_get_post_terms($id, $pt . '_' . $type);
 		$taxonomy = $pt . '_' . $type;

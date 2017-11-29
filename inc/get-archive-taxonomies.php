@@ -1,31 +1,11 @@
 <?php
-function sleek_get_archive_post_type () {
-	# Work out the post type on this archive
-	$qo = get_queried_object();
-
-	# Post type archive
-	if ($qo instanceof WP_Post_Type) {
-		$pt = $qo->name;
-	}
-	# Blog archive
-	elseif ($qo instanceof WP_Post) {
-		$pt = 'post';
-	}
-	# Try to get post type like this (NOTE: this will fetch the _first_ post's post type)
-	else {
-		$pt = get_post_type();
-	}
-
-	return $pt;
-}
-
 /**
  * Returns list of all taxonomies associated with $args['post_type']
  */
 function sleek_get_post_type_taxonomies ($args = []) {
 	# Default args
 	$args = array_merge([
-		'post_type' => sleek_get_archive_post_type(),
+		'post_type' => sleek_get_current_post_type(),
 		'hide_empty' => true
 	], $args);
 
@@ -106,7 +86,7 @@ function sleek_get_post_type_taxonomies ($args = []) {
 function sleek_get_post_type_taxonomy_filter ($args = []) {
 	# Default args
 	$args = array_merge([
-		'post_type' => sleek_get_archive_post_type(),
+		'post_type' => sleek_get_current_post_type(),
 		'hide_empty' => true
 	], $args);
 

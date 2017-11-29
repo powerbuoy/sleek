@@ -46,7 +46,7 @@ add_action('login_init', function() {
 	wp_deregister_style('login');
 });
 
-# Add our styles (TODO: Should add all styles and scripts added by register_assets()....)
+# Add our styles
 add_action('login_enqueue_scripts', function () {
 	sleek_register_assets();
 });

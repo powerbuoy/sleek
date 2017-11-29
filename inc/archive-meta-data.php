@@ -43,7 +43,7 @@ add_filter('get_the_archive_title', function ($title) {
 	return $title;
 });
 
-# Modify the_archive_description
+# Modify the_archive_description()
 add_filter('get_the_archive_description', function ($description) {
 	global $wp_query;
 	global $post;
@@ -94,51 +94,11 @@ add_filter('get_the_archive_description', function ($description) {
 	return $description;
 });
 
-function sleek_get_post_type_field ($postType, $field = 'title') {
-	$lang = defined('ICL_LANGUAGE_CODE') ? ICL_LANGUAGE_CODE : '';
-	$value = false;
-
-	# Post title/description/ACF
-	if ($postType == 'post') {
-		if ($field == 'title') {
-			$value = get_the_title(get_option('page_for_posts'));
-		}
-		elseif ($field == 'description') {
-			$value = apply_filters('the_content', get_post_field('post_content', get_option('page_for_posts')));
-		}
-		else {
-			$value = get_field($field, get_option('page_for_posts'));
-		}
-	}
-	# CPT title/description/option field
-	else {
-		if ($field == 'title') {
-			$value = get_option($postType . $lang . '_title');
-
-			if (!$value) {
-				$value = get_the_archive_title();
-			}
-		}
-		elseif ($field == 'description') {
-			$value = get_option($postType . $lang . '_description');
-
-			if (!$value) {
-				$value = get_the_archive_description();
-			}
-		}
-		else {
-			$value = get_option($postType . $lang . '_' . $field);
-		}
-	}
-
-	return $value;
-}
-
 /**
  * Similar to the_archive_title and description but returns an image
  * TODO: Check for ACF images added to categories
  */
-function sleek_get_archive_image ($size = 'large') {
+function sleek_get_the_archive_image ($size = 'large') {
 	global $_wp_additional_image_sizes;
 	global $wp_query;
 	global $post;

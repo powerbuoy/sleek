@@ -1,5 +1,9 @@
 <?php
 function sleek_acf ($params) {
+	if (!function_exists('acf_add_local_field_group')) {
+		return false;
+	}
+
 	# Some sensible defaults
 	$defaults = [
 		'title' => __('Untitled', 'sleek'),

@@ -11,7 +11,7 @@ add_filter('default_hidden_meta_boxes', function ($hidden, $screen) {
 			'slugdiv'
 		],
 		'post' => [
-			'tagsdiv-post_tag' # Tags shouldn't be used in this theme
+			'tagsdiv-post_tag' # Tags aren't used in this theme (NOTE: Shit assumption!)
 		],
 		'news' => [
 			'pageparentdiv'

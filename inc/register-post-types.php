@@ -65,6 +65,7 @@ function sleek_set_cpt_in_search ($pts = [], $override = false) {
 	});
 }
 
+# NOTE: Deprecated!
 # Registers CPT meta data such as title, description and image (for use in archive pages)
 function sleek_register_post_type_meta_data ($postTypes, $extraFields = []) {
 	add_action('admin_head', function () {

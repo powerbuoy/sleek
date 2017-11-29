@@ -1,19 +1,27 @@
-<?php if ($taxonomies = sleek_get_post_type_taxonomies()) : ?>
+<?php if ($taxonomies = get_object_taxonomies(sleek_get_current_post_type(), 'objects')) : ?>
 	<section id="archive-taxonomies">
 
 		<?php foreach ($taxonomies as $tax) : ?>
+			<?php
+				# Get all categories
+				$output = wp_list_categories([
+					'taxonomy' => $tax->name,
+					'title_li' => false,
+					'show_option_all' => __('All', 'sleek'),
+					'echo' => false
+				]);
+
+				# If there's no current cat - add the class to the "all" link
+				if (strpos($output, 'current-cat') == false) {
+					$output = str_replace('cat-item-all', 'cat-item-all current-cat', $output);
+				}
+			?>
 			<nav>
 
-				<h2><?php echo $tax['taxonomy']->labels->name ?></h2>
+				<h2><?php echo $tax->labels->name ?></h2>
 
 				<ul>
-					<li<?php if (!$tax['has_active']) : ?> class="active"<?php endif ?>>
-						<a href="<?php echo $tax['post_type_archive_link'] ?>"><?php _e('All', 'sleek') ?></a>
-					</li>
-					<?php wp_list_categories([
-						'taxonomy' => $tax['taxonomy']->name,
-						'title_li' => false
-					]) ?>
+					<?php echo $output ?>
 				</ul>
 
 			</nav>

@@ -1,89 +1,9 @@
 <?php
 /**
  * Returns list of all taxonomies associated with $args['post_type']
- */
-function sleek_get_post_type_taxonomies ($args = []) {
-	# Default args
-	$args = array_merge([
-		'post_type' => sleek_get_current_post_type(),
-		'hide_empty' => true
-	], $args);
-
-	# Get all taxonomies associated with this PT
-	$taxonomies = get_object_taxonomies($args['post_type'], 'objects');
-	$data = [];
-
-	# We need to rewrite some (built in) taxonomies
-	$taxRewrite = [
-		'category' => [
-			'name' => 'cat',
-			'property' => 'term_id'
-		],
-		'post_tag' => [
-			'name' => 'tag'
-		]
-	];
-
-	# Loop through them all
-	foreach ($taxonomies as $tax) {
-		$hasActive = false; # Whether this taxonomy has any active terms
-		$activeTerm = false; # Store the active term
-		$taxQueryName = $tax->name; # The get_query_var name of this taxonomy (usually the same as tax name but not for built in taxonomies...)
-		$taxQueryProperty = 'slug'; # The property stored on the query var (usually slug but not for category... fucking WordPress)
-
-		# Rewrite query name and property for certain taxonomies
-		if (isset($taxRewrite[$tax->name])) {
-			$taxQueryName = isset($taxRewrite[$tax->name]['name']) ? $taxRewrite[$tax->name]['name'] : $taxQueryName;
-			$taxQueryProperty = isset($taxRewrite[$tax->name]['property']) ? $taxRewrite[$tax->name]['property'] : $taxQueryProperty;
-		}
-
-		# Get all the terms
-		$terms = [];
-		$tmp = get_terms([
-			'taxonomy' => $tax->name,
-			'hide_empty' => $args['hide_empty']
-		]);
-
-		# Only continue if we have terms
-		if ($tmp) {
-			foreach ($tmp as $term) {
-				# Store additional data about each term
-				$term = [
-					'term' => $term, # The original term
-					'permalink' => get_term_link($term), # Permalink to term page
-					'active' => $term->{$taxQueryProperty} == get_query_var($taxQueryName)
-				];
-
-				# Remember if we have a active term in this tax
-				if ($term['active']) {
-					$hasActive = true;
-					$activeTerm = $term;
-				}
-
-				# Store the term
-				$terms[] = $term;
-			}
-
-			# Store the taxonomy
-			$data[] = [
-				'taxonomy' => $tax,
-				'has_active' => $hasActive,
-				'active_term' => $activeTerm,
-				'post_type' => $args['post_type'],
-				'post_type_archive_link' => get_post_type_archive_link($args['post_type']),
-				'terms' => $terms
-			];
-		}
-	}
-
-	return $data;
-}
-
-/**
- * Returns list of all taxonomies associated with $args['post_type']
  * along with data used for displaying said taxonomies in a form
  */
-function sleek_get_post_type_taxonomy_filter ($args = []) {
+function sleek_get_archive_filter_taxonomies ($args = []) {
 	# Default args
 	$args = array_merge([
 		'post_type' => sleek_get_current_post_type(),

@@ -1,6 +1,7 @@
 <?php
 require_once get_template_directory() . '/inc/utils.php';
 require_once get_template_directory() . '/inc/acf.php';
+require_once get_template_directory() . '/inc/archive-filter.php';
 require_once get_template_directory() . '/inc/archive-meta-data.php';
 require_once get_template_directory() . '/inc/cleanup-nav.php';
 require_once get_template_directory() . '/inc/cleanup.php';
@@ -8,7 +9,6 @@ require_once get_template_directory() . '/inc/comment-form-placeholders.php';
 require_once get_template_directory() . '/inc/default-meta-boxes.php';
 require_once get_template_directory() . '/inc/fix-active-menu-items.php';
 require_once get_template_directory() . '/inc/fix-wp-gallery.php';
-require_once get_template_directory() . '/inc/get-archive-taxonomies.php';
 require_once get_template_directory() . '/inc/get-site-logo.php';
 require_once get_template_directory() . '/inc/get-terms-post-type-arg.php';
 require_once get_template_directory() . '/inc/login.php';

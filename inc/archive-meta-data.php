@@ -4,15 +4,13 @@ add_filter('get_the_archive_title', function ($title) {
 	global $wp_query;
 	global $post;
 
-	$lang = defined('ICL_LANGUAGE_CODE') ? ICL_LANGUAGE_CODE : '';
-
 	# Blog page should show blog page's the_title()
 	if (is_home() and get_option('page_for_posts')) {
 		$title = get_the_title(get_option('page_for_posts'));
 	}
 
 	# CPT archive should show custom title if set
-	elseif (is_post_type_archive() and $customTitle = get_option($wp_query->query['post_type'] . $lang . '_title')) {
+	elseif (is_post_type_archive() and function_exists('get_field') and $customTitle = get_field('archive-title', $wp_query->query['post_type'] . '_meta_data')) {
 		$title = $customTitle;
 	}
 
@@ -48,16 +46,14 @@ add_filter('get_the_archive_description', function ($description) {
 	global $wp_query;
 	global $post;
 
-	$lang = defined('ICL_LANGUAGE_CODE') ? ICL_LANGUAGE_CODE : '';
-
 	# Blog page should show blog page's the_title()
 	if (is_home() and get_option('page_for_posts')) {
 		$description = apply_filters('the_content', get_post_field('post_content', get_option('page_for_posts')));
 	}
 
 	# CPT archive should show custom title if set
-	elseif (is_post_type_archive() and $customDescription = get_option($wp_query->query['post_type'] . $lang . '_description')) {
-		$description = wpautop($customDescription); # NOTE: Is wpautop needed? This data is entered in a WYSIWYG-editor...
+	elseif (is_post_type_archive() and function_exists('get_field') and $customDescription = get_field('archive-description', $wp_query->query['post_type'] . '_meta_data')) {
+		$description = $customDescription;
 	}
 
 	# Search should show something nice too
@@ -114,21 +110,13 @@ function sleek_get_the_archive_image ($size = 'large') {
 	}
 
 	# CPT archive
-	elseif (is_post_type_archive()) {
-		$postType = get_post_type_object($wp_query->query['post_type']);
-
-		if ($imageId = get_option($postType->name . $lang . '_image')) { # TODO: Change from get_option to ACF
-			$image = wp_get_attachment_image_src($imageId, $size)[0];
-		}
+	elseif (is_post_type_archive() and function_exists('get_field') and $imageId = get_field('archive-image', $wp_query->query['post_type'] . '_meta_data')) {
+		$image = wp_get_attachment_image_src($imageId, $size)[0];
 	}
 
 	# Custom taxonomy
-	elseif (is_tax()) {
-		$postType = get_post_type_object(get_post_type());
-
-		if ($imageId = get_option($postType->name . $lang . '_image')) { # TODO: Change from get_option to ACF
-			$image = wp_get_attachment_image_src($imageId, $size)[0];
-		}
+	elseif (is_tax() and function_exists('get_field') and $imageId = get_field('archive-image', get_post_type() . '_meta_data')) {
+		$image = wp_get_attachment_image_src($imageId, $size)[0];
 	}
 
 	# Author
@@ -146,4 +134,65 @@ function sleek_get_the_archive_image ($size = 'large') {
 	}
 
 	return $image;
+}
+
+/**
+ * Adds ACF options pages to all archives specified containing title, description and image fields
+ */
+function sleek_archive_meta_data ($postTypes) {
+	if (!(function_exists('acf_add_options_page') and function_exists('acf_add_local_field_group'))) {
+		return false;
+	}
+
+	foreach ($postTypes as $key => $value) {
+		$postType = $value;
+
+		if (is_array($value)) {
+			$postType = $key;
+		}
+
+		# Create the options page
+		acf_add_options_page([
+			'page_title' => __('Archive Title & Description', 'sleek'),
+			'menu_slug' => $postType . '_meta_data',
+			'parent_slug' => 'edit.php?post_type=' . $postType,
+			'icon_url' => 'dashicons-welcome-write-blog',
+			'post_id' => $postType . '_meta_data'
+		]);
+
+		# Add some standard fields (title, description, image)
+		$groupKey = 'group_' . $postType . '_meta_data';
+
+		acf_add_local_field_group([
+			'key' => $groupKey,
+			'title' => __('Archive Title & Description', 'sleek'),
+			'fields' => [
+				[
+					'label' => __('Title', 'sleek'),
+					'key' => 'field_' . $groupKey . '_title',
+					'name' => 'archive-title',
+					'type' => 'text'
+				],
+				[
+					'label' => __('Image', 'sleek'),
+					'key' => 'field_' . $groupKey . '_image',
+					'name' => 'archive-image',
+					'type' => 'image',
+					'return_format' => 'id'
+				],
+				[
+					'label' => __('Description', 'sleek'),
+					'key' => 'field_' . $groupKey . '_description',
+					'name' => 'archive-description',
+					'type' => 'wysiwyg',
+					'media_upload' => false
+				]
+			],
+			'location' => [[[
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => $postType . '_meta_data'
+			]]]
+		]);
+	}
 }

@@ -1,4 +1,5 @@
 <?php
+# NOTE: DEPRECATED!
 /**
  * Inserts ACF into post types, $locations should be an array like:
  * [
@@ -328,84 +329,3 @@ function sleek_render_acf_modules ($where, $postId = null) {
 		}
 	}
 }
-
-# Add shortcode to render modules [render_module module="hubspot-cta" hubspot-cta-id="abc-123"]
-add_shortcode('render_module', function ($args) {
-	$template = isset($args['template']) ? $args['template'] : 'default';
-
-	if (isset($args['module']) and ($path = locate_template('acf/' . $args['module'] . '/' . $template . '.php'))) {
-		return sleek_fetch($path, [
-			'data' => $args
-		]);
-	}
-
-	return '[Unable to locate module]';
-});
-
-/**
- * Collapse or expand flexible content fields on page load
- */
-add_action('acf/input/admin_head', function () {
-#	$moduleArea = isset($_GET['sleek_acf_module_area']) ? $_GET['sleek_acf_module_area'] : false;
-#	$module = isset($_GET['sleek_acf_module']) ? $_GET['sleek_acf_module'] : false;
-#	$moduleCount = isset($_GET['sleek_acf_module_count']) ? $_GET['sleek_acf_module_count'] : false;
-	?>
-	<script>
-		// Collapse all fields
-		(function ($) {
-			$(window).load(function () {
-				$('a[data-name="collapse-layout"]').filter(function () {
-					return !$(this).parents('.-collapsed').length && !$(this).parents('.acf-clone').length;
-				}).click();
-			});
-		})(jQuery);
-
-		// Open specified field
-		// TODO: Refactor to ?tab and ?module (and ?module_count) ONLY - regardless if flexible
-		<?php /* if ($module and $moduleArea and $moduleCount) : ?>
-			(function ($) {
-				$(window).load(function () {
-					// Go through all potential flexible content containers
-					$('div[id^="acf-group_"]').each(function () {
-						var wrap = $(this);
-
-						// We're inside a flexible content container
-						if (wrap.attr('id').match(/_modules$/)) {
-							var wrapId = wrap.attr('id').substr(4);
-							var moduleAreaTab = wrap.find('.acf-tab-group').find('a[data-key="' + wrapId + '_<?php echo $moduleArea ?>_tab"]');
-							var module = wrap.find('div.acf-field[data-name="modules-<?php echo $moduleArea ?>"]').find('div.layout[data-layout="<?php echo $module ?>"][data-id="<?php echo $moduleCount ?>"]');
-
-							// Trigger the tab
-							if (!moduleAreaTab.parent().is('.active')) {
-								moduleAreaTab.click();
-							}
-
-							// And expand the module
-							module.find('a[data-name="collapse-layout"]').click();
-
-							// Finally scroll down to the module
-							setTimeout(function () {
-								var top = module[0].getBoundingClientRect().top;
-
-								$('html, body').animate({scrollTop: (top - 30) + 'px'});
-							}, 1000); // Wait this long for the admin to load...
-						}
-					});
-				});
-			})(jQuery);
-		<?php endif */ ?>
-	</script>
-	<?php
-});
-
-/**
- * Add module dropdown to admin toolbar (should support all ACF - not just flexible)
- */
-/* add_action('admin_bar_menu', function ($admin_bar) {
-	global $post;
-
-	$admin_bar->add_menu([
-		'id' => 'sleek-acf-modules',
-		'title' => __('Edit modules', 'sleek')
-	]);
-}, 100); */

@@ -190,3 +190,92 @@ function sleek_acf_generate_keys ($definition, $prefix) {
 
 	return $definition;
 }
+
+/**
+ * Renders ACF flexible content modules in the $where container
+ */
+function sleek_acf_render_modules ($where, $postId = null) {
+	global $post;
+
+	if (!function_exists('get_field')) {
+		return '[ERROR: You need to activate Advanced Custom Fields]';
+	}
+
+	if ($modules = get_field('modules-' . $where, $postId)) {
+		$i = 0;
+		$templateCount = [];
+		$moduleCount = [];
+
+		foreach ($modules as $module) {
+			$acfLayout = isset($module['acf_fc_layout']) ? $module['acf_fc_layout'] : 'N/A';
+			$template = isset($module['template']) ? $module['template'] : 'default';
+
+			# Keep track of how many times this module is included
+			if (isset($moduleCount[$acfLayout])) {
+				$moduleCount[$acfLayout]++;
+			}
+			else {
+				$moduleCount[$acfLayout] = 1;
+			}
+
+			# Keep track of how many times this template is included
+			if (isset($templateCount[$template])) {
+				$templateCount[$template]++;
+			}
+			else {
+				$templateCount[$template] = 1;
+			}
+
+			# Include the template
+			if (locate_template('acf/' . $template . '.php')) {
+				sleek_get_template_part('acf/' . $template, [
+					'data' => $module,
+					'count' => ++$i,
+					'module_area' => $where,
+					'template_count' => $templateCount[$template],
+					'module_count' => $moduleCount[$acfLayout]
+				]);
+			}
+			# Or dump data if template doesn't exist
+			else {
+				echo '<section>';
+				echo '<h2>No template found: ' . $template . '</h2>';
+				echo '<p><small>' . $acfLayout . '</small></p>';
+				echo '<pre>';
+				var_dump($module);
+				echo '</pre>';
+				echo '</section>';
+			}
+		}
+	}
+}
+
+# Add shortcode to render modules [render_module module="hubspot-cta" hubspot-cta-id="abc-123"]
+add_shortcode('render_module', function ($args) {
+	$template = isset($args['template']) ? $args['template'] : 'default';
+
+	if (isset($args['module']) and ($path = locate_template('acf/' . $args['module'] . '/' . $template . '.php'))) {
+		return sleek_fetch($path, [
+			'data' => $args
+		]);
+	}
+
+	return '[Unable to locate module]';
+});
+
+/**
+ * Collapse flexible content fields on page load
+ */
+add_action('acf/input/admin_head', function () {
+	?>
+	<script>
+		(function ($) {
+			$(window).load(function () {
+				$('a[data-name="collapse-layout"]').filter(function () {
+					return !$(this).parents('.-collapsed').length && !$(this).parents('.acf-clone').length;
+				}).click();
+			});
+		})(jQuery);
+	</script>
+	<?php
+});

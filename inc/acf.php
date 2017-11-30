@@ -21,7 +21,7 @@ function sleek_acf ($params) {
 	$params = array_merge($defaults, $params);
 
 	# Add help text to admin for selected fields
-#	sleek_acf_add_help($params);
+	sleek_acf_add_help($params);
 
 	# Make sure a key is set
 	if (!(isset($params['key']) and !empty($params['key']))) {
@@ -308,32 +308,49 @@ function sleek_acf_add_help ($params) {
 				foreach ($params['fields'] as $k => $v) {
 					if (is_array($v)) {
 						foreach ($v as $field) {
-							$sections[] = sleek_acf_get_help_section($field);
+							$helpSection = sleek_acf_get_help_section($field);
+
+							if ($helpSection) {
+								$sections[] = $helpSection;
+							}
 						}
 					}
 					else {
-						$sections[] = sleek_acf_get_help_section($v);
+						$helpSection = sleek_acf_get_help_section($v);
+
+						if ($helpSection) {
+							$sections[] = $helpSection;
+						}
 					}
 				}
 
-			/*	echo '<div style="position: fixed; right: 0; top: 0; width 30%; height: 60%; overflow: auto; background: #fed; z-index: 9999;">';
-				var_dump(get_current_screen());
-				var_dump($location);
-				var_dump($sections);
-				echo '</div>'; */
-
-				$screen->add_help_tab([
-					'id' => 'sleek_help_' . $location['value'],
-					'title' => __('Sleek', 'sleek'),
-					'callback' => function ($screen, $tab) use ($sections) {
-						echo implode(', ', $sections);
-					}
-				]);
+				if (count($sections)) {
+					$screen->add_help_tab([
+						'id' => 'sleek_help_' . $params['key'],
+						'title' => $params['title'],
+						'content' => implode(', ', $sections)
+					]);
+				}
 			}
 		});
 	}
 }
 
 function sleek_acf_get_help_section ($field) {
-	return $field;
+	if ($path = locate_template('acf/' . basename($field) . '.php')) {
+		$content = file_get_contents($path);
+
+		preg_match('/\/\*\*\*(.*?)\*\*\*\//s', $content, $matches);
+
+		if (count($matches) > 1) {
+			$helpText = '<strong>' . sleek_acf_nice_name($field) . '</strong> — ';
+			$helpText .= trim($matches[1]);
+
+			return wpautop($helpText);
+		}
+
+		return false;
+	}
+
+	return false;
 }

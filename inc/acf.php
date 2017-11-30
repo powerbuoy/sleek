@@ -77,17 +77,18 @@ function sleek_acf ($params) {
 							'key' => $flexFieldLayoutKey,
 							'name' => $flexFieldLayoutKey,
 							'label' => sleek_acf_nice_name($fieldName),
-							'sub_fields' => [
-								# Automatically add the layout/template field
-								[
-									'key' => $flexFieldLayoutKey . '-template',
-									'name' => 'template',
-									'label' => __('Layout', 'sleek'),
-									'instructions' => __('Select a different layout for this module to change its appearance on the website.', 'sleek'),
-									'type' => 'select',
-									'choices' => sleek_acf_get_field_templates($fieldName)
-								]
-							]
+							'sub_fields' => []
+						];
+
+
+						# Automatically add the layout/template field
+						$flexFieldLayout['sub_fields'][] = [
+							'key' => $flexFieldLayoutKey . '-template',
+							'name' => 'template',
+							'label' => __('Layout', 'sleek'),
+							'instructions' => __('Select a different layout for this module to change its appearance on the website.', 'sleek'),
+							'type' => 'select',
+							'choices' => sleek_acf_get_field_templates($fieldName)
 						];
 
 						# Finally add the rest of the fields
@@ -139,15 +140,14 @@ function sleek_acf ($params) {
 	acf_add_local_field_group($params);
 }
 
-# Conver a "field-name" to "Field name"
+# Conver "field-name" to "Field name"
 function sleek_acf_nice_name ($name) {
 	return __(ucfirst(str_replace(['_', '-'], ' ', $name)), 'sleek');
 }
 
-# Convert a "Field name" to "fieldname"
-# https://stackoverflow.com/questions/12339942/sanitize-strings-for-legal-variable-names-in-php
+# Convert "Field name" to "fieldname"
 function sleek_acf_ugly_name ($name) {
-	return strtolower(preg_replace('/[^a-zA-Z0-9]/', '', (string) $name));
+	return strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $name));
 }
 
 # Includes a field definition located in acf/field-name.php and gives it unique keys
@@ -170,12 +170,10 @@ function sleek_acf_get_field_templates ($fieldName) {
 
 	if (file_exists($path)) {
 		$tmp = scandir($path);
-		$tmp = array_diff($tmp, ['.', '..']); # Remove ./.. and "main" template
+		$tmp = array_diff($tmp, ['.', '..']); # Remove ./..
 
 		foreach ($tmp as $t) {
-			if (substr(basename($t), 0, 2) != '__' and substr(basename($t), 0, 1) != '.') {
-				$templates[$fieldName . '/' . basename($t, '.php')] = ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php')));
-			}
+			$templates[$fieldName . '/' . basename($t, '.php')] = ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php')));
 		}
 	}
 
@@ -272,15 +270,22 @@ add_shortcode('render_module', function ($args) {
 
 /**
  * Collapse flexible content fields on page load
+ * And hide template dropdowns if there's only one template
  */
 add_action('acf/input/admin_head', function () {
 	?>
 	<script>
 		(function ($) {
 			$(window).load(function () {
+				// Collapse all flexible content modules
 				$('a[data-name="collapse-layout"]').filter(function () {
 					return !$(this).parents('.-collapsed').length && !$(this).parents('.acf-clone').length;
 				}).click();
+
+				// Hide templates if only one
+				$('div[data-name="template"]').filter(function () {
+					return $(this).find('option').length < 2;
+				}).hide();
 			});
 		})(jQuery);
 	</script>
@@ -320,7 +325,9 @@ function sleek_acf_add_help ($params) {
 				$screen->add_help_tab([
 					'id' => 'sleek_help_' . $location['value'],
 					'title' => __('Sleek', 'sleek'),
-					'content' => implode(', ', $sections)
+					'callback' => function ($screen, $tab) use ($sections) {
+						echo implode(', ', $sections);
+					}
 				]);
 			}
 		});

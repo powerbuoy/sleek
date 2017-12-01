@@ -5,8 +5,8 @@
   "main": "index.php",
   "dependencies": {},
   "devDependencies": {
-    "browserify": "^14.4.0",
-    "globby": "^6.1.0",
+    "browserify": "^14.5.0",
+    "globby": "^7.1.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean-css": "^3.9.0",

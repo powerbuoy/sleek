@@ -328,7 +328,7 @@ function sleek_acf_add_help ($params) {
 					$screen->add_help_tab([
 						'id' => 'sleek_help_' . $params['key'],
 						'title' => $params['title'],
-						'content' => implode(', ', $sections)
+						'content' => implode('', $sections)
 					]);
 				}
 			}

@@ -71,7 +71,7 @@ function sleek_acf ($params) {
 				foreach ($fields as $fieldName) {
 					$flexFieldLayoutKey = 'field_' . $fieldGroupKey . '_' . $flexName . '_' . $fieldName;
 
-					if ($fields = sleek_acf_include_field($fieldName, $flexFieldLayoutKey)) {
+					if (($fields = sleek_acf_include_field($fieldName, $flexFieldLayoutKey)) !== false) {
 						# Create the layout group
 						$flexFieldLayout = [
 							'key' => $flexFieldLayoutKey,
@@ -161,6 +161,22 @@ function sleek_acf_include_field ($fieldName, $keyPrefix) {
 	return $fieldGroup;
 }
 
+# Recursively inserts unique keys for every field that has a name
+# https://stackoverflow.com/questions/42121349/recursively-insert-element-next-to-other-element-in-array
+function sleek_acf_generate_keys ($definition, $prefix) {
+	foreach ($definition as $k => $v) {
+		if (is_array($v)) {
+			$newPrefix = isset($definition['name']) ? $prefix . '_' . $definition['name'] : $prefix;
+			$definition[$k] = sleek_acf_generate_keys($v, $newPrefix);
+		}
+		elseif ($k == 'name') {
+			$definition['key'] = $prefix . '_' . $definition[$k];
+		}
+	}
+
+	return $definition;
+}
+
 # Returns a list of templates available for a specific field group
 # TODO: Should check parent theme templates and merge with child theme templates
 function sleek_acf_get_field_templates ($fieldName) {
@@ -177,22 +193,6 @@ function sleek_acf_get_field_templates ($fieldName) {
 	}
 
 	return $templates;
-}
-
-# Recursively inserts unique keys for every field that has a name
-# https://stackoverflow.com/questions/42121349/recursively-insert-element-next-to-other-element-in-array
-function sleek_acf_generate_keys ($definition, $prefix) {
-	foreach ($definition as $k => $v) {
-		if (is_array($v)) {
-			$newPrefix = isset($definition['name']) ? $prefix . '_' . $definition['name'] : $prefix;
-			$definition[$k]= sleek_acf_generate_keys($v, $newPrefix);
-		}
-		elseif ($k == 'name') {
-			$definition['key'] = $prefix . '_' . $definition[$k];
-		}
-	}
-
-	return $definition;
 }
 
 /**

@@ -69,9 +69,9 @@ function sleek_acf ($params) {
 
 				# Now go through all the fields and add them to the flex field
 				foreach ($fields as $fieldName) {
-					if ($fields = sleek_acf_include_field($fieldName, $fieldGroupKey)) {
-						$flexFieldLayoutKey = 'field_' . $fieldGroupKey . '_' . $flexName . '_' . $fieldName;
+					$flexFieldLayoutKey = 'field_' . $fieldGroupKey . '_' . $flexName . '_' . $fieldName;
 
+					if ($fields = sleek_acf_include_field($fieldName, $flexFieldLayoutKey)) {
 						# Create the layout group
 						$flexFieldLayout = [
 							'key' => $flexFieldLayoutKey,
@@ -79,7 +79,6 @@ function sleek_acf ($params) {
 							'label' => sleek_acf_nice_name($fieldName),
 							'sub_fields' => []
 						];
-
 
 						# Automatically add the layout/template field
 						$flexFieldLayout['sub_fields'][] = [

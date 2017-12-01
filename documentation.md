@@ -385,7 +385,7 @@ Here's what a default video template might look like:
 </section>
 ```
 
-Now to loop through the flexible content field and automatically include all included module templates simply go: `sleek_render_acf_modules('name-of-flexible-content-field')`.
+Now to loop through the flexible content field and automatically include all included module templates simply go: `sleek_acf_render_modules('name-of-flexible-content-field')`.
 
 And that's it! Using ACF fields this way is much more flexible than what is built in to ACF, while still managing to stay less verbose in that you don't need to supply `key`s or `locations`.
 

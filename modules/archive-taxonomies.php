@@ -12,19 +12,26 @@
 				]);
 
 				# If there's no current cat - add the class to the "all" link
-				if (strpos($output, 'current-cat') == false) {
+				if (strpos($output, 'current-cat') === false) {
 					$output = str_replace('cat-item-all', 'cat-item-all current-cat', $output);
 				}
+
+				# If there are no categories, don't display anything
+				if (strpos($output, 'cat-item-none') !== false) {
+					$output = false;
+				}
 			?>
-			<nav>
+			<?php if ($output) : ?>
+				<nav>
 
-				<h2><?php echo $tax->labels->name ?></h2>
+					<h2><?php echo $tax->labels->name ?></h2>
 
-				<ul>
-					<?php echo $output ?>
-				</ul>
+					<ul>
+						<?php echo $output ?>
+					</ul>
 
-			</nav>
+				</nav>
+			<?php endif ?>
 		<?php endforeach ?>
 
 	</section>

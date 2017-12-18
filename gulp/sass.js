@@ -12,7 +12,8 @@ module.exports = function (file, dest) {
 		.pipe(sass()) // Don't use {outputStyle: 'compressed'} - it fucks up CSS selectors like .bg--white
 		.on('error', sass.logError)
 		.pipe(autoprefixer({
-			browsers: ['last 1 version', 'IE 9', 'IE 10', '> 2%', 'Safari >= 8']
+			browsers: ['last 1 version', 'IE 9', 'IE 10', '> 2%', 'Safari >= 8'],
+			grid: true
 		}))
 		.pipe(cleanCss())
 		.pipe(sourcemaps.write('./'))

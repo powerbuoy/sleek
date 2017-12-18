@@ -11,7 +11,9 @@
 				</figure>
 			<?php endif ?>
 
-			<?php the_excerpt() ?>
+			<?php if ($post->post_excerpt) : ?>
+				<?php the_excerpt() ?>
+			<?php endif ?>
 
 		</header>
 

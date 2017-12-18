@@ -47,17 +47,17 @@ function sleek_register_image_sizes ($width, $height, $ratio = ['center', 'cente
 		}
 
 		# Also add our own sizes to the image-size dropdown in the admin if you want
-		add_filter('image_size_names_choose', function ($sizes) {
+		add_filter('image_size_names_choose', function ($sizes) use ($additionalSizes) {
 			$newSizes = [];
 
 			foreach ($additionalSizes as $size => $config) {
-				$newSizes[] = [
-					$size . '_thumbnail' => __(ucfirst(str_replace('_', ' ', $size))) . ' (thumbnail)',
-					$size . '_medium' => __(ucfirst(str_replace('_', ' ', $size))) . ' (medium)',
-					$size . '_medium_large' => __(ucfirst(str_replace('_', ' ', $size))) . ' (medium large)',
-					$size . '_large' => __(ucfirst(str_replace('_', ' ', $size))) . ' (large)',
-				];
+				$newSizes[$size . '_thumbnail'] = __(ucfirst(str_replace('_', ' ', $size))) . ' (' . __('Thumbnail') . ')';
+				$newSizes[$size . '_medium'] = __(ucfirst(str_replace('_', ' ', $size))) . ' (' . __('Medium') . ')';
+				$newSizes[$size . '_medium_large'] = __(ucfirst(str_replace('_', ' ', $size))) . ' (' . __('Medium large') . ')';
+				$newSizes[$size . '_large'] = __(ucfirst(str_replace('_', ' ', $size))) . ' (' . __('Large') . ')';
 			}
+
+			return array_merge($sizes, $newSizes);
 		});
 	}
 }

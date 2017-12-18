@@ -293,7 +293,8 @@ return [
 		'name' => 'video-description',
 		'label' => __('Description', 'my-textdomain'),
 		'instructions' => __('Enter a description for the video.', 'my-textdomain'),
-		'type' => 'wysiwyg'
+		'type' => 'wysiwyg',
+		'media_upload' => false
 	],
 	[
 		'name' => 'video-code',

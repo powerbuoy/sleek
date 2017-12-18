@@ -15,6 +15,7 @@ require_once get_template_directory() . '/inc/login.php';
 require_once get_template_directory() . '/inc/reduce-requests.php';
 require_once get_template_directory() . '/inc/register-acf.php';
 require_once get_template_directory() . '/inc/register-assets.php';
+require_once get_template_directory() . '/inc/register-image-sizes.php';
 require_once get_template_directory() . '/inc/register-post-types.php';
 require_once get_template_directory() . '/inc/register-sidebars.php';
 require_once get_template_directory() . '/inc/register-taxonomies.php';
@@ -36,12 +37,6 @@ add_action('edit_form_after_title', function ($post) {
 		add_post_type_support('page', 'editor');
 	}
 }, 0);
-
-# Eable post thumbnails
-add_action('after_setup_theme', function () {
-	add_theme_support('post-thumbnails');
-	set_post_thumbnail_size(300, 200, true);
-});
 
 # Remove "Protected:" from protected post titles
 add_filter('private_title_format', function () {

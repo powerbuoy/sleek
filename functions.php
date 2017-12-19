@@ -1,6 +1,7 @@
 <?php
 require_once get_template_directory() . '/inc/utils.php';
 require_once get_template_directory() . '/inc/acf.php';
+require_once get_template_directory() . '/inc/add-editor-styles.php';
 require_once get_template_directory() . '/inc/archive-filter.php';
 require_once get_template_directory() . '/inc/archive-meta-data.php';
 require_once get_template_directory() . '/inc/cleanup-nav.php';

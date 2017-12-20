@@ -49,7 +49,7 @@
 	<?php get_template_part('modules/search') ?>
 
 	<?php if (isset($results->spelling)) : ?>
-		<p><?php printf(__('Showing search results for %s', 'nexus'), $results->spelling->htmlCorrectedQuery) ?></p>
+		<p><?php printf(__('Showing search results for %s', 'sleek'), $results->spelling->htmlCorrectedQuery) ?></p>
 	<?php endif ?>
 
 </header>

@@ -1,7 +1,7 @@
 <?php
 /**
  * Add an "active-parent" class to archive pages when browsing their taxonomies
- * NOTE: Several post types mays hare a taxonomy in which case all post types will be selected
+ * NOTE: Several post types may share a taxonomy in which case all post types will be selected
  */
 add_filter('nav_menu_css_class', function ($cssClasses, $item) {
 	global $wp_query;

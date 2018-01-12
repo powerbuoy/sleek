@@ -23,7 +23,7 @@
 						<?php if ($terms = sleek_get_post_terms($post->ID, get_post_type(), true)) : ?>
 							<span><?php echo implode(', ', $terms) ?></span>
 						<?php endif ?>
-						<span><?php the_author_posts_link() ?></span>
+						<?php the_author_posts_link() ?>
 					</p>
 
 				</header>

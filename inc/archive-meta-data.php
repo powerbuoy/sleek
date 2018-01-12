@@ -196,3 +196,18 @@ function sleek_archive_meta_data ($postTypes) {
 		]);
 	}
 }
+
+function sleek_get_archive_meta ($field, $pt = false) {
+	if (!function_exists('get_field')) {
+		return false;
+	}
+
+	if (!$pt) {
+		$pt = sleek_get_current_post_type();
+	}
+
+	$value = get_field($field, $pt  . '-archive-data');
+	$value = $value ? $value : get_field($field, get_option('page_for_posts'));
+
+	return $value;
+}

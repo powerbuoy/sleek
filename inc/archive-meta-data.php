@@ -206,8 +206,12 @@ function sleek_get_archive_meta ($field, $pt = false) {
 		$pt = sleek_get_current_post_type();
 	}
 
-	$value = get_field($field, $pt  . '-archive-data');
-	$value = $value ? $value : get_field($field, get_option('page_for_posts'));
+	if ($pt == 'post') {
+		return get_field($field, get_option('page_for_posts'));
+	}
+	else {
+		return get_field($field, $pt  . '-archive-data');
+	}
 
 	return $value;
 }

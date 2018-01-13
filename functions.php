@@ -59,3 +59,13 @@ add_filter('wp_prepare_themes_for_js', function ($themes) {
 add_action('after_setup_theme', function () {
 	load_theme_textdomain('sleek', get_template_directory() . '/languages');
 });
+
+# 404 archive pages
+add_filter('template_redirect', function () {
+	global $wp_query;
+
+	if (is_attachment()) {
+		status_header(404); # Sets 404 header
+		$wp_query->set_404(); # Shows 404 template
+	}
+});

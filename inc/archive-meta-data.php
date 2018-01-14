@@ -152,7 +152,7 @@ function sleek_archive_meta_data ($postTypes) {
 		}
 
 		# Create the options page
-		acf_add_options_page([
+		sleek_acf_add_options_page([
 			'page_title' => __('Archive Title & Description', 'sleek'),
 			'menu_slug' => $postType . '-archive-data',
 			'parent_slug' => 'edit.php?post_type=' . $postType,

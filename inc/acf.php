@@ -169,7 +169,7 @@ function sleek_acf_generate_keys ($definition, $prefix) {
 			$newPrefix = isset($definition['name']) ? $prefix . '_' . $definition['name'] : $prefix;
 			$definition[$k] = sleek_acf_generate_keys($v, $newPrefix);
 		}
-		elseif ($k == 'name') {
+		elseif ($k === 'name') {
 			$definition['key'] = $prefix . '_' . $definition[$k];
 		}
 	}

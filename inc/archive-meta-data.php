@@ -100,7 +100,6 @@ function sleek_get_the_archive_image ($size = 'large') {
 	global $post;
 
 	$image = false;
-	$lang = defined('ICL_LANGUAGE_CODE') ? ICL_LANGUAGE_CODE : '';
 
 	# Blog pages (category, date, tag etc)
 	if ((is_home() or is_category() or is_tag() or is_year() or is_month() or is_day()) and get_option('page_for_posts')) {

@@ -353,3 +353,23 @@ function sleek_acf_get_help_section ($field) {
 
 	return false;
 }
+
+function sleek_acf_add_options_page ($args) {
+	acf_add_options_page($args);
+
+	# Make options pages translatable
+	if (isset($args['post_id'])) {
+		add_filter('acf/validate_post_id', function ($postId) use ($args) {
+			if ($postId == $args['post_id']) {
+				$dl = acf_get_setting('default_language');
+				$cl = acf_get_setting('current_language');
+
+				if ($cl and $cl !== $dl) {
+					$postId .= '_' . $cl;
+				}
+			}
+
+			return $postId;
+		});
+	}
+}

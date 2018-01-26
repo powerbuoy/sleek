@@ -6,8 +6,12 @@ function sleek_get_current_post_type () {
 	# Work out the post type on this archive
 	$qo = get_queried_object();
 
+	# Singular
+	if (is_singular()) {
+		$pt = get_post_type();
+	}
 	# Post type archive
-	if ($qo instanceof WP_Post_Type) {
+	elseif ($qo instanceof WP_Post_Type) {
 		$pt = $qo->name;
 	}
 	# Blog archive

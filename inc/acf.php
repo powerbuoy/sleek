@@ -169,7 +169,7 @@ function sleek_acf_generate_keys ($definition, $prefix) {
 			$newPrefix = isset($definition['name']) ? $prefix . '_' . $definition['name'] : $prefix;
 			$definition[$k] = sleek_acf_generate_keys($v, $newPrefix);
 		}
-		elseif ($k == 'name') {
+		elseif ($k === 'name') {
 			$definition['key'] = $prefix . '_' . $definition[$k];
 		}
 	}
@@ -355,6 +355,10 @@ function sleek_acf_get_help_section ($field) {
 }
 
 function sleek_acf_add_options_page ($args) {
+	if (!function_exists('acf_add_options_page')) {
+		return false;
+	}
+
 	acf_add_options_page($args);
 
 	# Make options pages translatable

@@ -89,7 +89,15 @@ add_filter('tiny_mce_before_init', function ($settings) {
 
 	# Keep the built-in WP styles and merge with ours
 	$settings['style_formats_merge'] = true;
-	$settings['style_formats'] = json_encode([
+
+	# Also keep any potentially added style_formats
+	$oldFormats = [];
+
+	if (isset($settings['style_formats'])) {
+		$oldFormats = json_decode($settings['style_formats']);
+	}
+
+	$newFormats = array_merge($oldFormats, [
 		[
 			'title' => __('Button', 'sleek_child'),
 			'items' => $colors
@@ -103,6 +111,8 @@ add_filter('tiny_mce_before_init', function ($settings) {
 			'items' => $icons
 		]
 	]);
+
+	$settings['style_formats'] = json_encode($newFormats);
 
 	return $settings;
 });

@@ -100,7 +100,6 @@ function sleek_get_the_archive_image ($size = 'large') {
 	global $post;
 
 	$image = false;
-	$lang = defined('ICL_LANGUAGE_CODE') ? ICL_LANGUAGE_CODE : '';
 
 	# Blog pages (category, date, tag etc)
 	if ((is_home() or is_category() or is_tag() or is_year() or is_month() or is_day()) and get_option('page_for_posts')) {
@@ -152,7 +151,7 @@ function sleek_archive_meta_data ($postTypes) {
 		}
 
 		# Create the options page
-		acf_add_options_page([
+		sleek_acf_add_options_page([
 			'page_title' => __('Archive Title & Description', 'sleek'),
 			'menu_slug' => $postType . '-archive-data',
 			'parent_slug' => 'edit.php?post_type=' . $postType,
@@ -195,4 +194,23 @@ function sleek_archive_meta_data ($postTypes) {
 			]]]
 		]);
 	}
+}
+
+function sleek_get_archive_meta ($field, $pt = false) {
+	if (!function_exists('get_field')) {
+		return false;
+	}
+
+	if (!$pt) {
+		$pt = sleek_get_current_post_type();
+	}
+
+	if ($pt == 'post') {
+		return get_field($field, get_option('page_for_posts'));
+	}
+	else {
+		return get_field($field, $pt  . '-archive-data');
+	}
+
+	return $value;
 }

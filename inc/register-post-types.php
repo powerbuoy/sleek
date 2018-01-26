@@ -5,7 +5,7 @@
  * Pass in an array of custom post type slugs. You can optionally override the default
  * configuration by passing in a multi-dimensional array; array('my_post_type' => ['my-config' => 'my-value'])
  */
-function sleek_register_post_types ($postTypes, $textdomain = 'sleek') {
+function sleek_register_post_types ($postTypes, $textdomain = false) {
 	foreach ($postTypes as $postType => $data) {
 		# If no data was supplied - a one-dimensional array is assumed
 		if (!is_array($data)) {
@@ -16,13 +16,13 @@ function sleek_register_post_types ($postTypes, $textdomain = 'sleek') {
 		$slug = $textdomain ? __('url_' . $postType, $textdomain) : str_replace('_', '-', $postType);
 
 		# Create the post type nice-name based on the the post type slug
-		$name = __(ucfirst(str_replace('_', ' ', $postType)), $textdomain);
+		$name = ucfirst(str_replace('_', ' ', $postType));
 
 		# Create the config
 		$config = [
 			'labels' => [
-				'name' => $name,
-				'singular_label' => $name
+				'name' => __($name . 's', $textdomain),
+				'singular_name' => __($name, $textdomain)
 			],
 			'rewrite' => [
 				'with_front' => false,

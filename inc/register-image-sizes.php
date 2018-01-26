@@ -5,7 +5,7 @@ add_action('after_setup_theme', function () {
 	set_post_thumbnail_size(150, 150, true);
 });
 
-function sleek_register_image_sizes ($width, $height, $ratio = ['center', 'center'], $additionalSizes = false) {
+function sleek_register_image_sizes ($width, $height, $crop = ['center', 'center'], $additionalSizes = false) {
 	$aspectRatio = $width / $height;
 
 	# Override WP's built-in sizes
@@ -26,10 +26,10 @@ function sleek_register_image_sizes ($width, $height, $ratio = ['center', 'cente
 	update_option('large_crop', 1);
 
 	# Now set the sizes again so we can specify our own crop (note that if you only use this (and remove the above) users can still change the size in the admin)
-	add_image_size('thumbnail', ($width * .25), ($width * .25) / $aspectRatio, $ratio);
-	add_image_size('medium', ($width * .5), ($width * .5) / $aspectRatio, $ratio);
-	add_image_size('medium_large', ($width * .75), ($width * .75) / $aspectRatio, $ratio);
-	add_image_size('large', $width, $height, $ratio);
+	add_image_size('thumbnail', ($width * .25), ($width * .25) / $aspectRatio, $crop);
+	add_image_size('medium', ($width * .5), ($width * .5) / $aspectRatio, $crop);
+	add_image_size('medium_large', ($width * .75), ($width * .75) / $aspectRatio, $crop);
+	add_image_size('large', $width, $height, $crop);
 
 	# Add additional sizes
 	if ($additionalSizes) {
@@ -37,7 +37,7 @@ function sleek_register_image_sizes ($width, $height, $ratio = ['center', 'cente
 			$width = $config['width'];
 			$height = $config['height'];
 			$aspectRatio = $width / $height;
-			$crop = isset($config['crop']) ? $config['crop'] : ['center', 'center'];
+			$crop = isset($config['crop']) ? $config['crop'] : $crop;
 
 			# Add all 4 size variants for srcset
 			add_image_size($size . '_thumbnail', ($width * .25), ($width * .25) / $aspectRatio, $crop);
@@ -46,7 +46,7 @@ function sleek_register_image_sizes ($width, $height, $ratio = ['center', 'cente
 			add_image_size($size . '_large', $width, $height, $crop);
 		}
 
-		# Also add our own sizes to the image-size dropdown in the admin if you want
+		# Also add our own sizes to the image-size dropdown in the admin
 		add_filter('image_size_names_choose', function ($sizes) use ($additionalSizes) {
 			$newSizes = [];
 

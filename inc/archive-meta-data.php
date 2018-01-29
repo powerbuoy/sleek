@@ -10,7 +10,7 @@ add_filter('get_the_archive_title', function ($title) {
 	}
 
 	# CPT archive should show custom title if set
-	elseif (is_post_type_archive() and function_exists('get_field') and $customTitle = get_field('archive-title', $wp_query->query['post_type'] . '-archive-data')) {
+	elseif (is_post_type_archive() and function_exists('get_field') and $customTitle = get_field('archive-title', $wp_query->query['post_type'] . '-archive-meta')) {
 		$title = $customTitle;
 	}
 
@@ -52,7 +52,7 @@ add_filter('get_the_archive_description', function ($description) {
 	}
 
 	# CPT archive should show custom title if set
-	elseif (is_post_type_archive() and function_exists('get_field') and $customDescription = get_field('archive-description', $wp_query->query['post_type'] . '-archive-data')) {
+	elseif (is_post_type_archive() and function_exists('get_field') and $customDescription = get_field('archive-description', $wp_query->query['post_type'] . '-archive-meta')) {
 		$description = $customDescription;
 	}
 
@@ -109,12 +109,12 @@ function sleek_get_the_archive_image ($size = 'large') {
 	}
 
 	# CPT archive
-	elseif (is_post_type_archive() and function_exists('get_field') and $imageId = get_field('archive-image', $wp_query->query['post_type'] . '-archive-data')) {
+	elseif (is_post_type_archive() and function_exists('get_field') and $imageId = get_field('archive-image', $wp_query->query['post_type'] . '-archive-meta')) {
 		$image = wp_get_attachment_image_src($imageId, $size)[0];
 	}
 
 	# Custom taxonomy
-	elseif (is_tax() and function_exists('get_field') and $imageId = get_field('archive-image', get_post_type() . '-archive-data')) {
+	elseif (is_tax() and function_exists('get_field') and $imageId = get_field('archive-image', get_post_type() . '-archive-meta')) {
 		$image = wp_get_attachment_image_src($imageId, $size)[0];
 	}
 
@@ -153,14 +153,14 @@ function sleek_archive_meta_data ($postTypes) {
 		# Create the options page
 		sleek_acf_add_options_page([
 			'page_title' => __('Archive Title & Description', 'sleek'),
-			'menu_slug' => $postType . '-archive-data',
+			'menu_slug' => $postType . '-archive-meta',
 			'parent_slug' => 'edit.php?post_type=' . $postType,
 			'icon_url' => 'dashicons-welcome-write-blog',
-			'post_id' => $postType . '-archive-data'
+			'post_id' => $postType . '-archive-meta'
 		]);
 
 		# Add some standard fields (title, description, image)
-		$groupKey = 'group_' . $postType . '-archive-data';
+		$groupKey = 'group_' . $postType . '-archive-meta';
 
 		acf_add_local_field_group([
 			'key' => $groupKey,
@@ -190,7 +190,7 @@ function sleek_archive_meta_data ($postTypes) {
 			'location' => [[[
 				'param' => 'options_page',
 				'operator' => '==',
-				'value' => $postType . '-archive-data'
+				'value' => $postType . '-archive-meta'
 			]]]
 		]);
 	}
@@ -209,7 +209,7 @@ function sleek_get_archive_meta ($field, $pt = false) {
 		return get_field($field, get_option('page_for_posts'));
 	}
 	else {
-		return get_field($field, $pt  . '-archive-data');
+		return get_field($field, $pt  . '-archive-meta');
 	}
 
 	return $value;

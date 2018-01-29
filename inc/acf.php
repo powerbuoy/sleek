@@ -153,7 +153,7 @@ function sleek_acf_ugly_name ($name) {
 function sleek_acf_include_field ($fieldName, $keyPrefix) {
 	$fieldGroup = false;
 
-	if ($path = locate_template('acf/' . basename($fieldName) . '.php')) {
+	if ($path = locate_template('acf/' . basename($fieldName) . '/config.php')) {
 		$fieldGroup = include $path;
 		$fieldGroup = sleek_acf_generate_keys($fieldGroup, $keyPrefix);
 	}
@@ -185,7 +185,7 @@ function sleek_acf_get_field_templates ($fieldName) {
 
 	if (file_exists($path)) {
 		$tmp = scandir($path);
-		$tmp = array_diff($tmp, ['.', '..']); # Remove ./..
+		$tmp = array_diff($tmp, ['.', '..', 'config.php']); # Remove ./..
 
 		foreach ($tmp as $t) {
 			$templates[$fieldName . '/' . basename($t, '.php')] = ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php')));
@@ -336,7 +336,7 @@ function sleek_acf_add_help ($params) {
 }
 
 function sleek_acf_get_help_section ($field) {
-	if ($path = locate_template('acf/' . basename($field) . '.php')) {
+	if ($path = locate_template('acf/' . basename($field) . '/config.php')) {
 		$content = file_get_contents($path);
 
 		preg_match('/\/\*\*\*(.*?)\*\*\*\//s', $content, $matches);

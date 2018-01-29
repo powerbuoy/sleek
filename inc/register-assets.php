@@ -106,7 +106,3 @@ function sleek_register_assets ($extraAssets = []) {
 		}
 	}
 }
-
-add_action('wp_head', function () {
-	echo "<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>";
-});

@@ -4,7 +4,7 @@
 	$query = (isset($_GET['s']) and !empty($_GET['s'])) ? $_GET['s'] : false;
 	$title = __('Empty search', 'sleek');
 
-	$limit = 9;
+	$limit = get_option('posts_per_page');
 	$start = (isset($_GET['google_search_start']) and is_numeric($_GET['google_search_start'])) ? $_GET['google_search_start'] : 1;
 
 	$apiKey = get_theme_mod('google_search_api_key');

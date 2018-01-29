@@ -21,6 +21,7 @@ require_once get_template_directory() . '/inc/register-post-types.php';
 require_once get_template_directory() . '/inc/register-sidebars.php';
 require_once get_template_directory() . '/inc/register-taxonomies.php';
 require_once get_template_directory() . '/inc/register-theme-options.php';
+require_once get_template_directory() . '/inc/youtube-args.php';
 
 # Title tag support
 add_theme_support('title-tag');

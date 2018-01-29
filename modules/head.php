@@ -7,6 +7,10 @@
 		<meta charset="<?php bloginfo('charset') ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+		<script>
+			document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+		</script>
+
 		<?php wp_head() ?>
 
 	</head>

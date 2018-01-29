@@ -18,7 +18,9 @@
 				<?php if ($terms = sleek_get_post_terms($post->ID, get_post_type(), true)) : ?>
 					<span><?php echo implode(', ', $terms) ?></span>
 				<?php endif ?>
-				<?php the_author_posts_link() ?>
+				<?php if (get_the_author_meta('ID') != 1) : ?>
+					<?php the_author_posts_link() ?>
+				<?php endif ?>
 			</p>
 
 		</header>

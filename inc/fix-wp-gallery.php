@@ -2,10 +2,49 @@
 # Remove gallery inline styles (WP shines again!) (https://css-tricks.com/snippets/wordpress/remove-gallery-inline-styling/)
 add_filter('use_default_gallery_style', '__return_false');
 
+# Wrap videos in div.video
+# https://wordpress.stackexchange.com/questions/50779/how-to-wrap-oembed-embedded-video-in-div-tags-inside-the-content
+add_filter('embed_oembed_html', function($html, $url, $attr, $post_id) {
+	return '<div class="video">' . $html . '</div>';
+}, 99, 4);
+
 # Wrap images in figure elements
 # https://wordpress.stackexchange.com/questions/174582/always-use-figure-for-post-images
 add_filter('the_content', function ($content) {
-	return preg_replace('/<p>\\s*?(<a.*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '<figure>$1</figure>', $content);
+	libxml_use_internal_errors(true); # https://stackoverflow.com/questions/9149180/domdocumentloadhtml-error
+
+	# Load the content
+	$dom = new DOMDocument();
+
+	$dom->loadHTML($content);
+
+	# Find all images
+	$images = $dom->getElementsByTagName('img');
+
+	foreach ($images as $image) {
+		$child = $image;
+		$wrapper = $image->parentNode;
+
+		# If the image is linked
+		if ($wrapper->tagName == 'a') {
+			$child = $wrapper; # Store the link
+			$wrapper = $wrapper->parentNode; # And its parent
+		}
+
+		# If the parent is a <p> - replace it with a <figure>
+		if ($wrapper->tagName == 'p') {
+			$figure = $dom->createElement('figure');
+
+			$figure->setAttribute('class', $image->getAttribute('class')); # Give figure same class as img
+			$image->setAttribute('class', ''); # Remove img class
+			$figure->appendChild($child); # Add img to figure
+			$wrapper->parentNode->replaceChild($figure, $wrapper); # Replace <p> with <figure>
+		}
+	}
+
+	libxml_use_internal_errors(false); # Turn on errors again...
+
+	return $dom->saveHTML();
 }, 99);
 
 # Replace the [caption] HTML
@@ -72,9 +111,3 @@ add_filter('post_gallery', function ($string, $attr) {
 
 	return $html;
 }, 10, 2);
-
-# Wrap videos in div.video
-# https://wordpress.stackexchange.com/questions/50779/how-to-wrap-oembed-embedded-video-in-div-tags-inside-the-content
-add_filter('embed_oembed_html', function($html, $url, $attr, $post_id) {
-	return '<div class="video">' . $html . '</div>';
-}, 99, 4);

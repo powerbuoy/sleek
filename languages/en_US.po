@@ -197,3 +197,6 @@ msgstr "All"
 
 msgid "Next post"
 msgstr "Nästa inlägg"
+
+msgid "Filter posts"
+msgstr "Filter posts"

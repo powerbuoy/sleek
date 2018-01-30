@@ -1,6 +1,8 @@
 <?php if ($taxonomies = get_object_taxonomies(sleek_get_current_post_type(), 'objects')) : ?>
 	<section id="archive-taxonomies">
 
+		<h2><?php _e('Filter posts', 'sleek') ?></h2>
+
 		<?php foreach ($taxonomies as $tax) : ?>
 			<?php
 				# Get all categories
@@ -24,7 +26,7 @@
 			<?php if ($output) : ?>
 				<nav>
 
-					<h2><?php echo $tax->labels->name ?></h2>
+					<h3><?php echo $tax->labels->name ?></h3>
 
 					<ul>
 						<?php echo $output ?>

@@ -1,5 +1,7 @@
 <section id="archive-filter">
 
+	<h2><?php _e('Filter posts', 'sleek') ?></h2>
+
 	<form method="get" action="<?php echo get_post_type_archive_link(sleek_get_current_post_type()) ?>">
 
 		<p>

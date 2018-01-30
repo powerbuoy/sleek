@@ -219,3 +219,6 @@ msgstr "Moduler"
 
 msgid "Next post"
 msgstr "Nästa inlägg"
+
+msgid "Filter posts"
+msgstr "Filtrera inlägg"

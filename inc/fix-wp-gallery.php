@@ -16,7 +16,8 @@ add_filter('the_content', function ($content) {
 	# Load the content
 	$dom = new DOMDocument();
 
-	$dom->loadHTML($content);
+	# https://stackoverflow.com/questions/8218230/php-domdocument-loadhtml-not-encoding-utf-8-correctly
+	$dom->loadHTML('<?xml encoding="utf-8" ?>' . $content);
 
 	# Find all images
 	$images = $dom->getElementsByTagName('img');
@@ -44,7 +45,8 @@ add_filter('the_content', function ($content) {
 
 	libxml_use_internal_errors(false); # Turn on errors again...
 
-	return $dom->saveHTML();
+	# Strip DOCTYPE etc
+	return str_replace(['<body>', '</body>'], '', $dom->saveHTML($dom->getElementsByTagName('body')->item(0)));
 }, 99);
 
 # Replace the [caption] HTML

@@ -1,3 +1,10 @@
+<?php
+	# NOTE: You can change from radio buttons to checkboxes by changing:
+	# - radio => checkbox
+	# - add [] to the end of the name (it needs to be an array if we're going to select multiple)
+	# - remove the "all" option (it doesn't make sense with checkboxes)
+?>
+
 <section id="archive-filter">
 
 	<h2><?php _e('Filter posts', 'sleek') ?></h2>
@@ -10,22 +17,28 @@
 		</p>
 
 		<?php if ($taxonomies = sleek_get_archive_filter_taxonomies()) : foreach ($taxonomies as $tax) : ?>
-			<ul>
-				<li>
-					<label>
-						<input type="radio" name="<?php echo $tax['query_name'] ?>" value="" <?php echo $tax['has_active'] ? '' : 'checked' ?>>
-						<?php _e('All', 'sleek') ?>
-					</label>
-				</li>
-				<?php foreach ($tax['terms'] as $term) : ?>
+			<fieldset>
+
+				<legend><?php echo $tax['taxonomy']->labels->name ?></legend>
+
+				<ul>
 					<li>
 						<label>
-							<input type="radio" name="<?php echo $term['query_name'] ?>" value="<?php echo $term['query_value'] ?>" <?php echo $term['active'] ? 'checked' : '' ?>>
-							<?php echo $term['term']->name ?>
+							<input type="radio" name="<?php echo $tax['query_name'] ?>" value="" <?php echo $tax['has_active'] ? '' : 'checked' ?>>
+							<?php _e('All', 'sleek') ?>
 						</label>
 					</li>
-				<?php endforeach ?>
-			</ul>
+					<?php foreach ($tax['terms'] as $term) : ?>
+						<li>
+							<label>
+								<input type="radio" name="<?php echo $term['query_name'] ?>" value="<?php echo $term['query_value'] ?>" <?php echo $term['active'] ? 'checked' : '' ?>>
+								<?php echo $term['term']->name ?>
+							</label>
+						</li>
+					<?php endforeach ?>
+				</ul>
+
+			</fieldset>
 		<?php endforeach; endif ?>
 
 		<p>

@@ -1,6 +1,6 @@
 <?php
 /***
-Text Blocks, like Text Block, allows you to add additional text to the page. But Text Blocks, unlike Text Bock, allows you to add any number of blocks in columns or slideshows or´etc.
+Text Blocks, like Text Block, allows you to add additional text to the page. But Text Blocks, unlike Text Block, allows you to add any number of blocks.
 ***/
 return [
 	[

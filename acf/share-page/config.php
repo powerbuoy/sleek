@@ -1,4 +1,7 @@
 <?php
+/***
+With the "Share Page" module you can add Facebook, Twitter etc links that lets users share the page.
+***/
 return [
 	[
 		'name' => 'share-page-title',

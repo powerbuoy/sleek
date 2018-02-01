@@ -1,6 +1,6 @@
 <?php
 /***
-Post List allows you to manually select any number of posts to display on the page. Useful if you want to highlight certain posts or pages.
+Featured Posts allows you to manually select any number of posts to display on the page. Useful if you want to highlight certain posts or pages.
 ***/
 return [
 	[

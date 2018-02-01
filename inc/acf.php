@@ -181,7 +181,9 @@ function sleek_acf_generate_keys ($definition, $prefix) {
 # TODO: Should check parent theme templates and merge with child theme templates
 function sleek_acf_get_field_templates ($fieldName) {
 	$templates = [];
-	$path = get_stylesheet_directory() . '/acf/' . $fieldName . '/';
+
+	# Get parent theme templates
+	$path = get_template_directory() . '/acf/' . $fieldName . '/';
 
 	if (file_exists($path)) {
 		$tmp = scandir($path);
@@ -189,6 +191,27 @@ function sleek_acf_get_field_templates ($fieldName) {
 
 		foreach ($tmp as $t) {
 			$templates[$fieldName . '/' . basename($t, '.php')] = ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php')));
+		}
+	}
+
+	# Get child theme templates
+	$path = get_stylesheet_directory() . '/acf/' . $fieldName . '/';
+
+	if (file_exists($path)) {
+		$tmp = scandir($path);
+		$tmp = array_diff($tmp, ['.', '..', 'config.php', '.DS_Store', 'Thumbs.db']);
+
+		foreach ($tmp as $t) {
+			$name = ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php')));
+
+			# Check if same template already exists in parent theme - if so unset
+			foreach ($templates as $p => $n) {
+				if ($n == $name) {
+					unset($templates[$p]);
+				}
+			}
+
+			$templates[$fieldName . '/' . basename($t, '.php')] = $name;
 		}
 	}
 

@@ -38,8 +38,8 @@ if (!has_filter('the_post', 'sleek_redirect_url_the_post_action')) {
 return [
 	[
 		'name' => 'redirect-url',
-		'label' => __('Redirect URL', 'sleek_child'),
-		'instructions' => __('Enter a URL to have this post redirect there.', 'sleek_child'),
+		'label' => __('Redirect URL', 'sleek'),
+		'instructions' => __('Enter a URL to have this post redirect there.', 'sleek'),
 		'type' => 'url'
 	]
 ];

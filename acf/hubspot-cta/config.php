@@ -5,8 +5,8 @@ With the Hubspot CTA module you can embed a Hubspot call to action anywhere on t
 return [
 	[
 		'name' => 'hubspot-cta-id',
-		'label' => __('HubSpot CTA ID', 'sleek_child'),
-		'instructions' => __('Enter the HubSpot CTA ID here.', 'sleek_child'),
+		'label' => __('HubSpot CTA ID', 'sleek'),
+		'instructions' => __('Enter the HubSpot CTA ID here.', 'sleek'),
 		'type' => 'text'
 	]
 ];

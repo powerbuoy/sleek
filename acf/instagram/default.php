@@ -17,5 +17,5 @@
 
 	</section>
 <?php else : ?>
-	<p class="error"><?php printf(__('Please make sure to activate the WP Instagram Widget to enable this module: %s', 'sleek_child'), '<a href="https://wordpress.org/plugins/wp-instagram-widget/">wordpress.org/plugins/wp-instagram-widget/</a>') ?></p>
+	<p class="error"><?php printf(__('Please make sure to activate the WP Instagram Widget to enable this module: %s', 'sleek'), '<a href="https://wordpress.org/plugins/wp-instagram-widget/">wordpress.org/plugins/wp-instagram-widget/</a>') ?></p>
 <?php endif ?>

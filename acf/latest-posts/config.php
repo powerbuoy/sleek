@@ -16,21 +16,21 @@ foreach ($tmp as $pt) {
 return [
 	[
 		'name' => 'latest-posts-title',
-		'label' => __('Title', 'sleek_child'),
-		'instructions' => __('Enter a title above the list of posts.', 'sleek_child'),
+		'label' => __('Title', 'sleek'),
+		'instructions' => __('Enter a title above the list of posts.', 'sleek'),
 		'type' => 'text'
 	],
 	[
 		'name' => 'latest-posts-description',
-		'label' => __('Description', 'sleek_child'),
-		'instructions' => __('Enter a description for the posts here.', 'sleek_child'),
+		'label' => __('Description', 'sleek'),
+		'instructions' => __('Enter a description for the posts here.', 'sleek'),
 		'type' => 'wysiwyg',
 		'media_upload' => false
 	],
 	[
 		'name' => 'latest-posts-post-type',
-		'label' => __('Post Type', 'sleek_child'),
-		'instructions' => __('Select the type of post you would like to display.', 'sleek_child'),
+		'label' => __('Post Type', 'sleek'),
+		'instructions' => __('Select the type of post you would like to display.', 'sleek'),
 		'type' => 'select',
 		'choices' => $postTypes,
 		'allow_null' => true,
@@ -40,8 +40,8 @@ return [
 	],
 	[
 		'name' => 'latest-posts-limit',
-		'label' => __('Number of Posts', 'sleek_child'),
-		'instructions' => __('How many posts would you like to display?', 'sleek_child'),
+		'label' => __('Number of Posts', 'sleek'),
+		'instructions' => __('How many posts would you like to display?', 'sleek'),
 		'type' => 'number',
 		'default_value' => 4
 	]

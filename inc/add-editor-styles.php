@@ -58,14 +58,14 @@ add_filter('tiny_mce_before_init', function ($settings) {
 	$sassColors = sleek_get_sass_colors();
 	$colors = [
 		[
-			'title' => __('Default', 'sleek_child'),
+			'title' => __('Default', 'sleek'),
 			'selector' => 'a',
 			'classes' => 'button'
 		]
 	];
 	$ghostColors = [
 		[
-			'title' => __('Default', 'sleek_child'),
+			'title' => __('Default', 'sleek'),
 			'selector' => 'a',
 			'classes' => 'button button--ghost'
 		]
@@ -99,15 +99,15 @@ add_filter('tiny_mce_before_init', function ($settings) {
 
 	$newFormats = array_merge($oldFormats, [
 		[
-			'title' => __('Button', 'sleek_child'),
+			'title' => __('Button', 'sleek'),
 			'items' => $colors
 		],
 		[
-			'title' => __('Button ghost', 'sleek_child'),
+			'title' => __('Button ghost', 'sleek'),
 			'items' => $ghostColors
 		],
 		[
-			'title' => __('Icons', 'sleek_child'),
+			'title' => __('Icons', 'sleek'),
 			'items' => $icons
 		]
 	]);

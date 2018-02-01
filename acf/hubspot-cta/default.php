@@ -16,5 +16,5 @@
 
 	</section>
 <?php else : ?>
-	<p class="error"><?php _e('Please make sure to enter a valid Hubspot Portal ID inside Appearance -> Customize -> Theme settings', 'sleek_child') ?></p>
+	<p class="error"><?php _e('Please make sure to enter a valid Hubspot Portal ID inside Appearance -> Customize -> Theme settings', 'sleek') ?></p>
 <?php endif ?>

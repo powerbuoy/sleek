@@ -25,5 +25,5 @@
 
 	</nav>
 <?php else : ?>
-	<p class="error"><?php _e('This page does not have any relatives. You can remove this module until you add some.', 'sleek_child') ?></p>
+	<p class="error"><?php _e('This page does not have any relatives. You can remove this module until you add some.', 'sleek') ?></p>
 <?php endif ?>

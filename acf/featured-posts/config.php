@@ -5,21 +5,21 @@ Post List allows you to manually select any number of posts to display on the pa
 return [
 	[
 		'name' => 'featured-posts-title',
-		'label' => __('Title', 'sleek_child'),
-		'instructions' => __('Enter a title above the list of posts.', 'sleek_child'),
+		'label' => __('Title', 'sleek'),
+		'instructions' => __('Enter a title above the list of posts.', 'sleek'),
 		'type' => 'text'
 	],
 	[
 		'name' => 'featured-posts-description',
-		'label' => __('Description', 'sleek_child'),
-		'instructions' => __('Enter a description for the posts here.', 'sleek_child'),
+		'label' => __('Description', 'sleek'),
+		'instructions' => __('Enter a description for the posts here.', 'sleek'),
 		'type' => 'wysiwyg',
 		'media_upload' => false
 	],
 	[
 		'name' => 'featured-posts-posts',
-		'label' => __('Posts', 'sleek_child'),
-		'instructions' => __('Add any number of posts here.', 'sleek_child'),
+		'label' => __('Posts', 'sleek'),
+		'instructions' => __('Add any number of posts here.', 'sleek'),
 		'type' => 'relationship'
 	]
 ];

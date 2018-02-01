@@ -40,7 +40,7 @@
 		<?php foreach ($data['share-page-services'] as $service) : ?>
 			<li>
 				<a href="<?php echo $urls[$service] ?>" <?php if ($service != 'Email') : ?>target="_blank"<?php endif ?>>
-					<?php echo __($service, 'sleek_child') ?>
+					<?php echo __($service, 'sleek') ?>
 				</a>
 			</li>
 		<?php endforeach ?>

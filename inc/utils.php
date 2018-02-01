@@ -145,36 +145,6 @@ function sleek_array_search_r ($array, $key, $value = false) {
 }
 
 /**
- * Returns array of social media URLs and titles
- * TODO: Move elsewhere + improve (plugin?)
- * TODO: Fetch list from here: https://github.com/bradvin/social-share-urls
- */
-function sleek_get_social_media_links ($u = false) {
-	$url = $u ? $u : sleek_curr_page_url(false);
-	$links = [];
-
-	$links[] = [
-		'title' => 'Facebook',
-		'url' => '//www.facebook.com/sharer/sharer.php?u={url}&t={title}'
-	];
-	$links[] = [
-		'title' => 'Twitter',
-		'url' => '//twitter.com/intent/tweet?url={url}&text={title}'
-	];
-	$links[] = [
-		'title' => 'LinkedIn',
-		'url' => '//www.linkedin.com/shareArticle?mini=true&url={url}&title={title}&summary=&source=' . home_url('/')
-	];
-
-	for ($i = 0; $i < count($links); $i++) {
-		$links[$i]['url'] = str_replace(['{url}', '{title}'], [urlencode($url), urlencode(wp_title('|', false, 'right'))], $links[$i]['url']);
-		$links[$i]['slug'] = sanitize_title($links[$i]['title']);
-	}
-
-	return $links;
-}
-
-/**
  * Like get_template_part but accepts arguments
  * NOTE: Never pass in any of the reserved query vars!
  * https://codex.wordpress.org/WordPress_Query_Vars

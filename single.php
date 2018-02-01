@@ -5,7 +5,6 @@
 	<?php get_template_part('modules/post') ?>
 
 	<?php if (!post_password_required()) : ?>
-		<?php get_template_part('modules/share-post') ?>
 		<?php comments_template('/modules/comments.php') ?>
 		<?php get_template_part('modules/post-comment') ?>
 	<?php endif ?>

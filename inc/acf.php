@@ -185,7 +185,7 @@ function sleek_acf_get_field_templates ($fieldName) {
 
 	if (file_exists($path)) {
 		$tmp = scandir($path);
-		$tmp = array_diff($tmp, ['.', '..', 'config.php']); # Remove ./..
+		$tmp = array_diff($tmp, ['.', '..', 'config.php', '.DS_Store', 'Thumbs.db']);
 
 		foreach ($tmp as $t) {
 			$templates[$fieldName . '/' . basename($t, '.php')] = ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php')));

@@ -254,13 +254,14 @@ function sleek_acf_render_modules ($where, $postId = null) {
 
 			# Include the template
 			if (locate_template('acf/' . $template . '.php')) {
-				sleek_get_template_part('acf/' . $template, [
-					'data' => $module,
-					'count' => ++$i,
-					'module_area' => $where,
-					'template_count' => $templateCount[$template],
-					'module_count' => $moduleCount[$acfLayout]
-				]);
+				sleek_get_template_part('acf/' . $template, array_merge($module, [
+					'sleek_acf_data' => [
+						'count' => ++$i,
+						'module_area' => $where,
+						'template_count' => $templateCount[$template],
+						'module_count' => $moduleCount[$acfLayout]
+					]
+				]));
 			}
 			# Or dump data if template doesn't exist
 			else {

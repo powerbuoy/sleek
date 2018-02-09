@@ -92,9 +92,8 @@ function sleek_acf ($params) {
 
 						# Finally add the rest of the fields
 						$flexFieldLayout['sub_fields'] = array_merge($flexFieldLayout['sub_fields'], $fields);
+						$flexField['layouts'][] = $flexFieldLayout;
 					}
-
-					$flexField['layouts'][] = $flexFieldLayout;
 				}
 
 				$newFields[] = $flexField;
@@ -149,7 +148,7 @@ function sleek_acf_ugly_name ($name) {
 	return strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $name));
 }
 
-# Includes a field definition located in acf/field-name.php and gives it unique keys
+# Includes a field definition located in acf/field-name/config.php and gives it unique keys
 function sleek_acf_include_field ($fieldName, $keyPrefix) {
 	$fieldGroup = false;
 

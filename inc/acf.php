@@ -61,7 +61,7 @@ function sleek_acf ($params) {
 				# Create the flexible content field
 				$flexField = [
 					'key' => 'field_' . $fieldGroupKey . '_' . $flexName . '_modules',
-					'name' => 'modules-' . $flexName,
+					'name' => 'modules_' . $flexName,
 					'button_label' => __('Add a module', 'sleek'),
 					'type' => 'flexible_content',
 					'layouts' => []
@@ -82,7 +82,7 @@ function sleek_acf ($params) {
 
 						# Automatically add the layout/template field
 						$flexFieldLayout['sub_fields'][] = [
-							'key' => $flexFieldLayoutKey . '-template',
+							'key' => $flexFieldLayoutKey . '_template',
 							'name' => 'template',
 							'label' => __('Layout', 'sleek'),
 							'instructions' => __('Select a different layout for this module to change its appearance on the website.', 'sleek'),
@@ -227,7 +227,7 @@ function sleek_acf_render_modules ($where, $postId = null) {
 		return '[ERROR: You need to activate Advanced Custom Fields]';
 	}
 
-	if ($modules = get_field('modules-' . $where, $postId)) {
+	if ($modules = get_field('modules_' . $where, $postId)) {
 		$i = 0;
 		$templateCount = [];
 		$moduleCount = [];
@@ -276,7 +276,7 @@ function sleek_acf_render_modules ($where, $postId = null) {
 	}
 }
 
-# Add shortcode to render modules [render_module module="hubspot-cta" hubspot-cta-id="abc-123"]
+# Add shortcode to render modules [render_module module="hubspot-cta" hubspot_cta_id="abc-123"]
 add_shortcode('render_module', function ($args) {
 	$template = isset($args['template']) ? $args['template'] : 'default';
 

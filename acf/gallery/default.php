@@ -1,19 +1,19 @@
 <section id="gallery">
 
-	<?php if ($data['gallery-title'] or $data['gallery-description']) : ?>
+	<?php if ($gallery_title or $gallery_description) : ?>
 		<header>
 
-			<?php if ($data['gallery-title']) : ?>
-				<h2><?php echo $data['gallery-title'] ?></h2>
+			<?php if ($gallery_title) : ?>
+				<h2><?php echo $gallery_title ?></h2>
 			<?php endif ?>
 
-			<?php echo $data['gallery-description'] ?>
+			<?php echo $gallery_description ?>
 
 		</header>
 	<?php endif ?>
 
 	<ul>
-		<?php foreach ($data['gallery-images'] as $image) : ?>
+		<?php foreach ($gallery_images as $image) : ?>
 			<li>
 				<figure>
 					<a href="<?php echo $image['url'] ?>">

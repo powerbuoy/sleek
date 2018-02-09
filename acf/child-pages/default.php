@@ -1,6 +1,4 @@
 <?php
-	global $post;
-
 	$rows = get_pages([
 		'parent' => $post->ID,
 		'sort_column' => 'menu_order',
@@ -11,20 +9,20 @@
 <?php if ($rows) : ?>
 	<section id="child-pages">
 
-		<?php if ($data['child-pages-title'] or $data['child-pages-description']) : ?>
+		<?php if ($child_pages_title or $child_pages_description) : ?>
 			<header>
 
-				<?php if ($data['child-pages-title']) : ?>
-					<h2><?php echo $data['child-pages-title'] ?></h2>
+				<?php if ($child_pages_title) : ?>
+					<h2><?php echo $child_pages_title ?></h2>
 				<?php endif ?>
 
-				<?php echo $data['child-pages-description'] ?>
+				<?php echo $child_pages_description ?>
 
 			</header>
 		<?php endif ?>
 
 		<?php foreach ($rows as $post) : setup_postdata($post) ?>
-			<?php $target = get_field('redirect-url') ? 'target="_blank"' : '' ?>
+			<?php $target = get_field('redirect_url') ? 'target="_blank"' : '' ?>
 			<article>
 
 				<?php if (has_post_thumbnail()) : ?>

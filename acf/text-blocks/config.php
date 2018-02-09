@@ -4,20 +4,20 @@ Text Blocks, like Text Block, allows you to add additional text to the page. But
 ***/
 return [
 	[
-		'name' => 'text-blocks-title',
+		'name' => 'text_blocks_title',
 		'label' => __('Title', 'sleek'),
 		'instructions' => __('Enter a title to display above the text blocks.', 'sleek'),
 		'type' => 'text'
 	],
 	[
-		'name' => 'text-blocks-description',
+		'name' => 'text_blocks_description',
 		'label' => __('Description', 'sleek'),
 		'instructions' => __('Enter a description for the text blocks.', 'sleek'),
 		'type' => 'wysiwyg',
 		'media_upload' => false
 	],
 	[
-		'name' => 'text-blocks',
+		'name' => 'text_blocks',
 		'label' => __('Text Blocks', 'sleek'),
 		'instructions' => __('Add any number of text blocks here.', 'sleek'),
 		'button_label' => __('Add a text block', 'sleek'),
@@ -25,20 +25,20 @@ return [
 		'layout' => 'row',
 		'sub_fields' => [
 			[
-				'name' => 'text-block-title',
+				'name' => 'text_block_title',
 				'label' => __('Title', 'sleek'),
 				'instructions' => __('Enter a title for this text block.', 'sleek'),
 				'type' => 'text'
 			],
 			[
-				'name' => 'text-block-image',
+				'name' => 'text_block_image',
 				'label' => __('Image', 'sleek'),
 				'instructions' => __('Select an image.', 'sleek'),
 				'type' => 'image',
 				'return_format' => 'id'
 			],
 			[
-				'name' => 'text-block-description',
+				'name' => 'text_block_description',
 				'label' => __('Description', 'sleek'),
 				'instructions' => __('Write a nice message here.', 'sleek'),
 				'type' => 'wysiwyg',

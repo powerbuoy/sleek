@@ -16,20 +16,20 @@
 <?php if ($rows) : ?>
 	<section id="child-pages">
 
-		<?php if ($data['sibling-pages-title'] or $data['sibling-pages-description']) : ?>
+		<?php if ($sibling_pages_title or $sibling_pages_description) : ?>
 			<header>
 
-				<?php if ($data['sibling-pages-title']) : ?>
-					<h2><?php echo $data['sibling-pages-title'] ?></h2>
+				<?php if ($sibling_pages_title) : ?>
+					<h2><?php echo $sibling_pages_title ?></h2>
 				<?php endif ?>
 
-				<?php echo $data['sibling-pages-description'] ?>
+				<?php echo $sibling_pages_description ?>
 
 			</header>
 		<?php endif ?>
 
 		<?php foreach ($rows as $post) : setup_postdata($post) ?>
-			<?php $target = get_field('redirect-url') ? 'target="_blank"' : '' ?>
+			<?php $target = get_field('redirect_url') ? 'target="_blank"' : '' ?>
 			<article>
 
 				<?php if (has_post_thumbnail()) : ?>

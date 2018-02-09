@@ -15,20 +15,20 @@ foreach ($tmp as $pt) {
 
 return [
 	[
-		'name' => 'latest-posts-title',
+		'name' => 'latest_posts_title',
 		'label' => __('Title', 'sleek'),
 		'instructions' => __('Enter a title above the list of posts.', 'sleek'),
 		'type' => 'text'
 	],
 	[
-		'name' => 'latest-posts-description',
+		'name' => 'latest_posts_description',
 		'label' => __('Description', 'sleek'),
 		'instructions' => __('Enter a description for the posts here.', 'sleek'),
 		'type' => 'wysiwyg',
 		'media_upload' => false
 	],
 	[
-		'name' => 'latest-posts-post-type',
+		'name' => 'latest_posts_post_type',
 		'label' => __('Post Type', 'sleek'),
 		'instructions' => __('Select the type of post you would like to display.', 'sleek'),
 		'type' => 'select',
@@ -39,7 +39,7 @@ return [
 		'ui' => true
 	],
 	[
-		'name' => 'latest-posts-limit',
+		'name' => 'latest_posts_limit',
 		'label' => __('Number of Posts', 'sleek'),
 		'instructions' => __('How many posts would you like to display?', 'sleek'),
 		'type' => 'number',

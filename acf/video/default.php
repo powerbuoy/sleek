@@ -1,17 +1,17 @@
 <section id="video">
 
-	<?php if ($data['video-title'] or $data['video-description']) : ?>
+	<?php if ($video_title or $video_description) : ?>
 		<header>
 
-			<?php if ($data['video-title']) : ?>
-				<h2><?php echo $data['video-title'] ?></h2>
+			<?php if ($video_title) : ?>
+				<h2><?php echo $video_title ?></h2>
 			<?php endif ?>
 
-			<?php echo $data['video-description'] ?>
+			<?php echo $video_description ?>
 
 		</header>
 	<?php endif ?>
 
-	<div class="video"><?php echo $data['video-code'] ?></div>
+	<div class="video"><?php echo $video_code ?></div>
 
 </section>

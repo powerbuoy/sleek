@@ -9,7 +9,7 @@
 		'Email' => 'mailto:?subject={title}&body={url}'
 	];
 
-	$url = $data['share-page-url'] ? $data['share-page-url'] : sleek_curr_page_url(false);
+	$url = $share_page_url ? $share_page_url : sleek_curr_page_url(false);
 	$title = wp_title('|', false, 'right');
 
 	foreach ($urls as $service => $u) {
@@ -24,20 +24,20 @@
 
 <section id="share-page">
 
-	<?php if ($data['share-page-title'] or $data['share-page-description']) : ?>
+	<?php if ($share_page_title or $share_page_description) : ?>
 		<header>
 
-			<?php if ($data['share-page-title']) : ?>
-				<h2><?php echo $data['share-page-title'] ?></h2>
+			<?php if ($share_page_title) : ?>
+				<h2><?php echo $share_page_title ?></h2>
 			<?php endif ?>
 
-			<?php echo $data['share-page-description'] ?>
+			<?php echo $share_page_description ?>
 
 		</header>
 	<?php endif ?>
 
 	<ul>
-		<?php foreach ($data['share-page-services'] as $service) : ?>
+		<?php foreach ($share_page_services as $service) : ?>
 			<li>
 				<a href="<?php echo $urls[$service] ?>" <?php if ($service != 'Email') : ?>target="_blank"<?php endif ?>>
 					<?php echo __($service, 'sleek') ?>

@@ -4,24 +4,24 @@ With the "Share Page" module you can add Facebook, Twitter etc links that lets u
 ***/
 return [
 	[
-		'name' => 'share-page-title',
+		'name' => 'share_page_title',
 		'label' => __('Title', 'sleek'),
 		'type' => 'text'
 	],
 	[
-		'name' => 'share-page-description',
+		'name' => 'share_page_description',
 		'label' => __('Description', 'sleek'),
 		'type' => 'wysiwyg',
 		'media_upload' => false
 	],
 	[
-		'name' => 'share-page-url',
+		'name' => 'share_page_url',
 		'label' => __('(Optional) enter a specific URL to share', 'sleek'),
 		'instructions' => __('If left empty the URL of the page will be used.', 'sleek'),
 		'type' => 'url'
 	],
 	[
-		'name' => 'share-page-services',
+		'name' => 'share_page_services',
 		'label' => __('Select sharing methods', 'sleek'),
 		'type' => 'checkbox',
 		'choices' => [

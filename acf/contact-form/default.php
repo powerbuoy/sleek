@@ -1,19 +1,19 @@
 <?php if (shortcode_exists('contact-form-7')) : ?>
 	<section id="contact-form">
 
-		<?php if ($data['contact-form-title'] or $data['contact-form-description']) : ?>
+		<?php if ($contact_form_title or $contact_form_description) : ?>
 			<header>
 
-				<?php if ($data['contact-form-title']) : ?>
-					<h2><?php echo $data['contact-form-title'] ?></h2>
+				<?php if ($contact_form_title) : ?>
+					<h2><?php echo $contact_form_title ?></h2>
 				<?php endif ?>
 
-				<?php echo $data['contact-form-description'] ?>
+				<?php echo $contact_form_description ?>
 
 			</header>
 		<?php endif ?>
 
-		<?php echo do_shortcode('[contact-form-7 id="' . $data['contact-form-id'] . '"]') ?>
+		<?php echo do_shortcode('[contact-form-7 id="' . $contact_form_id . '"]') ?>
 
 	</section>
 <?php else : ?>

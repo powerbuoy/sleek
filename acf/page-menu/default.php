@@ -1,12 +1,10 @@
-<?php global $post ?>
-
 <?php if ($sub_nav_tree = sleek_get_sub_nav_tree($post) and $sub_nav_tree['children']) : ?>
 	<nav id="page-menu">
 
 		<header>
 
-			<?php if ($data['page-menu-title']) : ?>
-				<h2><?php echo $data['page-menu-title'] ?></h2>
+			<?php if ($page_menu_title) : ?>
+				<h2><?php echo $page_menu_title ?></h2>
 			<?php else : ?>
 				<h2>
 					<a href="<?php echo $sub_nav_tree['url'] ?>">
@@ -15,7 +13,7 @@
 				</h2>
 			<?php endif ?>
 
-			<?php echo $data['page-menu-description'] ?>
+			<?php echo $page_menu_description ?>
 
 		</header>
 

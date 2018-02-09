@@ -1,18 +1,18 @@
 <section id="users">
 
-	<?php if ($data['users-title'] or $data['users-description']) : ?>
+	<?php if ($users_title or $users_description) : ?>
 		<header>
 
-			<?php if ($data['users-title']) : ?>
-				<h2><?php echo $data['users-title'] ?></h2>
+			<?php if ($users_title) : ?>
+				<h2><?php echo $users_title ?></h2>
 			<?php endif ?>
 
-			<?php echo $data['users-description'] ?>
+			<?php echo $users_description ?>
 
 		</header>
 	<?php endif ?>
 
-	<?php foreach ($data['users-users'] as $user) : ?>
+	<?php foreach ($users_users as $user) : ?>
 		<article>
 
 			<figure>

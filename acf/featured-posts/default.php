@@ -1,21 +1,19 @@
-<?php global $post ?>
-
 <section id="featured-posts">
 
-	<?php if ($data['featured-posts-title'] or $data['featured-posts-description']) : ?>
+	<?php if ($featured_posts_title or $featured_posts_description) : ?>
 		<header>
 
-			<?php if ($data['featured-posts-title']) : ?>
-				<h2><?php echo $data['featured-posts-title'] ?></h2>
+			<?php if ($featured_posts_title) : ?>
+				<h2><?php echo $featured_posts_title ?></h2>
 			<?php endif ?>
 
-			<?php echo $data['featured-posts-description'] ?>
+			<?php echo $featured_posts_description ?>
 
 		</header>
 	<?php endif ?>
 
-	<?php foreach ($data['featured-posts-posts'] as $post) : setup_postdata($post) ?>
-		<?php $target = get_field('redirect-url') ? 'target="_blank"' : '' ?>
+	<?php foreach ($featured_posts_posts as $post) : setup_postdata($post) ?>
+		<?php $target = get_field('redirect_url') ? 'target="_blank"' : '' ?>
 		<article>
 
 			<?php if (has_post_thumbnail()) : ?>

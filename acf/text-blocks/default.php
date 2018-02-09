@@ -1,31 +1,31 @@
 <section id="text-blocks">
 
-	<?php if ($data['text-blocks-title'] or $data['text-blocks-description']) : ?>
+	<?php if ($text_blocks_title or $text_blocks_description) : ?>
 		<header>
 
-			<?php if ($data['text-blocks-title']) : ?>
-				<h2><?php echo $data['text-blocks-title'] ?></h2>
+			<?php if ($text_blocks_title) : ?>
+				<h2><?php echo $text_blocks_title ?></h2>
 			<?php endif ?>
 
-			<?php echo $data['text-blocks-description'] ?>
+			<?php echo $text_blocks_description ?>
 
 		</header>
 	<?php endif ?>
 
-	<?php foreach ($data['text-blocks'] as $block) : ?>
+	<?php foreach ($text_blocks as $block) : ?>
 		<article>
 
-			<?php if ($block['text-block-image']) : ?>
+			<?php if ($block['text_block_image']) : ?>
 				<figure>
-					<?php echo wp_get_attachment_image($block['text-block-image'], 'medium') ?>
+					<?php echo wp_get_attachment_image($block['text_block_image'], 'medium') ?>
 				</figure>
 			<?php endif ?>
 
-			<?php if ($block['text-block-title']) : ?>
-				<h3><?php echo $block['text-block-title'] ?></h3>
+			<?php if ($block['text_block_title']) : ?>
+				<h3><?php echo $block['text_block_title'] ?></h3>
 			<?php endif ?>
 
-			<?php echo $block['text-block-description'] ?>
+			<?php echo $block['text_block_description'] ?>
 
 		</article>
 	<?php endforeach ?>

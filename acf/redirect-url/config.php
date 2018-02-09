@@ -7,7 +7,7 @@ if (!function_exists('sleek_redirect_url_permalink_filter')) {
 	function sleek_redirect_url_permalink_filter ($url) {
 		global $post;
 
-		$redirectUrl = get_field('redirect-url', $post->ID);
+		$redirectUrl = get_field('redirect_url', $post->ID);
 
 		return $redirectUrl ? $redirectUrl : $url;
 	}
@@ -21,7 +21,7 @@ if (!has_filter('the_permalink', 'sleek_redirect_url_permalink_filter')) {
 if (!function_exists('sleek_redirect_url_the_post_action')) {
 	function sleek_redirect_url_the_post_action ($po) {
 		if (is_single($po->ID) or is_page($po->ID)) {
-			$redirectUrl = get_field('redirect-url', $po->ID);
+			$redirectUrl = get_field('redirect_url', $po->ID);
 
 			if ($redirectUrl) {
 				wp_redirect($redirectUrl);
@@ -37,7 +37,7 @@ if (!has_filter('the_post', 'sleek_redirect_url_the_post_action')) {
 # ACF Definition
 return [
 	[
-		'name' => 'redirect-url',
+		'name' => 'redirect_url',
 		'label' => __('Redirect URL', 'sleek'),
 		'instructions' => __('Enter a URL to have this post redirect there.', 'sleek'),
 		'type' => 'url'

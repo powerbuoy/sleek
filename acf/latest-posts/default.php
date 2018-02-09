@@ -1,29 +1,27 @@
 <?php
-	global $post;
-
 	$rows = get_posts([
-		'post_type' => ($data['latest-posts-post-type'] ? $data['latest-posts-post-type'] : 'any'),
-		'numberposts' => $data['latest-posts-limit']
+		'post_type' => ($latest_posts_post_type ? $latest_posts_post_type : 'any'),
+		'numberposts' => $latest_posts_limit
 	]);
 ?>
 
 <?php if ($rows) : ?>
 	<section id="latest-posts">
 
-		<?php if ($data['latest-posts-title'] or $data['latest-posts-description']) : ?>
+		<?php if ($latest_posts_title or $latest_posts_description) : ?>
 			<header>
 
-				<?php if ($data['latest-posts-title']) : ?>
-					<h2><?php echo $data['latest-posts-title'] ?></h2>
+				<?php if ($latest_posts_title) : ?>
+					<h2><?php echo $latest_posts_title ?></h2>
 				<?php endif ?>
 
-				<?php echo $data['latest-posts-description'] ?>
+				<?php echo $latest_posts_description ?>
 
 			</header>
 		<?php endif ?>
 
 		<?php foreach ($rows as $post) : setup_postdata($post) ?>
-			<?php $target = get_field('redirect-url') ? 'target="_blank"' : '' ?>
+			<?php $target = get_field('redirect_url') ? 'target="_blank"' : '' ?>
 			<article>
 
 				<?php if (has_post_thumbnail()) : ?>

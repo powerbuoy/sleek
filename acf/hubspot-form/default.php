@@ -1,18 +1,18 @@
 <section id="hubspot-form">
 
-	<?php if ($data['hubspot-form-title'] or $data['hubspot-form-description']) : ?>
+	<?php if ($hubspot_form_title or $hubspot_form_description) : ?>
 		<header>
 
-			<?php if ($data['hubspot-form-title']) : ?>
+			<?php if ($hubspot_form_title) : ?>
 				<h2>
 					<?php if ($data['hubspot-form-pre-title']) : ?>
 						<small><?php echo $data['hubspot-form-pre-title'] ?></small>
 					<?php endif ?>
-					<?php echo $data['hubspot-form-title'] ?>
+					<?php echo $hubspot_form_title ?>
 				</h2>
 			<?php endif ?>
 
-			<?php echo $data['hubspot-form-description'] ?>
+			<?php echo $hubspot_form_description ?>
 
 		</header>
 	<?php endif ?>
@@ -26,7 +26,7 @@
 			hbspt.forms.create({
 				css: '',
 				portalId: '<?php echo $hsId ?>',
-				formId: '<?php echo $data['hubspot-form-id'] ?>',
+				formId: '<?php echo $hubspot_form_id ?>',
 				onFormSubmit: function ($form) {
 					document.getElementById('hubspot-form').scrollIntoView();
 				}

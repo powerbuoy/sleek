@@ -24,7 +24,7 @@ function sleek_register_assets ($extraAssets = []) {
 		$jsConfig['GOOGLE_MAPS_API_KEY'] = get_theme_mod('google_maps_api_key');
 	}
 
-	wp_localize_script('sleek', 'config', $jsConfig);
+	wp_localize_script('sleek', 'sleek_config', $jsConfig);
 
 	# Child theme is using a critical.scss - only include that to begin with
 	$hasCriticalCss = file_exists(get_stylesheet_directory() . '/dist/critical.css');

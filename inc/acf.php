@@ -87,7 +87,8 @@ function sleek_acf ($params) {
 							'label' => __('Layout', 'sleek'),
 							'instructions' => __('Select a different layout for this module to change its appearance on the website.', 'sleek'),
 							'type' => 'select',
-							'choices' => sleek_acf_get_field_templates($fieldName)
+							'choices' => sleek_acf_get_field_templates($fieldName),
+							'default_value' => $fieldName . '/default'
 						];
 
 						# Finally add the rest of the fields
@@ -213,6 +214,8 @@ function sleek_acf_get_field_templates ($fieldName) {
 			$templates[$fieldName . '/' . basename($t, '.php')] = $name;
 		}
 	}
+
+	asort($templates);
 
 	return $templates;
 }

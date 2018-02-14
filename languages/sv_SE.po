@@ -222,3 +222,6 @@ msgstr "Nästa inlägg"
 
 msgid "Filter posts"
 msgstr "Filtrera inlägg"
+
+msgid "Show more"
+msgstr "Visa fler"

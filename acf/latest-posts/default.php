@@ -1,7 +1,9 @@
 <?php
+	$post_type = ($latest_posts_post_type ? $latest_posts_post_type : 'any');
+
 	$rows = get_posts([
-		'post_type' => ($latest_posts_post_type ? $latest_posts_post_type : 'any'),
-		'numberposts' => $latest_posts_limit
+		'post_type' => $post_type,
+		'numberposts' => $latest_posts_limit ? $latest_posts_limit : 3
 	]);
 ?>
 

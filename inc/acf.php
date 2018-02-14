@@ -403,3 +403,24 @@ function sleek_acf_add_options_page ($args) {
 		});
 	}
 }
+
+# Nicer Flexible Content Titles (https://www.advancedcustomfields.com/resources/acf-fields-flexible_content-layout_title/)
+add_filter('acf/fields/flexible_content/layout_title', function ($title, $field, $layout, $i) {
+	# Figure out the field name
+	$nameBits = explode('_', $layout['name']);
+	$fieldName = end($nameBits);
+	$fieldName = str_replace('-', '_', $fieldName);
+	$newTitle = '<strong>' . $title . '</strong>';
+
+	# See if it has a "title" field
+	if ($t = get_sub_field($fieldName . '_title')) {
+		$newTitle .= ": \"$t\"";
+	}
+
+	# Or template
+	if ($t = get_sub_field($layout['key'] . '_template')) {
+		$newTitle .= ' <small>(' . ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php'))) . ' layout)</small>';
+	}
+
+	return $newTitle;
+}, 10, 4);

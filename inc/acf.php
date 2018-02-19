@@ -10,6 +10,7 @@ function sleek_acf ($params) {
 		'position' => 'normal',
 		'style' => 'normal',
 		'flexible' => false,
+		'tab_placement' => 'top',
 		'location' => [[[
 			'param' => 'post_type',
 			'operator' => '==',
@@ -55,7 +56,8 @@ function sleek_acf ($params) {
 				$newFields[] = [
 					'key' => 'field_' . $fieldGroupKey . '_tab_' . $flexName,
 					'label' => sleek_acf_nice_name($flexName),
-					'type' => 'tab'
+					'type' => 'tab',
+					'placement' => $params['tab_placement']
 				];
 
 				# Create the flexible content field
@@ -113,7 +115,8 @@ function sleek_acf ($params) {
 				$newFields[] = [
 					'key' => 'field_' . $fieldGroupKey . '_tab' . sleek_acf_ugly_name($key),
 					'label' => $key,
-					'type' => 'tab'
+					'type' => 'tab',
+					'placement' => $params['tab_placement']
 				];
 
 				foreach ($value as $fieldName) {

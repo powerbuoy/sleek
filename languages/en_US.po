@@ -200,3 +200,6 @@ msgstr "Nästa inlägg"
 
 msgid "Filter posts"
 msgstr "Filter posts"
+
+msgid "Show more"
+msgstr "Show more"

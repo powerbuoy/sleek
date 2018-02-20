@@ -10,7 +10,7 @@ function sleek_register_taxonomies ($taxonomies, $textdomain = false) {
 		# Create the post type slug - if a textdomain is specified make it translatable, otherwise make it dash-separated
 		$slug = $textdomain ? _x(str_replace('_', '-', $taxonomy), 'url', $textdomain) : str_replace('_', '-', $taxonomy);
 
-		# Create the post type nice-name based on the the postType name
+		# Create the taxonomy nice-name based on the the taxonomy name
 		$name = ucfirst(str_replace('_', ' ', $taxonomy));
 
 		# Assume it should be treated as a tag (non hierarchical) if the slug has "tag" in the name

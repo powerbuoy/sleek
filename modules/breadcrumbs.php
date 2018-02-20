@@ -2,8 +2,8 @@
 	<nav id="breadcrumbs">
 		<?php bcn_display() ?>
 	</nav>
-<?php elseif (function_exists('yoast_breadcrumb')) : ?>
+<?php elseif (function_exists('yoast_breadcrumb') and $bc = yoast_breadcrumb('', '', false)) : ?>
 	<nav id="breadcrumbs">
-		<?php yoast_breadcrumb('', '') ?>
+		<?php echo $bc ?>
 	</nav>
 <?php endif ?>

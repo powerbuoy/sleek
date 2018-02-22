@@ -7,8 +7,11 @@
  */
 function sleek_register_taxonomies ($taxonomies, $textdomain = false) {
 	foreach ($taxonomies as $taxonomy => $forPostTypes) {
+		# Store plural version of name
+		$plural = sleek_pluralize($taxonomy);
+
 		# Create the post type slug - if a textdomain is specified make it translatable, otherwise make it dash-separated
-		$slug = $textdomain ? _x(str_replace('_', '-', $taxonomy), 'url', $textdomain) : str_replace('_', '-', $taxonomy);
+		$slug = $textdomain ? _x(str_replace('_', '-', $plural), 'url', $textdomain) : str_replace('_', '-', $plural);
 
 		# Create the taxonomy nice-name based on the the taxonomy name
 		$name = ucfirst(str_replace('_', ' ', $taxonomy));
@@ -20,7 +23,7 @@ function sleek_register_taxonomies ($taxonomies, $textdomain = false) {
 		# Register the taxonomy
 		register_taxonomy($taxonomy, $forPostTypes, [
 			'labels' => [
-				'name' => __($name . 's', $textdomain),
+				'name' => __(sleek_pluralize($name), $textdomain),
 				'singular_name' => __($name, $textdomain)
 			],
 			'rewrite' => [

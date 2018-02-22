@@ -1,4 +1,19 @@
 <?php
+# https://stackoverflow.com/questions/1534127/pluralize-in-php
+function sleek_pluralize ($singular) {
+	$last = strtolower($singular[strlen($singular) - 1]);
+
+	if ($last == 'y') {
+		return substr($singular, 0, -1) . 'ies';
+	}
+	elseif ($last == 's') {
+		return $singular . 'es';
+	}
+	else {
+		return $singular . 's';
+	}
+}
+
 /**
  * Attempts to return the currently viewed post type
  */

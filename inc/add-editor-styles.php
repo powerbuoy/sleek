@@ -1,4 +1,17 @@
 <?php
+function sleek_get_sass_config ($key) {
+	$configCss = file_get_contents(get_stylesheet_directory() . '/src/sass/config.scss');
+	$matches = false;
+
+	preg_match('/\$' . $key . ':(.*?);/s', $configCss, $matches);
+
+	if (isset($matches[1])) {
+		return $matches[1];
+	}
+
+	return false;
+}
+
 function sleek_get_sass_colors () {
 	$configCss = file_get_contents(get_stylesheet_directory() . '/src/sass/config.scss');
 	$matches = false;

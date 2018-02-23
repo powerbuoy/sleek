@@ -35,7 +35,7 @@
 
 				<a href="mailto:<?php echo $user['user_email'] ?>" class="icon-mail"><?php echo $user['user_email'] ?></a>
 
-				<?php if ($link = get_user_meta($user['ID'], 'tel', true)) : ?>
+				<?php if ($link = get_user_meta($user['ID'], 'phone', true)) : ?>
 					<a href="tel:<?php echo $link ?>" class="icon-phone"><?php echo $link ?></a>
 				<?php endif ?>
 

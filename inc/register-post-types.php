@@ -12,8 +12,11 @@ function sleek_register_post_types ($postTypes, $textdomain = false) {
 			$postType = $data;
 		}
 
+		# Store plural version of name
+		$plural = sleek_pluralize($postType);
+
 		# Create the post type slug - if a textdomain is specified make it translatable, otherwise make it dash-separated
-		$slug = $textdomain ? __('url_' . $postType, $textdomain) : str_replace('_', '-', $postType);
+		$slug = $textdomain ? _x(str_replace('_', '-', $plural), 'url', $textdomain) : str_replace('_', '-', $plural);
 
 		# Create the post type nice-name based on the the post type slug
 		$name = ucfirst(str_replace('_', ' ', $postType));
@@ -21,7 +24,7 @@ function sleek_register_post_types ($postTypes, $textdomain = false) {
 		# Create the config
 		$config = [
 			'labels' => [
-				'name' => __($name . 's', $textdomain),
+				'name' => __(sleek_pluralize($name), $textdomain),
 				'singular_name' => __($name, $textdomain)
 			],
 			'rewrite' => [

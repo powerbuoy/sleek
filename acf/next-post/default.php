@@ -27,22 +27,24 @@
 		</header>
 	<?php endif ?>
 
-	<article>
+	<?php foreach ([$next] as $post) : setup_postdata($post) ?>
+		<article>
 
-		<?php if (has_post_thumbnail($next)) : ?>
-			<figure>
-				<?php echo get_the_post_thumbnail($next->ID, 'large') ?>
-			</figure>
-		<?php endif ?>
+			<?php if (has_post_thumbnail()) : ?>
+				<figure>
+					<?php the_post_thumbnail('large') ?>
+				</figure>
+			<?php endif ?>
 
-		<h3>
-			<a href="<?php the_permalink($next) ?>">
-				<?php echo $next->post_title ?>
-			</a>
-		</h3>
+			<h3>
+				<a href="<?php the_permalink() ?>">
+					<?php the_title() ?>
+				</a>
+			</h3>
 
-		<?php the_excerpt() ?>
+			<?php the_excerpt() ?>
 
-	</article>
+		</article>
+	<?php endforeach; wp_reset_postdata() ?>
 
 </section>

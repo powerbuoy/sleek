@@ -9,7 +9,11 @@
 		$next = get_adjacent_post();
 
 		# Or first post of same post type
-		$next = $next ? $next : (get_posts(['post_type' => get_post_type(), 'numberposts' => 1])[0]);
+		$next = $next ? $next : (get_posts([
+			'post_type' => get_post_type(),
+			'numberposts' => 1,
+			'suppress_filters' => false
+		])[0]);
 	}
 ?>
 

@@ -3,7 +3,8 @@
 
 	$rows = get_posts([
 		'post_type' => $post_type,
-		'numberposts' => $latest_posts_limit ? $latest_posts_limit : 3
+		'numberposts' => $latest_posts_limit ? $latest_posts_limit : 3,
+		'suppress_filters' => false
 	]);
 ?>
 

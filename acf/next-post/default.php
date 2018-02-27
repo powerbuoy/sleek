@@ -32,7 +32,9 @@
 
 			<?php if (has_post_thumbnail()) : ?>
 				<figure>
-					<?php the_post_thumbnail('large') ?>
+					<a href="<?php the_permalink() ?>">
+						<?php the_post_thumbnail('large') ?>
+					</a>
 				</figure>
 			<?php endif ?>
 

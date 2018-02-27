@@ -1,19 +1,19 @@
 <?php if (class_exists('null_instagram_widget')) : ?>
 	<section id="instagram">
 
-		<?php if ($instragram_title or $instragram_description) : ?>
+		<?php if ($instagram_title or $instagram_description) : ?>
 			<header>
 
-				<?php if ($instragram_title) : ?>
-					<h2><?php echo $instragram_title ?></h2>
+				<?php if ($instagram_title) : ?>
+					<h2><?php echo $instagram_title ?></h2>
 				<?php endif ?>
 
-				<?php echo $instragram_description ?>
+				<?php echo $instagram_description ?>
 
 			</header>
 		<?php endif ?>
 
-		<?php the_widget('null_instagram_widget', 'username=' . $instragram_username . '&number=' . $instragram_limit . '&target=_blank') ?>
+		<?php the_widget('null_instagram_widget', 'username=' . $instagram_username . '&number=' . $instagram_limit . '&target=_blank') ?>
 
 	</section>
 <?php else : ?>

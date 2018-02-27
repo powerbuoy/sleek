@@ -1,5 +1,9 @@
 <?php
 function sleek_get_sass_config ($key) {
+	if (!file_exists(get_stylesheet_directory() . '/src/sass/config.scss')) {
+		return false;
+	}
+
 	$configCss = file_get_contents(get_stylesheet_directory() . '/src/sass/config.scss');
 	$matches = false;
 
@@ -13,6 +17,10 @@ function sleek_get_sass_config ($key) {
 }
 
 function sleek_get_sass_colors () {
+	if (!file_exists(get_stylesheet_directory() . '/src/sass/config.scss')) {
+		return false;
+	}
+
 	$configCss = file_get_contents(get_stylesheet_directory() . '/src/sass/config.scss');
 	$matches = false;
 	$colors = [];
@@ -38,6 +46,10 @@ function sleek_get_sass_colors () {
 }
 
 function sleek_get_sass_icons () {
+	if (!file_exists(get_stylesheet_directory() . '/icons.json')) {
+		return false;
+	}
+
 	$icons = file_get_contents(get_stylesheet_directory() . '/icons.json');
 
 	return json_decode($icons, true)['glyphs'];
@@ -59,12 +71,14 @@ add_filter('tiny_mce_before_init', function ($settings) {
 	$sassIcons = sleek_get_sass_icons();
 	$icons = [];
 
-	foreach ($sassIcons as $icon) {
-		$icons[] = [
-			'title' => ucfirst(str_replace(['-', '_'], ' ', $icon['css'])),
-			'inline' => 'span',
-			'classes' => 'icon-' . $icon['css']
-		];
+	if ($sassIcons) {
+		foreach ($sassIcons as $icon) {
+			$icons[] = [
+				'title' => ucfirst(str_replace(['-', '_'], ' ', $icon['css'])),
+				'inline' => 'span',
+				'classes' => 'icon-' . $icon['css']
+			];
+		}
 	}
 
 	# And colors
@@ -84,17 +98,19 @@ add_filter('tiny_mce_before_init', function ($settings) {
 		]
 	];
 
-	foreach ($sassColors as $color) {
-		$colors[] = [
-			'title' => ucfirst(str_replace('-', ' ', $color['name'])),
-			'selector' => 'a',
-			'classes' => 'button button--' . $color['name']
-		];
-		$ghostColors[] = [
-			'title' => ucfirst(str_replace('-', ' ', $color['name'])),
-			'selector' => 'a',
-			'classes' => 'button button--ghost button--' . $color['name']
-		];
+	if ($sassColors) {
+		foreach ($sassColors as $color) {
+			$colors[] = [
+				'title' => ucfirst(str_replace('-', ' ', $color['name'])),
+				'selector' => 'a',
+				'classes' => 'button button--' . $color['name']
+			];
+			$ghostColors[] = [
+				'title' => ucfirst(str_replace('-', ' ', $color['name'])),
+				'selector' => 'a',
+				'classes' => 'button button--ghost button--' . $color['name']
+			];
+		}
 	}
 
 	# Allow empty spans (NOTE: Doesn't work??)

@@ -23,8 +23,8 @@
 
 				<h3><?php echo $user['display_name'] ?></h3>
 
-				<?php if ($jobTitle = get_user_meta($user['ID'], 'job_title', true)) : ?>
-					<p><?php echo $jobTitle ?></p>
+				<?php if ($tagline = get_user_meta($user['ID'], 'tagline', true)) : ?>
+					<p><?php echo $tagline ?></p>
 				<?php endif ?>
 
 			</header>

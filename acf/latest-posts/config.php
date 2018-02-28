@@ -34,6 +34,23 @@ return [
 		'label' => __('Number of Posts', 'sleek'),
 		'instructions' => __('How many posts would you like to display?', 'sleek'),
 		'type' => 'number',
-		'default_value' => 4
+		'default_value' => 3
+	],
+	[
+		'name' => 'latest_posts_same_category',
+		'label' => __('Use same category', 'sleek_child'),
+		'instructions' => __('Use the same category as the current post.', 'sleek_child'),
+		'message' => __('Use same category', 'sleek_child'),
+		'type' => 'true_false',
+	],
+	# NOTE: Add more taxonomy fields as needed
+	[
+		'name' => 'latest_posts_category',
+		'label' => __('Category', 'sleek_child'),
+		'instructions' => __('Limit posts to this category.', 'sleek_child'),
+		'type' => 'taxonomy',
+		'taxonomy' => 'category',
+		'return_format' => 'id',
+		'allow_null' => true
 	]
 ];

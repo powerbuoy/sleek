@@ -1,11 +1,50 @@
 <?php
 	$post_type = ($latest_posts_post_type ? $latest_posts_post_type : 'any');
-
-	$rows = get_posts([
+	$args = [
 		'post_type' => $post_type,
 		'numberposts' => $latest_posts_limit ? $latest_posts_limit : 3,
-		'suppress_filters' => false
-	]);
+		'suppress_filters' => false,
+		'tax_query' => [
+			'relation' => 'OR'
+		]
+	];
+
+	# Ignore same post
+	if (is_single()) {
+		$args['post__not_in'] = [$post->ID];
+	}
+
+	# Use the same category as the currently viewed post
+	if ($latest_posts_same_category) {
+		if (is_single()) {
+			$tax = 'category';
+
+			if (get_post_type() !== 'post') {
+				$tax = get_post_type() . '_category';
+			}
+
+			$ids = wp_get_post_terms($post->ID, $tax, ['fields' => 'ids']);
+
+			$args['tax_query'][] = [
+				'taxonomy' => $tax,
+				'field' => 'term_id',
+				'terms' => $ids
+			];
+		}
+	}
+	# Check if user has selected any categories
+	else {
+		if ($latest_posts_category) {
+			$args['tax_query'][] = [
+				'taxonomy' => 'category',
+				'field' => 'term_id',
+				'terms' => $latest_posts_category
+			];
+		}
+		# NOTE: Add more here as needed
+	}
+
+	$rows = get_posts($args);
 ?>
 
 <?php if ($rows) : ?>

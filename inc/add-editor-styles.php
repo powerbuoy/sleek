@@ -34,10 +34,13 @@ function sleek_get_sass_colors () {
 			if ($match) {
 				$tmp = explode(':', $match);
 				$color = trim(str_replace('"', '', $tmp[0]));
-				$colors[] = [
-					'name' => trim(str_replace('"', '', $tmp[0])),
-					'color' => trim(str_replace('"', '', $tmp[1]))
-				];
+
+				if (isset($tmp[1]) and $tmp[1]) {
+					$colors[] = [
+						'name' => trim(str_replace('"', '', $tmp[0])),
+						'color' => trim(str_replace('"', '', $tmp[1]))
+					];
+				}
 			}
 		}
 	}

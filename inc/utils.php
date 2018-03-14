@@ -16,6 +16,7 @@ function sleek_pluralize ($singular) {
 
 /**
  * Attempts to return the currently viewed post type
+ * TODO: get_query_var('post_type') ?
  */
 function sleek_get_current_post_type () {
 	# Work out the post type on this archive

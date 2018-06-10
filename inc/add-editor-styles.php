@@ -16,7 +16,7 @@ function sleek_get_sass_config ($key) {
 	return false;
 }
 
-function sleek_get_sass_colors () {
+function sleek_get_sass_colors ($key = 'colors') {
 	if (!file_exists(get_stylesheet_directory() . '/src/sass/config.scss')) {
 		return false;
 	}
@@ -24,8 +24,8 @@ function sleek_get_sass_colors () {
 	$configCss = file_get_contents(get_stylesheet_directory() . '/src/sass/config.scss');
 	$matches = false;
 	$colors = [];
-
-	preg_match('/\$colors: \((.*?)\)/s', $configCss, $matches);
+	
+	preg_match('/\$' . $key . ': \((.*?)\);/s', $configCss, $matches);
 
 	if ($matches and count($matches) > 1) {
 		$matches = explode("\n", $matches[1]);
@@ -85,7 +85,7 @@ add_filter('tiny_mce_before_init', function ($settings) {
 	}
 
 	# And colors
-	$sassColors = sleek_get_sass_colors();
+	$sassColors = sleek_get_sass_colors('button-colors');
 	$colors = [
 		[
 			'title' => __('Default', 'sleek'),

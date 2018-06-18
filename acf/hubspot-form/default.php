@@ -5,9 +5,6 @@
 
 			<?php if ($hubspot_form_title) : ?>
 				<h2>
-					<?php if ($data['hubspot-form-pre-title']) : ?>
-						<small><?php echo $data['hubspot-form-pre-title'] ?></small>
-					<?php endif ?>
 					<?php echo $hubspot_form_title ?>
 				</h2>
 			<?php endif ?>

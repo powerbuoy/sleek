@@ -4,6 +4,9 @@
  * NOTE: Call this function from the wp_enqueue_scripts action (or login_enqueue_scripts or whatever)
  */
 function sleek_register_assets ($extraAssets = []) {
+	# Child theme is using a critical.scss - only include that to begin with
+	$hasCriticalCss = file_exists(get_stylesheet_directory() . '/dist/critical.css');
+
 	# Potential additional assets
 	$id = 0;
 
@@ -52,9 +55,6 @@ function sleek_register_assets ($extraAssets = []) {
 	}
 
 	wp_localize_script('sleek', 'SLEEK_CONFIG', $jsConfig);
-
-	# Child theme is using a critical.scss - only include that to begin with
-	$hasCriticalCss = file_exists(get_stylesheet_directory() . '/dist/critical.css');
 
 	if ($hasCriticalCss) {
 		# Inline the critical CSS in the head section

@@ -4,6 +4,33 @@
  * NOTE: Call this function from the wp_enqueue_scripts action (or login_enqueue_scripts or whatever)
  */
 function sleek_register_assets ($extraAssets = []) {
+	# Potential additional assets
+	$id = 0;
+
+	foreach ($extraAssets as $path => $dependencies) {
+		$id++;
+
+		# Dependencies can be passed in like ['my-file.js' => ['jquery']]
+		if (!is_array($dependencies)) {
+			$path = $dependencies;
+			$dependencies = [];
+		}
+
+		# Figure out the extension (css/js)
+		$ext = pathinfo($path, PATHINFO_EXTENSION);
+
+		# JS
+		if ($ext == 'js') {
+			wp_register_script('sleek_extra_js_' . $id, $path, $dependencies, null, true);
+			wp_enqueue_script('sleek_extra_js_' . $id);
+		}
+		# Only add CSS if there's no critical CSS (if there is critical CSS it's already been added above)
+		elseif (!$hasCriticalCss) {
+			wp_register_style('sleek_extra_css_' . $id, $path);
+			wp_enqueue_style('sleek_extra_css_' . $id);
+		}
+	}
+
 	# Theme JS (all.js)
 	if (file_exists(get_stylesheet_directory() . '/dist/all.js')) {
 		wp_register_script('sleek', get_stylesheet_directory_uri() . '/dist/all.js?v=' . filemtime(get_stylesheet_directory() . '/dist/all.js'), ['jquery'], null, true);
@@ -77,32 +104,5 @@ function sleek_register_assets ($extraAssets = []) {
 	elseif (file_exists(get_stylesheet_directory() . '/dist/all.css')) {
 		wp_register_style('sleek', get_stylesheet_directory_uri() . '/dist/all.css?v=' . filemtime(get_stylesheet_directory() . '/dist/all.css'), [], null);
 		wp_enqueue_style('sleek');
-	}
-
-	# Potential additional styles
-	$id = 0;
-
-	foreach ($extraAssets as $path => $dependencies) {
-		$id++;
-
-		# Dependencies can be passed in like ['my-file.js' => ['jquery']]
-		if (!is_array($dependencies)) {
-			$path = $dependencies;
-			$dependencies = [];
-		}
-
-		# Figure out the extension (css/js)
-		$ext = pathinfo($path, PATHINFO_EXTENSION);
-
-		# JS
-		if ($ext == 'js') {
-			wp_register_script('sleek_extra_js_' . $id, $path, $dependencies, null, true);
-			wp_enqueue_script('sleek_extra_js_' . $id);
-		}
-		# Only add CSS if there's no critical CSS (if there is critical CSS it's already been added above)
-		elseif (!$hasCriticalCss) {
-			wp_register_style('sleek_extra_css_' . $id, $path);
-			wp_enqueue_style('sleek_extra_css_' . $id);
-		}
 	}
 }

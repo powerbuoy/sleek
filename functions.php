@@ -61,7 +61,7 @@ add_action('after_setup_theme', function () {
 	load_theme_textdomain('sleek', get_template_directory() . '/languages');
 });
 
-# 404 archive pages
+# 404 attachment pages
 add_filter('template_redirect', function () {
 	global $wp_query;
 

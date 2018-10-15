@@ -7,22 +7,6 @@ function sleek_register_assets ($extraAssets = []) {
 	# Child theme is using a critical.scss - only include that to begin with
 	$hasCriticalCss = file_exists(get_stylesheet_directory() . '/dist/critical.css');
 
-	# Some useful vars in config
-	$jsConfig = [
-		'TEMPLATE_DIRECTORY' => get_template_directory_uri(),
-		'STYLESHEET_DIRECTORY' => get_stylesheet_directory_uri(),
-		'AJAX_URL' => admin_url('admin-ajax.php')
-	];
-
-	if (get_theme_mod('recaptcha_site_key')) {
-		$jsConfig['RECAPTCHA_SITE_KEY'] = get_theme_mod('recaptcha_site_key');
-	}
-	if (get_theme_mod('google_maps_api_key')) {
-		$jsConfig['GOOGLE_MAPS_API_KEY'] = get_theme_mod('google_maps_api_key');
-	}
-
-	wp_localize_script('sleek', 'SLEEK_CONFIG', $jsConfig);
-
 	# Potential additional assets
 	$id = 0;
 
@@ -54,6 +38,22 @@ function sleek_register_assets ($extraAssets = []) {
 	if (file_exists(get_stylesheet_directory() . '/dist/all.js')) {
 		wp_register_script('sleek', get_stylesheet_directory_uri() . '/dist/all.js?v=' . filemtime(get_stylesheet_directory() . '/dist/all.js'), ['jquery'], null, true);
 		wp_enqueue_script('sleek');
+
+		# Some useful vars in config
+		$jsConfig = [
+			'TEMPLATE_DIRECTORY' => get_template_directory_uri(),
+			'STYLESHEET_DIRECTORY' => get_stylesheet_directory_uri(),
+			'AJAX_URL' => admin_url('admin-ajax.php')
+		];
+
+		if (get_theme_mod('recaptcha_site_key')) {
+			$jsConfig['RECAPTCHA_SITE_KEY'] = get_theme_mod('recaptcha_site_key');
+		}
+		if (get_theme_mod('google_maps_api_key')) {
+			$jsConfig['GOOGLE_MAPS_API_KEY'] = get_theme_mod('google_maps_api_key');
+		}
+
+		wp_localize_script('sleek', 'SLEEK_CONFIG', $jsConfig);
 	}
 
 	# Child theme has a critical.css file - include that as a <style></style>

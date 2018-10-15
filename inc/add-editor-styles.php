@@ -25,7 +25,7 @@ function sleek_get_sass_colors ($colorKey = 'colors') {
 	$matches = false;
 	$colors = [];
 
-	preg_match('/\$' . $colorKey . ': \((.*?)\)/s', $configCss, $matches);
+	preg_match('/\$' . $colorKey . ': \((.*?)\);/s', $configCss, $matches);
 
 	if ($matches and count($matches) > 1) {
 		$matches = explode("\n", $matches[1]);

@@ -27,8 +27,6 @@
 
 		</header>
 
-		<?php get_template_part('modules/breadcrumbs') ?>
-
 		<article>
 
 			<?php the_content() ?>

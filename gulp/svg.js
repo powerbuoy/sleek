@@ -8,10 +8,10 @@ var path = require('path');
 module.exports = {
 	min: function (src, dest) {
 		return gulp.src(src)
-		   .pipe(svgmin(function (file) {
-			   var prefix = 'svg-' + path.basename(file.relative, path.extname(file.relative));
+			.pipe(svgmin(function (file) {
+				var prefix = 'svg-' + path.basename(file.relative, path.extname(file.relative));
 
-			   return {
+				return {
 					plugins: [{
 						cleanupIDs: {
 							prefix: prefix + '-',

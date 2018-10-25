@@ -265,7 +265,8 @@ function sleek_acf_render_modules ($where, $postId = null) {
 						'count' => ++$i,
 						'module_area' => $where,
 						'template_count' => $templateCount[$template],
-						'module_count' => $moduleCount[$acfLayout]
+						'module_count' => $moduleCount[$acfLayout],
+						'module_data' => $module
 					]
 				]));
 			}

@@ -28,7 +28,8 @@ function sleek_register_taxonomies ($taxonomies, $textdomain = false) {
 			],
 			'rewrite' => [
 				'with_front' => false,
-				'slug' => $slug
+				'slug' => $slug,
+				'hierarchical' => $hierarchical
 			],
 			'sort' => true,
 			'hierarchical' => $hierarchical,

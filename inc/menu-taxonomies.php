@@ -5,33 +5,47 @@ add_filter('wp_nav_menu_items', function ($items) {
 	preg_match_all('|<li class="(.*?)">(.*?)</li>|', $items, $matches);
 
 	if (isset($matches[1]) and count($matches[1])) {
-		# Check all the classes
+		# Check all the LIs
 		foreach ($matches[1] as $classes) {
 			$classes = explode(' ', $classes);
+			$taxonomy = null;
+			$parent = null;
 
-			# All of them...
+			# And all their classes
 			foreach ($classes as $class) {
-				# If one is prefixed with 'taxonomy-'
-				if (substr($class, 0, strlen('taxonomy-')) == 'taxonomy-') {
-					$tax = substr($class, strlen('taxonomy-'));
+				if (preg_match('/^taxonomy-parent-(.*?)$/', $class, $matches)) {
+					$parent = $matches[1];
+				}
+				elseif (preg_match('/^taxonomy-(.*?)$/', $class, $matches)) {
+					$taxonomy = $matches[1];
+				}
+			}
 
-					# Get all categories
-					$taxList = wp_list_categories([
-						'taxonomy' => $tax,
-						'title_li' => false,
-						'show_option_all' => false,
-						'echo' => false
-					]);
+			# If we have a taxonomy-foo match
+			if ($taxonomy) {
+				$args = [
+					'taxonomy' => $taxonomy,
+					'title_li' => false,
+					'show_option_all' => false,
+					'echo' => false,
+					'hide_empty' => false
+				];
 
-					# If there are no categories, don't display anything
-					if (strpos($taxList, 'cat-item-none') !== false) {
-						$taxList = false;
-					}
+				if ($parent) {
+					$args['parent'] = $parent;
+				}
 
-					# Inject the list of categories
-					if ($taxList) {
-						$items = preg_replace('|<li class="(.*?)taxonomy-' . $tax . '(.*?)">(.*?)</li>|', '<li class="dropdown \1taxonomy-' . $tax . '\2">\3<ul class="dropdown-menu">' . $taxList . '</ul></li>', $items);
-					}
+				# Get all categories
+				$taxList = wp_list_categories($args);
+
+				# If there are no categories, don't display anything
+				if (strpos($taxList, 'cat-item-none') !== false) {
+					$taxList = false;
+				}
+
+				# Inject the list of categories
+				if ($taxList) {
+					$items = preg_replace('|<li class="(.*?)taxonomy-' . $taxonomy . '(.*?)">(.*?)</li>|', '<li class="dropdown \1taxonomy-' . $taxonomy . '\2">\3<ul class="dropdown-menu">' . $taxList . '</ul></li>', $items);
 				}
 			}
 		}

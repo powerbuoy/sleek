@@ -45,7 +45,15 @@ add_filter('wp_nav_menu_items', function ($items) {
 
 				# Inject the list of categories
 				if ($taxList) {
-					$items = preg_replace('|<li class="(.*?)taxonomy-' . $taxonomy . '(.*?)">(.*?)</li>|', '<li class="dropdown \1taxonomy-' . $taxonomy . '\2">\3<ul class="dropdown-menu">' . $taxList . '</ul></li>', $items);
+					$find = '|<li class="(.*?)taxonomy-' . $taxonomy . '(.*?)">(.*?)</li>|';
+					$replace = '<li class="dropdown \1taxonomy-' . $taxonomy . '\2">\3<ul class="dropdown-menu">' . $taxList . '</ul></li>';
+
+					if ($parent) {
+						$find = '|<li class="(.*?)taxonomy-' . $taxonomy . '(.*?)taxonomy-parent-' . $parent . '(.*?)">(.*?)</li>|';
+						$replace = '<li class="dropdown \1taxonomy-' . $taxonomy . '\2taxonomy-parent-' . $parent . '\3">\4<ul class="dropdown-menu">' . $taxList . '</ul></li>';
+					}
+
+					$items = preg_replace($find, $replace, $items);
 				}
 			}
 		}

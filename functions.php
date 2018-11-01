@@ -24,14 +24,17 @@ require_once get_template_directory() . '/inc/register-taxonomies.php';
 require_once get_template_directory() . '/inc/register-theme-options.php';
 require_once get_template_directory() . '/inc/youtube-args.php';
 
+###################
 # Title tag support
 add_theme_support('title-tag');
 
+#####################
 # Give pages excerpts
 add_action('init', function () {
 	add_post_type_support('page', 'excerpt');
 });
 
+##################################
 # Show the editor on the blog page
 # https://wordpress.stackexchange.com/questions/193755/show-default-editor-on-blog-page-administration-panel
 add_action('edit_form_after_title', function ($post) {
@@ -41,6 +44,7 @@ add_action('edit_form_after_title', function ($post) {
 	}
 }, 0);
 
+################################################
 # Remove "Protected:" from protected post titles
 add_filter('private_title_format', function () {
 	return '%s';
@@ -50,6 +54,7 @@ add_filter('protected_title_format', function () {
 	return '%s';
 });
 
+#############################
 # Hide Sleek theme from admin
 add_filter('wp_prepare_themes_for_js', function ($themes) {
 	unset($themes['sleek']);
@@ -57,11 +62,13 @@ add_filter('wp_prepare_themes_for_js', function ($themes) {
 	return $themes;
 });
 
+########################
 # Set up for translation
 add_action('after_setup_theme', function () {
 	load_theme_textdomain('sleek', get_template_directory() . '/languages');
 });
 
+######################
 # 404 attachment pages
 add_filter('template_redirect', function () {
 	global $wp_query;
@@ -70,4 +77,11 @@ add_filter('template_redirect', function () {
 		status_header(404); # Sets 404 header
 		$wp_query->set_404(); # Shows 404 template
 	}
+});
+
+################################################
+# Remove title attribute from wp_list_categories
+# https://www.isitwp.com/remove-title-attribute-from-wp_list_categories/
+add_action('wp_list_categories', function ($output) {
+	return preg_replace('` title="(.+)"`', '', $output);
 });

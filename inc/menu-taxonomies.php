@@ -1,17 +1,30 @@
 <?php
 # Automatically inserts taxonomy terms as children of menu items with a "taxonomy-${tax_name}" class
 add_filter('wp_nav_menu_items', function ($items) {
-	# Match every li with a class
-	preg_match_all('|<li class="(.*?)">(.*?)</li>|', $items, $matches);
+	if (strlen($items) == 0) {
+		return $items;
+	}
 
-	if (isset($matches[1]) and count($matches[1])) {
-		# Check all the LIs
-		foreach ($matches[1] as $classes) {
+	libxml_use_internal_errors(true); # https://stackoverflow.com/questions/9149180/domdocumentloadhtml-error
+
+	# Load the content
+	$dom = new DOMDocument();
+
+	# https://stackoverflow.com/questions/8218230/php-domdocument-loadhtml-not-encoding-utf-8-correctly
+	$dom->loadHTML('<?xml encoding="utf-8" ?><ul id="sleek-temporary-wrapper">' . $items . '</ul>');
+
+	# Get all Lis
+	$lis = $dom->getElementsByTagName('li');
+	$appendLater = [];
+
+	foreach ($lis as $li) {
+		$classes = $li->getAttribute('class');
+		$taxonomy = null;
+		$parent = null;
+
+		if (strlen($classes) > 0) {
 			$classes = explode(' ', $classes);
-			$taxonomy = null;
-			$parent = null;
 
-			# And all their classes
 			foreach ($classes as $class) {
 				if (preg_match('/^taxonomy-parent-(.*?)$/', $class, $matches)) {
 					$parent = $matches[1];
@@ -45,19 +58,29 @@ add_filter('wp_nav_menu_items', function ($items) {
 
 				# Inject the list of categories
 				if ($taxList) {
-					$find = '|<li class="(.*?)taxonomy-' . $taxonomy . '(.*?)">(.*?)</li>|';
-					$replace = '<li class="dropdown \1taxonomy-' . $taxonomy . '\2">\3<ul class="dropdown-menu">' . $taxList . '</ul></li>';
+					$fragment = $dom->createDocumentFragment();
+					$fragment->appendXML('<ul class="dropdown-menu">' . $taxList . '</ul>');
 
-					if ($parent) {
-						$find = '|<li class="(.*?)taxonomy-' . $taxonomy . '(.*?)taxonomy-parent-' . $parent . '(.*?)">(.*?)</li>|';
-						$replace = '<li class="dropdown \1taxonomy-' . $taxonomy . '\2taxonomy-parent-' . $parent . '\3">\4<ul class="dropdown-menu">' . $taxList . '</ul></li>';
-					}
-
-					$items = preg_replace($find, $replace, $items);
+					# NOTE: Do not append the children now because that makes this loop we're in iterate over the new elements too
+					$appendLater[] = [
+						'li' => $li,
+						'children' => $fragment
+					];
 				}
 			}
 		}
 	}
+
+	# Now append them all
+	if (count($appendLater)) {
+		foreach ($appendLater as $elements) {
+			$elements['li']->appendChild($elements['children']);
+		}
+	}
+
+	libxml_use_internal_errors(false); # Turn on errors again...
+
+	$items = preg_replace('|<ul id="sleek-temporary-wrapper">(.*)</ul>|s', '\1', $dom->saveHTML($dom->getElementById('sleek-temporary-wrapper')));
 
 	return $items;
 });

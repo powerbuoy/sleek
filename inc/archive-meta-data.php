@@ -9,11 +9,6 @@ add_filter('get_the_archive_title', function ($title) {
 		$title = get_the_title(get_option('page_for_posts'));
 	}
 
-	# CPT archive should show custom title if set
-	elseif (is_post_type_archive() and function_exists('get_field') and $customTitle = get_field('archive_title', $wp_query->query['post_type'] . '_archive_meta')) {
-		$title = $customTitle;
-	}
-
 	# Search should show something nice too
 	elseif (is_search()) {
 		# With results
@@ -33,6 +28,11 @@ add_filter('get_the_archive_title', function ($title) {
 		}
 	}
 
+	# CPT archive should show custom title if set
+	elseif (is_post_type_archive() and function_exists('get_field') and $customTitle = get_field('archive_title', $wp_query->query['post_type'] . '_archive_meta')) {
+		$title = $customTitle;
+	}
+
 	# Default (remove PREFIX:)
 	else {
 		$title = preg_replace('/^(.*?): /', '', $title);
@@ -49,11 +49,6 @@ add_filter('get_the_archive_description', function ($description) {
 	# Blog page should show blog page's the_title()
 	if (is_home() and get_option('page_for_posts')) {
 		$description = apply_filters('the_content', get_post_field('post_content', get_option('page_for_posts')));
-	}
-
-	# CPT archive should show custom title if set
-	elseif (is_post_type_archive() and function_exists('get_field') and $customDescription = get_field('archive_description', $wp_query->query['post_type'] . '_archive_meta')) {
-		$description = $customDescription;
 	}
 
 	# Search should show something nice too
@@ -80,6 +75,11 @@ add_filter('get_the_archive_description', function ($description) {
 		else {
 			$description = '<p>' . __("We couldn't find any matching search results for your query.", 'sleek') . '</p>';
 		}
+	}
+
+	# CPT archive should show custom title if set
+	elseif (is_post_type_archive() and function_exists('get_field') and $customDescription = get_field('archive_description', $wp_query->query['post_type'] . '_archive_meta')) {
+		$description = $customDescription;
 	}
 
 	# Author: WP doesn't wrap this in a <p>

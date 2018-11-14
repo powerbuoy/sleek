@@ -46,7 +46,7 @@ add_filter('get_the_archive_description', function ($description) {
 	global $wp_query;
 	global $post;
 
-	# Blog page should show blog page's the_title()
+	# Blog page should show blog page's the_content()
 	if (is_home() and get_option('page_for_posts')) {
 		$description = apply_filters('the_content', get_post_field('post_content', get_option('page_for_posts')));
 	}
@@ -77,7 +77,7 @@ add_filter('get_the_archive_description', function ($description) {
 		}
 	}
 
-	# CPT archive should show custom title if set
+	# CPT archive should show custom description if set
 	elseif (is_post_type_archive() and function_exists('get_field') and $customDescription = get_field('archive_description', $wp_query->query['post_type'] . '_archive_meta')) {
 		$description = $customDescription;
 	}
@@ -152,7 +152,7 @@ function sleek_archive_meta_data ($postTypes) {
 
 		# Create the options page
 		sleek_acf_add_options_page([
-			'page_title' => __('Archive Title & Description', 'sleek'),
+			'page_title' => __('Archive Settings', 'sleek'),
 			'menu_slug' => $postType . '_archive_meta',
 			'parent_slug' => 'edit.php?post_type=' . $postType,
 			'icon_url' => 'dashicons-welcome-write-blog',
@@ -164,7 +164,7 @@ function sleek_archive_meta_data ($postTypes) {
 
 		acf_add_local_field_group([
 			'key' => $groupKey,
-			'title' => __('Archive Title & Description', 'sleek'),
+			'title' => __('Archive Settings', 'sleek'),
 			'fields' => [
 				[
 					'label' => __('Title', 'sleek'),

@@ -1,7 +1,7 @@
 <?php
 # https://wordpress.stackexchange.com/questions/28095/how-can-i-tell-if-im-on-a-login-page
 function sleek_is_login_page () {
-	return in_array($GLOBALS['pagenow'], ['wp-login.php', 'wp-register.php']);
+	return $GLOBALS['pagenow'] == 'wp-login.php';
 }
 
 add_action('init', function () {
@@ -31,22 +31,25 @@ add_filter('login_redirect', function ($to, $request, $user) {
 	}
 }, 10, 3);
 
-# Link logo to home page
-/* add_filter('login_headerurl', function () {
-	return home_url();
-});
+# NOTE: Don't do this on the recover password page because it has very special CSS/JS
+if (!(isset($_GET['action']) and $_GET['action'] == 'rp')) {
+	# Link logo to home page
+	add_filter('login_headerurl', function () {
+		return home_url();
+	});
 
-# Change "Powered by WordPress" to site name
-add_filter('login_headertitle', function () {
-	return get_bloginfo('name');
-});
+	# Change "Powered by WordPress" to site name
+	add_filter('login_headertitle', function () {
+		return get_bloginfo('name');
+	});
 
-# Remove default login style (https://wordpress.stackexchange.com/questions/113501/avoid-to-load-default-wp-styles-in-login-screen)
-add_action('login_init', function() {
-	wp_deregister_style('login');
-});
+	# Remove default login style (https://wordpress.stackexchange.com/questions/113501/avoid-to-load-default-wp-styles-in-login-screen)
+	add_action('login_init', function() {
+		wp_deregister_style('login');
+	});
 
-# Add our styles
-add_action('login_enqueue_scripts', function () {
-	sleek_register_assets();
-}); */
+	# Add our styles
+	add_action('login_enqueue_scripts', function () {
+		sleek_register_assets();
+	});
+}

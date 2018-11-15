@@ -32,7 +32,7 @@ add_filter('login_redirect', function ($to, $request, $user) {
 }, 10, 3);
 
 # Link logo to home page
-add_filter('login_headerurl', function () {
+/* add_filter('login_headerurl', function () {
 	return home_url();
 });
 
@@ -49,4 +49,4 @@ add_action('login_init', function() {
 # Add our styles
 add_action('login_enqueue_scripts', function () {
 	sleek_register_assets();
-});
+}); */

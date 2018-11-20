@@ -39,8 +39,8 @@ return [
 	# NOTE: Add more taxonomy fields as needed
 	[
 		'name' => 'latest_posts_category',
-		'label' => __('Category', 'sleek_child'),
-		'instructions' => __('Limit posts to this category.', 'sleek_child'),
+		'label' => __('Category', 'sleek'),
+		'instructions' => __('Limit posts to this category.', 'sleek'),
 		'type' => 'taxonomy',
 		'taxonomy' => 'category',
 		'return_format' => 'id',

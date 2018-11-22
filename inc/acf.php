@@ -86,8 +86,8 @@ function sleek_acf ($params) {
 						$flexFieldLayout['sub_fields'][] = [
 							'key' => $flexFieldLayoutKey . '_template',
 							'name' => 'template',
-							'label' => __('Layout', 'sleek'),
-							'instructions' => __('Select a different layout for this module to change its appearance on the website.', 'sleek'),
+							'label' => __('Template', 'sleek'),
+							'instructions' => __('Select a different template for this module to change its appearance on the website.', 'sleek'),
 							'type' => 'select',
 							'choices' => sleek_acf_get_field_templates($fieldName),
 							'default_value' => $fieldName . '/default'
@@ -423,7 +423,7 @@ add_filter('acf/fields/flexible_content/layout_title', function ($title, $field,
 
 	# Or template
 	if ($t = get_sub_field($layout['key'] . '_template')) {
-		$newTitle .= ' <small>(' . ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php'))) . ' layout)</small>';
+		$newTitle .= ' <small>(' . __(ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php'))) . ' template', 'sleek') . ')</small>';
 	}
 
 	return $newTitle;

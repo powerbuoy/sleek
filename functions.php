@@ -15,13 +15,13 @@ require_once get_template_directory() . '/inc/get-site-logo.php';
 require_once get_template_directory() . '/inc/get-terms-post-type-arg.php';
 require_once get_template_directory() . '/inc/login.php';
 require_once get_template_directory() . '/inc/menu-taxonomies.php';
+require_once get_template_directory() . '/inc/options-page.php';
 require_once get_template_directory() . '/inc/reduce-requests.php';
 require_once get_template_directory() . '/inc/register-assets.php';
 require_once get_template_directory() . '/inc/register-image-sizes.php';
 require_once get_template_directory() . '/inc/register-post-types.php';
 require_once get_template_directory() . '/inc/register-sidebars.php';
 require_once get_template_directory() . '/inc/register-taxonomies.php';
-require_once get_template_directory() . '/inc/register-theme-options.php';
 require_once get_template_directory() . '/inc/youtube-args.php';
 
 ###################

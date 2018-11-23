@@ -4,6 +4,8 @@
  * NOTE: Call this function from the wp_enqueue_scripts action (or login_enqueue_scripts or whatever)
  */
 function sleek_register_assets ($extraAssets = []) {
+	$options = get_option(SLEEK_SETTINGS_NAME);
+
 	# Child theme is using a critical.scss - only include that to begin with
 	$hasCriticalCss = file_exists(get_stylesheet_directory() . '/dist/critical.css');
 
@@ -46,11 +48,8 @@ function sleek_register_assets ($extraAssets = []) {
 			'AJAX_URL' => admin_url('admin-ajax.php')
 		];
 
-		if (get_theme_mod('recaptcha_site_key')) {
-			$jsConfig['RECAPTCHA_SITE_KEY'] = get_theme_mod('recaptcha_site_key');
-		}
-		if (get_theme_mod('google_maps_api_key')) {
-			$jsConfig['GOOGLE_MAPS_API_KEY'] = get_theme_mod('google_maps_api_key');
+		if (isset($options['google_maps_api_key']) and !empty($options['google_maps_api_key'])) {
+			$jsConfig['GOOGLE_MAPS_API_KEY'] = $options['google_maps_api_key'];
 		}
 
 		wp_localize_script('sleek', 'SLEEK_CONFIG', $jsConfig);

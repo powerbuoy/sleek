@@ -83,5 +83,12 @@ add_filter('template_redirect', function () {
 # Remove title attribute from wp_list_categories
 # https://www.isitwp.com/remove-title-attribute-from-wp_list_categories/
 add_action('wp_list_categories', function ($output) {
-	return preg_replace('` title="(.+)"`', '', $output);
+	return preg_replace('/ title="(.*?)"/s', '', $output);
+});
+
+#####################################
+# Prevent WP wrapping iframe's in <p>
+# https://gist.github.com/KTPH/7901c0d2c66dc2d754ce
+add_filter('the_content', function ($content) {
+	return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
 });

@@ -205,11 +205,14 @@ msgstr "Alla"
 msgid "Read more"
 msgstr "Läs mer"
 
-msgid "Layout"
-msgstr "Layout"
+msgid "Template"
+msgstr "Mall"
 
-msgid "Select a different layout for this module to change its appearance on the website."
-msgstr "Välj en annan layout för att ändra utseende på den här modulen."
+msgid "Select a different template for this module to change its appearance on the website."
+msgstr "Välj en annan mall för att ändra utseende på den här modulen."
+
+msgid "Default template"
+msgstr "Standardmall"
 
 msgid "Add a module"
 msgstr "Lägg till en modul"

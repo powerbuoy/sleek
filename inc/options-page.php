@@ -7,7 +7,7 @@ define('SLEEK_SETTINGS_TITLE', __('Sleek settings', 'sleek'));
 
 # Wtf this is seriously the most complex and annoying piece of shit code I've ever written
 add_action('admin_menu', function () {
-	add_options_page(SLEEK_SETTINGS_TITLE, SLEEK_SETTINGS_TITLE, 'manage_options', SLEEK_SETTINGS_PAGE_URL, function () {
+	add_options_page(SLEEK_SETTINGS_TITLE, 'Sleek', 'manage_options', SLEEK_SETTINGS_PAGE_URL, function () {
 		?>
 		<div class="wrap">
 			<h1><?php echo SLEEK_SETTINGS_TITLE ?></h1>

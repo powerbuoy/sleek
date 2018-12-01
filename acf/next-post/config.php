@@ -13,8 +13,7 @@ return [
 		'name' => 'next_post_description',
 		'label' => __('Description', 'sleek'),
 		'instructions' => __('Enter a description for the post here.', 'sleek'),
-		'type' => 'wysiwyg',
-		'media_upload' => false
+		'type' => 'wysiwyg'
 	],
 	[
 		'name' => 'next_post_post',

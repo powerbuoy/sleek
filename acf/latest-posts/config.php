@@ -13,8 +13,7 @@ return [
 		'name' => 'latest_posts_description',
 		'label' => __('Description', 'sleek'),
 		'instructions' => __('Enter a description for the posts here.', 'sleek'),
-		'type' => 'wysiwyg',
-		'media_upload' => false
+		'type' => 'wysiwyg'
 	],
 	[
 		'name' => 'latest_posts_post_type',

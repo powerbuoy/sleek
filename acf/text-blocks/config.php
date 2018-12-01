@@ -13,8 +13,7 @@ return [
 		'name' => 'text_blocks_description',
 		'label' => __('Description', 'sleek'),
 		'instructions' => __('Enter a description for the text blocks.', 'sleek'),
-		'type' => 'wysiwyg',
-		'media_upload' => false
+		'type' => 'wysiwyg'
 	],
 	[
 		'name' => 'text_blocks',
@@ -40,9 +39,8 @@ return [
 			[
 				'name' => 'text_block_description',
 				'label' => __('Description', 'sleek'),
-				'instructions' => __('Write a nice message here.', 'sleek'),
-				'type' => 'wysiwyg',
-				'media_upload' => false
+				'instructions' => __('Write something here.', 'sleek'),
+				'type' => 'wysiwyg'
 			]
 		]
 	]

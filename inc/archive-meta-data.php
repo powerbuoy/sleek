@@ -183,8 +183,7 @@ function sleek_archive_meta_data ($postTypes) {
 					'label' => __('Description', 'sleek'),
 					'key' => 'field_' . $groupKey . '_description',
 					'name' => 'archive_description',
-					'type' => 'wysiwyg',
-					'media_upload' => false
+					'type' => 'wysiwyg'
 				]
 			],
 			'location' => [[[

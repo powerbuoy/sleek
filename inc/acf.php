@@ -364,7 +364,7 @@ function sleek_acf_get_help_section ($field) {
 			$helpText = '<strong>' . sleek_acf_nice_name($field) . '</strong> — ';
 			$helpText .= trim($matches[1]);
 
-			return wpautop($helpText);
+			return wpautop(__($helpText, 'sleek'));
 		}
 
 		return false;

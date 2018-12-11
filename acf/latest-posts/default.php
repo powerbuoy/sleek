@@ -1,28 +1,14 @@
 <?php
-	$post_type = ($latest_posts_post_type ? $latest_posts_post_type : 'any');
 	$args = [
-		'post_type' => $post_type,
+		'post_type' => 'post',
 		'numberposts' => $latest_posts_limit ? $latest_posts_limit : 3,
-		'suppress_filters' => false,
-		'tax_query' => [
-			'relation' => 'OR'
-		]
+		'suppress_filters' => false
 	];
 
 	# Ignore same post
 	if (is_single()) {
 		$args['post__not_in'] = [$post->ID];
 	}
-
-	# Check if user has selected any categories
-	if ($latest_posts_category) {
-		$args['tax_query'][] = [
-			'taxonomy' => 'category',
-			'field' => 'term_id',
-			'terms' => $latest_posts_category
-		];
-	}
-	# NOTE: Add more here as needed
 
 	$rows = get_posts($args);
 ?>

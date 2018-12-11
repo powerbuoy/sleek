@@ -181,44 +181,33 @@ function sleek_acf_generate_keys ($definition, $prefix) {
 }
 
 # Returns a list of templates available for a specific field group
-# TODO: Should check parent theme templates and merge with child theme templates
 function sleek_acf_get_field_templates ($fieldName) {
-	$templates = [];
-
-	# Get parent theme templates
-	$path = get_template_directory() . '/acf/' . $fieldName . '/';
-
-	if (file_exists($path)) {
-		$tmp = scandir($path);
-		$tmp = array_diff($tmp, ['.', '..', 'config.php', '.DS_Store', 'Thumbs.db']);
-
-		foreach ($tmp as $t) {
-			$templates[$fieldName . '/' . basename($t, '.php')] = ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php')));
-		}
-	}
-
-	# Get child theme templates
-	$path = get_stylesheet_directory() . '/acf/' . $fieldName . '/';
-
-	if (file_exists($path)) {
-		$tmp = scandir($path);
-		$tmp = array_diff($tmp, ['.', '..', 'config.php', '.DS_Store', 'Thumbs.db']);
-
-		foreach ($tmp as $t) {
-			$name = ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php')));
-
-			# Check if same template already exists in parent theme - if so unset
-			foreach ($templates as $p => $n) {
-				if ($n == $name) {
-					unset($templates[$p]);
-				}
-			}
-
-			$templates[$fieldName . '/' . basename($t, '.php')] = $name;
-		}
-	}
+	$templates = array_merge(
+		sleek_acf_get_field_templates_in_path(get_template_directory() . '/acf/' . $fieldName . '/', $fieldName),
+		sleek_acf_get_field_templates_in_path(get_stylesheet_directory() . '/acf/' . $fieldName . '/', $fieldName)
+	);
 
 	asort($templates);
+
+	return $templates;
+}
+
+function sleek_acf_get_field_templates_in_path ($path, $fieldName) {
+	$templates = [];
+
+	if (file_exists($path)) {
+		$files = scandir($path);
+		$files = array_diff($files, ['.', '..', 'config.php', '.DS_Store', 'Thumbs.db']);
+
+		foreach ($files as $file) {
+			$pathInfo = pathinfo($file);
+
+			if (isset($pathInfo['extension']) and $pathInfo['extension'] === 'php') {
+				$templateNiceName = __(ucfirst(str_replace(['-', '_'], ' ', $pathInfo['filename'])), 'sleek');
+				$templates[$fieldName . '/' . $pathInfo['filename']] = $templateNiceName;
+			}
+		}
+	}
 
 	return $templates;
 }

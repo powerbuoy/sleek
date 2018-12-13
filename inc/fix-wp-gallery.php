@@ -11,6 +11,10 @@ add_filter('embed_oembed_html', function($html, $url, $attr, $post_id) {
 # Wrap images in figure elements
 # https://wordpress.stackexchange.com/questions/174582/always-use-figure-for-post-images
 add_filter('the_content', function ($content) {
+	if (strlen($content) == 0) {
+		return $content;
+	}
+
 	libxml_use_internal_errors(true); # https://stackoverflow.com/questions/9149180/domdocumentloadhtml-error
 
 	# Load the content

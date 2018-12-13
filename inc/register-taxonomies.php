@@ -7,6 +7,17 @@
  */
 function sleek_register_taxonomies ($taxonomies, $textdomain = false) {
 	foreach ($taxonomies as $taxonomy => $forPostTypes) {
+		$conf = [];
+
+		# Check if taxonomy is passed in as name => [post-types] or name => [config]
+		if (isset($forPostTypes['post_types'])) {
+			if (isset($forPostTypes['config'])) {
+				$conf = $forPostTypes['config'];
+			}
+
+			$forPostTypes = $forPostTypes['post_types'];
+		}
+
 		# Store plural version of name
 		$plural = sleek_pluralize($taxonomy);
 
@@ -20,19 +31,23 @@ function sleek_register_taxonomies ($taxonomies, $textdomain = false) {
 		# TODO: Is this a shit assumtion?? :P Maybe, and at least do /_tag$/
 		$hierarchical = strpos($taxonomy, 'tag') !== false ? false : true;
 
-		# Register the taxonomy
-		register_taxonomy($taxonomy, $forPostTypes, [
+		# Merge configs
+		$conf = array_merge([
 			'labels' => [
 				'name' => __(sleek_pluralize($name), $textdomain),
 				'singular_name' => __($name, $textdomain)
 			],
 			'rewrite' => [
 				'with_front' => false,
-				'slug' => $slug
+				'slug' => $slug,
+				'hierarchical' => $hierarchical
 			],
 			'sort' => true,
 			'hierarchical' => $hierarchical,
 			'show_in_rest' => true
-		]);
+		], $conf);
+
+		# Register the taxonomy
+		register_taxonomy($taxonomy, $forPostTypes, $conf);
 	}
 }

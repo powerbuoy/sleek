@@ -86,8 +86,8 @@ function sleek_acf ($params) {
 						$flexFieldLayout['sub_fields'][] = [
 							'key' => $flexFieldLayoutKey . '_template',
 							'name' => 'template',
-							'label' => __('Layout', 'sleek'),
-							'instructions' => __('Select a different layout for this module to change its appearance on the website.', 'sleek'),
+							'label' => __('Template', 'sleek'),
+							'instructions' => __('Select a different template for this module to change its appearance on the website.', 'sleek'),
 							'type' => 'select',
 							'choices' => sleek_acf_get_field_templates($fieldName),
 							'default_value' => $fieldName . '/default'
@@ -181,44 +181,33 @@ function sleek_acf_generate_keys ($definition, $prefix) {
 }
 
 # Returns a list of templates available for a specific field group
-# TODO: Should check parent theme templates and merge with child theme templates
 function sleek_acf_get_field_templates ($fieldName) {
-	$templates = [];
-
-	# Get parent theme templates
-	$path = get_template_directory() . '/acf/' . $fieldName . '/';
-
-	if (file_exists($path)) {
-		$tmp = scandir($path);
-		$tmp = array_diff($tmp, ['.', '..', 'config.php', '.DS_Store', 'Thumbs.db']);
-
-		foreach ($tmp as $t) {
-			$templates[$fieldName . '/' . basename($t, '.php')] = ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php')));
-		}
-	}
-
-	# Get child theme templates
-	$path = get_stylesheet_directory() . '/acf/' . $fieldName . '/';
-
-	if (file_exists($path)) {
-		$tmp = scandir($path);
-		$tmp = array_diff($tmp, ['.', '..', 'config.php', '.DS_Store', 'Thumbs.db']);
-
-		foreach ($tmp as $t) {
-			$name = ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php')));
-
-			# Check if same template already exists in parent theme - if so unset
-			foreach ($templates as $p => $n) {
-				if ($n == $name) {
-					unset($templates[$p]);
-				}
-			}
-
-			$templates[$fieldName . '/' . basename($t, '.php')] = $name;
-		}
-	}
+	$templates = array_merge(
+		sleek_acf_get_field_templates_in_path(get_template_directory() . '/acf/' . $fieldName . '/', $fieldName),
+		sleek_acf_get_field_templates_in_path(get_stylesheet_directory() . '/acf/' . $fieldName . '/', $fieldName)
+	);
 
 	asort($templates);
+
+	return $templates;
+}
+
+function sleek_acf_get_field_templates_in_path ($path, $fieldName) {
+	$templates = [];
+
+	if (file_exists($path)) {
+		$files = scandir($path);
+		$files = array_diff($files, ['.', '..', 'config.php', '.DS_Store', 'Thumbs.db']);
+
+		foreach ($files as $file) {
+			$pathInfo = pathinfo($file);
+
+			if (isset($pathInfo['extension']) and $pathInfo['extension'] === 'php') {
+				$templateNiceName = __(ucfirst(str_replace(['-', '_'], ' ', $pathInfo['filename'])), 'sleek');
+				$templates[$fieldName . '/' . $pathInfo['filename']] = $templateNiceName;
+			}
+		}
+	}
 
 	return $templates;
 }
@@ -265,7 +254,8 @@ function sleek_acf_render_modules ($where, $postId = null) {
 						'count' => ++$i,
 						'module_area' => $where,
 						'template_count' => $templateCount[$template],
-						'module_count' => $moduleCount[$acfLayout]
+						'module_count' => $moduleCount[$acfLayout],
+						'module_data' => $module
 					]
 				]));
 			}
@@ -374,7 +364,7 @@ function sleek_acf_get_help_section ($field) {
 			$helpText = '<strong>' . sleek_acf_nice_name($field) . '</strong> — ';
 			$helpText .= trim($matches[1]);
 
-			return wpautop($helpText);
+			return wpautop(__($helpText, 'sleek'));
 		}
 
 		return false;
@@ -422,7 +412,7 @@ add_filter('acf/fields/flexible_content/layout_title', function ($title, $field,
 
 	# Or template
 	if ($t = get_sub_field($layout['key'] . '_template')) {
-		$newTitle .= ' <small>(' . ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php'))) . ' layout)</small>';
+		$newTitle .= ' <small>(' . __(ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php'))) . ' template', 'sleek') . ')</small>';
 	}
 
 	return $newTitle;

@@ -13,8 +13,7 @@ return [
 		'name' => 'attachments_description',
 		'label' => __('Description', 'sleek'),
 		'instructions' => __('Enter a description for the attachments.', 'sleek'),
-		'type' => 'wysiwyg',
-		'media_upload' => false
+		'type' => 'wysiwyg'
 	],
 	[
 		'name' => 'attachments_files',

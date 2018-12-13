@@ -13,15 +13,13 @@ return [
 		'name' => 'google_map_description',
 		'label' => __('Description', 'sleek'),
 		'instructions' => __('Enter a description for the map.', 'sleek'),
-		'type' => 'wysiwyg',
-		'media_upload' => false
+		'type' => 'wysiwyg'
 	],
 	[
 		'name' => 'google_map_info_window',
 		'label' => __('Information Window', 'sleek'),
 		'instructions' => __("Enter a description that will be displayed in the map's info window.", 'sleek'),
-		'type' => 'wysiwyg',
-		'media_upload' => false
+		'type' => 'wysiwyg'
 	],
 	[
 		'name' => 'google_map',

@@ -11,8 +11,7 @@ return [
 	[
 		'name' => 'share_page_description',
 		'label' => __('Description', 'sleek'),
-		'type' => 'wysiwyg',
-		'media_upload' => false
+		'type' => 'wysiwyg'
 	],
 	[
 		'name' => 'share_page_url',

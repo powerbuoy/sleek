@@ -4,9 +4,9 @@
  * unwanted CSS and JS files from WP and plug-ins
  */
 add_action('init', function () {
- $except = ['wpcf7_js'];
+	$except = ['wpcf7_js'];
 
- if (!is_admin()) {
+	if (!is_admin()) {
 		# WP Embed
 		if (!in_array('wp_oembed', $except)) {
 			# Remove the REST API endpoint.
@@ -57,16 +57,19 @@ add_action('init', function () {
 
 		# WPML Language Switcher
 		define('ICL_DONT_LOAD_LANGUAGE_SELECTOR_CSS', true);
+		define('ICL_DONT_LOAD_NAVIGATION_CSS', true);
+		define('ICL_DONT_LOAD_LANGUAGES_JS', true);
 	}
 });
 
 /**
  * Move jQuery to bottom of page + include from CDN
+ * Actually no; don't move to bottom of page, some plug-ins depend on it being in head
  */
 add_action('wp_enqueue_scripts', function () {
 	if (!is_admin()) {
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', '//code.jquery.com/jquery-3.2.1.min.js', false, '3.2.1', true);
+		wp_register_script('jquery', '//code.jquery.com/jquery-3.3.1.min.js', false, '3.3.1', false); # Last false = include in header
 		wp_enqueue_script('jquery');
 	}
 });

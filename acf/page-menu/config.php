@@ -13,7 +13,6 @@ return [
 		'name' => 'page_menu_description',
 		'label' => __('Description', 'sleek'),
 		'instructions' => __('Enter a description for the menu.', 'sleek'),
-		'type' => 'wysiwyg',
-		'media_upload' => false
+		'type' => 'wysiwyg'
 	]
 ];

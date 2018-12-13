@@ -19,8 +19,7 @@ return [
 	[
 		'name' => 'text_block_description',
 		'label' => __('Description', 'sleek'),
-		'instructions' => __('Write a nice message here.', 'sleek'),
-		'type' => 'wysiwyg',
-		'media_upload' => false
+		'instructions' => __('Write something here.', 'sleek'),
+		'type' => 'wysiwyg'
 	]
 ];

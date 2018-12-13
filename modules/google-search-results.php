@@ -1,4 +1,9 @@
 <?php
+	$options = get_option(SLEEK_SETTINGS_NAME);
+
+	if (isset($options['head_code']) and !empty($options['head_code'])) {
+		echo $options['head_code'];
+	}
 	$results = false;
 
 	$query = (isset($_GET['s']) and !empty($_GET['s'])) ? $_GET['s'] : false;
@@ -7,8 +12,8 @@
 	$limit = get_option('posts_per_page');
 	$start = (isset($_GET['google_search_start']) and is_numeric($_GET['google_search_start'])) ? $_GET['google_search_start'] : 1;
 
-	$apiKey = get_theme_mod('google_search_api_key');
-	$cx = get_theme_mod('google_search_engine_id');
+	$apiKey = (isset($options['google_search_api_key']) and !empty($options['google_search_api_key'])) ? $options['google_search_api_key'] : false;
+	$cx = (isset($options['google_search_engine_id']) and !empty($options['google_search_engine_id'])) ? $options['google_search_engine_id'] : false;
 
 	if ($query) {
 		$endpoint = 'https://www.googleapis.com/customsearch/v1';

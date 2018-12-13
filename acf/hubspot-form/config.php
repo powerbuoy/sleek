@@ -13,8 +13,7 @@ return [
 		'name' => 'hubspot_form_description',
 		'label' => __('Description', 'sleek'),
 		'instructions' => __('Enter a description for the form.', 'sleek'),
-		'type' => 'wysiwyg',
-		'media_upload' => false
+		'type' => 'wysiwyg'
 	],
 	[
 		'name' => 'hubspot_form_id',

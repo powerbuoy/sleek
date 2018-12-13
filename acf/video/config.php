@@ -13,8 +13,7 @@ return [
 		'name' => 'video_description',
 		'label' => __('Description', 'sleek'),
 		'instructions' => __('Enter a description for the video.', 'sleek'),
-		'type' => 'wysiwyg',
-		'media_upload' => false
+		'type' => 'wysiwyg'
 	],
 	[
 		'name' => 'video_code',

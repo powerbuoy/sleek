@@ -13,8 +13,7 @@ return [
 		'name' => 'featured_posts_description',
 		'label' => __('Description', 'sleek'),
 		'instructions' => __('Enter a description for the posts here.', 'sleek'),
-		'type' => 'wysiwyg',
-		'media_upload' => false
+		'type' => 'wysiwyg'
 	],
 	[
 		'name' => 'featured_posts_posts',

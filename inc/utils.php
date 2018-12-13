@@ -19,6 +19,8 @@ function sleek_pluralize ($singular) {
  * TODO: get_query_var('post_type') ?
  */
 function sleek_get_current_post_type () {
+	$pt = false;
+
 	# Work out the post type on this archive
 	$qo = get_queried_object();
 
@@ -33,6 +35,10 @@ function sleek_get_current_post_type () {
 	# Blog archive
 	elseif ($qo instanceof WP_Post) {
 		$pt = 'post';
+	}
+	else if ($qo instanceof WP_Term) {
+		$tax = get_taxonomy($qo->taxonomy);
+		$pt = $tax->object_type[0];
 	}
 	# Try to get post type like this (NOTE: this will fetch the _first_ post's post type)
 	else {

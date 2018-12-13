@@ -13,8 +13,7 @@ return [
 		'name' => 'gallery_description',
 		'label' => __('Description', 'sleek'),
 		'instructions' => __('Enter a description for the gallery.', 'sleek'),
-		'type' => 'wysiwyg',
-		'media_upload' => false
+		'type' => 'wysiwyg'
 	],
 	[
 		'name' => 'gallery_images',

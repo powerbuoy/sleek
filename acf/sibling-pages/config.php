@@ -13,7 +13,6 @@ return [
 		'name' => 'sibling_pages_description',
 		'label' => __('Description', 'sleek'),
 		'instructions' => __('Enter a description for the sibling pages.', 'sleek'),
-		'type' => 'wysiwyg',
-		'media_upload' => false
+		'type' => 'wysiwyg'
 	]
 ];

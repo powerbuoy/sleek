@@ -417,3 +417,36 @@ add_filter('acf/fields/flexible_content/layout_title', function ($title, $field,
 
 	return $newTitle;
 }, 10, 4);
+
+/**
+ * Renders ACF sticky module
+ */
+function sleek_acf_render_sticky_module ($module, $postId = null, $template = 'default') {
+	global $post;
+
+	if (!function_exists('get_field')) {
+		return '[ERROR: You need to activate Advanced Custom Fields]';
+	}
+
+	# Include the template
+	if ($path = locate_template('acf/' . $module . '/config.php') and locate_template('acf/' . $module . '/' . $template . '.php')) {
+		$fieldGroup = include $path;
+		$moduleData = [];
+
+		foreach ($fieldGroup as $field) {
+			$moduleData[$field['name']] = get_field($field['name'], $postId);
+		}
+
+		sleek_get_template_part('acf/' . $module . '/' . $template, $moduleData);
+	}
+	# Or dump data if template doesn't exist
+	else {
+		echo '<section>';
+		echo '<h2>No template found for: ' . $module . '</h2>';
+		echo '<p><small>' . $template . '</small></p>';
+		echo '<pre>';
+		var_dump($module);
+		echo '</pre>';
+		echo '</section>';
+	}
+}

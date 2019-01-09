@@ -3,7 +3,7 @@
  * Reduces the number of HTTP requests by removing
  * unwanted CSS and JS files from WP and plug-ins
  */
-add_action('init', function () {
+add_action('wp_enqueue_scripts', function () {
 	$except = ['wpcf7_js'];
 
 	if (!is_admin()) {
@@ -53,6 +53,11 @@ add_action('init', function () {
 			if (!is_user_logged_in()) {
 				wp_dequeue_style('duplicate-post');
 			}
+		}
+
+		# Gutenberg CSS
+		if (!in_array('wp-block-library', $except)) {
+			wp_dequeue_style('wp-block-library');
 		}
 
 		# WPML Language Switcher

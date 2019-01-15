@@ -450,3 +450,31 @@ function sleek_acf_render_sticky_module ($module, $postId = null, $template = 'd
 		echo '</section>';
 	}
 }
+
+/**
+ * Renders ACF modules with AJAX
+ */
+add_action('wp_ajax_render_modules', 'sleek_acf_render_modules_ajax');
+add_action('wp_ajax_nopriv_render_modules', 'sleek_acf_render_modules_ajax');
+
+function sleek_acf_render_modules_ajax () {
+	if (isset($$_GET['where']) and isset($_GET['post_id'])) {
+		$html = sleek_acf_render_modules($_GET['where'], $_GET['post_id']);
+
+		if ($html) {
+			wp_send_json([
+				'module' => $_GET['where'],
+				'post_id' => $_GET['post_id'],
+				'html' => $html
+			]);
+		}
+		else {
+			wp_send_json_error(__('No modules found', 'sleek'), 404);
+		}
+	}
+	else {
+		wp_send_json_error(__('No modules found', 'sleek'), 404);
+	}
+
+	die;
+}

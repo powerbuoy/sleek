@@ -458,8 +458,12 @@ add_action('wp_ajax_render_modules', 'sleek_acf_render_modules_ajax');
 add_action('wp_ajax_nopriv_render_modules', 'sleek_acf_render_modules_ajax');
 
 function sleek_acf_render_modules_ajax () {
-	if (isset($$_GET['where']) and isset($_GET['post_id'])) {
-		$html = sleek_acf_render_modules($_GET['where'], $_GET['post_id']);
+	if (isset($_GET['where']) and isset($_GET['post_id'])) {
+		ob_start();
+
+		sleek_acf_render_modules($_GET['where'], $_GET['post_id']);
+
+		$html = ob_get_clean();
 
 		if ($html) {
 			wp_send_json([

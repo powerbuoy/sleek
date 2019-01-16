@@ -266,9 +266,7 @@ function sleek_fetch ($f, $vars = false) {
 
 	include $f;
 
-	$contents = ob_get_contents();
-
-	ob_end_clean();
+	$contents = ob_get_clean();
 
 	return $contents;
 }

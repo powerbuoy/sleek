@@ -79,6 +79,7 @@ function sleek_acf ($params) {
 							'key' => $flexFieldLayoutKey,
 							'name' => $flexFieldLayoutKey,
 							'label' => sleek_acf_nice_name($fieldName),
+						#	'max' => 1, # TODO: Add support for this
 							'sub_fields' => []
 						];
 

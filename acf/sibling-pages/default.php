@@ -1,10 +1,9 @@
 <?php
-	global $post;
-
-	$rows = [];
+	$parentId = $sibling_pages_page_id ? $sibling_pages_page_id : $post->post_parent;
+	$rows = false;
 	$thisId = $post->ID;
 
-	if ($post->post_parent) {
+	if ($parentId) {
 		$rows = get_pages([
 			'parent' => $post->post_parent,
 			'sort_column' => 'menu_order',
@@ -30,7 +29,7 @@
 
 		<?php foreach ($rows as $post) : setup_postdata($post) ?>
 			<?php $target = get_field('redirect_url') ? 'target="_blank"' : '' ?>
-			<article>
+			<article<?php if ($post->ID === $thisId) : ?> class="current-page"<?php endif ?>>
 
 				<?php if (has_post_thumbnail()) : ?>
 					<figure>

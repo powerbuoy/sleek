@@ -14,5 +14,15 @@ return [
 		'label' => __('Description', 'sleek'),
 		'instructions' => __('Enter a description for the sibling pages.', 'sleek'),
 		'type' => 'wysiwyg'
+	],
+	[
+		'name' => 'sibling_pages_page_id',
+		'label' => __('Page', 'sleek'),
+		'instructions' => __('Select the page whose sibling pages you want to display. If left empty the current page\'s sibling pages will be displayed.', 'sleek'),
+		'type' => 'post_object',
+		'post_type' => ['page'],
+		'required' => false,
+		'allow_null' => true,
+		'return_format' => 'id'
 	]
 ];

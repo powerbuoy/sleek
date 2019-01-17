@@ -1,6 +1,8 @@
 <?php
+	$parentId = $child_pages_page_id ? $child_pages_page_id : $post->ID;
+
 	$rows = get_pages([
-		'parent' => $post->ID,
+		'parent' => $parentId,
 		'sort_column' => 'menu_order',
 		'sort_order' => 'ASC'
 	]);

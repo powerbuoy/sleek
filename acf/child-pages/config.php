@@ -23,6 +23,7 @@ return [
 		'post_type' => ['page'],
 		'required' => false,
 		'allow_null' => true,
-		'return_format' => 'id'
+		'return_format' => 'id',
+		'multiple' => false
 	]
 ];

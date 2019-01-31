@@ -12,8 +12,7 @@
 		<?php get_template_part('modules/google-search-results') ?>
 	<?php else : ?>
 		<?php get_template_part('modules/archive-header') ?>
-		<?php get_template_part('modules/archive-taxonomies') ?>
-		<?php get_template_part('modules/posts') ?>
+		<?php get_template_part('modules/search-results') ?>
 		<?php get_template_part('modules/posts-pagination') ?>
 	<?php endif ?>
 

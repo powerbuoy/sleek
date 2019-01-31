@@ -408,7 +408,7 @@ add_filter('acf/fields/flexible_content/layout_title', function ($title, $field,
 
 	# See if it has a "title" field
 	if ($t = get_sub_field($fieldName . '_title')) {
-		$newTitle .= ": \"$t\"";
+		$newTitle .= strip_tags(": \"$t\"");
 	}
 
 	# Or template

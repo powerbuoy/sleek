@@ -1,4 +1,40 @@
 <?php
+function sleek_optimal_col_count ($numItems, $maxCols = 4) {
+	$numCols = $numItems;
+
+	if ($numCols > $maxCols and $maxCols === 2) {
+		$numCols = 2;
+	}
+	elseif ($numCols > $maxCols) {
+		$numCols = sqrt($numItems);
+
+		if (!is_int($numCols) or $numCols > $maxCols) {
+			$numCols = -1;
+
+			for ($i = $maxCols; $i > 2; $i--) {
+				if ($numItems % $i === 0) {
+					$numCols = $i;
+
+					break;
+				}
+			}
+
+			if ($numCols === -1) {
+				$rests = [];
+
+				for ($i = $maxCols; $i > 2; $i--) {
+					$rests[$i] = $numItems % $i;
+				}
+
+				$numCols = array_search(max($rests), $rests);
+			}
+		}
+	}
+
+	return $numCols;
+}
+
+
 # https://stackoverflow.com/questions/8586141/implode-array-with-and-add-and-before-last-item
 function sleek_implode_and ($array, $glue = ', ', $lastGlue = ' & ') {
 	return join($lastGlue, array_filter(array_merge(array(join($glue, array_slice($array, 0, -1))), array_slice($array, -1)), 'strlen'));

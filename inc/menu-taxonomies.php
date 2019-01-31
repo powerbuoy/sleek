@@ -1,5 +1,6 @@
 <?php
 # Automatically inserts taxonomy terms as children of menu items with a "taxonomy-${tax_name}" class
+# TODO: Use a walker instead
 add_filter('wp_nav_menu_items', function ($items) {
 	if (strlen($items) == 0) {
 		return $items;

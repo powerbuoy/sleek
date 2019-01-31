@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: et\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Poedit 2.2\n"
 
 #: inc/get-posts-intro.php:38
 msgid "Posts tagged with <strong>\"%s\"</strong>"
@@ -153,8 +153,8 @@ msgid "on"
 msgstr "edasi"
 
 #: modules/comments.php:30
-msgid "No comments yet, why not <a href=\"#post-comment\">post the first</a>?"
-msgstr "kommentaarid puuduvad, <a href=\"#post-comment\">miks mitte sisestada esimene kommentaar</a>?"
+msgid "No comments yet, why not <a href=\"#comment-form\">post the first</a>?"
+msgstr "kommentaarid puuduvad, <a href=\"#comment-form\">miks mitte sisestada esimene kommentaar</a>?"
 
 #: modules/comments.php:32
 msgid "Comments are closed."

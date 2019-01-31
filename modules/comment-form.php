@@ -1,7 +1,5 @@
 <?php if (comments_open()) : ?>
-	<section id="post-comment">
-
+	<section id="comment-form">
 		<?php comment_form() ?>
-
 	</section>
 <?php endif ?>

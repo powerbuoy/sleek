@@ -1,9 +1,5 @@
 <?php
 	$options = get_option(SLEEK_SETTINGS_NAME);
-
-	if (isset($options['head_code']) and !empty($options['head_code'])) {
-		echo $options['head_code'];
-	}
 	$results = false;
 
 	$query = (isset($_GET['s']) and !empty($_GET['s'])) ? $_GET['s'] : false;

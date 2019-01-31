@@ -12,8 +12,10 @@
 	<form method="get" action="<?php echo get_post_type_archive_link(sleek_get_current_post_type()) ?>">
 
 		<p>
-			<label for="archive-filter-search"><?php _e('Search', 'sleek') ?></label>
-			<input type="search" id="archive-filter-search" name="sleek_filter_search" value="<?php echo isset($_GET['sleek_filter_search']) ? htmlspecialchars($_GET['sleek_filter_search']) : '' ?>">
+			<label>
+				<?php _e('Search', 'sleek') ?><br>
+				<input type="search" name="sleek_filter_search" value="<?php echo isset($_GET['sleek_filter_search']) ? htmlspecialchars($_GET['sleek_filter_search']) : '' ?>">
+			</label>
 		</p>
 
 		<?php if ($taxonomies = sleek_get_archive_filter_taxonomies()) : foreach ($taxonomies as $tax) : ?>
@@ -41,9 +43,7 @@
 			</fieldset>
 		<?php endforeach; endif ?>
 
-		<p>
-			<button type="submit"><?php _e('Filter', 'sleek') ?></button>
-		</p>
+		<p><button><?php _e('Filter', 'sleek') ?></button></p>
 
 	</form>
 

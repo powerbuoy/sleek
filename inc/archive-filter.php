@@ -62,10 +62,7 @@ function sleek_get_archive_filter_taxonomies ($args = []) {
 			$data[] = [
 				'taxonomy' => $tax,
 				'has_active' => $hasActive,
-				'active_term' => $activeTerm,
-				'post_type' => $args['post_type'],
 				'query_name' => $taxQueryName,
-				'query_value' => '',
 				'terms' => $terms
 			];
 		}
@@ -79,16 +76,18 @@ add_filter('pre_get_posts', function ($query) {
 	if (!is_admin() and $query->is_main_query()) {
 		# Build potential tax query
 		$taxQuery = ['relation' => 'AND']; # TODO: Shouldn't be hard coded?
+		$metaQuery = ['relation' => 'AND'];
 		$hasTaxQuery = false;
+		$hasMetaQuery = false;
 
 		# Go through all get params
 		foreach ($_GET as $k => $v) {
-			# If this is a sleek filter param
+			# If this is a sleek filter taxonomy
 			if (substr($k, 0, strlen('sleek_filter_taxonomy_')) == 'sleek_filter_taxonomy_') {
 				$tax = substr($k, strlen('sleek_filter_taxonomy_'));
 				$val = $_GET[$k];
 
-				if ($val) {
+				if (!empty($val)) {
 					$hasTaxQuery = true;
 					$taxQuery[] = [
 						'taxonomy' => $tax,
@@ -97,10 +96,27 @@ add_filter('pre_get_posts', function ($query) {
 					];
 				}
 			}
+			# Or a sleek filter meta query
+			elseif (substr($k, 0, strlen('sleek_filter_meta_')) == 'sleek_filter_meta_') {
+				$meta = substr($k, strlen('sleek_filter_meta_'));
+				$val = $_GET[$k];
+
+				if (!empty($val)) {
+					$hasMetaQuery = true;
+					$metaQuery[] = [
+						'key' => $meta,
+						'value' => $val,
+						'compare' => '='
+					];
+				}
+			}
 		}
 
 		if ($hasTaxQuery) {
 			$query->set('tax_query', $taxQuery);
+		}
+		if ($hasMetaQuery) {
+			$query->set('meta_query', $metaQuery);
 		}
 
 		# See if a search string is provided

@@ -1,4 +1,9 @@
 <?php
+# https://stackoverflow.com/questions/8586141/implode-array-with-and-add-and-before-last-item
+function sleek_implode_and ($array, $glue = ', ', $lastGlue = ' & ') {
+	return join($lastGlue, array_filter(array_merge(array(join($glue, array_slice($array, 0, -1))), array_slice($array, -1)), 'strlen'));
+}
+
 # https://stackoverflow.com/questions/1534127/pluralize-in-php
 function sleek_pluralize ($singular) {
 	$last = strtolower($singular[strlen($singular) - 1]);

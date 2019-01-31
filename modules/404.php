@@ -55,7 +55,7 @@
 
 		<p><?php _e('...or try a search?', 'sleek') ?></p>
 
-		<?php get_template_part('modules/search') ?>
+		<?php get_template_part('modules/search-form') ?>
 
 	</aside>
 

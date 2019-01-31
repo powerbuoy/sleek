@@ -2,10 +2,10 @@
 
 <main>
 
-	<?php get_template_part('modules/archive-header') ?>
-	<?php get_template_part('modules/archive-taxonomies') ?>
-	<?php get_template_part('modules/posts') ?>
-	<?php get_template_part('modules/posts-pagination') ?>
+	<?php get_template_part('modules/archive-header', get_post_type()) ?>
+	<?php get_template_part('modules/archive-taxonomies', get_post_type()) ?>
+	<?php get_template_part('modules/archive-posts', get_post_type()) ?>
+	<?php get_template_part('modules/pagination', get_post_type()) ?>
 
 </main>
 

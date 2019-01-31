@@ -47,7 +47,7 @@
 		<p><?php printf(__('No search results for: <strong>"%s"</strong>', 'sleek'), $query) ?></p>
 	<?php endif ?>
 
-	<?php get_template_part('modules/search') ?>
+	<?php get_template_part('modules/search-form') ?>
 
 	<?php if (isset($results->spelling)) : ?>
 		<p><?php printf(__('Showing search results for %s', 'sleek'), $results->spelling->htmlCorrectedQuery) ?></p>
@@ -55,7 +55,7 @@
 
 </header>
 
-<section id="google-search-results">
+<section id="search-results-google">
 
 	<?php if ($results and isset($results->items)) : ?>
 		<?php foreach ($results->items as $item) : ?>

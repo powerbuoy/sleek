@@ -24,7 +24,7 @@
 			</nav>
 		<?php else : ?>
 			<?php if (comments_open()) : ?>
-				<p><?php _e('No comments yet, why not <a href="#post-comment">post the first</a>?', 'sleek') ?></p>
+				<p><?php _e('No comments yet, why not <a href="#comment-form">post the first</a>?', 'sleek') ?></p>
 			<?php else : ?>
 				<p><strong><?php _e('Comments are closed.', 'sleek') ?></strong></p>
 			<?php endif ?>

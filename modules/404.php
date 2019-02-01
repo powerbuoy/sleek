@@ -92,13 +92,15 @@
 			</aside>
 		<?php endif ?>
 
-		<p><?php printf(__('Perhaps you can go back to the <a href="%s">home page</a> and try to navigate your way from there?', 'sleek'), home_url('/')) ?></p>
+		<!--<p><?php printf(__('Perhaps you can go back to the <a href="%s">home page</a> and try to navigate your way from there?', 'sleek'), home_url('/')) ?></p>-->
 
 	</article>
 
 	<footer>
 
-		<p><?php _e('...or try a search?', 'sleek') ?></p>
+		<h2><?php _e('Search the site', 'sleek') ?></h2>
+
+		<!--<p><?php _e('...or try a search?', 'sleek') ?></p>-->
 
 		<?php get_template_part('modules/search-form') ?>
 

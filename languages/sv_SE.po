@@ -246,3 +246,6 @@ msgstr "Innehållstext"
 
 msgid "Is this what you were after?"
 msgstr "Var du ute efter det här?"
+
+msgid "Search the site"
+msgstr "Sök på sidan"

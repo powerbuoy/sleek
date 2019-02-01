@@ -98,7 +98,7 @@
 
 	<footer>
 
-		<h2><?php _e('Search the site', 'sleek') ?></h2>
+		<h2><?php _e('Try a search', 'sleek') ?></h2>
 
 		<!--<p><?php _e('...or try a search?', 'sleek') ?></p>-->
 

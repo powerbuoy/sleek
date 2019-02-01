@@ -243,3 +243,6 @@ msgstr "Bild"
 
 msgid "Description"
 msgstr "Innehållstext"
+
+msgid "Possibly related"
+msgstr "Möjligen relaterat"

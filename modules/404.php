@@ -17,6 +17,39 @@
 		$referrerSite = explode('/', $referrer);
 		$referrerSite = $referrerSite[2];
 	}
+
+	# Get some search results
+	$searchTerm = str_replace(['/', '?'], ' ', $_SERVER['REQUEST_URI']);
+	$searchResults = false;
+
+	if (!empty($searchTerm)) {
+		if (function_exists('relevanssi_do_query')) {
+			$searchQuery = new WP_Query();
+
+			$searchQuery->parse_query([
+				'post_type' => 'any',
+				'posts_per_page' => 3,
+				's' => $searchTerm
+			]);
+
+			relevanssi_do_query($searchQuery);
+
+			if ($searchQuery->posts and !is_wp_error($searchQuery->posts) and count($searchQuery->posts)) {
+				$searchResults = $searchQuery->posts;
+			}
+		}
+		else {
+			$rows = get_posts([
+				'post_type' => 'any',
+				'posts_per_page' => 3,
+				's' => $searchTerm
+			]);
+
+			if ($rows and !is_wp_error($rows) and count($rows)) {
+				$searchResults = $rows;
+			}
+		}
+	}
 ?>
 
 <section id="four-o-four">
@@ -47,16 +80,28 @@
 			<p><?php printf(__('You were incorrectly referred to this page by %s.', 'sleek'), $referrerSite) ?></p>
 		<?php endif ?>
 
+		<?php if ($searchResults) : ?>
+			<aside>
+
+				<h2><?php _e('Possibly related', 'sleek') ?></h2>
+
+				<?php foreach ($searchResults as $post) : setup_postdata($post) ?>
+					<?php get_template_part('modules/archive-post', get_post_type()) ?>
+				<?php endforeach; wp_reset_postdata() ?>
+
+			</aside>
+		<?php endif ?>
+
 		<p><?php printf(__('Perhaps you can go back to the <a href="%s">home page</a> and try to navigate your way from there?', 'sleek'), home_url('/')) ?></p>
 
 	</article>
 
-	<aside>
+	<footer>
 
 		<p><?php _e('...or try a search?', 'sleek') ?></p>
 
 		<?php get_template_part('modules/search-form') ?>
 
-	</aside>
+	</footer>
 
 </section>

@@ -244,5 +244,5 @@ msgstr "Bild"
 msgid "Description"
 msgstr "Innehållstext"
 
-msgid "Possibly related"
-msgstr "Möjligen relaterat"
+msgid "Is this what you were after?"
+msgstr "Var du ute efter det här?"

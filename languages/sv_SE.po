@@ -252,3 +252,6 @@ msgstr "Prova en sökning"
 
 msgid "Search the site"
 msgstr "Sök på sidan"
+
+msgid "Search"
+msgstr "Sök"

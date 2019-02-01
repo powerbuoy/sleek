@@ -60,6 +60,8 @@
 
 		<p><?php _e('Sorry, that page could not be found.', 'sleek') ?></p>
 
+		<?php get_template_part('modules/search-form') ?>
+
 	</header>
 
 	<article>
@@ -80,30 +82,20 @@
 			<p><?php printf(__('You were incorrectly referred to this page by %s.', 'sleek'), $referrerSite) ?></p>
 		<?php endif ?>
 
-		<?php if ($searchResults) : ?>
-			<aside>
-
-				<h2><?php _e('Is this what you were after?', 'sleek') ?></h2>
-
-				<?php foreach ($searchResults as $post) : setup_postdata($post) ?>
-					<?php get_template_part('modules/archive-post', get_post_type()) ?>
-				<?php endforeach; wp_reset_postdata() ?>
-
-			</aside>
-		<?php endif ?>
-
-		<!--<p><?php printf(__('Perhaps you can go back to the <a href="%s">home page</a> and try to navigate your way from there?', 'sleek'), home_url('/')) ?></p>-->
+		<p><?php printf(__('Perhaps you can go back to the <a href="%s">home page</a> and try to navigate your way from there?', 'sleek'), home_url('/')) ?></p>
 
 	</article>
 
-	<footer>
+	<?php if ($searchResults) : ?>
+		<aside>
 
-		<h2><?php _e('Try a search', 'sleek') ?></h2>
+			<h2><?php _e('Is this what you were after?', 'sleek') ?></h2>
 
-		<!--<p><?php _e('...or try a search?', 'sleek') ?></p>-->
+			<?php foreach ($searchResults as $post) : setup_postdata($post) ?>
+				<?php get_template_part('modules/archive-post', get_post_type()) ?>
+			<?php endforeach; wp_reset_postdata() ?>
 
-		<?php get_template_part('modules/search-form') ?>
-
-	</footer>
+		</aside>
+	<?php endif ?>
 
 </section>

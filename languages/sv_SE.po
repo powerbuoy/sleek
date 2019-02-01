@@ -249,3 +249,6 @@ msgstr "Var du ute efter det här?"
 
 msgid "Try a search"
 msgstr "Prova en sökning"
+
+msgid "Search the site"
+msgstr "Sök på sidan"

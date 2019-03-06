@@ -5,7 +5,7 @@
 		'Facebook' => 'https://www.facebook.com/sharer.php?u={url}',
 		'Twitter' => 'https://twitter.com/intent/tweet?url={url}&text={title}',
 		'LinkedIn' => 'https://www.linkedin.com/shareArticle?url={url}&title={title}',
-		'Google Plus' => 'https://plus.google.com/share?url={url}',
+	#	'Google Plus' => 'https://plus.google.com/share?url={url}',
 		'Email' => 'mailto:?subject={title}&body={url}'
 	];
 

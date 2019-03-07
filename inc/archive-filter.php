@@ -83,7 +83,7 @@ add_filter('pre_get_posts', function ($query) {
 		# Go through all get params
 		foreach ($_GET as $k => $v) {
 			# If this is a sleek filter taxonomy
-			if (substr($k, 0, strlen('sleek_filter_taxonomy_')) == 'sleek_filter_taxonomy_') {
+			if (substr($k, 0, strlen('sleek_filter_taxonomy_')) === 'sleek_filter_taxonomy_') {
 				$tax = substr($k, strlen('sleek_filter_taxonomy_'));
 				$val = $_GET[$k];
 
@@ -96,8 +96,38 @@ add_filter('pre_get_posts', function ($query) {
 					];
 				}
 			}
-			# Or a sleek filter meta query
-			elseif (substr($k, 0, strlen('sleek_filter_meta_')) == 'sleek_filter_meta_') {
+			# Or a sleek filter meta min query
+			elseif (substr($k, 0, strlen('sleek_filter_meta_min_')) === 'sleek_filter_meta_min_') {
+				$meta = substr($k, strlen('sleek_filter_meta_min_'));
+				$val = $_GET[$k];
+
+				if (!empty($val)) {
+					$hasMetaQuery = true;
+					$metaQuery[] = [
+						'key' => $meta,
+						'value' => $val,
+						'compare' => '>=',
+						'type' => is_numeric($val) ? 'NUMERIC' : 'CHAR'
+					];
+				}
+			}
+			# Max query
+			elseif (substr($k, 0, strlen('sleek_filter_meta_max_')) === 'sleek_filter_meta_max_') {
+				$meta = substr($k, strlen('sleek_filter_meta_max_'));
+				$val = $_GET[$k];
+
+				if (!empty($val)) {
+					$hasMetaQuery = true;
+					$metaQuery[] = [
+						'key' => $meta,
+						'value' => $val,
+						'compare' => '<=',
+						'type' => is_numeric($val) ? 'NUMERIC' : 'CHAR'
+					];
+				}
+			}
+			# Equal query
+			elseif (substr($k, 0, strlen('sleek_filter_meta_')) === 'sleek_filter_meta_') {
 				$meta = substr($k, strlen('sleek_filter_meta_'));
 				$val = $_GET[$k];
 
@@ -106,7 +136,8 @@ add_filter('pre_get_posts', function ($query) {
 					$metaQuery[] = [
 						'key' => $meta,
 						'value' => $val,
-						'compare' => '='
+						'compare' => '=',
+						'type' => is_numeric($val) ? 'NUMERIC' : 'CHAR'
 					];
 				}
 			}

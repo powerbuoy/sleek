@@ -18,7 +18,7 @@ function sleek_get_archive_filter_taxonomies ($args = []) {
 	foreach ($taxonomies as $tax) {
 		$hasActive = false; # Whether this taxonomy has any terms active
 		$activeTerm = false; # Store the active term
-		$taxQueryName = 'sleek_filter_taxonomy_' . $tax->name; # Name of ?get parameter
+		$taxQueryName = 'sleek_filter_tax_' . $tax->name; # Name of ?get parameter
 
 		# Get all the terms
 		$terms = [];
@@ -83,8 +83,8 @@ add_filter('pre_get_posts', function ($query) {
 		# Go through all get params
 		foreach ($_GET as $k => $v) {
 			# If this is a sleek filter taxonomy
-			if (substr($k, 0, strlen('sleek_filter_taxonomy_')) === 'sleek_filter_taxonomy_') {
-				$tax = substr($k, strlen('sleek_filter_taxonomy_'));
+			if (substr($k, 0, strlen('sleek_filter_tax_')) === 'sleek_filter_tax_') {
+				$tax = substr($k, strlen('sleek_filter_tax_'));
 				$val = $_GET[$k];
 
 				if (!empty($val)) {

@@ -2,10 +2,10 @@
 
 <main>
 
-	<?php get_template_part('modules/archive-header', get_post_type()) ?>
-	<?php get_template_part('modules/archive-taxonomies', get_post_type()) ?>
-	<?php get_template_part('modules/archive-posts', get_post_type()) ?>
-	<?php get_template_part('modules/pagination', get_post_type()) ?>
+	<?php get_template_part('modules/archive-header', sleek_get_current_post_type()) ?>
+	<?php get_template_part('modules/archive-taxonomies', sleek_get_current_post_type()) ?>
+	<?php get_template_part('modules/archive-posts', sleek_get_current_post_type()) ?>
+	<?php get_template_part('modules/pagination', sleek_get_current_post_type()) ?>
 
 </main>
 

@@ -23,7 +23,7 @@
 				<h2><?php echo $postType->labels->name ?></h2>
 
 				<?php foreach ($rows as $post) : setup_postdata($post) ?>
-					<?php get_template_part('modules/archive-post', get_post_type()) ?>
+					<?php get_template_part('modules/archive-post', sleek_get_current_post_type()) ?>
 				<?php endforeach; wp_reset_postdata() ?>
 
 			</section>

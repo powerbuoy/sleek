@@ -204,7 +204,7 @@ function sleek_acf_get_field_templates_in_path ($path, $fieldName) {
 		foreach ($files as $file) {
 			$pathInfo = pathinfo($file);
 
-			if (isset($pathInfo['extension']) and $pathInfo['extension'] === 'php') {
+			if (isset($pathInfo['filename']) and substr($pathInfo['filename'], 0, 2) !== '__' and isset($pathInfo['extension']) and $pathInfo['extension'] === 'php') {
 				$templateNiceName = __(ucfirst(str_replace(['-', '_'], ' ', $pathInfo['filename'])), 'sleek');
 				$templates[$fieldName . '/' . $pathInfo['filename']] = $templateNiceName;
 			}

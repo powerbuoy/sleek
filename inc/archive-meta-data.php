@@ -223,7 +223,7 @@ function sleek_archive_meta_menus ($pts) {
 				$page->id == $page->post_type . '_page_' . $page->post_type . '_archive_meta' # Only Archive Settings page
 			) {
 				$wp_admin_bar->add_menu([
-					'id' => 'view',
+					'id' => 'sleek_archive_meta_menu_view',
 					'title' => sprintf(__('View %s archive', 'sleek'), get_post_type_object($page->post_type)->labels->singular_name),
 					'href' => get_post_type_archive_link($page->post_type),
 				]);
@@ -239,9 +239,9 @@ function sleek_archive_meta_menus ($pts) {
 			in_array($wp_query->queried_object->name, $postTypes) # Only Archive types with Sleek Archive Settings
 		) {
 			$wp_admin_bar->add_menu([
-				'id' => 'edit',
+				'id' => 'sleek_archive_meta_menu_edit',
 				'title' => sprintf(__('Edit %s archive', 'sleek'), $wp_query->queried_object->labels->singular_name),
-				'href' => admin_url( 'edit.php?post_type=' . $wp_query->queried_object->name . '&page=' . $wp_query->queried_object->name . '_archive_meta'),
+				'href' => admin_url('edit.php?post_type=' . $wp_query->queried_object->name . '&page=' . $wp_query->queried_object->name . '_archive_meta'),
 			]);
 		}
 	}, 80);

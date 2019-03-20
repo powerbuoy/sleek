@@ -194,7 +194,7 @@ function sleek_archive_meta_data ($postTypes) {
 		]);
 	}
 
-	sleek_archive_meta_menus($postType);
+	sleek_archive_meta_menus($postTypes);
 }
 
 function sleek_archive_meta_menus ($pts) {

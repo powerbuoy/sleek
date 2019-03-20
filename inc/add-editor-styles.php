@@ -148,3 +148,12 @@ add_filter('tiny_mce_before_init', function ($settings) {
 
 	return $settings;
 });
+
+# Remove color option
+add_filter('mce_buttons_2', function ($buttons) {
+	if (($key = array_search('forecolor', $buttons)) !== false) {
+		unset($buttons[$key]);
+	}
+
+	return $buttons;
+});

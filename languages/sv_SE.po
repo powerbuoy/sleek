@@ -255,3 +255,9 @@ msgstr "Sök på sidan"
 
 msgid "Search"
 msgstr "Sök"
+
+msgid "Edit %s archive"
+msgstr "Redigera %s-arkiv"
+
+msgid "View %s archive"
+msgstr "Visa %s-arkiv"

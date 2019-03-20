@@ -205,7 +205,7 @@ function sleek_archive_meta_menus ($pts) {
 		$postTypes = [];
 
 		# Get all Post type name
-		foreach ($postTypes as $key => $value) {
+		foreach ($pts as $key => $value) {
 			if (is_array($value)) {
 				$postTypes[] = $key;
 			}

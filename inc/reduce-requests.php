@@ -30,10 +30,7 @@ add_action('wp_enqueue_scripts', function () {
 
 		# CF7
 		if (!in_array('wpcf7_css', $except)) {
-			add_filter('wpcf7_load_css', '__return_false');
-		}
-		if (!in_array('wpcf7_js', $except)) {
-			add_filter('wpcf7_load_js', '__return_false');
+			wp_deregister_style('contact-form-7');
 		}
 
 		# UPW

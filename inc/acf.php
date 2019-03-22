@@ -486,7 +486,7 @@ add_shortcode('render_module', function ($args) {
 		if (isset($args['post_id'])) {
 			return sleek_acf_render_sticky_module($args['module'], $args['post_id'], $template, false);
 		}
-		# User has passed in all data (TODO: Shouldn't we use sleek_get_template_part?)
+		# User has passed in all data
 		else {
 			return sleek_fetch($path, [
 				'data' => $args

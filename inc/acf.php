@@ -413,39 +413,6 @@ add_filter('acf/fields/flexible_content/layout_title', function ($title, $field,
 }, 10, 4);
 
 /**
- * Renders ACF sticky module
- */
-function sleek_acf_render_sticky_module ($module, $postId = null, $template = 'default', $echo = true) {
-	global $post;
-
-	if (!function_exists('get_field')) {
-		return '[ERROR: You need to activate Advanced Custom Fields]';
-	}
-
-	# Include the template
-	if (($configPath = locate_template('acf/' . $module . '/config.php')) and ($templatePath = locate_template('acf/' . $module . '/' . $template . '.php'))) {
-		$fieldGroup = include $configPath;
-		$moduleData = [];
-
-		foreach ($fieldGroup as $field) {
-			$moduleData[$field['name']] = get_field($field['name'], $postId);
-		}
-
-		$return = sleek_fetch($templatePath, $moduleData);
-	}
-	# Or dump data if template doesn't exist
-	else {
-		$return = "[ERROR: Couldn't find module]";
-	}
-
-	if ($echo) {
-		echo $return;
-	}
-
-	return $return;
-}
-
-/**
  * Renders ACF modules with AJAX
  */
 add_action('wp_ajax_render_modules', 'sleek_acf_render_modules_ajax');
@@ -477,10 +444,44 @@ function sleek_acf_render_modules_ajax () {
 	die;
 }
 
+/**
+ * Renders ACF sticky module
+ */
+function sleek_acf_render_sticky_module ($module, $postId = null, $template = 'default', $echo = true) {
+	global $post;
+
+	if (!function_exists('get_field')) {
+		return '[ERROR: You need to activate Advanced Custom Fields]';
+	}
+
+	# Make sure config and template exist
+	if (($configPath = locate_template('acf/' . $module . '/config.php')) and ($templatePath = locate_template('acf/' . $module . '/' . $template . '.php'))) {
+		$fieldGroup = include $configPath;
+		$moduleData = [];
+
+		foreach ($fieldGroup as $field) {
+			$moduleData[$field['name']] = get_field($field['name'], $postId);
+		}
+
+		$return = sleek_fetch($templatePath, $moduleData);
+	}
+	# No such module
+	else {
+		$return = '[ERROR: Unable to locate module]';
+	}
+
+	if ($echo) {
+		echo $return;
+	}
+
+	return $return;
+}
+
 # Add shortcode to render modules [render_module module="hubspot-cta" hubspot_cta_id="abc-123"]
 add_shortcode('render_module', function ($args) {
 	$template = isset($args['template']) ? $args['template'] : 'default';
 
+	# ACF module
 	if (isset($args['module']) and ($path = locate_template('acf/' . $args['module'] . '/' . $template . '.php'))) {
 		# Render sticky module
 		if (isset($args['post_id'])) {
@@ -493,6 +494,10 @@ add_shortcode('render_module', function ($args) {
 			]);
 		}
 	}
+	# Standard module
+	elseif (isset($args['module']) and ($path = locate_template('modules/' . $args['module'] . '.php'))) {
+		return sleek_fetch($path);
+	}
 
-	return '[Unable to locate module]';
+	return '[ERROR: Unable to locate module]';
 });

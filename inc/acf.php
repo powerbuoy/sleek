@@ -275,19 +275,6 @@ function sleek_acf_render_modules ($where, $postId = null) {
 	}
 }
 
-# Add shortcode to render modules [render_module module="hubspot-cta" hubspot_cta_id="abc-123"]
-add_shortcode('render_module', function ($args) {
-	$template = isset($args['template']) ? $args['template'] : 'default';
-
-	if (isset($args['module']) and ($path = locate_template('acf/' . $args['module'] . '/' . $template . '.php'))) {
-		return sleek_fetch($path, [
-			'data' => $args
-		]);
-	}
-
-	return '[Unable to locate module]';
-});
-
 /**
  * Collapse flexible content fields on page load
  * And hide template dropdowns if there's only one template
@@ -375,6 +362,9 @@ function sleek_acf_get_help_section ($field) {
 	return false;
 }
 
+/**
+ * Helper function for adding ACF options pages that are translatable
+ */
 function sleek_acf_add_options_page ($args) {
 	if (!function_exists('acf_add_options_page')) {
 		return false;
@@ -399,7 +389,9 @@ function sleek_acf_add_options_page ($args) {
 	}
 }
 
-# Nicer Flexible Content Titles (https://www.advancedcustomfields.com/resources/acf-fields-flexible_content-layout_title/)
+/**
+ * Nicer Flexible Content Titles (https://www.advancedcustomfields.com/resources/acf-fields-flexible_content-layout_title/)
+ */
 add_filter('acf/fields/flexible_content/layout_title', function ($title, $field, $layout, $i) {
 	# Figure out the field name
 	$nameBits = explode('_', $layout['name']);
@@ -423,7 +415,7 @@ add_filter('acf/fields/flexible_content/layout_title', function ($title, $field,
 /**
  * Renders ACF sticky module
  */
-function sleek_acf_render_sticky_module ($module, $postId = null, $template = 'default') {
+function sleek_acf_render_sticky_module ($module, $postId = null, $template = 'default', $echo = true) {
 	global $post;
 
 	if (!function_exists('get_field')) {
@@ -431,26 +423,26 @@ function sleek_acf_render_sticky_module ($module, $postId = null, $template = 'd
 	}
 
 	# Include the template
-	if ($path = locate_template('acf/' . $module . '/config.php') and locate_template('acf/' . $module . '/' . $template . '.php')) {
-		$fieldGroup = include $path;
+	if (($configPath = locate_template('acf/' . $module . '/config.php')) and ($templatePath = locate_template('acf/' . $module . '/' . $template . '.php'))) {
+		$fieldGroup = include $configPath;
 		$moduleData = [];
 
 		foreach ($fieldGroup as $field) {
 			$moduleData[$field['name']] = get_field($field['name'], $postId);
 		}
 
-		sleek_get_template_part('acf/' . $module . '/' . $template, $moduleData);
+		$return = sleek_fetch($templatePath, $moduleData);
 	}
 	# Or dump data if template doesn't exist
 	else {
-		echo '<section>';
-		echo '<h2>No template found for: ' . $module . '</h2>';
-		echo '<p><small>' . $template . '</small></p>';
-		echo '<pre>';
-		var_dump($module);
-		echo '</pre>';
-		echo '</section>';
+		$return = "[ERROR: Couldn't find module]";
 	}
+
+	if ($echo) {
+		echo $return;
+	}
+
+	return $return;
 }
 
 /**
@@ -484,3 +476,23 @@ function sleek_acf_render_modules_ajax () {
 
 	die;
 }
+
+# Add shortcode to render modules [render_module module="hubspot-cta" hubspot_cta_id="abc-123"]
+add_shortcode('render_module', function ($args) {
+	$template = isset($args['template']) ? $args['template'] : 'default';
+
+	if (isset($args['module']) and ($path = locate_template('acf/' . $args['module'] . '/' . $template . '.php'))) {
+		# Render sticky module
+		if (isset($args['post_id'])) {
+			return sleek_acf_render_sticky_module($args['module'], $args['post_id'], $template, false);
+		}
+		# User has passed in all data (TODO: Shouldn't we use sleek_get_template_part?)
+		else {
+			return sleek_fetch($path, [
+				'data' => $args
+			]);
+		}
+	}
+
+	return '[Unable to locate module]';
+});

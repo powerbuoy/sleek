@@ -444,6 +444,37 @@ function sleek_acf_render_modules_ajax () {
 	die;
 }
 
+add_action('wp_ajax_render_module', 'sleek_acf_render_module_ajax');
+add_action('wp_ajax_nopriv_render_module', 'sleek_acf_render_module_ajax');
+
+function sleek_acf_render_module_ajax () {
+	$module = isset($_GET['module']) ? $_GET['module'] : null;
+	$template = isset($_GET['template']) ? $_GET['template'] : 'default';
+	$postId = isset($_GET['post_id']) ? $_GET['post_id'] : null;
+	$args = isset($_GET['args']) ? $_GET['args'] : [];
+
+	if ($module and $template and ($path = locate_template('acf/' . $module . '/' . $template . '.php'))) {
+		# Render sticky module
+		if ($postId) {
+			$html = sleek_acf_render_sticky_module($module, $postId, $template, false);
+		}
+		# User has passed in all data
+		else {
+			$html = sleek_fetch($path, $args);
+		}
+
+		wp_send_json_success([
+			'module' => $module,
+			'template' => $template,
+			'post_id' => $postId,
+			'html' => $html
+		]);
+	}
+	else {
+		wp_send_json_error(__('Mo module found', 'sleek'), 404);
+	}
+}
+
 /**
  * Renders ACF sticky module
  */
@@ -489,9 +520,7 @@ add_shortcode('render_module', function ($args) {
 		}
 		# User has passed in all data
 		else {
-			return sleek_fetch($path, [
-				'data' => $args
-			]);
+			return sleek_fetch($path, $args);
 		}
 	}
 	# Standard module

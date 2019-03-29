@@ -430,11 +430,11 @@ function sleek_acf_render_modules_ajax () {
 			die($html);
 		}
 		else {
-			wp_send_json_error(__('No modules found', 'sleek'), 404);
+			die;
 		}
 	}
 	else {
-		wp_send_json_error(__('No modules found', 'sleek'), 404);
+		die;
 	}
 
 	die;
@@ -462,7 +462,7 @@ function sleek_acf_render_module_ajax () {
 		die($html);
 	}
 	else {
-		wp_send_json_error(__('Mo module found', 'sleek'), 404);
+		die;
 	}
 }
 

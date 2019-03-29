@@ -415,8 +415,8 @@ add_filter('acf/fields/flexible_content/layout_title', function ($title, $field,
 /**
  * Renders ACF modules with AJAX
  */
-add_action('wp_ajax_render_modules', 'sleek_acf_render_modules_ajax');
-add_action('wp_ajax_nopriv_render_modules', 'sleek_acf_render_modules_ajax');
+add_action('wp_ajax_sleek_acf_render_modules', 'sleek_acf_render_modules_ajax');
+add_action('wp_ajax_nopriv_sleek_acf_render_modules', 'sleek_acf_render_modules_ajax');
 
 function sleek_acf_render_modules_ajax () {
 	if (isset($_GET['where']) and isset($_GET['post_id'])) {
@@ -427,11 +427,7 @@ function sleek_acf_render_modules_ajax () {
 		$html = ob_get_clean();
 
 		if ($html) {
-			wp_send_json([
-				'module' => $_GET['where'],
-				'post_id' => $_GET['post_id'],
-				'html' => $html
-			]);
+			die($html);
 		}
 		else {
 			wp_send_json_error(__('No modules found', 'sleek'), 404);
@@ -444,14 +440,14 @@ function sleek_acf_render_modules_ajax () {
 	die;
 }
 
-add_action('wp_ajax_render_module', 'sleek_acf_render_module_ajax');
-add_action('wp_ajax_nopriv_render_module', 'sleek_acf_render_module_ajax');
+add_action('wp_ajax_sleek_acf_render_module', 'sleek_acf_render_module_ajax');
+add_action('wp_ajax_nopriv_sleek_acf_render_module', 'sleek_acf_render_module_ajax');
 
 function sleek_acf_render_module_ajax () {
-	$module = isset($_GET['module']) ? $_GET['module'] : null;
-	$template = isset($_GET['template']) ? $_GET['template'] : 'default';
-	$postId = isset($_GET['post_id']) ? $_GET['post_id'] : null;
-	$args = isset($_GET['args']) ? $_GET['args'] : [];
+	$module = $_GET['module'] ?? $_POST['module'] ?? null;
+	$template = $_GET['template'] ?? $_POST['template'] ?? 'default';
+	$postId = $_GET['post_id'] ?? $_POST['post_id'] ?? null;
+	$args = $_GET['args'] ?? $_POST['args'] ?? [];
 
 	if ($module and $template and ($path = locate_template('acf/' . $module . '/' . $template . '.php'))) {
 		# Render sticky module
@@ -463,12 +459,7 @@ function sleek_acf_render_module_ajax () {
 			$html = sleek_fetch($path, $args);
 		}
 
-		wp_send_json_success([
-			'module' => $module,
-			'template' => $template,
-			'post_id' => $postId,
-			'html' => $html
-		]);
+		die($html);
 	}
 	else {
 		wp_send_json_error(__('Mo module found', 'sleek'), 404);

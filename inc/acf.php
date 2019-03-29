@@ -456,7 +456,7 @@ function sleek_acf_render_module_ajax () {
 		}
 		# User has passed in all data
 		else {
-			$html = sleek_fetch($path, $args);
+			$html = sleek_fetch_template_part('acf/' . $module . '/' . $template, $args);
 		}
 
 		die($html);
@@ -485,7 +485,7 @@ function sleek_acf_render_sticky_module ($module, $postId = null, $template = 'd
 			$moduleData[$field['name']] = get_field($field['name'], $postId);
 		}
 
-		$return = sleek_fetch($templatePath, $moduleData);
+		$return = sleek_fetch_template_part('acf/' . $module . '/' . $template, $moduleData);
 	}
 	# No such module
 	else {
@@ -511,12 +511,12 @@ add_shortcode('render_module', function ($args) {
 		}
 		# User has passed in all data
 		else {
-			return sleek_fetch($path, $args);
+			return sleek_fetch_template_part('acf/' . $args['module'] . '/' . $template, $args);
 		}
 	}
 	# Standard module
 	elseif (isset($args['module']) and ($path = locate_template('modules/' . $args['module'] . '.php'))) {
-		return sleek_fetch($path);
+		return sleek_fetch_template_part('modules/' . $args['module']);
 	}
 
 	return '[ERROR: Unable to locate module]';

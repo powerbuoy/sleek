@@ -240,19 +240,6 @@ function sleek_array_search_r ($array, $key, $value = false) {
 }
 
 /**
- * Like get_template_part but accepts arguments
- * NOTE: Never pass in any of the reserved query vars!
- * https://codex.wordpress.org/WordPress_Query_Vars
- */
-function sleek_get_template_part ($path, $args = []) {
-	foreach ($args as $k => $v) {
-		set_query_var($k, $v);
-	}
-
-	get_template_part($path);
-}
-
-/**
  * Returns neighbouring array element with optional offset
  * TODO: URL? Where is this from
  */
@@ -325,6 +312,38 @@ function sleek_append_to_query_string ($query) {
 	parse_str($query, $newQueryString);
 
 	return http_build_query(array_merge($queryString, $newQueryString));
+}
+
+/**
+ * Like get_template_part but accepts arguments
+ * NOTE: Never pass in any of the reserved query vars!
+ * https://codex.wordpress.org/WordPress_Query_Vars
+ */
+function sleek_get_template_part ($path, $args = []) {
+	foreach ($args as $k => $v) {
+		set_query_var($k, $v);
+	}
+
+	get_template_part($path);
+}
+
+/**
+ * Like get_template_part but accepts arguments and doesn't echo
+ * NOTE: Never pass in any of the reserved query vars!
+ * https://codex.wordpress.org/WordPress_Query_Vars
+ */
+function sleek_fetch_template_part ($path, $args = []) {
+	foreach ($args as $k => $v) {
+		set_query_var($k, $v);
+	}
+
+	ob_start();
+
+	get_template_part($path);
+
+	$contents = ob_get_clean();
+
+	return $contents;
 }
 
 /**

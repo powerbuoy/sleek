@@ -193,6 +193,58 @@ function sleek_archive_meta_data ($postTypes) {
 			]]]
 		]);
 	}
+
+	sleek_archive_meta_menus($postTypes);
+}
+
+function sleek_archive_meta_menus ($pts) {
+	add_action('admin_bar_menu', function ($wp_admin_bar) use ($pts) {
+		global $wp_query;
+
+		# Store all our Post types
+		$postTypes = [];
+
+		# Get all Post type name
+		foreach ($pts as $key => $value) {
+			if (is_array($value)) {
+				$postTypes[] = $key;
+			}
+			else {
+				$postTypes[] = $value;
+			}
+		}
+
+		# Add Admin bar button to Archive Settings
+		if (is_admin()) {
+			$page = get_current_screen();
+
+			if (
+				in_array($page->post_type, $postTypes) and # Only Archive types with Sleek Archive settings
+				$page->id == $page->post_type . '_page_' . $page->post_type . '_archive_meta' # Only Archive Settings page
+			) {
+				$wp_admin_bar->add_menu([
+					'id' => 'view', # NOTE: Same ID as WP uses for its view links (for styling purposes)
+					'title' => sprintf(__('View %s archive', 'sleek'), get_post_type_object($page->post_type)->labels->singular_name),
+					'href' => get_post_type_archive_link($page->post_type),
+				]);
+			}
+		}
+
+		# Add Admin bar button to Archive Front
+		if (
+			!is_admin() and # Not much use for the link in the admin.
+			is_post_type_archive() and # Only on post archive pages.
+			$wp_query->queried_object->show_ui and # The post type should be showing its UI.
+			current_user_can($wp_query->queried_object->cap->edit_posts) and # And the current user should be able to edit this post type.
+			in_array($wp_query->queried_object->name, $postTypes) # Only Archive types with Sleek Archive Settings
+		) {
+			$wp_admin_bar->add_menu([
+				'id' => 'edit', # NOTE: Same ID as WP uses for its edit links (for styling purposes)
+				'title' => sprintf(__('Edit %s archive', 'sleek'), $wp_query->queried_object->labels->singular_name),
+				'href' => admin_url('edit.php?post_type=' . $wp_query->queried_object->name . '&page=' . $wp_query->queried_object->name . '_archive_meta'),
+			]);
+		}
+	}, 80);
 }
 
 function sleek_get_archive_meta ($field, $pt = false) {

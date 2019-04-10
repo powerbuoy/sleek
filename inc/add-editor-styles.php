@@ -148,3 +148,12 @@ add_filter('tiny_mce_before_init', function ($settings) {
 
 	return $settings;
 });
+
+# Remove color option
+function sleek_disable_wysiwyg_colors ($buttons) {
+	if (($key = array_search('forecolor', $buttons)) !== false) {
+		unset($buttons[$key]);
+	}
+
+	return $buttons;
+}

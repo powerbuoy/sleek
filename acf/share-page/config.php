@@ -27,14 +27,14 @@ return [
 			'Facebook' => 'Facebook',
 			'Twitter' => 'Twitter',
 			'LinkedIn' => 'LinkedIn',
-			'Google Plus' => 'Google Plus',
+		#	'Google Plus' => 'Google Plus',
 			'Email' => 'Email'
 		],
 		'default_value' => [
 			'Facebook',
 			'Twitter',
 			'LinkedIn',
-			'Google Plus',
+		#	'Google Plus',
 			'Email'
 		]
 	]

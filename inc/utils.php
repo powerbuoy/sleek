@@ -85,7 +85,6 @@ function sleek_pluralize ($singular) {
 
 /**
  * Attempts to return the currently viewed post type
- * TODO: get_query_var('post_type') ?
  */
 function sleek_get_current_post_type () {
 	$pt = false;
@@ -105,9 +104,14 @@ function sleek_get_current_post_type () {
 	elseif ($qo instanceof WP_Post) {
 		$pt = 'post';
 	}
-	else if ($qo instanceof WP_Term) {
+	# Taxonomy term
+	elseif ($qo instanceof WP_Term) {
 		$tax = get_taxonomy($qo->taxonomy);
 		$pt = $tax->object_type[0];
+	}
+	# Post type set in query var
+	elseif (get_query_var('post_type')) {
+		$pt = get_query_var('post_type');
 	}
 	# Try to get post type like this (NOTE: this will fetch the _first_ post's post type)
 	else {
@@ -236,19 +240,6 @@ function sleek_array_search_r ($array, $key, $value = false) {
 }
 
 /**
- * Like get_template_part but accepts arguments
- * NOTE: Never pass in any of the reserved query vars!
- * https://codex.wordpress.org/WordPress_Query_Vars
- */
-function sleek_get_template_part ($path, $args = []) {
-	foreach ($args as $k => $v) {
-		set_query_var($k, $v);
-	}
-
-	get_template_part($path);
-}
-
-/**
  * Returns neighbouring array element with optional offset
  * TODO: URL? Where is this from
  */
@@ -321,6 +312,38 @@ function sleek_append_to_query_string ($query) {
 	parse_str($query, $newQueryString);
 
 	return http_build_query(array_merge($queryString, $newQueryString));
+}
+
+/**
+ * Like get_template_part but accepts arguments
+ * NOTE: Never pass in any of the reserved query vars!
+ * https://codex.wordpress.org/WordPress_Query_Vars
+ */
+function sleek_get_template_part ($path, $args = []) {
+	foreach ($args as $k => $v) {
+		set_query_var($k, $v);
+	}
+
+	get_template_part($path);
+}
+
+/**
+ * Like get_template_part but accepts arguments and doesn't echo
+ * NOTE: Never pass in any of the reserved query vars!
+ * https://codex.wordpress.org/WordPress_Query_Vars
+ */
+function sleek_fetch_template_part ($path, $args = []) {
+	foreach ($args as $k => $v) {
+		set_query_var($k, $v);
+	}
+
+	ob_start();
+
+	get_template_part($path);
+
+	$contents = ob_get_clean();
+
+	return $contents;
 }
 
 /**

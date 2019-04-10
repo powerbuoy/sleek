@@ -5,7 +5,7 @@
 		'Facebook' => 'https://www.facebook.com/sharer.php?u={url}',
 		'Twitter' => 'https://twitter.com/intent/tweet?url={url}&text={title}',
 		'LinkedIn' => 'https://www.linkedin.com/shareArticle?url={url}&title={title}',
-		'Google Plus' => 'https://plus.google.com/share?url={url}',
+	#	'Google Plus' => 'https://plus.google.com/share?url={url}',
 		'Email' => 'mailto:?subject={title}&body={url}'
 	];
 
@@ -40,7 +40,7 @@
 		<?php foreach ($share_page_services as $service) : ?>
 			<li>
 				<a href="<?php echo $urls[$service] ?>" <?php if ($service != 'Email') : ?>target="_blank" rel="noopener"<?php endif ?>>
-					<?php echo __($service, 'sleek') ?>
+					<?php _e($service, 'sleek') ?>
 				</a>
 			</li>
 		<?php endforeach ?>

@@ -27,9 +27,9 @@ add_action('admin_init', function () {
 		return $input;
 	});
 
-	add_settings_section(SLEEK_SETTINGS_SECTION_NAME, SLEEK_SETTINGS_TITLE, function () {
-		# Mandatory function but we don't need it...
-	}, SLEEK_SETTINGS_SECTION_NAME); # WP Docs says this should be the add_options_page slug but that doesn't work. It needs to be the same as is later passed to do_settings_section
+	add_settings_section(SLEEK_SETTINGS_SECTION_NAME, false, function () {
+		# NOTE: Mandatory function but we don't need it...
+	}, SLEEK_SETTINGS_SECTION_NAME); # NOTE: WP Docs says this should be the add_options_page slug but that doesn't work. It needs to be the same as is later passed to do_settings_section
 
 	# Google Maps API Key
 	add_settings_field(SLEEK_SETTINGS_NAME . '_google_maps_api_key', __('Google Maps API Key', 'sleek'), function () {

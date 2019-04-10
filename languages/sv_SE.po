@@ -243,3 +243,21 @@ msgstr "Bild"
 
 msgid "Description"
 msgstr "Innehållstext"
+
+msgid "Is this what you were after?"
+msgstr "Var du ute efter det här?"
+
+msgid "Try a search"
+msgstr "Prova en sökning"
+
+msgid "Search the site"
+msgstr "Sök på sidan"
+
+msgid "Search"
+msgstr "Sök"
+
+msgid "Edit %s archive"
+msgstr "Redigera %s-arkiv"
+
+msgid "View %s archive"
+msgstr "Visa %s-arkiv"

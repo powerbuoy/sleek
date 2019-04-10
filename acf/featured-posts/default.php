@@ -13,7 +13,7 @@
 	<?php endif ?>
 
 	<?php foreach ($featured_posts_posts as $post) : setup_postdata($post) ?>
-		<?php $target = get_field('redirect_url') ? 'target="_blank"' : '' ?>
+		<?php $target = get_field('redirect_url') ? 'target="_blank" rel="noopener"' : '' ?>
 		<article>
 
 			<?php if (has_post_thumbnail()) : ?>

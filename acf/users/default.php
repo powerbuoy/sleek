@@ -40,27 +40,27 @@
 				<?php endif ?>
 
 				<?php if ($user['user_url']) : ?>
-					<a href="<?php echo $user['user_url'] ?>" target="_blank" class="icon-globe"><?php echo $user['user_url'] ?></a>
+					<a href="<?php echo $user['user_url'] ?>" target="_blank" rel="noopener" class="icon-globe"><?php echo $user['user_url'] ?></a>
 				<?php endif ?>
 
 				<?php if ($link = get_user_meta($user['ID'], 'facebook', true)) : ?>
-					<a href="//www.facebook.com/<?php echo $link ?>" target="_blank" class="icon-facebook"><?php echo $link ?></a>
+					<a href="//www.facebook.com/<?php echo $link ?>" target="_blank" rel="noopener" class="icon-facebook"><?php echo $link ?></a>
 				<?php endif ?>
 
 				<?php if ($link = get_user_meta($user['ID'], 'twitter', true)) : ?>
-					<a href="//twitter.com/<?php echo $link ?>" target="_blank" class="icon-twitter"><?php echo $link ?></a>
+					<a href="//twitter.com/<?php echo $link ?>" target="_blank" rel="noopener" class="icon-twitter"><?php echo $link ?></a>
 				<?php endif ?>
 
 				<?php if ($link = get_user_meta($user['ID'], 'linkedin', true)) : ?>
-					<a href="//www.linkedin.com/in/<?php echo $link ?>" target="_blank" class="icon-linkedin"><?php echo $link ?></a>
+					<a href="//www.linkedin.com/in/<?php echo $link ?>" target="_blank" rel="noopener" class="icon-linkedin"><?php echo $link ?></a>
 				<?php endif ?>
 
 				<?php if ($link = get_user_meta($user['ID'], 'instagram', true)) : ?>
-					<a href="//www.instagram.com/<?php echo $link ?>" target="_blank" class="icon-instagram"><?php echo $link ?></a>
+					<a href="//www.instagram.com/<?php echo $link ?>" target="_blank" rel="noopener" class="icon-instagram"><?php echo $link ?></a>
 				<?php endif ?>
 
 				<?php if ($link = get_user_meta($user['ID'], 'googleplus', true)) : ?>
-					<a href="//plus.google.com/<?php echo $link ?>" target="_blank" class="icon-googleplus"><?php echo $link ?></a>
+					<a href="//plus.google.com/<?php echo $link ?>" target="_blank" rel="noopener" class="icon-googleplus"><?php echo $link ?></a>
 				<?php endif ?>
 
 			</nav>

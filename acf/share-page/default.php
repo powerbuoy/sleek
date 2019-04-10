@@ -39,7 +39,7 @@
 	<ul>
 		<?php foreach ($share_page_services as $service) : ?>
 			<li>
-				<a href="<?php echo $urls[$service] ?>" <?php if ($service != 'Email') : ?>target="_blank"<?php endif ?>>
+				<a href="<?php echo $urls[$service] ?>" <?php if ($service != 'Email') : ?>target="_blank" rel="noopener"<?php endif ?>>
 					<?php echo __($service, 'sleek') ?>
 				</a>
 			</li>

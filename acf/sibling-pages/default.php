@@ -28,7 +28,7 @@
 		<?php endif ?>
 
 		<?php foreach ($rows as $post) : setup_postdata($post) ?>
-			<?php $target = get_field('redirect_url') ? 'target="_blank"' : '' ?>
+			<?php $target = get_field('redirect_url') ? 'target="_blank" rel="noopener"' : '' ?>
 			<article<?php if ($post->ID === $thisId) : ?> class="current-page"<?php endif ?>>
 
 				<?php if (has_post_thumbnail()) : ?>

@@ -36,9 +36,8 @@ function sleek_register_post_types ($postTypes, $textdomain = false) {
 			'public' => true,
 			'show_in_rest' => true,
 			'supports' => [
-				'title', 'editor', 'author', 'thumbnail', 'excerpt',
-				'wpcom-markdown', 'trackbacks', 'custom-fields',
-				'revisions', 'page-attributes', 'comments'
+				'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks',
+				'custom-fields', 'revisions', 'page-attributes', 'comments'
 			]
 		];
 

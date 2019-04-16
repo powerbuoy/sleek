@@ -151,7 +151,7 @@ function sleek_archive_meta_data ($postTypes) {
 		}
 
 		# Create the options page
-		sleek_acf_add_options_page([
+		SleekACF::addOptionsPage([
 			'page_title' => __('Archive Settings', 'sleek'),
 			'menu_slug' => $postType . '_archive_meta',
 			'parent_slug' => 'edit.php?post_type=' . $postType,

@@ -51,13 +51,7 @@ function sleek_register_post_types ($postTypes, $textdomain = false) {
 }
 
 # Instead of exclude_from_search we can use this to specifically tell WP which CPTs to include in search
-function sleek_set_cpt_in_search ($pts = [], $override = false) {
-	$postTypes = array_merge(['post', 'page'], $pts);
-
-	if ($override) {
-		$postTypes = $pts;
-	}
-
+function sleek_set_cpt_in_search ($postTypes) {
 	add_filter('pre_get_posts', function ($query) use ($postTypes) {
 		if ($query->is_search() and !$query->is_admin() and $query->is_main_query() and !isset($_GET['post_type'])) {
 			$query->set('post_type', $postTypes);

@@ -1,4 +1,14 @@
-<?php if ($taxonomies = get_object_taxonomies(sleek_get_current_post_type(), 'objects')) : ?>
+<?php
+	$taxonomies = get_object_taxonomies(sleek_get_current_post_type(), 'objects');
+
+	if ($taxonomies) {
+		$taxonomies = array_filter($taxonomies, function ($tax) {
+			return $tax->public;
+		});
+	}
+?>
+
+<?php if ($taxonomies) : ?>
 	<section id="archive-taxonomies">
 
 		<h2><?php _e('Filter posts', 'sleek') ?></h2>

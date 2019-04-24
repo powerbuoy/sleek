@@ -83,6 +83,11 @@ add_filter('post_gallery', function ($string, $attr) {
 		$attr['columns'] = 3;
 	}
 
+	# If no size is set - set it to full
+	if (!isset($attr['size'])) {
+		$attr['size'] = 'full';
+	}
+
 	$html = '<div class="gallery gallery-columns-' . $attr['columns'] . '">';
 
 	foreach ($images as $image) {

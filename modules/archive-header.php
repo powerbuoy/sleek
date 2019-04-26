@@ -2,7 +2,7 @@
 
 	<?php if ($image = sleek_get_the_archive_image('large')) : ?>
 		<figure>
-			<img src="<?php echo $image ?>">
+			<?php echo $image ?>
 		</figure>
 	<?php endif ?>
 

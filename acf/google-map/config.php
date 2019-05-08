@@ -24,7 +24,7 @@ return [
 	[
 		'name' => 'google_map',
 		'label' => __('Location', 'sleek'),
-		'instructions' => __('Choose a location to display on the map. Note that you will need a valid Google Maps API Key entered in Appearance -> Customize -> Theme options -> Google maps api key.', 'sleek'),
+		'instructions' => __('Choose a location to display on the map. Note that you will need a valid Google Maps API Key entered in Settings -> Sleek -> Google maps api key.', 'sleek'),
 		'type' => 'google_map'
 	]
 ];

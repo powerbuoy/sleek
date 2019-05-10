@@ -2,7 +2,7 @@
 
 <main>
 
-	<?php get_template_part('modules/single-post', sleek_get_current_post_type()) ?>
+	<?php get_template_part('modules/single-post', get_post_type()) ?>
 
 	<?php if (!post_password_required()) : ?>
 		<?php comments_template('/modules/comments.php') ?>

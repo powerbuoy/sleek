@@ -112,6 +112,10 @@ function sleek_get_current_post_type () {
 	# Post type set in query var
 	elseif (get_query_var('post_type')) {
 		$pt = get_query_var('post_type');
+
+		if (count($pt)) {
+			$pt = '__mixed';
+		}
 	}
 	# Try to get post type like this (NOTE: this will fetch the _first_ post's post type)
 	else {

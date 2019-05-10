@@ -92,7 +92,7 @@
 			<h2><?php _e('Is this what you were after?', 'sleek') ?></h2>
 
 			<?php foreach ($searchResults as $post) : setup_postdata($post) ?>
-				<?php get_template_part('modules/archive-post', sleek_get_current_post_type()) ?>
+				<?php get_template_part('modules/archive-post', get_post_type()) ?>
 			<?php endforeach; wp_reset_postdata() ?>
 
 		</aside>

@@ -113,7 +113,7 @@ function sleek_get_current_post_type () {
 	elseif (get_query_var('post_type')) {
 		$pt = get_query_var('post_type');
 
-		if (count($pt)) {
+		if (is_array($pt)) {
 			$pt = '__mixed';
 		}
 	}

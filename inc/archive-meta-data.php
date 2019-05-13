@@ -94,7 +94,7 @@ add_filter('get_the_archive_description', function ($description) {
  * Similar to the_archive_title and description but returns an image
  * TODO: Check for ACF images added to categories
  */
-function sleek_get_the_archive_image ($size = 'large') {
+function sleek_get_the_archive_image ($size = 'large', $urlOnly = false) {
 	global $_wp_additional_image_sizes;
 	global $wp_query;
 	global $post;
@@ -104,18 +104,33 @@ function sleek_get_the_archive_image ($size = 'large') {
 	# Blog pages (category, date, tag etc)
 	if ((is_home() or is_category() or is_tag() or is_year() or is_month() or is_day()) and get_option('page_for_posts')) {
 		if (has_post_thumbnail(get_option('page_for_posts'))) {
-			$image = get_the_post_thumbnail(get_option('page_for_posts'), $size);
+			if ($urlOnly) {
+				$image = get_the_post_thumbnail_url(get_option('page_for_posts'), $size);
+			}
+			else {
+				$image = get_the_post_thumbnail(get_option('page_for_posts'), $size);
+			}
 		}
 	}
 
 	# CPT archive
 	elseif (is_post_type_archive() and function_exists('get_field') and $imageId = get_field('archive_image', $wp_query->query['post_type'] . '_archive_meta')) {
-		$image = wp_get_attachment_image($imageId, $size);
+		if ($urlOnly) {
+			$image = wp_get_attachment_image_src($imageId, $size)[0];
+		}
+		else {
+			$image = wp_get_attachment_image($imageId, $size);
+		}
 	}
 
 	# Custom taxonomy
 	elseif (is_tax() and function_exists('get_field') and $imageId = get_field('archive_image', get_post_type() . '_archive_meta')) {
-		$image = wp_get_attachment_image($imageId, $size);
+		if ($urlOnly) {
+			$image = wp_get_attachment_image_src($imageId, $size)[0];
+		}
+		else {
+			$image = wp_get_attachment_image($imageId, $size);
+		}
 	}
 
 	# Author
@@ -129,10 +144,19 @@ function sleek_get_the_archive_image ($size = 'large') {
 			$size = 640;
 		}
 
-		$image = get_avatar($user->ID, ['size' => $size]);
+		if ($urlOnly) {
+			$image = get_avatar_url($user->ID, ['size' => $size]);
+		}
+		else {
+			$image = get_avatar($user->ID, ['size' => $size]);
+		}
 	}
 
 	return $image;
+}
+
+function sleek_get_the_archive_image_url ($size = 'large') {
+	return sleek_get_the_archive_image($size, true);
 }
 
 /**

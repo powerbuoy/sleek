@@ -21,7 +21,7 @@ class SleekACF {
 	# https://support.advancedcustomfields.com/forums/topic/hide-taxonomy-term-fields-on-the-main-category-page/
 	private static function cleanTaxPage () {
 		add_filter('acf/location/rule_match/taxonomy', function ($match, $rule, $options) {
-			if ($rule['param'] == 'taxonomy' && !isset($_GET['tag_ID'])) {
+			if ($rule['param'] === 'taxonomy' and !isset($_GET['tag_ID'])) {
 				return false;
 			}
 
@@ -46,7 +46,12 @@ class SleekACF {
 
 			# Or template
 			if ($t = get_sub_field($layout['key'] . '_template')) {
-				$newTitle .= ' <small>(' . __(ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php'))) . ' template', 'sleek') . ')</small>';
+				if ($t === 'SLEEK_ACF_HIDDEN_TEMPLATE') {
+					$newTitle .= '(' . __('Hidden', 'sleek') . ')';
+				}
+				else {
+					$newTitle .= ' (' . sprintf(__('Template: "%s"', 'sleek'), __(ucfirst(str_replace(['-', '_'], ' ', basename($t, '.php')))), 'sleek') . ')';
+				}
 			}
 
 			return $newTitle;
@@ -138,8 +143,12 @@ class SleekACF {
 					$templateCount[$template] = 1;
 				}
 
+				# Ignore this module
+				if ($template === 'SLEEK_ACF_HIDDEN_TEMPLATE') {
+					echo '<!-- Module hidden: ' . $acfLayout . ' -->';
+				}
 				# Include the template
-				if (locate_template('acf/' . $template . '.php')) {
+				elseif (locate_template('acf/' . $template . '.php')) {
 					sleek_get_template_part('acf/' . $template, array_merge($module, [
 						'sleek_acf_data' => [
 							'count' => ++$i,
@@ -336,10 +345,12 @@ class SleekACF {
 						$flexFieldLayout['sub_fields'][] = [
 							'key' => $flexFieldLayoutKey . '_template',
 							'name' => 'template',
-							'label' => __('Template', 'sleek'),
-							'instructions' => __('Select a different template for this module to change its appearance on the website.', 'sleek'),
+							'label' => __('Layout', 'sleek'),
+							'instructions' => __('Choose a layout or temporarily hide the module.', 'sleek'),
 							'type' => 'select',
-							'choices' => self::getFieldTemplates($fieldName),
+							'choices' => array_merge([
+								'SLEEK_ACF_HIDDEN_TEMPLATE' => '-- ' . __('Hidden', 'sleek') . ' --',
+							], self::getFieldTemplates($fieldName)),
 							'default_value' => $fieldName . '/default'
 						];
 

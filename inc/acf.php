@@ -240,6 +240,7 @@ class SleekACF {
 
 		# Remember whether this group should be a flexible content group
 		$isFlexible = (isset($params['flexible']) and $params['flexible'] !== false) ? true : false;
+		$isHidable = (isset($params['hidable']) and $params['hidable'] !== false) ? true : false;
 
 		# Make sure user has defined some fields - if not tell him
 		if (!(isset($params['fields']) and count($params['fields']))) {
@@ -341,6 +342,17 @@ class SleekACF {
 							'sub_fields' => []
 						];
 
+						# Allow hidden modules
+						if ($isHidable) {
+							$flexFieldTemplates = array_merge(
+								['SLEEK_ACF_HIDDEN_TEMPLATE' => '-- ' . __('Hidden', 'sleek') . ' --'],
+								self::getFieldTemplates($fieldName)
+							);
+						}
+						else {
+							$flexFieldTemplates = self::getFieldTemplates($fieldName);
+						}
+
 						# Automatically add the layout/template field
 						$flexFieldLayout['sub_fields'][] = [
 							'key' => $flexFieldLayoutKey . '_template',
@@ -348,9 +360,7 @@ class SleekACF {
 							'label' => __('Layout', 'sleek'),
 							'instructions' => __('Choose a layout or temporarily hide the module.', 'sleek'),
 							'type' => 'select',
-							'choices' => array_merge([
-								'SLEEK_ACF_HIDDEN_TEMPLATE' => '-- ' . __('Hidden', 'sleek') . ' --',
-							], self::getFieldTemplates($fieldName)),
+							'choices' => $flexFieldTemplates,
 							'default_value' => $fieldName . '/default'
 						];
 

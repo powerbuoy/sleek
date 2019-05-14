@@ -39,7 +39,7 @@ if (!(isset($_GET['action']) and $_GET['action'] == 'rp')) {
 	});
 
 	# Change "Powered by WordPress" to site name
-	add_filter('login_headertitle', function () {
+	add_filter('login_headertext', function () {
 		return get_bloginfo('name');
 	});
 

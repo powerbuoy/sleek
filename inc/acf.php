@@ -255,7 +255,7 @@ class SleekACF {
 		}
 		# Flexible fields
 		elseif ($isFlexible) {
-			$params['fields'] = self::generateFlexibleFields($params['fields'], $fieldGroupKey, $params['tab_placement']);
+			$params['fields'] = self::generateFlexibleFields($params['fields'], $fieldGroupKey, $params['tab_placement'], $isHidable);
 		}
 		# Sticky fields
 		else {
@@ -305,7 +305,7 @@ class SleekACF {
 	###########################################
 	# Generates a real ACF flexible field group
 	# from an array of field group names like ['latest-posts', 'text-block']
-	private static function generateFlexibleFields ($flexFields, $groupKey, $tabPlacement = 'top') {
+	private static function generateFlexibleFields ($flexFields, $groupKey, $tabPlacement = 'top', $isHidable = false) {
 		$newFields = [];
 
 		foreach ($flexFields as $flexName => $fields) {

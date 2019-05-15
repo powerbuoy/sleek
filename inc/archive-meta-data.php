@@ -184,7 +184,7 @@ function sleek_archive_meta_data ($postTypes) {
 		]);
 
 		# Add some standard fields (title, description, image)
-		$groupKey = 'group_' . $postType . '_archive_meta';
+		$groupKey = 'group_' . $postType . '_sleek_archive_meta';
 
 		acf_add_local_field_group([
 			'key' => $groupKey,

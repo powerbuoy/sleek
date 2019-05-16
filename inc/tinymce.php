@@ -9,7 +9,8 @@ function sleek_tinymce_clean_paste ($in) {
 		o.content = o.content.replace(/<(div|table|tbody|tr|td|th|p|b|font|strong|i|em|h1|h2|h3|h4|h5|h6|hr|ul|li|ol|code|blockquote|address|dir|dt|dd|dl|big|cite|del|dfn|ins|kbd|q|samp|small|s|strike|sub|sup|tt|u|var|caption) [^>]*>/gi,'<$1>');
 
 		// keep only href in the a tag (needs to be refined to also keep _target and ID):
-		// o.content = o.content.replace(/<a [^>]*href=(\"|')(.*?)(\"|')[^>]*>/gi,'<a href=\"$2\">');
+		o.content = o.content.replace(/<a [^>]*href=(\"|')(.*?)(\"|')[^>]*>/gi,'<a href=\"$2\">');
+
 		// replace br tag with p tag:
 		if (o.content.match(/<br[\/\s]*>/gi)) {
 			o.content = o.content.replace(/<br[\s\/]*>/gi,'</p><p>');

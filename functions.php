@@ -22,6 +22,7 @@ require_once get_template_directory() . '/inc/register-image-sizes.php';
 require_once get_template_directory() . '/inc/register-post-types.php';
 require_once get_template_directory() . '/inc/register-sidebars.php';
 require_once get_template_directory() . '/inc/register-taxonomies.php';
+require_once get_template_directory() . '/inc/tinymce.php';
 require_once get_template_directory() . '/inc/youtube-args.php';
 
 ###################

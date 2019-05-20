@@ -323,12 +323,12 @@ function sleek_append_to_query_string ($query) {
  * NOTE: Never pass in any of the reserved query vars!
  * https://codex.wordpress.org/WordPress_Query_Vars
  */
-function sleek_get_template_part ($path, $args = []) {
+function sleek_get_template_part ($path, $suffix = null, $args = []) {
 	foreach ($args as $k => $v) {
 		set_query_var($k, $v);
 	}
 
-	get_template_part($path);
+	get_template_part($path, $suffix);
 }
 
 /**

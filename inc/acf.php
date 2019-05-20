@@ -149,7 +149,7 @@ class SleekACF {
 				}
 				# Include the template
 				elseif (locate_template('acf/' . $template . '.php')) {
-					sleek_get_template_part('acf/' . $template, array_merge($module, [
+					sleek_get_template_part('acf/' . $template, null, array_merge($module, [
 						'sleek_acf_data' => [
 							'count' => ++$i,
 							'module_area' => $where,

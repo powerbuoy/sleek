@@ -53,6 +53,7 @@ add_action('admin_init', function () {
 	sleek_add_settings_field('head_code', esc_html__('Code inside <head>', 'sleek'), 'textarea');
 	sleek_add_settings_field('body_code', esc_html__('Code just after <body>', 'sleek'), 'textarea');
 	sleek_add_settings_field('foot_code', esc_html__('Code just before </body>', 'sleek'), 'textarea');
+	sleek_add_settings_field('cookie_consent', esc_html__('Cookie consent text', 'sleek'), 'textarea');
 });
 
 /**
@@ -134,4 +135,22 @@ add_action('init', function () {
 			return $api;
 		});
 	}
+});
+
+/**
+ * Add Cookie Consent text
+ */
+add_action('wp_enqueue_scripts', function () {
+	$options = get_option(SLEEK_SETTINGS_NAME);
+
+	if (isset($options['cookie_consent']) and !empty($options['cookie_consent'])) {
+		$cookieConsent = $options['cookie_consent'];
+	}
+	else {
+		$cookieUrl = get_option('wp_page_for_privacy_policy') ? get_permalink(get_option('wp_page_for_privacy_policy')) : 'https://cookiesandyou.com/';
+		$cookieConsent = sprintf(__('We use cookies to bring you the best possible experience when browsing our site. <a href="%s" target="_blank">Read more</a> | <a href="#" class="close">Accept</a>', 'sleek'), $cookieUrl);
+	}
+
+	# Add more JS config here (under the "sleek"-handle (but using your own variable name "SLEEK_CHILD_CONFIG"))
+	wp_localize_script('sleek', 'SLEEK_COOKIE_CONSENT', $cookieConsent);
 });

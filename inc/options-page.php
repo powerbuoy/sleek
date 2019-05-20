@@ -5,6 +5,21 @@ define('SLEEK_SETTINGS_NAME', 'sleek_settings');
 define('SLEEK_SETTINGS_SECTION_NAME', SLEEK_SETTINGS_NAME . '_section');
 define('SLEEK_SETTINGS_TITLE', __('Sleek settings', 'sleek'));
 
+function sleek_add_settings_field ($name, $label = false, $type = 'text') {
+	$label = $label ?? __(ucfirst(str_replace('_', ' ', $name)), 'sleek');
+
+	add_settings_field(SLEEK_SETTINGS_NAME . '_' . $name, $label, function () use ($name, $type) {
+		$options = get_option(SLEEK_SETTINGS_NAME);
+
+		if ($type == 'textarea') {
+			echo '<textarea name="' . SLEEK_SETTINGS_NAME . '[' . $name . ']" rows="6" cols="40">' . ($options[$name] ?? '') . '</textarea>';
+		}
+		else {
+			echo '<input type="text" name="' . SLEEK_SETTINGS_NAME . '[' . $name . ']" value="' . ($options[$name] ?? '') . '">';
+		}
+	}, SLEEK_SETTINGS_SECTION_NAME, SLEEK_SETTINGS_SECTION_NAME);
+}
+
 # Wtf this is seriously the most complex and annoying piece of shit code I've ever written
 add_action('admin_menu', function () {
 	add_options_page(SLEEK_SETTINGS_TITLE, 'Sleek', 'manage_options', SLEEK_SETTINGS_PAGE_URL, function () {
@@ -31,47 +46,13 @@ add_action('admin_init', function () {
 		# NOTE: Mandatory function but we don't need it...
 	}, SLEEK_SETTINGS_SECTION_NAME); # NOTE: WP Docs says this should be the add_options_page slug but that doesn't work. It needs to be the same as is later passed to do_settings_section
 
-	# Google Maps API Key
-	add_settings_field(SLEEK_SETTINGS_NAME . '_google_maps_api_key', __('Google Maps API Key', 'sleek'), function () {
-		$options = get_option(SLEEK_SETTINGS_NAME);
-
-		echo '<input type="text" name="' . SLEEK_SETTINGS_NAME . '[google_maps_api_key]" value="' . $options['google_maps_api_key'] . '">';
-	}, SLEEK_SETTINGS_SECTION_NAME, SLEEK_SETTINGS_SECTION_NAME);
-
-	# Google search API Key
-	add_settings_field(SLEEK_SETTINGS_NAME . '_google_search_api_key', __('Google Search API Key', 'sleek'), function () {
-		$options = get_option(SLEEK_SETTINGS_NAME);
-
-		echo '<input type="text" name="' . SLEEK_SETTINGS_NAME . '[google_search_api_key]" value="' . $options['google_search_api_key'] . '">';
-	}, SLEEK_SETTINGS_SECTION_NAME, SLEEK_SETTINGS_SECTION_NAME);
-
-	# Google search engine id
-	add_settings_field(SLEEK_SETTINGS_NAME . '_google_search_engine_id', __('Google Search Engine ID', 'sleek'), function () {
-		$options = get_option(SLEEK_SETTINGS_NAME);
-
-		echo '<input type="text" name="' . SLEEK_SETTINGS_NAME . '[google_search_engine_id]" value="' . $options['google_search_engine_id'] . '">';
-	}, SLEEK_SETTINGS_SECTION_NAME, SLEEK_SETTINGS_SECTION_NAME);
-
-	# <head> code
-	add_settings_field(SLEEK_SETTINGS_NAME . '_head_code', esc_html__('Code inside <head>', 'sleek'), function () {
-		$options = get_option(SLEEK_SETTINGS_NAME);
-
-		echo '<textarea name="' . SLEEK_SETTINGS_NAME . '[head_code]" rows="6" cols="40">' . $options['head_code'] . '</textarea>';
-	}, SLEEK_SETTINGS_SECTION_NAME, SLEEK_SETTINGS_SECTION_NAME);
-
-	# <body> code
-	add_settings_field(SLEEK_SETTINGS_NAME . '_body_code', esc_html__('Code just after <body>', 'sleek'), function () {
-		$options = get_option(SLEEK_SETTINGS_NAME);
-
-		echo '<textarea name="' . SLEEK_SETTINGS_NAME . '[body_code]" rows="6" cols="40">' . $options['body_code'] . '</textarea>';
-	}, SLEEK_SETTINGS_SECTION_NAME, SLEEK_SETTINGS_SECTION_NAME);
-
-	# <foot> code
-	add_settings_field(SLEEK_SETTINGS_NAME . '_foot_code', esc_html__('Code just before </body>', 'sleek'), function () {
-		$options = get_option(SLEEK_SETTINGS_NAME);
-
-		echo '<textarea name="' . SLEEK_SETTINGS_NAME . '[foot_code]" rows="6" cols="40">' . $options['foot_code'] . '</textarea>';
-	}, SLEEK_SETTINGS_SECTION_NAME, SLEEK_SETTINGS_SECTION_NAME);
+	# Built-in fields
+	sleek_add_settings_field('google_maps_api_key', __('Google Maps API Key', 'sleek'), 'text');
+	sleek_add_settings_field('google_search_api_key', __('Google Search API Key', 'sleek'), 'text');
+	sleek_add_settings_field('google_search_engine_id', __('Google Search Engine ID', 'sleek'), 'text');
+	sleek_add_settings_field('head_code', esc_html__('Code inside <head>', 'sleek'), 'textarea');
+	sleek_add_settings_field('body_code', esc_html__('Code just after <body>', 'sleek'), 'textarea');
+	sleek_add_settings_field('foot_code', esc_html__('Code just before </body>', 'sleek'), 'textarea');
 });
 
 /**

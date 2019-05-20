@@ -54,6 +54,7 @@ add_action('admin_init', function () {
 	sleek_add_settings_field('body_code', esc_html__('Code just after <body>', 'sleek'), 'textarea');
 	sleek_add_settings_field('foot_code', esc_html__('Code just before </body>', 'sleek'), 'textarea');
 	sleek_add_settings_field('cookie_consent', esc_html__('Cookie consent text', 'sleek'), 'textarea');
+	sleek_add_settings_field('site_notice', esc_html__('Site notice', 'sleek'), 'textarea');
 });
 
 /**

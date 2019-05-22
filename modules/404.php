@@ -50,6 +50,21 @@
 			}
 		}
 	}
+
+	# Group search results by post type
+	$groups = false;
+
+	if ($searchResults) {
+		$groups = [];
+
+		foreach ($searchResults as $row) {
+			if (!isset($groups[$row->post_type])) {
+				$groups[$row->post_type] = [];
+			}
+
+			$groups[$row->post_type][] = $row;
+		}
+	}
 ?>
 
 <section id="four-o-four">
@@ -86,14 +101,23 @@
 
 	</article>
 
-	<?php if ($searchResults) : ?>
+	<?php if ($groups) : ?>
 		<aside>
 
 			<h2><?php _e('Is this what you were after?', 'sleek') ?></h2>
 
-			<?php foreach ($searchResults as $post) : setup_postdata($post) ?>
-				<?php get_template_part('modules/archive-post', get_post_type()) ?>
-			<?php endforeach; wp_reset_postdata() ?>
+			<?php foreach ($groups as $postType => $rows) : ?>
+				<?php $postType = get_post_type_object($postType) ?>
+				<section>
+
+					<h3><?php echo $postType->labels->name ?></h3>
+
+					<?php foreach ($rows as $post) : setup_postdata($post) ?>
+						<?php get_template_part('modules/archive-post', get_post_type()) ?>
+					<?php endforeach; wp_reset_postdata() ?>
+
+				</section>
+			<?php endforeach ?>
 
 		</aside>
 	<?php endif ?>

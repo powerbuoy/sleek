@@ -32,25 +32,7 @@
 	<?php endif ?>
 
 	<?php foreach ([$next] as $post) : setup_postdata($post) ?>
-		<article>
-
-			<?php if (has_post_thumbnail()) : ?>
-				<figure>
-					<a href="<?php the_permalink() ?>">
-						<?php the_post_thumbnail('large') ?>
-					</a>
-				</figure>
-			<?php endif ?>
-
-			<h3>
-				<a href="<?php the_permalink() ?>">
-					<?php the_title() ?>
-				</a>
-			</h3>
-
-			<?php the_excerpt() ?>
-
-		</article>
+		<?php get_template_part('modules/archive-post', get_post_type()) ?>
 	<?php endforeach; wp_reset_postdata() ?>
 
 </section>

@@ -17,12 +17,14 @@
 
 		</header>
 
-		<article>
+		<?php if (get_the_content()) : ?>
+			<article>
 
-			<?php the_content() ?>
-			<?php wp_link_pages() ?>
+				<?php the_content() ?>
+				<?php wp_link_pages() ?>
 
-		</article>
+			</article>
+		<?php endif ?>
 
 	</section>
 <?php endwhile ?>

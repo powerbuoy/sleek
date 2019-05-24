@@ -194,6 +194,9 @@ function sleek_get_post_terms ($id, $pt, $linked = false, $type = 'category', $f
 			if ($linked) {
 				$terms[] = '<a href="' . get_term_link($t) . '">' . $t->{$field} . '</a>';
 			}
+			elseif ($field === 'all') {
+				$terms[] = $t;
+			}
 			else {
 				$terms[] = $t->{$field};
 			}

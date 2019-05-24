@@ -18,21 +18,15 @@ add_action('init', function () {
 
 # Redirect subscribers to home page after login (https://codex.wordpress.org/Plugin_API/Filter_Reference/login_redirect)
 add_filter('login_redirect', function ($to, $request, $user) {
-	if (isset($user->roles) and is_array($user->roles)) {
-		if (in_array('subscriber', $user->roles)) {
-			return home_url();
-		}
-		else {
-			return $to;
-		}
+	if (isset($user->roles) and is_array($user->roles) and in_array('subscriber', $user->roles)) {
+		return home_url();
 	}
-	else {
-		return $to;
-	}
+
+	return $to;
 }, 10, 3);
 
 # NOTE: Don't do this on the recover password page because it has very special CSS/JS
-if (!(isset($_GET['action']) and $_GET['action'] == 'rp')) {
+if (!(isset($_GET['action']) and $_GET['action'] === 'rp')) {
 	# Link logo to home page
 	add_filter('login_headerurl', function () {
 		return home_url();

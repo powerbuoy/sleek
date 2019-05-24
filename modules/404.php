@@ -75,7 +75,7 @@
 
 		<p><?php _e('Sorry, that page could not be found.', 'sleek') ?></p>
 
-		<?php get_template_part('modules/search-form') ?>
+		<?php get_search_form() ?>
 
 	</header>
 

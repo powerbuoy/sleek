@@ -155,7 +155,6 @@ function sleek_get_reading_time ($post) {
 	return $min;
 }
 
-
 /**
  * Returns the current author either on /author/username/ or a single blog post
  */

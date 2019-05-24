@@ -17,7 +17,7 @@
 						<?php echo get_the_time(get_option('date_format')) ?>
 					</time>
 
-					<?php if ($terms = get_the_terms($post->ID, (get_post_type() === 'post' ? 'category' : get_post_type() . '_category'))) : ?>
+					<?php if (($terms = get_the_terms($post->ID, (get_post_type() === 'post' ? 'category' : get_post_type() . '_category'))) and !is_wp_error($terms)) : ?>
 						<span>
 							<?php echo implode(', ', array_map(function ($term) {
 								return '<a href="' . get_term_link($term) . '">' . $term->name . '</a>';

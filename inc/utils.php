@@ -211,20 +211,18 @@ function sleek_get_neighbouring_array_element ($array, $orig, $offset) {
 function sleek_get_sub_nav_tree ($post) {
 	$allfather = $post;
 
-	if (is_page($post)) {
-		if ($post->post_parent) {
-			$parent = get_page($post->post_parent);
+	if ($post->post_parent) {
+		$parent = get_post($post->post_parent);
 
-			while ($parent->post_parent) {
-				$parent = get_page($parent->post_parent);
-			}
+		while ($parent->post_parent) {
+			$parent = get_post($parent->post_parent);
+		}
 
-			$allfather = $parent;
-			$children = wp_list_pages('title_li=&child_of=' . $parent->ID . '&echo=0&link_before=&link_after=');
-		}
-		else {
-			$children = wp_list_pages('title_li=&child_of=' . $post->ID . '&echo=0&link_before=&link_after=');
-		}
+		$allfather = $parent;
+		$children = wp_list_pages('title_li=&child_of=' . $parent->ID . '&echo=0&link_before=&link_after=');
+	}
+	else {
+		$children = wp_list_pages('title_li=&child_of=' . $post->ID . '&echo=0&link_before=&link_after=');
 	}
 
 	$title = $allfather->post_title;

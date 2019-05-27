@@ -219,10 +219,24 @@ function sleek_get_sub_nav_tree ($post) {
 		}
 
 		$allfather = $parent;
-		$children = wp_list_pages('title_li=&child_of=' . $parent->ID . '&echo=0&link_before=&link_after=');
+		$children = wp_list_pages([
+			'post_type' => $post->post_type,
+			'child_of' => $parent->ID,
+			'echo' => false,
+			'link_before' => '',
+			'link_after' => '',
+			'title_li' => ''
+		]);
 	}
 	else {
-		$children = wp_list_pages('title_li=&child_of=' . $post->ID . '&echo=0&link_before=&link_after=');
+		$children = wp_list_pages([
+			'post_type' => $post->post_type,
+			'child_of' => $post->ID,
+			'echo' => false,
+			'link_before' => '',
+			'link_after' => '',
+			'title_li' => ''
+		]);
 	}
 
 	$title = $allfather->post_title;

@@ -4,10 +4,11 @@
 	$thisId = $post->ID;
 
 	if ($parentId) {
-		$rows = get_pages([
-			'parent' => $post->post_parent,
-			'sort_column' => 'menu_order',
-			'sort_order' => 'ASC'
+		$rows = get_posts([
+			'post_type' => 'page',
+			'post_parent' => $parentId,
+			'orderby' => 'menu_order',
+			'sort' => 'ASC'
 		]);
 	}
 ?>

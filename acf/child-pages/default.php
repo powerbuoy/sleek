@@ -1,10 +1,11 @@
 <?php
 	$parentId = $child_pages_page_id ? $child_pages_page_id : $post->ID;
 
-	$rows = get_pages([
-		'parent' => $parentId,
-		'sort_column' => 'menu_order',
-		'sort_order' => 'ASC'
+	$rows = get_posts([
+		'post_type' => 'page',
+		'post_parent' => $parentId,
+		'orderby' => 'menu_order',
+		'sort' => 'ASC'
 	]);
 ?>
 

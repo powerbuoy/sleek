@@ -10,4 +10,8 @@
 
 	<?php the_archive_description() ?>
 
+	<?php if (is_search()) : ?>
+		<?php get_search_form() ?>
+	<?php endif ?>
+
 </header>

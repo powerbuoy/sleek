@@ -47,7 +47,7 @@
 		<p><?php printf(__('No search results for: <strong>"%s"</strong>', 'sleek'), $query) ?></p>
 	<?php endif ?>
 
-	<?php get_template_part('modules/search-form') ?>
+	<?php get_search_form() ?>
 
 	<?php if (isset($results->spelling)) : ?>
 		<p><?php printf(__('Showing search results for %s', 'sleek'), $results->spelling->htmlCorrectedQuery) ?></p>

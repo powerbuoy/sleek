@@ -12,6 +12,6 @@
 		</header>
 	<?php endif ?>
 
-	<?php get_template_part('modules/search-form') ?>
+	<?php get_search_form() ?>
 
 </section>

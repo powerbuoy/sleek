@@ -1,4 +1,4 @@
-<?php if ($sub_nav_tree = sleek_get_sub_nav_tree($post) and $sub_nav_tree['children']) : ?>
+<?php if ($sub_nav_tree = sleek_get_sub_nav_tree($post)) : ?>
 	<nav id="page-menu">
 
 		<header>

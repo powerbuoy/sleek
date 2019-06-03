@@ -242,12 +242,16 @@ function sleek_get_sub_nav_tree ($post) {
 	$title = $allfather->post_title;
 	$url = get_permalink($allfather->ID);
 
-	return [
-		'title'		=> $title,
-		'url'		=> $url,
-		'allfather'	=> $allfather,
-		'children'	=> $children
-	];
+	if ($children) {
+		return [
+			'title' => $title,
+			'url' => $url,
+			'allfather' => $allfather,
+			'children' => $children
+		];
+	}
+
+	return false;
 }
 
 /**

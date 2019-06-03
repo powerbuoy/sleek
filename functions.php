@@ -80,6 +80,17 @@ add_filter('template_redirect', function () {
 	}
 });
 
+##########################
+# Disable 404 URL guessing
+# https://core.trac.wordpress.org/ticket/16557
+add_filter('redirect_canonical', function ($url) {
+	if (is_404() and !isset($_GET['p'])) {
+		return false;
+	}
+
+	return $url;
+});
+
 ################################################
 # Remove title attribute from wp_list_categories
 # https://www.isitwp.com/remove-title-attribute-from-wp_list_categories/

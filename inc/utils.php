@@ -254,7 +254,7 @@ function sleek_get_sub_nav_tree ($post) {
  * Returns current page URL (with or without ?query)
  * NOTE: Where is this from?? It's oooold
  */
-function sleek_curr_page_url ($withQry = true) {
+function sleek_get_current_url ($withQry = true) {
 	$isHTTPS	= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on');
 	$port		= '';
 
@@ -274,6 +274,7 @@ function sleek_curr_page_url ($withQry = true) {
 
 /**
  * Appens (or replaces) $query to current query string
+ * NOTE: https://developer.wordpress.org/reference/functions/add_query_arg/
  */
 function sleek_append_to_query_string ($query) {
 	parse_str($_SERVER['QUERY_STRING'], $queryString);

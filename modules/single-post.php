@@ -42,10 +42,3 @@
 
 	</section>
 <?php endwhile ?>
-
-<nav class="pagination">
-
-	<?php previous_post_link('%link') ?>
-	<?php next_post_link('%link') ?>
-
-</nav>

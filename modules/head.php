@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html id="<?php echo sleek_get_page_type() ?>-page" <?php language_attributes() ?> <?php body_class('no-js') ?>>
+<html <?php language_attributes() ?> <?php body_class('no-js') ?>>
 
 	<head>
 
@@ -16,5 +16,3 @@
 	</head>
 
 	<body>
-
-		<?php do_action('sleek_after_body_tag_open') ?>

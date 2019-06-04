@@ -1,29 +1,5 @@
 <?php
-require_once get_template_directory() . '/inc/utils.php';
-require_once get_template_directory() . '/inc/acf.php';
-require_once get_template_directory() . '/inc/add-editor-styles.php';
-require_once get_template_directory() . '/inc/archive-filter.php';
-require_once get_template_directory() . '/inc/archive-meta-data.php';
-require_once get_template_directory() . '/inc/cleanup-nav.php';
-require_once get_template_directory() . '/inc/cleanup.php';
-require_once get_template_directory() . '/inc/comment-form-placeholders.php';
-require_once get_template_directory() . '/inc/default-meta-boxes.php';
-# require_once get_template_directory() . '/inc/disable-theme-updates.php';
-require_once get_template_directory() . '/inc/fix-active-menu-items.php';
-require_once get_template_directory() . '/inc/fix-wp-gallery.php';
-require_once get_template_directory() . '/inc/get-site-logo.php';
-require_once get_template_directory() . '/inc/get-terms-post-type-arg.php';
-require_once get_template_directory() . '/inc/login.php';
-require_once get_template_directory() . '/inc/options-page.php';
-require_once get_template_directory() . '/inc/reduce-requests.php';
-require_once get_template_directory() . '/inc/register-assets.php';
-require_once get_template_directory() . '/inc/register-image-sizes.php';
-require_once get_template_directory() . '/inc/register-post-types.php';
-require_once get_template_directory() . '/inc/register-sidebars.php';
-require_once get_template_directory() . '/inc/register-taxonomies.php';
-require_once get_template_directory() . '/inc/tinymce.php';
-require_once get_template_directory() . '/inc/youtube-args.php';
-
+/*
 ###################
 # Title tag support
 add_theme_support('title-tag');
@@ -103,3 +79,5 @@ add_action('wp_list_categories', function ($output) {
 add_filter('the_content', function ($content) {
 	return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
 });
+*/
+?>

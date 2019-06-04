@@ -15,6 +15,18 @@
 
 <section id="search-results">
 
+	<header>
+
+		<h1><?php the_archive_title() ?></h1>
+
+		<?php the_archive_description() ?>
+
+		<?php if (is_search()) : ?>
+			<?php get_search_form() ?>
+		<?php endif ?>
+
+	</header>
+
 	<?php if (have_posts()) : ?>
 		<?php foreach ($groups as $postType => $rows) : ?>
 			<?php $postType = get_post_type_object($postType) ?>

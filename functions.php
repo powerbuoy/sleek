@@ -28,6 +28,10 @@ require_once get_template_directory() . '/inc/youtube-args.php';
 # Title tag support
 add_theme_support('title-tag');
 
+###################
+# Disable Gutenberg
+add_filter('use_block_editor_for_post_type', '__return_false', 10);
+
 #####################
 # Give pages excerpts
 add_action('init', function () {
@@ -70,25 +74,29 @@ add_action('after_setup_theme', function () {
 
 ######################
 # 404 attachment pages
-add_filter('template_redirect', function () {
+add_filter('template_redirect', 'sleek_404_attachments');
+
+function sleek_404_attachments () {
 	global $wp_query;
 
 	if (is_attachment()) {
 		status_header(404); # Sets 404 header
 		$wp_query->set_404(); # Shows 404 template
 	}
-});
+}
 
 ##########################
 # Disable 404 URL guessing
 # https://core.trac.wordpress.org/ticket/16557
-add_filter('redirect_canonical', function ($url) {
+add_filter('redirect_canonical', 'sleek_disable_404_guessing');
+
+function sleek_disable_404_guessing ($url) {
 	if (is_404() and !isset($_GET['p'])) {
 		return false;
 	}
 
 	return $url;
-});
+}
 
 ################################################
 # Remove title attribute from wp_list_categories

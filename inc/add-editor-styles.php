@@ -149,7 +149,10 @@ add_filter('tiny_mce_before_init', function ($settings) {
 	return $settings;
 });
 
-# Remove color option
+###########################
+# Disable colors in WYSIWYG
+add_filter('mce_buttons_2', 'sleek_disable_wysiwyg_colors');
+
 function sleek_disable_wysiwyg_colors ($buttons) {
 	if (($key = array_search('forecolor', $buttons)) !== false) {
 		unset($buttons[$key]);

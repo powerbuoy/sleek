@@ -1,5 +1,9 @@
 <?php
+#############
+# Clean paste
 # https://sundari-webdesign.com/wordpress-removing-classes-styles-and-tag-attributes-from-pasted-content/
+add_filter('tiny_mce_before_init', 'sleek_tinymce_clean_paste');
+
 function sleek_tinymce_clean_paste ($in) {
 	$in['paste_preprocess'] = "function (pl, o) {
 		// remove the following tags completely:

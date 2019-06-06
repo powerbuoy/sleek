@@ -111,3 +111,27 @@ add_action('wp_list_categories', function ($output) {
 add_filter('the_content', function ($content) {
 	return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
 });
+
+#####################
+# Change email sender
+add_filter('wp_mail_from', 'sleek_email_from');
+
+function sleek_email_from () {
+	return get_option('admin_email');
+}
+
+add_filter('wp_mail_from_name', 'sleek_email_from_name');
+
+function sleek_email_from_name () {
+	return get_bloginfo('name');
+}
+
+################
+# Modify excerpt
+add_filter('excerpt_length', function () {
+	return 25;
+});
+
+add_filter('excerpt_more', function () {
+	return ' /../';
+});

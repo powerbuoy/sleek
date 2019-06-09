@@ -380,7 +380,7 @@ class SleekACF {
 							'key' => $flexFieldLayoutKey . '_template',
 							'name' => 'template',
 							'label' => __('Layout', 'sleek'),
-							'instructions' => __('Choose a layout or temporarily hide the module.', 'sleek'),
+							'instructions' => $isHidable ? __('Choose a layout or temporarily hide the module.', 'sleek') : __('Choose a layout.', 'sleek'),
 							'type' => 'select',
 							'choices' => $flexFieldTemplates,
 							'default_value' => $fieldName . '/default'

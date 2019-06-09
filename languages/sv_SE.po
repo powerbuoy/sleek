@@ -217,6 +217,9 @@ msgstr "Utseende"
 msgid "Choose a layout or temporarily hide the module."
 msgstr "Välj ett utseende eller dölj tillfälligt modulen."
 
+msgid "Choose a layout."
+msgstr "Välj ett utseende."
+
 msgid "Default template"
 msgstr "Standardmall"
 

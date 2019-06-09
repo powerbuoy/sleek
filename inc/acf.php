@@ -16,6 +16,28 @@ class SleekACF {
 		return strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $name));
 	}
 
+	public static function hasFlexibleModule ($module, $areas, $postId = null) {
+		$hasIn = [];
+
+		foreach ($areas as $area) {
+			if ($modules = get_field('modules_' . $area, $postId)) {
+				foreach ($modules as $mod) {
+					$template = $mod['template'] ?? null;
+
+					if ($template and $templateParts = explode('/', $template)) {
+						$moduleName = $templateParts[0];
+
+						if ($moduleName === $module) {
+							$hasIn[] = $area;
+						}
+					}
+				}
+			}
+		}
+
+		return $hasIn ?? false;
+	}
+
 	################################################
 	# Hide taxonomy fields on the main taxonomy page
 	# https://support.advancedcustomfields.com/forums/topic/hide-taxonomy-term-fields-on-the-main-category-page/

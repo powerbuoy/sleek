@@ -279,3 +279,12 @@ msgstr "Dold"
 
 msgid "Template: \"%s\""
 msgstr "Mall: \"%s\""
+
+msgid "Filename"
+msgstr "Filnamn"
+
+msgid "Filesize"
+msgstr "Filstorlek"
+
+msgid "Download"
+msgstr "Ladda ned"

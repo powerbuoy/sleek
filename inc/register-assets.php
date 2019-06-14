@@ -45,7 +45,8 @@ function sleek_register_assets ($extraAssets = []) {
 		$jsConfig = [
 			'TEMPLATE_DIRECTORY' => get_template_directory_uri(),
 			'STYLESHEET_DIRECTORY' => get_stylesheet_directory_uri(),
-			'AJAX_URL' => admin_url('admin-ajax.php')
+			'AJAX_URL' => admin_url('admin-ajax.php'),
+			'SITE_URL' => get_bloginfo('url')
 		];
 
 		if (isset($options['google_maps_api_key']) and !empty($options['google_maps_api_key'])) {

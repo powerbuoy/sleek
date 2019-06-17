@@ -34,3 +34,15 @@ function sleek_tinymce_clean_paste ($in) {
 
 	return $in;
 }
+
+###########################
+# Disable colors in WYSIWYG
+add_filter('mce_buttons_2', 'sleek_disable_wysiwyg_colors');
+
+function sleek_disable_wysiwyg_colors ($buttons) {
+	if (($key = array_search('forecolor', $buttons)) !== false) {
+		unset($buttons[$key]);
+	}
+
+	return $buttons;
+}

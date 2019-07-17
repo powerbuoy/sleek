@@ -29,3 +29,18 @@ function roots_remove_self_closing_tags ($input) {
 add_filter('get_avatar', 'roots_remove_self_closing_tags'); # <img />
 add_filter('comment_id_fields', 'roots_remove_self_closing_tags'); # <input />
 add_filter('post_thumbnail_html', 'roots_remove_self_closing_tags'); # <img />
+
+# Fix wp_list_categories output
+add_filter('wp_list_categories', function ($output, $args) {
+	# If there's no current cat - add the class to the "all" link
+	if (strpos($output, 'current-cat') === false) {
+		$output = str_replace('cat-item-all', 'cat-item-all current-cat', $output);
+	}
+
+	# If there are no categories, don't display anything
+	if (strpos($output, 'cat-item-none') !== false) {
+		$output = false;
+	}
+
+	return $output;
+}, 10, 2);

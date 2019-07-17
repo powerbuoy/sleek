@@ -22,16 +22,6 @@
 					'show_option_all' => __('All', 'sleek'),
 					'echo' => false
 				]);
-
-				# If there's no current cat - add the class to the "all" link
-				if (strpos($output, 'current-cat') === false) {
-					$output = str_replace('cat-item-all', 'cat-item-all current-cat', $output);
-				}
-
-				# If there are no categories, don't display anything
-				if (strpos($output, 'cat-item-none') !== false) {
-					$output = false;
-				}
 			?>
 			<?php if ($output) : ?>
 				<nav>

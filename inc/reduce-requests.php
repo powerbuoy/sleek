@@ -71,7 +71,7 @@ add_action('wp_enqueue_scripts', function () {
 add_action('wp_enqueue_scripts', function () {
 	if (!is_admin()) {
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', '//code.jquery.com/jquery-3.3.1.min.js', false, '3.3.1', false); # Last false = include in header
+		wp_register_script('jquery', '//code.jquery.com/jquery-3.3.1.min.js', false, '3.4.1', false); # Last false = include in header
 		wp_enqueue_script('jquery');
 	}
 });

@@ -133,7 +133,7 @@ class SleekACF {
 
 	###############################################
 	# Render flexible modules in module area $where
-	public static function renderModules ($where, $postId = null) {
+	public static function renderModules ($where, $postId = null, $args = []) {
 		global $post;
 
 		if (!function_exists('get_field')) {
@@ -147,22 +147,12 @@ class SleekACF {
 
 			foreach ($modules as $module) {
 				$acfLayout = isset($module['acf_fc_layout']) ? $module['acf_fc_layout'] : 'N/A';
-				$template = isset($module['template']) ? $module['template'] : 'default';
+				$moduleName = preg_replace('/^.*?' . $where . '_/', '', $acfLayout);
+				$template = isset($module['template']) ? $module['template'] : $moduleName . '/default';
 
-				# Keep track of how many times this module is included
-				if (isset($moduleCount[$acfLayout])) {
-					$moduleCount[$acfLayout]++;
-				}
-				else {
-					$moduleCount[$acfLayout] = 1;
-				}
-
-				# Keep track of how many times this template is included
-				if (isset($templateCount[$template])) {
-					$templateCount[$template]++;
-				}
-				else {
-					$templateCount[$template] = 1;
+				# See if caller wants to override this module's template
+				if (isset($args['templates'][$moduleName])) {
+					$template = $moduleName . '/' . $args['templates'][$moduleName];
 				}
 
 				# Ignore this module
@@ -174,18 +164,17 @@ class SleekACF {
 					sleek_get_template_part('acf/' . $template, null, array_merge($module, [
 						'sleek_acf_data' => [
 							'count' => ++$i,
-							'module_area' => $where,
-							'template_count' => $templateCount[$template],
-							'module_count' => $moduleCount[$acfLayout],
-							'module_data' => $module
+							'module_name' => $moduleName,
+							'module_area' => $where
+						#	'module_data' => $module
 						]
 					]));
 				}
 				# Or dump data if template doesn't exist
 				else {
 					echo '<section>';
-					echo '<h2>No template found: ' . $template . '</h2>';
-					echo '<p><small>' . $acfLayout . '</small></p>';
+					echo '<h2>' . $moduleName . '</h2>';
+					echo '<p>Template not found: <code>' . $template . '.php</code></p>';
 					echo '<pre>';
 					var_dump($module);
 					echo '</pre>';

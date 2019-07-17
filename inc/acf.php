@@ -442,6 +442,7 @@ class SleekACF {
 
 		if ($path = locate_template('acf/' . basename($fieldName) . '/config.php')) {
 			$fieldGroup = include $path;
+			$fieldGroup = apply_filters('sleek_acf_load_field_definition', $fieldGroup, $fieldName, $keyPrefix);
 			$fieldGroup = self::generateFieldKeys($fieldGroup, $keyPrefix);
 		}
 
@@ -456,7 +457,7 @@ class SleekACF {
 				$newPrefix = isset($group['name']) ? $prefix . '_' . $group['name'] : $prefix;
 				$group[$k] = self::generateFieldKeys($v, $newPrefix);
 			}
-			elseif ($k === 'name') {
+			elseif ($k === 'name' and !isset($group['key'])) {
 				$group['key'] = $prefix . '_' . $group[$k];
 			}
 		}

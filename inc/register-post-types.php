@@ -47,6 +47,17 @@ function sleek_register_post_types ($postTypes, $textdomain = false) {
 		}
 
 		register_post_type($postType, $config);
+
+		if (isset($config['has_single']) and $config['has_single'] === false) {
+			add_filter('template_redirect', function () use ($postType) {
+				global $wp_query;
+
+				if (is_singular($postType)) {
+					status_header(404); # Sets 404 header
+					$wp_query->set_404(); # Shows 404 template
+				}
+			});
+		}
 	}
 }
 

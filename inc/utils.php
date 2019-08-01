@@ -293,11 +293,18 @@ function sleek_append_to_query_string ($query) {
  * https://codex.wordpress.org/WordPress_Query_Vars
  */
 function sleek_get_template_part ($path, $suffix = null, $args = []) {
+	# Make all the passed in vars global/accessible in the next get_template_part call
 	foreach ($args as $k => $v) {
 		set_query_var($k, $v);
 	}
 
+	# Include the template
 	get_template_part($path, $suffix);
+
+	# Now "unset" the previously set vars (why is there no unset_query_var() ?)
+	foreach ($args as $k => $v) {
+		set_query_var($k, null);
+	}
 }
 
 /**
@@ -306,15 +313,22 @@ function sleek_get_template_part ($path, $suffix = null, $args = []) {
  * https://codex.wordpress.org/WordPress_Query_Vars
  */
 function sleek_fetch_template_part ($path, $args = []) {
+	# Make all the passed in vars global/accessible in the next get_template_part call
 	foreach ($args as $k => $v) {
 		set_query_var($k, $v);
 	}
 
+	# Include the template
 	ob_start();
 
 	get_template_part($path);
 
 	$contents = ob_get_clean();
+
+	# Now "unset" the previously set vars (why is there no unset_query_var() ?)
+	foreach ($args as $k => $v) {
+		set_query_var($k, null);
+	}
 
 	return $contents;
 }

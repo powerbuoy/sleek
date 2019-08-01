@@ -195,7 +195,7 @@ class SleekACF {
 
 		# Make sure config and template exist
 		if (($configPath = locate_template('acf/' . $module . '/config.php')) and ($templatePath = locate_template('acf/' . $module . '/' . $template . '.php'))) {
-			$fieldGroup = include $configPath;
+			$fieldGroup = self::loadFieldDefinition($module, 'sticky'); # NOTE: Mandatory arg $keyPrefix isn't used here anyway so just passing in "sticky"
 			$moduleData = [];
 
 			foreach ($fieldGroup as $field) {
@@ -343,7 +343,7 @@ class SleekACF {
 				foreach ($fields as $fieldName) {
 					$flexFieldLayoutKey = 'field_' . $groupKey . '_' . $flexName . '_' . $fieldName;
 
-					if (($fields = self::loadFieldDefinition($fieldName, $flexFieldLayoutKey)) !== false) {
+					if (($fields = self::loadFieldDefinition($fieldName, $flexFieldLayoutKey, true)) !== false) {
 						# Create the layout group
 						$flexFieldLayout = [
 							'key' => $flexFieldLayoutKey,
@@ -426,12 +426,12 @@ class SleekACF {
 	#############################
 	# Includes a field definition
 	# located in acf/field-name/config.php and gives it unique keys
-	private static function loadFieldDefinition ($fieldName, $keyPrefix) {
+	private static function loadFieldDefinition ($fieldName, $keyPrefix, $isFlexible = false) {
 		$fieldGroup = false;
 
 		if ($path = locate_template('acf/' . basename($fieldName) . '/config.php')) {
 			$fieldGroup = include $path;
-			$fieldGroup = apply_filters('sleek_acf_load_field_definition', $fieldGroup, $fieldName, $keyPrefix);
+			$fieldGroup = apply_filters('sleek_acf_load_field_definition', $fieldGroup, $fieldName, $keyPrefix, $isFlexible);
 			$fieldGroup = self::generateFieldKeys($fieldGroup, $keyPrefix);
 		}
 

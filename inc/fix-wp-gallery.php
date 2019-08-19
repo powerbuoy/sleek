@@ -1,4 +1,4 @@
-<?php
+c<?php
 # Remove gallery inline styles (WP shines again!) (https://css-tricks.com/snippets/wordpress/remove-gallery-inline-styling/)
 add_filter('use_default_gallery_style', '__return_false');
 
@@ -10,7 +10,8 @@ add_filter('embed_oembed_html', function($html, $url, $attr, $post_id) {
 
 # Wrap images in figure elements
 # https://wordpress.stackexchange.com/questions/174582/always-use-figure-for-post-images
-add_filter('the_content', function ($content) {
+# NOTE: <p>text<img>text</p> will result in <figure><img></figure> + this interferes with other the_content filters so removed for now
+/* add_filter('the_content', function ($content) {
 	if (strlen($content) == 0) {
 		return $content;
 	}
@@ -51,7 +52,7 @@ add_filter('the_content', function ($content) {
 
 	# Strip DOCTYPE etc
 	return str_replace(['<body>', '</body>'], '', $dom->saveHTML($dom->getElementsByTagName('body')->item(0)));
-}, 99);
+}, 99); */
 
 # Replace the [caption] HTML
 add_filter('img_caption_shortcode', function ($empty, $atts, $content) {

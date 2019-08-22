@@ -89,7 +89,7 @@ add_filter('post_gallery', function ($string, $attr) {
 		$attr['size'] = 'full';
 	}
 
-	$html = '<div class="gallery gallery-columns-' . $attr['columns'] . '">';
+	$html = '<div class="gallery gallery--cols-' . $attr['columns'] . '">';
 
 	foreach ($images as $image) {
 		$html .= '<figure>';

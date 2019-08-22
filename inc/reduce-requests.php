@@ -69,9 +69,11 @@ add_action('wp_enqueue_scripts', function () {
  * Actually no; don't move to bottom of page, some plug-ins depend on it being in head
  */
 add_action('wp_enqueue_scripts', function () {
+	$version = apply_filters('sleek_jquery_version', '3.4.1');
+
 	if (!is_admin()) {
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', '//code.jquery.com/jquery-3.4.1.min.js', false, '3.4.1', false); # Last false = include in header
+		wp_register_script('jquery', '//code.jquery.com/jquery-' . $version . '.min.js', false, $version, false); # Last false = include in header
 		wp_enqueue_script('jquery');
 	}
 });

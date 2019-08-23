@@ -2,7 +2,7 @@
 
 <main>
 
-	<?php get_template_part('modules/page') ?>
+	<?php get_template_part('modules/single-page') ?>
 
 </main>
 

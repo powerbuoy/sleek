@@ -1,8 +1,6 @@
 <header id="header">
 
-	<a href="<?php echo home_url('/') ?>">
-		<?php echo sleek_get_site_logo() ?>
-	</a>
+	<?php the_custom_logo() ?>
 
 	<?php if (get_bloginfo('description')) : ?>
 		<p><?php echo get_bloginfo('description') ?></p>

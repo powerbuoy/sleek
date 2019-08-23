@@ -5,12 +5,11 @@ add_theme_support('custom-logo', [
 ]);
 
 add_filter('get_custom_logo', function ($html) {
-	# NOTE: These should be customizable...
-	$append = '';
-	$inlineSvg = false;
+	$append = (is_array($html) and isset($html['append'])) ? $html['append'] : '';
+	$inlineSvg = (is_array($html) and isset($html['inline_svg'])) ? true : false;
 
 	# User has not defined a custom logo - include our own
-	if (empty($html)) {
+	if (empty($html) or is_array($html)) {
 		$alt = get_bloginfo('name');
 
 		if (get_bloginfo('description')) {

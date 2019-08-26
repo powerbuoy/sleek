@@ -2,7 +2,7 @@
 
 <main>
 
-	<?php get_template_part('modules/single-post-page') ?>
+	<?php get_template_part('modules/single-page') ?>
 
 	<?php if (!post_password_required()) : ?>
 		<?php comments_template('/modules/comments.php') ?>

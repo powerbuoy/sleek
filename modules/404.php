@@ -42,7 +42,8 @@
 			$rows = get_posts([
 				'post_type' => 'any',
 				'posts_per_page' => 3,
-				's' => $searchTerm
+				's' => $searchTerm,
+				'suppress_filters' => false
 			]);
 
 			if ($rows and !is_wp_error($rows) and count($rows)) {

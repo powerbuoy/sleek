@@ -4,12 +4,12 @@ add_theme_support('custom-logo', [
 	'header-text' => [get_bloginfo('name'), get_bloginfo('description')]
 ]);
 
-add_filter('get_custom_logo', function ($html) {
-	$append = (is_array($html) and isset($html['append'])) ? $html['append'] : '';
-	$inlineSvg = (is_array($html) and isset($html['inline_svg'])) ? true : false;
+add_filter('get_custom_logo', function ($html, $blogId) {
+	$append = (is_array($blogId) and isset($blogId['append']) and !empty($blogId['append'])) ? $blogId['append'] : '';
+	$inlineSvg = (is_array($blogId) and isset($blogId['svg']) and $blogId['svg']) ? true : false;
 
 	# User has not defined a custom logo - include our own
-	if (empty($html) or is_array($html)) {
+	if (empty($html)) {
 		$alt = get_bloginfo('name');
 
 		if (get_bloginfo('description')) {
@@ -19,7 +19,7 @@ add_filter('get_custom_logo', function ($html) {
 		# Check site-logo.svg
 		if ($svgLogo = locate_template('dist/assets/svg/site-logo' . $append . '.svg')) {
 			if ($inlineSvg) {
-				# TODO: Is aria-label still correct? # TODO: Should I remove <?xml etc?
+				# TODO: Is aria-label correct? # TODO: Should I remove <?xml etc?
 				$logo = str_replace('<svg', '<svg aria-label="' . $alt . '"', file_get_contents($svgLogo));
 			}
 			else {
@@ -42,4 +42,4 @@ add_filter('get_custom_logo', function ($html) {
 	}
 
 	return $html;
-}, 10, 1);
+}, 10, 2);

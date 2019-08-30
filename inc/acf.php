@@ -6,6 +6,7 @@ class SleekACF {
 		self::collapseFields();
 		self::niceFlexTitles();
 		self::cleanTaxPage();
+		self::enhanceFields();
 	}
 
 	private static function niceName ($name) {
@@ -14,6 +15,13 @@ class SleekACF {
 
 	private static function uglyName ($name) {
 		return strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $name));
+	}
+
+	private static function enhanceFields () {
+		# Include post type in relationship field
+		add_filter('acf/fields/relationship/result', function ($title, $post, $field, $postId) {
+			return $title . ' (' . get_post_type($postId) . ')';
+		}, 10, 4);
 	}
 
 	public static function hasFlexibleModule ($module, $areas, $postId = null) {

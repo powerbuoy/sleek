@@ -20,7 +20,14 @@ class SleekACF {
 	private static function enhanceFields () {
 		# Include post type in relationship field
 		add_filter('acf/fields/relationship/result', function ($title, $post, $field, $postId) {
-			return $title . ' (' . get_post_type($postId) . ')';
+			$postType = get_post_type($post->ID);
+			$postTypeObj = get_post_type_object($postType);
+			$postTypeLabel = $postTypeObj->labels->singular_name;
+			$postTitle = get_the_title($post->ID);
+			$excerpt = get_the_excerpt($post->ID);
+			$image = has_post_thumbnail($post->ID) ? get_the_post_thumbnail($post->ID, 'post-thumbnail', ['style' => 'width: 16px; height: 16px; vertical-align: middle; margin-right: 8px;']) : '';
+
+			return "<strong>$image$postTitle</strong> ($postTypeLabel)<br><small style=\"display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;\">$excerpt</small>";
 		}, 10, 4);
 	}
 

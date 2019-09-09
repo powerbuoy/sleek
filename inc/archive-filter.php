@@ -75,8 +75,8 @@ function sleek_get_archive_filter_taxonomies ($args = []) {
 add_filter('pre_get_posts', function ($query) {
 	if (!is_admin() and $query->is_main_query()) {
 		# Build potential tax query
-		$taxQuery = ['relation' => 'AND']; # TODO: Shouldn't be hard coded?
-		$metaQuery = ['relation' => 'AND'];
+		$taxQuery = $query->get('tax_query', ['relation' => 'AND']);
+		$metaQuery = $query->get('meta_query', ['relation' => 'AND']);
 		$hasTaxQuery = false;
 		$hasMetaQuery = false;
 

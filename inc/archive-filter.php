@@ -92,7 +92,7 @@ add_filter('pre_get_posts', function ($query) {
 					$hasTaxQuery = true;
 					$taxQuery[] = [
 						'taxonomy' => $tax,
-						'field' => 'slug',
+						'field' => 'term_id',
 						'terms' => $val
 					];
 				}

@@ -23,11 +23,13 @@
 
 		$ids = wp_get_post_terms($post->ID, $tax, ['fields' => 'ids']);
 
-		$args['tax_query'][] = [
-			'taxonomy' => $tax,
-			'field' => 'term_id',
-			'terms' => $ids
-		];
+		if ($ids and !is_wp_error($ids)) {
+			$args['tax_query'][] = [
+				'taxonomy' => $tax,
+				'field' => 'term_id',
+				'terms' => $ids
+			];
+		}
 	}
 
 	$rows = get_posts($args);

@@ -86,6 +86,7 @@ add_filter('pre_get_posts', function ($query) {
 			if (substr($k, 0, strlen('sleek_filter_tax_')) === 'sleek_filter_tax_') {
 				$tax = substr($k, strlen('sleek_filter_tax_'));
 				$val = $_GET[$k];
+				$val = is_array($val) ? array_filter($val) : $val;
 
 				if (!empty($val)) {
 					$hasTaxQuery = true;

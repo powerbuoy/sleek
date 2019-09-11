@@ -9,7 +9,7 @@
 		'Email' => 'mailto:?subject={title}&body={url}'
 	];
 
-	$url = $share_page_url ? $share_page_url : sleek_get_current_url(false);
+	$url = $share_page_url ?? sleek_get_current_url(false);
 	$title = wp_title('|', false, 'right');
 
 	foreach ($urls as $service => $u) {

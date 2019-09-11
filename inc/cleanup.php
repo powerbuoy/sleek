@@ -49,3 +49,19 @@ add_filter('wp_list_categories', function ($output, $args) {
 add_filter('navigation_markup_template', function ($template, $class) {
 	return '<nav id="pagination">%3$s</nav>';
 }, 10, 2);
+
+# Add a no-js class to body and remove onload
+add_filter('body_class', function ($classes) {
+	$classes[] = 'no-js';
+
+	return $classes;
+});
+
+add_action('wp_head', function () {
+	?>
+	<script>
+		document.documentElement.classList.remove('no-js');
+		document.documentElement.classList.add('js');
+	</script>
+	<?php
+});

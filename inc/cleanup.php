@@ -44,3 +44,8 @@ add_filter('wp_list_categories', function ($output, $args) {
 
 	return $output;
 }, 10, 2);
+
+# Fix pagination output (Remove h2, wrapping div, classes etc)
+add_filter('navigation_markup_template', function ($template, $class) {
+	return '<nav id="pagination">%3$s</nav>';
+}, 10, 2);

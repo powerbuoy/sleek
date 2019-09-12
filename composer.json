@@ -4,9 +4,22 @@
     "license": "GPL-2.0-or-later",
     "authors": [
         {
-            "name": "Andreas Lagerkvist",
+            "name": "AL",
             "email": "powerbuoy@gmail.com"
         }
     ],
-    "require": {}
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/powerbuoy/sleek-core"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/powerbuoy/sleek-cleanup"
+        }
+    ],
+    "require": {
+        "powerbuoy/sleek-core": "dev-master",
+		"powerbuoy/sleek-cleanup": "dev-master"
+    }
 }

@@ -2,7 +2,7 @@
 
 <main>
 
-	<?php get_template_part('modules/404') ?>
+	<?php get_template_part('modules/four-o-four') ?>
 
 </main>
 

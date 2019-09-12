@@ -18,7 +18,7 @@
 
 	<footer>
 
-		<?php get_template_part('modules/pagination') ?>
+		<?php the_posts_pagination() ?>
 
 	</footer>
 

@@ -37,6 +37,12 @@
 
 			</section>
 		<?php endforeach ?>
+
+		<footer>
+
+			<?php the_posts_pagination() ?>
+
+		</footer>
 	<?php else : ?>
 		<p><strong><?php _e('Sorry, nothing was found here.', 'sleek') ?></strong></p>
 	<?php endif ?>

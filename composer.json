@@ -1,0 +1,12 @@
+{
+    "name": "powerbuoy/sleek",
+    "description": "The WordPress theme for developers.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Andreas Lagerkvist",
+            "email": "powerbuoy@gmail.com"
+        }
+    ],
+    "require": {}
+}

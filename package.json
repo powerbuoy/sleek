@@ -1,0 +1,19 @@
+{
+  "name": "sleek",
+  "version": "1.0.0",
+  "description": "The WordPress theme for developers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/powerbuoy/sleek.git"
+  },
+  "author": "Andreas Lagerkvist <powerbuoy@gmail.com>",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/powerbuoy/sleek/issues"
+  },
+  "homepage": "https://github.com/powerbuoy/sleek#readme"
+}

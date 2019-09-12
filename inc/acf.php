@@ -371,7 +371,13 @@ class SleekACF {
 						# Allow hidden modules
 						if ($isHidable) {
 							$flexFieldTemplates = array_merge(
-								['SLEEK_ACF_HIDDEN_TEMPLATE' => '-- ' . __('Hidden', 'sleek') . ' --'],
+								[
+									'SLEEK_ACF_HIDDEN_TEMPLATE' =>
+									__('Hidden', 'sleek') .
+									'<br><small style="display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' .
+									__('The module will not be rendered', 'sleek') .
+									'</small>'
+								],
 								self::getFieldTemplates($fieldName)
 							);
 						}
@@ -387,7 +393,8 @@ class SleekACF {
 							'instructions' => $isHidable ? __('Choose a layout or temporarily hide the module.', 'sleek') : __('Choose a layout.', 'sleek'),
 							'type' => 'select',
 							'choices' => $flexFieldTemplates,
-							'default_value' => $fieldName . '/default'
+							'default_value' => $fieldName . '/default',
+							'ui' => 1
 						];
 
 						# Finally add the rest of the fields
@@ -429,8 +436,19 @@ class SleekACF {
 				$pathInfo = pathinfo($file);
 
 				if (isset($pathInfo['filename']) and substr($pathInfo['filename'], 0, 2) !== '__' and isset($pathInfo['extension']) and $pathInfo['extension'] === 'php') {
-					$templateNiceName = __(ucfirst(str_replace(['-', '_'], ' ', $pathInfo['filename'])), 'sleek');
-					$templates[$fieldName . '/' . $pathInfo['filename']] = $templateNiceName;
+					$niceName = __(ucfirst(str_replace(['-', '_'], ' ', $pathInfo['filename'])), 'sleek');
+					$description = '';
+
+					$content = file_get_contents($path . $file);
+
+					preg_match('/\/\*\*\*(.*?)\*\*\*\//s', $content, $matches);
+
+					if (count($matches) > 1) {
+						$description = trim($matches[1]);
+						$description = "<br><small style=\"display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;\">$description</small>";
+					}
+
+					$templates[$fieldName . '/' . $pathInfo['filename']] = "$niceName$description";
 				}
 			}
 		}

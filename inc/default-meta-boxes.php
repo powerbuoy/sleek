@@ -46,7 +46,7 @@ add_filter('default_hidden_meta_boxes', function ($hidden, $screen) {
 
 # TODO: These should be configurable...
 # on the other hand we can just keep adding common CPTs here forever since adding filters that don't exist doesn't hurt
-$postTypes = ['news', 'product', 'guide', 'case', 'vacancy', 'office', 'employee', 'post', 'page'];
+$postTypes = ['news', 'product', 'guide', 'case', 'vacancy', 'office', 'employee', 'job', 'post', 'page'];
 
 # Always close Yoast (http://wordpress.stackexchange.com/questions/4381/make-custom-metaboxes-collapse-by-default)
 foreach ($postTypes as $pt) {

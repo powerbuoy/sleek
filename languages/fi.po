@@ -1,0 +1,40 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fi\n"
+"X-Generator: Poedit 2.2\n"
+
+#: modules/404.php:43
+msgid "404 - Page not found"
+msgstr "404 – Sivua ei löydy"
+
+#: modules/404.php:45
+msgid "Sorry, that page could not be found."
+msgstr "Pahoittelut, sivua ei löydy."
+
+#: modules/404.php:48
+msgid "It seems you arrived directly at this page, maybe it's because of:"
+msgstr "Näyttää, että tulit suoraan tälle sivulle, mikä voi johtua seuraavista:"
+
+#: modules/404.php:52
+msgid "A search engine that has an <strong>out-of-date listing</strong> for us"
+msgstr "Hakukoneen listaus on osaltamme <strong>vanhentunut</strong>"
+
+#: modules/404.php:53
+msgid "A <strong>miss-typed address</strong>"
+msgstr "Osoite on kirjoitettu väärin"
+
+#: modules/404.php:63
+msgid "Perhaps you can go back to the <a href=\"%s\">home page</a> and try to navigate your way from there?"
+msgstr "Kokeile palata <a href=\"%s\">aloitussivulle</a> ja siirtyä haluamallesi sivulle sieltä."
+
+#: modules/partials/nothing-found.php:1
+msgid "Sorry, nothing was found here."
+msgstr "Pahoittelut, mitään ei löytynyt."

@@ -74,9 +74,9 @@ function sleek_get_archive_filter_taxonomies ($args = []) {
 # Add support for filtering on sleek_filter_* parameters
 add_filter('pre_get_posts', function ($query) {
 	if (!is_admin() and $query->is_main_query()) {
-		# Build potential tax query
-		$taxQuery = ['relation' => 'AND']; # TODO: Shouldn't be hard coded?
-		$metaQuery = ['relation' => 'AND'];
+		# Build potential tax and meta query
+		$taxQuery = $query->get('tax_query', ['relation' => 'AND']);
+		$metaQuery = $query->get('meta_query', ['relation' => 'AND']);
 		$hasTaxQuery = false;
 		$hasMetaQuery = false;
 
@@ -86,12 +86,13 @@ add_filter('pre_get_posts', function ($query) {
 			if (substr($k, 0, strlen('sleek_filter_tax_')) === 'sleek_filter_tax_') {
 				$tax = substr($k, strlen('sleek_filter_tax_'));
 				$val = $_GET[$k];
+				$val = is_array($val) ? array_filter($val) : array_filter([$val]);
 
 				if (!empty($val)) {
 					$hasTaxQuery = true;
 					$taxQuery[] = [
 						'taxonomy' => $tax,
-						'field' => 'slug',
+						'field' => 'term_id',
 						'terms' => $val
 					];
 				}
@@ -100,45 +101,57 @@ add_filter('pre_get_posts', function ($query) {
 			elseif (substr($k, 0, strlen('sleek_filter_meta_min_')) === 'sleek_filter_meta_min_') {
 				$meta = substr($k, strlen('sleek_filter_meta_min_'));
 				$val = $_GET[$k];
+				$val = is_array($val) ? array_filter($val) : array_filter([$val]);
 
 				if (!empty($val)) {
 					$hasMetaQuery = true;
-					$metaQuery[] = [
-						'key' => $meta,
-						'value' => $val,
-						'compare' => '>=',
-						'type' => is_numeric($val) ? 'NUMERIC' : 'CHAR'
-					];
+
+					foreach ($val as $v) {
+						$metaQuery[] = [
+							'key' => $meta,
+							'value' => $v,
+							'compare' => '>=',
+							'type' => is_numeric($v) ? 'NUMERIC' : 'CHAR'
+						];
+					}
 				}
 			}
 			# Max query
 			elseif (substr($k, 0, strlen('sleek_filter_meta_max_')) === 'sleek_filter_meta_max_') {
 				$meta = substr($k, strlen('sleek_filter_meta_max_'));
 				$val = $_GET[$k];
+				$val = is_array($val) ? array_filter($val) : array_filter([$val]);
 
 				if (!empty($val)) {
 					$hasMetaQuery = true;
-					$metaQuery[] = [
-						'key' => $meta,
-						'value' => $val,
-						'compare' => '<=',
-						'type' => is_numeric($val) ? 'NUMERIC' : 'CHAR'
-					];
+
+					foreach ($val as $v) {
+						$metaQuery[] = [
+							'key' => $meta,
+							'value' => $v,
+							'compare' => '<=',
+							'type' => is_numeric($v) ? 'NUMERIC' : 'CHAR'
+						];
+					}
 				}
 			}
 			# Equal query
 			elseif (substr($k, 0, strlen('sleek_filter_meta_')) === 'sleek_filter_meta_') {
 				$meta = substr($k, strlen('sleek_filter_meta_'));
 				$val = $_GET[$k];
+				$val = is_array($val) ? array_filter($val) : array_filter([$val]);
 
 				if (!empty($val)) {
 					$hasMetaQuery = true;
-					$metaQuery[] = [
-						'key' => $meta,
-						'value' => $val,
-						'compare' => '=',
-						'type' => is_numeric($val) ? 'NUMERIC' : 'CHAR'
-					];
+
+					foreach ($val as $v) {
+						$metaQuery[] = [
+							'key' => $meta,
+							'value' => $v,
+							'compare' => '=',
+							'type' => is_numeric($v) ? 'NUMERIC' : 'CHAR'
+						];
+					}
 				}
 			}
 		}

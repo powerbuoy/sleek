@@ -4,35 +4,42 @@ add_theme_support('custom-logo', [
 	'header-text' => [get_bloginfo('name'), get_bloginfo('description')]
 ]);
 
-function sleek_get_site_logo ($inlineSvg = false, $append = '') {
-	$alt = get_bloginfo('name');
+add_filter('get_custom_logo', function ($html, $blogId) {
+	$append = (is_array($blogId) and isset($blogId['append']) and !empty($blogId['append'])) ? $blogId['append'] : '';
+	$inlineSvg = (is_array($blogId) and isset($blogId['svg']) and $blogId['svg']) ? true : false;
 
-	if (get_bloginfo('description')) {
-		$alt .= ' - ' . get_bloginfo('description');
-	}
+	# User has not defined a custom logo - include our own
+	if (empty($html)) {
+		$alt = get_bloginfo('name');
 
-	# Check custom logo
-	if ($customLogoId = get_theme_mod('custom_logo')) {
-		$logo = '<img src="' . wp_get_attachment_image_src($customLogoId, 'full')[0] . '" alt="' . $alt . '">';
-	}
-	# Check site-logo.svg
-	elseif ($svgLogo = locate_template('dist/assets/svg/site-logo' . $append . '.svg')) {
-		if ($inlineSvg) {
-			# TODO: Is aria-label still correct? # TODO: Should I remove <?xml etc?
-			$logo = str_replace('<svg', '<svg aria-label="' . $alt . '"', file_get_contents($svgLogo));
+		if (get_bloginfo('description')) {
+			$alt .= ' - ' . get_bloginfo('description');
 		}
+
+		# Check site-logo.svg
+		if ($svgLogo = locate_template('dist/assets/svg/site-logo' . $append . '.svg')) {
+			if ($inlineSvg) {
+				# TODO: Is aria-label correct? # TODO: Should I remove <?xml etc?
+				$logo = str_replace('<svg', '<svg aria-label="' . $alt . '"', file_get_contents($svgLogo));
+			}
+			else {
+				$logo = '<img src="' . get_stylesheet_directory_uri() . '/dist/assets/svg/site-logo' . $append . '.svg' . '" alt="' . $alt . '">';
+			}
+		}
+		# Check site-logo.png
+		elseif (file_exists(get_stylesheet_directory() . '/dist/assets/site-logo.png')) {
+			$logo = '<img src="' . get_stylesheet_directory_uri() . '/dist/assets/site-logo' . $append . '.png' . '" alt="' . $alt . '">';
+		}
+		# Default to text (with <tag> support)
 		else {
-			$logo = '<img src="' . get_stylesheet_directory_uri() . '/dist/assets/svg/site-logo' . $append . '.svg' . '" alt="' . $alt . '">';
+			$logo = str_replace(['&lt;', '&gt;'], ['<', '>'], get_bloginfo('name'));
 		}
+
+		return '<a href="' . home_url('/') . '" class="site-logo">' . $logo . '</a>';
 	}
-	# Check site-logo.png
-	elseif (file_exists(get_stylesheet_directory() . '/dist/assets/site-logo.png')) {
-		$logo = '<img src="' . get_stylesheet_directory_uri() . '/dist/assets/site-logo' . $append . '.png' . '" alt="' . $alt . '">';
-	}
-	# Default to text (with <tag> support)
 	else {
-		$logo = str_replace(['&lt;', '&gt;'], ['<', '>'], get_bloginfo('name'));
+		$html = str_replace('custom-logo-link', 'site-logo', $html);
 	}
 
-	return $logo;
-}
+	return $html;
+}, 10, 2);

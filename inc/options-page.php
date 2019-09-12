@@ -149,7 +149,7 @@ add_action('wp_enqueue_scripts', function () {
 	}
 	else {
 		$cookieUrl = get_option('wp_page_for_privacy_policy') ? get_permalink(get_option('wp_page_for_privacy_policy')) : 'https://cookiesandyou.com/';
-		$cookieConsent = sprintf(__('We use cookies to bring you the best possible experience when browsing our site. <a href="%s" target="_blank">Read more</a> | <a href="#" class="close">Accept</a>', 'sleek'), $cookieUrl);
+		$cookieConsent = apply_filters('sleek_cookie_consent', sprintf(__('We use cookies to bring you the best possible experience when browsing our site. <a href="%s" target="_blank">Read more</a> | <a href="#" class="close">Accept</a>', 'sleek'), $cookieUrl), $cookieUrl);
 	}
 
 	wp_localize_script('sleek', 'SLEEK_COOKIE_CONSENT', $cookieConsent);

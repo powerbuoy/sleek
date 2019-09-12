@@ -13,7 +13,7 @@
 	<?php else : ?>
 		<?php get_template_part('modules/archive-header') ?>
 		<?php get_template_part('modules/search-results') ?>
-		<?php get_template_part('modules/pagination') ?>
+		<?php the_posts_pagination() ?>
 	<?php endif ?>
 
 </main>

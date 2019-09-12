@@ -12,14 +12,9 @@
         {
             "type": "vcs",
             "url": "https://github.com/powerbuoy/sleek-core"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/powerbuoy/sleek-cleanup"
         }
     ],
     "require": {
-        "powerbuoy/sleek-core": "dev-master",
-		"powerbuoy/sleek-cleanup": "dev-master"
+        "powerbuoy/sleek-core": "dev-master"
     }
 }

@@ -20,11 +20,16 @@
         {
             "type": "vcs",
             "url": "https://github.com/powerbuoy/sleek-comment-form"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/powerbuoy/sleek-image-sizes"
         }
     ],
     "require": {
         "powerbuoy/sleek-core": "dev-master",
         "powerbuoy/sleek-custom-logo": "dev-master",
-        "powerbuoy/sleek-comment-form": "dev-master"
+        "powerbuoy/sleek-comment-form": "dev-master",
+        "powerbuoy/sleek-image-sizes": "dev-master"
     }
 }

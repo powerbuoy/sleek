@@ -2,7 +2,7 @@
 # Eable post thumbnails
 add_action('after_setup_theme', function () {
 	add_theme_support('post-thumbnails');
-	set_post_thumbnail_size(150, 150, true);
+	set_post_thumbnail_size(160, 160, ['center', 'center']);
 });
 
 function sleek_register_image_sizes ($width, $height, $crop = ['center', 'center'], $additionalSizes = false) {

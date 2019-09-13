@@ -12,9 +12,19 @@
         {
             "type": "vcs",
             "url": "https://github.com/powerbuoy/sleek-core"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/powerbuoy/sleek-custom-logo"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/powerbuoy/sleek-comment-form"
         }
     ],
     "require": {
-        "powerbuoy/sleek-core": "dev-master"
+        "powerbuoy/sleek-core": "dev-master",
+        "powerbuoy/sleek-custom-logo": "dev-master",
+        "powerbuoy/sleek-comment-form": "dev-master"
     }
 }

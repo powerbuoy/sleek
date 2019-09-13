@@ -1,0 +1,127 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "79fe03478de8e37992ecdcfcc2641ca7",
+    "packages": [
+        {
+            "name": "powerbuoy/sleek-comment-form",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-comment-form.git",
+                "reference": "f603c679cacae23cc98c68784843836dd78218a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-comment-form/zipball/f603c679cacae23cc98c68784843836dd78218a7",
+                "reference": "f603c679cacae23cc98c68784843836dd78218a7",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "sleek-comment-form.php"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/powerbuoy/sleek-comment-form/tree/master",
+                "issues": "https://github.com/powerbuoy/sleek-comment-form/issues"
+            },
+            "time": "2019-09-13T10:27:18+00:00"
+        },
+        {
+            "name": "powerbuoy/sleek-core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-core.git",
+                "reference": "55bc89667c45ca0ef6b48c487ff2265c186f7089"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/55bc89667c45ca0ef6b48c487ff2265c186f7089",
+                "reference": "55bc89667c45ca0ef6b48c487ff2265c186f7089",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "sleek-core.php"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/powerbuoy/sleek-core/tree/master",
+                "issues": "https://github.com/powerbuoy/sleek-core/issues"
+            },
+            "time": "2019-09-13T10:22:30+00:00"
+        },
+        {
+            "name": "powerbuoy/sleek-custom-logo",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-custom-logo.git",
+                "reference": "4f19f778fa55a90e3bea992d894fcc52d533e5c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-custom-logo/zipball/4f19f778fa55a90e3bea992d894fcc52d533e5c2",
+                "reference": "4f19f778fa55a90e3bea992d894fcc52d533e5c2",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "sleek-custom-logo.php"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/powerbuoy/sleek-custom-logo/tree/master",
+                "issues": "https://github.com/powerbuoy/sleek-custom-logo/issues"
+            },
+            "time": "2019-09-13T10:27:38+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "powerbuoy/sleek-core": 20,
+        "powerbuoy/sleek-custom-logo": 20,
+        "powerbuoy/sleek-comment-form": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

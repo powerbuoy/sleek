@@ -1,7 +1,5 @@
 <?php
-	$taxonomies = get_object_taxonomies(sleek_get_current_post_type(), 'objects');
-
-	if ($taxonomies) {
+	if ($taxonomies = get_object_taxonomies(sleek_get_current_post_type(), 'objects')) {
 		$taxonomies = array_filter($taxonomies, function ($tax) {
 			return $tax->public;
 		});
@@ -15,7 +13,6 @@
 
 		<?php foreach ($taxonomies as $tax) : ?>
 			<?php
-				# Get all categories
 				$output = wp_list_categories([
 					'taxonomy' => $tax->name,
 					'title_li' => false,

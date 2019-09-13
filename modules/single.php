@@ -3,13 +3,13 @@
 
 		<header>
 
-			<h1><?php the_title() ?></h1>
-
 			<?php if (has_post_thumbnail()) : ?>
 				<figure>
 					<?php the_post_thumbnail('large') ?>
 				</figure>
 			<?php endif ?>
+
+			<h1><?php the_title() ?></h1>
 
 			<p>
 				<time datetime="<?php echo get_the_time('Y-m-j') ?>">

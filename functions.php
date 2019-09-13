@@ -10,5 +10,11 @@ add_action('after_setup_theme', function () {
 });
 
 ################
+# 404 some pages
+add_filter('sleek_404s', function () {
+	return is_attachment();
+});
+
+################
 # My custom code
 # TODO

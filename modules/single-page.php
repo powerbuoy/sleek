@@ -3,13 +3,13 @@
 
 		<header>
 
-			<h1><?php the_title() ?></h1>
-
 			<?php if (has_post_thumbnail()) : ?>
 				<figure>
 					<?php the_post_thumbnail('large') ?>
 				</figure>
 			<?php endif ?>
+
+			<h1><?php the_title() ?></h1>
 
 			<?php if ($post->post_excerpt) : ?>
 				<?php the_excerpt() ?>

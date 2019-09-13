@@ -4,7 +4,7 @@
     "license": "GPL-2.0-or-later",
     "authors": [
         {
-            "name": "AL",
+            "name": "Andreas Lagerkvist",
             "email": "powerbuoy@gmail.com"
         }
     ],
@@ -24,12 +24,22 @@
         {
             "type": "vcs",
             "url": "https://github.com/powerbuoy/sleek-image-sizes"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/powerbuoy/sleek-utils"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/powerbuoy/sleek-tinymce"
         }
     ],
     "require": {
         "powerbuoy/sleek-core": "dev-master",
         "powerbuoy/sleek-custom-logo": "dev-master",
         "powerbuoy/sleek-comment-form": "dev-master",
-        "powerbuoy/sleek-image-sizes": "dev-master"
+        "powerbuoy/sleek-image-sizes": "dev-master",
+        "powerbuoy/sleek-utils": "dev-master",
+        "powerbuoy/sleek-tinymce": "dev-master"
     }
 }

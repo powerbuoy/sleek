@@ -6,6 +6,18 @@
 
 		<?php the_archive_description() ?>
 
+		<?php # TODO: Change taxonomy depending on post-type-archive ?>
+		<?php if ($list = wp_list_categories([
+				'taxonomy' => 'category',
+				'title_li' => false,
+				'show_option_all' => __('All', 'sleek'),
+				'echo' => false
+			])) : ?>
+			<ul>
+				<?php echo $list ?>
+			</ul>
+		<?php endif ?>
+
 	</header>
 
 	<?php if (have_posts()) : ?>

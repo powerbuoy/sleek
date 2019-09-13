@@ -1,4 +1,4 @@
-<section id="attachment">
+<section id="single-<?php get_post_type() ?>">
 
 	<header>
 

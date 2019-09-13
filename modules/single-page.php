@@ -1,5 +1,5 @@
 <?php while (have_posts()) : the_post() ?>
-	<section id="single-page">
+	<section id="single-<?php get_post_type() ?>">
 
 		<header>
 

@@ -1,4 +1,4 @@
-<article>
+<article class="post-<?php get_post_type() ?>">
 
 	<figure>
 		<a href="<?php the_permalink() ?>">

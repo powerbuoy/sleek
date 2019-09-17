@@ -15,6 +15,10 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/powerbuoy/sleek-cleanup"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/powerbuoy/sleek-custom-logo"
         },
         {
@@ -36,6 +40,7 @@
     ],
     "require": {
         "powerbuoy/sleek-core": "dev-master",
+        "powerbuoy/sleek-cleanup": "dev-master",
         "powerbuoy/sleek-custom-logo": "dev-master",
         "powerbuoy/sleek-comment-form": "dev-master",
         "powerbuoy/sleek-image-sizes": "dev-master",

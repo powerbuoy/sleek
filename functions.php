@@ -10,12 +10,9 @@ Sleek\ImageSizes\register(1920, 1080, ['center', 'center']/*, [
 	'square' => ['width' => 1920, 'height' => 1920],
 ]*/);
 
-########################
-# Set up for translation
-load_theme_textdomain('sleek', get_template_directory() . '/languages');
-
 ################
 # 404 some pages
+# NOTE: While we wait for has_single PostType setting
 add_filter('sleek_404s', function () {
 	return is_attachment();
 });

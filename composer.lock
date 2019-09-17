@@ -4,20 +4,55 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a88e4a3847be96bc70df97205102bc5",
+    "content-hash": "c72a141d6e6c289359576eb21f185058",
     "packages": [
+        {
+            "name": "powerbuoy/sleek-archive-filter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-archive-filter.git",
+                "reference": "3e3507f2d4a0de1b32313fb154c5b17c201bee79"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-archive-filter/zipball/3e3507f2d4a0de1b32313fb154c5b17c201bee79",
+                "reference": "3e3507f2d4a0de1b32313fb154c5b17c201bee79",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "sleek-archive-filter.php"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/powerbuoy/sleek-archive-filter/tree/master",
+                "issues": "https://github.com/powerbuoy/sleek-archive-filter/issues"
+            },
+            "time": "2019-09-17T12:53:28+00:00"
+        },
         {
             "name": "powerbuoy/sleek-cleanup",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-cleanup.git",
-                "reference": "32586f7a596b6fd8f146d97db6b08daf1867ca1a"
+                "reference": "3c061cd8b32e0197b7becb036be8c95a5f137cf1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-cleanup/zipball/32586f7a596b6fd8f146d97db6b08daf1867ca1a",
-                "reference": "32586f7a596b6fd8f146d97db6b08daf1867ca1a",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-cleanup/zipball/3c061cd8b32e0197b7becb036be8c95a5f137cf1",
+                "reference": "3c061cd8b32e0197b7becb036be8c95a5f137cf1",
                 "shasum": ""
             },
             "type": "library",
@@ -39,7 +74,7 @@
                 "source": "https://github.com/powerbuoy/sleek-cleanup/tree/master",
                 "issues": "https://github.com/powerbuoy/sleek-cleanup/issues"
             },
-            "time": "2019-09-17T11:42:41+00:00"
+            "time": "2019-09-17T12:45:31+00:00"
         },
         {
             "name": "powerbuoy/sleek-comment-form",
@@ -82,12 +117,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-core.git",
-                "reference": "899e71b29510e49118dd8ae335861d22c6e31383"
+                "reference": "389ce63c3dcdfec2acd0ca4957e76feed621b280"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/899e71b29510e49118dd8ae335861d22c6e31383",
-                "reference": "899e71b29510e49118dd8ae335861d22c6e31383",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/389ce63c3dcdfec2acd0ca4957e76feed621b280",
+                "reference": "389ce63c3dcdfec2acd0ca4957e76feed621b280",
                 "shasum": ""
             },
             "type": "library",
@@ -109,7 +144,7 @@
                 "source": "https://github.com/powerbuoy/sleek-core/tree/master",
                 "issues": "https://github.com/powerbuoy/sleek-core/issues"
             },
-            "time": "2019-09-17T11:42:54+00:00"
+            "time": "2019-09-17T12:45:45+00:00"
         },
         {
             "name": "powerbuoy/sleek-custom-logo",
@@ -262,7 +297,8 @@
         "powerbuoy/sleek-comment-form": 20,
         "powerbuoy/sleek-image-sizes": 20,
         "powerbuoy/sleek-utils": 20,
-        "powerbuoy/sleek-tinymce": 20
+        "powerbuoy/sleek-tinymce": 20,
+        "powerbuoy/sleek-archive-filter": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

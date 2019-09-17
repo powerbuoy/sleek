@@ -36,6 +36,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/powerbuoy/sleek-tinymce"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/powerbuoy/sleek-archive-filter"
         }
     ],
     "require": {
@@ -45,6 +49,7 @@
         "powerbuoy/sleek-comment-form": "dev-master",
         "powerbuoy/sleek-image-sizes": "dev-master",
         "powerbuoy/sleek-utils": "dev-master",
-        "powerbuoy/sleek-tinymce": "dev-master"
+        "powerbuoy/sleek-tinymce": "dev-master",
+        "powerbuoy/sleek-archive-filter": "dev-master"
     }
 }

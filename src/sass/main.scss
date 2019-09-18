@@ -1,0 +1,18 @@
+@mixin container {
+	width: var(--site-width-min);
+	max-width: var(--site-width);
+	margin: var(--section-spacing) auto;
+}
+
+:root {
+	--bg-color: red;
+	--site-width: 960px;
+	--site-width-min: 80%;
+	--section-spacing: 5rem;
+}
+
+body {
+	@include container;
+
+	background: var(--bg-color);
+}

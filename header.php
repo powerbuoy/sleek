@@ -10,8 +10,6 @@
 
 	<body>
 
-		<?php do_action('sleek_after_body_tag_open') ?>
-
 		<header id="header">
 
 			<?php the_custom_logo() ?>

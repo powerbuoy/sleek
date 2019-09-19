@@ -47,12 +47,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-cleanup.git",
-                "reference": "3c061cd8b32e0197b7becb036be8c95a5f137cf1"
+                "reference": "6010371f201accf269886e8f1bf4459523f083a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-cleanup/zipball/3c061cd8b32e0197b7becb036be8c95a5f137cf1",
-                "reference": "3c061cd8b32e0197b7becb036be8c95a5f137cf1",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-cleanup/zipball/6010371f201accf269886e8f1bf4459523f083a5",
+                "reference": "6010371f201accf269886e8f1bf4459523f083a5",
                 "shasum": ""
             },
             "type": "library",
@@ -74,7 +74,7 @@
                 "source": "https://github.com/powerbuoy/sleek-cleanup/tree/master",
                 "issues": "https://github.com/powerbuoy/sleek-cleanup/issues"
             },
-            "time": "2019-09-17T12:45:31+00:00"
+            "time": "2019-09-19T01:10:06+00:00"
         },
         {
             "name": "powerbuoy/sleek-comment-form",
@@ -117,12 +117,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-core.git",
-                "reference": "389ce63c3dcdfec2acd0ca4957e76feed621b280"
+                "reference": "c75c36dcb2b6c06146530a9a0de82ee72c27ef23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/389ce63c3dcdfec2acd0ca4957e76feed621b280",
-                "reference": "389ce63c3dcdfec2acd0ca4957e76feed621b280",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/c75c36dcb2b6c06146530a9a0de82ee72c27ef23",
+                "reference": "c75c36dcb2b6c06146530a9a0de82ee72c27ef23",
                 "shasum": ""
             },
             "type": "library",
@@ -144,7 +144,7 @@
                 "source": "https://github.com/powerbuoy/sleek-core/tree/master",
                 "issues": "https://github.com/powerbuoy/sleek-core/issues"
             },
-            "time": "2019-09-17T12:45:45+00:00"
+            "time": "2019-09-19T01:10:25+00:00"
         },
         {
             "name": "powerbuoy/sleek-custom-logo",

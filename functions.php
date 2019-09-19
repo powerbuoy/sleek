@@ -13,6 +13,7 @@ Sleek\ImageSizes\register(1920, 1080, ['center', 'center']/*, [
 ################
 # 404 some pages
 # NOTE: While we wait for has_single PostType setting
+# TODO: Create ticket
 add_filter('sleek_404s', function () {
 	return is_attachment();
 });

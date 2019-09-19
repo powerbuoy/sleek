@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-archive-filter.git",
-                "reference": "3e3507f2d4a0de1b32313fb154c5b17c201bee79"
+                "reference": "115427413376b5ceeb39bf265a2cabde19f9006b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-archive-filter/zipball/3e3507f2d4a0de1b32313fb154c5b17c201bee79",
-                "reference": "3e3507f2d4a0de1b32313fb154c5b17c201bee79",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-archive-filter/zipball/115427413376b5ceeb39bf265a2cabde19f9006b",
+                "reference": "115427413376b5ceeb39bf265a2cabde19f9006b",
                 "shasum": ""
             },
             "type": "library",
@@ -39,7 +39,7 @@
                 "source": "https://github.com/powerbuoy/sleek-archive-filter/tree/master",
                 "issues": "https://github.com/powerbuoy/sleek-archive-filter/issues"
             },
-            "time": "2019-09-17T12:53:28+00:00"
+            "time": "2019-09-19T03:03:58+00:00"
         },
         {
             "name": "powerbuoy/sleek-cleanup",
@@ -47,12 +47,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-cleanup.git",
-                "reference": "6010371f201accf269886e8f1bf4459523f083a5"
+                "reference": "9c86e591fe66f9f632ad247003d9df469517e3c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-cleanup/zipball/6010371f201accf269886e8f1bf4459523f083a5",
-                "reference": "6010371f201accf269886e8f1bf4459523f083a5",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-cleanup/zipball/9c86e591fe66f9f632ad247003d9df469517e3c7",
+                "reference": "9c86e591fe66f9f632ad247003d9df469517e3c7",
                 "shasum": ""
             },
             "type": "library",
@@ -74,7 +74,7 @@
                 "source": "https://github.com/powerbuoy/sleek-cleanup/tree/master",
                 "issues": "https://github.com/powerbuoy/sleek-cleanup/issues"
             },
-            "time": "2019-09-19T01:10:06+00:00"
+            "time": "2019-09-19T03:03:58+00:00"
         },
         {
             "name": "powerbuoy/sleek-comment-form",
@@ -82,12 +82,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-comment-form.git",
-                "reference": "75b6abfca09d896b051982710cb0e60298cacedb"
+                "reference": "8b00c0b48701881613f5b92a8b65c1ba29e6b493"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-comment-form/zipball/75b6abfca09d896b051982710cb0e60298cacedb",
-                "reference": "75b6abfca09d896b051982710cb0e60298cacedb",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-comment-form/zipball/8b00c0b48701881613f5b92a8b65c1ba29e6b493",
+                "reference": "8b00c0b48701881613f5b92a8b65c1ba29e6b493",
                 "shasum": ""
             },
             "type": "library",
@@ -109,7 +109,7 @@
                 "source": "https://github.com/powerbuoy/sleek-comment-form/tree/master",
                 "issues": "https://github.com/powerbuoy/sleek-comment-form/issues"
             },
-            "time": "2019-09-13T14:52:44+00:00"
+            "time": "2019-09-19T03:03:58+00:00"
         },
         {
             "name": "powerbuoy/sleek-core",
@@ -117,12 +117,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-core.git",
-                "reference": "c75c36dcb2b6c06146530a9a0de82ee72c27ef23"
+                "reference": "c3c6ea2dbe0a8a3ed4645b245a046bade04bdffa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/c75c36dcb2b6c06146530a9a0de82ee72c27ef23",
-                "reference": "c75c36dcb2b6c06146530a9a0de82ee72c27ef23",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/c3c6ea2dbe0a8a3ed4645b245a046bade04bdffa",
+                "reference": "c3c6ea2dbe0a8a3ed4645b245a046bade04bdffa",
                 "shasum": ""
             },
             "type": "library",
@@ -144,7 +144,7 @@
                 "source": "https://github.com/powerbuoy/sleek-core/tree/master",
                 "issues": "https://github.com/powerbuoy/sleek-core/issues"
             },
-            "time": "2019-09-19T01:10:25+00:00"
+            "time": "2019-09-19T03:07:33+00:00"
         },
         {
             "name": "powerbuoy/sleek-custom-logo",
@@ -222,12 +222,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-tinymce.git",
-                "reference": "744ee082866a47099d3ccdb37ad2d5392fed8740"
+                "reference": "5205a57b40e955f417fbd6e7691ff46ff1195ba6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-tinymce/zipball/744ee082866a47099d3ccdb37ad2d5392fed8740",
-                "reference": "744ee082866a47099d3ccdb37ad2d5392fed8740",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-tinymce/zipball/5205a57b40e955f417fbd6e7691ff46ff1195ba6",
+                "reference": "5205a57b40e955f417fbd6e7691ff46ff1195ba6",
                 "shasum": ""
             },
             "type": "library",
@@ -249,7 +249,7 @@
                 "source": "https://github.com/powerbuoy/sleek-tinymce/tree/master",
                 "issues": "https://github.com/powerbuoy/sleek-tinymce/issues"
             },
-            "time": "2019-09-13T14:53:50+00:00"
+            "time": "2019-09-19T03:07:13+00:00"
         },
         {
             "name": "powerbuoy/sleek-utils",

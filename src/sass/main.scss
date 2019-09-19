@@ -1,18 +1,17 @@
-@mixin container {
-	width: var(--site-width-min);
-	max-width: var(--site-width);
-	margin: var(--section-spacing) auto;
-}
-
-:root {
-	--bg-color: red;
-	--site-width: 960px;
-	--site-width-min: 80%;
-	--section-spacing: 5rem;
-}
+@import "config";
+@import "container";
 
 body {
 	@include container;
 
 	background: var(--bg-color);
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+::placeholder {
+	color: gray;
 }

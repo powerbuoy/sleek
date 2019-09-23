@@ -40,6 +40,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/powerbuoy/sleek-archive-filter"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/powerbuoy/sleek-post-types"
         }
     ],
     "require": {
@@ -50,6 +54,7 @@
         "powerbuoy/sleek-image-sizes": "dev-master",
         "powerbuoy/sleek-utils": "dev-master",
         "powerbuoy/sleek-tinymce": "dev-master",
-        "powerbuoy/sleek-archive-filter": "dev-master"
+        "powerbuoy/sleek-archive-filter": "dev-master",
+        "powerbuoy/sleek-post-types": "dev-master"
     }
 }

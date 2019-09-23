@@ -4,8 +4,60 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c72a141d6e6c289359576eb21f185058",
+    "content-hash": "928fa45910fafdd4c00a1f67fae4813e",
     "packages": [
+        {
+            "name": "icanboogie/inflector",
+            "version": "v1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ICanBoogie/Inflector.git",
+                "reference": "fb6ca7977f8a7ebb46aff0183ee868d798f77ab8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ICanBoogie/Inflector/zipball/fb6ca7977f8a7ebb46aff0183ee868d798f77ab8",
+                "reference": "fb6ca7977f8a7ebb46aff0183ee868d798f77ab8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3.4"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/"
+                ],
+                "files": [
+                    "lib/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Olivier Laviale",
+                    "email": "olivier.laviale@gmail.com",
+                    "homepage": "http://www.weirdog.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Multilingual inflector that transforms words from singular to plural, underscore to camel case, and more.",
+            "homepage": "http://icanboogie.org/",
+            "keywords": [
+                "camelize",
+                "hyphenate",
+                "inflect",
+                "multilingual",
+                "pluralize",
+                "singularize",
+                "underscore"
+            ],
+            "time": "2019-05-21T19:05:31+00:00"
+        },
         {
             "name": "powerbuoy/sleek-archive-filter",
             "version": "dev-master",
@@ -117,12 +169,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-core.git",
-                "reference": "c3c6ea2dbe0a8a3ed4645b245a046bade04bdffa"
+                "reference": "5ecf4f3fd9ecb5583bbe9da16554224ed0a78868"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/c3c6ea2dbe0a8a3ed4645b245a046bade04bdffa",
-                "reference": "c3c6ea2dbe0a8a3ed4645b245a046bade04bdffa",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/5ecf4f3fd9ecb5583bbe9da16554224ed0a78868",
+                "reference": "5ecf4f3fd9ecb5583bbe9da16554224ed0a78868",
                 "shasum": ""
             },
             "type": "library",
@@ -144,7 +196,7 @@
                 "source": "https://github.com/powerbuoy/sleek-core/tree/master",
                 "issues": "https://github.com/powerbuoy/sleek-core/issues"
             },
-            "time": "2019-09-19T03:07:33+00:00"
+            "time": "2019-09-19T03:11:32+00:00"
         },
         {
             "name": "powerbuoy/sleek-custom-logo",
@@ -215,6 +267,45 @@
                 "issues": "https://github.com/powerbuoy/sleek-image-sizes/issues"
             },
             "time": "2019-09-13T14:53:40+00:00"
+        },
+        {
+            "name": "powerbuoy/sleek-post-types",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-post-types.git",
+                "reference": "d91c85f725d6da48b2cfe9c961c24b35b5650d66"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/d91c85f725d6da48b2cfe9c961c24b35b5650d66",
+                "reference": "d91c85f725d6da48b2cfe9c961c24b35b5650d66",
+                "shasum": ""
+            },
+            "require": {
+                "icanboogie/inflector": "^1.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "post-type.php",
+                    "register.php"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/powerbuoy/sleek-post-types/tree/master",
+                "issues": "https://github.com/powerbuoy/sleek-post-types/issues"
+            },
+            "time": "2019-09-23T10:58:40+00:00"
         },
         {
             "name": "powerbuoy/sleek-tinymce",
@@ -298,7 +389,8 @@
         "powerbuoy/sleek-image-sizes": 20,
         "powerbuoy/sleek-utils": 20,
         "powerbuoy/sleek-tinymce": 20,
-        "powerbuoy/sleek-archive-filter": 20
+        "powerbuoy/sleek-archive-filter": 20,
+        "powerbuoy/sleek-post-types": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

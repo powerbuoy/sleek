@@ -2,7 +2,7 @@
 namespace Sleek\Modules;
 
 class SharePage extends Module {
-	public function props () {
+	public function fields () {
 		return [
 			[
 				'name' => 'title',

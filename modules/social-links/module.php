@@ -25,7 +25,7 @@ class SocialLinks extends Module {
 					$name = substr($k, -3) === 'url' ? $name = substr($k, 0, -4) : $name = substr($k, 0, -5);
 					$name = isset($nicenames[$name]) ? $nicenames[$name] : ucfirst(str_replace(['_', '-'], ' ', $name));
 
-					$links[] = [
+					$links[] = (object) [
 						'name' => $name,
 						'url' => $url
 					];

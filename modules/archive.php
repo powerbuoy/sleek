@@ -2,17 +2,22 @@
 
 	<header>
 
+		<?php if ($image = Sleek\ArchiveMeta\get_the_archive_image('large')) : ?>
+			<figure>
+				<?php echo $image ?>
+			</figure>
+		<?php endif ?>
+
 		<h1><?php the_archive_title() ?></h1>
 
 		<?php the_archive_description() ?>
 
-		<?php # TODO: Change taxonomy depending on post-type-archive ?>
-		<?php if ($list = wp_list_categories([
-				'taxonomy' => 'category',
-				'title_li' => false,
-				'show_option_all' => __('All', 'sleek'),
-				'echo' => false
-			])) : ?>
+		<?php
+			$pt = Sleek\Utils\get_current_post_type();
+			$tax = $pt === 'post' ? 'category' : $pt . '_category';
+			$list = wp_list_categories(['show_option_all' => __('All', 'sleek'), 'taxonomy' => $tax, 'title_li' => false, 'echo' => false]);
+		?>
+		<?php if ($list) : ?>
 			<ul>
 				<?php echo $list ?>
 			</ul>

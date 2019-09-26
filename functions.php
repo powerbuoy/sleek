@@ -3,6 +3,10 @@
 # Composer
 require __DIR__ . '/vendor/autoload.php';
 
+########
+# Assets
+# add_action('wp_enqueue_scripts', function () {wp_enqueue_script('https://vue.js')}); # TODO: Is this action really needed? What happens without it? Will it run on all pages? Including login_enqueue_scripts and the admin?
+
 ###############
 # Theme support
 # TODO: Make sure all of these actually work even though they're included by autoload.php (I mean, that code has already run when we say change the theme_support... hmm) Especially if we runt it inside after_setup_theme eh? Test this!
@@ -47,6 +51,7 @@ add_action('acf/init', function () {
 
 #############
 # Image sizes
+# TODO: Do we need an action?
 Sleek\ImageSizes\register(1920, 1080, ['center', 'center']/*, [
 	'portrait' => ['width' => 1080, 'height' => 1920, 'crop' => ['center', 'top']],
 	'square' => ['width' => 1920, 'height' => 1920],

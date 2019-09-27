@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a36d7b0291676ddeebb04334305140f1",
+    "content-hash": "3e56bc0a631d2fb03c725aba19ff998c",
     "packages": [
         {
             "name": "icanboogie/inflector",
@@ -64,12 +64,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-acf.git",
-                "reference": "d4923403cfd7907740a03f11df9cf3faf2baa253"
+                "reference": "411ef3630c88b89fcd3bf0aec6383f33ab9c1ee9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-acf/zipball/d4923403cfd7907740a03f11df9cf3faf2baa253",
-                "reference": "d4923403cfd7907740a03f11df9cf3faf2baa253",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-acf/zipball/411ef3630c88b89fcd3bf0aec6383f33ab9c1ee9",
+                "reference": "411ef3630c88b89fcd3bf0aec6383f33ab9c1ee9",
                 "shasum": ""
             },
             "type": "library",
@@ -88,7 +88,7 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-09-27T00:07:44+00:00"
+            "time": "2019-09-27T11:56:42+00:00"
         },
         {
             "name": "powerbuoy/sleek-archive-filter",
@@ -123,17 +123,52 @@
             "time": "2019-09-26T20:31:54+00:00"
         },
         {
+            "name": "powerbuoy/sleek-archive-meta",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-archive-meta.git",
+                "reference": "434cd1d419a587bb4fe3a8d4f6dff85a71def8a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-archive-meta/zipball/434cd1d419a587bb4fe3a8d4f6dff85a71def8a2",
+                "reference": "434cd1d419a587bb4fe3a8d4f6dff85a71def8a2",
+                "shasum": ""
+            },
+            "require": {
+                "powerbuoy/sleek-utils": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "sleek-archive-meta.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "time": "2019-09-27T12:01:07+00:00"
+        },
+        {
             "name": "powerbuoy/sleek-cleanup",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-cleanup.git",
-                "reference": "fe50fee09bb71d02135196d81be4b3ae95fb253e"
+                "reference": "c667d4ba950e0cdc1c95e2824cd7118835a11713"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-cleanup/zipball/fe50fee09bb71d02135196d81be4b3ae95fb253e",
-                "reference": "fe50fee09bb71d02135196d81be4b3ae95fb253e",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-cleanup/zipball/c667d4ba950e0cdc1c95e2824cd7118835a11713",
+                "reference": "c667d4ba950e0cdc1c95e2824cd7118835a11713",
                 "shasum": ""
             },
             "type": "library",
@@ -152,7 +187,7 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-09-25T18:25:29+00:00"
+            "time": "2019-09-27T01:53:13+00:00"
         },
         {
             "name": "powerbuoy/sleek-comment-form",
@@ -192,12 +227,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-core.git",
-                "reference": "be991269683e8e111574256e2094759cbaf963a5"
+                "reference": "b6ea314eaed06a72713dc59b266fffa2073b51b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/be991269683e8e111574256e2094759cbaf963a5",
-                "reference": "be991269683e8e111574256e2094759cbaf963a5",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/b6ea314eaed06a72713dc59b266fffa2073b51b9",
+                "reference": "b6ea314eaed06a72713dc59b266fffa2073b51b9",
                 "shasum": ""
             },
             "type": "library",
@@ -216,7 +251,7 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-09-26T23:51:10+00:00"
+            "time": "2019-09-27T11:57:07+00:00"
         },
         {
             "name": "powerbuoy/sleek-custom-logo",
@@ -251,6 +286,38 @@
             "time": "2019-09-25T18:19:38+00:00"
         },
         {
+            "name": "powerbuoy/sleek-gallery",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-gallery.git",
+                "reference": "f409e9db7b82e2256f976d303d9a78ed6dce99cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-gallery/zipball/f409e9db7b82e2256f976d303d9a78ed6dce99cd",
+                "reference": "f409e9db7b82e2256f976d303d9a78ed6dce99cd",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "sleek-gallery.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "time": "2019-09-27T12:02:09+00:00"
+        },
+        {
             "name": "powerbuoy/sleek-image-sizes",
             "version": "dev-master",
             "source": {
@@ -283,17 +350,146 @@
             "time": "2019-09-25T18:19:51+00:00"
         },
         {
+            "name": "powerbuoy/sleek-login",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-login.git",
+                "reference": "652d5cd1598568c70f7142d935c45f4736cca2e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-login/zipball/652d5cd1598568c70f7142d935c45f4736cca2e6",
+                "reference": "652d5cd1598568c70f7142d935c45f4736cca2e6",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "sleek-login.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "time": "2019-09-27T12:03:15+00:00"
+        },
+        {
+            "name": "powerbuoy/sleek-menu",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-menu.git",
+                "reference": "df3e9eb1a8b9d23cff958ba1fced165fdfa7771f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-menu/zipball/df3e9eb1a8b9d23cff958ba1fced165fdfa7771f",
+                "reference": "df3e9eb1a8b9d23cff958ba1fced165fdfa7771f",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "sleek-menu.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "time": "2019-09-27T12:04:17+00:00"
+        },
+        {
+            "name": "powerbuoy/sleek-meta-boxes",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-meta-boxes.git",
+                "reference": "9944c0545d6f625b2e669c59292da34dc1e2071f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-meta-boxes/zipball/9944c0545d6f625b2e669c59292da34dc1e2071f",
+                "reference": "9944c0545d6f625b2e669c59292da34dc1e2071f",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "sleek-meta-boxes.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "time": "2019-09-27T01:04:55+00:00"
+        },
+        {
+            "name": "powerbuoy/sleek-modules",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-modules.git",
+                "reference": "aaa533cc7f02ddeb5e97499306318480d4f7e8ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/aaa533cc7f02ddeb5e97499306318480d4f7e8ac",
+                "reference": "aaa533cc7f02ddeb5e97499306318480d4f7e8ac",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "sleek-module.php",
+                    "sleek-modules.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "time": "2019-09-27T12:04:53+00:00"
+        },
+        {
             "name": "powerbuoy/sleek-post-types",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-post-types.git",
-                "reference": "e98b07dcb6a3803d4e974e937f44a3f0196cc284"
+                "reference": "1541b8b70592532c021fb2bacc1d26507e84c9bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/e98b07dcb6a3803d4e974e937f44a3f0196cc284",
-                "reference": "e98b07dcb6a3803d4e974e937f44a3f0196cc284",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/1541b8b70592532c021fb2bacc1d26507e84c9bb",
+                "reference": "1541b8b70592532c021fb2bacc1d26507e84c9bb",
                 "shasum": ""
             },
             "require": {
@@ -317,7 +513,39 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-09-27T00:36:45+00:00"
+            "time": "2019-09-27T01:53:48+00:00"
+        },
+        {
+            "name": "powerbuoy/sleek-settings",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-settings.git",
+                "reference": "e959858cb4577fbcf229adeb62bf2f734107c6b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-settings/zipball/e959858cb4577fbcf229adeb62bf2f734107c6b9",
+                "reference": "e959858cb4577fbcf229adeb62bf2f734107c6b9",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "sleek-settings.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "time": "2019-09-27T12:05:47+00:00"
         },
         {
             "name": "powerbuoy/sleek-tinymce",
@@ -325,12 +553,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-tinymce.git",
-                "reference": "5205a57b40e955f417fbd6e7691ff46ff1195ba6"
+                "reference": "d7cdd4aa50ea3fb1cf14303b07934e49626d109a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-tinymce/zipball/5205a57b40e955f417fbd6e7691ff46ff1195ba6",
-                "reference": "5205a57b40e955f417fbd6e7691ff46ff1195ba6",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-tinymce/zipball/d7cdd4aa50ea3fb1cf14303b07934e49626d109a",
+                "reference": "d7cdd4aa50ea3fb1cf14303b07934e49626d109a",
                 "shasum": ""
             },
             "type": "library",
@@ -349,7 +577,7 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-09-19T03:07:13+00:00"
+            "time": "2019-09-27T11:58:15+00:00"
         },
         {
             "name": "powerbuoy/sleek-utils",
@@ -357,12 +585,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-utils.git",
-                "reference": "9b3ea0d265cb93c505d9e5b6e7e09c67eed44146"
+                "reference": "4388bea159e44ef35f8c969d2c1998f7d1709232"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-utils/zipball/9b3ea0d265cb93c505d9e5b6e7e09c67eed44146",
-                "reference": "9b3ea0d265cb93c505d9e5b6e7e09c67eed44146",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-utils/zipball/4388bea159e44ef35f8c969d2c1998f7d1709232",
+                "reference": "4388bea159e44ef35f8c969d2c1998f7d1709232",
                 "shasum": ""
             },
             "type": "library",
@@ -381,23 +609,30 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-09-25T23:55:31+00:00"
+            "time": "2019-09-27T12:00:29+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "powerbuoy/sleek-core": 20,
-        "powerbuoy/sleek-cleanup": 20,
-        "powerbuoy/sleek-custom-logo": 20,
-        "powerbuoy/sleek-comment-form": 20,
-        "powerbuoy/sleek-image-sizes": 20,
-        "powerbuoy/sleek-utils": 20,
-        "powerbuoy/sleek-tinymce": 20,
+        "powerbuoy/sleek-acf": 20,
         "powerbuoy/sleek-archive-filter": 20,
+        "powerbuoy/sleek-archive-meta": 20,
+        "powerbuoy/sleek-cleanup": 20,
+        "powerbuoy/sleek-comment-form": 20,
+        "powerbuoy/sleek-core": 20,
+        "powerbuoy/sleek-custom-logo": 20,
+        "powerbuoy/sleek-gallery": 20,
+        "powerbuoy/sleek-image-sizes": 20,
+        "powerbuoy/sleek-login": 20,
+        "powerbuoy/sleek-menu": 20,
+        "powerbuoy/sleek-meta-boxes": 20,
+        "powerbuoy/sleek-modules": 20,
         "powerbuoy/sleek-post-types": 20,
-        "powerbuoy/sleek-acf": 20
+        "powerbuoy/sleek-settings": 20,
+        "powerbuoy/sleek-tinymce": 20,
+        "powerbuoy/sleek-utils": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

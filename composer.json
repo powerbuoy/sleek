@@ -9,16 +9,22 @@
         }
     ],
     "require": {
-        "powerbuoy/sleek-core": "dev-master",
-        "powerbuoy/sleek-cleanup": "dev-master",
-        "powerbuoy/sleek-custom-logo": "dev-master",
-        "powerbuoy/sleek-comment-form": "dev-master",
-        "powerbuoy/sleek-image-sizes": "dev-master",
-        "powerbuoy/sleek-utils": "dev-master",
-        "powerbuoy/sleek-tinymce": "dev-master",
-        "powerbuoy/sleek-archive-filter": "dev-master",
-        "powerbuoy/sleek-post-types": "dev-master",
         "powerbuoy/sleek-acf": "dev-master",
-        "powerbuoy/sleek-meta-boxes": "dev-master"
+        "powerbuoy/sleek-archive-filter": "dev-master",
+        "powerbuoy/sleek-archive-meta": "dev-master",
+        "powerbuoy/sleek-cleanup": "dev-master",
+        "powerbuoy/sleek-comment-form": "dev-master",
+        "powerbuoy/sleek-core": "dev-master",
+        "powerbuoy/sleek-custom-logo": "dev-master",
+        "powerbuoy/sleek-gallery": "dev-master",
+        "powerbuoy/sleek-image-sizes": "dev-master",
+        "powerbuoy/sleek-login": "dev-master",
+        "powerbuoy/sleek-menu": "dev-master",
+        "powerbuoy/sleek-meta-boxes": "dev-master",
+        "powerbuoy/sleek-modules": "dev-master",
+        "powerbuoy/sleek-post-types": "dev-master",
+        "powerbuoy/sleek-settings": "dev-master",
+        "powerbuoy/sleek-tinymce": "dev-master",
+        "powerbuoy/sleek-utils": "dev-master"
     }
 }

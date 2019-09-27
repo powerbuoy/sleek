@@ -14,9 +14,9 @@ class Office extends PostType {
 	public function fields () {
 		return [
 			[
-				'name' => 'address',
-				'label' => __('Address', 'sleek'),
-				'type' => 'textarea'
+				'name' => 'email',
+				'label' => __('E-mail', 'sleek'),
+				'type' => 'text'
 			],
 			[
 				'name' => 'phone',
@@ -24,9 +24,9 @@ class Office extends PostType {
 				'type' => 'text'
 			],
 			[
-				'name' => 'email',
-				'label' => __('E-mail', 'sleek'),
-				'type' => 'text'
+				'name' => 'address',
+				'label' => __('Address', 'sleek'),
+				'type' => 'textarea'
 			]
 		];
 	}

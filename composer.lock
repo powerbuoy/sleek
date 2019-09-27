@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4971931d7f8294d3e4a1fce60eb2cad1",
+    "content-hash": "a36d7b0291676ddeebb04334305140f1",
     "packages": [
         {
             "name": "icanboogie/inflector",
@@ -57,6 +57,38 @@
                 "underscore"
             ],
             "time": "2019-05-21T19:05:31+00:00"
+        },
+        {
+            "name": "powerbuoy/sleek-acf",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-acf.git",
+                "reference": "d4923403cfd7907740a03f11df9cf3faf2baa253"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-acf/zipball/d4923403cfd7907740a03f11df9cf3faf2baa253",
+                "reference": "d4923403cfd7907740a03f11df9cf3faf2baa253",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "sleek-acf.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "time": "2019-09-27T00:07:44+00:00"
         },
         {
             "name": "powerbuoy/sleek-archive-filter",
@@ -160,12 +192,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-core.git",
-                "reference": "c0d86ef4b48f725121158439cf0155d12c20a1b5"
+                "reference": "be991269683e8e111574256e2094759cbaf963a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/c0d86ef4b48f725121158439cf0155d12c20a1b5",
-                "reference": "c0d86ef4b48f725121158439cf0155d12c20a1b5",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/be991269683e8e111574256e2094759cbaf963a5",
+                "reference": "be991269683e8e111574256e2094759cbaf963a5",
                 "shasum": ""
             },
             "type": "library",
@@ -184,7 +216,7 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-09-26T00:10:38+00:00"
+            "time": "2019-09-26T23:51:10+00:00"
         },
         {
             "name": "powerbuoy/sleek-custom-logo",
@@ -256,12 +288,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-post-types.git",
-                "reference": "1eeceddc4a2abd66ede9c10cdcea1c5481729319"
+                "reference": "cc7e15a12a67946b1c291ef5144659eba768fe99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/1eeceddc4a2abd66ede9c10cdcea1c5481729319",
-                "reference": "1eeceddc4a2abd66ede9c10cdcea1c5481729319",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/cc7e15a12a67946b1c291ef5144659eba768fe99",
+                "reference": "cc7e15a12a67946b1c291ef5144659eba768fe99",
                 "shasum": ""
             },
             "require": {
@@ -284,7 +316,7 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-09-25T23:55:45+00:00"
+            "time": "2019-09-26T23:51:42+00:00"
         },
         {
             "name": "powerbuoy/sleek-tinymce",
@@ -363,7 +395,8 @@
         "powerbuoy/sleek-utils": 20,
         "powerbuoy/sleek-tinymce": 20,
         "powerbuoy/sleek-archive-filter": 20,
-        "powerbuoy/sleek-post-types": 20
+        "powerbuoy/sleek-post-types": 20,
+        "powerbuoy/sleek-acf": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

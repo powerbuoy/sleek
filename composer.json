@@ -17,6 +17,7 @@
         "powerbuoy/sleek-utils": "dev-master",
         "powerbuoy/sleek-tinymce": "dev-master",
         "powerbuoy/sleek-archive-filter": "dev-master",
-        "powerbuoy/sleek-post-types": "dev-master"
+        "powerbuoy/sleek-post-types": "dev-master",
+        "powerbuoy/sleek-acf": "dev-master"
     }
 }

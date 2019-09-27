@@ -2,7 +2,6 @@
 ###############
 # Theme support
 # NOTE: Run this before composer autoload
-add_theme_support('sleek-mobile-viewport');
 add_theme_support('sleek-classic-editor');
 add_theme_support('sleek-jquery-cdn');
 add_theme_support('sleek-disable-404-guessing');
@@ -10,8 +9,10 @@ add_theme_support('sleek-nice-email-from');
 add_theme_support('sleek-comment-form-placeholders');
 add_theme_support('sleek-tinymce-clean-paste');
 add_theme_support('sleek-tinymce-no-colors');
+add_theme_support('sleek-archive-meta');
 
 # Disabled by default
+# add_theme_support('sleek-gallery-slideshow');
 # add_theme_support('sleek-archive-filter');
 # add_theme_support('sleek-get-terms-post-type-arg')
 # add_theme_support('sleek-require-login')
@@ -49,7 +50,6 @@ add_action('acf/init', function () {
 
 #############
 # Image sizes
-# TODO: Do we need an action?
 Sleek\ImageSizes\register(1920, 1080, ['center', 'center']/*, [
 	'portrait' => ['width' => 1080, 'height' => 1920, 'crop' => ['center', 'top']],
 	'square' => ['width' => 1920, 'height' => 1920],
@@ -57,14 +57,12 @@ Sleek\ImageSizes\register(1920, 1080, ['center', 'center']/*, [
 
 ##########
 # Sidebars
-# TODO: Do we need add_action init?
 register_sidebar(['name' => __('Header', 'sleek'), 'id' => 'header']);
 register_sidebar(['name' => __('Footer', 'sleek'), 'id' => 'footer']);
 register_sidebar(['name' => __('Aside', 'sleek'), 'id' => 'aside']);
 
 ################
 # Menu locations
-# TODO: Do we need add_action init?
 register_nav_menus([
 	'main-menu' => __('Main menu', 'sleek')
 ]);

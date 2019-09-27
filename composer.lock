@@ -288,22 +288,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-post-types.git",
-                "reference": "cc7e15a12a67946b1c291ef5144659eba768fe99"
+                "reference": "e98b07dcb6a3803d4e974e937f44a3f0196cc284"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/cc7e15a12a67946b1c291ef5144659eba768fe99",
-                "reference": "cc7e15a12a67946b1c291ef5144659eba768fe99",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/e98b07dcb6a3803d4e974e937f44a3f0196cc284",
+                "reference": "e98b07dcb6a3803d4e974e937f44a3f0196cc284",
                 "shasum": ""
             },
             "require": {
-                "icanboogie/inflector": "^1.5"
+                "icanboogie/inflector": "^1.5",
+                "powerbuoy/sleek-acf": "dev-master"
             },
             "type": "library",
             "autoload": {
                 "files": [
-                    "post-type.php",
-                    "register.php"
+                    "sleek-post-type.php",
+                    "sleek-post-types.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -316,7 +317,7 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-09-26T23:51:42+00:00"
+            "time": "2019-09-27T00:36:45+00:00"
         },
         {
             "name": "powerbuoy/sleek-tinymce",

@@ -8,44 +8,6 @@
             "email": "powerbuoy@gmail.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/powerbuoy/sleek-core"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/powerbuoy/sleek-cleanup"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/powerbuoy/sleek-custom-logo"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/powerbuoy/sleek-comment-form"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/powerbuoy/sleek-image-sizes"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/powerbuoy/sleek-utils"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/powerbuoy/sleek-tinymce"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/powerbuoy/sleek-archive-filter"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/powerbuoy/sleek-post-types"
-        }
-    ],
     "require": {
         "powerbuoy/sleek-core": "dev-master",
         "powerbuoy/sleek-cleanup": "dev-master",

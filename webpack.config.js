@@ -4,7 +4,7 @@
 	- style-loader in dev
 	- watch
 	- files??
-	- glob-import in sass and js (main should auto-import every other file in js/ and main.scss can do @import "components/*")
+	- glob-import in sass and js (main should auto-import every other file in js/ and main.scss can do @import "components/*"): https://www.npmjs.com/package/import-glob
 	- icons (svg? fontello?)
 	- gettext
 */

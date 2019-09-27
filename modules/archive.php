@@ -2,11 +2,11 @@
 
 	<header>
 
-		<?php if ($image = Sleek\ArchiveMeta\get_the_archive_image('large')) : ?>
+		<?php /* TODO: if ($image = Sleek\ArchiveMeta\get_the_archive_image('large')) : ?>
 			<figure>
 				<?php echo $image ?>
 			</figure>
-		<?php endif ?>
+		<?php endif */ ?>
 
 		<h1><?php the_archive_title() ?></h1>
 

@@ -5,11 +5,9 @@ class Office extends PostType {
 	public function config () {
 		return [
 			'menu_icon' => 'dashicons-admin-multisite',
-			'public' => true,
-			'show_ui' => true,
-			'has_single' => false, # TODO: Add support for this in sleek-post-types
-			'hide_from_search' => true, # TODO: Add support for this in sleek-post-types
-			'taxonomies' => ['office_category', 'city'] # TODO: Add support for this in sleek-post-types
+			'has_single' => false,
+			'hide_from_search' => true,
+			'taxonomies' => ['office_category', 'city']
 		];
 	}
 

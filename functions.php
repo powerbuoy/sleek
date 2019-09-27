@@ -1,7 +1,12 @@
 <?php
+# NOTE: These need to run before composer autoload
+
+########################
+# Set up for translation
+load_theme_textdomain('sleek', get_template_directory() . '/languages');
+
 ###############
 # Theme support
-# NOTE: Run this before composer autoload
 add_theme_support('sleek-classic-editor');
 add_theme_support('sleek-jquery-cdn');
 add_theme_support('sleek-disable-404-guessing');

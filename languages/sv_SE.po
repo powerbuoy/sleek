@@ -1,0 +1,21 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv_SE\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Employee"
+msgstr "Anställd"
+
+msgid "Employees"
+msgstr "Anställda"
+
+msgid "Testing"
+msgstr "Testar"

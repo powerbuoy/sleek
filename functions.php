@@ -67,7 +67,7 @@ register_sidebar(['name' => __('Header', 'sleek'), 'id' => 'header']);
 register_sidebar(['name' => __('Footer', 'sleek'), 'id' => 'footer']);
 register_sidebar(['name' => __('Aside', 'sleek'), 'id' => 'aside']);
 
-register_nav_menus(['main-menu' => __('Main menu', 'sleek')]);
+register_nav_menus(['main_menu' => __('Main menu', 'sleek')]);
 
 ################
 # Sleek settings

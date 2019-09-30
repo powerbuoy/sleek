@@ -15,3 +15,10 @@ img {
 ::placeholder {
 	color: gray;
 }
+
+ul.menu {
+	.current-menu-item,
+	.current_page_parent {
+		font-weight: bold;
+	}
+}

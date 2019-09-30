@@ -72,11 +72,11 @@ var config = {
 				test: /\.scss$/,
 				exclude: /node_modules/,
 				use: [
-					// Extract CSS from app.js and create app.css
+					// Extract CSS(???)
 					{
 						loader: MiniCssExtractPlugin.loader
 					},
-					// Enable importing CSS
+					// Enable importing CSS(???)
 					{
 						loader: 'css-loader'
 					},

@@ -1,12 +1,12 @@
 <?php
-# NOTE: These need to run before composer autoload
-
 ########################
 # Set up for translation
+# NOTE: Load this first thing so translations are available everywhere
 load_theme_textdomain('sleek', get_template_directory() . '/languages');
 
 ###############
 # Theme support
+# NOTE: These need to be set before composer autoload
 add_theme_support('sleek-classic-editor');
 add_theme_support('sleek-jquery-cdn');
 add_theme_support('sleek-disable-404-guessing');
@@ -19,8 +19,8 @@ add_theme_support('sleek-archive-meta');
 # Disabled by default
 # add_theme_support('sleek-gallery-slideshow');
 # add_theme_support('sleek-archive-filter');
-# add_theme_support('sleek-get-terms-post-type-arg')
-# add_theme_support('sleek-require-login')
+# add_theme_support('sleek-get-terms-post-type-arg');
+# add_theme_support('sleek-require-login');
 
 ##########
 # Composer
@@ -44,6 +44,7 @@ add_action('__acf/init', function () {
 #################
 # More ACF fields
 add_action('acf/init', function () {
+	# Options page
 	acf_add_options_page([
 		'page_title' => __('Site Settings', 'sleek'),
 		'menu_slug' => 'site-settings',
@@ -60,31 +61,25 @@ Sleek\ImageSizes\register(1920, 1080, ['center', 'center']/*, [
 	'square' => ['width' => 1920, 'height' => 1920],
 ]*/);
 
-##########
-# Sidebars
+##################
+# Sidebars & menus
 register_sidebar(['name' => __('Header', 'sleek'), 'id' => 'header']);
 register_sidebar(['name' => __('Footer', 'sleek'), 'id' => 'footer']);
 register_sidebar(['name' => __('Aside', 'sleek'), 'id' => 'aside']);
 
-################
-# Menu locations
-register_nav_menus([
-	'main-menu' => __('Main menu', 'sleek')
-]);
+register_nav_menus(['main-menu' => __('Main menu', 'sleek')]);
 
 ################
 # Sleek settings
-# TODO: Why this action?
-add_action('__admin_init', function () {
-	Sleek\Settings\add_setting([
-		'name' => 'hubspot_portal_id',
+add_action('admin_init', function () {
+	Sleek\Settings\add_setting('hubspot_portal_id', [
 		'label' => __('Hubspot Portal ID', 'sleek'),
 		'type' => 'text'
 	]);
 });
 
 # ... use them
-add_action('__wp_head', function () {
+add_action('wp_head', function () {
 	if ($portalId = Sleek\Settings\get_setting('hubspot_portal_id')) {
 		echo '<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/' . $portalId . '.js"></script>';
 	}

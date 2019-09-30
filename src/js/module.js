@@ -1,11 +1,6 @@
-export function foo () {
-	console.log('foo');
-}
-
-export const bar = {
-	bar: 'bar'
-};
-
-export default () => {
-	console.log('default');
-}
+document.querySelectorAll('a[href^="http"]').forEach(el => {
+	el.addEventListener('click', e => {
+		e.preventDefault();
+		window.open(el.href);
+	});
+});

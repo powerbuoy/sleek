@@ -16,9 +16,10 @@ img {
 	color: gray;
 }
 
-ul.menu {
-	.current-menu-item,
-	.current_page_parent {
+ul {
+	.active > a,
+	.active-parent > a,
+	.active-ancestor > a {
 		font-weight: bold;
 	}
 }

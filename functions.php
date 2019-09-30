@@ -2,7 +2,7 @@
 ###################
 # Load translations
 # NOTE: LoDoad this first thing so translations are available everywhere
-load_theme_textdomain('sleek', get_template_directory() . '/languages');
+load_theme_textdomain('sleek', get_template_directory() . '/dist');
 
 ###############
 # Theme support
@@ -35,9 +35,9 @@ add_action('wp_enqueue_scripts', function () {
 ##################
 # ACF module areas
 add_action('__acf/init', function () {
-	Sleek\Acf\add_module_area([
+	Sleek\Modules\add_module_area([
 		'name' => 'below_content',
-		'modules' => ['text-block'],
+		'modules' => ['text-block', 'share-page', 'social-links'],
 		'location' => [[['param' => 'post_type', 'operator' => '==', 'value' => 'page']]]
 	]);
 });

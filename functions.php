@@ -1,7 +1,7 @@
 <?php
-########################
-# Set up for translation
-# NOTE: Load this first thing so translations are available everywhere
+###################
+# Load translations
+# NOTE: LoDoad this first thing so translations are available everywhere
 load_theme_textdomain('sleek', get_template_directory() . '/languages');
 
 ###############
@@ -28,8 +28,9 @@ require __DIR__ . '/vendor/autoload.php';
 
 ########
 # Assets
-# TODO: Example of adding more assets than main.css/main.js
-# add_action('wp_enqueue_scripts', function () {wp_enqueue_script('https://vue.js')});
+add_action('wp_enqueue_scripts', function () {
+	wp_enqueue_script('vue', 'https://cdn.jsdelivr.net/npm/vue@2.6.0', [], false, true);
+});
 
 ##################
 # ACF module areas

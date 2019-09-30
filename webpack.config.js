@@ -1,21 +1,26 @@
 /*
 	TODO:
-	- sourcemaps in dev
-	- style-loader in dev
-	- watch
-	- files??
-	- glob-import in sass and js (main should auto-import every other file in js/ and main.scss can do @import "components/*"): https://www.npmjs.com/package/import-glob
 	- icons (svg? fontello?)
-	- gettext
 */
+// Utils
 const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const glob = require('glob');
 
-module.exports = {
+// Plugins
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
+// Base config
+var config = {
 	// In
-	entry: './src/js/main.js',
+	entry: {
+		app: [
+			'./src/js/app.js', // JS
+			'./src/sass/app.scss' // SASS
+		].concat(glob.sync('./languages/*.po')), // PO-files
+	},
 
-	// n Out
+	// n out
 	output: {
 		filename: '[name].js',
 		path: path.resolve(__dirname, 'dist')
@@ -26,22 +31,40 @@ module.exports = {
 		// CSS Extractor
 		new MiniCssExtractPlugin({
 			filename: '[name].css'
-		})
+		}),
+
+		// Copy assets
+		new CopyPlugin([
+			{from: 'src/assets/', to: 'assets/', ignore: ['.DS_Store']}
+		])
 	],
 
 	// Config
 	module: {
 		rules: [
+			// PO-files
+			{
+				test: /\.po$/,
+				loader: 'file-loader?name=[name].mo!po2mo-loader'
+			},
+
 			// JS
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: ['@babel/preset-env']
+				use: [
+					// Babel
+					{
+						loader: 'babel-loader',
+						options: {
+							presets: ['@babel/preset-env']
+						}
+					},
+					// Glob
+					{
+						loader: 'import-glob-loader'
 					}
-				}
+				]
 			},
 
 			// SASS
@@ -49,7 +72,7 @@ module.exports = {
 				test: /\.scss$/,
 				exclude: /node_modules/,
 				use: [
-					// Extract CSS from main.js and create main.css
+					// Extract CSS from app.js and create app.css
 					{
 						loader: MiniCssExtractPlugin.loader
 					},
@@ -69,9 +92,30 @@ module.exports = {
 					// SASS
 					{
 						loader: 'sass-loader'
+					},
+					// Glob
+					{
+						loader: 'import-glob-loader'
 					}
 				]
 			}
 		]
 	}
+};
+
+// Finish config
+module.exports = (env, argv) => {
+	// Dev only
+	if (argv.mode === 'development') {
+		// Watch
+		config.watch = true;
+		config.watchOptions = {
+			ignored: /node_modules/
+		};
+
+		// Sourcemaps
+		config.devtool = 'source-map';
+	}
+
+	return config;
 };

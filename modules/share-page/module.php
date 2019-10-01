@@ -78,15 +78,15 @@ class SharePage extends Module {
 
 /*
 Module::render('share-page', [
-	'acf_post_id' => get_the_ID(),
-	'acf_post_id' => 'job_archive_meta'
+	'acf_post_id' => get_the_ID(), # or...
+	'acf_post_id' => 'job_archive_meta' # or...
 	'data' => [
 		'title' => 'Share this page!'
 	],
 	'template' => 'default'
 ]);
 Module::render([
-	'acf_flexible_field' => 'below_content',
+	'acf_flexible_field' => 'below_content', # module_area instead of acf_flexible_field?
 	'acf_post_id' => get_the_ID()
 ]);
 Module::renderFlexible('below_content', get_the_ID() (default)) => Modlue::render(['acf_flexible_field' => 'below_content'])

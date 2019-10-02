@@ -1,1 +1,1 @@
-alert('Yo share!');
+console.log('Yo share!');

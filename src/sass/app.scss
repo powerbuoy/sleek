@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,800,800i&display=swap');
 
 @import "config";
-@import "components/*";
+@import "components/**/*.scss";
+@import "modules/**/*.scss";
+@import "../../modules/**/*.scss";
 
 body {
 	@include container;

@@ -1,1 +1,2 @@
-import './*.js';
+import "./*.js";
+import "../../modules/**/*.js";

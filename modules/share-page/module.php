@@ -2,7 +2,7 @@
 namespace Sleek\Modules;
 
 class SharePage extends Module {
-	protected function fields () {
+	public function fields () {
 		return [
 			[
 				'name' => 'title',
@@ -42,7 +42,7 @@ class SharePage extends Module {
 		];
 	}
 
-	protected function data () {
+	public function data () {
 		return [
 			'urls' => self::getUrls($this->get_field('urls'))
 		];

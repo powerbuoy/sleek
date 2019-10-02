@@ -2,8 +2,9 @@
 
 @import "config";
 @import "components/**/*.scss";
-@import "modules/**/*.scss";
+// @import "../../vendor/powerbuoy/**/*.scss";
 @import "../../modules/**/*.scss";
+@import "modules/**/*.scss";
 
 body {
 	@include container;

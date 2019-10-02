@@ -2,7 +2,7 @@
 namespace Sleek\Modules;
 
 class SocialLinks extends Module {
-	protected function fields () {
+	public function fields () {
 		return [
 			[
 				'name' => 'title',
@@ -17,7 +17,7 @@ class SocialLinks extends Module {
 		];
 	}
 
-	protected function data () {
+	public function data () {
 		return [
 			'links' => self::getLinks()
 		];

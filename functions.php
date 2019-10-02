@@ -1,4 +1,8 @@
 <?php
+##########
+# Composer
+require __DIR__ . '/vendor/autoload.php';
+
 ###################
 # Load translations
 # NOTE: Load this first thing so translations are available everywhere
@@ -6,7 +10,6 @@ load_theme_textdomain('sleek', get_template_directory() . '/dist');
 
 ###############
 # Theme support
-# NOTE: These need to be set before composer autoload
 add_theme_support('sleek-classic-editor');
 add_theme_support('sleek-jquery-cdn');
 add_theme_support('sleek-disable-404-guessing');
@@ -21,10 +24,6 @@ add_theme_support('sleek-archive-meta');
 # add_theme_support('sleek-archive-filter');
 # add_theme_support('sleek-get-terms-post-type-arg');
 # add_theme_support('sleek-require-login');
-
-##########
-# Composer
-require __DIR__ . '/vendor/autoload.php';
 
 ########
 # Assets

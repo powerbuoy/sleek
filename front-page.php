@@ -3,6 +3,7 @@
 <main>
 
 	<?php get_template_part('modules/single-page') ?>
+	<?php Sleek\Modules\render('share-page') ?>
 
 </main>
 

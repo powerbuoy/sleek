@@ -1,7 +1,7 @@
 <?php
 ###################
 # Load translations
-# NOTE: LoDoad this first thing so translations are available everywhere
+# NOTE: Load this first thing so translations are available everywhere
 load_theme_textdomain('sleek', get_template_directory() . '/dist');
 
 ###############
@@ -32,18 +32,8 @@ add_action('wp_enqueue_scripts', function () {
 	wp_enqueue_script('vue', 'https://cdn.jsdelivr.net/npm/vue@2.6.0', [], false, true);
 });
 
-##################
-# ACF module areas
-add_action('__acf/init', function () {
-	Sleek\Modules\add_module_area([
-		'name' => 'below_content',
-		'modules' => ['text-block', 'share-page', 'social-links'],
-		'location' => [[['param' => 'post_type', 'operator' => '==', 'value' => 'page']]]
-	]);
-});
-
-#################
-# More ACF fields
+############
+# ACF fields
 add_action('acf/init', function () {
 	# Options page
 	acf_add_options_page([
@@ -52,7 +42,39 @@ add_action('acf/init', function () {
 		'post_id' => 'site_settings' # NOTE: Use this id in get_field('my_field', 'site_settings')
 	]);
 
-	# TODO... many more examples of fields in nav-menus, taxonomies, options-pages, etc etc
+	# Flexible content field
+	acf_add_local_field_group([
+		'key' => 'group_flexible_modules',
+		'title' => __('Modules', 'sleek'),
+		'location' => [
+			[['param' => 'post_type', 'operator' => '==', 'value' => 'page']]
+		],
+		'fields' => [
+			[
+				'key' => 'field_flexible_modules_below_content',
+				'name' => 'modules_below_content',
+				'button_label' => __('Add a module', 'sleek'),
+				'type' => 'flexible_content',
+				'layouts' => Sleek\Modules\get_module_fields( # TODO: get_flexible_module_fields
+					['share-page', 'social-links'],
+					['key' => 'field_flexible_modules_below_content', 'flexible' => true]
+				)
+			]
+		]
+	]);
+
+	# Sticky modules
+	acf_add_local_field_group([
+		'key' => 'group_sticky_modules',
+		'title' => __('Sticky modules', 'sleek'),
+		'location' => [
+			[['param' => 'post_type', 'operator' => '==', 'value' => 'page']]
+		],
+		'fields' => Sleek\Modules\get_module_fields( # TODO: get_tabbed_module_fields || get_module_fields
+			['share-page', 'social-links'],
+			['key' => 'field_flexible_modules_below_content', 'tabbed' => true]
+		)
+	]);
 });
 
 #############

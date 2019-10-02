@@ -23,7 +23,7 @@
 			<?php endif; endforeach ?>
 		</ul>
 	<?php else : ?>
-		<p><?php _e("You haven't added any selected any services.", 'sleek') ?></p>
+		<p><?php _e("You haven't selected any services.", 'sleek') ?></p>
 	<?php endif ?>
 
 </section>

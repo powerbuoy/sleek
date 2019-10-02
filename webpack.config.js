@@ -1,6 +1,7 @@
 /*
 	TODO:
-	- icons (svg? fontello?)
+	- icons (svg? fontello? icomoon)
+	- vue-loader för single-file-components: https://vue-loader.vuejs.org/guide/
 */
 // Utils
 const path = require('path');

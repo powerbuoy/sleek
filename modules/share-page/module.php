@@ -24,12 +24,13 @@ class SharePage extends Module {
 				'name' => 'services',
 				'label' => __('Select sharing methods', 'sleek'),
 				'type' => 'checkbox',
+				# NOTE: Key => Value is required for default_value to work for some reason... (simply 'Facebook', 'Twitter' etc won't work)
 				'choices' => [
-					'Facebook',
-					'Twitter',
-					'LinkedIn',
-					'Google Plus',
-					'Email'
+					'Facebook' => 'Facebook',
+					'Twitter' => 'Twitter',
+					'LinkedIn' => 'LinkedIn',
+					'Google Plus' => 'Google Plus',
+					'Email' => 'Email'
 				],
 				'default_value' => [
 					'Facebook',
@@ -75,19 +76,3 @@ class SharePage extends Module {
 		return $urls;
 	}
 }
-
-/*
-Module::render('share-page', [
-	'acf_post_id' => get_the_ID(), # or...
-	'acf_post_id' => 'job_archive_meta' # or...
-	'data' => [
-		'title' => 'Share this page!'
-	],
-	'template' => 'default'
-]);
-Module::render([
-	'acf_flexible_field' => 'below_content', # module_area instead of acf_flexible_field?
-	'acf_post_id' => get_the_ID()
-]);
-Module::renderFlexible('below_content', get_the_ID() (default)) => Modlue::render(['acf_flexible_field' => 'below_content'])
-*/

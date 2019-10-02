@@ -2,7 +2,7 @@
 namespace Sleek\Modules;
 
 class SharePage extends Module {
-	public function fields () {
+	protected function fields () {
 		return [
 			[
 				'name' => 'title',
@@ -42,13 +42,13 @@ class SharePage extends Module {
 		];
 	}
 
-	public function data () {
+	protected function data () {
 		return [
-			'urls' => $this->getUrls()
+			'urls' => self::getUrls($this->get_field('urls'))
 		];
 	}
 
-	private function getUrls () {
+	public static function getUrls ($url = null) {
 		global $post;
 		global $wp;
 
@@ -60,7 +60,7 @@ class SharePage extends Module {
 			'Email' => 'mailto:?subject={title}&body={url}'
 		];
 
-		$url = $this->get_field('url') ?? home_url(add_query_arg($_GET, $wp->request));
+		$url = $url ?? home_url(add_query_arg($_GET, $wp->request));
 		$title = wp_title('|', false, 'right');
 
 		foreach ($urls as $service => $u) {

@@ -2,13 +2,28 @@
 namespace Sleek\Modules;
 
 class SocialLinks extends Module {
-	public function data ($data) {
-		$data['links'] = $this->getLinks();
-
-		return $data;
+	protected function fields () {
+		return [
+			[
+				'name' => 'title',
+				'label' => __('Title', 'sleek'),
+				'type' => 'text'
+			],
+			[
+				'name' => 'description',
+				'label' => __('Description', 'sleek'),
+				'type' => 'wysiwyg'
+			]
+		];
 	}
 
-	public function getLinks () {
+	protected function data () {
+		return [
+			'links' => self::getLinks()
+		];
+	}
+
+	public static function getLinks () {
 		$tmp = get_option('wpseo_social');
 		$links = [];
 		$nicenames = [

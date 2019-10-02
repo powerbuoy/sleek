@@ -42,10 +42,10 @@ class SharePage extends Module {
 		];
 	}
 
-	public function data ($data) {
-		$data['urls'] = $this->getUrls();
-
-		return $data;
+	public function data () {
+		return [
+			'urls' => $this->getUrls()
+		];
 	}
 
 	private function getUrls () {
@@ -60,7 +60,7 @@ class SharePage extends Module {
 			'Email' => 'mailto:?subject={title}&body={url}'
 		];
 
-		$url = $share_page_url ?? home_url(add_query_arg($_GET, $wp->request));
+		$url = $this->get_field('url') ?? home_url(add_query_arg($_GET, $wp->request));
 		$title = wp_title('|', false, 'right');
 
 		foreach ($urls as $service => $u) {

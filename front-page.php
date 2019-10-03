@@ -4,13 +4,22 @@
 
 	<?php get_template_part('modules/single-page') ?>
 
+	<h2>Sticky sharepage</h2>
 	<?php Sleek\Modules\render('share-page', get_the_ID()) ?>
-	<?php $module = new Sleek\Modules\SharePage(['title' => 'Share!!', 'services' => ['Facebook', 'Twitter']]); $module->render() ?>
 
+	<h2>Static sharepage</h2>
+	<?php (new Sleek\Modules\SharePage(['title' => 'Share!!', 'services' => ['Facebook', 'Twitter']]))->render() ?>
+
+	<h2>Static sociallinks</h2>
 	<?php Sleek\Modules\render('social-links', ['title' => 'Socialize!!']) ?>
-	<?php $module = new Sleek\Modules\SocialLinks(['title' => 'Socialize!!']); $module->render() ?>
 
+	<h2>Static sociallinks</h2>
+	<?php (new Sleek\Modules\SocialLinks(['title' => 'Socialize!!']))->render() ?>
+
+	<h2>Static text-block</h2>
 	<?php Sleek\Modules\render('text-block') ?>
+
+	<h2>Flexible content</h2>
 	<?php Sleek\Modules\render_flexible('modules_below_content', get_the_ID()) ?>
 
 </main>

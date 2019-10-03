@@ -43,21 +43,16 @@ add_action('acf/init', function () {
 
 	# Flexible content field
 	acf_add_local_field_group([
-		'key' => 'flexible_modules',
+		'key' => 'modules',
 		'title' => __('Modules', 'sleek'),
-		'location' => [
-			[['param' => 'post_type', 'operator' => '==', 'value' => 'page']]
-		],
+		'location' => [[['param' => 'post_type', 'operator' => '==', 'value' => 'page']]],
 		'fields' => [
 			[
-				'key' => 'flexible_modules_below_content',
+				'key' => 'modules_below_content',
 				'name' => 'modules_below_content',
 				'button_label' => __('Add a module', 'sleek'),
 				'type' => 'flexible_content',
-				'layouts' => Sleek\Modules\get_module_fields(
-					['share-page', 'social-links'],
-					['key' => 'flexible_modules_below_content', 'flexible' => true]
-				)
+				'layouts' => Sleek\Modules\get_module_fields(['share-page', 'social-links'], 'modules_below_content', 'flexible')
 			]
 		]
 	]);
@@ -66,13 +61,8 @@ add_action('acf/init', function () {
 	acf_add_local_field_group([
 		'key' => 'sticky_modules',
 		'title' => __('Sticky modules', 'sleek'),
-		'location' => [
-			[['param' => 'post_type', 'operator' => '==', 'value' => 'page']]
-		],
-		'fields' => Sleek\Modules\get_module_fields(
-			['share-page', 'social-links'],
-			['key' => 'sticky_modules', 'tabbed' => true]
-		)
+		'location' => [[['param' => 'post_type', 'operator' => '==', 'value' => 'page']]],
+		'fields' => Sleek\Modules\get_module_fields(['share-page', 'social-links'], 'sticky_modules', 'tabbed')
 	]);
 });
 

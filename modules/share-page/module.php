@@ -24,8 +24,7 @@ class SharePage extends Module {
 				'name' => 'services',
 				'label' => __('Select sharing methods', 'sleek'),
 				'type' => 'checkbox',
-				# NOTE: Key => Value is required for default_value to work for some reason... (simply 'Facebook', 'Twitter' etc won't work)
-				'choices' => [
+				'choices' => [ # NOTE: Key => Value is required for default_value to work for some reason... (simply 'Facebook', 'Twitter' etc won't work)
 					'Facebook' => 'Facebook',
 					'Twitter' => 'Twitter',
 					'LinkedIn' => 'LinkedIn',

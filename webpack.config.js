@@ -1,7 +1,6 @@
 /*
 	TODO:
 	- icons (svg? fontello? icomoon)
-	- vue-loader för single-file-components: https://vue-loader.vuejs.org/guide/
 */
 // Utils
 const path = require('path');
@@ -10,6 +9,7 @@ const glob = require('glob');
 // Plugins
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 // Base config
 var config = {
@@ -37,12 +37,21 @@ var config = {
 		// Copy assets
 		new CopyPlugin([
 			{from: 'src/assets/', to: 'assets/', ignore: ['.DS_Store']}
-		])
+		]),
+
+		// Handle Vue SFC
+		new VueLoaderPlugin()
 	],
 
 	// Config
 	module: {
 		rules: [
+			// Vue
+			{
+				test: /\.vue$/,
+				loader: 'vue-loader'
+			},
+
 			// PO-files
 			{
 				test: /\.po$/,
@@ -62,9 +71,7 @@ var config = {
 						}
 					},
 					// Glob
-					{
-						loader: 'import-glob-loader'
-					}
+					{loader: 'import-glob-loader'}
 				]
 			},
 
@@ -74,13 +81,11 @@ var config = {
 				exclude: /node_modules/,
 				use: [
 					// Extract CSS(???)
-					{
-						loader: MiniCssExtractPlugin.loader
-					},
+					{loader: MiniCssExtractPlugin.loader},
+
 					// Enable importing CSS(???)
-					{
-						loader: 'css-loader'
-					},
+					{loader: 'css-loader'},
+
 					// PostCSS (autoprefixer etc)
 					{
 						loader: 'postcss-loader',
@@ -90,14 +95,15 @@ var config = {
 							]
 						}
 					},
+
+					// Vue??
+				//	{loader: 'vue-style-loader'},
+
 					// SASS
-					{
-						loader: 'sass-loader'
-					},
+					{loader: 'sass-loader'},
+
 					// Glob
-					{
-						loader: 'import-glob-loader'
-					}
+					{loader: 'import-glob-loader'}
 				]
 			}
 		]

@@ -96,9 +96,6 @@ var config = {
 						}
 					},
 
-					// Vue??
-				//	{loader: 'vue-style-loader'},
-
 					// SASS
 					{loader: 'sass-loader'},
 

@@ -1,6 +1,7 @@
 /*
 	TODO:
 	- icons (svg? fontello? icomoon)
+	- fix po watch
 */
 // Utils
 const path = require('path');
@@ -8,7 +9,8 @@ const glob = require('glob');
 
 // Plugins
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 // Base config
@@ -29,13 +31,16 @@ var config = {
 
 	// Plug-ins
 	plugins: [
+		// Clean dist/
+		new CleanWebpackPlugin(),
+
 		// CSS Extractor
 		new MiniCssExtractPlugin({
 			filename: '[name].css'
 		}),
 
 		// Copy assets
-		new CopyPlugin([
+		new CopyWebpackPlugin([
 			{from: 'src/assets/', to: 'assets/', ignore: ['.DS_Store']}
 		]),
 

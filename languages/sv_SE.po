@@ -17,5 +17,16 @@ msgstr "Anställd"
 msgid "Employees"
 msgstr "Anställda"
 
-msgid "Testing"
-msgstr "Testar"
+msgctxt "url"
+msgid "employees"
+msgstr "anstallda"
+
+msgid "Office"
+msgstr "Kontor"
+
+msgid "Offices"
+msgstr "Kontor"
+
+msgctxt "url"
+msgid "offices"
+msgstr "kontor"

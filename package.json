@@ -32,6 +32,8 @@
     "import-glob-loader": "^1.1.0",
     "mini-css-extract-plugin": "^0.8.0",
     "po2mo-loader": "^1.0.3",
+    "postcss-custom-media": "^7.0.8",
+    "postcss-custom-selectors": "^5.1.2",
     "postcss-loader": "^3.0.0",
     "sass": "^1.22.12",
     "sass-loader": "^8.0.0",
@@ -42,6 +44,7 @@
     "webpack-cli": "^3.3.9"
   },
   "dependencies": {
+    "normalize.css": "^8.0.1",
     "sleek-map": "github:powerbuoy/sleek-map"
   }
 }

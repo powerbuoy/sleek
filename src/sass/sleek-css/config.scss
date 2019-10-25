@@ -1,0 +1,37 @@
+// Media Queries
+@custom-media --tablet (min-width: 600px);
+@custom-media --tablet-max (max-width: 599px);
+
+@custom-media --laptop (min-width: 1080px);
+@custom-media --laptop-max (max-width: 1079px);
+
+@custom-media --desktop (min-width: 1260px);
+@custom-media --desktop-max (max-width: 1259px);
+
+// Config
+:root {
+	// Colors
+	--body-bg: white;
+	--border-color: #dedede;
+	--overlay-color: rgba(0, 0, 0, .4);
+
+	// Typography colors
+	--text-color: #111;
+	--heading-color: #111;
+
+	// Link colors
+	--link-color: #ffbf00;
+	--link-color-hover: darken(#ffbf00, 10%);
+	--link-color-visited: #609;
+
+	// Layout
+	--site-width: 1080px;
+	--site-width-min: 80%;
+	--section-spacing: 5rem;
+
+	// Typography
+	--font-family-default: Helvetica, Arial, sans-serif;
+	--font-size-default: 1rem;
+	--line-height-default: 1.6;
+	--font-weight-default: normal;
+}

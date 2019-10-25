@@ -4,29 +4,23 @@
 // Import config/vars
 @import "config";
 
-// Import components
+// Import vendor
+@import "~normalize.css/normalize.css";
+@import "sleek-css/sleek-css";
+
+// Import out stuff
 @import "components/**/*.scss";
-
-// Import module CSS
 // @import "../../modules/**/*.scss";
-
-// Import module CSS from this folder too
-@import "modules/**/*.scss";
 
 // Some basic styling
 body {
 	@include container;
 
-	background: var(--bg-color);
-}
-
-img {
-	max-width: 100%;
-	height: auto;
-}
-
-::placeholder {
-	color: gray;
+	@media (--tablet) {
+		:--heading {
+			color: blue;
+		}
+	}
 }
 
 ul {

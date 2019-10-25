@@ -1,0 +1,24 @@
+@mixin text ($color: var(--text-color)) {
+	font-size: var(--font-size-default);
+	font-family: var(--font-family-default);
+	font-weight: var(--font-weight-default);
+
+	letter-spacing: var(--letter-spacing-default);
+	line-height: var(--line-height-default);
+	text-transform: none; // TODO: Probably shouldn't be hard-coded
+
+	@if ($color) {
+		color: $color;
+	}
+}
+
+@mixin ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+@mixin hyphens {
+	word-wrap: break-word;
+	hyphens: auto;
+}

@@ -1,0 +1,14 @@
+*,
+:before,
+:after {
+	box-sizing: border-box;
+}
+
+html {
+	background: var(--body-bg);
+	font-size: 100%;
+}
+
+body {
+	@include text;
+}

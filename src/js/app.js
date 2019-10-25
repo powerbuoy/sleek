@@ -1,3 +1,6 @@
+// Import CSS
+import '../sass/app.scss';
+
 // Import all JS
 import './*.js';
 

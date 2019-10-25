@@ -2,6 +2,7 @@
 	TODO:
 	- icons (svg? fontello? icomoon)
 	- fix po watch
+	- load vue-sass after other sass so it can use other sass...
 */
 // Utils
 const path = require('path');
@@ -17,10 +18,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 var config = {
 	// In
 	entry: {
-		app: [
-			'./src/js/app.js', // JS
-			'./src/sass/app.scss' // SASS
-		].concat(glob.sync('./languages/*.po')), // PO-files
+		app: ['./src/js/app.js'].concat(glob.sync('./languages/*.po'))
 	},
 
 	// n out
@@ -75,6 +73,7 @@ var config = {
 							presets: ['@babel/preset-env']
 						}
 					},
+
 					// Glob
 					{loader: 'import-glob-loader'}
 				]
@@ -82,30 +81,53 @@ var config = {
 
 			// SASS
 			{
-				test: /\.scss$/,
+				test: /\.(s)?css$/,
 				exclude: /node_modules/,
 				use: [
 					// Extract CSS(???)
-					{loader: MiniCssExtractPlugin.loader},
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+							sourceMap: true
+						}
+					},
 
 					// Enable importing CSS(???)
-					{loader: 'css-loader'},
+					{
+						loader: 'css-loader',
+						options: {
+							sourceMap: true
+						}
+					},
 
 					// PostCSS (autoprefixer etc)
 					{
 						loader: 'postcss-loader',
 						options: {
 							plugins: [
-								require('autoprefixer')
-							]
+								require('autoprefixer'),
+								require('postcss-custom-media'),
+								require('postcss-custom-selectors')
+							],
+							sourceMap: true
 						}
 					},
 
 					// SASS
-					{loader: 'sass-loader'},
+					{
+						loader: 'sass-loader',
+						options: {
+							sourceMap: true
+						}
+					},
 
 					// Glob
-					{loader: 'import-glob-loader'}
+					{
+						loader: 'import-glob-loader',
+						options: {
+							sourceMap: true
+						}
+					}
 				]
 			}
 		]

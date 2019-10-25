@@ -44,9 +44,10 @@ Sleek\ImageSizes\register(1920, 1080, ['center', 'center']/*, [
 # Sidebars & menus
 register_sidebar(['name' => __('Header', 'sleek'), 'id' => 'header']);
 register_sidebar(['name' => __('Footer', 'sleek'), 'id' => 'footer']);
-register_sidebar(['name' => __('Aside', 'sleek'), 'id' => 'aside']);
+register_sidebar(['name' => __('Sidebar', 'sleek'), 'id' => 'sidebar']);
 
 register_nav_menus(['main_menu' => __('Main menu', 'sleek')]);
+register_nav_menus(['footer_menu' => __('Footer menu', 'sleek')]);
 
 ############
 # ACF fields
@@ -69,7 +70,7 @@ add_action('acf/init', function () {
 				'name' => 'modules_below_content',
 				'button_label' => __('Add a module', 'sleek'),
 				'type' => 'flexible_content',
-				'layouts' => Sleek\Modules\get_module_fields(['share-page', 'social-links'], 'modules_below_content', 'flexible')
+				'layouts' => Sleek\Modules\get_module_fields(['share-page', 'social-links', 'made-up', 'search-form'], 'modules_below_content', 'flexible')
 			]
 		]
 	]);

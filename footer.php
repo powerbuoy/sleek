@@ -1,9 +1,4 @@
-		<footer id="footer">
-
-			<?php dynamic_sidebar('footer') ?>
-
-		</footer>
-
+		<?php get_template_part('modules/footer') ?>
 		<?php wp_footer() ?>
 
 	</body>

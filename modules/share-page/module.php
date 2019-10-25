@@ -24,7 +24,8 @@ class SharePage extends Module {
 				'name' => 'services',
 				'label' => __('Select sharing methods', 'sleek'),
 				'type' => 'checkbox',
-				'choices' => [ # NOTE: Key => Value is required for default_value to work for some reason... (simply 'Facebook', 'Twitter' etc won't work)
+				# NOTE: Key => Value is required for default_value to work for some reason... (simply 'Facebook', 'Twitter' etc won't work)
+				'choices' => [
 					'Facebook' => 'Facebook',
 					'Twitter' => 'Twitter',
 					'LinkedIn' => 'LinkedIn',
@@ -44,7 +45,7 @@ class SharePage extends Module {
 
 	public function data () {
 		return [
-			'urls' => self::getUrls($this->get_field('urls'))
+			'urls' => self::getUrls($this->get_field('url'))
 		];
 	}
 
@@ -60,7 +61,7 @@ class SharePage extends Module {
 			'Email' => 'mailto:?subject={title}&body={url}'
 		];
 
-		$url = $url ?? home_url(add_query_arg($_GET, $wp->request));
+		$url = $url ? $url : home_url(add_query_arg($_GET, $wp->request));
 		$title = wp_title('|', false, 'right');
 
 		foreach ($urls as $service => $u) {

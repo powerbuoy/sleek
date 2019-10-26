@@ -40,13 +40,15 @@
 
 	color: white;
 
-	a {
+	a,
+	:--heading {
 		color: currentcolor;
 	}
 
 	> header {
 		h1 {
-			font-size: 12rem;
+			font-size: 8rem;
+			line-height: 1;
 		}
 
 		figure:first-child {

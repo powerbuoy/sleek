@@ -22,8 +22,8 @@
 	--site-width-min: 80%;
 	--site-padding: calc((100% - var(--site-width-min)) / 2);
 
-	// NOTE: --site-width / --site-width-min HACK
-	@media (min-width: calc(1080 / 80 * 100px)) {
+	// NOTE: (site-width / site-width-min) * 100px
+	@media (min-width: 1350px) {
 		--site-padding: calc((100vw - var(--site-width)) / 2);
 	}
 
@@ -43,17 +43,17 @@
 	--color-heading: #111;
 
 	// Link colors
-	--color-link: #ffbf00;
-	--color-link-hover: darken(#ffbf00, 10%);
+	--color-link: #ffea00;
+	--color-link-hover: #ffea00;
 	--color-link-visited: #609;
 
 	/////////////
 	// Typography
 	// Font family
-	--font-family-default: Helvetica, sans-serif;
-	--font-family-heading: var(--font-family-default);
+	--font-family-default: "Lato", Helvetica, sans-serif;
+	--font-family-heading: "Raleway", "Prociono", "Playfair Display", "Liu Jian Mao Cao", "Jomolhari", "Lato", Helvetica, sans-serif;
 
-	// Weigth
+	// Weight
 	--font-weight-default: normal;
 	--font-weight-heading: bold;
 
@@ -76,7 +76,4 @@
 
 	--letter-spacing-default: 0;
 	--letter-spacing-heading: 0;
-
-	--text-decoration-link: none;
-	--text-decoration-link-hover: none;
 }

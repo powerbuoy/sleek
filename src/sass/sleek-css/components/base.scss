@@ -43,6 +43,16 @@ h6 {
 	font-size: var(--font-size-h6);
 }
 
+// Links
+a {
+	color: var(--color-link);
+	text-decoration: none;
+
+	&:hover {
+		color: var(--color-link-hover);
+	}
+}
+
 // Blocks
 p {
 	margin: 0 0 var(--spacing-default);

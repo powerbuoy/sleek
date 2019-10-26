@@ -13,6 +13,12 @@
 // @import "../../modules/**/*.scss";
 
 // Some basic styling
+html {
+	@media (--tablet-max) {
+		font-size: 80%;
+	}
+}
+
 #header {
 	position: absolute;
 	left: 0;
@@ -28,30 +34,29 @@
 }
 
 #single-page {
-	@include section;
-
-	position: relative;
-	min-height: 100vh;
-
-	display: flex;
-	align-items: flex-start;
-	justify-content: flex-end;
-	flex-direction: column;
-
-	color: white;
-
-	a,
-	:--heading {
-		color: currentcolor;
-	}
-
 	> header {
-		h1 {
-			font-size: 8rem;
-			line-height: 1;
+		@include section;
+
+		position: relative;
+		min-height: 100vh;
+
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-end;
+		flex-direction: column;
+
+		color: white;
+
+		> * {
+			width: 100%;
 		}
 
-		figure:first-child {
+		a,
+		:--heading {
+			color: currentcolor;
+		}
+
+		> figure:first-child {
 			img {
 				@include img-background;
 
@@ -59,6 +64,33 @@
 
 			//	filter: brightness(.5);
 			}
+		}
+
+		h1 {
+			font-size: 1.5rem;
+			line-height: 1;
+			font-family: "Liu Jian Mao Cao";
+
+			strong {
+				display: block;
+				font-size: 7rem;
+				font-family: var(--font-family-heading);
+			}
+
+			@media (--tablet) {
+				font-size: 2rem;
+
+				strong {
+					font-size: 10rem;
+				}
+			}
+		}
+
+		p {
+			@include list-separated;
+
+			font-size: var(--font-size-small);
+			text-transform: uppercase;
 		}
 	}
 }

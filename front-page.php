@@ -4,7 +4,7 @@
 
 	<?php get_template_part('modules/single-page') ?>
 
-	<div data-vue>
+	<div data-vue class="container">
 		<h2>Vue Test</h2>
 		<test-component></test-component>
 		<another-component></another-component>

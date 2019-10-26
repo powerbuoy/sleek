@@ -1,3 +1,3 @@
 # Sleek
 
-A WordPress theme for developers.
+A WordPress Theme for Developers.

@@ -26,11 +26,11 @@ add_theme_support('sleek-archive-meta');
 # add_theme_support('sleek-get-terms-post-type-arg');
 # add_theme_support('sleek-require-login');
 
-##############
-# Extra assets
-# NOTE: Google Fonts are @imported by app.scss
+########
+# Assets
+# NOTE: app.css/app.js are imported by sleek-core
 add_action('wp_enqueue_scripts', function () {
-	wp_enqueue_script('vue', 'https://cdn.jsdelivr.net/npm/vue@2.6.0', [], null, true);
+	wp_enqueue_script('vue', 'https://cdn.jsdelivr.net/npm/vue@2.6.10', [], null, true);
 });
 
 #############
@@ -70,7 +70,7 @@ add_action('acf/init', function () {
 				'name' => 'modules_below_content',
 				'button_label' => __('Add a module', 'sleek'),
 				'type' => 'flexible_content',
-				'layouts' => Sleek\Modules\get_module_fields(['share-page', 'social-links', 'made-up', 'search-form'], 'modules_below_content', 'flexible')
+				'layouts' => Sleek\Modules\get_module_fields(['share-page', 'social-links'], 'modules_below_content', 'flexible')
 			]
 		]
 	]);

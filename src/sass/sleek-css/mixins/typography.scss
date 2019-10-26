@@ -1,4 +1,24 @@
-@mixin text ($color: var(--text-color)) {
+@mixin heading ($size: var(--font-size-h1), $color: var(--color-heading)) {
+	display: block;
+	margin: 0 0 var(--spacing-default);
+
+	font-weight: var(--font-weight-heading);
+	font-size: $size;
+	font-family: var(--font-family-heading);
+
+	line-height: var(--line-height-heading);
+	letter-spacing: var(--letter-spacing-heading);
+
+	@if ($color) {
+		color: $color;
+	}
+
+	a {
+		color: currentcolor;
+	}
+}
+
+@mixin text ($color: var(--color-text)) {
 	font-size: var(--font-size-default);
 	font-family: var(--font-family-default);
 	font-weight: var(--font-weight-default);

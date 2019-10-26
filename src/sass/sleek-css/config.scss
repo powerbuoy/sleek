@@ -1,3 +1,4 @@
+////////////////
 // Media Queries
 @custom-media --tablet (min-width: 600px);
 @custom-media --tablet-max (max-width: 599px);
@@ -8,30 +9,74 @@
 @custom-media --desktop (min-width: 1260px);
 @custom-media --desktop-max (max-width: 1259px);
 
+///////////////////
+// Custom selectors
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+@custom-selector :--form-field input[type=text], input[type=password], input[type=search], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=date], input[type=month], input[type=week], input[type=time], input[type=datetime], input[type=datetime-local], input[type=color], textarea;
+
 // Config
 :root {
-	// Colors
-	--body-bg: white;
-	--border-color: #dedede;
-	--overlay-color: rgba(0, 0, 0, .4);
-
-	// Typography colors
-	--text-color: #111;
-	--heading-color: #111;
-
-	// Link colors
-	--link-color: #ffbf00;
-	--link-color-hover: darken(#ffbf00, 10%);
-	--link-color-visited: #609;
-
+	/////////
 	// Layout
 	--site-width: 1080px;
 	--site-width-min: 80%;
-	--section-spacing: 5rem;
+	--site-padding: calc((100% - var(--site-width-min)) / 2);
 
+	// NOTE: --site-width / --site-width-min HACK
+	@media (min-width: calc(1080 / 80 * 100px)) {
+		--site-padding: calc((100vw - var(--site-width)) / 2);
+	}
+
+	//////////
+	// Spacing
+	--spacing-section: 5rem;
+	--spacing-default: 1rem;
+
+	/////////
+	// Colors
+	--color-body-bg: white;
+	--color-border: #dedede;
+	--color-overlay: rgba(0, 0, 0, .4);
+
+	// Typography colors
+	--color-text: #111;
+	--color-heading: #111;
+
+	// Link colors
+	--color-link: #ffbf00;
+	--color-link-hover: darken(#ffbf00, 10%);
+	--color-link-visited: #609;
+
+	/////////////
 	// Typography
-	--font-family-default: Helvetica, Arial, sans-serif;
-	--font-size-default: 1rem;
-	--line-height-default: 1.6;
+	// Font family
+	--font-family-default: Helvetica, sans-serif;
+	--font-family-heading: var(--font-family-default);
+
+	// Weigth
 	--font-weight-default: normal;
+	--font-weight-heading: bold;
+
+	// Size
+	--font-size-default: 1rem;
+	--font-size-small: .8rem;
+	--font-size-large: 1.2rem;
+	--font-size-x-large: 1.8rem;
+
+	--font-size-h1: 3.6rem;
+	--font-size-h2: 2.4rem;
+	--font-size-h3: 1.8rem;
+	--font-size-h4: 1.4rem;
+	--font-size-h5: 1.2rem;
+	--font-size-h6: 1.1rem;
+
+	// Height, spacing decoration
+	--line-height-default: 1.6;
+	--line-height-heading: 1.2;
+
+	--letter-spacing-default: 0;
+	--letter-spacing-heading: 0;
+
+	--text-decoration-link: none;
+	--text-decoration-link-hover: none;
 }

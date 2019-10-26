@@ -1,0 +1,3 @@
+@mixin section ($width: var(--site-width)) {
+	padding: var(--spacing-section) var(--site-padding);
+}

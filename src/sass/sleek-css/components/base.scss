@@ -1,3 +1,4 @@
+// Base
 *,
 :before,
 :after {
@@ -5,10 +6,50 @@
 }
 
 html {
-	background: var(--body-bg);
+	background: var(--color-body-bg);
 	font-size: 100%;
 }
 
 body {
 	@include text;
+}
+
+// Headings
+:--heading {
+	@include heading;
+}
+
+h1 {
+	font-size: var(--font-size-h1);
+}
+
+h2 {
+	font-size: var(--font-size-h2);
+}
+
+h3 {
+	font-size: var(--font-size-h3);
+}
+
+h4 {
+	font-size: var(--font-size-h4);
+}
+
+h5 {
+	font-size: var(--font-size-h5);
+}
+
+h6 {
+	font-size: var(--font-size-h6);
+}
+
+// Blocks
+p {
+	margin: 0 0 var(--spacing-default);
+}
+
+// Lists
+ul,
+ol {
+	margin: 0 0 var(--spacing-default) var(--spacing-large);
 }

@@ -142,7 +142,9 @@ module.exports = (env, argv) => {
 		// Watch
 		config.watch = true;
 		config.watchOptions = {
-			ignored: /node_modules/
+			ignored: /node_modules/,
+			aggregateTimeout: 300,
+			poll: 1000
 		};
 
 		// Sourcemaps

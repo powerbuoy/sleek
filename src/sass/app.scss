@@ -13,6 +13,22 @@
 // @import "../../modules/**/*.scss";
 
 // Helper mixins
+@mixin figure-background {
+//	background: attr(data-img url) no-repeat 50% 50%;
+	background-size: cover;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+	margin: 0;
+
+	img {
+		display: none;
+	}
+}
+
 @mixin full-height ($align: center) {
 	min-height: 100vh;
 	display: flex;
@@ -30,32 +46,26 @@
 	text-transform: uppercase;
 }
 
+@mixin section-bg {
+	position: relative;
+	color: white;
+
+	a,
+	:--heading {
+		color: currentColor;
+	}
+
+	figure {
+		@include figure-background;
+
+		background-attachment: fixed;
+	}
+}
+
 // Some basic styling
 html {
 	@media (--tablet-max) {
 		font-size: 80%;
-	}
-
-	// Page transition
-	&::before {
-		background: white;
-
-		display: block;
-		content: "";
-		position: fixed;
-		left: 0;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 999;
-
-		transform: translateX(-100%);
-		transform-origin: left 50%;
-		transition: transform .5s ease-in-out;
-	}
-
-	&.loading::before {
-		transform: translateX(0);
 	}
 }
 
@@ -74,6 +84,7 @@ html {
 
 	color: white;
 	font-size: var(--font-size-small);
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
 
 	a {
 		color: currentColor;
@@ -101,27 +112,8 @@ html {
 #single-page {
 	> header {
 		@include section;
+		@include section-bg;
 		@include full-height(flex-end);
-
-		position: relative;
-		color: white;
-
-		a,
-		:--heading {
-			color: currentColor;
-		}
-
-		> figure {
-			margin: 0;
-
-			img {
-				@include img-background;
-
-				position: fixed;
-
-			//	filter: brightness(.5);
-			}
-		}
 
 		h1 {
 			font-size: 1.5rem;
@@ -144,7 +136,7 @@ html {
 			}
 		}
 
-		p {
+		ul {
 			@include list-separated;
 			@include text-label;
 		}
@@ -152,8 +144,18 @@ html {
 
 	> article {
 		@include section;
-		@include full-height;
+	//	@include full-height;
 
 		background: white;
 	}
+}
+
+#text-block {
+	@include section;
+	@include section-bg;
+	@include full-height(center);
+}
+
+#vue-component {
+	@include section;
 }

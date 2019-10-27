@@ -3,6 +3,7 @@
 # Composer
 require __DIR__ . '/vendor/autoload.php';
 
+# Temp shortcode
 add_shortcode('sleek_menu', function ($atts, $content, $shortcode_tag) {
 	return wp_nav_menu(shortcode_atts([
 		'menu' => '',
@@ -35,6 +36,7 @@ load_theme_textdomain('sleek', get_template_directory() . '/dist');
 # Theme support
 add_theme_support('sleek-classic-editor');
 add_theme_support('sleek-jquery-cdn');
+add_theme_support('sleek-disable-jquery');
 add_theme_support('sleek-disable-404-guessing');
 add_theme_support('sleek-nice-email-from');
 add_theme_support('sleek-comment-form-placeholders');

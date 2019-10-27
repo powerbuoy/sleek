@@ -92,7 +92,7 @@ add_action('acf/init', function () {
 				'name' => 'modules_below_content',
 				'button_label' => __('Add a module', 'sleek'),
 				'type' => 'flexible_content',
-				'layouts' => Sleek\Modules\get_module_fields(['text-block', 'share-page', 'social-links'], 'modules_below_content', 'flexible')
+				'layouts' => Sleek\Modules\get_module_fields(['text-block', 'share-page', 'social-links', 'vue-component'], 'modules_below_content', 'flexible')
 			]
 		]
 	]);

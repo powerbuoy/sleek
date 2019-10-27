@@ -79,8 +79,8 @@ add_action('acf/init', function () {
 	acf_add_local_field_group([
 		'key' => 'sticky_modules',
 		'title' => __('Sticky modules', 'sleek'),
-		'location' => [[['param' => 'post_type', 'operator' => '==', 'value' => 'page']]],
-		'fields' => Sleek\Modules\get_module_fields(['share-page', 'social-links'], 'sticky_modules', 'tabbed')
+		'location' => [[['param' => 'post_type', 'operator' => '==', 'value' => 'post']]],
+		'fields' => Sleek\Modules\get_module_fields(['redirect-url', 'share-page', 'social-links'], 'sticky_modules', 'tabbed')
 	]);
 });
 

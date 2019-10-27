@@ -4,10 +4,8 @@
 
 	<?php get_template_part('modules/single-page') ?>
 
-	<div>
-		<div data-vue>
-			<vue-component></vue-component>
-		</div>
+	<div data-vue>
+		<vue-component></vue-component>
 	</div>
 
 	<?php /* Sleek\Modules\render('share-page', get_the_ID()) ?>

@@ -3,6 +3,28 @@
 # Composer
 require __DIR__ . '/vendor/autoload.php';
 
+add_shortcode('sleek_menu', function ($atts, $content, $shortcode_tag) {
+	return wp_nav_menu(shortcode_atts([
+		'menu' => '',
+		'menu_class' => 'menu',
+		'menu_id' => '',
+		'container' => 'div',
+		'container_class' => '',
+		'container_id' => '',
+		'fallback_cb' => false,
+		'echo' => false,
+		'before' => '',
+		'after' => '',
+		'link_before' => '',
+		'link_after' => '',
+		'depth' => 0,
+		'walker' => '',
+		'theme_location' => ''
+	], $atts));
+});
+
+add_filter('the_excerpt', 'do_shortcode');
+
 ###################
 # Load translations
 # NOTE: Load this first thing so translations are available everywhere

@@ -1,14 +1,16 @@
 <template>
-	<section id="vue-component">
+	<section>
 		<h2>{{ title }}</h2>
 		<p>{{ description }}</p>
 		<button v-on:click="hello">Click me</button>
 	</section>
 </template>
 
-<style lang="scss">
-	#vue-component {
-
+<style lang="scss" scoped>
+	section {
+		h2 {
+			font-size: var(--font-size-h3);
+		}
 	}
 </style>
 

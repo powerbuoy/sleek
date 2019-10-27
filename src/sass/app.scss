@@ -25,10 +25,37 @@
 	}
 }
 
+@mixin text-label {
+	font-size: var(--font-size-small);
+	text-transform: uppercase;
+}
+
 // Some basic styling
 html {
 	@media (--tablet-max) {
 		font-size: 80%;
+	}
+
+	// Page transition
+	&::before {
+		background: white;
+
+		display: block;
+		content: "";
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 999;
+
+		transform: translateX(-100%);
+		transform-origin: left 50%;
+		transition: transform .5s ease-in-out;
+	}
+
+	&.loading::before {
+		transform: translateX(0);
 	}
 }
 
@@ -52,23 +79,22 @@ html {
 		color: currentColor;
 	}
 
+	// Logo
 	.site-logo {
 		@include heading(2rem, false);
 
 		margin: 0;
 	}
 
+	// Tagline
 	.site-logo + p {
 		display: none;
 	}
 
+	// Menu
 	ul {
-		margin: 0;
-		list-style: none;
-
-		li {
-			display: inline-block;
-		}
+		@include list-separated;
+		@include text-label;
 	}
 }
 
@@ -120,9 +146,7 @@ html {
 
 		p {
 			@include list-separated;
-
-			font-size: var(--font-size-small);
-			text-transform: uppercase;
+			@include text-label;
 		}
 	}
 

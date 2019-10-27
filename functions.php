@@ -109,10 +109,7 @@ add_action('acf/init', function () {
 ################
 # Sleek settings (TODO: Change args to name, label = null, type = text and use inflector to titleize if label==null)
 add_action('admin_init', function () {
-	Sleek\Settings\add_setting('hubspot_portal_id', [
-		'label' => __('Hubspot Portal ID', 'sleek'),
-		'type' => 'text'
-	]);
+	Sleek\Settings\add_setting('hubspot_portal_id', 'text', __('Hubspot Portal ID', 'sleek'));
 });
 
 # ... use them

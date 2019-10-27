@@ -16,9 +16,9 @@ class RedirectUrl extends Module {
 
 		# Redirect single pages to the redirect URL
 		add_action('template_redirect', function () {
-			global $post;
-
 			if (is_singular()) {
+				global $post;
+
 				$redirectUrl = get_field('redirect_url', $post->ID);
 
 				if (isset($redirectUrl['url']) and !empty($redirectUrl['url'])) {

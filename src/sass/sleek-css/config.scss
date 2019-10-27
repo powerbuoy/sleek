@@ -40,7 +40,7 @@
 
 	// Typography colors
 	--color-text: #111;
-	--color-heading: #111;
+	--color-heading: #222;
 
 	// Link colors
 	--color-link: #ffea00;
@@ -51,11 +51,11 @@
 	// Typography
 	// Font family
 	--font-family-default: "Raleway", "Prociono", "Playfair Display", "Liu Jian Mao Cao", "Jomolhari", "Lato", Helvetica, sans-serif;
-	--font-family-heading: "Playfair Display", "Raleway", "Prociono", "Playfair Display", "Liu Jian Mao Cao", "Jomolhari", "Lato", Helvetica, sans-serif;
+	--font-family-heading: "Raleway", "Playfair Display", "Raleway", "Prociono", "Playfair Display", "Liu Jian Mao Cao", "Jomolhari", "Lato", Helvetica, sans-serif;
 
 	// Weight
 	--font-weight-default: normal;
-	--font-weight-heading: bold;
+	--font-weight-heading: 900;
 
 	// Size
 	--font-size-default: 1rem;
@@ -63,12 +63,12 @@
 	--font-size-large: 1.2rem;
 	--font-size-x-large: 1.8rem;
 
-	--font-size-h1: 3.6rem;
-	--font-size-h2: 2.4rem;
-	--font-size-h3: 1.8rem;
-	--font-size-h4: 1.4rem;
-	--font-size-h5: 1.2rem;
-	--font-size-h6: 1.1rem;
+	--font-size-h1: 4.2rem;
+	--font-size-h2: 3.6rem;
+	--font-size-h3: 2.4rem;
+	--font-size-h4: 1.8rem;
+	--font-size-h5: 1.6rem;
+	--font-size-h6: 1.2rem;
 
 	// Height, spacing decoration
 	--line-height-default: 1.6;

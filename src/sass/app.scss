@@ -12,6 +12,19 @@
 @import "components/**/*.scss";
 // @import "../../modules/**/*.scss";
 
+// Helper mixins
+@mixin full-height ($align: center) {
+	min-height: 100vh;
+	display: flex;
+	align-items: flex-start;
+	justify-content: $align;
+	flex-direction: column;
+
+	> * {
+		width: 100%;
+	}
+}
+
 // Some basic styling
 html {
 	@media (--tablet-max) {
@@ -19,8 +32,8 @@ html {
 	}
 }
 
-#header {
-	position: absolute;
+#site-header {
+	position: fixed;
 	left: 0;
 	top: 0;
 	z-index: 99;
@@ -31,32 +44,50 @@ html {
 
 	width: 100%;
 	padding: var(--spacing-default);
+
+	color: white;
+	font-size: var(--font-size-small);
+
+	a {
+		color: currentColor;
+	}
+
+	.site-logo {
+		@include heading(2rem, false);
+
+		margin: 0;
+	}
+
+	.site-logo + p {
+		display: none;
+	}
+
+	ul {
+		margin: 0;
+		list-style: none;
+
+		li {
+			display: inline-block;
+		}
+	}
 }
 
 #single-page {
 	> header {
 		@include section;
+		@include full-height(flex-end);
 
 		position: relative;
-		min-height: 100vh;
-
-		display: flex;
-		align-items: flex-start;
-		justify-content: flex-end;
-		flex-direction: column;
-
 		color: white;
-
-		> * {
-			width: 100%;
-		}
 
 		a,
 		:--heading {
-			color: currentcolor;
+			color: currentColor;
 		}
 
-		> figure:first-child {
+		> figure {
+			margin: 0;
+
 			img {
 				@include img-background;
 
@@ -74,6 +105,7 @@ html {
 			strong {
 				display: block;
 				font-size: 7rem;
+				line-height: .75;
 				font-family: var(--font-family-heading);
 			}
 
@@ -92,5 +124,12 @@ html {
 			font-size: var(--font-size-small);
 			text-transform: uppercase;
 		}
+	}
+
+	> article {
+		@include section;
+		@include full-height;
+
+		background: white;
 	}
 }

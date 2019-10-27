@@ -1,4 +1,4 @@
-<header id="header">
+<header id="site-header">
 
 	<?php the_custom_logo() ?>
 

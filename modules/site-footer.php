@@ -1,4 +1,4 @@
-<footer id="footer">
+<footer id="site-footer">
 
 	<?php dynamic_sidebar('footer') ?>
 

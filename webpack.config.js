@@ -96,7 +96,8 @@ var config = {
 					{
 						loader: 'css-loader',
 						options: {
-							sourceMap: true
+							sourceMap: true,
+							url: false // Don't parse url()
 						}
 					},
 

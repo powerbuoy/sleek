@@ -6,8 +6,6 @@
 
 		<?php wp_head() ?>
 
-		<script>document.documentElement.classList.add('loading')</script>
-
 	</head>
 
 	<body>

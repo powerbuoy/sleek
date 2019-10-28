@@ -1,5 +1,5 @@
 // Import fonts
-@import url('https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao|Raleway:300,300i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes|Raleway:300,300i,900,900i&display=swap');
 
 // Import config/vars
 @import "config";
@@ -37,7 +37,10 @@
 	justify-content: $valign;
 	flex-direction: column;
 
-	@if ($align != center) {
+	@if ($align == center) {
+		text-align: center;
+	}
+	@else {
 		> * {
 			width: 100%;
 		}
@@ -143,15 +146,17 @@ html {
 	//	@include section-bg;
 		@include full-height(center, center);
 
+		background: radial-gradient(circle farthest-corner at center top, #00d4ff, #020024 80%);
+
 		h1 {
-			font-size: 1.5rem;
+			font-size: 2rem;
 			line-height: 1;
-			font-family: "Liu Jian Mao Cao";
+			font-family: "Great Vibes";
 
 			strong {
 				display: block;
 				font-size: 7rem;
-				line-height: .75;
+				line-height: 1;
 				font-family: var(--font-family-heading);
 			}
 

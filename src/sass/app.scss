@@ -62,6 +62,27 @@
 	}
 }
 
+@mixin wysiwyg {
+	> p:first-child,
+	> :--heading + p {
+		font-size: var(--font-size-large);
+	}
+
+	.illustration {
+		@media (--tablet) {
+			float: right;
+			margin-left: 5rem;
+		}
+
+		white-space: nowrap;
+
+		img[src$=".svg"] {
+			width: 5rem;
+			margin-left: 1rem;
+		}
+	}
+}
+
 // Some basic styling
 html {
 	@media (--tablet-max) {
@@ -131,7 +152,7 @@ html {
 				font-size: 2rem;
 
 				strong {
-					font-size: 10rem;
+					font-size: 9.2rem;
 				}
 			}
 		}
@@ -145,8 +166,10 @@ html {
 	> article {
 		@include section;
 	//	@include full-height;
+		@include wysiwyg;
 
 		background: white;
+		overflow: hidden;
 	}
 }
 

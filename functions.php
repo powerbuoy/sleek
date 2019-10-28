@@ -95,7 +95,8 @@ add_action('acf/init', function () {
 					'vue-component',
 					'attachments',
 					'child-pages',
-					'contact-form'
+					'contact-form',
+					'gallery'
 				], 'modules_below_content', 'flexible')
 			]
 		]

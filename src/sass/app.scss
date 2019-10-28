@@ -29,15 +29,17 @@
 	}
 }
 
-@mixin full-height ($align: center) {
+@mixin full-height ($valign: center, $align: flex-start) {
 	min-height: 100vh;
 	display: flex;
-	align-items: flex-start;
-	justify-content: $align;
+	align-items: $align;
+	justify-content: $valign;
 	flex-direction: column;
 
-	> * {
-		width: 100%;
+	@if ($align != center) {
+		> * {
+			width: 100%;
+		}
 	}
 }
 
@@ -109,6 +111,10 @@ html {
 
 	a {
 		color: currentColor;
+
+		&:hover {
+			color: var(--color-link);
+		}
 	}
 
 	// Logo
@@ -133,8 +139,8 @@ html {
 #single-page {
 	> header {
 		@include section;
-		@include section-bg;
-		@include full-height(flex-end);
+	//	@include section-bg;
+		@include full-height(center, center);
 
 		h1 {
 			font-size: 1.5rem;
@@ -152,7 +158,7 @@ html {
 				font-size: 2rem;
 
 				strong {
-					font-size: 9.2rem;
+					font-size: 9.3rem;
 				}
 			}
 		}
@@ -169,13 +175,19 @@ html {
 		@include wysiwyg;
 
 		background: white;
+		color: var(--color-body-bg);
 		overflow: hidden;
+
+		:--heading,
+		a {
+			color: currentColor;
+		}
 	}
 }
 
 #text-block {
 	@include section;
-	@include section-bg;
+//	@include section-bg;
 	@include full-height(center);
 }
 

@@ -96,7 +96,8 @@ add_action('acf/init', function () {
 					'attachments',
 					'child-pages',
 					'contact-form',
-					'gallery'
+					'gallery',
+					'google-map'
 				], 'modules_below_content', 'flexible')
 			]
 		]

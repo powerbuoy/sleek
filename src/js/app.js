@@ -1,7 +1,10 @@
 // Import CSS
 import '../sass/app.scss';
 
-// Import all JS
+// Import vendor JS
+import "../../vendor/powerbuoy/**/*.js";
+
+// Import our JS
 import './*.js';
 
 // Import Module JS

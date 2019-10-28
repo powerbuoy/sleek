@@ -7,11 +7,11 @@
 // Import vendor
 @import "~normalize.css/normalize.css";
 @import "sleek-css/sleek-css";
+@import "../../vendor/powerbuoy/**/*.scss";
 
 // Import out stuff
 @import "components/**/*.scss";
 // @import "../../modules/**/*.scss";
-@import "../../vendor/powerbuoy/**/*.scss";
 
 // Helper mixins
 @mixin figure-background {

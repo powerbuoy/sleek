@@ -103,7 +103,8 @@ add_action('acf/init', function () {
 					'text-block',
 					'vue-component',
 					'next-post',
-					'related-posts'
+					'related-posts',
+					'page-menu'
 				], 'modules_below_content', 'flexible')
 			]
 		]

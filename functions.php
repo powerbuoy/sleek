@@ -89,15 +89,17 @@ add_action('acf/init', function () {
 				'button_label' => __('Add a module', 'sleek'),
 				'type' => 'flexible_content',
 				'layouts' => Sleek\Modules\get_module_fields([
-					'text-block',
-					'share-page',
-					'social-links',
-					'vue-component',
 					'attachments',
 					'child-pages',
 					'contact-form',
+					'featured-posts',
 					'gallery',
-					'google-map'
+					'google-map',
+					'hubspot-form',
+					'share-page',
+					'social-links',
+					'text-block',
+					'vue-component'
 				], 'modules_below_content', 'flexible')
 			]
 		]

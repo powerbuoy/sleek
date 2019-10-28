@@ -11,6 +11,6 @@ var observer = new IntersectionObserver(entries => {
 	});
 }, {threshold: .25});
 
-document.querySelectorAll('section, article, header, footer, nav, aside, div, h1, h2, h3, h4, h5, h6, figure').forEach(el => {
+document.querySelectorAll('section, article, header, footer, nav, aside, div').forEach(el => {
 	observer.observe(el);
 });

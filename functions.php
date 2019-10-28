@@ -94,7 +94,8 @@ add_action('acf/init', function () {
 					'social-links',
 					'vue-component',
 					'attachments',
-					'child-pages'
+					'child-pages',
+					'contact-form'
 				], 'modules_below_content', 'flexible')
 			]
 		]

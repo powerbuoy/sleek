@@ -45,6 +45,7 @@ add_theme_support('sleek-tinymce-no-colors');
 add_theme_support('sleek-archive-meta');
 
 # Disabled by default
+# add_theme_support('sleek-cookie-consent');
 # add_theme_support('sleek-gallery-slideshow'); # TODO
 # add_theme_support('sleek-archive-filter');
 # add_theme_support('sleek-get-terms-post-type-arg');

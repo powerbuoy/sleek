@@ -11,6 +11,7 @@
 // Import out stuff
 @import "components/**/*.scss";
 // @import "../../modules/**/*.scss";
+@import "../../vendor/powerbuoy/**/*.scss";
 
 // Helper mixins
 @mixin figure-background {
@@ -71,7 +72,7 @@
 	}
 
 	.illustration {
-		@media (--tablet) {
+		@media (--laptop) {
 			float: right;
 			margin-left: 5rem;
 		}

@@ -101,7 +101,8 @@ add_action('acf/init', function () {
 					'share-page',
 					'social-links',
 					'text-block',
-					'vue-component'
+					'vue-component',
+					'next-post'
 				], 'modules_below_content', 'flexible')
 			]
 		]

@@ -61,6 +61,10 @@
 		color: currentColor;
 	}
 
+	a:hover {
+		color: var(--color-link);
+	}
+
 	figure {
 		@include figure-background;
 

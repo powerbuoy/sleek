@@ -102,7 +102,8 @@ add_action('acf/init', function () {
 					'social-links',
 					'text-block',
 					'vue-component',
-					'next-post'
+					'next-post',
+					'related-posts'
 				], 'modules_below_content', 'flexible')
 			]
 		]

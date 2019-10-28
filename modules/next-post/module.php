@@ -33,8 +33,6 @@ class NextPost extends Module {
 	}
 
 	public static function get_next_post () {
-		global $post;
-
 		# Adjacent post
 		$next = get_adjacent_post(false, [], false);
 

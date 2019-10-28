@@ -1,5 +1,5 @@
 <?php if ($rows) : ?>
-	<section id="next-post">
+	<section id="related-posts">
 
 		<?php if ($title or $description) : ?>
 			<header>

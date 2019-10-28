@@ -1,5 +1,5 @@
 <?php if ($rows) : ?>
-	<section id="child-pages">
+	<section id="related-pages">
 
 		<?php if ($title or $description) : ?>
 			<header>
@@ -19,5 +19,5 @@
 
 	</section>
 <?php else : ?>
-	<p class="error"><?php _e('This page does not have any child pages. You can remove this module until you add some.', 'sleek') ?></p>
+	<p class="error"><?php _e('This page does not have any siblings or children. You can remove this module until you add some.', 'sleek') ?></p>
 <?php endif ?>

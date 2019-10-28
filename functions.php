@@ -90,7 +90,7 @@ add_action('acf/init', function () {
 				'type' => 'flexible_content',
 				'layouts' => Sleek\Modules\get_module_fields([
 					'attachments',
-					'child-pages',
+					'related-pages',
 					'contact-form',
 					'featured-posts',
 					'gallery',

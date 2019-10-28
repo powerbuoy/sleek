@@ -69,6 +69,8 @@
 }
 
 @mixin wysiwyg {
+	@include clearfix;
+
 	> p:first-child,
 	> :--heading + p {
 		font-size: var(--font-size-large);
@@ -143,7 +145,7 @@ html {
 #single-page {
 	> header {
 		@include section;
-	//	@include section-bg;
+		@include section-bg;
 		@include full-height(center, center);
 
 		background: radial-gradient(circle farthest-corner at center top, #00d4ff, #020024 80%);
@@ -180,10 +182,6 @@ html {
 	//	@include full-height;
 		@include wysiwyg;
 
-		background: white;
-		color: var(--color-body-bg);
-		overflow: hidden;
-
 		:--heading,
 		a {
 			color: currentColor;
@@ -193,8 +191,10 @@ html {
 
 #text-block {
 	@include section;
-//	@include section-bg;
+	@include section-bg;
 	@include full-height(center);
+
+	background: #111;
 }
 
 #vue-component {

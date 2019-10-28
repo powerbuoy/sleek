@@ -37,18 +37,38 @@
 
 	/////////
 	// Colors
-	--color-body-bg: #111;
+	--color-body-bg: #fefefe;
 	--color-border: #dedede;
 	--color-overlay: rgba(0, 0, 0, .4);
 
 	// Typography colors
-	--color-text: white;
-	--color-heading: white;
+	--color-text: #111;
+	--color-heading: #222;
 
 	// Link colors
-	--color-link: #00d4ff;
-	--color-link-hover: #00d4ff;
+	--color-link: #06f;
+	--color-link-hover: #08f;
 	--color-link-visited: #609;
+
+	// Shades of gray
+	--color-lightgray: #fafafa;
+	--color-gray: #bbb;
+	--color-darkgray: #777;
+
+	// Social media
+	--color-facebook: #3b5998;
+	--color-twitter: #4099FF;
+	--color-linkedin: #0077b5;
+
+	// Form/button related
+	--color-disabled: #bbb;
+	--color-error: #f00;
+	--color-success: #0f0;
+	--color-warning: #f90;
+
+	// Site colors (EXAMPLES)
+	--color-primary: #369;
+	--color-secondary: #06f;
 
 	/////////////
 	// Typography

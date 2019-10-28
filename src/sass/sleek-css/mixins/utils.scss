@@ -1,0 +1,19 @@
+@mixin a11y-hide {
+	position: absolute;
+	left: -100000px;
+	top: -100000px;
+}
+
+@mixin a11y-show {
+	position: static;
+	left: auto;
+	top: auto;
+}
+
+@mixin clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}

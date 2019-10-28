@@ -97,6 +97,7 @@ add_action('acf/init', function () {
 					'google-map',
 					'hubspot-form',
 					'instagram',
+					'latest-posts',
 					'share-page',
 					'social-links',
 					'text-block',

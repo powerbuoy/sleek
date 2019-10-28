@@ -19,11 +19,11 @@ class SocialLinks extends Module {
 
 	public function data () {
 		return [
-			'links' => self::getLinks()
+			'links' => self::get_links()
 		];
 	}
 
-	public static function getLinks () {
+	public static function get_links () {
 		$tmp = get_option('wpseo_social');
 		$links = [];
 		$nicenames = [

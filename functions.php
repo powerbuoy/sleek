@@ -93,7 +93,8 @@ add_action('acf/init', function () {
 					'share-page',
 					'social-links',
 					'vue-component',
-					'attachments'
+					'attachments',
+					'child-pages'
 				], 'modules_below_content', 'flexible')
 			]
 		]

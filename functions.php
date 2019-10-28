@@ -77,13 +77,6 @@ register_nav_menus(['footer_menu' => __('Footer menu', 'sleek')]);
 ############
 # ACF fields
 add_action('acf/init', function () {
-	# Options page
-	acf_add_options_page([
-		'page_title' => __('Site Settings', 'sleek'),
-		'menu_slug' => 'site-settings',
-		'post_id' => 'site_settings' # NOTE: Use this id in get_field('my_field', 'site_settings')
-	]);
-
 	# Flexible content field
 	acf_add_local_field_group([
 		'key' => 'modules',
@@ -95,7 +88,13 @@ add_action('acf/init', function () {
 				'name' => 'modules_below_content',
 				'button_label' => __('Add a module', 'sleek'),
 				'type' => 'flexible_content',
-				'layouts' => Sleek\Modules\get_module_fields(['text-block', 'share-page', 'social-links', 'vue-component'], 'modules_below_content', 'flexible')
+				'layouts' => Sleek\Modules\get_module_fields([
+					'text-block',
+					'share-page',
+					'social-links',
+					'vue-component',
+					'attachments'
+				], 'modules_below_content', 'flexible')
 			]
 		]
 	]);
@@ -105,7 +104,7 @@ add_action('acf/init', function () {
 		'key' => 'sticky_modules',
 		'title' => __('Sticky modules', 'sleek'),
 		'location' => [[['param' => 'post_type', 'operator' => '==', 'value' => 'post']]],
-		'fields' => Sleek\Modules\get_module_fields(['redirect-url', 'share-page', 'social-links'], 'sticky_modules', 'tabbed')
+		'fields' => Sleek\Modules\get_module_fields(['redirect-url'], 'sticky_modules', 'tabbed')
 	]);
 });
 

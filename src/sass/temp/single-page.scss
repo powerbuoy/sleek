@@ -1,3 +1,80 @@
+// Single page
+#single-page {
+	background: radial-gradient(circle farthest-corner at center top, #00d4ff, #020024 60%);
+	color: white;
+
+	a:not(:hover),
+	:--heading {
+		color: currentColor;
+	}
+
+	// Hero
+	> header {
+		@include section;
+		@include full-height(center, center);
+
+		a {
+			color: currentColor;
+		}
+
+		// Logo (TODO: Front-page only)
+		h1 {
+			line-height: 1;
+			font-size: 2rem;
+
+			strong {
+				display: block;
+				font-size: 7rem;
+
+				svg {
+					max-width: 90%;
+				}
+			}
+
+			small {
+				display: block;
+				font-size: 1.8rem;
+				font-family: "Great Vibes";
+			}
+
+			@media (--tablet) {
+				strong {
+					font-size: 9.3rem;
+				}
+			}
+		}
+
+		// Menu
+		ul {
+			@include text-label;
+
+			margin: 0;
+			list-style: none;
+
+			> li {
+				display: inline-block;
+				margin: 0 var(--spacing-small);
+			}
+		}
+	}
+
+	// Page content
+	> article {
+		@include section($site-width * .75);
+		@include wysiwyg;
+
+		text-align: center;
+
+		.illustration {
+			justify-content: center;
+
+			img {
+				margin: 0 var(--spacing-small);
+			}
+		}
+	}
+}
+
 // Hero animation
 #single-page > header {
 	h1 strong,

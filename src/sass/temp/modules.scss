@@ -1,190 +1,3 @@
-// Helper mixins
-@mixin full-height ($valign: center, $align: flex-start) {
-	min-height: 100vh;
-	display: flex;
-	align-items: $align;
-	justify-content: $valign;
-	flex-direction: column;
-
-	> * {
-		width: 100%;
-	}
-
-	@if ($align == center) {
-		text-align: center;
-	}
-}
-
-@mixin text-label {
-	font-size: var(--font-size-small);
-	text-transform: uppercase;
-}
-
-@mixin first-p {
-	font-size: var(--font-size-large);
-	font-weight: bold;
-}
-
-@mixin wysiwyg {
-	@include clearfix;
-
-	> p:first-child,
-	> :--heading:first-child ~ p:first-of-type {
-		@include first-p;
-	}
-
-	.illustration {
-		display: flex;
-		align-items: center;
-
-		img {
-			display: inline-block;
-			width: 3rem;
-			margin: 0 1rem 0 0;
-		}
-	}
-}
-
-@mixin card-large {
-	background: white;
-	padding: var(--spacing-large);
-	margin: 0 0 var(--spacing-large);
-	border-radius: .5rem;
-	box-shadow: 0 1rem 2rem rgba(0, 0, 0, .4);
-
-	@media (--tablet) {
-		padding: var(--spacing-section);
-	}
-}
-
-// Some basic styling
-html {
-	@media (--tablet-max) {
-		font-size: 80%;
-	}
-}
-
-h2 {
-	small {
-		display: block;
-		font-weight: 300;
-		font-size: 100%;
-	}
-}
-
-// Site header
-#site-header {
-	position: fixed;
-	left: 0;
-	top: 0;
-	z-index: 99;
-
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-
-	width: 100%;
-	padding: var(--spacing-default);
-
-	color: white;
-	font-size: var(--font-size-small);
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
-
-	a {
-		color: currentColor;
-	}
-
-	// Logo
-	.site-logo {
-		@include heading(2rem, false);
-
-		margin: 0;
-	}
-
-	// Tagline
-	.site-logo + p {
-		display: none;
-	}
-
-	// Menu
-	ul {
-		@include list-separated;
-		@include text-label;
-
-		@media (--tablet-max) {
-			display: none;
-		}
-	}
-}
-
-// Single page
-#single-page {
-	background: radial-gradient(circle farthest-corner at center top, #00d4ff, #020024 60%);
-	color: white;
-
-	a,
-	:--heading {
-		color: currentColor;
-	}
-
-	// Hero
-	> header {
-		@include section;
-		@include full-height(center, center);
-
-		// Logo
-		h1 {
-			line-height: 1;
-			font-size: 2rem;
-
-			strong {
-				display: block;
-				font-size: 7rem;
-
-				svg {
-					max-width: 90%;
-				}
-			}
-
-			small {
-				display: block;
-				font-size: 1.8rem;
-				font-family: "Great Vibes";
-			}
-
-			@media (--tablet) {
-				strong {
-					font-size: 9.3rem;
-				}
-			}
-		}
-
-		// Menu
-		ul {
-			@include text-label;
-
-			margin: 0;
-			list-style: none;
-
-			> li {
-				display: inline-block;
-				margin: 0 var(--spacing-small);
-			}
-		}
-	}
-
-	// Page content
-	> article {
-		@include section($site-width * .75);
-		@include wysiwyg;
-
-		strong {
-			font-weight: normal;
-			font-style: italic;
-		}
-	}
-}
-
 // Text-block
 #text-block {
 	@include section;
@@ -210,31 +23,25 @@ h2 {
 	background-attachment: fixed;
 
 	> header {
+		@include header-module;
+
 		color: white;
-		text-align: center;
-		margin-bottom: var(--spacing-large);
 
 		:--heading {
 			color: currentColor;
-		}
-
-		p {
-			@include first-p;
 		}
 	}
 
 	> [data-vue],
 	> div.wpcf7 {
 		@include card-large;
+
+		text-align: left;
 	}
 }
 
 #contact-form {
 	background-image: url(/wp-content/uploads/2019/10/wenniel-lun-pe_R74hldW4-unsplash.jpg);
-
-	> div.wpcf7 {
-		text-align: left;
-	}
 }
 
 // Featured posts
@@ -244,8 +51,7 @@ h2 {
 	@include container;
 
 	> header {
-		margin-bottom: var(--spacing-x-large);
-		text-align: center;
+		@include header-module;
 	}
 
 	article {
@@ -314,9 +120,7 @@ h2 {
 #instagram {
 	> header {
 		@include container;
-
-		margin-bottom: var(--spacing-x-large);
-		text-align: center;
+		@include header-module;
 	}
 
 	ul {
@@ -380,9 +184,7 @@ h2 {
 #google-map {
 	> header {
 		@include container;
-
-		text-align: center;
-		margin-bottom: var(--spacing-x-large);
+		@include header-module;
 	}
 
 	.google-map {
@@ -410,12 +212,14 @@ h2 {
 		--grid-cols: 3;
 	}
 
-	a,
+	a:not(:hover),
 	:--heading {
 		color: currentColor;
 	}
 
 	ul {
+		@include text-label;
+
 		margin-left: 0;
 		list-style: none;
 	}
@@ -437,18 +241,51 @@ h2 {
 		justify-content: space-between;
 	}
 
-	a,
+	a:not(:hover),
 	:--heading {
 		color: currentColor;
 	}
 
 	p {
 		margin: 0;
+		filter: grayscale(1);
+		transition: filter .25s ease;
+	}
+
+	&:hover p {
+		filter: grayscale(0);
 	}
 
 	ul {
 		@include list-separated;
 
 		margin-bottom: 0;
+	}
+}
+
+// Search form
+#search-form {
+	--border-radius-form-field: var(--border-radius-button);
+
+	p {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		label {
+			@include a11y-hide;
+
+			display: block;
+			width: 100%;
+		}
+
+		input {
+			flex: 1;
+			margin-right: var(--spacing-default);
+		}
+
+		button {
+			white-space: nowrap;
+		}
 	}
 }

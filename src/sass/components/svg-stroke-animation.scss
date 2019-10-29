@@ -13,12 +13,12 @@
 
 .svg-stroke-animation {
 	fill: transparent;
-	animation: fill-animation 2s ease 3s forwards paused;
+	animation: fill-animation 2s ease 2.5s forwards paused;
 
 	path {
 		stroke-dasharray: var(--path-length);
 		stroke-dashoffset: var(--path-length);
-		animation: stroke-animation 2s ease forwards paused;
+		animation: stroke-animation 1.5s ease forwards paused;
 
 		@for $i from 2 through 5 {
 			&:nth-of-type(#{$i}) {

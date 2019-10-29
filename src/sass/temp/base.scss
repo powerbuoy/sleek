@@ -1,0 +1,14 @@
+// Some basic styling
+html {
+	@media (--tablet-max) {
+		font-size: 80%;
+	}
+}
+
+h2 {
+	small {
+		display: block;
+		font-weight: 300;
+		font-size: 100%;
+	}
+}

@@ -12,14 +12,14 @@ import './*.js';
 
 // Import Vue Components
 // TODO: Auto-import all .vue files and register them using require.context()
-import VueComponent from './vue-component.vue';
+import ToDo from './todo.vue';
 
 // Init Vue on all [data-vue] elements
 document.querySelectorAll('[data-vue]').forEach(el => {
 	new Vue({
 		el: el,
 		components: {
-			'vue-component': VueComponent
+			'todo': ToDo
 		}
 	});
 });

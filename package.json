@@ -1,7 +1,7 @@
 {
   "name": "Sleek",
   "version": "1.0.0",
-  "description": "A WordPress Theme for Developers.",
+  "description": "The WordPress Theme for Developers.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

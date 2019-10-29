@@ -56,6 +56,7 @@
 	> p:first-child,
 	> :--heading:first-child ~ p:first-of-type {
 		font-size: var(--font-size-large);
+		font-style: italic;
 	}
 
 	.illustration {
@@ -156,7 +157,7 @@ h2 {
 
 			small {
 				display: block;
-				font-size: 2rem;
+				font-size: 1.8rem;
 				font-family: "Great Vibes";
 			}
 

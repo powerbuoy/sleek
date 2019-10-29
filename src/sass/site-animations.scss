@@ -62,17 +62,17 @@
 					opacity 0.75s ease;
 	}
 
-	figure {
-		@for $i from 1 through 9 {
-			a:nth-child(#{$i}) img {
+	p {
+		@for $i from 1 through 10 {
+			&:nth-child(#{$i}) {
 				transition-delay: $i * 0.1s + 0.5s;
 			}
 		}
 	}
 
-	p {
-		@for $i from 1 through 10 {
-			&:nth-child(#{$i}) {
+	figure {
+		@for $i from 1 through 9 {
+			a:nth-child(#{$i}) img {
 				transition-delay: $i * 0.1s + 1s;
 			}
 		}

@@ -3,7 +3,7 @@
 	h1 strong,
 	h1 small,
 	li {
-		transform: translateY(1rem);
+		transform: translateY(1.5rem);
 		opacity: 0;
 		transition: transform 0.5s ease-out,
 					opacity 0.5s ease-out;
@@ -56,7 +56,7 @@
 	h2,
 	img,
 	p {
-		transform: translateY(1rem);
+		transform: translateY(1.5rem);
 		opacity: 0;
 		transition: transform 0.5s ease-out,
 					opacity 0.5s ease-out;
@@ -73,7 +73,7 @@
 	p {
 		@for $i from 1 through 10 {
 			&:nth-child(#{$i}) {
-				transition-delay: $i * 0.1s + 1.5s;
+				transition-delay: $i * 0.1s + 1s;
 			}
 		}
 	}

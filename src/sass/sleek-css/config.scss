@@ -38,6 +38,7 @@ $site-width-reached: #{strip-unit($site-width) / strip-unit($site-width-min) * 1
 	--spacing-default: 1rem;
 	--spacing-small: .5rem;
 	--spacing-large: 2rem;
+	--grid-gap: 2rem;
 
 	/////////
 	// Colors

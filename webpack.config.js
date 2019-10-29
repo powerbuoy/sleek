@@ -30,7 +30,9 @@ var config = {
 	// Plug-ins
 	plugins: [
 		// Clean dist/
-		new CleanWebpackPlugin(),
+		new CleanWebpackPlugin({
+			cleanStaleWebpackAssets: false
+		}),
 
 		// CSS Extractor
 		new MiniCssExtractPlugin({

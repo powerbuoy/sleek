@@ -67,8 +67,12 @@
 		white-space: nowrap;
 
 		img[src$=".svg"] {
-			width: 5rem;
+			width: 2.5rem;
 			margin-left: 1rem;
+
+			@media (--tablet) {
+				width: 5rem;
+			}
 		}
 	}
 }
@@ -118,6 +122,10 @@ html {
 	ul {
 		@include list-separated;
 		@include text-label;
+
+		@media (--tablet-max) {
+			display: none;
+		}
 	}
 }
 
@@ -139,6 +147,10 @@ html {
 			strong {
 				display: block;
 				font-size: 7rem;
+
+				svg {
+					max-width: 90%;
+				}
 			}
 
 			small {

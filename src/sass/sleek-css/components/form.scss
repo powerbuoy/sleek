@@ -1,19 +1,59 @@
 // Form fields
-:--form-field {
-	@include form-field;
+:--form-field,
+select,
+textarea {
+	background: var(--color-form-field);
+
+	appearance: none;
+	outline: 0;
+
+	display: inline-block;
+	vertical-align: middle;
+
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%; // In case user changes width we still want max-width 100%
+
+	margin: 0;
+	padding: var(--spacing-form-field-vertical) var(--spacing-form-field-horizontal);
+
+	font-size: var(--font-size-default);
+	font-family: var(--font-family-default);
+	font-weight: var(--font-weight-default);
+
+	letter-spacing: var(--letter-spacing-default);
+	line-height: var(--line-height-default);
+
+	text-transform: none;
+	text-decoration: none;
+	text-align: left;
+	color: var(--color-form-field-text);
+
+	transition: all var(--transition-duration) ease;
+	border: var(--border-form-field);
+	border-width: var(--border-width-form-field);
+	border-radius: var(--border-radius-form-field);
+
+	&:focus {
+		outline: 0;
+		border: var(--border-form-field-focus);
+		border-width: var(--border-width-form-field);
+	}
+}
+
+// Select
+select {
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40"><polygon points="2.7,14.4 6.8,10.3 20,23.5 33.2,10.3 37.3,14.4 20,31.7 "/></svg>');
+	background-repeat: no-repeat;
+	background-position: right var(--spacing-form-field-horizontal) top 50%;
+	background-size: .5rem auto;
+	padding-right: calc(var(--spacing-form-field-horizontal) * 2 + .5rem);
 }
 
 // Textarea
 textarea {
 	resize: vertical;
 	max-width: 100%;
-}
-
-// Select
-@if ($form-select-arrow) {
-	select:not([multiple]) {
-		@include form-select;
-	}
 }
 
 // Placeholders

@@ -12,7 +12,7 @@
 ///////////////////
 // Custom selectors
 @custom-selector :--heading h1, h2, h3, h4, h5, h6;
-@custom-selector :--form-field input[type=text], input[type=password], input[type=search], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=date], input[type=month], input[type=week], input[type=time], input[type=datetime], input[type=datetime-local], input[type=color], textarea;
+@custom-selector :--form-field input[type=text], input[type=password], input[type=search], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=date], input[type=month], input[type=week], input[type=time], input[type=datetime], input[type=datetime-local], input[type=color];
 
 /////////////
 // Site width
@@ -20,9 +20,6 @@
 $site-width: 1080px;
 $site-width-min: 90%;
 $site-width-reached: #{strip-unit($site-width) / strip-unit($site-width-min) * 100px};
-
-// Form select
-$form-select-arrow: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40"><polygon points="2.7,14.4 6.8,10.3 20,23.5 33.2,10.3 37.3,14.4 20,31.7 "/></svg>';
 
 /////////
 // Config

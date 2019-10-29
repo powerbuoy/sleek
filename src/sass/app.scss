@@ -54,33 +54,34 @@
 	@include clearfix;
 
 	> p:first-child,
-	> :--heading:first-child + p {
+	> :--heading:first-child ~ p:first-of-type {
 		font-size: var(--font-size-large);
 	}
 
 	.illustration {
-		@media (--laptop) {
-			float: right;
-			margin-left: 5rem;
-		}
-
 		white-space: nowrap;
 
 		img[src$=".svg"] {
-			width: 2.5rem;
-			margin-left: 1rem;
-
-			@media (--tablet) {
-				width: 5rem;
-			}
+			display: inline-block;
+			width: 3rem;
+			margin: 0 1rem 0 0;
 		}
 	}
 }
 
 // Some basic styling
 html {
+	scroll-behavior: smooth;
+
 	@media (--tablet-max) {
 		font-size: 80%;
+	}
+}
+
+h2 {
+	small {
+		font-weight: 100;
+		font-size: 100%;
 	}
 }
 
@@ -182,7 +183,7 @@ html {
 
 	// Page content
 	> article {
-		@include section;
+		@include container(calc(var(--site-width) * .75));
 		@include wysiwyg;
 	}
 }
@@ -252,4 +253,9 @@ html {
 // Vue component
 #vue-component {
 	@include section;
+}
+
+// Sidebar
+#sidebar {
+	--font-size-h2: var(--font-size-h4);
 }

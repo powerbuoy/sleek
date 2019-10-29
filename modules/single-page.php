@@ -18,7 +18,7 @@
 		</header>
 
 		<?php if (get_the_content()) : ?>
-			<article>
+			<article id="single-<?php echo get_post_type() ?>-content">
 
 				<?php the_content() ?>
 				<?php wp_link_pages() ?>

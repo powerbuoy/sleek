@@ -80,6 +80,7 @@ html {
 	}
 }
 
+// Site header
 #site-header {
 	position: fixed;
 	left: 0;
@@ -99,10 +100,6 @@ html {
 
 	a {
 		color: currentColor;
-
-		&:hover {
-			color: var(--color-link);
-		}
 	}
 
 	// Logo
@@ -124,7 +121,9 @@ html {
 	}
 }
 
+// Single page
 #single-page {
+	// Hero
 	> header {
 		@include section;
 		@include section-bg;
@@ -132,45 +131,104 @@ html {
 
 		background: radial-gradient(circle farthest-corner at center top, #00d4ff, #020024 80%);
 
+		// Logo
 		h1 {
-			font-size: 2rem;
 			line-height: 1;
-			font-family: "Great Vibes";
+			font-size: 2rem;
 
 			strong {
 				display: block;
 				font-size: 7rem;
-				line-height: 1;
-				font-family: var(--font-family-heading);
+			}
+
+			small {
+				display: block;
+				font-size: 2rem;
+				font-family: "Great Vibes";
 			}
 
 			@media (--tablet) {
-				font-size: 2rem;
-
 				strong {
 					font-size: 9.3rem;
 				}
 			}
 		}
 
+		// Menu
 		ul {
-			@include list-separated;
 			@include text-label;
+
+			margin: 0;
+			list-style: none;
+
+			> li {
+				display: inline-block;
+				margin: 0 var(--spacing-small);
+			}
 		}
 	}
 
+	// Page content
 	> article {
 		@include section;
-	//	@include full-height;
 		@include wysiwyg;
+	}
+}
 
-		:--heading,
-		a {
-			color: currentColor;
+// Hero animation
+#single-page > header {
+	h1 strong,
+	h1 small,
+	li {
+		transform: translateY(1rem);
+		opacity: 0;
+		transition: transform .5s ease-out,
+					opacity .5s ease-out;
+	}
+
+	h1 small {
+		transition-delay: 3s;
+	}
+
+	li {
+		transition-delay: 3.25s;
+
+		&:nth-child(1) {
+			transition-delay: 3.25s;
+		}
+
+		&:nth-child(2) {
+			transition-delay: 3.35s;
+		}
+
+		&:nth-child(3) {
+			transition-delay: 3.45s;
+		}
+
+		&:nth-child(4) {
+			transition-delay: 3.55s;
+		}
+	}
+
+	&.was-in-view {
+		#sleek-logo {
+			animation-play-state: running;
+
+			path {
+				animation-play-state: running;
+			}
+		}
+
+		h1 strong,
+		h1 small,
+		li {
+			transform: translateY(0);
+			opacity: 1;
 		}
 	}
 }
 
+// Text-block
 #text-block {
 	@include section;
 	@include section-bg;
@@ -179,6 +237,7 @@ html {
 	background: #111;
 }
 
+// Vue component
 #vue-component {
 	@include section;
 }

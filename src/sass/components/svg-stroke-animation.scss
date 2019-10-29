@@ -1,0 +1,47 @@
+// Animations
+@keyframes stroke-animation {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes fill-animation {
+	from {
+		fill: transparent;
+	}
+
+	to {
+		fill: white;
+	}
+}
+
+.svg-stroke-animation {
+	fill: transparent;
+	animation: fill-animation 2s ease-in-out 2s forwards paused;
+
+	path {
+		stroke-dasharray: var(--path-length);
+		stroke-dashoffset: var(--path-length);
+		animation: stroke-animation 2s ease-in-out forwards;
+
+		&:nth-child(1) {
+			animation-delay: 0s;
+		}
+
+		&:nth-child(2) {
+			animation-delay: 0.25s;
+		}
+
+		&:nth-child(3) {
+			animation-delay: 0.5s;
+		}
+
+		&:nth-child(4) {
+			animation-delay: 0.75s;
+		}
+
+		&:nth-child(5) {
+			animation-delay: 1s;
+		}
+	}
+}

@@ -183,7 +183,7 @@ h2 {
 
 	// Page content
 	> article {
-		@include container(calc(var(--site-width) * .75));
+		@include section($site-width * .75);
 		@include wysiwyg;
 	}
 }

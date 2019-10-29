@@ -14,18 +14,22 @@
 @custom-selector :--heading h1, h2, h3, h4, h5, h6;
 @custom-selector :--form-field input[type=text], input[type=password], input[type=search], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=date], input[type=month], input[type=week], input[type=time], input[type=datetime], input[type=datetime-local], input[type=color], textarea;
 
+/////////////
+// Site width
+// NOTE: These need to be SASS as we can't use CSS variables in media queries together with calc
+$site-width: 1080px;
+$site-width-min: 90%;
+$site-width-reached: #{strip-unit($site-width) / strip-unit($site-width-min) * 100px};
+
 /////////
 // Config
 :root {
 	/////////
 	// Layout
-	--site-width: 1080px;
-	--site-width-min: 90%;
-	--site-padding: calc((100% - var(--site-width-min)) / 2);
+	--site-padding: #{(100% - $site-width-min) / 2};
 
-	// NOTE: (var(--site-width) / var(--site-width-min)) * 100px
-	@media (min-width: 1200px) {
-		--site-padding: calc((100vw - var(--site-width)) / 2);
+	@media (min-width: #{$site-width-reached}) {
+		--site-padding: calc((100vw - #{$site-width}) / 2);
 	}
 
 	//////////

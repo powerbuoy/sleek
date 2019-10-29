@@ -71,6 +71,10 @@ ol {
 	padding: 0;
 }
 
+dl {
+	margin: 0 0 var(--spacing-default);
+}
+
 // Responsive video
 .video {
 	position: relative;

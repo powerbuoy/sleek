@@ -21,25 +21,12 @@ $site-width: 1080px;
 $site-width-min: 90%;
 $site-width-reached: #{strip-unit($site-width) / strip-unit($site-width-min) * 100px};
 
+// Form select
+$form-select-arrow: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40"><polygon points="2.7,14.4 6.8,10.3 20,23.5 33.2,10.3 37.3,14.4 20,31.7 "/></svg>';
+
 /////////
 // Config
 :root {
-	/////////
-	// Layout
-	--site-padding: #{(100% - $site-width-min) / 2};
-
-	@media (min-width: #{$site-width-reached}) {
-		--site-padding: calc((100vw - #{$site-width}) / 2);
-	}
-
-	//////////
-	// Spacing
-	--spacing-section: 5rem;
-	--spacing-default: 1rem;
-	--spacing-small: .5rem;
-	--spacing-large: 2rem;
-	--grid-gap: 2rem;
-
 	/////////
 	// Colors
 	--color-body-bg: #fefefe;
@@ -104,4 +91,45 @@ $site-width-reached: #{strip-unit($site-width) / strip-unit($site-width-min) * 1
 
 	--letter-spacing-default: .05em;
 	--letter-spacing-heading: 0;
+
+	//////////
+	// Spacing
+	--spacing-section: 5rem;
+	--spacing-default: 1rem;
+	--spacing-small: .5rem;
+	--spacing-large: 2rem;
+	--grid-gap: 2rem;
+
+	/////////
+	// Button
+	--color-button: var(--color-link);
+	--color-button-text: white;
+
+	--spacing-button-vertical: .5rem;
+	--spacing-button-horizontal: 1.5rem;
+
+	--border-button: 0;
+	--border-radius-button: 2rem;
+
+	///////
+	// Form
+	--color-form-field: white;
+	--color-form-field-text: var(--color-text);
+	--color-placeholder: var(--color-gray);
+
+	--spacing-form-field-vertical: var(--spacing-button-vertical);
+	--spacing-form-field-horizontal: var(--spacing-button-horizontal);
+
+	--border-form-field: 1px solid var(--color-border);
+	--border-form-field-focus: 1px solid var(--color-link);
+	--border-width-form-field: 1px;
+	--border-radius-form-field: 0;
+
+	/////////
+	// Layout
+	--site-padding: #{(100% - $site-width-min) / 2};
+
+	@media (min-width: #{$site-width-reached}) {
+		--site-padding: calc((100vw - #{$site-width}) / 2);
+	}
 }

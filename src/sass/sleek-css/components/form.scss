@@ -1,3 +1,32 @@
+// Form fields
+:--form-field {
+	@include form-field;
+}
+
+// Textarea
+textarea {
+	resize: vertical;
+	max-width: 100%;
+}
+
+// Select
+@if ($form-select-arrow) {
+	select:not([multiple]) {
+		@include form-select;
+	}
+}
+
+// Placeholders
 ::placeholder {
 	color: --color-placeholder;
+}
+
+// Hide search UI
+input[type=search] {
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration {
+		display: none;
+	}
 }

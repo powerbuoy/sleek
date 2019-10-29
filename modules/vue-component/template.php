@@ -1,4 +1,4 @@
-<section id="vue-component" data-vue>
+<section id="vue-component">
 
 	<?php if ($title or $description) : ?>
 		<header>
@@ -12,6 +12,8 @@
 		</header>
 	<?php endif ?>
 
-	<<?php echo $component ?>></<?php echo $component ?>>
+	<div data-vue>
+		<<?php echo $component ?>></<?php echo $component ?>>
+	</div>
 
 </section>

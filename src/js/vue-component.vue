@@ -39,7 +39,11 @@
 		},
 		methods: {
 			hello () {
-				alert(this.title);
+				const title = this.title;
+				const description = this.description;
+
+				this.title = description;
+				this.description = title;
 			}
 		}
 	};

@@ -21,13 +21,12 @@
 	justify-content: $valign;
 	flex-direction: column;
 
+	> * {
+		width: 100%;
+	}
+
 	@if ($align == center) {
 		text-align: center;
-	}
-	@else {
-		> * {
-			width: 100%;
-		}
 	}
 }
 
@@ -38,7 +37,7 @@
 
 @mixin first-p {
 	font-size: var(--font-size-large);
-	font-style: italic;
+	font-weight: bold;
 }
 
 @mixin wysiwyg {
@@ -57,6 +56,18 @@
 			width: 3rem;
 			margin: 0 1rem 0 0;
 		}
+	}
+}
+
+@mixin card-large {
+	background: white;
+	padding: var(--spacing-large);
+	margin: 0 0 var(--spacing-large);
+	border-radius: .5rem;
+	box-shadow: 0 1rem 3rem rgba(0, 0, 0, .2);
+
+	@media (--tablet) {
+		padding: var(--spacing-section);
 	}
 }
 
@@ -127,6 +138,7 @@ h2 {
 	background: radial-gradient(circle farthest-corner at center top, #00d4ff, #020024 60%);
 	color: white;
 
+	a,
 	:--heading {
 		color: currentColor;
 	}
@@ -173,10 +185,6 @@ h2 {
 			> li {
 				display: inline-block;
 				margin: 0 var(--spacing-small);
-
-				a {
-					color: currentColor;
-				}
 			}
 		}
 	}
@@ -261,10 +269,40 @@ h2 {
 
 // Vue component
 #vue-component {
-	@include section;
+	@include section($site-width * .75);
+	@include full-height(center, center);
+
+	background: radial-gradient(circle farthest-corner at center top, #00d4ff, #020024 80%);
+
+	> header {
+		color: white;
+		text-align: center;
+		margin-bottom: var(--spacing-large);
+
+		:--heading {
+			color: currentColor;
+		}
+
+		p {
+			@include first-p;
+		}
+	}
+
+	> [data-vue] {
+		@include card-large;
+	}
 }
 
 // Sidebar
 #sidebar {
 	--font-size-h2: var(--font-size-h4);
+}
+
+// Featured posts
+#featured-posts {
+	@include container;
+
+	> header {
+		margin-bottom: var(--spacing-large);
+	}
 }

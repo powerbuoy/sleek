@@ -23,6 +23,7 @@ input[type=submit] {
 	text-align: center;
 	color: var(--color-button-text);
 
+	outline: 0;
 	border: 1px solid var(--color-button);
 	border-radius: var(--border-radius-button);
 }

@@ -1,5 +1,5 @@
 // Separated
-@mixin list-separated ($separator: '\a0|\a0') {
+@mixin list-separated ($separator: ' | ') {
 	margin-left: 0;
 	padding-left: 0;
 	list-style: none;

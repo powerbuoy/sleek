@@ -16,7 +16,7 @@
 
 /////////////
 // Site width
-// NOTE: These need to be SASS as we can't use CSS variables in media queries together with calc
+// NOTE: These need to be SASS because we can't use calc(--variables) in media queries
 $site-width: 1080px;
 $site-width-min: 90%;
 $site-width-reached: #{strip-unit($site-width) / strip-unit($site-width-min) * 100px};
@@ -82,7 +82,7 @@ $site-width-reached: #{strip-unit($site-width) / strip-unit($site-width-min) * 1
 	--font-size-h5: 1.6rem;
 	--font-size-h6: 1.2rem;
 
-	// Height, spacing decoration
+	// Height & spacing
 	--line-height-default: 1.8;
 	--line-height-heading: 1.2;
 
@@ -91,11 +91,12 @@ $site-width-reached: #{strip-unit($site-width) / strip-unit($site-width-min) * 1
 
 	//////////
 	// Spacing
-	--spacing-section: 5rem;
-	--spacing-default: 1rem;
-	--spacing-small: .5rem;
-	--spacing-large: 2rem;
-	--grid-gap: 2rem;
+	--spacing-section: 6rem;
+	--spacing-default: 1.2rem;
+	--spacing-small: .6rem;
+	--spacing-large: 2.4rem;
+	--spacing-x-large: 4.2rem;
+	--grid-gap: 2.4rem;
 
 	/////////
 	// Button
@@ -122,8 +123,9 @@ $site-width-reached: #{strip-unit($site-width) / strip-unit($site-width-min) * 1
 	--border-width-form-field: 1px;
 	--border-radius-form-field: 0;
 
-	/////////
-	// Layout
+	/////////////
+	// Calculated
+	// NOTE: Don't change this
 	--site-padding: #{(100% - $site-width-min) / 2};
 
 	@media (min-width: #{$site-width-reached}) {

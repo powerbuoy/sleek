@@ -13,12 +13,12 @@
 
 .svg-stroke-animation {
 	fill: transparent;
-	animation: fill-animation 2s ease-in-out 2s forwards paused;
+	animation: fill-animation 2s ease 2s forwards paused;
 
 	path {
 		stroke-dasharray: var(--path-length);
 		stroke-dashoffset: var(--path-length);
-		animation: stroke-animation 2s ease-in-out forwards paused;
+		animation: stroke-animation 2s ease forwards paused;
 
 		&:nth-child(1) {
 			animation-delay: 0s;

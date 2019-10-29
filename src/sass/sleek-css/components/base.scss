@@ -47,7 +47,7 @@ h6 {
 a {
 	color: var(--color-link);
 	text-decoration: none;
-	transition: color .25s ease-in-out;
+	transition: color .25s ease;
 
 	&:hover {
 		color: var(--color-link-hover);

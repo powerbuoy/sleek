@@ -6,7 +6,7 @@ input[type=submit] {
 
 	display: inline-block;
 	vertical-align: middle;
-	transition: all var(--transition-duration) ease-in-out;
+	transition: all var(--transition-duration) ease;
 
 	box-sizing: border-box;
 	padding: var(--spacing-button-vertical) var(--spacing-button-horizontal);

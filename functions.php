@@ -106,7 +106,8 @@ add_action('acf/init', function () {
 					'next-post',
 					'related-posts',
 					'page-menu',
-					'users'
+					'users',
+					'video'
 				], 'modules_below_content', 'flexible')
 			]
 		]

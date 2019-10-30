@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
+    "prismjs": "^1.17.1",
     "sleek-map": "github:powerbuoy/sleek-map"
   }
 }

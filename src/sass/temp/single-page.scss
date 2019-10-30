@@ -14,6 +14,8 @@
 		@include section;
 		@include full-height(center, center);
 
+		position: relative;
+
 		a {
 			color: currentColor;
 		}
@@ -71,6 +73,17 @@
 				margin: 0 var(--spacing-small);
 			}
 		}
+
+		// Down arrow
+		.down {
+			font-size: 1.5rem;
+			line-height: 1;
+
+			position: absolute;
+			left: 50%;
+			bottom: var(--spacing-large);
+			transform: translate(-50%, 0);
+		}
 	}
 
 	// Page content
@@ -113,7 +126,8 @@
 // Hero animation
 #single-page > header {
 	h1 small,
-	li {
+	li,
+	.down {
 		transform: translate(0, 1.5rem);
 		opacity: 0;
 		transition: transform 0.75s ease,
@@ -144,6 +158,11 @@
 		}
 	}
 
+	.down {
+		transform: translate(-50%, -1.5rem);
+		transition-delay: 4s;
+	}
+
 	&.was-in-view {
 		#sleek-logo {
 			animation-play-state: running;
@@ -156,6 +175,11 @@
 		h1 small,
 		li {
 			transform: translate(0, 0);
+			opacity: 1;
+		}
+
+		.down {
+			transform: translate(-50%, 0);
 			opacity: 1;
 		}
 	}

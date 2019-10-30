@@ -25,26 +25,6 @@
 	font-weight: bold;
 }
 
-@mixin wysiwyg {
-	@include clearfix;
-
-	> p:first-child,
-	> :--heading:first-child ~ p:first-of-type {
-		@include first-p;
-	}
-
-	.illustration {
-		display: flex;
-		align-items: center;
-
-		img {
-			display: inline-block;
-			width: 3rem;
-			margin: 0 1rem 0 0;
-		}
-	}
-}
-
 @mixin card-large {
 	background: white;
 	padding: var(--spacing-large);

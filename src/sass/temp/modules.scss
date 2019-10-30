@@ -12,8 +12,7 @@
 }
 
 // Vue component
-#vue-component,
-#contact-form {
+#vue-component {
 	@include section($site-width * .75);
 	@include full-height(center, center);
 
@@ -40,8 +39,63 @@
 	}
 }
 
+// Contact form
 #contact-form {
-	background-image: url(/wp-content/uploads/2019/10/wenniel-lun-pe_R74hldW4-unsplash.jpg);
+	@include container;
+	@include grid;
+
+	@media (--tablet) {
+		--grid-cols: 2;
+	}
+
+	form {
+		label {
+			@include text-label;
+		}
+	}
+}
+
+#contact-form {
+	header h2,
+	header p,
+	form p {
+		transform: translate(0, 1.5rem);
+		opacity: 0;
+		transition: transform 0.75s ease,
+					opacity 0.75s ease;
+	}
+
+	header p {
+		transition-delay: .25s;
+	}
+
+	form p {
+		transition-delay: .5s;
+
+		@for $i from 2 through 6 {
+			&:nth-of-type(#{$i}) {
+				transition-delay: #{$i * .25s + .5s};
+			}
+		}
+	}
+
+	&.was-in-view {
+		header h2,
+		header p,
+		form p {
+			transform: translate(0, 0);
+			opacity: 1;
+		}
+	}
+}
+
+// Text-blocks
+#text-blocks {
+	@include container;
+
+	> header {
+		@include header-module;
+	}
 }
 
 // Animation
@@ -81,18 +135,28 @@
 
 // Instagram
 #instagram {
-	padding-top: var(--spacing-section);
-	clip-path: var(--slant-top);
+	@include section;
+
+	background: url(/wp-content/uploads/2019/10/lukas-blazek-EWDvHNNfUmQ-unsplash-scaled-2560.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	padding: var(--spacing-section) var(--spacing-large);
 
 	> header {
 		@include header-module;
+
+		color: white;
+
+		a:not(:hover),
+		:--heading {
+			color: currentColor;
+		}
 	}
 
 	ul {
 		@include grid;
 
 		margin: 0;
-		padding: 0 var(--spacing-large) var(--spacing-section);
 		list-style: none;
 
 		@media (--tablet) {

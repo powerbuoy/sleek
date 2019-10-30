@@ -76,13 +76,25 @@
 
 		// Down arrow
 		.down {
-			font-size: 1.5rem;
-			line-height: 1;
-
+			width: auto;
 			position: absolute;
 			left: 50%;
 			bottom: var(--spacing-large);
 			transform: translate(-50%, 0);
+
+			font-size: 1.5rem;
+			line-height: 1;
+
+			a {
+				display: block;
+				padding: var(--spacing-small);
+				transform: translate(0, 0);
+				transition: transform .25s ease;
+
+				&:hover {
+					transform: translate(0, .5rem);
+				}
+			}
 		}
 	}
 
@@ -90,15 +102,37 @@
 	> article {
 		@include section($site-width * .75);
 		@include full-height(center, center);
-		@include wysiwyg;
 
 		text-align: center;
 
+		> p:first-child,
+		> :--heading:first-child ~ p:first-of-type {
+			@include first-p;
+		}
+
 		.illustration {
+			display: flex;
+			align-items: center;
 			justify-content: center;
 
+			a {
+				display: block;
+				transform: translate(0, 0);
+				transition: transform .25s ease;
+
+				&:hover {
+					transform: translate(0, -.5rem);
+				}
+			}
+
 			img {
+				display: block;
+				width: 2rem;
 				margin: 0 var(--spacing-small);
+
+				@media (--tablet) {
+					width: 3.25rem;
+				}
 			}
 		}
 	}

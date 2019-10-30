@@ -265,6 +265,7 @@
 
 // Search form
 #search-form {
+	--spacing-form-field-horizontal: var(--spacing-button-horizontal);
 	--border-radius-form-field: var(--border-radius-button);
 
 	p {

@@ -116,7 +116,7 @@ $site-width-reached: #{strip-unit($site-width) / strip-unit($site-width-min) * 1
 	--color-placeholder: var(--color-gray);
 
 	--spacing-form-field-vertical: var(--spacing-button-vertical);
-	--spacing-form-field-horizontal: var(--spacing-button-horizontal);
+	--spacing-form-field-horizontal: var(--spacing-button-vertical);
 
 	--border-form-field: 1px solid var(--color-border);
 	--border-form-field-focus: 1px solid var(--color-link);

@@ -91,12 +91,17 @@ $site-width-reached: #{strip-unit($site-width) / strip-unit($site-width-min) * 1
 
 	//////////
 	// Spacing
-	--spacing-section: 6rem;
-	--spacing-default: 1.2rem;
+	--spacing-section: 6.8rem;
+	--spacing-default: 1.4rem;
 	--spacing-small: .6rem;
-	--spacing-large: 2.4rem;
+	--spacing-large: 2.6rem;
 	--spacing-x-large: 4.2rem;
 	--grid-gap: 3.2rem;
+
+	// Slanting (TODO: top-right, bottom-right, top-left, bottom-left etc)
+	--slant-top: polygon(0 calc(var(--spacing-section) / 3), 100% 0, 100% 100%, 0 100%);
+	--slant-bottom: polygon(0 0, 100% 0, 100% calc(100% - var(--spacing-section) / 3), 0 100%);
+	--slant-top-bottom: polygon(0 calc(var(--spacing-section) / 3), 100% 0, 100% calc(100% - var(--spacing-section) / 3), 0 100%);
 
 	/////////
 	// Button

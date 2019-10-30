@@ -25,12 +25,16 @@
 	font-weight: bold;
 }
 
-@mixin card-large {
+@mixin card {
 	background: white;
 	padding: var(--spacing-large);
 	margin: 0 0 var(--spacing-large);
 	border-radius: .5rem;
 	box-shadow: 0 1rem 2rem rgba(0, 0, 0, .4);
+}
+
+@mixin card-large {
+	@include card;
 
 	@media (--tablet) {
 		padding: var(--spacing-section);
@@ -84,7 +88,7 @@
 		}
 
 		p {
-			@include list-separated;
+			@include list-separated(' • ');
 			@include text-label;
 
 			color: var(--color-gray);

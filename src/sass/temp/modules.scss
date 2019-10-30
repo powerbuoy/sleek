@@ -1,13 +1,67 @@
 // Text-block
 #text-block {
-	@include section;
-	@include full-height(center);
+	@include container;
+	@include clearfix;
 
-	background: #111;
-	color: white;
+	h2,
+	h2 + p {
+		text-align: center;
+	}
 
-	:--heading {
-		color: currentColor;
+	h2 + p {
+		@include first-p;
+
+		margin-bottom: var(--spacing-x-large);
+	}
+
+	pre {
+		background: #111;
+		font-size: var(--font-size-small);
+		color: white;
+		padding: var(--spacing-default);
+		overflow: auto;
+	}
+
+	@media (--tablet) {
+		pre {
+			width: calc(50% - (var(--grid-gap) / 2));
+			float: left;
+		}
+
+		pre + pre {
+			float: right;
+		}
+	}
+}
+
+#text-block {
+	> * {
+		transform: translate(0, 1.5rem);
+		opacity: 0;
+		transition: transform 0.75s ease,
+					opacity 0.75s ease;
+	}
+
+	@for $i from 2 through 5 {
+		> :nth-child(#{$i}) {
+			transition-delay: #{$i * .25s};
+		}
+	}
+
+	&.was-in-view {
+		> * {
+			transform: translate(0, 0);
+			opacity: 1;
+		}
+	}
+}
+
+// Text-blocks
+#text-blocks {
+	@include container;
+
+	> header {
+		@include header-module;
 	}
 }
 
@@ -16,13 +70,7 @@
 	@include section($site-width * .75);
 	@include full-height(center, center);
 
-//	background: radial-gradient(circle farthest-corner at center top, #00d4ff, #020024 80%);
-	background: url(/wp-content/uploads/2019/10/mockup-photos-5nUNdLueQio-unsplash-scaled-2560.jpg); // :+1:
-	background: url(/wp-content/uploads/2019/10/ashkan-forouzani-TnXMvJsCTpA-unsplash-scaled-2560.jpg); // :+1:
-	background: url(http://10.11.12.13/wp-content/uploads/2019/10/heather-shevlin-3B_NrzTjajc-unsplash-scaled-2560.jpg); // :+1:
-	background: url(http://10.11.12.13/wp-content/uploads/2019/10/ron-whitaker-ed_0mqHi7Gc-unsplash-scaled-2560.jpg); // :+1:
-	background: url(http://10.11.12.13/wp-content/uploads/2019/10/isabella-juskova-xotmnyN3gdc-unsplash-scaled-2560.jpg); // :+1:
-	background: url(http://10.11.12.13/wp-content/uploads/2019/10/jason-blackeye-ap3LXI0fPJY-unsplash-scaled-2560.jpg); // :+1:
+	background: url(/wp-content/uploads/2019/10/mockup-photos-5nUNdLueQio-unsplash-scaled-2560.jpg);
 	background-size: cover;
 	background-attachment: fixed;
 
@@ -41,65 +89,6 @@
 		@include card-large;
 
 		text-align: left;
-	}
-}
-
-// Contact form
-#contact-form {
-	@include container;
-	@include grid;
-
-	@media (--tablet) {
-		--grid-cols: 2;
-	}
-
-	form {
-		label {
-			@include text-label;
-		}
-	}
-}
-
-#contact-form {
-	header h2,
-	header p,
-	form p {
-		transform: translate(0, 1.5rem);
-		opacity: 0;
-		transition: transform 0.75s ease,
-					opacity 0.75s ease;
-	}
-
-	header p {
-		transition-delay: .25s;
-	}
-
-	form p {
-		transition-delay: .5s;
-
-		@for $i from 2 through 6 {
-			&:nth-of-type(#{$i}) {
-				transition-delay: #{$i * .25s + .5s};
-			}
-		}
-	}
-
-	&.was-in-view {
-		header h2,
-		header p,
-		form p {
-			transform: translate(0, 0);
-			opacity: 1;
-		}
-	}
-}
-
-// Text-blocks
-#text-blocks {
-	@include container;
-
-	> header {
-		@include header-module;
 	}
 }
 
@@ -273,6 +262,77 @@
 	}
 }
 
+// Contact form
+#contact-form {
+	@include section;
+	@include grid;
+
+	background: url(http://10.11.12.13/wp-content/uploads/2019/10/wenniel-lun-pe_R74hldW4-unsplash.jpg);
+	background: url(/wp-content/uploads/2019/10/ashkan-forouzani-TnXMvJsCTpA-unsplash-1-scaled-2560.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+
+	@media (--tablet) {
+		--grid-cols: 2;
+	}
+
+	header {
+		color: white;
+
+		:--heading {
+			color: currentColor;
+		}
+	}
+
+	form {
+		@include card;
+
+		label {
+			@include text-label;
+		}
+	}
+}
+
+#contact-form {
+	header h2,
+	header p,
+	form,
+	form p {
+		transform: translate(0, 1.5rem);
+		opacity: 0;
+		transition: transform 0.75s ease,
+					opacity 0.75s ease;
+	}
+
+	header p {
+		transition-delay: .25s;
+	}
+
+	form {
+		transition-delay: .25s;
+	}
+
+	form p {
+		transition-delay: .5s;
+
+		@for $i from 2 through 6 {
+			&:nth-of-type(#{$i}) {
+				transition-delay: #{$i * .25s + .5s};
+			}
+		}
+	}
+
+	&.was-in-view {
+		header h2,
+		header p,
+		form,
+		form p {
+			transform: translate(0, 0);
+			opacity: 1;
+		}
+	}
+}
+
 // Sidebar
 #sidebar {
 	@include section;
@@ -280,9 +340,8 @@
 
 	--font-size-h2: var(--font-size-h4);
 
-	background: #1a1a1a;
+	background: #111;
 	color: white;
-	box-shadow: 0 -1rem 2rem rgba(0, 0, 0, .4);
 
 	@media (--tablet) {
 		--grid-cols: 2;
@@ -333,7 +392,7 @@
 
 	--spacing-section: 1rem;
 
-	background: #111;
+	background: #0a0a0a;
 	color: #aaa;
 	text-align: center;
 

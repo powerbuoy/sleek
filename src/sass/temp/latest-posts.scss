@@ -74,17 +74,19 @@
 #featured-posts,
 #latest-posts,
 #related-posts {
-	> header h2 {
-		transform: translate(0, 1.5rem);
-		opacity: 0;
-		transition: transform 0.75s ease,
-					opacity 0.75s ease;
-	}
+	> header {
+		h2 {
+			transform: translate(0, 1.5rem);
+			opacity: 0;
+			transition: transform 0.75s ease,
+						opacity 0.75s ease;
+		}
 
-	&.was-in-view {
-		> header h2 {
-			transform: translate(0, 0);
-			opacity: 1;
+		&.was-in-view {
+			h2 {
+				transform: translate(0, 0);
+				opacity: 1;
+			}
 		}
 	}
 
@@ -101,29 +103,29 @@
 		}
 
 		header h3 {
-			transition-delay: .25s;
-		}
-
-		header p {
 			transition-delay: .5s;
 		}
 
-		> p {
+		header p {
 			transition-delay: .75s;
 		}
 
-		footer {
+		> p {
 			transition-delay: 1s;
+		}
+
+		footer {
+			transition-delay: 1.5s;
 		}
 
 		@media (--laptop) {
 			header figure {
-				transform: translate(-1.5rem, 0);
+				transform: translate(-2.5rem, 0);
 			}
 
 			&:nth-child(odd) {
 				header figure {
-					transform: translate(1.5rem, 0);
+					transform: translate(2.5rem, 0);
 				}
 			}
 		}

@@ -1,5 +1,11 @@
 'use strict';
 
+var threshold = .25;
+
+if (window.matchMedia('(min-width: 1000px)').matches) {
+	threshold = .5;
+}
+
 var observer = new IntersectionObserver(entries => {
 	entries.forEach(entry => {
 		if (entry.isIntersecting) {
@@ -9,7 +15,7 @@ var observer = new IntersectionObserver(entries => {
 			entry.target.classList.remove('in-view');
 		}
 	});
-}, {threshold: .4});
+}, {threshold: threshold});
 
 document.querySelectorAll('section, article, header, aside, article').forEach(el => {
 	observer.observe(el);

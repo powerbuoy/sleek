@@ -71,7 +71,7 @@
 						done: false
 					},
 					{
-						title: 'Learn Vue',
+						title: 'Build something awesome',
 						done: false
 					}
 				]

@@ -207,11 +207,16 @@
 #instagram {
 	overflow: hidden;
 
-	> header h2 {
+	> header h2,
+	> header p {
 		transform: translate(0, 1.5rem);
 		opacity: 0;
 		transition: transform 0.75s ease,
 					opacity 0.75s ease;
+	}
+
+	> header p {
+		transition-delay: .25s;
 	}
 
 	ul {
@@ -237,7 +242,8 @@
 	}
 
 	&.was-in-view {
-		> header h2 {
+		> header h2,
+		> header p {
 			transform: translate(0, 0);
 			opacity: 1;
 		}

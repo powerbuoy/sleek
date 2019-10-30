@@ -9,7 +9,7 @@ var observer = new IntersectionObserver(entries => {
 			entry.target.classList.remove('in-view');
 		}
 	});
-}, {threshold: .75});
+}, {threshold: .5});
 
 document.querySelectorAll('section, article, header, aside, article').forEach(el => {
 	observer.observe(el);

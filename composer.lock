@@ -228,12 +228,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-custom-logo.git",
-                "reference": "535a83edbe7dbafadfd793de93d2663a37c3e14b"
+                "reference": "5296c88b1628966793e6c297ae05493fe98fd707"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-custom-logo/zipball/535a83edbe7dbafadfd793de93d2663a37c3e14b",
-                "reference": "535a83edbe7dbafadfd793de93d2663a37c3e14b",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-custom-logo/zipball/5296c88b1628966793e6c297ae05493fe98fd707",
+                "reference": "5296c88b1628966793e6c297ae05493fe98fd707",
                 "shasum": ""
             },
             "type": "library",
@@ -252,7 +252,7 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-09-30T23:06:13+00:00"
+            "time": "2019-10-30T23:18:05+00:00"
         },
         {
             "name": "powerbuoy/sleek-gallery",
@@ -495,12 +495,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-notices.git",
-                "reference": "32d72a1ea29af106fdbabdfbc0f1ffba863fff5c"
+                "reference": "c2f15b30cd36e2971f82fe724587065a3b055269"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-notices/zipball/32d72a1ea29af106fdbabdfbc0f1ffba863fff5c",
-                "reference": "32d72a1ea29af106fdbabdfbc0f1ffba863fff5c",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-notices/zipball/c2f15b30cd36e2971f82fe724587065a3b055269",
+                "reference": "c2f15b30cd36e2971f82fe724587065a3b055269",
                 "shasum": ""
             },
             "type": "library",
@@ -519,7 +519,7 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-10-30T12:30:15+00:00"
+            "time": "2019-10-30T12:41:27+00:00"
         },
         {
             "name": "powerbuoy/sleek-post-types",

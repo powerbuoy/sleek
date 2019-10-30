@@ -65,6 +65,73 @@
 	}
 }
 
+// Gallery
+#gallery {
+	text-align: center;
+	padding: var(--spacing-section) var(--spacing-large);
+
+	> header {
+		@include header-module;
+	}
+
+	ul {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+		list-style: none;
+
+		li {
+			flex: 1;
+			display: block;
+			margin: 0 var(--spacing-large);
+
+			figure {
+				margin: 0;
+
+				a {
+					pointer-events: none;
+				}
+
+				img {
+					width: 100%;
+					filter: brightness(0);
+				}
+
+				figcaption {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+#gallery {
+	> header h2,
+	ul li {
+		transform: translate(0, 1.5rem);
+		opacity: 0;
+		transition: transform 0.75s ease,
+					opacity 0.75s ease;
+	}
+
+	ul li {
+		@for $i from 1 through 10 {
+			&:nth-child(#{$i}) {
+				transition-delay: #{$i * .25s};
+			}
+		}
+	}
+
+	&.was-in-view {
+		> header h2,
+		ul li {
+			transform: translate(0, 0);
+			opacity: 1;
+		}
+	}
+}
+
 // Vue component
 #vue-component {
 	@include section($site-width * .75);
@@ -129,8 +196,6 @@
 
 // Instagram
 #instagram {
-	@include section;
-
 	background: url(/wp-content/uploads/2019/10/lukas-blazek-EWDvHNNfUmQ-unsplash-scaled-2560.jpg);
 	background-size: cover;
 	background-attachment: fixed;
@@ -283,8 +348,10 @@
 	}
 
 	header {
+		align-self: center;
 		color: white;
 
+		a:not(:hover),
 		:--heading {
 			color: currentColor;
 		}

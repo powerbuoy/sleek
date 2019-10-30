@@ -1,6 +1,6 @@
 // Single page
 #single-page {
-	background: radial-gradient(circle farthest-corner at center top, #00d4ff, #020024 60%);
+	background: #020024 radial-gradient(circle farthest-corner at center top, #00d4ff, #020024 60%) no-repeat 50% 0;
 	color: white;
 
 	a:not(:hover),
@@ -19,7 +19,7 @@
 
 		// Logo (TODO: Front-page only)
 		h1 {
-			margin-bottom: var(--spacing-small);
+		//	margin-bottom: var(--spacing-small);
 			line-height: 1;
 			font-size: 2rem;
 
@@ -34,8 +34,21 @@
 
 			small {
 				display: block;
-				font-size: 1.8rem;
+				font-size: 1.6rem;
 				font-family: "Great Vibes";
+				font-family: 'Liu Jian Mao Cao', cursive;
+				font-family: 'Pacifico', cursive;
+				font-family: 'Dancing Script', cursive;
+				font-family: 'Satisfy', cursive;
+				font-family: 'Caveat', cursive;
+				font-family: 'Sacramento', cursive;
+				font-family: 'Parisienne', cursive;
+				font-family: 'Bad Script', cursive;
+				font-family: 'Covered By Your Grace', cursive;
+				font-family: 'Nanum Pen Script', cursive;
+				font-family: 'Reenie Beanie', cursive;
+				font-family: 'Tangerine', cursive; // 👍
+				font-family: 'Srisakdi', cursive; // 👍
 			}
 
 			@media (--tablet) {
@@ -76,12 +89,30 @@
 	}
 }
 
+// Background animation
+@keyframes single-page-gradient {
+	from {
+		background-position: 50% -150px;
+	}
+
+	to {
+		background-position: 50% 0;
+	}
+}
+
+#single-page {
+	animation: single-page-gradient 6s ease forwards paused;
+
+	&.was-in-view {
+		animation-play-state: running;
+	}
+}
+
 // Hero animation
 #single-page > header {
-	h1 strong,
 	h1 small,
 	li {
-		transform: translateY(1.5rem);
+		transform: translate(0, 1.5rem);
 		opacity: 0;
 		transition: transform 0.75s ease,
 					opacity 0.75s ease;
@@ -120,10 +151,9 @@
 			}
 		}
 
-		h1 strong,
 		h1 small,
 		li {
-			transform: translateY(0);
+			transform: translate(0, 0);
 			opacity: 1;
 		}
 	}
@@ -134,7 +164,7 @@
 	h2,
 	img,
 	p {
-		transform: translateY(1.5rem);
+		transform: translate(0, 1.5rem);
 		opacity: 0;
 		transition: transform 0.75s ease,
 					opacity 0.75s ease;
@@ -160,7 +190,7 @@
 		h2,
 		img,
 		p {
-			transform: translateY(0);
+			transform: translate(0, 0);
 			opacity: 1;
 		}
 	}

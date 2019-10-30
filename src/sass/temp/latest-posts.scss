@@ -1,0 +1,142 @@
+// Featured posts
+#featured-posts,
+#latest-posts,
+#related-posts {
+	@include container;
+
+	> header {
+		@include header-module;
+	}
+
+	article {
+		position: relative;
+		margin-bottom: var(--spacing-x-large);
+
+		figure {
+			margin-bottom: var(--spacing-large);
+			box-shadow: 0 1rem 2rem rgba(0, 0, 0, .4);
+		}
+
+		header {
+			h3 {
+				margin: 0;
+			}
+
+			p {
+				@include text-label;
+
+				> * {
+					display: inline-block;
+					margin-right: var(--spacing-small);
+				}
+			}
+		}
+
+		footer {
+			a {
+				@extend .button;
+			}
+		}
+
+		@media (--laptop) {
+			padding: var(--spacing-large) 0;
+			padding-left: calc(50% + var(--spacing-large) / 2);
+
+			figure {
+				position: absolute;
+				left: calc(var(--spacing-large) * -1);
+				top: 0;
+				bottom: 0;
+				width: calc(50% - var(--spacing-large) / 2);
+				margin: 0;
+
+				img {
+					@include img-background;
+
+					z-index: auto;
+				}
+			}
+
+			&:nth-child(odd) {
+				padding-left: 0;
+				padding-right: calc(50% + var(--spacing-large) / 2);
+
+				figure {
+					left: auto;
+					right: calc(var(--spacing-large) * -1);
+				}
+			}
+		}
+	}
+}
+
+// Animation
+#featured-posts,
+#latest-posts,
+#related-posts {
+	> header h2 {
+		transform: translate(0, 1.5rem);
+		opacity: 0;
+		transition: transform 0.75s ease,
+					opacity 0.75s ease;
+	}
+
+	&.was-in-view {
+		> header h2 {
+			transform: translate(0, 0);
+			opacity: 1;
+		}
+	}
+
+	article {
+		header figure,
+		header h3,
+		header p,
+		> p,
+		footer {
+			transform: translate(0, 1.5rem);
+			opacity: 0;
+			transition: transform 0.75s ease,
+						opacity 0.75s ease;
+		}
+
+		header h3 {
+			transition-delay: .25s;
+		}
+
+		header p {
+			transition-delay: .5s;
+		}
+
+		> p {
+			transition-delay: .75s;
+		}
+
+		footer {
+			transition-delay: 1s;
+		}
+
+		@media (--laptop) {
+			header figure {
+				transform: translate(-1.5rem, 0);
+			}
+
+			&:nth-child(odd) {
+				header figure {
+					transform: translate(1.5rem, 0);
+				}
+			}
+		}
+
+		&.was-in-view {
+			header figure,
+			header h3,
+			header p,
+			> p,
+			footer {
+				transform: translate(0, 0);
+				opacity: 1;
+			}
+		}
+	}
+}

@@ -37,6 +37,9 @@
 		}
 
 		form p {
+			--border-radius-form-field: var(--border-radius-button);
+			--spacing-form-field-horizontal: var(--spacing-button-horizontal);
+
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-between;

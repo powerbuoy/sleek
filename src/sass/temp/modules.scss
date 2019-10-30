@@ -44,74 +44,37 @@
 	background-image: url(/wp-content/uploads/2019/10/wenniel-lun-pe_R74hldW4-unsplash.jpg);
 }
 
-// Featured posts
-#featured-posts,
-#latest-posts,
-#related-posts {
-	@include container;
+// Animation
+#vue-component {
+	perspective: 100vw;
 
-	> header {
-		@include header-module;
+	> header h2,
+	> header p {
+		transform: translate(0, 1.5rem);
+		opacity: 0;
+		transition: transform 0.75s ease,
+					opacity 0.75s ease;
 	}
 
-	article {
-		position: relative;
-		margin-bottom: var(--spacing-x-large);
+	> header p {
+		transition-delay: .25s;
+	}
 
-		figure {
-			margin-bottom: var(--spacing-large);
-			box-shadow: 0 1rem 2rem rgba(0, 0, 0, .4);
+	> [data-vue] {
+		transform: rotateX(-120deg);
+		transition: transform 1.5s .25s ease;
+		backface-visibility: hidden;
+	}
+
+	&.was-in-view {
+		> header h2,
+		> header p {
+			transform: translate(0, 0);
+			opacity: 1;
 		}
 
-		header {
-			h3 {
-				margin: 0;
-			}
-
-			p {
-				@include text-label;
-
-				> * {
-					display: inline-block;
-					margin-right: var(--spacing-small);
-				}
-			}
-		}
-
-		footer {
-			a {
-				@extend .button;
-			}
-		}
-
-		@media (--laptop) {
-			padding: var(--spacing-large) 0;
-			padding-left: calc(50% + var(--spacing-large) / 2);
-
-			figure {
-				position: absolute;
-				left: calc(var(--spacing-large) * -1);
-				top: 0;
-				bottom: 0;
-				width: calc(50% - var(--spacing-large) / 2);
-				margin: 0;
-
-				img {
-					@include img-background;
-
-					z-index: auto;
-				}
-			}
-
-			&:nth-child(odd) {
-				padding-left: 0;
-				padding-right: calc(50% + var(--spacing-large) / 2);
-
-				figure {
-					left: auto;
-					right: calc(var(--spacing-large) * -1);
-				}
-			}
+		> [data-vue] {
+			transform: rotateX(0);
 		}
 	}
 }
@@ -180,6 +143,51 @@
 	}
 }
 
+// Animation
+#instagram {
+	overflow: hidden;
+
+	> header h2 {
+		transform: translate(0, 1.5rem);
+		opacity: 0;
+		transition: transform 0.75s ease,
+					opacity 0.75s ease;
+	}
+
+	ul {
+		li {
+			transform: rotate(45deg) translate(50vw, 300%);
+			transition: transform 0.75s cubic-bezier(0, 1, 0, 1);
+
+			&:nth-child(2) {
+				transform: rotate(-30deg) translate(-20vw, 300%);
+				transition-delay: .25s;
+			}
+
+			&:nth-child(3) {
+				transform: rotate(-25deg) translate(-30vw, 300%);
+				transition-delay: .5s;
+			}
+
+			&:nth-child(4) {
+				transform: rotate(-45deg) translate(-50vw, 300%);
+				transition-delay: .75s;
+			}
+		}
+	}
+
+	&.was-in-view {
+		> header h2 {
+			transform: translate(0, 0);
+			opacity: 1;
+		}
+
+		ul li {
+			transform: rotate(0) translate(0, 0);
+		}
+	}
+}
+
 // Google map
 #google-map {
 	> header {
@@ -203,6 +211,7 @@
 
 	background: #1a1a1a;
 	color: white;
+	box-shadow: 0 -1rem 2rem rgba(0, 0, 0, .4);
 
 	@media (--tablet) {
 		--grid-cols: 2;
@@ -225,6 +234,28 @@
 	}
 }
 
+// Animation
+#sidebar {
+	> * {
+		transform: translate(0, 1.5rem);
+		opacity: 0;
+		transition: transform 0.75s ease,
+					opacity 0.75s ease;
+
+		@for $i from 1 through 6 {
+			&:nth-child(#{$i}) {
+				transition-delay: #{$i * 0.25s};
+			}
+		}
+	}
+
+	&.was-in-view > * {
+		transform: translate(0, 0);
+		opacity: 1;
+	}
+}
+
+// Footer
 #site-footer {
 	@include section;
 	@include text-label;

@@ -9,8 +9,8 @@ var observer = new IntersectionObserver(entries => {
 			entry.target.classList.remove('in-view');
 		}
 	});
-}, {threshold: .25});
+}, {threshold: .5});
 
-document.querySelectorAll('section, article, header, footer, nav, aside, div').forEach(el => {
+document.querySelectorAll('section, article, header, aside, article').forEach(el => {
 	observer.observe(el);
 });

@@ -75,16 +75,13 @@
 	}
 
 	ul {
-		display: flex;
-		align-items: center;
-		justify-content: center;
 		margin: 0;
 		list-style: none;
 
 		li {
-			flex: 1;
-			display: block;
-			margin: 0 var(--spacing-large);
+			display: inline-block;
+			vertical-align: middle;
+			margin: 0 var(--spacing-default) var(--spacing-default);
 
 			figure {
 				margin: 0;
@@ -94,7 +91,7 @@
 				}
 
 				img {
-					width: 100%;
+					width: 5rem;
 					filter: brightness(0);
 				}
 
@@ -338,7 +335,6 @@
 	@include section;
 	@include grid;
 
-	background: url(http://10.11.12.13/wp-content/uploads/2019/10/wenniel-lun-pe_R74hldW4-unsplash.jpg);
 	background: url(/wp-content/uploads/2019/10/ashkan-forouzani-TnXMvJsCTpA-unsplash-1-scaled-2560.jpg);
 	background-size: cover;
 	background-attachment: fixed;

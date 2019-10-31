@@ -134,7 +134,7 @@
 	@include section($site-width * .75);
 	@include full-height(center, center);
 
-	background: url(/wp-content/uploads/2019/10/mockup-photos-5nUNdLueQio-unsplash.jpg);
+	background: url(/wp-content/uploads/2019/10/mockup-photos-5nUNdLueQio-unsplash-scaled-2560.jpg);
 	background-size: cover;
 	background-attachment: fixed;
 
@@ -193,7 +193,7 @@
 
 // Instagram
 #instagram {
-	background: url(/wp-content/uploads/2019/10/lukas-blazek-EWDvHNNfUmQ-unsplash.jpg);
+	background: url(/wp-content/uploads/2019/10/lukas-blazek-EWDvHNNfUmQ-unsplash-scaled-2560.jpg);
 	background-size: cover;
 	background-attachment: fixed;
 	padding: var(--spacing-section) var(--spacing-large);
@@ -335,7 +335,7 @@
 	@include section;
 	@include grid;
 
-	background: url(/wp-content/uploads/2019/10/ashkan-forouzani-TnXMvJsCTpA-unsplash.jpg);
+	background: url(/wp-content/uploads/2019/10/ashkan-forouzani-TnXMvJsCTpA-unsplash-scaled-2560.jpg);
 	background-size: cover;
 	background-attachment: fixed;
 

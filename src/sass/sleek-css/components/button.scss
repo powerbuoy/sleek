@@ -2,14 +2,12 @@
 .button--ghost,
 button,
 input[type=submit] {
-	background: var(--color-button);
-
-	display: inline-block;
-	vertical-align: middle;
-	transition: all var(--transition-duration) ease;
+	background: var(--button-color);
 
 	box-sizing: border-box;
-	padding: var(--spacing-button-vertical) var(--spacing-button-horizontal);
+	display: inline-block;
+	padding: var(--button-padding-vertical) var(--button-padding-horizontal);
+	vertical-align: middle;
 
 	font-size: var(--font-size-default);
 	font-family: var(--font-family-default);
@@ -21,14 +19,16 @@ input[type=submit] {
 	text-transform: none;
 	text-decoration: none;
 	text-align: center;
-	color: var(--color-button-text);
+	color: white;
 
 	outline: 0;
-	border: 1px solid var(--color-button);
-	border-radius: var(--border-radius-button);
+	border: 1px solid var(--button-color);
+	border-radius: var(--button-border-radius);
+
+	transition: all .25s ease;
 }
 
 .button--ghost {
 	background: transparent;
-	color: var(--color-button);
+	color: var(--button-color);
 }

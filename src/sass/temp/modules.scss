@@ -325,8 +325,8 @@
 
 // Search form
 #search-form {
-	--spacing-form-field-horizontal: var(--spacing-button-horizontal);
-	--border-radius-form-field: var(--border-radius-button);
+	--form-field-padding-horizontal: var(--button-padding-horizontal);
+	--form-field-border-radius: var(--button-border-radius);
 
 	p {
 		display: flex;

@@ -2,7 +2,7 @@
 :--form-field,
 select,
 textarea {
-	background: var(--color-form-field);
+	background: var(--form-field-color);
 
 	appearance: none;
 	outline: 0;
@@ -15,7 +15,7 @@ textarea {
 	max-width: 100%; // In case user changes width we still want max-width 100%
 
 	margin: 0;
-	padding: var(--spacing-form-field-vertical) var(--spacing-form-field-horizontal);
+	padding: var(--form-field-padding-vertical) var(--form-field-padding-horizontal);
 
 	font-size: var(--font-size-default);
 	font-family: var(--font-family-default);
@@ -27,17 +27,15 @@ textarea {
 	text-transform: none;
 	text-decoration: none;
 	text-align: left;
-	color: var(--color-form-field-text);
+	color: var(--form-field-text-color);
 
-	transition: all var(--transition-duration) ease;
-	border: var(--border-form-field);
-	border-width: var(--border-width-form-field);
-	border-radius: var(--border-radius-form-field);
+	transition: all .25s ease;
+	border: 1px solid var(--color-border);
+	border-radius: var(--form-field-border-radius);
 
 	&:focus {
 		outline: 0;
-		border: var(--border-form-field-focus);
-		border-width: var(--border-width-form-field);
+		border-color: var(--form-field-border-focus-color);
 	}
 }
 
@@ -45,9 +43,9 @@ textarea {
 select {
 	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40"><polygon points="2.7,14.4 6.8,10.3 20,23.5 33.2,10.3 37.3,14.4 20,31.7 "/></svg>');
 	background-repeat: no-repeat;
-	background-position: right var(--spacing-form-field-horizontal) top 50%;
+	background-position: right var(--form-field-padding-horizontal) top 50%;
 	background-size: .5rem auto;
-	padding-right: calc(var(--spacing-form-field-horizontal) * 2 + .5rem);
+	padding-right: calc(var(--form-field-padding-horizontal) * 2 + .5rem);
 }
 
 // Textarea
@@ -59,7 +57,7 @@ textarea {
 
 // Placeholders
 ::placeholder {
-	color: --color-placeholder;
+	color: var(--color-gray);
 }
 
 // Hide search UI

@@ -97,6 +97,7 @@
 	background-size: cover;
 	background-attachment: fixed;
 	perspective: 100vw;
+	overflow: hidden;
 
 	> header {
 		@include header-module;

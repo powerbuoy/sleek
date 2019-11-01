@@ -1,7 +1,4 @@
-.button,
-.button--ghost,
-button,
-input[type=submit] {
+.button {
 	background: var(--button-color);
 
 	box-sizing: border-box;
@@ -26,9 +23,4 @@ input[type=submit] {
 	border-radius: var(--button-border-radius);
 
 	transition: all .25s ease;
-}
-
-.button--ghost {
-	background: transparent;
-	color: var(--button-color);
 }

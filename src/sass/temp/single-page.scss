@@ -159,8 +159,7 @@
 	@include full-height(center, center);
 	@include fade-in-children;
 
-	> p:first-child,
-	> :--heading:first-child ~ p:first-of-type {
+	> p:first-child {
 		@include first-p;
 	}
 

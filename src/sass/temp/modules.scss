@@ -396,3 +396,59 @@
 		@include post(true);
 	}
 }
+
+#single-post {
+	> header {
+		@include fade-in-children;
+
+		@media (--tablet-max) {
+			@include container;
+
+			margin-top: 0;
+			margin-bottom: var(--spacing-large);
+
+			> figure {
+				@include break-out;
+			}
+		}
+
+		@media (--tablet) {
+			@include section;
+
+			position: relative;
+			margin-bottom: var(--spacing-section);
+			padding-right: calc(50% + var(--spacing-x-large));
+			text-align: right;
+
+			> figure {
+				position: absolute;
+				left: 50%;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: 0;
+
+				img {
+					@include img-background;
+				}
+			}
+		}
+
+		p {
+			@include list-separated(' • ');
+			@include text-label;
+			@include text-color(var(--color-gray));
+		}
+	}
+
+	> article {
+		@include container($site-width * .5);
+		@include fade-in-children(30);
+
+		margin-top: 0;
+
+		> p:first-child {
+			@include first-p;
+		}
+	}
+}

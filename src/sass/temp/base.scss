@@ -50,6 +50,11 @@
 @mixin text-color ($color: white) {
 	color: $color;
 
+	// Make sure any potential list separator (like |) doesn't inherit currentColor on :hover
+	> :after {
+		color: $color;
+	}
+
 	a:not(:hover),
 	:--heading {
 		color: currentColor;
@@ -175,16 +180,7 @@
 		p {
 			@include list-separated(' • ');
 			@include text-label;
-
-			color: var(--color-gray);
-
-			> :after {
-				color: var(--color-gray);
-			}
-
-			a:not(:hover) {
-				color: currentColor;
-			}
+			@include text-color(var(--color-gray));
 		}
 	}
 

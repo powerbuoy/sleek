@@ -276,11 +276,13 @@
 
 // Some basic styling
 html {
-	overflow-x: hidden; // Prevent horizontal scroll in low res because of #contact-form(?)
-
 	@media (--tablet-max) {
 		font-size: 80%;
 	}
+}
+
+body {
+	overflow-x: hidden; // Prevent horizontal scroll in low res because of #contact-form(?)
 }
 
 h2 {

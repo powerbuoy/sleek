@@ -361,9 +361,35 @@
 #archive {
 	@include container;
 
+	margin-top: 0;
+
 	> header {
+		@include break-out;
+		@include section;
 		@include header-module;
+		@include text-color(white);
 		@include fade-in-children;
+
+		overflow: hidden;
+
+		> figure {
+			transform: none !important;
+			opacity: 1 !important;
+
+			img {
+				@include img-background;
+			}
+		}
+
+		> ul {
+			@include fade-in-children;
+			@include list-separated(' • ');
+			@include text-label;
+		}
+
+		&.was-in-view > ul > * {
+			@include fade-in;
+		}
 	}
 
 	> article {

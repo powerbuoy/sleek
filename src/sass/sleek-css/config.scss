@@ -84,7 +84,7 @@ $site-width-reached: #{strip-unit($site-width) / strip-unit($site-width-min) * 1
 
 	// Height & spacing
 	--line-height-default: 1.8;
-	--line-height-heading: 1.2;
+	--line-height-heading: 1;
 
 	--letter-spacing-default: .05em;
 	--letter-spacing-heading: 0;

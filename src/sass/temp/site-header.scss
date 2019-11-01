@@ -34,7 +34,7 @@
 
 	// Menu
 	ul {
-		@include list-separated;
+		@include list-separated(' • ');
 		@include text-label;
 
 		@media (--tablet-max) {

@@ -61,15 +61,10 @@
 
 	// Menu
 	ul {
+		@include list-separated(' • ');
 		@include text-label;
 
 		margin: 0;
-		list-style: none;
-
-		> li {
-			display: inline-block;
-			margin: 0 var(--spacing-small);
-		}
 	}
 
 	// Down arrow

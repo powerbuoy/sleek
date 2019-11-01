@@ -370,15 +370,14 @@
 		@include text-color(white);
 		@include fade-in-children;
 
-		overflow: hidden;
+		background: url(/wp-content/uploads/2019/10/lukas-blazek-EWDvHNNfUmQ-unsplash-scaled-2560.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+
+		padding-top: calc(var(--spacing-section) * 2);
 
 		> figure {
-			transform: none !important;
-			opacity: 1 !important;
-
-			img {
-				@include img-background;
-			}
+			display: none;
 		}
 
 		> ul {

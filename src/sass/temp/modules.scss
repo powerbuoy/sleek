@@ -435,6 +435,10 @@
 			}
 		}
 
+		h1 {
+			margin: 0;
+		}
+
 		p {
 			@include list-separated(' • ');
 			@include text-label;

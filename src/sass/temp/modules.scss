@@ -397,6 +397,7 @@
 	}
 }
 
+// Single blog post
 #single-post {
 	> header {
 		@include fade-in-children;
@@ -456,4 +457,12 @@
 			@include first-p;
 		}
 	}
+}
+
+#comments,
+#respond {
+	--font-size-h2: var(--font-size-h4);
+
+	@include container($site-width * .5);
+	@include fade-in-children;
 }

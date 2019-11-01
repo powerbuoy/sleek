@@ -1,7 +1,9 @@
 @mixin gallery-logo ($width: 3rem) {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-around;
+
 	margin-left: 0;
 	list-style: none;
 
@@ -13,7 +15,7 @@
 		}
 
 		img {
-			width: $width;
+			max-width: $width;
 		}
 	}
 

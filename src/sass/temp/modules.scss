@@ -72,9 +72,7 @@
 		@include gallery-logo($width: 5rem);
 		@include fade-in-children($num: 10, $delay: .25s);
 
-		a {
-			pointer-events: none;
-		}
+		pointer-events: none;
 
 		img {
 			filter: brightness(0);

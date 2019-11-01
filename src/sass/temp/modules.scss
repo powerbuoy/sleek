@@ -418,6 +418,7 @@
 			position: relative;
 			margin-bottom: var(--spacing-section);
 			padding-right: calc(50% + var(--spacing-x-large));
+			padding-top: calc(var(--spacing-section) * 2);
 			text-align: right;
 
 			> figure {

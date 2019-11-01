@@ -243,6 +243,7 @@
 		@include fade-in-children;
 		@include text-color(white);
 
+		margin-bottom: 0;
 		align-self: center;
 		text-align: left;
 	}
@@ -459,10 +460,41 @@
 	}
 }
 
+// Comments
 #comments,
-#respond {
+#respond,
+#comment-form {
 	--font-size-h2: var(--font-size-h4);
 
 	@include container($site-width * .5);
 	@include fade-in-children;
+}
+
+// Modules showcase
+#modules-showcase {
+	@include container;
+	@include grid;
+	@include fade-in-children(30);
+
+	@media (--tablet) {
+		--grid-cols: 2;
+	}
+
+	@media (--laptop) {
+		--grid-cols: 3;
+	}
+
+	> header {
+		@include header-module;
+		@include fade-in-children;
+
+		margin-bottom: 0;
+		grid-column: span var(--grid-cols);
+	}
+
+	article {
+		h3 {
+			font-size: var(--font-size-h4);
+		}
+	}
 }

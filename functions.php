@@ -75,6 +75,7 @@ add_action('acf/init', function () {
 					'hubspot-form',
 					'instagram',
 					'latest-posts',
+					'modules-showcase',
 					'share-page',
 					'social-links',
 					'text-block',

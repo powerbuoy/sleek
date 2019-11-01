@@ -1,27 +1,41 @@
+// Featured posts
+#featured-posts,
+#latest-posts,
+#related-posts {
+	@include container;
+
+	> header {
+		@include header-module;
+		@include fade-in-children(2);
+	}
+
+	article {
+		@include post(true);
+	}
+}
+
+
 // Text-block
 #text-block {
 	@include container;
 	@include clearfix;
+	@include fade-in-children;
 
-	h2,
-	h2 + p {
-		text-align: center;
+	// Special case for text-block
+	> header {
+		@include header-module;
+
+		margin-bottom: var(--spacing-default);
 	}
 
-	h2 + p {
+	> header + p {
 		@include first-p;
 
+		text-align: center;
 		margin-bottom: var(--spacing-x-large);
 	}
 
-	pre {
-		background: #111;
-		font-size: var(--font-size-small);
-		color: white;
-		padding: var(--spacing-default);
-		overflow: auto;
-	}
-
+	// Code blocks
 	@media (--tablet) {
 		pre {
 			width: calc(50% - (var(--grid-gap) / 2));
@@ -34,31 +48,10 @@
 	}
 }
 
-#text-block {
-	> * {
-		transform: translate(0, 1.5rem);
-		opacity: 0;
-		transition: transform 0.75s ease,
-					opacity 0.75s ease;
-	}
-
-	@for $i from 2 through 5 {
-		> :nth-child(#{$i}) {
-			transition-delay: #{$i * .25s};
-		}
-	}
-
-	&.was-in-view {
-		> * {
-			transform: translate(0, 0);
-			opacity: 1;
-		}
-	}
-}
-
 // Text-blocks
 #text-blocks {
 	@include container;
+	@include fade-in-children;
 
 	> header {
 		@include header-module;
@@ -72,60 +65,28 @@
 
 	> header {
 		@include header-module;
+		@include fade-in-children;
 	}
 
 	ul {
-		margin: 0;
-		list-style: none;
+		@include gallery-logo($width: 5rem);
+		@include fade-in-children($num: 10, $delay: .25s);
 
-		li {
-			display: inline-block;
-			vertical-align: middle;
-			margin: 0 var(--spacing-default) var(--spacing-default);
-
-			figure {
-				margin: 0;
-
-				a {
-					pointer-events: none;
-				}
-
-				img {
-					width: 5rem;
-					filter: brightness(0);
-				}
-
-				figcaption {
-					display: none;
-				}
-			}
+		a {
+			pointer-events: none;
 		}
-	}
-}
 
-#gallery {
-	> header h2,
-	ul li {
-		transform: translate(0, 1.5rem);
-		opacity: 0;
-		transition: transform 0.75s ease,
-					opacity 0.75s ease;
-	}
+		img {
+			filter: brightness(0);
+		}
 
-	ul li {
-		@for $i from 1 through 10 {
-			&:nth-child(#{$i}) {
-				transition-delay: #{$i * .25s};
-			}
+		figcaption {
+			display: none;
 		}
 	}
 
-	&.was-in-view {
-		> header h2,
-		ul li {
-			transform: translate(0, 0);
-			opacity: 1;
-		}
+	&.was-in-view ul li {
+		@include fade-in;
 	}
 }
 
@@ -137,54 +98,24 @@
 	background: url(/wp-content/uploads/2019/10/mockup-photos-5nUNdLueQio-unsplash-scaled-2560.jpg);
 	background-size: cover;
 	background-attachment: fixed;
+	perspective: 100vw;
 
 	> header {
 		@include header-module;
-
-		color: white;
-
-		:--heading {
-			color: currentColor;
-		}
-	}
-
-	> [data-vue],
-	> div.wpcf7 {
-		@include card-large;
-
-		text-align: left;
-	}
-}
-
-// Animation
-#vue-component {
-	perspective: 100vw;
-
-	> header h2,
-	> header p {
-		transform: translate(0, 1.5rem);
-		opacity: 0;
-		transition: transform 0.75s ease,
-					opacity 0.75s ease;
-	}
-
-	> header p {
-		transition-delay: .25s;
+		@include fade-in-children;
+		@include text-color(white);
 	}
 
 	> [data-vue] {
-		transform: rotateX(-120deg);
+		@include card-large;
+
+		text-align: left;
+		transform: rotateX(120deg);
 		transition: transform 1.5s .25s ease;
 		backface-visibility: hidden;
 	}
 
 	&.was-in-view {
-		> header h2,
-		> header p {
-			transform: translate(0, 0);
-			opacity: 1;
-		}
-
 		> [data-vue] {
 			transform: rotateX(0);
 		}
@@ -197,23 +128,16 @@
 	background-size: cover;
 	background-attachment: fixed;
 	padding: var(--spacing-section) var(--spacing-large);
+	overflow: hidden;
 
 	> header {
 		@include header-module;
-
-		color: white;
-
-		a:not(:hover),
-		:--heading {
-			color: currentColor;
-		}
+		@include text-color(white);
+		@include fade-in-children;
 	}
 
 	ul {
 		@include grid;
-
-		margin: 0;
-		list-style: none;
 
 		@media (--tablet) {
 			--grid-cols: 2;
@@ -223,24 +147,38 @@
 			--grid-cols: 4;
 		}
 
+		margin: 0;
+		list-style: none;
+
 		li {
+			// Animation
+			transform: rotate(45deg) translate(50vw, 300%);
+			transition: transform 0.75s cubic-bezier(0, 1, 0, 1);
+
+			&:nth-child(2) {
+				transform: rotate(-30deg) translate(-20vw, 300%);
+				transition-delay: .25s;
+			}
+
+			&:nth-child(3) {
+				transform: rotate(-25deg) translate(-30vw, 300%);
+				transition-delay: .5s;
+			}
+
+			&:nth-child(4) {
+				transform: rotate(-45deg) translate(-50vw, 300%);
+				transition-delay: .75s;
+			}
+
+			// Each image
 			a {
 				display: block;
 
+				// Polaroid
 				img {
-					background: white;
-					display: block;
-					padding: var(--spacing-small) var(--spacing-small) var(--spacing-large);
-					transform: rotate(-2deg) translate(0, 0) scale(1);
-					box-shadow: 0 0.25rem .5rem rgba(0, 0, 0, .4);
-					transition: transform .5s ease, box-shadow .5s ease;
-				}
+					@include img-polaroid;
 
-				&:hover {
-					img {
-						transform: rotate(0deg) translate(0, 0) scale(1.1);
-						box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, .4);
-					}
+					transform: rotate(-2deg) translate(0, 0) scale(1);
 				}
 			}
 
@@ -263,53 +201,8 @@
 			}
 		}
 	}
-}
-
-// Animation
-#instagram {
-	overflow: hidden;
-
-	> header h2,
-	> header p {
-		transform: translate(0, 1.5rem);
-		opacity: 0;
-		transition: transform 0.75s ease,
-					opacity 0.75s ease;
-	}
-
-	> header p {
-		transition-delay: .25s;
-	}
-
-	ul {
-		li {
-			transform: rotate(45deg) translate(50vw, 300%);
-			transition: transform 0.75s cubic-bezier(0, 1, 0, 1);
-
-			&:nth-child(2) {
-				transform: rotate(-30deg) translate(-20vw, 300%);
-				transition-delay: .25s;
-			}
-
-			&:nth-child(3) {
-				transform: rotate(-25deg) translate(-30vw, 300%);
-				transition-delay: .5s;
-			}
-
-			&:nth-child(4) {
-				transform: rotate(-45deg) translate(-50vw, 300%);
-				transition-delay: .75s;
-			}
-		}
-	}
 
 	&.was-in-view {
-		> header h2,
-		> header p {
-			transform: translate(0, 0);
-			opacity: 1;
-		}
-
 		ul li {
 			transform: rotate(0) translate(0, 0);
 		}
@@ -318,6 +211,8 @@
 
 // Google map
 #google-map {
+	@include fade-in-children;
+
 	> header {
 		@include container;
 		@include header-module;
@@ -334,6 +229,7 @@
 #contact-form {
 	@include section;
 	@include grid;
+	@include fade-in-children;
 
 	background: url(/wp-content/uploads/2019/10/ashkan-forouzani-TnXMvJsCTpA-unsplash-scaled-2560.jpg);
 	background-size: cover;
@@ -344,61 +240,25 @@
 	}
 
 	header {
-		align-self: center;
-		color: white;
+		@include header-module;
+		@include fade-in-children;
+		@include text-color(white);
 
-		a:not(:hover),
-		:--heading {
-			color: currentColor;
-		}
+		align-self: center;
+		text-align: left;
 	}
 
 	form {
 		@include card;
+		@include fade-in-children(8);
 
 		label {
 			@include text-label;
 		}
 	}
-}
 
-#contact-form {
-	header h2,
-	header p,
-	form,
-	form p {
-		transform: translate(0, 1.5rem);
-		opacity: 0;
-		transition: transform 0.75s ease,
-					opacity 0.75s ease;
-	}
-
-	header p {
-		transition-delay: .25s;
-	}
-
-	form {
-		transition-delay: .25s;
-	}
-
-	form p {
-		transition-delay: .5s;
-
-		@for $i from 2 through 6 {
-			&:nth-of-type(#{$i}) {
-				transition-delay: #{$i * .25s + .5s};
-			}
-		}
-	}
-
-	&.was-in-view {
-		header h2,
-		header p,
-		form,
-		form p {
-			transform: translate(0, 0);
-			opacity: 1;
-		}
+	&.was-in-view form > * {
+		@include fade-in;
 	}
 }
 
@@ -406,11 +266,12 @@
 #sidebar {
 	@include section;
 	@include grid;
+	@include fade-in-children(8);
+	@include text-color(white);
 
 	--font-size-h2: var(--font-size-h4);
 
 	background: #111;
-	color: white;
 
 	@media (--tablet) {
 		--grid-cols: 2;
@@ -418,11 +279,6 @@
 
 	@media (--laptop) {
 		--grid-cols: 3;
-	}
-
-	a:not(:hover),
-	:--heading {
-		color: currentColor;
 	}
 
 	ul {
@@ -433,47 +289,23 @@
 	}
 }
 
-// Animation
-#sidebar {
-	> * {
-		transform: translate(0, 1.5rem);
-		opacity: 0;
-		transition: transform 0.75s ease,
-					opacity 0.75s ease;
-
-		@for $i from 1 through 6 {
-			&:nth-child(#{$i}) {
-				transition-delay: #{$i * 0.25s};
-			}
-		}
-	}
-
-	&.was-in-view > * {
-		transform: translate(0, 0);
-		opacity: 1;
-	}
-}
-
 // Footer
 #site-footer {
 	@include section;
 	@include text-label;
+	@include text-color(#aaa);
+	@include fade-in-children;
 
 	--spacing-section: 1rem;
 
 	background: #0a0a0a;
-	color: #aaa;
 	text-align: center;
+	overflow: hidden;
 
 	@media (--tablet) {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-	}
-
-	a:not(:hover),
-	:--heading {
-		color: currentColor;
 	}
 
 	p {
@@ -518,5 +350,25 @@
 		button {
 			white-space: nowrap;
 		}
+	}
+}
+
+// 404
+#four-o-four {
+	@include section;
+	@include fade-in-children;
+}
+
+// Archive
+#archive {
+	@include container;
+
+	> header {
+		@include header-module;
+		@include fade-in-children;
+	}
+
+	> article {
+		@include post(true);
 	}
 }

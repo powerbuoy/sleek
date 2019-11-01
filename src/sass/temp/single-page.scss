@@ -1,131 +1,3 @@
-// Single page
-#single-page {
-	background: #020024 radial-gradient(circle farthest-corner at center top, #00d4ff, #020024 60%) no-repeat 50% 0;
-	color: white;
-//	clip-path: var(--slant-bottom);
-
-	a:not(:hover),
-	:--heading {
-		color: currentColor;
-	}
-
-	// Hero
-	> header {
-		@include section;
-		@include full-height(center, center);
-
-		position: relative;
-
-		a {
-			color: currentColor;
-		}
-
-		// Logo (TODO: Front-page only)
-		h1 {
-		//	margin-bottom: var(--spacing-small);
-			line-height: 1;
-			font-size: 2rem;
-
-			strong {
-				display: block;
-				font-size: 7rem;
-
-				svg {
-					max-width: 90%;
-				}
-			}
-
-			small {
-				display: block;
-				font-size: 1.6rem;
-				font-family: 'Srisakdi', cursive;
-			}
-
-			@media (--tablet) {
-				strong {
-					font-size: 9.3rem;
-				}
-			}
-		}
-
-		// Menu
-		ul {
-			@include text-label;
-
-			margin: 0;
-			list-style: none;
-
-			> li {
-				display: inline-block;
-				margin: 0 var(--spacing-small);
-			}
-		}
-
-		// Down arrow
-		.down {
-			width: auto;
-			position: absolute;
-			left: 50%;
-			bottom: var(--spacing-large);
-			transform: translate(-50%, 0);
-
-			font-size: 1.5rem;
-			line-height: 1;
-
-			a {
-				display: block;
-				padding: var(--spacing-small);
-				transform: translate(0, 0);
-				transition: transform .25s ease;
-
-				&:hover {
-					transform: translate(0, .5rem);
-				}
-			}
-		}
-	}
-
-	// Page content
-	> article {
-		@include section($site-width * .75);
-		@include full-height(center, center);
-
-		text-align: center;
-
-		> p:first-child,
-		> :--heading:first-child ~ p:first-of-type {
-			@include first-p;
-		}
-
-		.illustration {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-
-			a {
-				display: block;
-				transform: translate(0, 0);
-				transition: transform .25s ease;
-
-				&:hover {
-					transform: translate(0, -.5rem);
-				}
-			}
-
-			img {
-				display: block;
-				width: 2rem;
-				margin: 0 var(--spacing-small);
-
-				@media (--tablet) {
-					width: 3.25rem;
-				}
-			}
-		}
-	}
-}
-
-// Background animation
 @keyframes single-page-gradient {
 	from {
 		background-position: 50% -450px;
@@ -136,11 +8,91 @@
 	}
 }
 
+// Single page (TODO: Front-page only)
 #single-page {
+	@include text-color(white);
+
+	background: #020024 radial-gradient(circle farthest-corner at center top, #00d4ff, #020024 60%) no-repeat 50% 0;
 	animation: single-page-gradient 6s ease forwards paused;
 
 	&.was-in-view {
 		animation-play-state: running;
+	}
+}
+
+// Hero
+#single-page > header {
+	@include section;
+	@include full-height(center, center);
+
+	position: relative;
+
+	a {
+		color: currentColor;
+	}
+
+	// Logo (TODO: Front-page only)
+	h1 {
+	//	margin-bottom: var(--spacing-small);
+		line-height: 1;
+		font-size: 2rem;
+
+		strong {
+			display: block;
+			font-size: 7rem;
+
+			svg {
+				max-width: 90%;
+			}
+		}
+
+		small {
+			display: block;
+			font-size: 1.6rem;
+			font-family: 'Srisakdi', cursive;
+		}
+
+		@media (--tablet) {
+			strong {
+				font-size: 9.3rem;
+			}
+		}
+	}
+
+	// Menu
+	ul {
+		@include text-label;
+
+		margin: 0;
+		list-style: none;
+
+		> li {
+			display: inline-block;
+			margin: 0 var(--spacing-small);
+		}
+	}
+
+	// Down arrow
+	.down {
+		width: auto;
+		position: absolute;
+		left: 50%;
+		bottom: var(--spacing-large);
+		transform: translate(-50%, 0);
+
+		font-size: 1.5rem;
+		line-height: 1;
+
+		a {
+			display: block;
+			padding: var(--spacing-small);
+			transform: translate(0, 0);
+			transition: transform .25s ease;
+
+			&:hover {
+				transform: translate(0, .5rem);
+			}
+		}
 	}
 }
 
@@ -206,39 +158,31 @@
 	}
 }
 
-// Page content animation
+// Page content
 #single-page > article {
-	h2,
-	img,
-	p {
-		transform: translate(0, 1.5rem);
-		opacity: 0;
-		transition: transform 0.75s ease,
-					opacity 0.75s ease;
+	@include section($site-width * .75);
+	@include full-height(center, center);
+	@include fade-in-children;
+
+	> p:first-child,
+	> :--heading:first-child ~ p:first-of-type {
+		@include first-p;
 	}
 
-	p {
-		@for $i from 1 through 10 {
-			&:nth-child(#{$i}) {
-				transition-delay: $i * 0.1s + 0.5s;
+	.illustration {
+		@include gallery-logo(2rem);
+		@include fade-in-children(10);
+
+		margin-top: var(--spacing-large);
+
+		img {
+			@media (--tablet) {
+				width: 3.25rem;
 			}
 		}
 	}
 
-	figure {
-		@for $i from 1 through 9 {
-			a:nth-child(#{$i}) img {
-				transition-delay: $i * 0.1s + 1s;
-			}
-		}
-	}
-
-	&.was-in-view {
-		h2,
-		img,
-		p {
-			transform: translate(0, 0);
-			opacity: 1;
-		}
+	&.was-in-view .illustration > * {
+		@include fade-in;
 	}
 }

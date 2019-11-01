@@ -1,3 +1,86 @@
+@mixin gallery-logo ($width: 3rem) {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	margin-left: 0;
+	list-style: none;
+
+	> * {
+		margin: 0 0 var(--spacing-default);
+
+		figure {
+			margin: 0;
+		}
+
+		img {
+			width: $width;
+		}
+	}
+
+	a {
+		img {
+			transform: translate(0, 0);
+			transition: transform .25s ease;
+		}
+
+		&:hover img {
+			transform: translate(0, -1rem);
+		}
+	}
+}
+
+@mixin img-polaroid {
+	background: white;
+
+	display: block;
+	padding: var(--spacing-small) var(--spacing-small) var(--spacing-large);
+
+	transform: rotate(0deg) translate(0, 0) scale(1);
+	box-shadow: 0 0.25rem .5rem rgba(0, 0, 0, .4);
+	transition: transform .5s ease, box-shadow .5s ease;
+
+	&:hover {
+		transform: rotate(0deg) translate(0, 0) scale(1.1);
+		box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, .4);
+	}
+}
+
+@mixin text-color ($color: white) {
+	color: $color;
+
+	a:not(:hover),
+	:--heading {
+		color: currentColor;
+	}
+}
+
+@mixin fade-in {
+	transform: translate(0, 0);
+	opacity: 1;
+}
+
+@mixin fade-in-children ($num: 5, $delay: 0s) {
+	> * {
+		transform: translate(0, 1.5rem);
+		opacity: 0;
+		transition-delay: $delay;
+		transition: transform 0.75s ease,
+					opacity 0.75s ease;
+	}
+
+	@for $i from 1 through $num {
+		> :nth-child(#{$i}) {
+			transition-delay: #{$i * .25s + $delay};
+		}
+	}
+
+	&.was-in-view {
+		> * {
+			@include fade-in;
+		}
+	}
+}
+
 // Helper mixins
 @mixin full-height ($valign: center, $align: flex-start) {
 	min-height: 100vh;
@@ -45,12 +128,12 @@
 	margin-bottom: var(--spacing-x-large);
 	text-align: center;
 
-	p {
+	p:first-of-type {
 		@include first-p;
 	}
 }
 
-@mixin post {
+@mixin post ($animation: false) {
 	position: relative;
 	margin-bottom: var(--spacing-x-large);
 
@@ -138,10 +221,65 @@
 			}
 		}
 	}
+
+	// Animation
+	@if ($animation) {
+		header figure,
+		header h3,
+		header p,
+		> p,
+		footer {
+			transform: translate(0, 1.5rem);
+			opacity: 0;
+			transition: transform 0.75s ease,
+						opacity 0.75s ease;
+		}
+
+		header h3 {
+			transition-delay: .5s;
+		}
+
+		header p {
+			transition-delay: .75s;
+		}
+
+		> p {
+			transition-delay: 1s;
+		}
+
+		footer {
+			transition-delay: 1.5s;
+		}
+
+		@media (--laptop) {
+			header figure {
+				transform: translate(-2.5rem, 0);
+			}
+
+			&:nth-child(odd) {
+				header figure {
+					transform: translate(2.5rem, 0);
+				}
+			}
+		}
+
+		&.was-in-view {
+			header figure,
+			header h3,
+			header p,
+			> p,
+			footer {
+				transform: translate(0, 0);
+				opacity: 1;
+			}
+		}
+	}
 }
 
 // Some basic styling
 html {
+	overflow-x: hidden; // Prevent horizontal scroll in low res because of #contact-form(?)
+
 	@media (--tablet-max) {
 		font-size: 80%;
 	}

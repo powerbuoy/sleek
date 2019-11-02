@@ -109,7 +109,7 @@
 		@include card-large;
 
 		text-align: left;
-		transform: rotateX(120deg);
+		transform: rotateX(-120deg);
 		transition: transform 1.5s .25s ease;
 		backface-visibility: hidden;
 	}

@@ -9,17 +9,11 @@
 @custom-media --desktop (min-width: 1260px);
 @custom-media --desktop-max (max-width: 1259px);
 
-///////////////////
-// Custom selectors
-@custom-selector :--heading h1, h2, h3, h4, h5, h6;
-@custom-selector :--form-field input[type=text], input[type=password], input[type=search], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=date], input[type=month], input[type=week], input[type=time], input[type=datetime], input[type=datetime-local], input[type=color];
-
 /////////////
 // Site width
 // NOTE: These need to be SASS because we can't use calc(--variables) in media queries
 $site-width: 1080px;
-$site-width-min: 90%;
-$site-width-reached: #{strip-unit($site-width) / strip-unit($site-width-min) * 100px};
+$site-width-min: 90vw;
 
 /////////
 // Config
@@ -98,11 +92,6 @@ $site-width-reached: #{strip-unit($site-width) / strip-unit($site-width-min) * 1
 	--spacing-x-large: 4.2rem;
 	--grid-gap: 3.2rem;
 
-	// Slanting (TODO: top-right, bottom-right, top-left, bottom-left etc)
-	--slant-top: polygon(0 calc(var(--spacing-section) / 3), 100% 0, 100% 100%, 0 100%);
-	--slant-bottom: polygon(0 0, 100% 0, 100% calc(100% - var(--spacing-section) / 3), 0 100%);
-	--slant-top-bottom: polygon(0 calc(var(--spacing-section) / 3), 100% 0, 100% calc(100% - var(--spacing-section) / 3), 0 100%);
-
 	/////////
 	// Button
 	--button-color: var(--color-link);
@@ -118,13 +107,4 @@ $site-width-reached: #{strip-unit($site-width) / strip-unit($site-width-min) * 1
 	--form-field-padding-horizontal: var(--button-padding-vertical);
 	--form-field-border-radius: 0;
 	--form-field-border-focus-color: var(--color-link);
-
-	/////////////
-	// Calculated
-	// NOTE: Don't change this
-	--site-padding: #{(100% - $site-width-min) / 2};
-
-	@media (min-width: #{$site-width-reached}) {
-		--site-padding: calc((100vw - #{$site-width}) / 2);
-	}
 }

@@ -1,14 +1,6 @@
-// https://css-tricks.com/snippets/sass/strip-unit-function/
-@function strip-unit($number) {
-	@if type-of($number) == 'number' and not unitless($number) {
-		@return $number / ($number * 0 + 1);
-	}
-
-	@return $number;
-}
-
 // Config
 @import "config";
+@import "constants";
 
 // Mixins
 @import "mixins/container";

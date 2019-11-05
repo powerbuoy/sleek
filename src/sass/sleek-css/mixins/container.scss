@@ -1,0 +1,5 @@
+@mixin container ($width: $site-width) {
+	width: $site-width-min;
+	max-width: $width;
+	margin: var(--spacing-section) auto;
+}

@@ -1,0 +1,500 @@
+// Featured posts
+#featured-posts,
+#latest-posts,
+#related-posts {
+	@include container;
+
+	> header {
+		@include header-module;
+		@include fade-in-children(2);
+	}
+
+	article {
+		@include post(true);
+	}
+}
+
+
+// Text-block
+#text-block {
+	@include container;
+	@include clearfix;
+	@include fade-in-children;
+
+	// Special case for text-block
+	> header {
+		@include header-module;
+
+		margin-bottom: var(--spacing-default);
+	}
+
+	> header + p {
+		@include first-p;
+
+		text-align: center;
+		margin-bottom: var(--spacing-x-large);
+	}
+
+	// Code blocks
+	@media (--tablet) {
+		pre {
+			width: calc(50% - (var(--grid-gap) / 2));
+			float: left;
+		}
+
+		pre + pre {
+			float: right;
+		}
+	}
+}
+
+// Text-blocks
+#text-blocks {
+	@include container;
+	@include fade-in-children;
+
+	> header {
+		@include header-module;
+	}
+}
+
+// Gallery
+#gallery {
+	text-align: center;
+	padding: var(--spacing-section) var(--spacing-large);
+
+	> header {
+		@include header-module;
+		@include fade-in-children;
+	}
+
+	ul {
+		@include gallery-logo($width: 5rem);
+		@include fade-in-children($num: 10, $delay: .25s);
+
+		pointer-events: none;
+
+		img {
+			filter: brightness(0);
+		}
+
+		figcaption {
+			display: none;
+		}
+	}
+
+	&.was-in-view ul li {
+		@include fade-in;
+	}
+}
+
+// Vue component
+#vue-component {
+	@include section($site-width * .75);
+	@include full-height(center, center);
+
+	background: url(/wp-content/uploads/2019/10/mockup-photos-5nUNdLueQio-unsplash-scaled-2560.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	perspective: 100vw;
+	overflow: hidden;
+
+	> header {
+		@include header-module;
+		@include fade-in-children;
+		@include text-color(white);
+	}
+
+	> [data-vue] {
+		@include card-large;
+
+		text-align: left;
+		transform: rotateX(-120deg);
+		transition: transform 1.5s .25s ease;
+		backface-visibility: hidden;
+	}
+
+	&.was-in-view {
+		> [data-vue] {
+			transform: rotateX(0);
+		}
+	}
+}
+
+// Instagram
+#instagram {
+	background: url(/wp-content/uploads/2019/10/lukas-blazek-EWDvHNNfUmQ-unsplash-scaled-2560.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	padding: var(--spacing-section) var(--spacing-large);
+	overflow: hidden;
+
+	> header {
+		@include header-module;
+		@include text-color(white);
+		@include fade-in-children;
+	}
+
+	ul {
+		@include grid;
+
+		@media (--tablet) {
+			--grid-cols: 2;
+		}
+
+		@media (--laptop) {
+			--grid-cols: 4;
+		}
+
+		margin: 0;
+		list-style: none;
+
+		li {
+			// Animation
+			transform: rotate(45deg) translate(50vw, 300%);
+			transition: transform 0.75s cubic-bezier(0, 1, 0, 1);
+
+			&:nth-child(2) {
+				transform: rotate(-30deg) translate(-20vw, 300%);
+				transition-delay: .25s;
+			}
+
+			&:nth-child(3) {
+				transform: rotate(-25deg) translate(-30vw, 300%);
+				transition-delay: .5s;
+			}
+
+			&:nth-child(4) {
+				transform: rotate(-45deg) translate(-50vw, 300%);
+				transition-delay: .75s;
+			}
+
+			// Each image
+			a {
+				display: block;
+
+				// Polaroid
+				img {
+					@include img-polaroid;
+
+					transform: rotate(-2deg) translate(0, 0) scale(1);
+				}
+			}
+
+			&:nth-child(2) {
+				img {
+					transform: rotate(1deg) translate(0, -.5rem) scale(1);
+				}
+			}
+
+			&:nth-child(3) {
+				img {
+					transform: rotate(-1deg) translate(0, .5rem) scale(1);
+				}
+			}
+
+			&:nth-child(4) {
+				img {
+					transform: rotate(2deg) translate(0, 0) scale(1);
+				}
+			}
+		}
+	}
+
+	&.was-in-view {
+		ul li {
+			transform: rotate(0) translate(0, 0);
+		}
+	}
+}
+
+// Google map
+#google-map {
+	@include fade-in-children;
+
+	> header {
+		@include container;
+		@include header-module;
+	}
+
+	.google-map {
+		@media (--laptop) {
+			height: 40rem;
+		}
+	}
+}
+
+// Contact form
+#contact-form {
+	@include section;
+	@include grid;
+	@include fade-in-children;
+
+	background: url(/wp-content/uploads/2019/10/ashkan-forouzani-TnXMvJsCTpA-unsplash-scaled-2560.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+
+	@media (--tablet) {
+		--grid-cols: 2;
+	}
+
+	header {
+		@include header-module;
+		@include fade-in-children;
+		@include text-color(white);
+
+		margin-bottom: 0;
+		align-self: center;
+		text-align: left;
+	}
+
+	form {
+		@include card;
+		@include fade-in-children(8);
+
+		label {
+			@include text-label;
+		}
+	}
+
+	&.was-in-view form > * {
+		@include fade-in;
+	}
+}
+
+// Sidebar
+#sidebar {
+	@include section;
+	@include grid;
+	@include fade-in-children(8);
+	@include text-color(white);
+
+	--font-size-h2: var(--font-size-h4);
+
+	background: #111;
+
+	@media (--tablet) {
+		--grid-cols: 2;
+	}
+
+	@media (--laptop) {
+		--grid-cols: 3;
+	}
+
+	ul {
+		@include text-label;
+
+		margin-left: 0;
+		list-style: none;
+	}
+}
+
+// Footer
+#site-footer {
+	@include section;
+	@include text-label;
+	@include text-color(#aaa);
+	@include fade-in-children;
+
+	--spacing-section: 1rem;
+
+	background: #0a0a0a;
+	text-align: center;
+	overflow: hidden;
+
+	@media (--tablet) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	p {
+		margin: 0;
+		filter: grayscale(1);
+		transition: filter .25s ease;
+	}
+
+	&:hover p {
+		filter: grayscale(0);
+	}
+
+	ul {
+		@include list-separated;
+
+		margin-bottom: 0;
+	}
+}
+
+// Search form
+#search-form {
+	--form-field-padding-horizontal: var(--button-padding-horizontal);
+	--form-field-border-radius: var(--button-border-radius);
+
+	p {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		label {
+			@include a11y-hide;
+
+			display: block;
+			width: 100%;
+		}
+
+		input {
+			flex: 1;
+			margin-right: var(--spacing-default);
+		}
+
+		button {
+			white-space: nowrap;
+		}
+	}
+}
+
+// 404
+#four-o-four {
+	@include section;
+	@include fade-in-children;
+}
+
+// Archive
+#archive {
+	@include container;
+
+	margin-top: 0;
+
+	> header {
+		@include break-out;
+		@include section;
+		@include header-module;
+		@include text-color(white);
+		@include fade-in-children;
+
+		background: url(/wp-content/uploads/2019/10/lukas-blazek-EWDvHNNfUmQ-unsplash-scaled-2560.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+
+		padding-top: calc(var(--spacing-section) * 2);
+
+		> figure {
+			display: none;
+		}
+
+		> ul {
+			@include fade-in-children;
+			@include list-separated(' • ');
+			@include text-label;
+		}
+
+		&.was-in-view > ul > * {
+			@include fade-in;
+		}
+	}
+
+	> article {
+		@include post(true);
+	}
+}
+
+// Single blog post
+#single-post {
+	> header {
+		@include fade-in-children;
+
+		@media (--tablet-max) {
+			@include container;
+
+			margin-top: 0;
+			margin-bottom: var(--spacing-large);
+
+			> figure {
+				@include break-out;
+			}
+		}
+
+		@media (--tablet) {
+			@include section;
+
+			position: relative;
+			margin-bottom: var(--spacing-section);
+			padding-right: calc(50% + var(--spacing-x-large));
+			padding-top: calc(var(--spacing-section) * 2);
+			text-align: right;
+
+			> figure {
+				position: absolute;
+				left: 50%;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: 0;
+
+				img {
+					@include img-background;
+				}
+			}
+		}
+
+		h1 {
+			margin: 0;
+		}
+
+		p {
+			@include list-separated(' • ');
+			@include text-label;
+			@include text-color(var(--color-gray));
+		}
+	}
+
+	> article {
+		@include container($site-width * .5);
+		@include fade-in-children(30);
+
+		margin-top: 0;
+
+		> p:first-child {
+			@include first-p;
+		}
+	}
+}
+
+// Comments
+#comments,
+#respond,
+#comment-form {
+	--font-size-h2: var(--font-size-h4);
+
+	@include container($site-width * .5);
+	@include fade-in-children;
+}
+
+// Modules showcase
+#modules-showcase {
+	@include container;
+	@include grid;
+	@include fade-in-children(30);
+
+	@media (--tablet) {
+		--grid-cols: 2;
+	}
+
+	@media (--laptop) {
+		--grid-cols: 3;
+	}
+
+	> header {
+		@include header-module;
+		@include fade-in-children;
+
+		margin-bottom: 0;
+		grid-column: span var(--grid-cols);
+	}
+
+	article {
+		h3 {
+			font-size: var(--font-size-h4);
+		}
+	}
+}

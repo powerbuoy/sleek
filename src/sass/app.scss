@@ -1,18 +1,14 @@
 // Import fonts
-@import url('https://fonts.googleapis.com/css?family=Srisakdi|Raleway:300,300i,600,900&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Srisakdi|Raleway:300,300i,600,900&display=swap');
 
 // Import config/vars
-@import "config";
+// @import "config";
 
 // Import vendor
 @import "~normalize.css/normalize.css";
-@import "sleek-css/sleek-css";
+// @import "~sleek-css/sleek-css";
 @import "../../vendor/powerbuoy/**/*.scss";
-@import "~prismjs/themes/prism-okaidia.css";
 
 // Import out stuff
-@import "components/**/*.scss";
+// @import "components/**/*.scss";
 // @import "../../modules/**/*.scss";
-
-// TEMP
-@import "temp/**/*.scss";

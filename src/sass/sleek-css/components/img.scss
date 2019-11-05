@@ -1,0 +1,14 @@
+figure {
+	margin: 0 0 var(--spacing-default);
+
+	img {
+		display: block;
+		width: 100%;
+	}
+}
+
+img,
+svg {
+	max-width: 100%;
+	height: auto;
+}

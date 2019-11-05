@@ -1,0 +1,29 @@
+// Animations
+@keyframes stroke-animation {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes fill-animation {
+	to {
+		fill: white;
+	}
+}
+
+.svg-stroke-animation {
+	fill: transparent;
+	animation: fill-animation 2s ease 2.5s forwards paused;
+
+	path {
+		stroke-dasharray: var(--path-length);
+		stroke-dashoffset: var(--path-length);
+		animation: stroke-animation 1.5s ease forwards paused;
+
+		@for $i from 2 through 5 {
+			&:nth-of-type(#{$i}) {
+				animation-delay: #{.5s * $i - 1};
+			}
+		}
+	}
+}

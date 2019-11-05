@@ -1,0 +1,9 @@
+/languages/
+/node_modules/
+/src/
+.DS_Store
+webpack.config.js
+composer.json
+composer.lock
+package.json
+package-lock.json

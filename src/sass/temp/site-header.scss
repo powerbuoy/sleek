@@ -1,0 +1,44 @@
+// Site header
+#site-header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 99;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+	padding: var(--spacing-default);
+
+	color: white;
+	font-size: var(--font-size-small);
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+
+	a {
+		color: currentColor;
+	}
+
+	// Logo
+	.site-logo {
+		@include heading(2rem, false);
+
+		margin: 0;
+	}
+
+	// Tagline
+	.site-logo + p {
+		display: none;
+	}
+
+	// Menu
+	ul {
+		@include list-separated(' • ');
+		@include text-label;
+
+		@media (--tablet-max) {
+			display: none; // TODO: Burger
+		}
+	}
+}

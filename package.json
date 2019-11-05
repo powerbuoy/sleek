@@ -1,0 +1,51 @@
+{
+  "name": "Sleek",
+  "version": "1.0.0",
+  "description": "The WordPress Theme for Developers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/powerbuoy/sleek.git"
+  },
+  "author": "Andreas Lagerkvist <powerbuoy@gmail.com>",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/powerbuoy/sleek/issues"
+  },
+  "homepage": "https://github.com/powerbuoy/sleek#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.4",
+    "css-loader": "^3.2.0",
+    "cssnano": "^4.1.10",
+    "file-loader": "^4.2.0",
+    "glob": "^7.1.4",
+    "import-glob-loader": "^1.1.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "po2mo-loader": "^1.0.3",
+    "postcss-custom-media": "^7.0.8",
+    "postcss-custom-selectors": "^5.1.2",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.22.12",
+    "sass-loader": "^8.0.0",
+    "vue-loader": "^15.7.1",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "prismjs": "^1.17.1",
+    "sleek-map": "github:powerbuoy/sleek-map"
+  }
+}

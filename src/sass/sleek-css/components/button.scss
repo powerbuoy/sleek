@@ -1,0 +1,26 @@
+.button {
+	background: var(--button-color);
+
+	box-sizing: border-box;
+	display: inline-block;
+	padding: var(--button-padding-vertical) var(--button-padding-horizontal);
+	vertical-align: middle;
+
+	font-size: var(--font-size-default);
+	font-family: var(--font-family-default);
+	font-weight: var(--font-weight-default);
+
+	letter-spacing: var(--letter-spacing-default);
+	line-height: var(--line-height-default);
+
+	text-transform: none;
+	text-decoration: none;
+	text-align: center;
+	color: white;
+
+	outline: 0;
+	border: 1px solid var(--button-color);
+	border-radius: var(--button-border-radius);
+
+	transition: all .25s ease;
+}

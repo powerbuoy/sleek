@@ -31,7 +31,7 @@ function sleek_register_post_types ($postTypes, $textdomain = false) {
 				'with_front' => false,
 				'slug' => $slug
 			],
-			'exclude_from_search' => false, # Never exclude from search because it prevents taxonomy archives for this post type (https://core.trac.wordpress.org/ticket/20234)
+			'exclude_from_search' => false, # Never exclude from search because it prevents taxonomy archives for this post type (https://core.trac.wordpress.org/ticket/29418)
 			'has_archive' => true,
 			'public' => true,
 			'show_in_rest' => true,

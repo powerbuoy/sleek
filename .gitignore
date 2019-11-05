@@ -1,6 +1,5 @@
+/dist/
 /node_modules/
 /vendor/
-/dist/
 .DS_Store
-/sleek-packages/
 src/sass/icons.scss

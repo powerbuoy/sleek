@@ -31,9 +31,9 @@ add_theme_support('sleek-archive-meta');
 ########
 # Assets
 # NOTE: app.css/app.js are imported by sleek-core
-add_action('wp_enqueue_scripts', function () {
+/* add_action('wp_enqueue_scripts', function () {
 	wp_enqueue_script('vue', 'https://cdn.jsdelivr.net/npm/vue@2.6.10', [], null, true);
-});
+}); */
 
 #############
 # Image sizes

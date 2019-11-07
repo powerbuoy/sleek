@@ -5,10 +5,12 @@ class RedirectUrl extends Module {
 	public function created () {
 		# Make sure the_permalink() points to the redirect URL
 		add_filter('the_permalink', function ($url, $postId) {
-			$redirectUrl = get_field('redirect_url', $postId);
+			if (function_exists('get_field')) {
+				$redirectUrl = \get_field('redirect_url', $postId);
 
-			if (isset($redirectUrl['url']) and !empty($redirectUrl['url'])) {
-				return $redirectUrl['url'];
+				if (isset($redirectUrl['url']) and !empty($redirectUrl['url'])) {
+					return $redirectUrl['url'];
+				}
 			}
 
 			return $url;
@@ -16,10 +18,10 @@ class RedirectUrl extends Module {
 
 		# Redirect single pages to the redirect URL
 		add_action('template_redirect', function () {
-			if (is_singular()) {
+			if (is_singular() and function_exists('get_field')) {
 				global $post;
 
-				$redirectUrl = get_field('redirect_url', $post->ID);
+				$redirectUrl = \get_field('redirect_url', $post->ID);
 
 				if (isset($redirectUrl['url']) and !empty($redirectUrl['url'])) {
 					wp_redirect($redirectUrl['url']);

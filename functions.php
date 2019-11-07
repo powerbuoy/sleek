@@ -53,7 +53,7 @@ register_nav_menus(['footer_menu' => __('Footer menu', 'sleek')]);
 
 ############
 # ACF fields
-add_action('acf/init', function () {
+/* add_action('acf/init', function () {
 	# Flexible content field
 	acf_add_local_field_group([
 		'key' => 'modules',
@@ -98,11 +98,11 @@ add_action('acf/init', function () {
 		'location' => [[['param' => 'post_type', 'operator' => '==', 'value' => 'post']]],
 		'fields' => Sleek\Modules\get_module_fields(['redirect-url'], 'sticky_modules', 'tabbed')
 	]);
-});
+}); */
 
 ################
 # Sleek settings (TODO: Change args to name, label = null, type = text and use inflector to titleize if label==null)
-add_action('admin_init', function () {
+/* add_action('admin_init', function () {
 	Sleek\Settings\add_setting('hubspot_portal_id', 'text', __('Hubspot Portal ID', 'sleek'));
 });
 
@@ -111,7 +111,7 @@ add_action('wp_head', function () {
 	if ($portalId = Sleek\Settings\get_setting('hubspot_portal_id')) {
 		echo '<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/' . $portalId . '.js"></script>';
 	}
-});
+}); */
 
 #############
 # User fields
@@ -128,34 +128,3 @@ add_action('wp_head', function () {
 		return get_post_custom($post['id']);
 	}]);
 }); */
-
-######################################
-######################################
-# TEMP
-# Menu shortcode
-add_shortcode('sleek_menu', function ($atts, $content, $shortcode_tag) {
-	return wp_nav_menu(shortcode_atts([
-		'menu' => '',
-		'menu_class' => 'menu',
-		'menu_id' => '',
-		'container' => 'div',
-		'container_class' => '',
-		'container_id' => '',
-		'fallback_cb' => false,
-		'echo' => false,
-		'before' => '',
-		'after' => '',
-		'link_before' => '',
-		'link_after' => '',
-		'depth' => 0,
-		'walker' => '',
-		'theme_location' => ''
-	], $atts));
-});
-
-add_filter('the_excerpt', 'do_shortcode');
-
-# Loading class
-add_action('wp_head', function () {
-	echo "<script>document.documentElement.classList.add('loading')</script>";
-});

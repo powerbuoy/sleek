@@ -1,5 +1,5 @@
 /dist/
 /node_modules/
 /vendor/
+/src/sass/icons.scss
 .DS_Store
-src/sass/icons.scss

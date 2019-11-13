@@ -18,8 +18,8 @@ document.querySelectorAll('dialog').forEach(el => {
 });
 
 // For every [data-popup] link
-document.querySelectorAll('a[data-popup]').forEach(el => {
-	var target = document.getElementById(el.dataset.popup.substr(1));
+document.querySelectorAll('[data-dialog]').forEach(el => {
+	var target = document.getElementById(el.dataset.popup.substr(1) || el.getAttribute('href'));
 
 	// Open the target popup on click
 	if (target) {

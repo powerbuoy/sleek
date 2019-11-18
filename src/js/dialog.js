@@ -1,9 +1,9 @@
-import dialogPolyfill from 'dialog-polyfill';
+// import dialogPolyfill from 'dialog-polyfill';
 
 // For every dialog
 document.querySelectorAll('dialog').forEach(el => {
 	// Polyfill it
-	dialogPolyfill.registerDialog(el);
+//	dialogPolyfill.registerDialog(el);
 
 	// And add a close button
 	var close = document.createElement('a');

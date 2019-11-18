@@ -1,5 +1,3 @@
-'use strict';
-
 var threshold = .25;
 
 if (window.matchMedia('(min-width: 1000px)').matches) {

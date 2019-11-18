@@ -1,0 +1,20 @@
+#cookie-consent,
+#site-notice {
+	background: var(--color-overlay, rgba(0, 0, 0, .8));
+
+	padding: var(--spacing-small, 1rem);
+
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 1000;
+
+	font-size: var(--font-size-small, .8rem);
+	color: white;
+	text-align: center;
+}
+
+#site-notice ~ #cookie-consent {
+	bottom: calc(var(--spacing-small, 1rem) * 2 + var(--font-size-small, .8rem) * var(--line-height-default, 1.15));
+}

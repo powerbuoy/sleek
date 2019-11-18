@@ -1,8 +1,7 @@
+'use strict';
+
 // Import CSS
 import '../sass/app.scss';
-
-// Import vendor JS
-import "../../vendor/powerbuoy/**/*.js";
 
 // Import our JS
 import './*.js';

@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "dialog-polyfill": "^0.5.0",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "sleek-map": "github:powerbuoy/sleek-map"
   }
 }

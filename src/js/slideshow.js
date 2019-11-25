@@ -1,0 +1,164 @@
+import Glide from '@glidejs/glide';
+
+//////////////////////////
+// Modify the active class
+var VisibleClass = function (Glide, Components, Events) {
+	var Component = {
+		mount () {
+			this.setVisibleClasses();
+		},
+
+		setVisibleClasses () {
+			if (Glide.settings.perView > 1) {
+				const glideEl = Components.Html.root;
+				const active = Components.Html.slides[Glide.index];
+
+				// Calculate how many on each side we need to add visible classes to
+				if (Glide.settings.focusAt === 'center') {
+					var numBefore = Math.ceil((Glide.settings.perView - 1) / 2);
+					var numAfter = numBefore;
+				}
+				else {
+					var numBefore = Glide.settings.focusAt;
+					var numAfter = Glide.settings.perView - Glide.settings.focusAt - 1;
+				}
+
+				// Remove visible classes
+				glideEl.querySelectorAll('.glide__slide--visible').forEach(slide => {
+					slide.classList.remove('glide__slide--visible');
+				});
+
+				// Add visible class to active slide
+				active.classList.add('glide__slide--visible');
+
+				// Add visible classes to next siblings
+				var next = active.nextElementSibling;
+
+				if (next) {
+					next.classList.add('glide__slide--visible');
+
+					for (let i = 0; i < numAfter - 1; i++) {
+						next = next.nextElementSibling;
+
+						if (next) {
+							next.classList.add('glide__slide--visible');
+						}
+					}
+				}
+
+				// Add visible classes to previous siblings
+				var prev = active.previousElementSibling;
+
+				if (prev) {
+					prev.classList.add('glide__slide--visible');
+
+					for (let i = 0; i < numBefore - 1; i++) {
+						prev = prev.previousElementSibling;
+
+						if (prev) {
+							prev.classList.add('glide__slide--visible');
+						}
+					}
+				}
+			}
+			else {
+				Components.Html.root.querySelectorAll('.glide__slide--visible').forEach(slide => {
+					slide.classList.remove('glide__slide--visible');
+				});
+				Components.Html.slides[Glide.index].classList.add('glide__slide--visible');
+			}
+		}
+	};
+
+	Events.on('run', () => {
+		Component.setVisibleClasses();
+	});
+
+	return Component;
+};
+
+////////////////////////////////////
+// Go through every [data-slideshow]
+document.querySelectorAll('[data-slideshow]').forEach(el => {
+	/////////////////////////
+	// Use --grid-gap for gap
+	const gap = (parseFloat(window.getComputedStyle(el).getPropertyValue('--grid-gap')) * 16) || 32;
+
+	////////////////
+	// Create config
+	var args = el.dataset.slideshow;
+
+	if (args) {
+		try {
+			args = JSON.parse(args);
+		}
+		catch {
+			args = {};
+		}
+	}
+	else {
+		args = {};
+	}
+
+	const config = Object.assign({
+		type: 'carousel',
+		perView: 1,
+		focusAt: 'center',
+		gap: gap,
+		animationDuration: 800
+	}, args);
+
+	// Make sure we're not trying to focus outside of page
+	if (config.focusAt !== 'center' && config.focusAt > (config.perView - 1)) {
+		config.focusAt = config.perView - 1;
+	}
+
+	///////////////
+	// Creat markup
+	const glideEl = document.createElement('div');
+	const trackEl = document.createElement('div');
+
+	glideEl.classList.add('glide');
+	trackEl.classList.add('glide__track');
+	trackEl.setAttribute('data-glide-el', 'track');
+
+	// Create prev/next buttons
+	const buttons = document.createElement('div');
+
+	buttons.classList.add('slideshow-nav');
+	buttons.setAttribute('data-glide-el', 'controls');
+	buttons.innerHTML = '<a data-glide-dir="<" class="slideshow-prev">&larr;</a><a data-glide-dir=">" class="slideshow-next">&rarr;</a>';
+
+	// Create bullets
+	const nav = document.createElement('div');
+
+	nav.classList.add('slideshow-bullets');
+	nav.setAttribute('data-glide-el', 'controls[nav]');
+
+	let bullets = '';
+
+	// Add classes to existing markup
+	el.classList.add('glide__slides');
+
+	[...el.children].forEach((child, index) => {
+		bullets += '<a data-glide-dir="=' + index + '">' + index + '</a>'
+
+		child.classList.add('glide__slide');
+	});
+
+	nav.innerHTML = bullets;
+
+	/////////////////////////////////
+	// Now move everything into place
+	el.parentNode.insertBefore(glideEl, el);
+	glideEl.appendChild(trackEl);
+	glideEl.appendChild(buttons);
+	glideEl.appendChild(nav);
+	trackEl.appendChild(el);
+
+	////////////////
+	// Create slider
+	const glide = new Glide(glideEl, config).mount({
+		VisibleClass
+	});
+});

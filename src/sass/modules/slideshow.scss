@@ -1,0 +1,39 @@
+.slideshow-nav {
+	display: none;
+}
+
+.slideshow-bullets {
+	margin-top: var(--spacing-default);
+	text-align: center;
+
+	a {
+		display: inline-block;
+		vertical-align: middle;
+		width: 2rem;
+		height: 2rem;
+		font-size: 0;
+		line-height: 2rem;
+
+		margin: 0 .2rem;
+		opacity: 0.5;
+
+		transition: opacity 0.25s ease;
+
+		&::before {
+			background: var(--color-link);
+
+			display: inline-block;
+			vertical-align: middle;
+			content: "";
+
+			width: 100%;
+			height: .25rem;
+
+			border-radius: 2px;
+		}
+	}
+
+	.glide__bullet--active {
+		opacity: 1;
+	}
+}

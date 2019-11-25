@@ -6,10 +6,11 @@
 
 // Import vendor
 @import "~normalize.css/normalize.css";
-@import "sleek-css/sleek-css";
 @import "~prismjs/themes/prism-okaidia.css";
+@import "~@glidejs/glide/src/assets/sass/glide.core";
+@import "~sleek-css/sleek-css";
 
-// Import out stuff
+// Import our stuff
 @import "components/**/*.scss";
 @import "modules/**/*.scss";
 // @import "../../modules/**/*.scss";

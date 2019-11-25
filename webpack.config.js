@@ -1,3 +1,42 @@
+const http = require('http');
+const fs = require('fs');
+
+class FontelloWebpackPlugin {
+	constructor (config) {
+		this.config = Object.assign({
+			src: 'src/icons.json',
+			sass: 'src/sass/icons.scss',
+			dest: 'dist'
+		}, config);
+
+		console.log(this.config);
+	}
+
+	apply (compiler) {
+		compiler.hooks.compilation.tap('FontelloWebpackPlugin', (compilation, compilationParams) => {
+			console.log('Sending request...');
+
+		/*	const request = require('request');
+			const fs = require('fs');
+
+			console.log('sending request...');
+
+			request.post({
+				url: 'http://fontello.com',
+				formData: {config: fs.createReadStream('src/icons.json', 'utf8')}
+			}, (err, res, body) => {
+				if (err) {
+					return console.error(err);
+				}
+
+				request.get(`http://fontello.com/${body}/get`, (err2, res2, body2) => {
+					console.log(body2);
+				});
+			}); */
+		});
+	}
+}
+
 /*
 	TODO:
 	- icons (svg? fontello? icomoon)
@@ -32,6 +71,13 @@ var config = {
 		// Clean dist/
 		new CleanWebpackPlugin({
 			cleanStaleWebpackAssets: false
+		}),
+
+		// Fontello
+		new FontelloWebpackPlugin({
+			src: 'src/icons.json',
+			sass: 'src/sass/icons.scss',
+			dest: 'dist'
 		}),
 
 		// CSS Extractor

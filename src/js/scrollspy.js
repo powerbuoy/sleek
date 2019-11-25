@@ -1,20 +1,27 @@
-var threshold = .25;
+const threshold = 0.75;
+const els = [
+	'#site-header',
+	'section',
+	'#site-footer'
+];
 
-if (window.matchMedia('(min-width: 1000px)').matches) {
-	threshold = .5;
+function addViewClass (entry) {
+	if (entry.isIntersecting) {
+		entry.target.classList.add('in-view', 'was-in-view');
+	}
+	else {
+		entry.target.classList.remove('in-view');
+	}
 }
 
-var observer = new IntersectionObserver(entries => {
-	entries.forEach(entry => {
-		if (entry.isIntersecting) {
-			entry.target.classList.add('in-view', 'was-in-view');
-		}
-		else {
-			entry.target.classList.remove('in-view');
-		}
-	});
-}, {threshold: threshold});
+document.querySelectorAll(els.join(',')).forEach(el => {
+	const elHeight = el.getBoundingClientRect().height;
+	var th = threshold;
 
-document.querySelectorAll('section').forEach(el => {
-	observer.observe(el);
+	// The element is too tall to ever hit the threshold - change threshold
+	if (elHeight > (window.innerHeight * threshold)) {
+		th = ((window.innerHeight * threshold) / elHeight) * threshold;
+	}
+
+	new IntersectionObserver(iEls => iEls.forEach(iEl => addViewClass(iEl)), {threshold: th}).observe(el);
 });

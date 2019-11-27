@@ -82,7 +82,9 @@ var VisibleClass = function (Glide, Components, Events) {
 document.querySelectorAll('[data-slideshow]').forEach(el => {
 	/////////////////////////
 	// Use --grid-gap for gap
-	const gap = (parseFloat(window.getComputedStyle(el).getPropertyValue('--grid-gap')) * 16) || 32;
+	var gap = (parseFloat(window.getComputedStyle(el).getPropertyValue('--grid-gap')) * 16);
+
+	gap = isNaN(gap) ? 32 : gap;
 
 	////////////////
 	// Create config
@@ -113,14 +115,16 @@ document.querySelectorAll('[data-slideshow]').forEach(el => {
 		config.focusAt = config.perView - 1;
 	}
 
-	///////////////
-	// Creat markup
-	const glideEl = document.createElement('div');
-	const trackEl = document.createElement('div');
+	////////////////
+	// Create markup
+	el.classList.add('glide');
 
-	glideEl.classList.add('glide');
+	const trackEl = document.createElement('div');
+	const slidesEl = document.createElement('div');
+
 	trackEl.classList.add('glide__track');
 	trackEl.setAttribute('data-glide-el', 'track');
+	slidesEl.classList.add('glide__slides');
 
 	// Create prev/next buttons
 	const buttons = document.createElement('div');
@@ -138,27 +142,25 @@ document.querySelectorAll('[data-slideshow]').forEach(el => {
 	let bullets = '';
 
 	// Add classes to existing markup
-	el.classList.add('glide__slides');
-
 	[...el.children].forEach((child, index) => {
 		bullets += '<a data-glide-dir="=' + index + '">' + index + '</a>'
 
 		child.classList.add('glide__slide');
+		slidesEl.appendChild(child);
 	});
 
 	nav.innerHTML = bullets;
 
 	/////////////////////////////////
 	// Now move everything into place
-	el.parentNode.insertBefore(glideEl, el);
-	glideEl.appendChild(trackEl);
-	glideEl.appendChild(buttons);
-	glideEl.appendChild(nav);
-	trackEl.appendChild(el);
+	trackEl.appendChild(slidesEl);
+	el.appendChild(trackEl);
+	el.appendChild(buttons);
+	el.appendChild(nav);
 
 	////////////////
 	// Create slider
-	const glide = new Glide(glideEl, config).mount({
+	const glide = new Glide(el, config).mount({
 		VisibleClass
 	});
 });

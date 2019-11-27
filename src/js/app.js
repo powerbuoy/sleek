@@ -1,3 +1,5 @@
+'use strict';
+
 // Import CSS
 import '../sass/app.scss';
 

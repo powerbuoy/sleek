@@ -1,53 +1,10 @@
-const http = require('http');
-const fs = require('fs');
-
-class FontelloWebpackPlugin {
-	constructor (config) {
-		this.config = Object.assign({
-			src: 'src/icons.json',
-			sass: 'src/sass/icons.scss',
-			dest: 'dist'
-		}, config);
-
-		console.log(this.config);
-	}
-
-	apply (compiler) {
-		compiler.hooks.compilation.tap('FontelloWebpackPlugin', (compilation, compilationParams) => {
-			console.log('Sending request...');
-
-		/*	const request = require('request');
-			const fs = require('fs');
-
-			console.log('sending request...');
-
-			request.post({
-				url: 'http://fontello.com',
-				formData: {config: fs.createReadStream('src/icons.json', 'utf8')}
-			}, (err, res, body) => {
-				if (err) {
-					return console.error(err);
-				}
-
-				request.get(`http://fontello.com/${body}/get`, (err2, res2, body2) => {
-					console.log(body2);
-				});
-			}); */
-		});
-	}
-}
-
-/*
-	TODO:
-	- icons (svg? fontello? icomoon)
-	- fix po watch
-	- load vue-sass after other sass so it can use other sass...
-*/
 // Utils
 const path = require('path');
 const glob = require('glob');
+const fs = require('fs');
 
 // Plugins
+const FontelloSassWebpackPlugin = require('./fontello.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -74,11 +31,11 @@ var config = {
 		}),
 
 		// Fontello
-		new FontelloWebpackPlugin({
-			src: 'src/icons.json',
-			sass: 'src/sass/icons.scss',
-			dest: 'dist'
-		}),
+	/*	new FontelloSassWebpackPlugin({
+			src: path.resolve(__dirname, 'src/icons.json'),
+			sass: path.resolve(__dirname, 'src/sass/icons.scss'),
+			dest: path.resolve(__dirname, 'dist/fontello')
+		}), */
 
 		// CSS Extractor
 		new MiniCssExtractPlugin({

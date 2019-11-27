@@ -1,5 +1,31 @@
+// Allow positioning stuff outside slideshow
+.glide {
+	position: static;
+}
+
+// Allow showing stuff outside slides
+.glide__slides {
+	overflow: visible;
+}
+
 .slideshow-nav {
-	display: none;
+	@media (--tablet-max) {
+		display: none;
+	}
+
+	.slideshow-prev,
+	.slideshow-next {
+		position: absolute;
+		left: calc(var(--site-padding) / 2);
+		top: 50%;
+		transform: translate(-50%);
+	}
+
+	.slideshow-next {
+		left: auto;
+		right: calc(var(--site-padding) / 2);
+		transform: translate(50%, -50%);
+	}
 }
 
 .slideshow-bullets {

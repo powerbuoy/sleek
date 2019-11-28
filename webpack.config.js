@@ -4,7 +4,6 @@ const glob = require('glob');
 const fs = require('fs');
 
 // Plugins
-const FontelloSassWebpackPlugin = require('./fontello.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -29,13 +28,6 @@ var config = {
 		new CleanWebpackPlugin({
 			cleanStaleWebpackAssets: false
 		}),
-
-		// Fontello
-	/*	new FontelloSassWebpackPlugin({
-			src: path.resolve(__dirname, 'src/icons.json'),
-			sass: path.resolve(__dirname, 'src/sass/icons.scss'),
-			dest: path.resolve(__dirname, 'dist/fontello')
-		}), */
 
 		// CSS Extractor
 		new MiniCssExtractPlugin({

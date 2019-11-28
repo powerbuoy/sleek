@@ -1,0 +1,1 @@
+Render an anchor that authors can link to using `<a href="#anchor"></a>`. Also provides a utility method for fetching all anchor points in a module area; `PageAnchor::getAnchors('modules_below_content', get_the_ID())`.

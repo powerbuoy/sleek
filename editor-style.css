@@ -1,0 +1,18 @@
+.button {
+	background: #06f !important;
+	display: inline-block !important;
+
+	margin: 0 !important;
+	padding: 1rem 5rem !important;
+
+	color: #fff !important;
+	text-decoration: none !important;
+
+	border-radius: 0 !important;
+}
+
+.button--ghost {
+	background: transparent !important;
+	color: #06f !important;
+	border: 1px solid #06f !important;
+}

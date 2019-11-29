@@ -71,7 +71,9 @@ var config = {
 					},
 
 					// Glob
-					{loader: 'import-glob-loader'}
+					{
+						loader: 'import-glob-loader'
+					}
 				]
 			},
 
@@ -139,8 +141,7 @@ module.exports = (env, argv) => {
 		config.watch = true;
 		config.watchOptions = {
 			ignored: /node_modules/,
-			aggregateTimeout: 300,
-			poll: 1000
+			aggregateTimeout: 300
 		};
 
 		// Sourcemaps

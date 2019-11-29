@@ -43,6 +43,11 @@ var config = {
 		new VueLoaderPlugin()
 	],
 
+	// Externals
+	externals: {
+		jquery: 'jQuery'
+	},
+
 	// Config
 	module: {
 		rules: [

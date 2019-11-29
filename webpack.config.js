@@ -1,7 +1,6 @@
 // Utils
 const path = require('path');
 const glob = require('glob');
-const fs = require('fs');
 
 // Plugins
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');

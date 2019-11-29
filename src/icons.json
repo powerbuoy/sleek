@@ -37,12 +37,6 @@
       "src": "fontawesome"
     },
     {
-      "uid": "b945f4ac2439565661e8e4878e35d379",
-      "css": "googleplus",
-      "code": 62223,
-      "src": "entypo"
-    },
-    {
       "uid": "cc399e4597f157dcbf016be0b7407fea",
       "css": "pinterest",
       "code": 62001,
@@ -103,24 +97,6 @@
       "src": "fontawesome"
     },
     {
-      "uid": "48b79f27e4798f23bafa07b55dbe5b73",
-      "css": "book",
-      "code": 59404,
-      "src": "entypo"
-    },
-    {
-      "uid": "1a7104205ea96e6f40ac716d0ca72f21",
-      "css": "lock",
-      "code": 59405,
-      "src": "entypo"
-    },
-    {
-      "uid": "e81fc3a0d39ace6ee735d7b24eedd56d",
-      "css": "lock-open",
-      "code": 59406,
-      "src": "entypo"
-    },
-    {
       "uid": "9daa1fdf0838118518a7e22715e83abc",
       "css": "pdf",
       "code": 61889,
@@ -179,6 +155,24 @@
       "css": "quote",
       "code": 59402,
       "src": "iconic"
+    },
+    {
+      "uid": "0d08dbb1dd648a43bdea81b7e6c9e036",
+      "css": "location",
+      "code": 59404,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "f761c3bbe16ba2d332914ecb28e7a042",
+      "css": "excel",
+      "code": 61891,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "edcd4022de8d8df266ef7c42d2658ca5",
+      "css": "powerpoint",
+      "code": 61892,
+      "src": "fontawesome"
     }
   ]
 }

@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 // Base config
 var config = {
@@ -71,7 +72,9 @@ var config = {
 					},
 
 					// Glob
-					{loader: 'import-glob-loader'}
+					{
+						loader: 'import-glob-loader'
+					}
 				]
 			},
 
@@ -139,12 +142,14 @@ module.exports = (env, argv) => {
 		config.watch = true;
 		config.watchOptions = {
 			ignored: /node_modules/,
-			aggregateTimeout: 300,
-			poll: 1000
+			aggregateTimeout: 300
 		};
 
 		// Sourcemaps
 		config.devtool = 'source-map';
+	}
+	else {
+		config.plugins.push(new OptimizeCssAssetsPlugin());
 	}
 
 	return config;

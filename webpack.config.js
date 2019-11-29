@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 // Base config
 var config = {
@@ -146,6 +147,9 @@ module.exports = (env, argv) => {
 
 		// Sourcemaps
 		config.devtool = 'source-map';
+	}
+	else {
+		config.plugins.push(new OptimizeCssAssetsPlugin());
 	}
 
 	return config;

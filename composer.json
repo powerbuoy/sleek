@@ -9,12 +9,15 @@
         }
     ],
     "require": {
-        "powerbuoy/sleek-acf": "^1.0",
+		"powerbuoy/sleek-acf": "^1.0",
+        "powerbuoy/sleek-archive-filter": "^1.0",
         "powerbuoy/sleek-archive-meta": "^1.0",
         "powerbuoy/sleek-cleanup": "^1.0",
         "powerbuoy/sleek-core": "^1.0",
         "powerbuoy/sleek-custom-logo": "^1.0",
         "powerbuoy/sleek-gallery": "^1.0",
+        "powerbuoy/sleek-google-maps": "^1.0",
+        "powerbuoy/sleek-google-search": "^1.0",
         "powerbuoy/sleek-image-sizes": "^1.0",
         "powerbuoy/sleek-login": "^1.0",
         "powerbuoy/sleek-menu": "^1.0",
@@ -23,6 +26,6 @@
         "powerbuoy/sleek-post-types": "^1.0",
         "powerbuoy/sleek-settings": "^1.0",
         "powerbuoy/sleek-tinymce": "^1.0",
-        "powerbuoy/sleek-utils": "^1.0"
+        "powerbuoy/sleek-utils": "^1.0","
     }
 }

@@ -26,6 +26,6 @@
         "powerbuoy/sleek-post-types": "^1.0",
         "powerbuoy/sleek-settings": "^1.0",
         "powerbuoy/sleek-tinymce": "^1.0",
-        "powerbuoy/sleek-utils": "^1.0","
+        "powerbuoy/sleek-utils": "^1.0"
     }
 }

@@ -18,3 +18,19 @@
 #site-notice ~ #cookie-consent {
 	bottom: calc(var(--spacing-small, 1rem) * 2 + var(--font-size-small, .8rem) * var(--line-height-default, 1.15));
 }
+
+#outdated-browser-warning {
+	background: white;
+
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	z-index: 99;
+	transform: translate(-50%, -50%);
+
+	width: 40rem;
+	max-width: 80%;
+
+	padding: var(--spacing-large, 2rem);
+	box-shadow: 0 0 4rem rgba(0, 0, 0, .5);
+}

@@ -20,6 +20,7 @@ add_theme_support('sleek-comment-form-placeholders');
 add_theme_support('sleek-tinymce-clean-paste');
 add_theme_support('sleek-tinymce-no-colors');
 add_theme_support('sleek-archive-meta');
+add_theme_support('sleek-outdated-browser-warning');
 
 # Disabled by default
 # add_theme_support('sleek-cookie-consent');

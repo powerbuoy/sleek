@@ -11,6 +11,344 @@ msgstr ""
 "Language: sv_SE\n"
 "X-Generator: Poedit 2.2\n"
 
+######
+# Misc
+msgid "Posts tagged with <strong>\"%s\"</strong>"
+msgstr "Inlägg taggade med <strong>\"%s\"</strong>"
+
+msgid "Search results (%s) for: <strong>\"%s\"</strong>"
+msgstr "Sökresultat (%s) för: <strong>\"%s\"</strong>"
+
+msgid "No search results for: <strong>\"%s\"</strong>"
+msgstr "Inga sökresultat för: <strong>\"%s\"</strong>"
+
+msgid "We couldn't find any matching search results for your query."
+msgstr "Det gick inte att hitta några matchande sökresultat för ditt sökord."
+
+msgid "Empty search"
+msgstr "Tom sökning"
+
+msgid "You didn't search for anything in particular so I'm showing you everything"
+msgstr "Eftersom du inte sökte på något specifikt visar jag dig allt jag har"
+
+msgid "Displaying results %d through %d"
+msgstr "Visar sökresultat %d till %d"
+
+msgid "Posts by <strong>%s</strong>"
+msgstr "Inlägg av <strong>%s</strong>"
+
+msgid "Daily archives"
+msgstr "Dagligt arkiv"
+
+msgid "Monthly archives"
+msgstr "Månatligt arkiv"
+
+msgid "Yearly archives"
+msgstr "Årligt arkiv"
+
+msgid "Posts"
+msgstr "Inlägg"
+
+msgid "No posts found."
+msgstr "Inga inlägg hittades."
+
+msgid "Continued"
+msgstr "Fortsätter"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "Referrer"
+msgstr "Referrer"
+
+msgid "User Agent"
+msgstr "User Agent"
+
+msgid "Email from %s"
+msgstr "Email från %s"
+
+msgid "404 - Page not found"
+msgstr "404 - Sidan hittades inte"
+
+msgid "Sorry, that page could not be found."
+msgstr "Ledsen, den sidan gick inte att hitta."
+
+msgid "It seems you arrived directly at this page, maybe it's because of:"
+msgstr "Det verkar som att du landade direkt på den här sidan, kanske beror det på:"
+
+msgid "An <strong>out-of-date bookmark</strong>"
+msgstr "Ett <strong>gammalt bokmärke</strong>"
+
+msgid "A search engine that has an <strong>out-of-date listing</strong> for us"
+msgstr "En sökmotor som har en <strong>gammal länk</strong> till oss"
+
+msgid "A <strong>miss-typed address</strong>"
+msgstr "En <strong>felstavad adress</strong>"
+
+msgid "Woops! Looks like one of our internal links are out-of-date. <strong>Sincerely sorry</strong> about that! :)"
+msgstr "Hoppsan! Verkar som att en av våra interna länkar är utdaterade. <strong>Riktigt ledsen</strong> för det! :)"
+
+msgid "You did a search on %s, however, their index appears to be out of date."
+msgstr "Du sökte på %s, dessvärre verkar deras index vara utdaterat."
+
+msgid "You were incorrectly referred to this page by %s."
+msgstr "Du blev inkorrekt refererad hit av %s."
+
+msgid "Perhaps you can go back to the <a href=\"%s\">home page</a> and try to navigate your way from there?"
+msgstr "Du kan prova navigera till <a href=\"%s\">förstasidan</a> och försöka hitta det du söker därifrån?"
+
+msgid "...or try a search?"
+msgstr "...eller prova en sökning?"
+
+msgid "This post is password protected. Enter the password to view comments."
+msgstr "Det här inlägget är lösenordsskyddat. Ange lösenordet för att se kommentarer."
+
+msgid "No comments"
+msgstr "Inga kommentarer"
+
+msgid "One comment"
+msgstr "En kommentar"
+
+msgid "%s comments"
+msgstr "%s kommentarer"
+
+msgid "No comments on \"%s\""
+msgstr "Inga kommentarer på \"%s\""
+
+msgid "One comment on \"%s\""
+msgstr "En kommentar på \"%s\""
+
+msgid "%s comments on \"%s\""
+msgstr "%s kommentarer på \"%s\""
+
+msgid "on"
+msgstr "på"
+
+msgid "No comments yet, why not <a href=\"#comment-form\">post the first</a>?"
+msgstr "Inga kommentarer än, varför inte <a href=\"#comment-form\">skriva den första</a>?"
+
+msgid "Comments are closed."
+msgstr "Kommentarer är avstängda."
+
+msgid "Sorry, nothing was found here."
+msgstr "Ledsen, inget gick att hitta här."
+
+msgid "Pages"
+msgstr "Sidor"
+
+msgid "Previous page"
+msgstr "Föregående sida"
+
+msgid "Next page"
+msgstr "Nästa sida"
+
+msgid "Search..."
+msgstr "Sök..."
+
+msgid "Find"
+msgstr "Hitta"
+
+msgid "All posts"
+msgstr "Alla inlägg"
+
+msgid "Choose category"
+msgstr "Välj kategori"
+
+msgid "Show:"
+msgstr "Visa:"
+
+msgid "Send"
+msgstr "Skicka"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "All"
+msgstr "Alla"
+
+msgid "Read more"
+msgstr "Läs mer"
+
+msgid "Template"
+msgstr "Mall"
+
+msgid "Choose a template or temporarily hide the module."
+msgstr "Välj en mall eller dölj tillfälligt modulen."
+
+msgid "Layout"
+msgstr "Utseende"
+
+msgid "Choose a layout or temporarily hide the module."
+msgstr "Välj ett utseende eller dölj tillfälligt modulen."
+
+msgid "Choose a layout."
+msgstr "Välj ett utseende."
+
+msgid "Default template"
+msgstr "Standardmall"
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Add a module"
+msgstr "Lägg till en modul"
+
+msgid "Modules"
+msgstr "Moduler"
+
+msgid "Next post"
+msgstr "Nästa inlägg"
+
+msgid "Filter posts"
+msgstr "Filtrera inlägg"
+
+msgid "Show more"
+msgstr "Visa fler"
+
+msgid "Archive Settings"
+msgstr "Arkivinställningar"
+
+msgid "We use cookies to bring you the best possible experience when browsing our site. <a href=\"%s\" target=\"_blank\">Read more</a> | <a href=\"#\" class=\"close\">Accept</a>"
+msgstr "Vi använder cookies för att kunna erbjuda dig en så bra upplevelse som möjligt på vår hemsida. <a href=\"%s\" target=\"_blank\">Läs mer</a> | <a href=\"#\" class=\"close\">Acceptera</a>"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Image"
+msgstr "Bild"
+
+msgid "Description"
+msgstr "Innehållstext"
+
+msgid "Is this what you were after?"
+msgstr "Var du ute efter det här?"
+
+msgid "Try a search"
+msgstr "Prova en sökning"
+
+msgid "Search the site"
+msgstr "Sök på sidan"
+
+msgid "Search"
+msgstr "Sök"
+
+msgid "Edit %s archive"
+msgstr "Redigera %s-arkiv"
+
+msgid "View %s archive"
+msgstr "Visa %s-arkiv"
+
+msgid "Hidden"
+msgstr "Dold"
+
+msgid "Template: \"%s\""
+msgstr "Mall: \"%s\""
+
+msgid "Filename"
+msgstr "Filnamn"
+
+msgid "Filesize"
+msgstr "Filstorlek"
+
+msgid "Download"
+msgstr "Ladda ned"
+
+msgid "%s information"
+msgstr "Information om %s"
+
+msgid "Images"
+msgstr "Bilder"
+
+msgid "Slideshow"
+msgstr "Bildspel"
+
+#############
+# Common CPTs
+# Guide
+msgid "Guide"
+msgstr "Guide"
+
+msgid "Guides"
+msgstr "Guider"
+
+msgctxt "url"
+msgid "guides"
+msgstr "guider"
+
+msgid "Guide Category"
+msgstr "Guidekategori"
+
+msgid "Guide Categories"
+msgstr "Guidekategorier"
+
+msgctxt "url"
+msgid "guide-categories"
+msgstr "guidekategorier"
+
+# Customer Case
+msgid "Customer Case"
+msgstr "Kundcase"
+
+msgid "Customer Cases"
+msgstr "Kundcase"
+
+msgctxt "url"
+msgid "customer-cases"
+msgstr "kundcase"
+
+msgid "Customer Case Category"
+msgstr "Kundcase-kategori"
+
+msgid "Customer Cases"
+msgstr "Kundcase-kategorier"
+
+msgctxt "url"
+msgid "customer-case-categories"
+msgstr "kundcase-kategorier"
+
+# Event
+msgid "Event"
+msgstr "Event"
+
+msgid "Events"
+msgstr "Event"
+
+msgctxt "url"
+msgid "events"
+msgstr "event"
+
+msgid "Event Category"
+msgstr "Event-kategori"
+
+msgid "Events"
+msgstr "Event-kategorier"
+
+msgctxt "url"
+msgid "event-categories"
+msgstr "event-kategorier"
+
+# Product
+msgid "Product"
+msgstr "Produkt"
+
+msgid "Products"
+msgstr "Produkter"
+
+msgctxt "url"
+msgid "products"
+msgstr "produkter"
+
+msgid "Product Category"
+msgstr "Produkt-kategori"
+
+msgid "Events"
+msgstr "Produkt-kategorier"
+
+msgctxt "url"
+msgid "product-categories"
+msgstr "produkt-kategorier"
+
+# Employee
 msgid "Employee"
 msgstr "Anställd"
 
@@ -21,6 +359,17 @@ msgctxt "url"
 msgid "employees"
 msgstr "anstallda"
 
+msgid "Employee Category"
+msgstr "Anställd-kategori"
+
+msgid "Employee Categories"
+msgstr "Anställd-kategorier"
+
+msgctxt "url"
+msgid "employee-categories"
+msgstr "anstalld-kategorier"
+
+# Office
 msgid "Office"
 msgstr "Kontor"
 
@@ -30,3 +379,37 @@ msgstr "Kontor"
 msgctxt "url"
 msgid "offices"
 msgstr "kontor"
+
+msgid "Office Category"
+msgstr "Kontorskategori"
+
+msgid "Office Categories"
+msgstr "Kontorskategorier"
+
+msgctxt "url"
+msgid "office-categories"
+msgstr "kontorskategorier"
+
+# Testimonial
+msgid "Testimonial"
+msgstr "Referens"
+
+msgid "Testimonials"
+msgstr "Referenser"
+
+msgctxt "url"
+msgid "testimonials"
+msgstr "referenser"
+
+msgid "Testimonial Category"
+msgstr "Referenskategori"
+
+msgid "Testimonial Categories"
+msgstr "Referenskategorier"
+
+msgctxt "url"
+msgid "testimonial-categories"
+msgstr "referenskategorier"
+
+###########
+# Our stuff

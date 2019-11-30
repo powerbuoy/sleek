@@ -1,19 +1,45 @@
-// Standard button
+// Normal button
+button,
+input[type=submit],
 .button {
+	@include button-base;
+
 	--font-size-default: var(--font-size-small);
 
 	text-transform: uppercase;
+
+	&:hover {
+		// NOTE: Do this yourself
+	}
 }
 
-// Make more things buttons
-.button--ghost,
-input[type=submit],
-button {
-	@extend .button;
+// Small button
+.button--small {
+	font-size: var(--font-size-small);
+	padding: calc(var(--button-padding-vertical) * .75) calc(var(--button-padding-horizontal) * .75);
 }
 
 // Ghost button
 .button--ghost {
 	background: transparent;
 	color: var(--button-color);
+
+	&:hover {
+		background: var(--button-color);
+	}
+}
+
+// Special case for white button
+.button--white,
+.button--white:hover {
+	color: var(--color-primary);
+}
+
+// Button colors
+$button-colors: ("white": white);
+
+@each $color-name, $color in $button-colors {
+	.button--#{$color-name} {
+		--button-color: #{$color};
+	}
 }

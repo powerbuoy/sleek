@@ -14,7 +14,7 @@ class PageAnchor extends Module {
 
 	public function data () {
 		return [
-			'anchor_id' => \Sleek\Utils\convert_case($this->get_field('title'), 'html')
+			'anchor_id' => 'page-anchor-' . \Sleek\Utils\convert_case($this->get_field('title'), 'html')
 		];
 	}
 
@@ -27,7 +27,7 @@ class PageAnchor extends Module {
 				if ($module['acf_fc_layout'] === 'page_anchor') {
 					$anchors[] = [
 						'title' => $module['title'],
-						'id' => \Sleek\Utils\convert_case($module['title'], 'html')
+						'id' => 'page-anchor-' . \Sleek\Utils\convert_case($module['title'], 'html')
 					];
 				}
 			}

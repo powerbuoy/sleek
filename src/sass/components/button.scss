@@ -31,6 +31,14 @@ input[type=submit],
 	color: var(--color-primary);
 }
 
+.button--white.button--ghost {
+	color: white;
+
+	&:hover {
+		color: var(--color-primary);
+	}
+}
+
 // Button colors
 $button-colors: ("white": white);
 

@@ -173,6 +173,18 @@
       "css": "powerpoint",
       "code": 61892,
       "src": "fontawesome"
+    },
+    {
+      "uid": "7acc2dfe18c6f4548626696fab27ba8a",
+      "css": "play",
+      "code": 59405,
+      "src": "elusive"
+    },
+    {
+      "uid": "6b44ce2430177c5b05a1d1575ccaaf5c",
+      "css": "vimeo",
+      "code": 62077,
+      "src": "fontawesome"
     }
   ]
 }

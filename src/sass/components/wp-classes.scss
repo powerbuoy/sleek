@@ -25,7 +25,7 @@
 	}
 }
 
-@media #{breakpoint(tablet)} {
+@media (--tablet) {
 	.alignleft {
 		float: left;
 		margin: 0 var(--spacing-default) var(--spacing-default) 0;

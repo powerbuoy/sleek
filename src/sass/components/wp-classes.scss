@@ -1,0 +1,38 @@
+// Float classes
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+
+.clearfix {
+	@include clearfix;
+}
+
+.clear {
+	clear: both;
+}
+
+.aligncenter {
+	display: block;
+	margin: 0 auto var(--spacing-default);
+	text-align: center;
+
+	img {
+		margin: 0 auto;
+	}
+}
+
+@media (--tablet) {
+	.alignleft {
+		float: left;
+		margin: 0 var(--spacing-default) var(--spacing-default) 0;
+	}
+
+	.alignright {
+		float: right;
+		margin: 0 0 var(--spacing-default) var(--spacing-default);
+	}
+}

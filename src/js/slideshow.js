@@ -160,7 +160,12 @@ document.querySelectorAll('[data-slideshow]').forEach(el => {
 
 	////////////////
 	// Create slider
-	const glide = new Glide(el, config).mount({
-		VisibleClass
+	el.glidejs = new Glide(el, config);
+
+	// HACK: Allow other code to add events to el.glidejs before mounting
+	setTimeout(() => {
+		el.glidejs.mount({
+			VisibleClass
+		});
 	});
 });

@@ -21,6 +21,8 @@ add_theme_support('sleek-tinymce-clean-paste');
 add_theme_support('sleek-tinymce-no-colors');
 add_theme_support('sleek-archive-meta');
 add_theme_support('sleek-outdated-browser-warning');
+add_theme_support('sleek-hide-acf-admin');
+add_theme_support('sleek-disable-theme-editor');
 
 # Disabled by default
 # add_theme_support('sleek-cookie-consent');

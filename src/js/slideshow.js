@@ -143,7 +143,7 @@ document.querySelectorAll('[data-slideshow]').forEach(el => {
 
 	// Add classes to existing markup
 	[...el.children].forEach((child, index) => {
-		bullets += '<a data-glide-dir="=' + index + '">' + index + '</a>'
+		bullets += '<a data-glide-dir="=' + index + '">' + (index + 1) + '</a>'
 
 		child.classList.add('glide__slide');
 		slidesEl.appendChild(child);

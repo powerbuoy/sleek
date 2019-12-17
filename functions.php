@@ -1,6 +1,6 @@
 <?php
-##########
-# Composer
+########
+# Vendor
 require __DIR__ . '/vendor/autoload.php';
 
 ###################

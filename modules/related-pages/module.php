@@ -63,7 +63,7 @@ class RelatedPages extends Module {
 				'post_type' => 'page',
 				'post_parent' => $postId,
 				'orderby' => 'menu_order',
-				'sort' => 'ASC',
+				'order' => 'ASC',
 				'numberposts' => -1
 			]);
 		}

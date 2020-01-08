@@ -344,7 +344,7 @@ msgstr "produkter"
 msgid "Product Category"
 msgstr "Produkt-kategori"
 
-msgid "Events"
+msgid "Product Categories"
 msgstr "Produkt-kategorier"
 
 msgctxt "url"

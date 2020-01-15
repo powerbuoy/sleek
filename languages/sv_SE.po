@@ -302,7 +302,7 @@ msgstr "kundcase"
 msgid "Customer Case Category"
 msgstr "Kundcase-kategori"
 
-msgid "Customer Cases"
+msgid "Customer Case Categories"
 msgstr "Kundcase-kategorier"
 
 msgctxt "url"

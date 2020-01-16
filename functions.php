@@ -53,8 +53,10 @@ register_sidebar(['name' => __('Header', 'sleek'), 'id' => 'header']);
 register_sidebar(['name' => __('Footer', 'sleek'), 'id' => 'footer']);
 register_sidebar(['name' => __('Sidebar', 'sleek'), 'id' => 'sidebar']);
 
-register_nav_menus(['main_menu' => __('Main menu', 'sleek')]);
-register_nav_menus(['footer_menu' => __('Footer menu', 'sleek')]);
+register_nav_menus([
+	'header_menu' => __('Header menu', 'sleek'),
+	'footer_menu' => __('Footer menu', 'sleek')
+]);
 
 ############
 # ACF fields
@@ -106,7 +108,7 @@ register_nav_menus(['footer_menu' => __('Footer menu', 'sleek')]);
 }); */
 
 ################
-# Sleek settings (TODO: Change args to name, label = null, type = text and use inflector to titleize if label==null)
+# Sleek settings
 /* add_action('admin_init', function () {
 	Sleek\Settings\add_setting('hubspot_portal_id', 'text', __('Hubspot Portal ID', 'sleek'));
 });

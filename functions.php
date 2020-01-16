@@ -58,55 +58,6 @@ register_nav_menus([
 	'footer_menu' => __('Footer menu', 'sleek')
 ]);
 
-############
-# ACF fields
-/* add_action('acf/init', function () {
-	# Flexible content field
-	acf_add_local_field_group([
-		'key' => 'modules',
-		'title' => __('Modules', 'sleek'),
-		'location' => [[['param' => 'post_type', 'operator' => '==', 'value' => 'page']]],
-		'fields' => [
-			[
-				'key' => 'modules_below_content',
-				'name' => 'modules_below_content',
-				'button_label' => __('Add a module', 'sleek'),
-				'type' => 'flexible_content',
-				'layouts' => Sleek\Modules\get_module_fields([
-					'attachments',
-					'related-pages',
-					'contact-form',
-					'featured-posts',
-					'gallery',
-					'google-map',
-					'hubspot-form',
-					'instagram',
-					'latest-posts',
-					'modules-showcase',
-					'share-page',
-					'social-links',
-					'text-block',
-					'text-blocks',
-					'vue-component',
-					'next-post',
-					'related-posts',
-					'page-menu',
-					'users',
-					'video'
-				], 'modules_below_content', 'flexible')
-			]
-		]
-	]);
-
-	# Sticky modules
-	acf_add_local_field_group([
-		'key' => 'sticky_modules',
-		'title' => __('Sticky modules', 'sleek'),
-		'location' => [[['param' => 'post_type', 'operator' => '==', 'value' => 'post']]],
-		'fields' => Sleek\Modules\get_module_fields(['redirect-url'], 'sticky_modules', 'tabs')
-	]);
-}); */
-
 ################
 # Sleek settings
 /* add_action('admin_init', function () {

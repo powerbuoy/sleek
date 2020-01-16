@@ -103,7 +103,7 @@ register_nav_menus([
 		'key' => 'sticky_modules',
 		'title' => __('Sticky modules', 'sleek'),
 		'location' => [[['param' => 'post_type', 'operator' => '==', 'value' => 'post']]],
-		'fields' => Sleek\Modules\get_module_fields(['redirect-url'], 'sticky_modules', 'tabbed')
+		'fields' => Sleek\Modules\get_module_fields(['redirect-url'], 'sticky_modules', 'tabs')
 	]);
 }); */
 

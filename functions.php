@@ -72,7 +72,7 @@ add_action('acf/init', function () {
 				'name' => 'modules_below_content',
 				'button_label' => __('Add a module', 'sleek'),
 				'type' => 'flexible_content',
-				'layouts' => Sleek\Modules\get_module_fields([
+				'layouts' => Sleek\Acf\generate_keys(Sleek\Modules\get_module_fields([
 					'attachments',
 					'related-pages',
 					'contact-form',
@@ -93,7 +93,7 @@ add_action('acf/init', function () {
 					'page-menu',
 					'users',
 					'video'
-				], 'modules_below_content', 'flexible')
+				], 'flexible'), 'modules_below_content')
 			]
 		]
 	]);
@@ -103,7 +103,7 @@ add_action('acf/init', function () {
 		'key' => 'sticky_modules',
 		'title' => __('Sticky modules', 'sleek'),
 		'location' => [[['param' => 'post_type', 'operator' => '==', 'value' => 'post']]],
-		'fields' => Sleek\Modules\get_module_fields(['redirect-url'], 'sticky_modules', 'tabbed')
+		'fields' => Sleek\Acf\generate_keys(Sleek\Modules\get_module_fields(['redirect-url'], 'tabbed'), 'sticky_modules')
 	]);
 });
 

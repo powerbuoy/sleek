@@ -302,7 +302,7 @@ msgstr "kundcase"
 msgid "Customer Case Category"
 msgstr "Kundcase-kategori"
 
-msgid "Customer Cases"
+msgid "Customer Case Categories"
 msgstr "Kundcase-kategorier"
 
 msgctxt "url"
@@ -413,6 +413,48 @@ msgstr "Referenskategorier"
 msgctxt "url"
 msgid "testimonial-categories"
 msgstr "referenskategorier"
+
+# Podcasts
+msgid "Podcast"
+msgstr "Podcast"
+
+msgid "Podcasts"
+msgstr "Podcasts"
+
+msgctxt "url"
+msgid "podcasts"
+msgstr "podcasts"
+
+msgid "Podcast Category"
+msgstr "Podcast-kategori"
+
+msgid "Podcast Categories"
+msgstr "Podcast-kategorier"
+
+msgctxt "url"
+msgid "podcast-categories"
+msgstr "podcast-kategorier"
+
+# Pillar Pages
+msgid "Pillar Page"
+msgstr "Pelarsida"
+
+msgid "Pillar Pages"
+msgstr "Pelarsidor"
+
+msgctxt "url"
+msgid "pillar-pages"
+msgstr "pelarsidor"
+
+msgid "Pillar Page Category"
+msgstr "Pelarsidkategori"
+
+msgid "Pillar Page Categories"
+msgstr "Pelarsidkategorier"
+
+msgctxt "url"
+msgid "pillar-page-categories"
+msgstr "pelarsidkategorier"
 
 ###########
 # Our stuff

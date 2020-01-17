@@ -265,6 +265,9 @@ msgstr "Bilder"
 msgid "Slideshow"
 msgstr "Bildspel"
 
+msgid "Sticky Modules"
+msgstr "Fasta Moduler"
+
 #############
 # Common CPTs
 # Guide

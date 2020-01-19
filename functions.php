@@ -58,9 +58,82 @@ register_nav_menus([
 	'footer_menu' => __('Footer menu', 'sleek')
 ]);
 
+################
+# Sleek settings
+/* add_action('admin_init', function () {
+	Sleek\Settings\add_setting('hubspot_portal_id', 'text', __('Hubspot Portal ID', 'sleek'));
+});
+
+# ... use them
+add_action('wp_head', function () {
+	if ($portalId = Sleek\Settings\get_setting('hubspot_portal_id')) {
+		echo '<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/' . $portalId . '.js"></script>';
+	}
+}); */
+
+#############
+# User fields
+/* add_filter('user_contactmethods', function ($fields) {
+	$fields['github'] = __('GitHub', 'sleek');
+
+	return $fields;
+}); */
+
+#################
+# REST API Fields
+/* add_action('rest_api_init', function () {
+	register_rest_field(['page', 'post'], 'custom_fields', ['get_callback' => function ($post) {
+		return get_post_custom($post['id']);
+	}]);
+}); */
+
 ############
 # ACF fields
 add_action('acf/init', function () {
+	# Site Settings
+/*	acf_add_options_page([
+		'page_title' => __('Site Settings', 'sleek'),
+		'menu_slug' => 'site_settings',
+		'post_id' => 'site_settings'
+	]); */
+
+	# Site Setting fields
+/*	acf_add_local_field_group([
+		'key' => 'site_settings',
+		'title' => __('Site Settings', 'sleek'),
+		'location' => [[['param' => 'options_page', 'operator' => '==', 'value' => 'site_settings']]],
+		'menu_order' => 0,
+		'fields' => [
+			[
+				'key' => 'site_settings_message',
+				'name' => 'message',
+				'type' => 'message',
+				'label' => __('Nothing here', 'sleek'),
+				'message' => __('Nothing here yet.', 'sleek')
+			]
+		]
+	]); */
+
+	# Sidebar modules
+/*	acf_add_local_field_group([
+		'key' => 'group_sidebar_modules',
+		'title' => __('Sidebar Modules', 'sleek'),
+		'location' => [[['param' => 'options_page', 'operator' => '==', 'value' => 'site_settings']]],
+		'menu_order' => 1,
+		'fields' => [
+			[
+				'key' => 'sidebar_modules',
+				'name' => 'sidebar_modules',
+				'type' => 'flexible_content',
+				'label' => __('Nothing here', 'sleek'),
+				'button_label' => __('Add a module', 'sleek'),
+				'layouts' => Sleek\Acf\generate_keys(Sleek\Modules\get_module_fields([
+					'text-block'
+				], 'flexible'), 'sidebar_modules')
+			]
+		]
+	]); */
+
 	# Flexible content field
 	acf_add_local_field_group([
 		'key' => 'modules',
@@ -107,36 +180,6 @@ add_action('acf/init', function () {
 	]);
 });
 
-################
-# Sleek settings
-/* add_action('admin_init', function () {
-	Sleek\Settings\add_setting('hubspot_portal_id', 'text', __('Hubspot Portal ID', 'sleek'));
-});
-
-# ... use them
-add_action('wp_head', function () {
-	if ($portalId = Sleek\Settings\get_setting('hubspot_portal_id')) {
-		echo '<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/' . $portalId . '.js"></script>';
-	}
-}); */
-
-#############
-# User fields
-/* add_filter('user_contactmethods', function ($fields) {
-	$fields['github'] = __('GitHub', 'sleek');
-
-	return $fields;
-}); */
-
-#################
-# REST API Fields
-/* add_action('rest_api_init', function () {
-	register_rest_field(['page', 'post'], 'custom_fields', ['get_callback' => function ($post) {
-		return get_post_custom($post['id']);
-	}]);
-}); */
-
-######################################
 ######################################
 # TEMP
 # Menu shortcode

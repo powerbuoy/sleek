@@ -1,0 +1,79 @@
+textarea {
+	height: 12rem;
+}
+
+// CF7
+.wpcf7 {
+	.screen-reader-response {
+		display: none;
+	}
+
+	.wpcf7-not-valid-tip {
+		margin: var(--spacing-small) 0 0;
+	}
+
+	.ajax-loader {
+		display: none;
+		margin-left: var(--spacing-default);
+
+		&:before {
+			@include icon($icon-spinner);
+
+			margin: 0;
+		}
+
+		&.is-active {
+			display: inline;
+
+			&:before {
+				animation: spin 2s infinite linear;
+			}
+		}
+	}
+}
+
+// HS
+.hs-form-field {
+	display: block;
+	margin: 0 0 var(--spacing-default);
+
+	// Labels
+	> label {
+		display: block;
+		margin: 0 0 var(--spacing-small);
+	}
+
+	// Checkboxes / radios
+	ul.inputs-list {
+		margin: 0;
+		list-style: none;
+
+		li {
+			display: inline-block;
+			margin: 0 var(--spacing-default) var(--spacing-default) 0;
+		}
+	}
+
+	// Don't show *
+	.hs-form-required {
+		display: none;
+	}
+
+	// List of errors
+	ul.hs-error-msgs {
+		margin: var(--spacing-small) 0 0;
+		list-style: none;
+
+		li {
+			display: block;
+		}
+	}
+
+	.hs-error-msg {
+		color: color(error);
+	}
+}
+
+.hs_error_rollup {
+	display: none;
+}

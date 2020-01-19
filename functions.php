@@ -86,3 +86,51 @@ add_action('wp_head', function () {
 		return get_post_custom($post['id']);
 	}]);
 }); */
+
+############
+# ACF fields
+add_action('acf/init', function () {
+	# Site Settings
+/*	acf_add_options_page([
+		'page_title' => __('Site Settings', 'sleek'),
+		'menu_slug' => 'site_settings',
+		'post_id' => 'site_settings'
+	]); */
+
+	# Site Setting fields
+/*	acf_add_local_field_group([
+		'key' => 'site_settings',
+		'title' => __('Site Settings', 'sleek'),
+		'location' => [[['param' => 'options_page', 'operator' => '==', 'value' => 'site_settings']]],
+		'menu_order' => 0,
+		'fields' => [
+			[
+				'key' => 'site_settings_message',
+				'name' => 'message',
+				'type' => 'message',
+				'label' => __('Nothing here', 'sleek'),
+				'message' => __('Nothing here yet.', 'sleek')
+			]
+		]
+	]); */
+
+	# Sidebar modules
+/*	acf_add_local_field_group([
+		'key' => 'group_sidebar_modules',
+		'title' => __('Sidebar Modules', 'sleek'),
+		'location' => [[['param' => 'options_page', 'operator' => '==', 'value' => 'site_settings']]],
+		'menu_order' => 1,
+		'fields' => [
+			[
+				'key' => 'sidebar_modules',
+				'name' => 'sidebar_modules',
+				'type' => 'flexible_content',
+				'label' => __('Nothing here', 'sleek'),
+				'button_label' => __('Add a module', 'sleek'),
+				'layouts' => Sleek\Acf\generate_keys(Sleek\Modules\get_module_fields([
+					'text-block'
+				], 'flexible'), 'sidebar_modules')
+			]
+		]
+	]); */
+});

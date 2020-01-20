@@ -36,11 +36,24 @@ class NextPost extends Module {
 		# Adjacent post
 		$next = get_adjacent_post(false, [], false);
 
-		# Or first post of same post type
-		$next = $next ? $next : get_posts([
-			'post_type' => get_post_type(),
-			'numberposts' => 1
-		])[0];
+		if (!$next) {
+			global $post;
+
+			$args = [
+				'post_type' => get_post_type(),
+				'numberposts' => 1,
+				'orderby' => 'post_date',
+				'order' => 'ASC'
+			];
+
+			# Ignore post we're on
+			if (is_single()) {
+				$args['post__not_in'] = [$post->ID];
+			}
+
+			# Get first post of same post type
+			$next = get_posts($args)[0];
+		}
 
 		return [$next];
 	}

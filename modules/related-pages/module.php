@@ -29,7 +29,7 @@ class RelatedPages extends Module {
 				]
 			],
 			[
-				'name' => 'page_id',
+				'name' => 'related_page_id',
 				'label' => __('Page', 'sleek'),
 				'instructions' => __('Select the page whose related pages you want to display or leave empty to display the current page\'s related pages.', 'sleek'),
 				'type' => 'post_object',
@@ -44,7 +44,7 @@ class RelatedPages extends Module {
 
 	public function data () {
 		return [
-			'rows' => self::get_related_pages($this->get_field('page_id'), $this->get_field('type'))
+			'rows' => self::get_related_pages($this->get_field('related_page_id'), $this->get_field('type'))
 		];
 	}
 

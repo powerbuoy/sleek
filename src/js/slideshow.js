@@ -38,9 +38,7 @@ var VisibleClass = function (Glide, Components, Events) {
 					next.classList.add('glide__slide--visible');
 
 					for (let i = 0; i < numAfter - 1; i++) {
-						next = next.nextElementSibling;
-
-						if (next) {
+						if (next && (next = next.nextElementSibling)) {
 							next.classList.add('glide__slide--visible');
 						}
 					}
@@ -107,7 +105,8 @@ document.querySelectorAll('[data-slideshow]').forEach(el => {
 		perView: 1,
 		focusAt: 'center',
 		gap: gap,
-		animationDuration: 800
+		animationDuration: 800,
+		autoplay: 5000
 	}, args);
 
 	// Make sure we're not trying to focus outside of page

@@ -52,9 +52,9 @@ class NextPost extends Module {
 			}
 
 			# Get first post of same post type
-			$next = get_posts($args)[0];
+			$next = get_posts($args)[0] ?? null;
 		}
 
-		return [$next];
+		return $next ? [$next] : null;
 	}
 }

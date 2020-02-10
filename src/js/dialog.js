@@ -18,7 +18,7 @@ document.querySelectorAll('dialog').forEach(el => {
 });
 
 // For every [data-dialog] link
-document.querySelectorAll('[data-dialog]').forEach(el => {
+document.querySelectorAll('[data-dialog], a[href$="-popup"]').forEach(el => {
 	const targetId = el.dataset.popup || el.getAttribute('href');
 
 	if (targetId) {

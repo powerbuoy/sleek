@@ -24,6 +24,7 @@ add_theme_support('sleek-outdated-browser-warning');
 add_theme_support('sleek-hide-acf-admin');
 add_theme_support('sleek-disable-theme-editor');
 add_theme_support('sleek-notice');
+add_theme_support('sleek-oembed');
 
 # Disabled by default
 # add_theme_support('sleek-disable-comments');

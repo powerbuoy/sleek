@@ -60,13 +60,15 @@ html.dialog-open {
 	transition: opacity var(--dialog-animation-duration) ease;
 }
 
-.dialog.open {
+.dialog.open,
+html.no-js .dialog:target {
 	pointer-events: all;
 	opacity: 1;
 	transform: translate(-50%, -50%) scale(1);
 }
 
-.dialog.open + .backdrop {
+.dialog.open + .backdrop,
+html.no-js .dialog:target + .backdrop {
 	pointer-events: all;
 	opacity: 1;
 }

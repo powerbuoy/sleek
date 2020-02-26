@@ -38,9 +38,7 @@ var VisibleClass = function (Glide, Components, Events) {
 					next.classList.add('glide__slide--visible');
 
 					for (let i = 0; i < numAfter - 1; i++) {
-						next = next.nextElementSibling;
-
-						if (next) {
+						if (next && (next = next.nextElementSibling)) {
 							next.classList.add('glide__slide--visible');
 						}
 					}
@@ -80,92 +78,96 @@ var VisibleClass = function (Glide, Components, Events) {
 ////////////////////////////////////
 // Go through every [data-slideshow]
 document.querySelectorAll('[data-slideshow]').forEach(el => {
-	/////////////////////////
-	// Use --grid-gap for gap
-	var gap = (parseFloat(window.getComputedStyle(el).getPropertyValue('--grid-gap')) * 16);
+	// Make sure we have some slides
+	if (el.children.length) {
+		/////////////////////////
+		// Use --grid-gap for gap
+		var gap = (parseFloat(window.getComputedStyle(el).getPropertyValue('--grid-gap')) * 16);
 
-	gap = isNaN(gap) ? 32 : gap;
+		gap = isNaN(gap) ? 32 : gap;
 
-	////////////////
-	// Create config
-	var args = el.dataset.slideshow;
+		////////////////
+		// Create config
+		var args = el.dataset.slideshow;
 
-	if (args) {
-		try {
-			args = JSON.parse(args);
+		if (args) {
+			try {
+				args = JSON.parse(args);
+			}
+			catch {
+				args = {};
+			}
 		}
-		catch {
+		else {
 			args = {};
 		}
-	}
-	else {
-		args = {};
-	}
 
-	const config = Object.assign({
-		type: 'carousel',
-		perView: 1,
-		focusAt: 'center',
-		gap: gap,
-		animationDuration: 800
-	}, args);
+		const config = Object.assign({
+			type: 'carousel',
+			perView: 1,
+			focusAt: 'center',
+			gap: gap,
+			animationDuration: 800,
+			autoplay: 6000
+		}, args);
 
-	// Make sure we're not trying to focus outside of page
-	if (config.focusAt !== 'center' && config.focusAt > (config.perView - 1)) {
-		config.focusAt = config.perView - 1;
-	}
+		// Make sure we're not trying to focus outside of page
+		if (config.focusAt !== 'center' && config.focusAt > (config.perView - 1)) {
+			config.focusAt = config.perView - 1;
+		}
 
-	////////////////
-	// Create markup
-	el.classList.add('glide');
+		////////////////
+		// Create markup
+		el.classList.add('glide');
 
-	const trackEl = document.createElement('div');
-	const slidesEl = document.createElement('div');
+		const trackEl = document.createElement('div');
+		const slidesEl = document.createElement('div');
 
-	trackEl.classList.add('glide__track');
-	trackEl.setAttribute('data-glide-el', 'track');
-	slidesEl.classList.add('glide__slides');
+		trackEl.classList.add('glide__track');
+		trackEl.setAttribute('data-glide-el', 'track');
+		slidesEl.classList.add('glide__slides');
 
-	// Create prev/next buttons
-	const buttons = document.createElement('div');
+		// Create prev/next buttons
+		const buttons = document.createElement('div');
 
-	buttons.classList.add('slideshow-nav');
-	buttons.setAttribute('data-glide-el', 'controls');
-	buttons.innerHTML = '<a data-glide-dir="<" class="slideshow-prev">&larr;</a><a data-glide-dir=">" class="slideshow-next">&rarr;</a>';
+		buttons.classList.add('slideshow-nav');
+		buttons.setAttribute('data-glide-el', 'controls');
+		buttons.innerHTML = '<a data-glide-dir="<" class="slideshow-prev">&larr;</a><a data-glide-dir=">" class="slideshow-next">&rarr;</a>';
 
-	// Create bullets
-	const nav = document.createElement('div');
+		// Create bullets
+		const nav = document.createElement('div');
 
-	nav.classList.add('slideshow-bullets');
-	nav.setAttribute('data-glide-el', 'controls[nav]');
+		nav.classList.add('slideshow-bullets');
+		nav.setAttribute('data-glide-el', 'controls[nav]');
 
-	let bullets = '';
+		let bullets = '';
 
-	// Add classes to existing markup
-	[...el.children].forEach((child, index) => {
-		bullets += '<a data-glide-dir="=' + index + '">' + (index + 1) + '</a>'
+		// Add classes to existing markup
+		[...el.children].forEach((child, index) => {
+			bullets += '<a data-glide-dir="=' + index + '">' + (index + 1) + '</a>'
 
-		child.classList.add('glide__slide');
-		slidesEl.appendChild(child);
-	});
-
-	nav.innerHTML = bullets;
-
-	/////////////////////////////////
-	// Now move everything into place
-	trackEl.appendChild(slidesEl);
-	el.appendChild(trackEl);
-	el.appendChild(buttons);
-	el.appendChild(nav);
-
-	////////////////
-	// Create slider
-	el.glidejs = new Glide(el, config);
-
-	// HACK: Allow other code to add events to el.glidejs before mounting
-	setTimeout(() => {
-		el.glidejs.mount({
-			VisibleClass
+			child.classList.add('glide__slide');
+			slidesEl.appendChild(child);
 		});
-	});
+
+		nav.innerHTML = bullets;
+
+		/////////////////////////////////
+		// Now move everything into place
+		trackEl.appendChild(slidesEl);
+		el.appendChild(trackEl);
+		el.appendChild(buttons);
+		el.appendChild(nav);
+
+		////////////////
+		// Create slider
+		el.glidejs = new Glide(el, config);
+
+		// HACK: Allow other code to add events to el.glidejs before mounting
+		setTimeout(() => {
+			el.glidejs.mount({
+			//	VisibleClass // NOTE: Use if needed
+			});
+		});
+	}
 });

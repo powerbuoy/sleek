@@ -52,7 +52,6 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
-    "dialog-polyfill": "^0.5.0",
     "normalize.css": "^8.0.1",
     "prismjs": "^1.17.1",
     "sleek-css": "github:powerbuoy/sleek-css",

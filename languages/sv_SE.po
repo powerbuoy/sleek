@@ -214,6 +214,12 @@ msgstr "Vi använder cookies för att kunna erbjuda dig en så bra upplevelse so
 msgid "<strong>Oops!</strong> Your browser is not supported. For a richer browsing experience, please consider upgrading to a better, modern browser like <a href=\"https://www.google.com/chrome/\">Google Chrome</a>, <a href=\"https://www.mozilla.org/en-US/firefox/new/\">Mozilla Firefox</a>, <a href=\"https://support.apple.com/downloads/safari\">Safari</a>, <a href=\"https://www.opera.com/\">Opera</a> or <a href=\"https://www.microsoft.com/en-us/windows/microsoft-edge\">Microsoft Edge</a>."
 msgstr "<strong>Hoppsan!</strong> Din webbläsare stöds inte. För en bättre upplevelse på webben, vänligen uppgradera till en modern webbläsare som <a href=\"https://www.google.com/chrome/\">Google Chrome</a>, <a href=\"https://www.mozilla.org/en-US/firefox/new/\">Mozilla Firefox</a>, <a href=\"https://support.apple.com/downloads/safari\">Safari</a>, <a href=\"https://www.opera.com/\">Opera</a> eller <a href=\"https://www.microsoft.com/en-us/windows/microsoft-edge\">Microsoft Edge</a>."
 
+msgid "We use cookies to bring you the best possible experience when browsing our site."
+msgstr "Vi använder cookies för att kunna erbjuda dig en så bra upplevelse som möjligt på vår hemsida."
+
+msgid "Accept"
+msgstr "Acceptera"
+
 msgid "Title"
 msgstr "Titel"
 
@@ -267,6 +273,9 @@ msgstr "Bildspel"
 
 msgid "Sticky Modules"
 msgstr "Fasta Moduler"
+
+msgid "Log in"
+msgstr "Logga in"
 
 #############
 # Common CPTs
@@ -326,7 +335,7 @@ msgstr "event"
 msgid "Event Category"
 msgstr "Event-kategori"
 
-msgid "Events"
+msgid "Event Categories"
 msgstr "Event-kategorier"
 
 msgctxt "url"

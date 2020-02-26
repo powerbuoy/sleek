@@ -1,0 +1,79 @@
+:root {
+	--dialog-animation-duration: 0.5s;
+}
+
+html.dialog-open {
+	overflow: hidden;
+}
+
+// Basic styling
+div.dialog {
+	background: white;
+
+	width: 90%;
+	max-width: 40rem;
+	max-height: 90%;
+
+	position: fixed;
+	overflow: auto;
+	z-index: 99;
+
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+	padding: var(--spacing-x-large);
+	box-shadow: var(--shadow-3);
+
+	.dialog__close {
+		position: absolute;
+		right: var(--spacing-default);
+		top: var(--spacing-default);
+		font-size: 2rem;
+		line-height: 1;
+		color: var(--color-text);
+	}
+}
+
+// Backdrop
+div.dialog + div.backdrop {
+	background: var(--color-overlay);
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 98;
+}
+
+// Animations
+div.dialog {
+	pointer-events: none;
+	opacity: 0;
+	transform: translate(-50%, -50%) scale(0.9);
+	transition: opacity var(--dialog-animation-duration) ease, transform var(--dialog-animation-duration) ease;
+}
+
+div.dialog + div.backdrop {
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity var(--dialog-animation-duration) ease;
+}
+
+div.dialog.open,
+html.no-js div.dialog:target {
+	pointer-events: all;
+	opacity: 1;
+	transform: translate(-50%, -50%) scale(1);
+}
+
+div.dialog.open + div.backdrop,
+html.no-js div.dialog:target + div.backdrop {
+	pointer-events: all;
+	opacity: 1;
+}
+
+// Helper class
+div.dialog.dialog--no-transition {
+	transition: none;
+}

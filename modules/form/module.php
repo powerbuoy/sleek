@@ -1,8 +1,9 @@
 <?php
 namespace Sleek\Modules;
 
-class HubspotForm extends Module {
+class Form extends Module {
 	public function created () {
+		# TODO: Move to sleek-hubspot
 		# If Hubspot API is installed
 		if (class_exists('\SevenShores\Hubspot\Factory') and \Sleek\Settings\get_setting('hubspot_api_key')) {
 			# Grab all hubspot forms from transient
@@ -50,6 +51,9 @@ class HubspotForm extends Module {
 	}
 
 	public function fields () {
+		# TODO: Only show wpcf7_form_id if CF7 is installed
+		# TODO: Only show hubspot_form_id if hubspot_portal_id is set
+		# TODO: Add redirect_url as field here and make it work with CF7 too (NOTE: not the "normal" redirect_url for posts - this one should redirect after successful form submission)
 		return [
 			[
 				'name' => 'title',
@@ -62,9 +66,22 @@ class HubspotForm extends Module {
 				'type' => 'wysiwyg'
 			],
 			[
+				'name' => 'wpcf7_form_id',
+				'label' => __('Form', 'sleek'),
+				'instructions' => __('Select a Contact Form 7 form from the dropdown. Please note that this module requires the Contact Form 7 plug-in: https://wordpress.org/plugins/contact-form-7/', 'sleek'),
+				'type' => 'post_object',
+				'return_format' => 'id',
+				'post_type' => ['wpcf7_contact_form']
+			],
+			[
 				'name' => 'hubspot_form_id',
 				'label' => __('Form ID', 'sleek'),
 				'type' => 'text'
+			],
+			[
+				'name' => 'form_embed_code',
+				'label' => __('Form Embed Code', 'sleek'),
+				'type' => 'textarea'
 			]
 		];
 	}

@@ -27,9 +27,9 @@ add_theme_support('sleek-notice');
 add_theme_support('sleek-oembed');
 
 # Disabled by default
+# add_theme_support('sleek-acf-redirect-url')
 # add_theme_support('sleek-disable-comments');
 # add_theme_support('sleek-cookie-consent');
-# add_theme_support('sleek-gallery-slideshow'); # TODO
 # add_theme_support('sleek-archive-filter');
 # add_theme_support('sleek-get-terms-post-type-arg');
 # add_theme_support('sleek-require-login');
@@ -50,9 +50,9 @@ Sleek\ImageSizes\register(1920, 1080, ['center', 'center']/*, [
 
 ##################
 # Sidebars & menus
-register_sidebar(['name' => __('Header', 'sleek'), 'id' => 'header']);
-register_sidebar(['name' => __('Footer', 'sleek'), 'id' => 'footer']);
-register_sidebar(['name' => __('Sidebar', 'sleek'), 'id' => 'sidebar']);
+# register_sidebar(['name' => __('Header', 'sleek'), 'id' => 'header']);
+# register_sidebar(['name' => __('Footer', 'sleek'), 'id' => 'footer']);
+# register_sidebar(['name' => __('Sidebar', 'sleek'), 'id' => 'sidebar']);
 
 register_nav_menus([
 	'header_menu' => __('Header menu', 'sleek'),
@@ -63,6 +63,7 @@ register_nav_menus([
 # Sleek settings
 /* add_action('admin_init', function () {
 	Sleek\Settings\add_setting('hubspot_portal_id', 'text', __('Hubspot Portal ID', 'sleek'));
+	Sleek\Settings\add_setting('hubspot_api_key', 'text', __('Hubspot API Key', 'sleek'));
 });
 
 # ... use them

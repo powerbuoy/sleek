@@ -3,6 +3,7 @@
 <main>
 
 	<?php get_template_part('modules/single-page') ?>
+	<?php # Sleek\Modules\render_flexible('flexible_modules') ?>
 
 </main>
 

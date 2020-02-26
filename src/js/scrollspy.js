@@ -5,7 +5,7 @@ const els = [
 	'#site-footer'
 ];
 
-function addViewClass (entry) {
+function toggleViewClass (entry) {
 	if (entry.isIntersecting) {
 		entry.target.classList.add('in-view', 'was-in-view');
 	}
@@ -23,5 +23,5 @@ document.querySelectorAll(els.join(',')).forEach(el => {
 		th = ((window.innerHeight * threshold) / elHeight) * threshold;
 	}
 
-	new IntersectionObserver(iEls => iEls.forEach(iEl => addViewClass(iEl)), {threshold: th}).observe(el);
+	new IntersectionObserver(iEls => iEls.forEach(iEl => toggleViewClass(iEl)), {threshold: th}).observe(el);
 });

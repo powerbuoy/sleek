@@ -108,7 +108,7 @@ document.querySelectorAll('[data-slideshow]').forEach(el => {
 			focusAt: 'center',
 			gap: gap,
 			animationDuration: 800,
-			autoplay: 3000
+			autoplay: 6000
 		}, args);
 
 		// Make sure we're not trying to focus outside of page
@@ -166,7 +166,7 @@ document.querySelectorAll('[data-slideshow]').forEach(el => {
 		// HACK: Allow other code to add events to el.glidejs before mounting
 		setTimeout(() => {
 			el.glidejs.mount({
-				VisibleClass
+			//	VisibleClass // NOTE: Use if needed
 			});
 		});
 	}

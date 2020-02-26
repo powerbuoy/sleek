@@ -5,8 +5,10 @@ class Page extends PostType {
 	# created() runs once every page load
 	public function created () {
 		# Remove editor entirely
-	/*	add_action('init', function () {
-			remove_post_type_support('page', 'editor');
+	/*	add_action('registered_post_type', function ($post_type) {
+			if ($post_type === 'page') {
+				remove_post_type_support('page', 'editor');
+			}
 		}); */
 	}
 
@@ -27,7 +29,7 @@ class Page extends PostType {
 
 	# Non flexible archive modules
 	public function sticky_archive_modules () {
-	#	return ['sticky-post'];
+	#	return ['featured-posts'];
 	}
 
 	# Flexible archive modules

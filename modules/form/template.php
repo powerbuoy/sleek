@@ -14,6 +14,10 @@
 
 	<div class="form">
 
+		<?php if ($form_embed_code) : ?>
+			<?php echo $form_embed_code ?>
+		<?php endif ?>
+
 		<?php if ($wpcf7_form_id) : ?>
 			<?php if (shortcode_exists('contact-form-7')) : ?>
 				<?php echo do_shortcode('[contact-form-7 id="' . $wpcf7_form_id . '"]') ?>
@@ -31,6 +35,7 @@
 				<![endif]-->
 				<script charset="utf-8" src="//js.hsforms.net/forms/v2.js"></script>
 				<script>
+					// Create form
 					hbspt.forms.create({
 						portalId: '<?php echo $portal_id ?>',
 						formId: '<?php echo $hubspot_form_id ?>'
@@ -39,16 +44,18 @@
 							redirectUrl: '<?php echo $redirect_url ?>'
 						<?php endif ?>
 					});
-				</script>
-				<script>
+
+					// Add events
 					window.addEventListener('message', function (event) {
 						if (event.data.type === 'hsFormCallback' && event.data.id === '<?php echo $hubspot_form_id ?>') {
+							// Scroll into view unless redirect URL
 							<?php if (!isset($redirect_url) or empty($redirect_url)) : ?>
 								if (event.data.eventName === 'onFormSubmit') {
 									document.getElementById('hubspot-form').scrollIntoView();
 								}
 							<?php endif ?>
 
+							// Set additional form data
 							<?php if (isset($additional_data)) : ?>
 								if (event.data.eventName === 'onFormReady') {
 									var form = document.getElementById('hsForm_' + event.data.id);
@@ -70,10 +77,6 @@
 			<?php else : ?>
 				<p class="error"><?php _e('Please make sure to enter a valid Hubspot Portal ID inside Settings -> Sleek', 'sleek') ?></p>
 			<?php endif ?>
-		<?php endif ?>
-
-		<?php if ($form_embed_code) : ?>
-			<?php echo $form_embed_code ?>
 		<?php endif ?>
 
 	</div>

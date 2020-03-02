@@ -14,3 +14,49 @@
 @import "components/**/*.scss";
 @import "modules/**/*.scss";
 // @import "../../modules/**/*.scss";
+
+html {
+	// Nicer text
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	// Smooth scroll
+	scroll-behavior: smooth;
+	--scroll-behavior: smooth; // Polyfill
+
+//	scroll-padding: var(--site-header-height-sticky) 0 0;
+//	--scroll-padding: var(--site-header-height-sticky) 0 0;
+
+	// Smaller text in low res
+	@media (--tablet-max) {
+		font-size: 80%;
+	//	scroll-padding: calc(var(--site-header-height-sticky) * .8) 0 0;
+	//	--scroll-padding: calc(var(--site-header-height-sticky) * .8) 0 0;
+	}
+}
+
+// Prevent scrollbar (https://stackoverflow.com/a/46039555)
+// NOTE: This also prevents the use of position: sticky
+@media (--laptop-max) {
+	html,
+	body {
+		position: relative;
+		overflow-x: hidden;
+	}
+}
+
+// Debug
+pre {
+	max-height: 20rem;
+	overflow: auto;
+}
+
+// Adminbar
+#wpadminbar {
+	opacity: 0;
+	transition: opacity 0.5s ease;
+
+	&:hover {
+		opacity: 1;
+	}
+}

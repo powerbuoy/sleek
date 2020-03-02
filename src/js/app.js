@@ -3,6 +3,14 @@
 // Import CSS
 import '../sass/app.scss';
 
+// Import polyfills
+import 'element-qsa-scope';
+import smoothscroll from 'smoothscroll-polyfill';
+
+smoothscroll.polyfill();
+
+import 'smoothscroll-anchor-polyfill'; // https://github.com/jonaskuske/smoothscroll-anchor-polyfill/issues/34
+
 // Import our JS
 import './*.js';
 

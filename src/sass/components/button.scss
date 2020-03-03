@@ -9,12 +9,6 @@ input[type=submit],
 	}
 }
 
-// Small button
-.button--small {
-	font-size: var(--font-size-small);
-	padding: calc(var(--button-padding-vertical) * .75) calc(var(--button-padding-horizontal) * .75);
-}
-
 // Ghost button
 .button--ghost {
 	background: transparent;

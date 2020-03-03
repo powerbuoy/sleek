@@ -13,7 +13,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 var config = {
 	// In
 	entry: {
-		app: ['./src/js/app.js'].concat(glob.sync('./languages/*.po'))
+		app: ['./src/js/app.js', './src/sass/app.scss'].concat(glob.sync('./languages/*.po'))
 	},
 
 	// n out
@@ -66,7 +66,7 @@ var config = {
 			// JS
 			{
 				test: /\.js$/,
-				exclude: /node_modules/,
+				exclude: /node_modules\/(?!sleek\-ui)/,
 				use: [
 					// Babel
 					{

@@ -1,7 +1,3 @@
-textarea {
-	height: 12rem;
-}
-
 // CF7
 .wpcf7 {
 	.screen-reader-response {
@@ -14,7 +10,7 @@ textarea {
 
 	.ajax-loader {
 		display: none;
-		margin-left: var(--spacing-default);
+		margin-left: var(--spacing-medium);
 
 		&:before {
 			@include icon($icon-spinner);
@@ -96,7 +92,7 @@ textarea {
 
 .hs-form-field {
 	display: block;
-	margin: 0 0 var(--spacing-default);
+	margin: 0 0 var(--spacing-medium);
 
 	// Labels
 	> label {
@@ -111,7 +107,7 @@ textarea {
 
 		li {
 			display: inline-block;
-			margin: 0 var(--spacing-default) var(--spacing-default) 0;
+			margin: 0 var(--spacing-medium) var(--spacing-medium) 0;
 		}
 	}
 

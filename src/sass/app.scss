@@ -1,20 +1,24 @@
+///////////////////////
 // Import fonts & icons
 // @import url('https://fonts.googleapis.com/css?family=Srisakdi|Raleway:300,300i,600,900&display=swap');
 @import "icons";
 
-// Import config/vars
+////////////////
+// Import config
 @import "config";
 
-// Import vendor
-@import "~normalize.css/normalize.css";
-@import "~@glidejs/glide/src/assets/sass/glide.core";
-@import "~sleek-css/sleek-css";
+/////////////////
+// Import SleekUI
+@import "~sleek-ui/src/sass/sleek-ui";
 
+///////////////////
 // Import our stuff
 @import "components/**/*.scss";
 @import "modules/**/*.scss";
 // @import "../../modules/**/*.scss";
 
+///////////////
+// Global stuff
 html {
 	// Nicer text
 	-webkit-font-smoothing: antialiased;
@@ -45,16 +49,10 @@ html {
 	}
 }
 
-// Debug
-pre {
-	max-height: 20rem;
-	overflow: auto;
-}
-
 // Adminbar
 #wpadminbar {
 	opacity: 0;
-	transition: opacity 0.5s ease;
+	transition: opacity 0.5s 0.25s ease;
 
 	&:hover {
 		opacity: 1;

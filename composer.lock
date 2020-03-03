@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6cd64fc74b60d13bc83587291015815",
+    "content-hash": "0be4762ea0d3147fcf3f8091e2916b65",
     "packages": [
         {
             "name": "icanboogie/inflector",
@@ -294,16 +294,16 @@
         },
         {
             "name": "powerbuoy/sleek-google-maps",
-            "version": "v1.0.2",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-google-maps.git",
-                "reference": "bd6fedbaaa4e9005e7c1b2b416f45aa83a04194b"
+                "reference": "56389c0d6f5cc272130fc2712dc16a9c3291da74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-google-maps/zipball/bd6fedbaaa4e9005e7c1b2b416f45aa83a04194b",
-                "reference": "bd6fedbaaa4e9005e7c1b2b416f45aa83a04194b",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-google-maps/zipball/56389c0d6f5cc272130fc2712dc16a9c3291da74",
+                "reference": "56389c0d6f5cc272130fc2712dc16a9c3291da74",
                 "shasum": ""
             },
             "require": {
@@ -325,7 +325,7 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-11-18T11:35:43+00:00"
+            "time": "2020-03-03T00:30:33+00:00"
         },
         {
             "name": "powerbuoy/sleek-google-search",

@@ -26,14 +26,4 @@ class Page extends PostType {
 	public function flexible_modules () {
 	#	return ['text-block', 'text-blocks'];
 	}
-
-	# Non flexible archive modules
-	public function sticky_archive_modules () {
-	#	return ['featured-posts'];
-	}
-
-	# Flexible archive modules
-	public function flexible_archive_modules () {
-	#	return ['text-block', 'text-blocks'];
-	}
 }

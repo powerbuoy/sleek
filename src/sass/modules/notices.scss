@@ -10,13 +10,13 @@
 	right: 0;
 	z-index: 1000;
 
-	font-size: var(--notice-font-size, 0.8em);
+	font-size: var(--small-font-size);
 	color: var(--notice-text-color, white);
 	text-align: center;
 }
 
 #site-notice ~ #cookie-consent {
-	bottom: calc(var(--spacing-medium) * 2 + var(--notice-font-size, 0.8em) * var(--body-line-height));
+	bottom: calc(var(--spacing-medium) * 2 + var(--small-font-size) * var(--body-line-height));
 }
 
 #outdated-browser-warning {

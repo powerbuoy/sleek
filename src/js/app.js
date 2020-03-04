@@ -96,14 +96,16 @@ document.querySelectorAll('[data-toggle-hash]').forEach(el => {
 
 //////////////
 // Google Maps
-import SleekMap from 'sleek-map';
+import GoogleMap from 'sleek-ui/src/js/google-map';
 
 if (typeof window.SLEEK_GOOGLE_MAPS_API_KEY !== 'undefined') {
 	window.googleMapsInit = () => {
-		var observer = new IntersectionObserver(entries => {
+		const observer = new IntersectionObserver(entries => {
 			entries.forEach(entry => {
-				if (entry.isIntersecting && !entry.target.sleekMap) {
-					var mapConfig = SleekMap.parseMapEl(entry.target);
+				if (entry.isIntersecting && !entry.target.classList.contains('google-map-loaded')) {
+					entry.target.classList.add('google-map-loaded');
+
+					let mapConfig = GoogleMap.parseMapEl(entry.target);
 
 					// Add a style (unless already added in map HTML): https://mapstyle.withgoogle.com/
 					if (!mapConfig.styles) {
@@ -115,7 +117,7 @@ if (typeof window.SLEEK_GOOGLE_MAPS_API_KEY !== 'undefined') {
 						mapConfig.markerIcon = '...';
 					}
 
-					entry.target.sleekMap = new SleekMap(entry.target, mapConfig);
+					entry.target.sleekMap = new GoogleMap(entry.target, mapConfig);
 				}
 			});
 		}, {threshold: .25});

@@ -29,18 +29,18 @@ html {
 	--scroll-behavior: smooth; // Polyfill
 
 //	scroll-padding: var(--site-header-height-sticky) 0 0;
-//	--scroll-padding: var(--site-header-height-sticky) 0 0;
+//	--scroll-padding: var(--site-header-height-sticky) 0 0; // Polyfill
 
 	// Smaller text in low res
 	@media (--tablet-max) {
 		font-size: 80%;
-	//	scroll-padding: calc(var(--site-header-height-sticky) * .8) 0 0;
-	//	--scroll-padding: calc(var(--site-header-height-sticky) * .8) 0 0;
+	//	scroll-padding: calc(var(--site-header-height-sticky) * .8) 0 0; // NOTE: * .8 because font-size is 80% here
+	//	--scroll-padding: calc(var(--site-header-height-sticky) * .8) 0 0; // Polyfill
 	}
 }
 
 // Prevent scrollbar (https://stackoverflow.com/a/46039555)
-// NOTE: This also prevents the use of position: sticky
+// NOTE: This also prevents the use of position: sticky 😭
 @media (--laptop-max) {
 	html,
 	body {
@@ -49,12 +49,21 @@ html {
 	}
 }
 
-// Adminbar
-#wpadminbar {
-	opacity: 0;
-	transition: opacity 0.5s 0.25s ease;
+// Hide adminbar
+html.admin-bar {
+	margin-top: 0 !important;
 
-	&:hover {
-		opacity: 1;
+	#wpadminbar {
+		opacity: 0;
+		transition: opacity 0.5s 0.1s ease;
+
+		&:hover {
+			opacity: 1;
+		}
 	}
+}
+
+// TEMP! First impressions and all
+body {
+	@include container;
 }

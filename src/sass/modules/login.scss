@@ -15,7 +15,7 @@ body.login {
 		min-height: 100vh;
 
 		margin: 0;
-		padding: var(--login-padding, var(--spacing-large, 3rem));
+		padding: var(--login-padding, var(--spacing-large));
 
 		@media (min-width: 44rem) {
 			width: 40rem;
@@ -25,7 +25,7 @@ body.login {
 
 		// Give this div the same margin as other fields in the form (which are paragraphs)
 		.user-pass-wrap {
-			margin-bottom: var(--paragraph-margin, var(--spacing-medium, 1rem));
+			margin-bottom: var(--paragraph-margin, var(--spacing-medium));
 		}
 
 		.wp-pwd {

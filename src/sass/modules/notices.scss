@@ -1,8 +1,6 @@
-#cookie-consent,
-#site-notice {
+#cookie-consent {
 	background: var(--notice-bg, var(--color-overlay));
-
-	padding: var(--spacing-medium);
+	padding: var(--notice-padding, var(--spacing-medium));
 
 	position: fixed;
 	left: 0;
@@ -13,10 +11,6 @@
 	font-size: var(--small-font-size);
 	color: var(--notice-text-color, white);
 	text-align: center;
-}
-
-#site-notice ~ #cookie-consent {
-	bottom: calc(var(--spacing-medium) * 2 + var(--small-font-size) * var(--body-line-height));
 }
 
 #outdated-browser-warning {

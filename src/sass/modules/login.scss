@@ -1,0 +1,64 @@
+$icon-eye: '?' !default;
+$icon-eye-off: '??' !default;
+
+body.login {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+
+	#login {
+		background: var(--login-bg, white);
+
+		width: 100%;
+		max-width: 100%;
+		min-height: 100vh;
+
+		margin: 0;
+		padding: var(--login-padding, var(--spacing-large, 3rem));
+
+		@media (min-width: 44rem) {
+			width: 40rem;
+			min-height: 0;
+			margin: 2rem 0;
+		}
+
+		// Give this div the same margin as other fields in the form (which are paragraphs)
+		.user-pass-wrap {
+			margin-bottom: var(--paragraph-margin, var(--spacing-medium, 1rem));
+		}
+
+		.wp-pwd {
+			position: relative;
+
+			// Make room for icon
+			input {
+				padding-right: calc(var(--form-field-padding-horizontal, 1.25rem) * 2 + var(--login-show-password-size, 1.5rem))
+			}
+
+			// Show/hide password icon
+			button.wp-hide-pw {
+				all: unset;
+
+				position: absolute;
+				right: var(--form-field-padding-horizontal, 1.25rem);
+				top: 50%;
+				transform: translateY(-50%);
+				cursor: pointer;
+
+				> span {
+					color: var(--login-show-password-color, var(--link-color, blue));
+					font-size: var(--login-show-password-size, 1.5rem);
+
+					&::before {
+						@include icon($icon-eye);
+					}
+
+					&.dashicons-hidden::before {
+						content: $icon-eye-off;
+					}
+				}
+			}
+		}
+	}
+}

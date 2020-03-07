@@ -18,25 +18,6 @@ document.querySelectorAll('[data-count-to]').forEach(el => {
 	new CountTo(el, {from: 0, to: el.dataset.countTo, duration: 2, locale: 'sv-SE'}).mount();
 });
 
-/////////
-// Dialog
-import Dialog, { DialogTrigger } from 'sleek-ui/src/js/dialog';
-
-const templateDialog = document.createElement('div');
-templateDialog.classList.add('dialog');
-document.body.appendChild(templateDialog);
-
-document.querySelectorAll('a[href^="#dialog-"]').forEach(el => {
-	new DialogTrigger(el, {
-		target: document.getElementById(el.getAttribute('href').substr(1)),
-		templateDialog: templateDialog
-	}).mount();
-});
-
-document.querySelectorAll('div.dialog').forEach(el => {
-	new Dialog(el).mount();
-});
-
 //////////////////
 // DocumentOutline
 import DocumentOutline from 'sleek-ui/src/js/document-outline';
@@ -67,6 +48,43 @@ document.querySelectorAll('[data-scrollspy]').forEach(el => {
 	new Scrollspy(el, {threshold: 0.75}).mount();
 });
 
+/////////////////
+// SubmitOnChange
+import SubmitOnchange from 'sleek-ui/src/js/submit-onchange';
+
+document.querySelectorAll('[data-submit-onchange]').forEach(el => {
+	new SubmitOnchange(el).mount();
+});
+
+/////////////
+// ToggleHash
+import ToggleHash from 'sleek-ui/src/js/toggle-hash';
+
+document.querySelectorAll('[data-toggle-hash]').forEach(el => {
+	new ToggleHash(el, {
+		toggleText: el.dataset.toggleHash || el.innerText
+	}).mount();
+});
+
+/////////
+// Dialog
+import Dialog, { DialogTrigger } from 'sleek-ui/src/js/dialog';
+
+const templateDialog = document.createElement('div');
+templateDialog.classList.add('dialog');
+document.body.appendChild(templateDialog);
+
+document.querySelectorAll('a[href^="#dialog-"]').forEach(el => {
+	new DialogTrigger(el, {
+		target: document.getElementById(el.getAttribute('href').substr(1)),
+		templateDialog: templateDialog
+	}).mount();
+});
+
+document.querySelectorAll('div.dialog').forEach(el => {
+	new Dialog(el).mount();
+});
+
 ////////////
 // Slideshow
 import Slideshow from 'sleek-ui/src/js/slideshow';
@@ -87,24 +105,6 @@ document.querySelectorAll('[data-slideshow]').forEach(el => {
 	}
 
 	new Slideshow(el, args).mount();
-});
-
-/////////////////
-// SubmitOnChange
-import SubmitOnchange from 'sleek-ui/src/js/submit-onchange';
-
-document.querySelectorAll('[data-submit-onchange]').forEach(el => {
-	new SubmitOnchange(el).mount();
-});
-
-/////////////
-// ToggleHash
-import ToggleHash from 'sleek-ui/src/js/toggle-hash';
-
-document.querySelectorAll('[data-toggle-hash]').forEach(el => {
-	new ToggleHash(el, {
-		toggleText: el.dataset.toggleHash || el.innerText
-	}).mount();
 });
 
 //////////////

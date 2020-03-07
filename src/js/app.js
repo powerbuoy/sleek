@@ -20,9 +20,22 @@ document.querySelectorAll('[data-count-to]').forEach(el => {
 
 /////////
 // Dialog
-import Dialog from 'sleek-ui/src/js/dialog';
+import Dialog, { DialogTrigger } from 'sleek-ui/src/js/dialog';
 
-new Dialog().mount();
+const templateDialog = document.createElement('div');
+templateDialog.classList.add('dialog');
+document.body.appendChild(templateDialog);
+
+document.querySelectorAll('a[href^="#dialog-"]').forEach(el => {
+	new DialogTrigger(el, {
+		target: document.getElementById(el.getAttribute('href').substr(1)),
+		templateDialog: templateDialog
+	}).mount();
+});
+
+document.querySelectorAll('div.dialog').forEach(el => {
+	new Dialog(el).mount();
+});
 
 //////////////////
 // DocumentOutline

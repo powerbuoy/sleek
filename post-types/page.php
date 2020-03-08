@@ -2,8 +2,8 @@
 namespace Sleek\PostTypes;
 
 class Page extends PostType {
-	# created() runs once every page load
-	public function created () {
+	# init() runs once every page load
+	public function init () {
 		# Remove editor entirely
 	/*	add_action('registered_post_type', function ($post_type) {
 			if ($post_type === 'page') {

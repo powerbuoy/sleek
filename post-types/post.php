@@ -2,7 +2,7 @@
 namespace Sleek\PostTypes;
 
 class Post extends PostType {
-	public function created () {
+	public function init () {
 		# Include all post-types when viewing categories
 		add_action('pre_get_posts', function ($query) {
 			if (!is_admin() and $query->is_main_query()) {

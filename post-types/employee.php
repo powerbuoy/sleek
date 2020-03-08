@@ -2,7 +2,7 @@
 namespace Sleek\PostTypes;
 
 class Employee extends PostType {
-	public function created () {
+	public function init () {
 		# Make employee business area non public
 		add_filter('register_taxonomy_args', function ($args, $taxonomy) {
 			if ($taxonomy === 'employee_business_area') {

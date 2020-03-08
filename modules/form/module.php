@@ -2,7 +2,7 @@
 namespace Sleek\Modules;
 
 class Form extends Module {
-	public function created () {
+	public function init () {
 		# TODO: Move to sleek-hubspot
 		# If Hubspot API is installed
 		if (class_exists('\SevenShores\Hubspot\Factory') and \Sleek\Settings\get_setting('hubspot_api_key')) {

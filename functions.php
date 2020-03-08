@@ -40,7 +40,7 @@ add_theme_support('sleek/notices/outdated_browser_warning');
 
 # ACF
 add_theme_support('sleek/acf/hide_admin');
-# add_theme_support('sleek/acf/fields/redirect_url')
+# add_theme_support('sleek/acf/fields/redirect_url');
 
 # Login
 add_theme_support('sleek/login/styling');

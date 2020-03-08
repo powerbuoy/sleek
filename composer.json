@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-		"powerbuoy/sleek-acf": "^2.0",
+        "powerbuoy/sleek-acf": "^2.0",
         "powerbuoy/sleek-archive-filter": "^2.0",
         "powerbuoy/sleek-archive-meta": "^3.0",
         "powerbuoy/sleek-cleanup": "^2.0",

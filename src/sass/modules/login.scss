@@ -46,6 +46,13 @@ body.login {
 				transform: translateY(-50%);
 				cursor: pointer;
 
+				// Remove potential before/after styling
+				&::before,
+				&::after {
+					all: unset;
+				}
+
+				// Icon
 				> span {
 					color: var(--login-show-password-color, var(--link-color, blue));
 					font-size: var(--login-show-password-size, 1.5rem);

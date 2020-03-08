@@ -28,11 +28,11 @@ msgstr "Det gick inte att hitta några matchande sökresultat för ditt sökord.
 msgid "Empty search"
 msgstr "Tom sökning"
 
-msgid "You didn't search for anything in particular so I'm showing you everything"
-msgstr "Eftersom du inte sökte på något specifikt visar jag dig allt jag har"
+msgid "You didn't search for anything in particular so I'm showing you everything."
+msgstr "Eftersom du inte sökte på något specifikt visar jag dig allt jag har."
 
-msgid "Displaying results %d through %d"
-msgstr "Visar sökresultat %d till %d"
+msgid "Displaying results %d through %d."
+msgstr "Visar sökresultat %d till %d."
 
 msgid "Posts by <strong>%s</strong>"
 msgstr "Inlägg av <strong>%s</strong>"

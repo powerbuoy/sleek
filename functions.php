@@ -7,33 +7,49 @@ require __DIR__ . '/vendor/autoload.php';
 # Load translations
 load_theme_textdomain('sleek', get_template_directory() . '/dist');
 
-###############
-# Theme support
-add_theme_support('sleek-classic-editor');
-add_theme_support('sleek-jquery-cdn');
-add_theme_support('sleek-disable-jquery');
-add_theme_support('sleek-disable-404-guessing');
-add_theme_support('sleek-nice-email-from');
-add_theme_support('sleek-comment-form-placeholders');
-add_theme_support('sleek-tinymce-clean-paste');
-add_theme_support('sleek-tinymce-no-colors');
-add_theme_support('sleek-archive-meta');
-add_theme_support('sleek-outdated-browser-warning');
-add_theme_support('sleek-hide-acf-admin');
-add_theme_support('sleek-disable-theme-editor');
-# add_theme_support('sleek-notice');
-# add_theme_support('sleek-oembed');
-# add_theme_support('sleek-acf-redirect-url')
-# add_theme_support('sleek-disable-comments');
-# add_theme_support('sleek-cookie-consent');
-# add_theme_support('sleek-archive-filter');
-# add_theme_support('sleek-get-terms-post-type-arg');
-# add_theme_support('sleek-require-login');
+################
+# Sleek settings
+# Core
+add_theme_support('sleek/classic_editor');
+add_theme_support('sleek/jquery_cdn');
+add_theme_support('sleek/disable_jquery');
+add_theme_support('sleek/disable_404_guessing');
+add_theme_support('sleek/nice_email_from');
+add_theme_support('sleek/disable_theme_editor');
+# add_theme_support('sleek/get_terms_post_type_arg');
+
+# Cleanup
+add_theme_support('sleek/cleanup/comment_form_placeholders');
+# add_theme_support('sleek/cleanup/disable_comments');
+
+# TinyMCE
+add_theme_support('sleek/tinymce/disable_colors');
+add_theme_support('sleek/tinymce/clean_paste');
+
+# ArchiveFilter
+# add_theme_support('sleek/archive_filter');
+
+# Notices
+add_theme_support('sleek/notices/outdated_browser_warning');
+# add_theme_support('sleek/notices/cookie_consent');
+
+# Gallery
+# add_theme_support('sleek/gallery/slideshow');
+# add_theme_support('sleek/oembed/youtube');
+# add_theme_support('sleek/oembed/vimeo');
+
+# ACF
+add_theme_support('sleek/acf/hide_admin');
+# add_theme_support('sleek/acf/fields/redirect_url')
+
+# Login
+add_theme_support('sleek/login/styling');
+# add_theme_support('sleek/login/require_login');
 
 ########
 # Assets
 /* add_action('wp_enqueue_scripts', function () {
-	wp_enqueue_script('vue', 'https://cdn.jsdelivr.net/npm/vue@2.6.10', [], null, true);
+	wp_enqueue_script('vue', 'https://cdn.jsdelivr.net/npm/vue@2.6.11', [], null, true);
 }); */
 
 #############

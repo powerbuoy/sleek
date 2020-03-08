@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0be4762ea0d3147fcf3f8091e2916b65",
+    "content-hash": "63eebb1bf8f23a7ea22ccc0cce8a3866",
     "packages": [
         {
             "name": "icanboogie/inflector",
@@ -60,16 +60,16 @@
         },
         {
             "name": "powerbuoy/sleek-acf",
-            "version": "v1.2.2",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-acf.git",
-                "reference": "07a56b0b487ecc5bd6f68897c82ad7a58241a360"
+                "reference": "92b5d3720e12ffb87e932c63f16d7dbe728ec8de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-acf/zipball/07a56b0b487ecc5bd6f68897c82ad7a58241a360",
-                "reference": "07a56b0b487ecc5bd6f68897c82ad7a58241a360",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-acf/zipball/92b5d3720e12ffb87e932c63f16d7dbe728ec8de",
+                "reference": "92b5d3720e12ffb87e932c63f16d7dbe728ec8de",
                 "shasum": ""
             },
             "require": {
@@ -91,20 +91,20 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2020-02-26T10:46:12+00:00"
+            "time": "2020-03-06T11:53:33+00:00"
         },
         {
             "name": "powerbuoy/sleek-archive-filter",
-            "version": "v1.0.2",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-archive-filter.git",
-                "reference": "23ba003b4cb089b55c5c9e049ffc5919afbe05f8"
+                "reference": "a5f7aac9ffee0a8c25fd117e87018f75be2d8d22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-archive-filter/zipball/23ba003b4cb089b55c5c9e049ffc5919afbe05f8",
-                "reference": "23ba003b4cb089b55c5c9e049ffc5919afbe05f8",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-archive-filter/zipball/a5f7aac9ffee0a8c25fd117e87018f75be2d8d22",
+                "reference": "a5f7aac9ffee0a8c25fd117e87018f75be2d8d22",
                 "shasum": ""
             },
             "type": "library",
@@ -123,24 +123,23 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-11-07T02:10:26+00:00"
+            "time": "2020-03-06T00:06:57+00:00"
         },
         {
             "name": "powerbuoy/sleek-archive-meta",
-            "version": "v2.1.0",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-archive-meta.git",
-                "reference": "955214e83e95766d49c00370930fbd3934024cd8"
+                "reference": "26a6581db9d10d014a3c1d2f29a28047abd0d75f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-archive-meta/zipball/955214e83e95766d49c00370930fbd3934024cd8",
-                "reference": "955214e83e95766d49c00370930fbd3934024cd8",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-archive-meta/zipball/26a6581db9d10d014a3c1d2f29a28047abd0d75f",
+                "reference": "26a6581db9d10d014a3c1d2f29a28047abd0d75f",
                 "shasum": ""
             },
             "require": {
-                "powerbuoy/sleek-acf": "^1.0.0",
                 "powerbuoy/sleek-utils": "^1.0.0"
             },
             "type": "library",
@@ -159,20 +158,20 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2020-02-26T10:29:45+00:00"
+            "time": "2020-03-06T13:30:02+00:00"
         },
         {
             "name": "powerbuoy/sleek-cleanup",
-            "version": "v1.0.3",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-cleanup.git",
-                "reference": "3e8ec1bd6108d240e82788491240ab80df2d347c"
+                "reference": "0ff1142b7485ce0fc43afb821ce40f28726c2d31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-cleanup/zipball/3e8ec1bd6108d240e82788491240ab80df2d347c",
-                "reference": "3e8ec1bd6108d240e82788491240ab80df2d347c",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-cleanup/zipball/0ff1142b7485ce0fc43afb821ce40f28726c2d31",
+                "reference": "0ff1142b7485ce0fc43afb821ce40f28726c2d31",
                 "shasum": ""
             },
             "type": "library",
@@ -191,20 +190,20 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-12-19T12:43:57+00:00"
+            "time": "2020-03-06T00:07:16+00:00"
         },
         {
             "name": "powerbuoy/sleek-core",
-            "version": "v1.0.3",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-core.git",
-                "reference": "33422b79b69f4c899f8cfddd30eacd14f9bd64a8"
+                "reference": "69dab11a41977df5be52cd6fde2e53933234992c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/33422b79b69f4c899f8cfddd30eacd14f9bd64a8",
-                "reference": "33422b79b69f4c899f8cfddd30eacd14f9bd64a8",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/69dab11a41977df5be52cd6fde2e53933234992c",
+                "reference": "69dab11a41977df5be52cd6fde2e53933234992c",
                 "shasum": ""
             },
             "type": "library",
@@ -223,20 +222,20 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-12-11T14:41:30+00:00"
+            "time": "2020-03-06T00:07:31+00:00"
         },
         {
             "name": "powerbuoy/sleek-custom-logo",
-            "version": "v1.0.1",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-custom-logo.git",
-                "reference": "f9207f2c24cebc139c9bd8a8db39ad98328bad66"
+                "reference": "b6c998ecd7b7cd31793761a3a0272a02b25c263c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-custom-logo/zipball/f9207f2c24cebc139c9bd8a8db39ad98328bad66",
-                "reference": "f9207f2c24cebc139c9bd8a8db39ad98328bad66",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-custom-logo/zipball/b6c998ecd7b7cd31793761a3a0272a02b25c263c",
+                "reference": "b6c998ecd7b7cd31793761a3a0272a02b25c263c",
                 "shasum": ""
             },
             "type": "library",
@@ -255,20 +254,20 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-11-07T02:32:23+00:00"
+            "time": "2020-03-06T13:30:29+00:00"
         },
         {
             "name": "powerbuoy/sleek-gallery",
-            "version": "v1.1.0",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-gallery.git",
-                "reference": "534cbf5c250f1e0d2a14a205604dd894ec4f5968"
+                "reference": "fab654b9195fa38e2aa9a5180b92febf9483b383"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-gallery/zipball/534cbf5c250f1e0d2a14a205604dd894ec4f5968",
-                "reference": "534cbf5c250f1e0d2a14a205604dd894ec4f5968",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-gallery/zipball/fab654b9195fa38e2aa9a5180b92febf9483b383",
+                "reference": "fab654b9195fa38e2aa9a5180b92febf9483b383",
                 "shasum": ""
             },
             "require": {
@@ -290,20 +289,20 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2020-02-12T09:58:40+00:00"
+            "time": "2020-03-06T00:08:09+00:00"
         },
         {
             "name": "powerbuoy/sleek-google-maps",
-            "version": "v2.0.0",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-google-maps.git",
-                "reference": "56389c0d6f5cc272130fc2712dc16a9c3291da74"
+                "reference": "f23b9ab71885390a2130adf265b0dcb94827f7f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-google-maps/zipball/56389c0d6f5cc272130fc2712dc16a9c3291da74",
-                "reference": "56389c0d6f5cc272130fc2712dc16a9c3291da74",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-google-maps/zipball/f23b9ab71885390a2130adf265b0dcb94827f7f4",
+                "reference": "f23b9ab71885390a2130adf265b0dcb94827f7f4",
                 "shasum": ""
             },
             "require": {
@@ -325,20 +324,20 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2020-03-03T00:30:33+00:00"
+            "time": "2020-03-06T00:08:30+00:00"
         },
         {
             "name": "powerbuoy/sleek-google-search",
-            "version": "v1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-google-search.git",
-                "reference": "89e269661b0663f58836368d96d7455ecb694b6f"
+                "reference": "fae81ab0ae63ec7aa678685b926caaad3b4a273c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-google-search/zipball/89e269661b0663f58836368d96d7455ecb694b6f",
-                "reference": "89e269661b0663f58836368d96d7455ecb694b6f",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-google-search/zipball/fae81ab0ae63ec7aa678685b926caaad3b4a273c",
+                "reference": "fae81ab0ae63ec7aa678685b926caaad3b4a273c",
                 "shasum": ""
             },
             "require": {
@@ -360,20 +359,20 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-11-07T03:00:03+00:00"
+            "time": "2020-03-06T10:47:52+00:00"
         },
         {
             "name": "powerbuoy/sleek-image-sizes",
-            "version": "v1.0.3",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-image-sizes.git",
-                "reference": "ef02c19c289d8c0f551018e12f5521de9330c6c2"
+                "reference": "244af52211542c8af4cc0194aed14dbedc7e0c81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-image-sizes/zipball/ef02c19c289d8c0f551018e12f5521de9330c6c2",
-                "reference": "ef02c19c289d8c0f551018e12f5521de9330c6c2",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-image-sizes/zipball/244af52211542c8af4cc0194aed14dbedc7e0c81",
+                "reference": "244af52211542c8af4cc0194aed14dbedc7e0c81",
                 "shasum": ""
             },
             "type": "library",
@@ -392,20 +391,20 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-12-03T15:58:49+00:00"
+            "time": "2020-03-06T13:30:43+00:00"
         },
         {
             "name": "powerbuoy/sleek-login",
-            "version": "v1.0.1",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-login.git",
-                "reference": "f567b5682e6795a603035feaf55992910652abe1"
+                "reference": "de5d046f68fb746e06afbb6fac3a239915bfed4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-login/zipball/f567b5682e6795a603035feaf55992910652abe1",
-                "reference": "f567b5682e6795a603035feaf55992910652abe1",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-login/zipball/de5d046f68fb746e06afbb6fac3a239915bfed4c",
+                "reference": "de5d046f68fb746e06afbb6fac3a239915bfed4c",
                 "shasum": ""
             },
             "type": "library",
@@ -424,20 +423,20 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-11-07T03:01:02+00:00"
+            "time": "2020-03-06T11:35:10+00:00"
         },
         {
             "name": "powerbuoy/sleek-menu",
-            "version": "v1.0.7",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-menu.git",
-                "reference": "868b6e7610bc552a8a72c3332a3c99e2241f61c7"
+                "reference": "7c9789e3914b9eed5097540453619f910bcbb530"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-menu/zipball/868b6e7610bc552a8a72c3332a3c99e2241f61c7",
-                "reference": "868b6e7610bc552a8a72c3332a3c99e2241f61c7",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-menu/zipball/7c9789e3914b9eed5097540453619f910bcbb530",
+                "reference": "7c9789e3914b9eed5097540453619f910bcbb530",
                 "shasum": ""
             },
             "type": "library",
@@ -456,20 +455,20 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2020-02-11T19:30:53+00:00"
+            "time": "2020-03-06T11:54:05+00:00"
         },
         {
             "name": "powerbuoy/sleek-modules",
-            "version": "v2.3.0",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-modules.git",
-                "reference": "ebe7b4db61432011609c3e8607f20e103b0c23a9"
+                "reference": "81810177300b93955a679a6f045dcf92780f0bda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/ebe7b4db61432011609c3e8607f20e103b0c23a9",
-                "reference": "ebe7b4db61432011609c3e8607f20e103b0c23a9",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/81810177300b93955a679a6f045dcf92780f0bda",
+                "reference": "81810177300b93955a679a6f045dcf92780f0bda",
                 "shasum": ""
             },
             "require": {
@@ -492,20 +491,20 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2020-02-20T10:15:54+00:00"
+            "time": "2020-03-08T16:28:08+00:00"
         },
         {
             "name": "powerbuoy/sleek-notices",
-            "version": "v1.1.1",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-notices.git",
-                "reference": "8e0c646a3455f5226ad2266215035765644ae731"
+                "reference": "be4019aaa8107cd7a93091bdff6dee659375bf80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-notices/zipball/8e0c646a3455f5226ad2266215035765644ae731",
-                "reference": "8e0c646a3455f5226ad2266215035765644ae731",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-notices/zipball/be4019aaa8107cd7a93091bdff6dee659375bf80",
+                "reference": "be4019aaa8107cd7a93091bdff6dee659375bf80",
                 "shasum": ""
             },
             "require": {
@@ -527,25 +526,25 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2020-02-26T20:40:30+00:00"
+            "time": "2020-03-06T11:52:57+00:00"
         },
         {
             "name": "powerbuoy/sleek-post-types",
-            "version": "v4.0.0",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-post-types.git",
-                "reference": "41417d6b15f66e7d780aac827f1723f113740d9b"
+                "reference": "9efa4f5577fb113027588b0df5bd011c5d3c3e12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/41417d6b15f66e7d780aac827f1723f113740d9b",
-                "reference": "41417d6b15f66e7d780aac827f1723f113740d9b",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/9efa4f5577fb113027588b0df5bd011c5d3c3e12",
+                "reference": "9efa4f5577fb113027588b0df5bd011c5d3c3e12",
                 "shasum": ""
             },
             "require": {
-                "powerbuoy/sleek-acf": "^1.0.0",
-                "powerbuoy/sleek-modules": "^2.0.0",
+                "powerbuoy/sleek-acf": "^2.0.0",
+                "powerbuoy/sleek-modules": "^3.0.0",
                 "powerbuoy/sleek-utils": "^1.0.0"
             },
             "type": "library",
@@ -565,20 +564,20 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2020-01-28T04:37:33+00:00"
+            "time": "2020-03-08T21:02:27+00:00"
         },
         {
             "name": "powerbuoy/sleek-settings",
-            "version": "v1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-settings.git",
-                "reference": "fa9f534434dae93dfbccf8e1b90a278b07fd590d"
+                "reference": "fd4dee66ab2f61ffbb824c85ba6b77d3004c8b32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-settings/zipball/fa9f534434dae93dfbccf8e1b90a278b07fd590d",
-                "reference": "fa9f534434dae93dfbccf8e1b90a278b07fd590d",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-settings/zipball/fd4dee66ab2f61ffbb824c85ba6b77d3004c8b32",
+                "reference": "fd4dee66ab2f61ffbb824c85ba6b77d3004c8b32",
                 "shasum": ""
             },
             "require": {
@@ -600,20 +599,20 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-11-07T03:34:11+00:00"
+            "time": "2020-03-06T13:33:31+00:00"
         },
         {
             "name": "powerbuoy/sleek-tinymce",
-            "version": "v1.0.2",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-tinymce.git",
-                "reference": "2a1fc0e7dc4c3c54c85f77e9569e4aa712ea3383"
+                "reference": "cd4346157033250ba3471740f883b8e8092a4e83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-tinymce/zipball/2a1fc0e7dc4c3c54c85f77e9569e4aa712ea3383",
-                "reference": "2a1fc0e7dc4c3c54c85f77e9569e4aa712ea3383",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-tinymce/zipball/cd4346157033250ba3471740f883b8e8092a4e83",
+                "reference": "cd4346157033250ba3471740f883b8e8092a4e83",
                 "shasum": ""
             },
             "type": "library",
@@ -632,20 +631,20 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2019-11-28T04:52:39+00:00"
+            "time": "2020-03-06T00:09:05+00:00"
         },
         {
             "name": "powerbuoy/sleek-utils",
-            "version": "v1.2.1",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-utils.git",
-                "reference": "2de974531a784750dc652050beea8b1ad2b347d2"
+                "reference": "0d3829d77da369d69aa0fbd5b2916cbcbbd28163"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-utils/zipball/2de974531a784750dc652050beea8b1ad2b347d2",
-                "reference": "2de974531a784750dc652050beea8b1ad2b347d2",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-utils/zipball/0d3829d77da369d69aa0fbd5b2916cbcbbd28163",
+                "reference": "0d3829d77da369d69aa0fbd5b2916cbcbbd28163",
                 "shasum": ""
             },
             "require": {
@@ -667,7 +666,7 @@
                     "email": "powerbuoy@gmail.com"
                 }
             ],
-            "time": "2020-02-03T13:47:53+00:00"
+            "time": "2020-03-06T11:41:15+00:00"
         }
     ],
     "packages-dev": [],

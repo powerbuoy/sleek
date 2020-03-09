@@ -24,6 +24,7 @@ body.login {
 		}
 
 		// Give this div the same margin as other fields in the form (which are paragraphs)
+		#login_error,
 		.user-pass-wrap {
 			margin-bottom: var(--paragraph-margin, var(--spacing-medium));
 		}

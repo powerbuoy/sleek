@@ -90,6 +90,8 @@ themes/sleek/             # → Sleek root
 
 Sleek is made up of several composer packages that provide different functionality.
 
+---
+
 ### [Sleek ACF](https://github.com/powerbuoy/sleek-acf/)
 
 Improves ACF in a number of ways like nicer flexible content titles, collapsed flexible content layouts, better looking relationship field and more.

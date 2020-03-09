@@ -18,15 +18,25 @@
 			<?php echo $form_embed_code ?>
 		<?php endif ?>
 
-		<?php if ($wpcf7_form_id) : ?>
+		<?php if (isset($wpcf7_form_id) and !empty($wpcf7_form_id)) : ?>
 			<?php if (shortcode_exists('contact-form-7')) : ?>
 				<?php echo do_shortcode('[contact-form-7 id="' . $wpcf7_form_id . '"]') ?>
+
+				<?php if ($redirect_url) : ?>
+					<script>
+						document.addEventListener('wpcf7mailsent', function (e) {
+							if (e.detail.contactFormId == <?php echo $wpcf7_form_id ?>) {
+								window.location = '<?php echo $redirect_url ?>';
+							}
+						}, false);
+					</script>
+				<?php endif ?>
 			<?php else : ?>
 				<p class="error"><?php printf(__('Please make sure to activate the Contact Form 7 plugin to enable this module: %s', 'sleek'), '<a href="https://wordpress.org/plugins/contact-form-7/">wordpress.org/plugins/contact-form-7/</a>') ?></p>
 			<?php endif ?>
 		<?php endif ?>
 
-		<?php if ($hubspot_form_id) : ?>
+		<?php if (isset($hubspot_form_id) and !empty($hubspot_form_id)) : ?>
 			<?php $portal_id = Sleek\Settings\get_setting('hubspot_portal_id') ?>
 
 			<?php if (!empty($portal_id)) : ?>
@@ -40,7 +50,7 @@
 						portalId: '<?php echo $portal_id ?>',
 						formId: '<?php echo $hubspot_form_id ?>'
 
-						<?php if (isset($redirect_url) and !empty($redirect_url)) : ?>,
+						<?php if ($redirect_url) : ?>,
 							redirectUrl: '<?php echo $redirect_url ?>'
 						<?php endif ?>
 					});

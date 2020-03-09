@@ -86,6 +86,72 @@ themes/sleek/             # → Sleek root
 └── *.php                 # → WordPress templates: https://developer.wordpress.org/themes/basics/template-files/
 ```
 
+## Front-end code
+
+All CSS and JS resides in src/.
+
+### JavaScript
+
+The entry point for JS is `src/js/app.js`. From here you should import all other JS. Glob import works so you can uncomment:
+
+```js
+////////////////
+// Import our JS
+import './*.js';
+```
+
+To automatically import all other JS files in the js/ folder. All JS is run through babel so feel free to use modern code.
+
+The rather huge chunk of code in the top of app.js is [SleekUI](https://github.com/powerbuoy/sleek-ui) related. You can safely delete all of it if you don't want it.
+
+#### Vue
+
+Sleek supports Vue components. Uncomment the last bit of code and import your Vue components there;
+
+```js
+////////////////////////
+// Import Vue Components
+import ToDo from './todo.vue';
+
+// Init Vue on all [data-vue] elements
+document.querySelectorAll('[data-vue]').forEach(el => {
+	new Vue({
+		el: el,
+		components: {
+			'todo': ToDo
+		}
+	});
+});
+```
+
+You can then use Vue components in any `[data-vue]` element on the page;
+
+```html
+<div data-vue>
+	<todo></todo>
+	<my-other-component></my-other-component>
+	<etc></etc>
+</div>
+```
+
+### CSS / SASS
+
+The entry point for SASS is `src/sass/app.scss`. You should import all other SASS from there. SASS is not only run through SASS itself but also [PostCSS](https://postcss.org/) with [autoprefixer](https://github.com/postcss/autoprefixer), [custom-media](https://github.com/postcss/postcss-custom-media) and [custom-selectors](https://github.com/postcss/postcss-custom-selectors) so feel free to use those.
+
+Sleek comes with [SleekUI](https://github.com/powerbuoy/sleek-ui) and it can be configured in `src/sass/config.scss`. Or you can remove it entirely.
+
+### Icons
+
+Icons are downloaded from Fontello. Simply add the icons you want to `src/icons.json` (use [fontello.com](http://fontello.com/) and choose "Download webfont" -> "Get config only"). To download icons you can run `npm run fontello`. Icons are also downloaded when you run `npm run build` and `npm run dev`.
+
+The fontello command also creates a `src/sass/icons.scss` file which contains all the icon related CSS classes as well as SASS mixin and variables for every icon so you can do:
+
+```sass
+.my-element::before {
+	@include icon($icon-star);
+}
+```
+
 ## Sleek Packages
 
 Sleek is made up of several composer packages that provide different functionality.

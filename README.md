@@ -70,7 +70,7 @@ themes/sleek/             # → Sleek root
 │   ├── assets/           # → Fonts, images, icons etc
 │   ├── js/               # → JavaScript
 │   │   └── app.js        # → JS entry point, should import all other JS
-│   ├── sass/             # → SASS
+│   └── sass/             # → SASS
 │       └── app.scss      # → SASS entry point, should import all other SASS
 ├── dist/                 # → Webpack bundled app.js and app.css as well as assets (don't touch, don't commit)
 ├── vendor/               # → PHP dependencies installed by composer (don't touch, don't commit)

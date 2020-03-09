@@ -94,6 +94,12 @@ Sleek is made up of several composer packages that provide different functionali
 
 ### [Sleek ACF](https://github.com/powerbuoy/sleek-acf/)
 
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-acf.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-acf)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-acf.svg?style=flat-square)](https://github.com/powerbuoy/sleek-acf/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-acf.svg?style=flat-square)](https://github.com/powerbuoy/sleek-acf/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-acf.svg?style=flat-square)](https://github.com/powerbuoy/sleek-acf/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-acf.svg?style=flat-square)](https://github.com/powerbuoy/sleek-acf/stargazers)
+
 Improves ACF in a number of ways like nicer flexible content titles, collapsed flexible content layouts, better looking relationship field and more.
 
 #### Theme Support
@@ -123,6 +129,12 @@ N/A
 ---
 
 ### [Sleek Archive Filter](https://github.com/powerbuoy/sleek-archive-filter/)
+
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-archive-filter.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-archive-filter)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-archive-filter.svg?style=flat-square)](https://github.com/powerbuoy/sleek-archive-filter/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-archive-filter.svg?style=flat-square)](https://github.com/powerbuoy/sleek-archive-filter/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-archive-filter.svg?style=flat-square)](https://github.com/powerbuoy/sleek-archive-filter/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-archive-filter.svg?style=flat-square)](https://github.com/powerbuoy/sleek-archive-filter/stargazers)
 
 Adds the ability to filter posts in an archive using GET params:
 
@@ -156,6 +168,12 @@ N/A
 ---
 
 ### [Sleek Archive Meta](https://github.com/powerbuoy/sleek-archive-meta/)
+
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-archive-meta.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-archive-meta)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-archive-meta.svg?style=flat-square)](https://github.com/powerbuoy/sleek-archive-meta/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-archive-meta.svg?style=flat-square)](https://github.com/powerbuoy/sleek-archive-meta/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-archive-meta.svg?style=flat-square)](https://github.com/powerbuoy/sleek-archive-meta/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-archive-meta.svg?style=flat-square)](https://github.com/powerbuoy/sleek-archive-meta/stargazers)
 
 Hooks into the `the_archive_title()` and `the_archive_description()` functions to provide better search results texts, remove prefixes and more.
 
@@ -197,6 +215,12 @@ N/A
 
 ### [Sleek Cleanup](https://github.com/powerbuoy/sleek-cleanup/)
 
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-cleanup.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-cleanup)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-cleanup.svg?style=flat-square)](https://github.com/powerbuoy/sleek-cleanup/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-cleanup.svg?style=flat-square)](https://github.com/powerbuoy/sleek-cleanup/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-cleanup.svg?style=flat-square)](https://github.com/powerbuoy/sleek-cleanup/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-cleanup.svg?style=flat-square)](https://github.com/powerbuoy/sleek-cleanup/stargazers)
+
 Cleans up a bunch of unnecessary WordPress stuff like inline emoji code, gallery markup and more.
 
 #### Theme Support
@@ -224,6 +248,12 @@ N/A
 ---
 
 ### [Sleek Core](https://github.com/powerbuoy/sleek-core/)
+
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-core.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-core)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-core.svg?style=flat-square)](https://github.com/powerbuoy/sleek-core/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-core.svg?style=flat-square)](https://github.com/powerbuoy/sleek-core/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-core.svg?style=flat-square)](https://github.com/powerbuoy/sleek-core/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-core.svg?style=flat-square)](https://github.com/powerbuoy/sleek-core/stargazers)
 
 Adds a bunch of theme support, includes translation files, enqueues scripts etc etc.
 
@@ -279,6 +309,12 @@ N/A
 
 ### [Sleek Custom Logo](https://github.com/powerbuoy/sleek-custom-logo/)
 
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-custom-logo.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-custom-logo)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-custom-logo.svg?style=flat-square)](https://github.com/powerbuoy/sleek-custom-logo/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-custom-logo.svg?style=flat-square)](https://github.com/powerbuoy/sleek-custom-logo/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-custom-logo.svg?style=flat-square)](https://github.com/powerbuoy/sleek-custom-logo/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-custom-logo.svg?style=flat-square)](https://github.com/powerbuoy/sleek-custom-logo/stargazers)
+
 Hooks into `the_custom_logo()` and renders one of:
 
 1) A custom logo selected in the admin
@@ -312,6 +348,12 @@ N/A
 
 ### [Sleek Gallery](https://github.com/powerbuoy/sleek-gallery/)
 
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-gallery.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-gallery)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-gallery.svg?style=flat-square)](https://github.com/powerbuoy/sleek-gallery/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-gallery.svg?style=flat-square)](https://github.com/powerbuoy/sleek-gallery/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-gallery.svg?style=flat-square)](https://github.com/powerbuoy/sleek-gallery/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-gallery.svg?style=flat-square)](https://github.com/powerbuoy/sleek-gallery/stargazers)
+
 Improves media and gallery related output like the default gallery markup, wraps captioned images in figure/figcaption, removes gallery CSS and more.
 
 #### Theme Support
@@ -340,6 +382,12 @@ N/A
 
 ### [Sleek Google Maps](https://github.com/powerbuoy/sleek-google-maps/)
 
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-google-maps.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-google-maps)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-google-maps.svg?style=flat-square)](https://github.com/powerbuoy/sleek-google-maps/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-google-maps.svg?style=flat-square)](https://github.com/powerbuoy/sleek-google-maps/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-google-maps.svg?style=flat-square)](https://github.com/powerbuoy/sleek-google-maps/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-google-maps.svg?style=flat-square)](https://github.com/powerbuoy/sleek-google-maps/stargazers)
+
 Adds a "Google Maps API Key" setting to the admin which, if not empty, adds the Google Maps API to the page with a `googleMapsInit` callback. Also sends the Google Maps Key to ACF so that ACF maps work.
 
 Also adds a SLEEK_GOOGLE_MAPS_API_KEY JavaScript variable to the page.
@@ -364,6 +412,12 @@ N/A
 
 ### [Sleek Google Search](https://github.com/powerbuoy/sleek-google-search/)
 
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-google-search.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-google-search)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-google-search.svg?style=flat-square)](https://github.com/powerbuoy/sleek-google-search/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-google-search.svg?style=flat-square)](https://github.com/powerbuoy/sleek-google-search/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-google-search.svg?style=flat-square)](https://github.com/powerbuoy/sleek-google-search/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-google-search.svg?style=flat-square)](https://github.com/powerbuoy/sleek-google-search/stargazers)
+
 Under construction
 
 ![](https://media3.giphy.com/media/xKvwa3SjldeWQ/giphy.gif?cid=790b761170db4b5f3f6d323078b1396ceb15bb304fdaaf59&rid=giphy.gif)
@@ -371,6 +425,12 @@ Under construction
 ---
 
 ### [Sleek Image Sizes](https://github.com/powerbuoy/sleek-image-sizes/)
+
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-image-sizes.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-image-sizes)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-image-sizes.svg?style=flat-square)](https://github.com/powerbuoy/sleek-image-sizes/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-image-sizes.svg?style=flat-square)](https://github.com/powerbuoy/sleek-image-sizes/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-image-sizes.svg?style=flat-square)](https://github.com/powerbuoy/sleek-image-sizes/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-image-sizes.svg?style=flat-square)](https://github.com/powerbuoy/sleek-image-sizes/stargazers)
 
 Utility functions for registering WordPress image sizes.
 
@@ -411,6 +471,12 @@ N/A
 
 ### [Sleek Login](https://github.com/powerbuoy/sleek-login/)
 
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-login.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-login)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-login.svg?style=flat-square)](https://github.com/powerbuoy/sleek-login/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-login.svg?style=flat-square)](https://github.com/powerbuoy/sleek-login/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-login.svg?style=flat-square)](https://github.com/powerbuoy/sleek-login/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-login.svg?style=flat-square)](https://github.com/powerbuoy/sleek-login/stargazers)
+
 Improves the login screen and hides admin bar from subscribers, also redirects them to the home page upon login.
 
 #### Theme Support
@@ -439,6 +505,12 @@ N/A
 
 ### [Sleek Menu](https://github.com/powerbuoy/sleek-menu/)
 
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-menu.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-menu)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-menu.svg?style=flat-square)](https://github.com/powerbuoy/sleek-menu/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-menu.svg?style=flat-square)](https://github.com/powerbuoy/sleek-menu/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-menu.svg?style=flat-square)](https://github.com/powerbuoy/sleek-menu/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-menu.svg?style=flat-square)](https://github.com/powerbuoy/sleek-menu/stargazers)
+
 Cleans up the menu HTML by removing IDs and redundant classes. Also fixes active-classes on post type and taxonomy archives.
 
 #### Theme Support
@@ -460,6 +532,12 @@ N/A
 ---
 
 ### [Sleek Modules](https://github.com/powerbuoy/sleek-modules/)
+
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-modules.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-modules)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-modules.svg?style=flat-square)](https://github.com/powerbuoy/sleek-modules/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-modules.svg?style=flat-square)](https://github.com/powerbuoy/sleek-modules/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-modules.svg?style=flat-square)](https://github.com/powerbuoy/sleek-modules/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-modules.svg?style=flat-square)](https://github.com/powerbuoy/sleek-modules/stargazers)
 
 Create modules by creating classes in `/modules/`.
 
@@ -529,6 +607,12 @@ Return the value of any field returned from `fields()`. Useful inside `data()` t
 
 ### [Sleek Notices](https://github.com/powerbuoy/sleek-notices/)
 
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-notices.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-notices)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-notices.svg?style=flat-square)](https://github.com/powerbuoy/sleek-notices/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-notices.svg?style=flat-square)](https://github.com/powerbuoy/sleek-notices/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-notices.svg?style=flat-square)](https://github.com/powerbuoy/sleek-notices/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-notices.svg?style=flat-square)](https://github.com/powerbuoy/sleek-notices/stargazers)
+
 Adds settings to Settings -> Sleek to display various notices on the site.
 
 #### Theme Support
@@ -562,6 +646,12 @@ N/A
 ---
 
 ### [Sleek Post Types](https://github.com/powerbuoy/sleek-post-types/)
+
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-post-types.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-post-types)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-post-types.svg?style=flat-square)](https://github.com/powerbuoy/sleek-post-types/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-post-types.svg?style=flat-square)](https://github.com/powerbuoy/sleek-post-types/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-post-types.svg?style=flat-square)](https://github.com/powerbuoy/sleek-post-types/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-post-types.svg?style=flat-square)](https://github.com/powerbuoy/sleek-post-types/stargazers)
 
 Create post types by creating classes in `/post-types/`.
 
@@ -654,6 +744,12 @@ Render modules on the settings page using `Sleek\Modules\render_flexible('flexib
 
 ### [Sleek Settings](https://github.com/powerbuoy/sleek-settings/)
 
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-settings.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-settings)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-settings.svg?style=flat-square)](https://github.com/powerbuoy/sleek-settings/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-settings.svg?style=flat-square)](https://github.com/powerbuoy/sleek-settings/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-settings.svg?style=flat-square)](https://github.com/powerbuoy/sleek-settings/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-settings.svg?style=flat-square)](https://github.com/powerbuoy/sleek-settings/stargazers)
+
 Adds an options page to the admin (Settings -> Sleek) with two fields: `head_code` and `foot_code` which allows you to add arbitrary HTML to `<head>` and just before `</body>`. Also provides a simple API to add more settings fields to the options page.
 
 #### Theme Support
@@ -681,6 +777,12 @@ N/A
 ---
 
 ### [Sleek TinyMCE](https://github.com/powerbuoy/sleek-tinymce/)
+
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-tinymce.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-tinymce)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-tinymce.svg?style=flat-square)](https://github.com/powerbuoy/sleek-tinymce/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-tinymce.svg?style=flat-square)](https://github.com/powerbuoy/sleek-tinymce/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-tinymce.svg?style=flat-square)](https://github.com/powerbuoy/sleek-tinymce/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-tinymce.svg?style=flat-square)](https://github.com/powerbuoy/sleek-tinymce/stargazers)
 
 Improves the TinyMCE editor.
 
@@ -715,5 +817,11 @@ N/A
 ---
 
 ### [Sleek Utils](https://github.com/powerbuoy/sleek-utils/)
+
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-utils.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-utils)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-utils.svg?style=flat-square)](https://github.com/powerbuoy/sleek-utils/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-utils.svg?style=flat-square)](https://github.com/powerbuoy/sleek-utils/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-utils.svg?style=flat-square)](https://github.com/powerbuoy/sleek-utils/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-utils.svg?style=flat-square)](https://github.com/powerbuoy/sleek-utils/stargazers)
 
 Utility functions used internally by Sleek. Please [check the code](https://github.com/powerbuoy/sleek-utils/blob/master/sleek-utils.php) for documentation.

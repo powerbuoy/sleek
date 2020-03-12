@@ -41,7 +41,7 @@
     "postcss-custom-selectors": "^5.1.2",
     "postcss-loader": "^3.0.0",
     "request": "^2.88.2",
-    "sass": "^1.26.2",
+    "sass": "^1.26.3",
     "sass-loader": "^8.0.2",
     "unzipper": "^0.10.10",
     "vue-loader": "^15.9.0",

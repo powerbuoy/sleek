@@ -34,17 +34,17 @@ add_theme_support('sleek/cleanup/comment_form_placeholders');
 # add_theme_support('sleek/oembed/youtube');
 # add_theme_support('sleek/oembed/vimeo');
 
+# Login
+add_theme_support('sleek/login/styling');
+# add_theme_support('sleek/login/require_login');
+
 # Modules
-# add_theme_support('sleek/modules/module_preview');
-# add_theme_support('sleek/modules/inline_edit');
+add_theme_support('sleek/modules/module_preview');
+add_theme_support('sleek/modules/inline_edit');
 
 # Notices
 add_theme_support('sleek/notices/outdated_browser_warning');
 # add_theme_support('sleek/notices/cookie_consent');
-
-# Login
-add_theme_support('sleek/login/styling');
-# add_theme_support('sleek/login/require_login');
 
 # TinyMCE
 add_theme_support('sleek/tinymce/disable_colors');

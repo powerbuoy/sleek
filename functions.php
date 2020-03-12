@@ -18,33 +18,37 @@ add_theme_support('sleek/nice_email_from');
 add_theme_support('sleek/disable_theme_editor');
 # add_theme_support('sleek/get_terms_post_type_arg');
 
-# Cleanup
-add_theme_support('sleek/cleanup/comment_form_placeholders');
-# add_theme_support('sleek/cleanup/disable_comments');
-
-# TinyMCE
-add_theme_support('sleek/tinymce/disable_colors');
-add_theme_support('sleek/tinymce/clean_paste');
+# ACF
+add_theme_support('sleek/acf/hide_admin');
+# add_theme_support('sleek/acf/fields/redirect_url');
 
 # ArchiveFilter
 # add_theme_support('sleek/archive_filter');
 
-# Notices
-add_theme_support('sleek/notices/outdated_browser_warning');
-# add_theme_support('sleek/notices/cookie_consent');
+# Cleanup
+add_theme_support('sleek/cleanup/comment_form_placeholders');
+# add_theme_support('sleek/cleanup/disable_comments');
 
 # Gallery
 # add_theme_support('sleek/gallery/slideshow');
 # add_theme_support('sleek/oembed/youtube');
 # add_theme_support('sleek/oembed/vimeo');
 
-# ACF
-add_theme_support('sleek/acf/hide_admin');
-# add_theme_support('sleek/acf/fields/redirect_url');
+# Modules
+# add_theme_support('sleek/modules/module_preview');
+# add_theme_support('sleek/modules/inline_edit');
+
+# Notices
+add_theme_support('sleek/notices/outdated_browser_warning');
+# add_theme_support('sleek/notices/cookie_consent');
 
 # Login
 add_theme_support('sleek/login/styling');
 # add_theme_support('sleek/login/require_login');
+
+# TinyMCE
+add_theme_support('sleek/tinymce/disable_colors');
+add_theme_support('sleek/tinymce/clean_paste');
 
 ########
 # Assets

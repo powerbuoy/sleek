@@ -14,7 +14,6 @@ $icon-pen: '??' !default;
 			@include icon($icon-pen);
 
 			font-size: var(--sleek-modules-inline-edit-icon-size, 1.5rem);
-			color: var(--sleek-modules-inline-edit-icon-color, white);
 			text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, .2);
 			margin: 0;
 		}

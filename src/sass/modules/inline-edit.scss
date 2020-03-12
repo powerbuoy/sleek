@@ -1,0 +1,22 @@
+$icon-pen: '??' !default;
+
+.sleek-modules-inline-edit {
+	position: relative;
+
+	a {
+		font-size: 0;
+		position: absolute;
+		right: var(--spacing-default, 1rem);
+		top: var(--spacing-default, 1rem);
+		z-index: 99;
+
+		&::before {
+			@include icon($icon-pen);
+
+			font-size: var(--sleek-modules-inline-edit-icon-size, 1.5rem);
+			color: var(--sleek-modules-inline-edit-icon-color, white);
+			text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, .2);
+			margin: 0;
+		}
+	}
+}

@@ -78,7 +78,6 @@ class Form extends Module {
 			$fields[] = [
 				'name' => 'wpcf7_form_id',
 				'label' => __('Contact Form 7', 'sleek'),
-				'instructions' => __('Select a Contact Form 7 form from the dropdown. Please note that this module requires the Contact Form 7 plug-in: https://wordpress.org/plugins/contact-form-7/', 'sleek'),
 				'type' => 'post_object',
 				'return_format' => 'id',
 				'post_type' => ['wpcf7_contact_form'],

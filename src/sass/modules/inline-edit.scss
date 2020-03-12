@@ -8,7 +8,7 @@ $icon-pen: '??' !default;
 		position: absolute;
 		right: var(--spacing-default, 1rem);
 		top: var(--spacing-default, 1rem);
-		z-index: 99;
+		z-index: 9;
 
 		&::before {
 			@include icon($icon-pen);

@@ -209,6 +209,18 @@
       "css": "star-empty",
       "code": 59411,
       "src": "fontawesome"
+    },
+    {
+      "uid": "d35a1d35efeb784d1dc9ac18b9b6c2b6",
+      "css": "pen",
+      "code": 59412,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "e82cedfa1d5f15b00c5a81c9bd731ea2",
+      "css": "info",
+      "code": 59413,
+      "src": "fontawesome"
     }
   ]
 }

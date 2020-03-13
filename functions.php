@@ -41,6 +41,8 @@ add_theme_support('sleek/login/styling');
 # Modules
 add_theme_support('sleek/modules/module_preview');
 add_theme_support('sleek/modules/inline_edit');
+add_theme_support('sleek/modules/add_new_modules_preview');
+add_theme_support('sleek/modules/global_modules');
 
 # Notices
 add_theme_support('sleek/notices/outdated_browser_warning');

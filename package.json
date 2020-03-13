@@ -6,11 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
-    "devall": "php vendor/powerbuoy/sleek-modules/module-thumbs.php && node fontello.js && webpack --mode development",
     "build": "webpack --mode production",
-    "buildall": "php vendor/powerbuoy/sleek-modules/module-thumbs.php && node fontello.js && webpack --mode production",
     "fontello": "node fontello.js",
-    "modulethumbs": "php vendor/powerbuoy/sleek-modules/module-thumbs.php"
+    "module-thumbs": "php build-module-thumbs.php"
   },
   "repository": {
     "type": "git",

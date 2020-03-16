@@ -18,6 +18,7 @@ foreach (glob($path) as $modulePath) {
 				echo "\n\nGenerating thumbnail for $moduleName/$templateName...\n";
 
 				shell_exec(sprintf($command, $modulePath . "/$templateName.png", $domain . "/__SLEEK__/modules/dummy-module-preview/$moduleName/$templateName/"));
+				shell_exec("chmod 777 $modulePath/$templateName.png");
 			}
 		}
 	}

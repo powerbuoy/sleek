@@ -617,6 +617,10 @@ Enable inline editing of flexible modules.
 
 Enable module preview in admin.
 
+### `sleek/modules/add_new_module_preview`
+
+Enable screenshots and descriptions of modules when clicking "Add a Module".
+
 #### Hooks
 
 ##### `sleek/modules/fields`

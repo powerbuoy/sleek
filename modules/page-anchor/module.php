@@ -18,7 +18,7 @@ class PageAnchor extends Module {
 		];
 	}
 
-	public static function getAnchors ($where, $id) {
+	public static function get_anchors ($where, $id) {
 		$modules = get_field($where, $id);
 		$anchors = [];
 

@@ -8,7 +8,7 @@
 	right: 0;
 	z-index: 1000;
 
-	font-size: var(--small-font-size);
+	font-size: var(--notice-font-size, 80%);
 	color: var(--notice-text-color, white);
 	text-align: center;
 }

@@ -161,3 +161,7 @@ add_action('acf/init', function () {
 
 	return $fields;
 }, 10, 2); */
+
+add_action('sleek/modules/render_dummies/pre_render_module', function () {
+	echo '<hr>';
+});

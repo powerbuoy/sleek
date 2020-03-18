@@ -93,14 +93,14 @@ add_action('wp_head', function () {
 ############
 # ACF fields
 add_action('acf/init', function () {
-	# Site Settings
+	# Site Settings Page
 /*	acf_add_options_page([
 		'page_title' => __('Site Settings', 'sleek'),
 		'menu_slug' => 'site_settings',
 		'post_id' => 'site_settings'
 	]); */
 
-	# Site Setting fields
+	# Site Setting Fields
 /*	acf_add_local_field_group([
 		'key' => 'site_settings',
 		'title' => __('Site Settings', 'sleek'),
@@ -117,7 +117,7 @@ add_action('acf/init', function () {
 		]
 	]); */
 
-	# Sidebar modules
+	# Sidebar Modules
 /*	acf_add_local_field_group([
 		'key' => 'group_sidebar_modules',
 		'title' => __('Sidebar Modules', 'sleek'),
@@ -128,12 +128,36 @@ add_action('acf/init', function () {
 				'key' => 'sidebar_modules',
 				'name' => 'sidebar_modules',
 				'type' => 'flexible_content',
-				'label' => __('Nothing here', 'sleek'),
+				'label' => __('Sidebar Modules', 'sleek'),
 				'button_label' => __('Add a module', 'sleek'),
-				'layouts' => Sleek\Acf\generate_keys(Sleek\Modules\get_module_fields([
-					'text-block'
-				], 'flexible'), 'sidebar_modules')
+				'layouts' => Sleek\Acf\generate_keys(
+					Sleek\Modules\get_module_fields([
+						'text-block' # Add more modules as needed
+					], 'flexible'),
+					'sidebar_modules'
+				)
 			]
 		]
 	]); */
 });
+
+##################################
+# Add common fields to all modules
+/* add_filter('sleek/modules/fields', function ($fields, $module) {
+	# Add background image to these modules
+	if (in_array($module, ['text-block', 'text-blocks'])) {
+		array_unshift($fields, [
+			'name' => 'background_color',
+			'label' => __('Background Color', 'sleek'),
+			'type' => 'select',
+			'choices' => [
+				'transparent' => __('Transparent', 'sleek'),
+				'light' => __('Light', 'sleek'),
+				'dark' => __('Dark', 'sleek')
+			],
+			'default_value' => 'transparent'
+		]);
+	}
+
+	return $fields;
+}, 10, 2); */

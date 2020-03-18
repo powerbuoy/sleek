@@ -63,7 +63,5 @@ html.admin-bar {
 	}
 }
 
-// TEMP! First impressions and all
-body {
-	@include container($site-width * .75);
-}
+// Sleek Web Style
+@import "style";

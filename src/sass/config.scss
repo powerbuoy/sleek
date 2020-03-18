@@ -1,1 +1,125 @@
-// TODO: Copy node_modules/sleek-ui/src/sass/config.scss here and modify
+/////////////
+// Site width
+$site-width: 1080px;
+$site-width-max: 90vw;
+
+///////////////////////
+// Custom media queries
+@custom-media --tablet (min-width: 600px);
+@custom-media --tablet-max (max-width: 599px);
+
+@custom-media --laptop (min-width: 1080px);
+@custom-media --laptop-max (max-width: 1079px);
+
+@custom-media --desktop (min-width: 1260px);
+@custom-media --desktop-max (max-width: 1259px);
+
+:root {
+	// Colors
+	--body-bg: white;
+
+	--color-primary: #ffbf00;
+	--color-border: #aaa;
+	--color-overlay: rgba(0, 0, 0, .6);
+	--color-gray: #999;
+
+	--color-facebook: #3b5998;
+	--color-twitter: #4099FF;
+	--color-linkedin: #0077b5;
+
+	// Spacing
+	--spacing-x-small: 0.25rem;
+	--spacing-small: 0.5rem;
+	--spacing-medium: 1rem;
+	--spacing-large: 3rem;
+	--spacing-x-large: 6rem;
+
+	// Layout
+	--border-radius: 0.25rem;
+	--shadow-small: 0 0.4rem 0.6rem 0 rgba(46, 77, 100, 0.39);
+	--shadow-medium: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.2), 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+	--shadow-large: 0 3.75rem 8.75rem -2.5rem rgba(0, 0, 0, 0.25), 0 3.75rem 7.5rem -1.25rem rgba(0, 0, 0, 0.25);
+
+	// Body text
+	--body-font-size: 1rem;
+	--body-font-family: Helvetica, sans-serif;
+	--body-font-weight: normal;
+	--body-line-height: 1.6;
+	--body-letter-spacing: 0;
+	--body-text-transform: none;
+	--text-color: black;
+
+	// Headings
+	--h1-size: 3rem;
+	--h2-size: 2.2rem;
+	--h3-size: 1.8rem;
+	--h4-size: 1.4rem;
+	--h5-size: 1.2rem;
+	--h6-size: 1rem;
+
+	--heading-font-family: inherit;
+	--heading-font-weight: bold;
+	--heading-line-height: 1.2;
+	--heading-letter-spacing: 0;
+	--heading-text-transform: none;
+	--heading-color: inherit;
+
+	// Links
+	--link-color: #ffbf00;
+	--link-color-hover: #ffbf00;
+
+	// Inherited spacing
+	--container-margin: var(--spacing-x-large);
+	--grid-gap: var(--spacing-large);
+	--section-padding: var(--spacing-x-large);
+
+	// Button
+	--button-color: #ffbf00;
+	--button-padding-vertical: 1rem;
+	--button-padding-horizontal: 2.6rem;
+
+	--button-font-size: inherit;
+	--button-font-family: inherit;
+	--button-font-weight: normal;
+	--button-letter-spacing: 0;
+	--button-line-height: 1.2;
+	--button-text-transform: none;
+	--button-text-color: white;
+
+	--button-border-radius: var(--border-radius);
+	--button-transition-duration: 0.25s;
+	--button-shadow: none;
+
+	// Dialog
+/*	--dialog-background: white;
+	--dialog-width: 40rem;
+	--dialog-padding: var(--spacing-large);
+	--dialog-shadow: var(--shadow-large);
+	--dialog-close-button-size: 2rem;
+	--dialog-close-button-color: var(--text-color);
+	--dialog-backdrop-color: var(--color-overlay);
+	--dialog-animation-duration: 0.5s; */
+
+	// Form
+/*	--form-field-bg: white;
+	--form-field-padding-vertical: 0.75rem;
+	--form-field-padding-horizontal: 1.25rem;
+
+	--form-field-font-size: var(--body-font-size);
+	--form-field-font-family: var(--body-font-family);
+	--form-field-font-weight: var(--body-font-weight);
+	--form-field-letter-spacing: var(--body-letter-spacing);
+	--form-field-line-height: var(--body-line-height);
+	--form-field-text-color: var(--text-color);
+
+	--form-field-border-color: var(--color-border);
+	--form-field-border-radius: var(--border-radius);
+	--form-field-border-focus-color: var(--color-primary);
+
+	--select-arrow-size: 0.5rem;
+	--placeholder-color: var(--color-gray, #999); */
+
+	// Burger menu
+/*	--burger-menu-size: 24px;
+	--burger-menu-thickness: 2px; */
+}

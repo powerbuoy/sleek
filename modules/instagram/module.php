@@ -2,6 +2,10 @@
 namespace Sleek\Modules;
 
 class Instagram extends Module {
+	public function init () {
+		$this->dummy_data();
+	}
+
 	public function fields () {
 		return [
 			[
@@ -27,5 +31,18 @@ class Instagram extends Module {
 				'default_value' => 4
 			]
 		];
+	}
+
+	private function dummy_data () {
+		add_filter('sleek/modules/dummy_field_value', function ($value, $field, $module) {
+			if ($field['name'] === 'username' and $module === 'instagram') {
+				return 'albertdrosphotography';
+			}
+			elseif ($field['name'] === 'limit' and $module === 'instagram') {
+				return 4;
+			}
+
+			return $value;
+		}, 10, 3);
 	}
 }

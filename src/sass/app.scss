@@ -1,15 +1,16 @@
 ///////////////////////
 // Import fonts & icons
-// @import url('https://fonts.googleapis.com/css?family=Srisakdi|Raleway:300,300i,600,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Srisakdi|Raleway:300,300i,600,900&display=swap');
 @import "icons";
 
 ////////////////
 // Import config
 @import "config";
 
-/////////////////
-// Import SleekUI
+////////////////
+// Import Vendor
 @import "~sleek-ui/src/sass/sleek-ui";
+// @import "~prismjs/themes/prism-okaidia.css";
 
 ///////////////////
 // Import our stuff
@@ -64,4 +65,4 @@ html.admin-bar {
 }
 
 // Sleek Web Style
-@import "webstyle";
+@import "webstyle/**/*.scss";

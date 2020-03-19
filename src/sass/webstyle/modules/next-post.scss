@@ -1,0 +1,12 @@
+#next-post {
+	@include fade-in-children;
+
+	> header {
+		@include container;
+		@include header-module;
+	}
+
+	> article {
+		
+	}
+}

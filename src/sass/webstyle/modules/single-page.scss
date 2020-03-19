@@ -4,7 +4,7 @@
 	}
 
 	100% {
-		transform: scale(1.5);
+		transform: scale(2);
 	}
 }
 
@@ -28,7 +28,7 @@ html:not(.home) #single-page {
 			img {
 				@include img-background;
 
-				animation: zoom-in 120s ease;
+				animation: zoom-in 90s ease;
 				animation-play-state: paused;
 				animation-fill-mode: backwards;
 			}

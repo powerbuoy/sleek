@@ -1,5 +1,7 @@
 #share-page,
 #social-links {
+	@include fade-in-children;
+
 	margin: var(--container-margin) 0;
 	padding: var(--spacing-large) var(--site-padding);
 
@@ -16,6 +18,7 @@
 	}
 
 	ul {
+		@include fade-in-children;
 		@include auto-icons;
 
 		margin: 0;
@@ -33,5 +36,9 @@
 				}
 			}
 		}
+	}
+
+	&.was-in-view ul > li {
+		@include fade-in;
 	}
 }

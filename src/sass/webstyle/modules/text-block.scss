@@ -30,7 +30,6 @@
 		@include text-highlight;
 
 		text-align: center;
-		margin-bottom: var(--spacing-large);
 	}
 
 	// Code blocks
@@ -38,6 +37,7 @@
 		pre {
 			width: calc(50% - (var(--grid-gap) / 2));
 			float: left;
+			margin-top: var(--spacing-large);
 		}
 
 		pre + pre {

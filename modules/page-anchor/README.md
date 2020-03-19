@@ -1,1 +1,1 @@
-Render an anchor that authors can link to using `<a href="#anchor"></a>`. Also provides a utility method for fetching all anchor points in a module area; `Sleek\Modules\PageAnchor::get_anchors('flexible_modules', get_the_ID())`.
+Create a page anchor that authors can link to using `<a href="#page-anchor-anchor-name"></a>`.

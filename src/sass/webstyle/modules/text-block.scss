@@ -4,14 +4,11 @@
 	@include clearfix;
 	@include fade-in-children;
 
-	// Special case for text-block
-	> header {
-		@include header-module;
-
-		margin-bottom: var(--spacing-medium);
+	> h2 {
+		text-align: center;
 	}
 
-	> header + p {
+	> h2 + p {
 		@include text-highlight;
 
 		text-align: center;

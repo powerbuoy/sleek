@@ -24,6 +24,6 @@ class Page extends PostType {
 
 	# Flexible modules
 	public function flexible_modules () {
-	 	return array_values(array_map('basename', array_filter(glob(get_stylesheet_directory() . '/modules/*'), 'is_dir')));
+	 	return array_values(array_merge(array_map('basename', array_filter(glob(get_stylesheet_directory() . '/modules/*'), 'is_dir')), ['all-modules']));
 	}
 }

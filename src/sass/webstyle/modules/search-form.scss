@@ -1,0 +1,27 @@
+// Search form
+#search-form {
+	--form-field-padding-horizontal: var(--button-padding-horizontal);
+	--form-field-border-radius: var(--button-border-radius);
+
+	p {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		label {
+			@include a11y-hide;
+
+			display: block;
+			width: 100%;
+		}
+
+		input {
+			flex: 1;
+			margin-right: var(--spacing-medium);
+		}
+
+		button {
+			white-space: nowrap;
+		}
+	}
+}

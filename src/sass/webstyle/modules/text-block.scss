@@ -1,0 +1,32 @@
+// Text-block
+#text-block {
+	@include container;
+	@include clearfix;
+	@include fade-in-children;
+
+	// Special case for text-block
+	> header {
+		@include header-module;
+
+		margin-bottom: var(--spacing-medium);
+	}
+
+	> header + p {
+		@include text-highlight;
+
+		text-align: center;
+		margin-bottom: var(--spacing-x-large);
+	}
+
+	// Code blocks
+	@media (--tablet) {
+		pre {
+			width: calc(50% - (var(--grid-gap) / 2));
+			float: left;
+		}
+
+		pre + pre {
+			float: right;
+		}
+	}
+}

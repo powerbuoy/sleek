@@ -1,0 +1,12 @@
+#latest-posts {
+	@include container;
+
+	> header {
+		@include header-module;
+		@include fade-in-children(2);
+	}
+
+	article {
+		@include post(true);
+	}
+}

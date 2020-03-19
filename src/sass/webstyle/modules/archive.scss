@@ -1,0 +1,38 @@
+// Archive
+#archive {
+	@include container;
+
+	margin-top: 0;
+
+	> header {
+		@include break-out;
+		@include section;
+		@include header-module;
+		@include text-color(white);
+		@include fade-in-children;
+
+		background: url(/wp-content/uploads/2019/10/lukas-blazek-EWDvHNNfUmQ-unsplash-scaled-2560.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+
+		padding-top: calc(var(--section-padding) * 2);
+
+		> figure {
+			display: none;
+		}
+
+		> ul {
+			@include fade-in-children;
+			@include list-separated(' • ');
+			@include text-label;
+		}
+
+		&.was-in-view > ul > * {
+			@include fade-in;
+		}
+	}
+
+	> article {
+		@include post(true);
+	}
+}

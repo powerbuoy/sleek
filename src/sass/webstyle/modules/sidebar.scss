@@ -1,0 +1,26 @@
+// Sidebar
+#sidebar {
+	@include section;
+	@include grid;
+	@include fade-in-children(8);
+	@include text-color(white);
+
+	--h2-size: var(--h4-size);
+
+	background: #111;
+
+	@media (--tablet) {
+		--grid-cols: 2;
+	}
+
+	@media (--laptop) {
+		--grid-cols: 3;
+	}
+
+	ul {
+		@include text-label;
+
+		margin-left: 0;
+		list-style: none;
+	}
+}

@@ -1,0 +1,9 @@
+// Text-blocks
+#text-blocks {
+	@include container;
+	@include fade-in-children;
+
+	> header {
+		@include header-module;
+	}
+}

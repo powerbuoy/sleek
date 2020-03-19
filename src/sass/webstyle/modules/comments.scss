@@ -1,0 +1,9 @@
+// Comments
+#comments,
+#respond,
+#comment-form {
+	--h2-size: var(--h4-size);
+
+	@include container($site-width * .5);
+	@include fade-in-children;
+}

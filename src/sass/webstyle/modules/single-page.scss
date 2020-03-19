@@ -1,0 +1,36 @@
+// SinglePage
+html:not(.home) #single-page {
+	> header {
+		@include section($site-width * .75);
+		@include text-color(white);
+
+		padding-top: calc(var(--section-padding) * 2);
+		padding-bottom: calc(var(--section-padding) * 2);
+
+		position: relative;
+
+		text-align: center;
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+
+		figure {
+			img {
+				@include img-background;
+
+			//	filter: brightness(0.4);
+			}
+		}
+
+		h1 {
+
+		}
+
+		h1 + p {
+			@include text-highlight;
+		}
+	}
+
+	> article {
+		@include container($site-width * .5);
+		@include wysiwyg;
+	}
+}

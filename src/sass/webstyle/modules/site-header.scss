@@ -1,0 +1,43 @@
+// Site Header
+#site-header {
+	@include text-color(white);
+
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 99;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+	padding: var(--spacing-medium);
+
+	font-size: 0.8rem;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+
+	// Logo
+	.site-logo {
+		@include heading(2rem, false);
+
+		margin: 0;
+	}
+
+	// Tagline
+	.site-logo + p {
+		display: none;
+	}
+
+	// Menu
+	ul {
+		@include list-separated(' • ');
+		@include text-label;
+
+		margin: 0;
+
+		@media (--tablet-max) {
+			display: none; // TODO: Burger
+		}
+	}
+}

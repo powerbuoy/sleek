@@ -1,0 +1,32 @@
+// Vue component
+#vue-component {
+	@include section($site-width * .75);
+	@include full-height(center, center);
+
+	background: url(/wp-content/uploads/2019/10/mockup-photos-5nUNdLueQio-unsplash-scaled-2560.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	perspective: 100vw;
+	overflow: hidden;
+
+	> header {
+		@include header-module;
+		@include fade-in-children;
+		@include text-color(white);
+	}
+
+	> [data-vue] {
+		@include card-large;
+
+		text-align: left;
+		transform: rotateX(-120deg);
+		transition: transform 1.5s .25s ease;
+		backface-visibility: hidden;
+	}
+
+	&.was-in-view {
+		> [data-vue] {
+			transform: rotateX(0);
+		}
+	}
+}

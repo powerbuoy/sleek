@@ -1,0 +1,42 @@
+// Text Color
+@mixin text-color ($color: white) {
+	color: #{$color};
+
+	--text-color: #{$color};
+	--link-color: #{$color};
+	--heading-color: #{$color};
+
+	// Make sure any potential list separator (like |) doesn't inherit currentColor on :hover
+	> :after {
+		color: #{$color};
+	}
+}
+
+// Text Label
+@mixin text-label {
+	font-size: 0.8rem;
+	text-transform: uppercase;
+}
+
+// Text Highlight
+@mixin text-highlight {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+// WYSIWYG
+@mixin wysiwyg {
+	--h2-size: 2.6rem;
+	--h3-size: 2rem;
+	--h4-size: 1.6rem;
+	--h5-size: 1.2rem;
+	--h6-size: 1rem;
+
+	> p:first-of-type {
+		@include text-highlight;
+	}
+
+	> :--heading:not(:first-child) {
+		margin-top: var(--spacing-large);
+	}
+}

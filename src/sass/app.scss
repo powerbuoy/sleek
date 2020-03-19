@@ -65,4 +65,6 @@ html.admin-bar {
 }
 
 // Sleek Web Style
-@import "webstyle.scss";
+@import "webstyle/mixins/*.scss";
+@import "webstyle/components/*.scss";
+@import "webstyle/modules/*.scss";

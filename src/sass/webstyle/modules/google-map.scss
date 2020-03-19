@@ -1,0 +1,15 @@
+// Google map
+#google-map {
+	@include fade-in-children;
+
+	> header {
+		@include container;
+		@include header-module;
+	}
+
+	.google-map {
+		@media (--laptop) {
+			height: 40rem;
+		}
+	}
+}

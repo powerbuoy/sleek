@@ -1,0 +1,183 @@
+// FrontPage
+@keyframes background-position-down {
+	from {
+		background-position: 50% -450px;
+	}
+
+	to {
+		background-position: 50% 0;
+	}
+}
+
+html.home #single-page {
+	@include text-color(white);
+
+	background: #020024 radial-gradient(circle farthest-corner at center top, #00d4ff, #020024 60%) no-repeat 50% 0;
+	animation: background-position-down 6s ease forwards paused;
+
+	&.was-in-view {
+		animation-play-state: running;
+	}
+
+	// Hero
+	> header {
+		--button-color: white;
+		--button-text-color: var(--color-primary);
+
+		@include section;
+		@include full-height(center, center);
+
+		position: relative;
+
+		// Potential image
+		> figure {
+			display: none;
+		}
+
+		// Logo
+		h1 {
+		//	margin-bottom: var(--spacing-small);
+			line-height: 1;
+			font-size: 2rem;
+
+			strong {
+				display: block;
+				font-size: 7rem;
+
+				svg {
+					max-width: 90%;
+				}
+			}
+
+			small {
+				display: block;
+				font-size: 1.6rem;
+				font-family: 'Srisakdi', cursive;
+			}
+
+			@media (--tablet) {
+				strong {
+					font-size: 9.3rem;
+				}
+			}
+		}
+
+		// Buttons
+		nav {
+			a {
+				margin: 0 var(--spacing-small);
+			}
+		}
+
+		// Down arrow
+		.down {
+			width: auto;
+			position: absolute;
+			left: 50%;
+			bottom: var(--spacing-large);
+			transform: translate(-50%, 0);
+
+			font-size: 1.5rem;
+			line-height: 1;
+
+			a {
+				display: block;
+				padding: var(--spacing-small);
+				transform: translate(0, 0);
+				transition: transform .25s ease;
+
+				&:hover {
+					transform: translate(0, .5rem);
+				}
+			}
+		}
+	}
+
+	// Hero animation
+	> header {
+		h1 small,
+		.down {
+			transform: translate(0, 1.5rem);
+			opacity: 0;
+			transition: transform 0.75s ease,
+						opacity 0.75s ease;
+		}
+
+		nav {
+			@include fade-in-children;
+		}
+
+		h1 small {
+			transition-delay: 3s;
+		}
+
+		.button {
+			animation-delay: 3.25s;
+
+			&:nth-child(1) {
+				animation-delay: 3.25s;
+			}
+
+			&:nth-child(2) {
+				animation-delay: 3.55s;
+			}
+		}
+
+		.down {
+			transform: translate(-50%, -1.5rem);
+			transition-delay: 4s;
+		}
+
+		&.was-in-view {
+			#sleek-logo {
+				animation-play-state: running;
+
+				path {
+					animation-play-state: running;
+				}
+			}
+
+			h1 small {
+				transform: translate(0, 0);
+				opacity: 1;
+			}
+
+			.button {
+				@include fade-in;
+			}
+
+			.down {
+				transform: translate(-50%, 0);
+				opacity: 1;
+			}
+		}
+	}
+
+	// Page content
+	> article {
+		@include section($site-width * .75);
+		@include full-height(center, center);
+		@include fade-in-children;
+
+		> h2:first-child + p {
+			@include text-highlight;
+		}
+
+		.illustration {
+			@include img-logo(2rem);
+			@include fade-in-children(10);
+
+			margin-top: var(--spacing-large);
+
+			img {
+				@media (--tablet) {
+					width: 3.25rem;
+				}
+			}
+		}
+
+		&.was-in-view .illustration > * {
+			@include fade-in;
+		}
+	}
+}

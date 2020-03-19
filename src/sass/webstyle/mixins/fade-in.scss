@@ -1,0 +1,37 @@
+// Fade In
+@keyframes fade-in {
+	0% {
+		transform: translate(0, 1.5rem);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translate(0, 0);
+		opacity: 1;
+	}
+}
+
+@mixin fade-in {
+	animation-play-state: running;
+}
+
+// Fade In Children
+@mixin fade-in-children ($num: 5, $delay: 0s) {
+	> * {
+		animation: fade-in 1.5s ease;
+		animation-play-state: paused;
+		animation-fill-mode: backwards;
+	}
+
+	@for $i from 1 through $num {
+		> :nth-child(#{$i}) {
+			animation-delay: #{$i * .25s + $delay};
+		}
+	}
+
+	&.was-in-view {
+		> * {
+			@include fade-in;
+		}
+	}
+}

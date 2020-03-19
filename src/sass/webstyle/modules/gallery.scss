@@ -1,0 +1,29 @@
+// Gallery
+#gallery {
+	text-align: center;
+	padding: var(--section-padding) var(--spacing-large);
+
+	> header {
+		@include header-module;
+		@include fade-in-children;
+	}
+
+	ul {
+		@include img-logo($width: 5rem);
+		@include fade-in-children($num: 10, $delay: .25s);
+
+		pointer-events: none;
+
+		img {
+			filter: brightness(0);
+		}
+
+		figcaption {
+			display: none;
+		}
+	}
+
+	&.was-in-view ul li {
+		@include fade-in;
+	}
+}

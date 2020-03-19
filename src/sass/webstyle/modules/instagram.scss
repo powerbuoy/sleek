@@ -1,0 +1,86 @@
+// Instagram
+#instagram {
+	background: url(/wp-content/uploads/2019/10/lukas-blazek-EWDvHNNfUmQ-unsplash-scaled-2560.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	padding: var(--section-padding) var(--spacing-large);
+	overflow: hidden;
+
+	> header {
+		@include header-module;
+		@include text-color(white);
+		@include fade-in-children;
+	}
+
+	ul {
+		@include grid;
+
+		@media (--tablet) {
+			--grid-cols: 2;
+		}
+
+		@media (--laptop) {
+			--grid-cols: 4;
+		}
+
+		margin: 0;
+		list-style: none;
+
+		li {
+			// Animation
+			transform: rotate(45deg) translate(50vw, 300%);
+			transition: transform 0.75s cubic-bezier(0, 1, 0, 1);
+
+			&:nth-child(2) {
+				transform: rotate(-30deg) translate(-20vw, 300%);
+				transition-delay: .25s;
+			}
+
+			&:nth-child(3) {
+				transform: rotate(-25deg) translate(-30vw, 300%);
+				transition-delay: .5s;
+			}
+
+			&:nth-child(4) {
+				transform: rotate(-45deg) translate(-50vw, 300%);
+				transition-delay: .75s;
+			}
+
+			// Each image
+			a {
+				display: block;
+
+				// Polaroid
+				img {
+					@include img-polaroid;
+
+					transform: rotate(-2deg) translate(0, 0) scale(1);
+				}
+			}
+
+			&:nth-child(2) {
+				img {
+					transform: rotate(1deg) translate(0, -.5rem) scale(1);
+				}
+			}
+
+			&:nth-child(3) {
+				img {
+					transform: rotate(-1deg) translate(0, .5rem) scale(1);
+				}
+			}
+
+			&:nth-child(4) {
+				img {
+					transform: rotate(2deg) translate(0, 0) scale(1);
+				}
+			}
+		}
+	}
+
+	&.was-in-view {
+		ul li {
+			transform: rotate(0) translate(0, 0);
+		}
+	}
+}

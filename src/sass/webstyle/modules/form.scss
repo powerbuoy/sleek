@@ -1,0 +1,37 @@
+// Contact form
+#form {
+	@include section;
+	@include grid;
+	@include fade-in-children;
+
+	background: url(/wp-content/uploads/2019/10/ashkan-forouzani-TnXMvJsCTpA-unsplash-scaled-2560.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+
+	@media (--tablet) {
+		--grid-cols: 2;
+	}
+
+	header {
+		@include header-module;
+		@include fade-in-children;
+		@include text-color(white);
+
+		margin-bottom: 0;
+		align-self: center;
+		text-align: left;
+	}
+
+	.form {
+		@include card;
+		@include fade-in-children(8);
+
+		label {
+			@include text-label;
+		}
+	}
+
+	&.was-in-view .form > * {
+		@include fade-in;
+	}
+}

@@ -1,0 +1,33 @@
+// Footer
+#site-footer {
+	@include text-label;
+	@include text-color(#aaa);
+	@include fade-in-children;
+
+	background: #0a0a0a;
+	padding: var(--spacing-medium) var(--site-padding);
+	text-align: center;
+	overflow: hidden;
+
+	@media (--tablet) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	p {
+		margin: 0;
+		filter: grayscale(1);
+		transition: filter .25s ease;
+	}
+
+	&:hover p {
+		filter: grayscale(0);
+	}
+
+	ul {
+		@include list-separated;
+
+		margin-bottom: 0;
+	}
+}

@@ -1,0 +1,12 @@
+// Button
+.button,
+button,
+input[type=submit] {
+	transform: translateY(0);
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+
+	&:hover {
+		transform: translateY(-0.25rem);
+		box-shadow: var(--shadow-small);
+	}
+}

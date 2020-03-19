@@ -10,6 +10,11 @@ import smoothscroll from 'smoothscroll-polyfill';
 smoothscroll.polyfill();
 import 'smoothscroll-anchor-polyfill';
 
+// Syntax highlight
+import Prism from 'prismjs';
+import 'prismjs/components/prism-markup-templating';
+import 'prismjs/components/prism-php';
+
 //////////
 // CountTo
 import CountTo from 'sleek-ui/src/js/count-to';

@@ -1,14 +1,14 @@
 <article class="post--<?php echo get_post_type() ?>">
 
-	<header>
+	<?php if (has_post_thumbnail()) : ?>
+		<figure>
+			<a href="<?php the_permalink() ?>">
+				<?php the_post_thumbnail('medium') ?>
+			</a>
+		</figure>
+	<?php endif ?>
 
-		<?php if (has_post_thumbnail()) : ?>
-			<figure>
-				<a href="<?php the_permalink() ?>">
-					<?php the_post_thumbnail('medium') ?>
-				</a>
-			</figure>
-		<?php endif ?>
+	<header>
 
 		<h3>
 			<a href="<?php the_permalink() ?>">

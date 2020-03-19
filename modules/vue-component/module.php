@@ -16,6 +16,7 @@ class VueComponent extends Module {
 			],
 			[
 				'name' => 'component',
+				'label' => __('Component', 'sleek'),
 				'type' => 'select',
 				'choices' => $this->getVueComponents(),
 				'ui' => true,

@@ -24,10 +24,6 @@ class Page extends PostType {
 
 	# Flexible modules
 	public function flexible_modules () {
-	/* 	return [
-			'attachments', 'featured-posts', 'form', 'gallery', 'google-map',
-			'instagram', 'latest-posts', 'next-post', 'related-pages', 'related-posts',
-			'share-page', 'social-links', 'text-block', 'text-blocks', 'users', 'video'
-		]; */
+	 	return array_values(array_map('basename', array_filter(glob(get_stylesheet_directory() . '/modules/*'), 'is_dir')));
 	}
 }

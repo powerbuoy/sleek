@@ -1,14 +1,44 @@
 // Text-blocks
 #text-blocks {
-	@include container;
+	@include section($site-width * 1.5);
 	@include fade-in-children;
+	@include grid;
+
+	background: url(/wp-content/uploads/2020/03/tim-mossholder-07uiqD9LS6U-unsplash-scaled.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+
+	@media (--tablet) {
+		--grid-cols: 2;
+	}
+
+	@media (--laptop) {
+		--grid-cols: 3;
+	}
 
 	> header {
 		@include fade-in-children;
 		@include header-module;
+		@include text-color(white);
+
+		grid-column: 1 / -1;
+		margin-bottom: calc(var(--spacing-large) - var(--grid-gap));
 	}
 
 	> article {
 		@include fade-in-children;
+		@include card;
+
+		font-size: 0.8rem;
+		overflow: hidden;
+
+		> figure {
+			@include dont-fade-in;
+			@include img-ratio(16, 9);
+
+			background: var(--color-primary);
+			margin: calc(var(--spacing-large) * -1);
+			margin-bottom: var(--spacing-large);
+		}
 	}
 }

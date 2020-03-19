@@ -1,6 +1,7 @@
 // SinglePage
 html:not(.home) #single-page {
 	> header {
+		@include fade-in-children;
 		@include section($site-width * .75);
 		@include text-color(white);
 
@@ -13,6 +14,8 @@ html:not(.home) #single-page {
 		text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
 
 		figure {
+			@include dont-fade-in;
+
 			img {
 				@include img-background;
 
@@ -30,6 +33,7 @@ html:not(.home) #single-page {
 	}
 
 	> article {
+		@include fade-in-children(40);
 		@include container($site-width * .5);
 		@include wysiwyg;
 	}

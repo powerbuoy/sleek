@@ -15,6 +15,12 @@
 	animation-play-state: running;
 }
 
+@mixin dont-fade-in {
+	animation: unset;
+	animation-delay: unset;
+	animation-play-state: unset;
+}
+
 // Fade In Children
 @mixin fade-in-children ($num: 5, $delay: 0s) {
 	> * {

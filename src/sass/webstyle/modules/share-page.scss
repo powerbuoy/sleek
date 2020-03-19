@@ -1,0 +1,37 @@
+#share-page,
+#social-links {
+	margin: var(--container-margin) 0;
+	padding: var(--spacing-large) var(--site-padding);
+
+	border-top: 1px solid var(--color-border);
+	border-bottom: 1px solid var(--color-border);
+
+	text-align: center;
+
+	> header {
+		h2 {
+			font-size: var(--h4-size);
+			margin: 0;
+		}
+	}
+
+	ul {
+		@include auto-icons;
+
+		margin: 0;
+		list-style: none;
+
+		li {
+			display: inline-block;
+			margin: 0 var(--spacing-small);
+
+			a {
+				font-size: 0;
+
+				&::before {
+					font-size: 2rem;
+				}
+			}
+		}
+	}
+}

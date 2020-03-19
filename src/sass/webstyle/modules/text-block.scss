@@ -1,8 +1,26 @@
 // Text-block
 #text-block {
-	@include container;
+	@include section;
 	@include clearfix;
 	@include fade-in-children;
+
+	position: relative;
+
+	> figure {
+		@include dont-fade-in;
+
+		margin: 0;
+
+		img {
+			@include img-background;
+
+			filter: brightness(0.4);
+		}
+	}
+
+	> figure ~ * {
+		@include text-color(white);
+	}
 
 	> h2 {
 		text-align: center;

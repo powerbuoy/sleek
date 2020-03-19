@@ -1,4 +1,7 @@
-#featured-posts {
+#featured-posts,
+#latest-posts,
+#related-posts,
+#related-pages {
 	@include container;
 
 	> header {

@@ -19,16 +19,14 @@
 
 <style lang="scss" scoped>
 	section {
-		h2 {
-			font-size: var(--font-size-h3);
-		}
+		--h2-size: var(--h3-size);
 
 		ul {
 			margin-left: 0;
 			list-style: none;
 
 			li {
-				margin: 0 0 var(--spacing-default);
+				margin: 0 0 var(--spacing-medium);
 
 				&.done {
 					text-decoration: line-through;
@@ -46,7 +44,7 @@
 
 			input {
 				flex: 1;
-				margin-right: var(--spacing-default);
+				margin-right: var(--spacing-medium);
 			}
 
 			button {

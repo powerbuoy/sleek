@@ -1,9 +1,313 @@
+// Keyframes
+@keyframes background-position-down {
+	from {
+		background-position: 50% -450px;
+	}
+
+	to {
+		background-position: 50% 0;
+	}
+}
+
 /////////
 // Mixins
+// Text Color
+@mixin text-color ($color: white) {
+	color: #{$color};
 
+	--text-color: #{$color};
+	--link-color: #{$color};
+	--heading-color: #{$color};
+
+	// Make sure any potential list separator (like |) doesn't inherit currentColor on :hover
+	> :after {
+		color: #{$color};
+	}
+}
+
+// Text Label
+@mixin text-label {
+	font-size: 0.8rem;
+	text-transform: uppercase;
+}
+
+// Text Highlight
+@mixin text-highlight {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+// Image Logo
+@mixin img-logo ($width: 3rem) {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+
+	margin-left: 0;
+	list-style: none;
+
+	> * {
+		margin: 0 var(--spacing-small) var(--spacing-medium);
+
+		figure {
+			margin: 0;
+		}
+
+		img {
+			width: $width;
+		}
+	}
+
+	a {
+		img {
+			transform: translate(0, 0);
+			transition: transform .25s ease;
+		}
+
+		&:hover img {
+			transform: translate(0, -1rem);
+		}
+	}
+}
+
+// Image Polaroid
+@mixin img-polaroid {
+	background: white;
+
+	display: block;
+	padding: var(--spacing-small) var(--spacing-small) var(--spacing-large);
+
+	transform: rotate(0deg) translate(0, 0) scale(1);
+	box-shadow: 0 0.25rem .5rem rgba(0, 0, 0, .4);
+	transition: transform .5s ease, box-shadow .5s ease;
+
+	&:hover {
+		transform: rotate(0deg) translate(0, 0) scale(1.1);
+		box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, .4);
+	}
+}
+
+// Fade In
+@mixin fade-in {
+	transform: translate(0, 0);
+	opacity: 1;
+}
+
+// Fade In Children
+@mixin fade-in-children ($num: 5, $delay: 0s) {
+	> * {
+		transform: translate(0, 1.5rem);
+		opacity: 0;
+		transition-delay: $delay;
+		transition: transform 0.75s ease,
+					opacity 0.75s ease;
+	}
+
+	@for $i from 1 through $num {
+		> :nth-child(#{$i}) {
+			transition-delay: #{$i * .25s + $delay};
+		}
+	}
+
+	&.was-in-view {
+		> * {
+			@include fade-in;
+		}
+	}
+}
+
+// Full Height
+@mixin full-height ($valign: center, $align: flex-start) {
+	min-height: 100vh;
+	display: flex;
+	align-items: $align;
+	justify-content: $valign;
+	flex-direction: column;
+
+	> * {
+		width: 100%;
+	}
+
+	@if ($align == center) {
+		text-align: center;
+	}
+}
+
+// Card
+@mixin card {
+	background: white;
+	padding: var(--spacing-large);
+	margin: 0 0 var(--spacing-large);
+	border-radius: .5rem;
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, .4);
+}
+
+// Large Card
+@mixin card-large {
+	@include card;
+
+	@media (--tablet) {
+		padding: var(--spacing-x-large);
+	}
+}
+
+// Header (Module)
+@mixin header-module {
+	margin-bottom: var(--spacing-large);
+	text-align: center;
+
+	p:first-of-type {
+		@include text-highlight;
+	}
+}
+
+// Post
+@mixin post ($animation: false) {
+	position: relative;
+	margin-bottom: var(--spacing-x-large);
+
+	figure {
+		margin-bottom: var(--spacing-large);
+
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: relative;
+			overflow: hidden;
+			transform: translate(0, 0) scale(1);
+			transition: transform .5s ease;
+			box-shadow: 0 1rem 2rem rgba(0, 0, 0, .4);
+
+			img {
+				transform: scale(1);
+				transition: transform .5s ease;
+			}
+
+			&:hover {
+				transform: translate(0, 0) scale(0.95);
+
+				img {
+					transform: scale(1.2);
+				}
+			}
+		}
+	}
+
+	header {
+		h3 {
+			margin: 0;
+		}
+
+		p {
+			@include list-separated(' • ');
+			@include text-label;
+			@include text-color(var(--color-gray));
+		}
+	}
+
+	footer {
+		a {
+			@extend .button;
+		}
+	}
+
+	@media (--tablet) {
+		padding: var(--spacing-large) 0;
+		padding-left: calc(50% + var(--spacing-large) / 2);
+
+		figure {
+			position: absolute;
+			left: calc(var(--spacing-large) * -1);
+			top: 0;
+			bottom: 0;
+			width: calc(50% - var(--spacing-large) / 2);
+			margin: 0;
+
+			img {
+				@include img-background;
+
+				z-index: auto;
+			}
+		}
+
+		&:nth-child(odd) {
+			padding-left: 0;
+			padding-right: calc(50% + var(--spacing-large) / 2);
+
+			figure {
+				left: auto;
+				right: calc(var(--spacing-large) * -1);
+			}
+		}
+	}
+
+	// Animation
+	@if ($animation) {
+		header figure,
+		header h3,
+		header p,
+		> p,
+		footer {
+			transform: translate(0, 1.5rem);
+			opacity: 0;
+			transition: transform 0.75s ease,
+						opacity 0.75s ease;
+		}
+
+		header h3 {
+			transition-delay: .5s;
+		}
+
+		header p {
+			transition-delay: .75s;
+		}
+
+		> p {
+			transition-delay: 1s;
+		}
+
+		footer {
+			transition-delay: 1.5s;
+		}
+
+		@media (--laptop) {
+			header figure {
+				transform: translate(-2.5rem, 0);
+			}
+
+			&:nth-child(odd) {
+				header figure {
+					transform: translate(2.5rem, 0);
+				}
+			}
+		}
+
+		&.was-in-view {
+			header figure,
+			header h3,
+			header p,
+			> p,
+			footer {
+				transform: translate(0, 0);
+				opacity: 1;
+			}
+		}
+	}
+}
 
 /////////////
 // Components
+// Text
+h2 {
+	small {
+		display: block;
+		font-weight: 300;
+		font-size: 100%;
+	}
+}
+
 // Image
 figure.illustration {
 	text-align: center;
@@ -17,3 +321,725 @@ figure.illustration {
 
 //////////
 // Modules
+// Site Header
+#site-header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 99;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+	padding: var(--spacing-medium);
+
+	color: white;
+	font-size: 0.8rem;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+
+	a {
+		color: currentColor;
+	}
+
+	// Logo
+	.site-logo {
+		@include heading(2rem, false);
+
+		margin: 0;
+	}
+
+	// Tagline
+	.site-logo + p {
+		display: none;
+	}
+
+	// Menu
+	ul {
+		@include list-separated(' • ');
+		@include text-label;
+
+		margin: 0;
+
+		@media (--tablet-max) {
+			display: none; // TODO: Burger
+		}
+	}
+}
+
+// FrontPage
+html.home #single-page {
+	@include text-color(white);
+
+	background: #020024 radial-gradient(circle farthest-corner at center top, #00d4ff, #020024 60%) no-repeat 50% 0;
+	animation: background-position-down 6s ease forwards paused;
+
+	&.was-in-view {
+		animation-play-state: running;
+	}
+
+	// Hero
+	> header {
+		--button-color: white;
+		--button-text-color: var(--color-primary);
+
+		@include section;
+		@include full-height(center, center);
+
+		position: relative;
+
+		// Potential image
+		> figure {
+			display: none;
+		}
+
+		// Logo
+		h1 {
+		//	margin-bottom: var(--spacing-small);
+			line-height: 1;
+			font-size: 2rem;
+
+			strong {
+				display: block;
+				font-size: 7rem;
+
+				svg {
+					max-width: 90%;
+				}
+			}
+
+			small {
+				display: block;
+				font-size: 1.6rem;
+				font-family: 'Srisakdi', cursive;
+			}
+
+			@media (--tablet) {
+				strong {
+					font-size: 9.3rem;
+				}
+			}
+		}
+
+		// Menu
+		ul {
+			@include list-separated(' • ');
+			@include text-label;
+
+			margin: 0;
+		}
+
+		// Down arrow
+		.down {
+			width: auto;
+			position: absolute;
+			left: 50%;
+			bottom: var(--spacing-large);
+			transform: translate(-50%, 0);
+
+			font-size: 1.5rem;
+			line-height: 1;
+
+			a {
+				display: block;
+				padding: var(--spacing-small);
+				transform: translate(0, 0);
+				transition: transform .25s ease;
+
+				&:hover {
+					transform: translate(0, .5rem);
+				}
+			}
+		}
+	}
+
+	// Hero animation
+	> header {
+		h1 small,
+		li,
+		.down {
+			transform: translate(0, 1.5rem);
+			opacity: 0;
+			transition: transform 0.75s ease,
+						opacity 0.75s ease;
+		}
+
+		h1 small {
+			transition-delay: 3s;
+		}
+
+		li {
+			transition-delay: 3.25s;
+
+			&:nth-child(1) {
+				transition-delay: 3.25s;
+			}
+
+			&:nth-child(2) {
+				transition-delay: 3.35s;
+			}
+
+			&:nth-child(3) {
+				transition-delay: 3.45s;
+			}
+
+			&:nth-child(4) {
+				transition-delay: 3.55s;
+			}
+		}
+
+		.down {
+			transform: translate(-50%, -1.5rem);
+			transition-delay: 4s;
+		}
+
+		&.was-in-view {
+			#sleek-logo {
+				animation-play-state: running;
+
+				path {
+					animation-play-state: running;
+				}
+			}
+
+			h1 small,
+			li {
+				transform: translate(0, 0);
+				opacity: 1;
+			}
+
+			.down {
+				transform: translate(-50%, 0);
+				opacity: 1;
+			}
+		}
+	}
+
+	// Page content
+	> article {
+		@include section($site-width * .75);
+		@include full-height(center, center);
+		@include fade-in-children;
+
+		> h2:first-child + p {
+			@include text-highlight;
+		}
+
+		.illustration {
+			@include img-logo(2rem);
+			@include fade-in-children(10);
+
+			margin-top: var(--spacing-large);
+
+			img {
+				@media (--tablet) {
+					width: 3.25rem;
+				}
+			}
+		}
+
+		&.was-in-view .illustration > * {
+			@include fade-in;
+		}
+	}
+}
+
+// Featured posts
+#featured-posts,
+#latest-posts,
+#related-posts {
+	@include container;
+
+	> header {
+		@include header-module;
+		@include fade-in-children(2);
+	}
+
+	article {
+		@include post(true);
+	}
+}
+
+
+// Text-block
+#text-block {
+	@include container;
+	@include clearfix;
+	@include fade-in-children;
+
+	// Special case for text-block
+	> header {
+		@include header-module;
+
+		margin-bottom: var(--spacing-medium);
+	}
+
+	> header + p {
+		@include text-highlight;
+
+		text-align: center;
+		margin-bottom: var(--spacing-x-large);
+	}
+
+	// Code blocks
+	@media (--tablet) {
+		pre {
+			width: calc(50% - (var(--grid-gap) / 2));
+			float: left;
+		}
+
+		pre + pre {
+			float: right;
+		}
+	}
+}
+
+// Text-blocks
+#text-blocks {
+	@include container;
+	@include fade-in-children;
+
+	> header {
+		@include header-module;
+	}
+}
+
+// Gallery
+#gallery {
+	text-align: center;
+	padding: var(--section-padding) var(--spacing-large);
+
+	> header {
+		@include header-module;
+		@include fade-in-children;
+	}
+
+	ul {
+		@include img-logo($width: 5rem);
+		@include fade-in-children($num: 10, $delay: .25s);
+
+		pointer-events: none;
+
+		img {
+			filter: brightness(0);
+		}
+
+		figcaption {
+			display: none;
+		}
+	}
+
+	&.was-in-view ul li {
+		@include fade-in;
+	}
+}
+
+// Vue component
+#vue-component {
+	@include section($site-width * .75);
+	@include full-height(center, center);
+
+	background: url(/wp-content/uploads/2019/10/mockup-photos-5nUNdLueQio-unsplash-scaled-2560.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	perspective: 100vw;
+	overflow: hidden;
+
+	> header {
+		@include header-module;
+		@include fade-in-children;
+		@include text-color(white);
+	}
+
+	> [data-vue] {
+		@include card-large;
+
+		text-align: left;
+		transform: rotateX(-120deg);
+		transition: transform 1.5s .25s ease;
+		backface-visibility: hidden;
+	}
+
+	&.was-in-view {
+		> [data-vue] {
+			transform: rotateX(0);
+		}
+	}
+}
+
+// Instagram
+#instagram {
+	background: url(/wp-content/uploads/2019/10/lukas-blazek-EWDvHNNfUmQ-unsplash-scaled-2560.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	padding: var(--section-padding) var(--spacing-large);
+	overflow: hidden;
+
+	> header {
+		@include header-module;
+		@include text-color(white);
+		@include fade-in-children;
+	}
+
+	ul {
+		@include grid;
+
+		@media (--tablet) {
+			--grid-cols: 2;
+		}
+
+		@media (--laptop) {
+			--grid-cols: 4;
+		}
+
+		margin: 0;
+		list-style: none;
+
+		li {
+			// Animation
+			transform: rotate(45deg) translate(50vw, 300%);
+			transition: transform 0.75s cubic-bezier(0, 1, 0, 1);
+
+			&:nth-child(2) {
+				transform: rotate(-30deg) translate(-20vw, 300%);
+				transition-delay: .25s;
+			}
+
+			&:nth-child(3) {
+				transform: rotate(-25deg) translate(-30vw, 300%);
+				transition-delay: .5s;
+			}
+
+			&:nth-child(4) {
+				transform: rotate(-45deg) translate(-50vw, 300%);
+				transition-delay: .75s;
+			}
+
+			// Each image
+			a {
+				display: block;
+
+				// Polaroid
+				img {
+					@include img-polaroid;
+
+					transform: rotate(-2deg) translate(0, 0) scale(1);
+				}
+			}
+
+			&:nth-child(2) {
+				img {
+					transform: rotate(1deg) translate(0, -.5rem) scale(1);
+				}
+			}
+
+			&:nth-child(3) {
+				img {
+					transform: rotate(-1deg) translate(0, .5rem) scale(1);
+				}
+			}
+
+			&:nth-child(4) {
+				img {
+					transform: rotate(2deg) translate(0, 0) scale(1);
+				}
+			}
+		}
+	}
+
+	&.was-in-view {
+		ul li {
+			transform: rotate(0) translate(0, 0);
+		}
+	}
+}
+
+// Google map
+#google-map {
+	@include fade-in-children;
+
+	> header {
+		@include container;
+		@include header-module;
+	}
+
+	.google-map {
+		@media (--laptop) {
+			height: 40rem;
+		}
+	}
+}
+
+// Contact form
+#form {
+	@include section;
+	@include grid;
+	@include fade-in-children;
+
+	background: url(/wp-content/uploads/2019/10/ashkan-forouzani-TnXMvJsCTpA-unsplash-scaled-2560.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+
+	@media (--tablet) {
+		--grid-cols: 2;
+	}
+
+	header {
+		@include header-module;
+		@include fade-in-children;
+		@include text-color(white);
+
+		margin-bottom: 0;
+		align-self: center;
+		text-align: left;
+	}
+
+	.form {
+		@include card;
+		@include fade-in-children(8);
+
+		label {
+			@include text-label;
+		}
+	}
+
+	&.was-in-view .form > * {
+		@include fade-in;
+	}
+}
+
+// Sidebar
+#sidebar {
+	@include section;
+	@include grid;
+	@include fade-in-children(8);
+	@include text-color(white);
+
+	--h2-size: var(--h4-size);
+
+	background: #111;
+
+	@media (--tablet) {
+		--grid-cols: 2;
+	}
+
+	@media (--laptop) {
+		--grid-cols: 3;
+	}
+
+	ul {
+		@include text-label;
+
+		margin-left: 0;
+		list-style: none;
+	}
+}
+
+// Footer
+#site-footer {
+	@include text-label;
+	@include text-color(#aaa);
+	@include fade-in-children;
+
+	background: #0a0a0a;
+	padding: var(--spacing-medium) var(--site-padding);
+	text-align: center;
+	overflow: hidden;
+
+	@media (--tablet) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	p {
+		margin: 0;
+		filter: grayscale(1);
+		transition: filter .25s ease;
+	}
+
+	&:hover p {
+		filter: grayscale(0);
+	}
+
+	ul {
+		@include list-separated;
+
+		margin-bottom: 0;
+	}
+}
+
+// Search form
+#search-form {
+	--form-field-padding-horizontal: var(--button-padding-horizontal);
+	--form-field-border-radius: var(--button-border-radius);
+
+	p {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		label {
+			@include a11y-hide;
+
+			display: block;
+			width: 100%;
+		}
+
+		input {
+			flex: 1;
+			margin-right: var(--spacing-medium);
+		}
+
+		button {
+			white-space: nowrap;
+		}
+	}
+}
+
+// 404
+#four-o-four {
+	@include section;
+	@include fade-in-children;
+}
+
+// Archive
+#archive {
+	@include container;
+
+	margin-top: 0;
+
+	> header {
+		@include break-out;
+		@include section;
+		@include header-module;
+		@include text-color(white);
+		@include fade-in-children;
+
+		background: url(/wp-content/uploads/2019/10/lukas-blazek-EWDvHNNfUmQ-unsplash-scaled-2560.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+
+		padding-top: calc(var(--section-padding) * 2);
+
+		> figure {
+			display: none;
+		}
+
+		> ul {
+			@include fade-in-children;
+			@include list-separated(' • ');
+			@include text-label;
+		}
+
+		&.was-in-view > ul > * {
+			@include fade-in;
+		}
+	}
+
+	> article {
+		@include post(true);
+	}
+}
+
+// Single blog post
+#single-post {
+	> header {
+		@include fade-in-children;
+
+		@media (--tablet-max) {
+			@include container;
+
+			margin-top: 0;
+			margin-bottom: var(--spacing-large);
+
+			> figure {
+				@include break-out;
+			}
+		}
+
+		@media (--tablet) {
+			@include section;
+
+			position: relative;
+			margin-bottom: var(--section-padding);
+			padding-right: calc(50% + var(--spacing-x-large));
+			padding-top: calc(var(--section-padding) * 2);
+			text-align: right;
+
+			> figure {
+				position: absolute;
+				left: 50%;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: 0;
+
+				img {
+					@include img-background;
+				}
+			}
+		}
+
+		h1 {
+			margin: 0;
+		}
+
+		p {
+			@include list-separated(' • ');
+			@include text-label;
+			@include text-color(var(--color-gray));
+		}
+	}
+
+	> article {
+		@include container($site-width * .5);
+		@include fade-in-children(30);
+
+		margin-top: 0;
+
+		> p:first-child {
+			@include text-highlight;
+		}
+	}
+}
+
+// Comments
+#comments,
+#respond,
+#comment-form {
+	--h2-size: var(--h4-size);
+
+	@include container($site-width * .5);
+	@include fade-in-children;
+}
+
+// Modules showcase
+#modules-showcase {
+	@include container;
+	@include grid;
+	@include fade-in-children(30);
+
+	@media (--tablet) {
+		--grid-cols: 2;
+	}
+
+	@media (--laptop) {
+		--grid-cols: 3;
+	}
+
+	> header {
+		@include header-module;
+		@include fade-in-children;
+
+		margin-bottom: 0;
+		grid-column: span var(--grid-cols);
+	}
+
+	article {
+		h3 {
+			font-size: var(--h4-size);
+		}
+	}
+}

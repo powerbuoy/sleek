@@ -48,6 +48,12 @@
 	position: relative;
 	margin-bottom: var(--spacing-x-large);
 
+	// Hide some stuff
+	[data-svg],
+	div.down {
+		display: none;
+	}
+
 	figure {
 		margin-bottom: var(--spacing-large);
 
@@ -89,6 +95,8 @@
 	}
 
 	footer {
+		margin-top: var(--spacing-medium);
+
 		a {
 			@extend .button;
 		}

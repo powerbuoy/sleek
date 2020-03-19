@@ -14,7 +14,7 @@
 		--grid-cols: 2;
 	}
 
-	header {
+	> header {
 		@include header-module;
 		@include fade-in-children;
 		@include text-color(white);
@@ -23,7 +23,7 @@
 		text-align: left;
 	}
 
-	ul {
+	> ul {
 		@include card;
 		@include fade-in-children(10);
 		@include auto-icons;
@@ -53,14 +53,19 @@
 					color: var(--color-gray);
 				}
 			}
+
+			ul {
+				list-style: none;
+				margin: var(--spacing-medium) 0 0 var(--spacing-medium);
+			}
 		}
 	}
 
-	&.was-in-view ul > * {
+	&.was-in-view > ul > * {
 		@include fade-in;
 	}
 }
 
 #page-menu {
-	background: url(/wp-content/uploads/2020/03/ferenc-horvath-skcFiBu91AA-unsplash-scaled.jpg);
+	background-image: url(/wp-content/uploads/2020/03/ferenc-horvath-skcFiBu91AA-unsplash-scaled.jpg);
 }

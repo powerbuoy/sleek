@@ -1,3 +1,14 @@
+html.prefers-reduced-motion {
+	&::before {
+		display: none !important;
+	}
+
+	* {
+		transition: none !important;
+		animation: none !important;
+	}
+}
+
 // Fade In
 @keyframes fade-in {
 	0% {

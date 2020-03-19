@@ -31,7 +31,7 @@ add_theme_support('sleek/cleanup/comment_form_placeholders');
 
 # Gallery
 # add_theme_support('sleek/gallery/slideshow');
-# add_theme_support('sleek/oembed/youtube');
+add_theme_support('sleek/oembed/youtube');
 # add_theme_support('sleek/oembed/vimeo');
 
 # Login

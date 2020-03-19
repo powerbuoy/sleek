@@ -14,6 +14,7 @@ class Post extends PostType {
 	}
 
 	public function config () {
+		# Rename "Post"
 		return [
 			'labels' => [
 				'name' => __('Blogs', 'sleek'),

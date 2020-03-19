@@ -164,3 +164,8 @@ add_action('acf/init', function () {
 
 	return $fields;
 }, 10, 2); */
+
+# Loading class
+add_action('wp_head', function () {
+	echo "<script>document.documentElement.classList.add('loading')</script>";
+});

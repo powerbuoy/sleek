@@ -143,7 +143,7 @@ if (typeof window.SLEEK_GOOGLE_MAPS_API_KEY !== 'undefined') {
 
 ////////////////
 // Import our JS
-// import './*.js';
+import './*.js';
 
 ///////////////////
 // Import Module JS

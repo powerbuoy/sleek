@@ -319,10 +319,74 @@ figure.illustration {
 	}
 }
 
+// SVG Stroke Animation
+@keyframes svg-stroke-animation-stroke {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes svg-stroke-animation-fill {
+	to {
+		fill: white;
+	}
+}
+
+.svg-stroke-animation {
+	fill: transparent;
+	animation: svg-stroke-animation-fill 2s ease 2.5s forwards paused;
+
+	path {
+		stroke-dasharray: var(--path-length);
+		stroke-dashoffset: var(--path-length);
+		animation: svg-stroke-animation-stroke 1.5s ease forwards paused;
+
+		@for $i from 2 through 5 {
+			&:nth-of-type(#{$i}) {
+				animation-delay: #{.5s * $i - 1};
+			}
+		}
+	}
+}
+
+// Page Transition
+html {
+	--page-transition-duration: .4s;
+
+	&::before {
+		background: white;
+
+		display: block;
+		content: "";
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 999;
+
+		transform: scaleX(0);
+		transform-origin: right 50%;
+		transition: transform var(--page-transition-duration) ease-in;
+	}
+
+	&.loading::before {
+		transform: scaleX(1);
+	}
+
+	&.leaving::before {
+		transform: scaleX(1);
+		transform-origin: left 50%;
+		transition-timing-function: ease-out;
+	}
+}
+
 //////////
 // Modules
 // Site Header
 #site-header {
+	@include text-color(white);
+
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -335,13 +399,8 @@ figure.illustration {
 	width: 100%;
 	padding: var(--spacing-medium);
 
-	color: white;
 	font-size: 0.8rem;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
-
-	a {
-		color: currentColor;
-	}
 
 	// Logo
 	.site-logo {

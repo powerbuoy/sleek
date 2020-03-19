@@ -3,7 +3,7 @@ require_once __DIR__ . '/../../../wp-load.php';
 
 $domain = home_url();
 $path = get_stylesheet_directory() . '/modules/*';
-$command = '"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --screenshot="%s" --window-size=1280,1280 --default-background-color=0 %s';
+$command = '"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --screenshot="%s" --window-size=600,600 --default-background-color=0 %s';
 
 echo "Generating thumbnails for $domain...";
 

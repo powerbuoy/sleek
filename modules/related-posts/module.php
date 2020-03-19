@@ -41,7 +41,7 @@ class RelatedPosts extends Module {
 		];
 
 		# Ignore same post
-		if (is_single()) {
+		if (is_single() or is_page()) {
 			$args['post__not_in'] = [$post->ID];
 
 			# Use the same category as the currently viewed post

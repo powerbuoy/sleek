@@ -48,6 +48,9 @@ add_theme_support('sleek/modules/global_modules');
 add_theme_support('sleek/notices/outdated_browser_warning');
 # add_theme_support('sleek/notices/cookie_consent');
 
+# PostTypes
+add_theme_support('sleek/post_types/settings_pages');
+
 # TinyMCE
 add_theme_support('sleek/tinymce/disable_colors');
 add_theme_support('sleek/tinymce/clean_paste');

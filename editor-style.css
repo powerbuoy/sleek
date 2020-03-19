@@ -16,3 +16,9 @@
 	color: #06f !important;
 	border: 1px solid #06f !important;
 }
+
+figure.illustration img {
+	display: inline-block;
+	width: auto;
+	height: 3rem;
+}

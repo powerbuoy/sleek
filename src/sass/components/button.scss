@@ -1,31 +1,32 @@
 // Normal button
-.button {
+.button,
+button,
+input[type=submit] {
 	@include button-base;
 
 	&:hover {
-
+		// TODO: Add hover effects here
 	}
 }
 
 // Ghost button
-.button--ghost {
+.button--ghost:not(:hover) {
 	--button-text-color: var(--button-color);
 
-	&:not(:hover) {
-		background: transparent;
-	}
-}
-
-// Special case for bright buttons
-.button--white {
-	--button-text-color: var(--color-primary);
+	background: transparent;
 }
 
 // Button colors
-$button-colors: ("white": white);
+$button-colors: ("black": black, "white": white, "dark": darkgray, "subtle": lightgray);
 
 @each $color-name, $color in $button-colors {
 	.button--#{$color-name} {
 		--button-color: #{$color};
 	}
+}
+
+// Special case for bright buttons
+.button--white,
+.button--subtle {
+	--button-text-color: var(--color-primary);
 }

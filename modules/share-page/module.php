@@ -60,11 +60,11 @@ class SharePage extends Module {
 		];
 
 		$url = $url ? $url : home_url(add_query_arg($_GET, $wp->request));
-		$title = wp_title('|', false, 'right');
+		$title = wp_title(' - ', false, 'right');
 
 		foreach ($urls as $service => $u) {
 			if ($service == 'Email') {
-				$urls[$service] = str_replace(['{url}', '{title}'], [$url, $title], $u);
+				$urls[$service] = str_replace(['{url}', '{title}'], [urlencode($url), urlencode($title)], $u);
 			}
 			else {
 				$urls[$service] = str_replace(['{url}', '{title}'], [urlencode($url), urlencode($title)], $u);

@@ -71,8 +71,8 @@ Sleek\ImageSizes\register(1920, 1080, ['center', 'center']/*, [
 ##################
 # Sidebars & menus
 # register_sidebar(['name' => __('Header', 'sleek'), 'id' => 'header']);
-# register_sidebar(['name' => __('Footer', 'sleek'), 'id' => 'footer']);
-# register_sidebar(['name' => __('Sidebar', 'sleek'), 'id' => 'sidebar']);
+register_sidebar(['name' => __('Footer', 'sleek'), 'id' => 'footer']);
+register_sidebar(['name' => __('Sidebar', 'sleek'), 'id' => 'sidebar']);
 
 register_nav_menus([
 	'header_menu' => __('Header menu', 'sleek'),

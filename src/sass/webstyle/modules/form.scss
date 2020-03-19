@@ -1,4 +1,3 @@
-// Contact form
 #form {
 	@include section;
 	@include grid;
@@ -7,6 +6,8 @@
 	background: url(/wp-content/uploads/2019/10/ashkan-forouzani-TnXMvJsCTpA-unsplash-scaled-2560.jpg);
 	background-size: cover;
 	background-attachment: fixed;
+
+	align-items: center;
 
 	@media (--tablet) {
 		--grid-cols: 2;
@@ -18,7 +19,6 @@
 		@include text-color(white);
 
 		margin-bottom: 0;
-		align-self: center;
 		text-align: left;
 	}
 

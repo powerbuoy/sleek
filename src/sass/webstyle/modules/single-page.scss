@@ -1,4 +1,13 @@
-// SinglePage
+@keyframes zoom-in {
+	0% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(1.5);
+	}
+}
+
 html:not(.home) #single-page {
 	> header {
 		@include fade-in-children;
@@ -8,18 +17,21 @@ html:not(.home) #single-page {
 		padding-top: calc(var(--section-padding) * 2);
 		padding-bottom: calc(var(--section-padding) * 2);
 
+		overflow: hidden;
 		position: relative;
-
 		text-align: center;
-		text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
 
 		figure {
 			@include dont-fade-in;
 
+			margin: 0;
+
 			img {
 				@include img-background;
 
-			//	filter: brightness(0.4);
+				animation: zoom-in 120s ease;
+				animation-play-state: paused;
+				animation-fill-mode: backwards;
 			}
 		}
 
@@ -29,6 +41,10 @@ html:not(.home) #single-page {
 
 		h1 + p {
 			@include text-highlight;
+		}
+
+		&.was-in-view figure img {
+			animation-play-state: running;
 		}
 	}
 

@@ -3,6 +3,50 @@
 $site-width: 1080px;
 $site-width-max: 90vw;
 
+////////////
+// AutoIcons
+$auto-icons: (
+	'href*="facebook.com"': $icon-facebook,
+	'href*="twitter.com"': $icon-twitter,
+	'href*="linkedin.com"': $icon-linkedin,
+	'href*="instagram.com"': $icon-instagram,
+	'href*="pinterest.com"': $icon-pinterest,
+	'href*="youtube.com"': $icon-youtube,
+	'href*="vimeo.com"': $icon-vimeo,
+
+	'href$=".pdf"': $icon-pdf,
+
+	'href$=".doc"': $icon-document,
+	'href$=".docx"': $icon-document,
+	'href$=".odt"': $icon-document,
+	'href$=".txt"': $icon-document,
+
+	'href$=".xls"': $icon-excel,
+	'href$=".xlsx"': $icon-excel,
+	'href$=".ods"': $icon-excel,
+
+	'href$=".ppt"': $icon-powerpoint,
+	'href$=".pptx"': $icon-powerpoint,
+
+	'href$=".zip"': $icon-zip,
+	'href$=".rar"': $icon-zip,
+	'href$=".tar"': $icon-zip,
+	'href$=".gz"': $icon-zip,
+	'href$=".7z"': $icon-zip,
+
+	'href$=".jpg"': $icon-image,
+	'href$=".jpeg"': $icon-image,
+	'href$=".png"': $icon-image,
+	'href$=".gif"': $icon-image,
+	'href$=".bmp"': $icon-image,
+	'href$=".svg"': $icon-image,
+	'href$=".webp"': $icon-image,
+
+	'href^="mailto:"': $icon-mail,
+	'href^="tel:"': $icon-phone,
+	'href*="/maps"': $icon-location
+);
+
 ///////////////////////
 // Custom media queries
 @custom-media --tablet (min-width: 600px);

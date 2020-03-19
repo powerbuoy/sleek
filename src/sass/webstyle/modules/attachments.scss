@@ -1,0 +1,61 @@
+#attachments {
+	@include section;
+	@include grid;
+	@include fade-in-children;
+
+	background: url(/wp-content/uploads/2020/03/lum3n-RBuQ2PK_L8-unsplash-scaled.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+
+	align-items: center;
+
+	@media (--tablet) {
+		--grid-cols: 2;
+	}
+
+	header {
+		@include header-module;
+		@include fade-in-children;
+		@include text-color(white);
+
+		margin-bottom: 0;
+		text-align: left;
+	}
+
+	ul {
+		@include card;
+		@include fade-in-children(10);
+		@include auto-icons;
+
+		margin: 0;
+		list-style: none;
+
+		li {
+			&:not(:last-child) {
+				margin-bottom: var(--spacing-medium);
+			}
+
+			a {
+				display: block;
+				position: relative;
+				padding-left: 2rem;
+
+				&::before,
+				small {
+					color: var(--text-color);
+					white-space: nowrap;
+				}
+
+				&::before {
+					position: absolute;
+					left: 0;
+					top: 0.25rem;
+				}
+			}
+		}
+	}
+
+	&.was-in-view ul > * {
+		@include fade-in;
+	}
+}

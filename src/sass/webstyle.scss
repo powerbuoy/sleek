@@ -620,7 +620,6 @@ html.home #single-page {
 	}
 }
 
-
 // Text-block
 #text-block {
 	@include container;
@@ -1074,31 +1073,4 @@ html.home #single-page {
 	@include fade-in-children;
 }
 
-// Modules showcase
-#modules-showcase {
-	@include container;
-	@include grid;
-	@include fade-in-children(30);
-
-	@media (--tablet) {
-		--grid-cols: 2;
-	}
-
-	@media (--laptop) {
-		--grid-cols: 3;
-	}
-
-	> header {
-		@include header-module;
-		@include fade-in-children;
-
-		margin-bottom: 0;
-		grid-column: span var(--grid-cols);
-	}
-
-	article {
-		h3 {
-			font-size: var(--h4-size);
-		}
-	}
-}
+// TODO: The rest of them...

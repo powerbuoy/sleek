@@ -40,16 +40,16 @@
 				position: relative;
 				padding-left: 2rem;
 
-				&::before,
-				small {
-					color: var(--text-color);
-					white-space: nowrap;
-				}
-
 				&::before {
 					position: absolute;
 					left: 0;
 					top: 0.25rem;
+					color: var(--text-color);
+				}
+
+				small {
+					display: block;
+					color: var(--color-gray);
 				}
 			}
 		}

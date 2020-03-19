@@ -15,7 +15,6 @@ html:not(.home) #single-page {
 		@include text-color(white);
 
 		padding-top: calc(var(--section-padding) * 2);
-		padding-bottom: calc(var(--section-padding) * 2);
 
 		overflow: hidden;
 		position: relative;
@@ -50,7 +49,7 @@ html:not(.home) #single-page {
 
 	> article {
 		@include fade-in-children(40);
-		@include container($site-width * .5);
+		@include container($site-width * .75);
 		@include wysiwyg;
 	}
 }

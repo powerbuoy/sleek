@@ -1,0 +1,42 @@
+#users {
+	@include fade-in-children;
+	@include container($site-width * .75);
+	@include grid;
+
+	@media (--tablet) {
+		--grid-cols: 2;
+	}
+
+	> header {
+		@include fade-in-children;
+		@include header-module;
+
+		grid-column: 1 / -1;
+		margin-bottom: calc(var(--spacing-large) - var(--grid-gap));
+	}
+
+	> article {
+		text-align: center;
+		font-size: 0.8rem;
+
+		figure {
+			@include img-ratio(1, 1);
+
+			max-width: 16rem;
+			margin: 0 auto var(--spacing-medium);
+
+			border: 1rem solid white;
+			border-radius: 50%;
+			box-shadow: var(--shadow-medium);
+		}
+
+		nav {
+			@include auto-icons;
+
+			a {
+				display: block;
+				margin-bottom: var(--spacing-small);
+			}
+		}
+	}
+}

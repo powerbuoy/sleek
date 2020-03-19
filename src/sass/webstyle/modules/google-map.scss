@@ -3,8 +3,11 @@
 	@include fade-in-children;
 
 	> header {
+		@include fade-in-children;
 		@include container;
 		@include header-module;
+
+		text-align: left;
 	}
 
 	.google-map {

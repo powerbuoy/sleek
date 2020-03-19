@@ -126,7 +126,7 @@
 
 	// Animation
 	@if ($animation) {
-		header figure,
+		> figure,
 		header h3,
 		header p,
 		> p,
@@ -154,19 +154,19 @@
 		}
 
 		@media (--laptop) {
-			header figure {
+			> figure {
 				transform: translate(-2.5rem, 0);
 			}
 
 			&:nth-child(odd) {
-				header figure {
+				> figure {
 					transform: translate(2.5rem, 0);
 				}
 			}
 		}
 
 		&.was-in-view {
-			header figure,
+			> figure,
 			header h3,
 			header p,
 			> p,

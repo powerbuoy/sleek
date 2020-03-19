@@ -7,7 +7,7 @@
 	--heading-color: #{$color};
 
 	// Make sure any potential list separator (like |) doesn't inherit currentColor on :hover
-	> :after {
+	::after {
 		color: #{$color};
 	}
 

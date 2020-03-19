@@ -4,6 +4,11 @@
 	@include fade-in-children;
 
 	> header {
+		@include fade-in-children;
 		@include header-module;
+	}
+
+	> article {
+		@include fade-in-children;
 	}
 }

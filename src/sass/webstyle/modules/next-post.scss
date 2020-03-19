@@ -2,11 +2,47 @@
 	@include fade-in-children;
 
 	> header {
-		@include container;
+		@include fade-in-children;
+		@include container($site-width * .75);
 		@include header-module;
+
+		text-align: left;
 	}
 
 	> article {
-		
+		@include section($site-width * .75);
+		@include text-color(white);
+
+		position: relative;
+		padding-top: calc(var(--section-padding) * 2);
+
+		> * {
+			display: none;
+		}
+
+		> figure {
+			@include dont-fade-in;
+
+			display: block;
+			margin: 0;
+
+			img {
+				@include img-background;
+
+				filter: brightness(0.4);
+			}
+		}
+
+		> header {
+			@include fade-in-children;
+
+			display: block;
+
+			p {
+				@include list-separated(' • ');
+
+				margin: 0;
+			}
+		}
 	}
 }

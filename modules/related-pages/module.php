@@ -52,7 +52,7 @@ class RelatedPages extends Module {
 		global $post;
 
 		if ($type === 'children') {
-			$postId = $id ? $id : $post->ID;
+			$postId = $id ?? $post->ID;
 		}
 		elseif ($type === 'siblings') {
 			$postId = $id ? get_post($id)->post_parent : $post->post_parent;

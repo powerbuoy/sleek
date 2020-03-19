@@ -12,6 +12,6 @@
 		</header>
 	<?php endif ?>
 
-	<div class="video"><?php echo $code ?></div>
+	<?php echo $code ?>
 
 </section>

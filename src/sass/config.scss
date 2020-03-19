@@ -16,10 +16,10 @@ $site-width-max: 90vw;
 
 :root {
 	// Colors
-	--body-bg: white;
+	--body-bg: #fefefe;
 
-	--color-primary: #ffbf00;
-	--color-border: #aaa;
+	--color-primary: #e91e63;
+	--color-border: #dedede;
 	--color-overlay: rgba(0, 0, 0, .6);
 	--color-gray: #999;
 
@@ -28,11 +28,11 @@ $site-width-max: 90vw;
 	--color-linkedin: #0077b5;
 
 	// Spacing
-	--spacing-x-small: 0.25rem;
-	--spacing-small: 0.5rem;
-	--spacing-medium: 1rem;
-	--spacing-large: 3rem;
-	--spacing-x-large: 6rem;
+	--spacing-x-small: 0.3rem;
+	--spacing-small: 0.6rem;
+	--spacing-medium: 1.4rem;
+	--spacing-large: 4.2rem;
+	--spacing-x-large: 6.8rem;
 
 	// Layout
 	--border-radius: 0.25rem;
@@ -42,31 +42,31 @@ $site-width-max: 90vw;
 
 	// Body text
 	--body-font-size: 1rem;
-	--body-font-family: Helvetica, sans-serif;
-	--body-font-weight: normal;
-	--body-line-height: 1.6;
-	--body-letter-spacing: 0;
+	--body-font-family: "Raleway", Helvetica, sans-serif;
+	--body-font-weight: 300;
+	--body-line-height: 1.8;
+	--body-letter-spacing: 0.05em;
 	--body-text-transform: none;
-	--text-color: black;
+	--text-color: #111;
 
 	// Headings
-	--h1-size: 3rem;
-	--h2-size: 2.2rem;
-	--h3-size: 1.8rem;
-	--h4-size: 1.4rem;
-	--h5-size: 1.2rem;
-	--h6-size: 1rem;
+	--h1-size: 4.8rem;
+	--h2-size: 4.2rem;
+	--h3-size: 3.2rem;
+	--h4-size: 2.2rem;
+	--h5-size: 1.6rem;
+	--h6-size: 1.2rem;
 
 	--heading-font-family: inherit;
-	--heading-font-weight: bold;
+	--heading-font-weight: 900;
 	--heading-line-height: 1.2;
 	--heading-letter-spacing: 0;
 	--heading-text-transform: none;
 	--heading-color: inherit;
 
 	// Links
-	--link-color: #ffbf00;
-	--link-color-hover: #ffbf00;
+	--link-color: #e91e63;
+	--link-color-hover: #e91e63;
 
 	// Inherited spacing
 	--container-margin: var(--spacing-x-large);
@@ -74,19 +74,19 @@ $site-width-max: 90vw;
 	--section-padding: var(--spacing-x-large);
 
 	// Button
-	--button-color: #ffbf00;
+	--button-color: #e91e63;
 	--button-padding-vertical: 1rem;
 	--button-padding-horizontal: 2.6rem;
 
-	--button-font-size: inherit;
+	--button-font-size: 0.8rem;
 	--button-font-family: inherit;
 	--button-font-weight: normal;
 	--button-letter-spacing: 0;
 	--button-line-height: 1.2;
-	--button-text-transform: none;
+	--button-text-transform: uppercase;
 	--button-text-color: white;
 
-	--button-border-radius: var(--border-radius);
+	--button-border-radius: 2rem;
 	--button-transition-duration: 0.25s;
 	--button-shadow: none;
 

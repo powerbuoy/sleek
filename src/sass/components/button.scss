@@ -3,32 +3,22 @@
 	@include button-base;
 
 	&:hover {
-		// NOTE: Do this yourself
+
 	}
 }
 
 // Ghost button
 .button--ghost {
-	background: transparent;
-	color: var(--button-color);
+	--button-text-color: var(--button-color);
 
-	&:hover {
-		background: var(--button-color);
+	&:not(:hover) {
+		background: transparent;
 	}
 }
 
-// Special case for white button
-.button--white,
-.button--white:hover {
-	color: var(--color-primary);
-}
-
-.button--white.button--ghost {
-	color: white;
-
-	&:hover {
-		color: var(--color-primary);
-	}
+// Special case for bright buttons
+.button--white {
+	--button-text-color: var(--color-primary);
 }
 
 // Button colors

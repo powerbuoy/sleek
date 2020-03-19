@@ -1,27 +1,27 @@
-<?php if ($menu) : ?>
-	<nav id="page-menu">
+<nav id="page-menu">
 
-		<header>
+	<header>
 
-			<?php if ($title) : ?>
-				<h2><?php echo $title ?></h2>
-			<?php else : ?>
-				<h2>
-					<a href="<?php echo $menu['url'] ?>">
-						<?php echo $menu['title'] ?>
-					</a>
-				</h2>
-			<?php endif ?>
+		<?php if ($title) : ?>
+			<h2><?php echo $title ?></h2>
+		<?php else : ?>
+			<h2>
+				<a href="<?php echo $menu['url'] ?>">
+					<?php echo $menu['title'] ?>
+				</a>
+			</h2>
+		<?php endif ?>
 
-			<?php echo $description ?>
+		<?php echo $description ?>
 
-		</header>
+	</header>
 
+	<?php if ($menu) : ?>
 		<ul>
 			<?php echo $menu['children'] ?>
 		</ul>
+	<?php else : ?>
+		<p class="error"><?php _e('This page does not have any relatives. You can remove this module until you add some.', 'sleek') ?></p>
+	<?php endif ?>
 
-	</nav>
-<?php else : ?>
-	<p class="error"><?php _e('This page does not have any relatives. You can remove this module until you add some.', 'sleek') ?></p>
-<?php endif ?>
+</nav>

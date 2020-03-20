@@ -49,7 +49,7 @@ document.querySelectorAll('[data-filter-items]').forEach(el => {
 /////////////////
 // RadialProgress
 // TODO
-/* import RadialProgress from 'sleek-ui/src/js/radial-progress';
+import RadialProgress from 'sleek-ui/src/js/radial-progress';
 
 document.querySelectorAll('[data-radial-progress]').forEach(el => {
 	const radPro = new RadialProgress(el, parseInt(el.dataset.radialProgress || 0));
@@ -59,7 +59,7 @@ document.querySelectorAll('[data-radial-progress]').forEach(el => {
 	setTimeout(() => {
 		radPro.value = parseInt(el.dataset.to || 0);
 	}, 3000);
-}); */
+});
 
 //////////////
 // ScrollStats

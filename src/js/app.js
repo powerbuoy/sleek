@@ -3,16 +3,16 @@
 ///////////////////
 // Import polyfills
 // querySelector(':scope')
-import 'element-qsa-scope';
+/* import 'element-qsa-scope';
 
 // Scroll-behavior
 import smoothscroll from 'smoothscroll-polyfill';
 smoothscroll.polyfill();
-import 'smoothscroll-anchor-polyfill';
+import 'smoothscroll-anchor-polyfill'; */
 
 //////////
 // CountTo
-import CountTo from 'sleek-ui/src/js/count-to';
+/* import CountTo from 'sleek-ui/src/js/count-to';
 
 document.querySelectorAll('[data-count-to]').forEach(el => {
 	new CountTo(el, {
@@ -23,23 +23,23 @@ document.querySelectorAll('[data-count-to]').forEach(el => {
 		duration: 2,
 		locale: 'sv-SE'
 	}).mount();
-});
+}); */
 
 //////////////////
 // DocumentOutline
-import DocumentOutline from 'sleek-ui/src/js/document-outline';
+/* import DocumentOutline from 'sleek-ui/src/js/document-outline';
 
 document.querySelectorAll('[data-document-outline]').forEach(el => {
 	el.innerHTML = new DocumentOutline(document.querySelector(el.dataset.documentOutline)).generateOutline();
-});
+}); */
 
 //////////////
 // FilterItems
-import FilterItems from 'sleek-ui/src/js/filter-items';
+/* import FilterItems from 'sleek-ui/src/js/filter-items';
 
 document.querySelectorAll('[data-filter-items]').forEach(el => {
 	new FilterItems(el, document.querySelectorAll(el.dataset.filterItems)).mount();
-});
+}); */
 
 /////////////////
 // RadialProgress
@@ -58,39 +58,39 @@ document.querySelectorAll('[data-radial-progress]').forEach(el => {
 
 //////////////
 // ScrollStats
-import ScrollStats from 'sleek-ui/src/js/scroll-stats';
+/* import ScrollStats from 'sleek-ui/src/js/scroll-stats';
 
-new ScrollStats({farThreshold: 100}).mount();
+new ScrollStats({farThreshold: 100}).mount(); */
 
 ////////////
 // Scrollspy
-import Scrollspy from 'sleek-ui/src/js/scrollspy';
+/* import Scrollspy from 'sleek-ui/src/js/scrollspy';
 
 document.querySelectorAll('[data-scrollspy]').forEach(el => {
 	new Scrollspy(el, {threshold: 0.75}).mount();
-});
+}); */
 
 /////////////////
 // SubmitOnChange
-import SubmitOnchange from 'sleek-ui/src/js/submit-onchange';
+/* import SubmitOnchange from 'sleek-ui/src/js/submit-onchange';
 
 document.querySelectorAll('[data-submit-onchange]').forEach(el => {
 	new SubmitOnchange(el).mount();
-});
+}); */
 
 /////////////
 // ToggleHash
-import ToggleHash from 'sleek-ui/src/js/toggle-hash';
+/* import ToggleHash from 'sleek-ui/src/js/toggle-hash';
 
 document.querySelectorAll('[data-toggle-hash]').forEach(el => {
 	new ToggleHash(el, {
 		toggleText: el.dataset.toggleHash || el.innerText
 	}).mount();
-});
+}); */
 
 /////////
 // Dialog
-import Dialog, { DialogTrigger } from 'sleek-ui/src/js/dialog';
+/* import Dialog, { DialogTrigger } from 'sleek-ui/src/js/dialog';
 
 const templateDialog = document.createElement('div');
 templateDialog.classList.add('dialog');
@@ -105,11 +105,11 @@ document.querySelectorAll('a[href^="#dialog-"]').forEach(el => {
 
 document.querySelectorAll('div.dialog').forEach(el => {
 	new Dialog(el).mount();
-});
+}); */
 
 ////////////
 // Slideshow
-import Slideshow from 'sleek-ui/src/js/slideshow';
+/* import Slideshow from 'sleek-ui/src/js/slideshow';
 
 document.querySelectorAll('[data-slideshow]').forEach(el => {
 	var args = el.dataset.slideshow;
@@ -127,11 +127,11 @@ document.querySelectorAll('[data-slideshow]').forEach(el => {
 	}
 
 	new Slideshow(el, args).mount();
-});
+}); */
 
 //////////////
 // Google Maps
-import GoogleMap from 'sleek-ui/src/js/google-map';
+/* import GoogleMap from 'sleek-ui/src/js/google-map';
 
 if (typeof window.SLEEK_GOOGLE_MAPS_API_KEY !== 'undefined') {
 	window.googleMapsInit = () => {
@@ -161,7 +161,7 @@ if (typeof window.SLEEK_GOOGLE_MAPS_API_KEY !== 'undefined') {
 			observer.observe(el);
 		});
 	};
-}
+} */
 
 ////////////////
 // Import our JS
@@ -174,7 +174,7 @@ if (typeof window.SLEEK_GOOGLE_MAPS_API_KEY !== 'undefined') {
 ////////////////////////
 // Import Vue Components
 // TODO: Auto-import all .vue files and register them using require.context()
-import ToDo from './todo.vue';
+/* import ToDo from './todo.vue';
 
 // Init Vue on all [data-vue] elements
 document.querySelectorAll('[data-vue]').forEach(el => {
@@ -184,4 +184,4 @@ document.querySelectorAll('[data-vue]').forEach(el => {
 			'todo': ToDo
 		}
 	});
-});
+}); */

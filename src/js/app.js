@@ -69,11 +69,11 @@ new ScrollStats({farThreshold: 100}).mount(); */
 
 ////////////
 // Scrollspy
-/* import Scrollspy from 'sleek-ui/src/js/scrollspy';
+import Scrollspy from 'sleek-ui/src/js/scrollspy';
 
 document.querySelectorAll('section, article, header, footer, aside, article, div, nav').forEach(el => {
 	new Scrollspy(el, {threshold: 0.75}).mount();
-}); */
+});
 
 /////////////////
 // SubmitOnChange
@@ -136,7 +136,7 @@ document.querySelectorAll('[data-slideshow]').forEach(el => {
 
 //////////////
 // Google Maps
-/* import GoogleMap from 'sleek-ui/src/js/google-map';
+import GoogleMap from 'sleek-ui/src/js/google-map';
 
 if (typeof window.SLEEK_GOOGLE_MAPS_API_KEY !== 'undefined') {
 	window.googleMapsInit = () => {
@@ -166,7 +166,7 @@ if (typeof window.SLEEK_GOOGLE_MAPS_API_KEY !== 'undefined') {
 			observer.observe(el);
 		});
 	};
-} */
+}
 
 ////////////////
 // Import our JS

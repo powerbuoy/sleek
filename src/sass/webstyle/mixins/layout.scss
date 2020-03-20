@@ -138,6 +138,7 @@
 		header h3,
 		header p,
 		> p,
+		> nav,
 		footer {
 			transform: translate(0, 1.5rem);
 			opacity: 0;
@@ -153,7 +154,8 @@
 			transition-delay: .75s;
 		}
 
-		> p {
+		> p,
+		> nav {
 			transition-delay: 1s;
 		}
 
@@ -178,6 +180,7 @@
 			header h3,
 			header p,
 			> p,
+			> nav,
 			footer {
 				transform: translate(0, 0);
 				opacity: 1;

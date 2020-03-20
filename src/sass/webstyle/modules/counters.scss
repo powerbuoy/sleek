@@ -1,0 +1,25 @@
+#counters {
+	@include fade-in-children;
+	@include container;
+	@include grid;
+
+	@media (--tablet) {
+		--grid-cols: 2;
+	}
+
+	@media (--laptop) {
+		--grid-cols: 3;
+	}
+
+	> header {
+		@include fade-in-children;
+		@include header-module;
+
+		grid-column: 1 / -1;
+		margin-bottom: calc(var(--spacing-large) - var(--grid-gap));
+	}
+
+	> article {
+
+	}
+}

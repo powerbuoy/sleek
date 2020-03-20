@@ -15,7 +15,7 @@
 	<?php foreach ($counters as $block) : ?>
 		<article>
 
-			<figure data-radial-progress data-value="<?php echo $block['from'] ?>" data-suffix="<?php echo $block['unit'] ?>">
+			<figure data-radial-progress="<?php echo $block['from'] ?>" data-suffix="<?php echo $block['unit'] ?>" data-to="<?php echo $block['to'] ?>">
 				<?php echo $block['to'] ?><?php echo $block['unit'] ?>
 			</figure>
 

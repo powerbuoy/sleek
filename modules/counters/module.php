@@ -62,7 +62,7 @@ class Counters extends Module {
 					return 0;
 				}
 				elseif ($field['name'] === 'to') {
-					return rand(60, 100);
+					return rand(0, 100);
 				}
 				elseif ($field['name'] === 'unit') {
 					return '%';

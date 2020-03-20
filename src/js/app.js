@@ -15,7 +15,14 @@ import 'smoothscroll-anchor-polyfill';
 import CountTo from 'sleek-ui/src/js/count-to';
 
 document.querySelectorAll('[data-count-to]').forEach(el => {
-	new CountTo(el, {from: 0, to: el.dataset.countTo, duration: 2, locale: 'sv-SE'}).mount();
+	new CountTo(el, {
+		from: 0,
+		to: el.dataset.countTo,
+		prefix: el.dataset.prefix || '',
+		suffix: el.dataset.suffix || '',
+		duration: 2,
+		locale: 'sv-SE'
+	}).mount();
 });
 
 //////////////////

@@ -468,5 +468,12 @@ msgctxt "url"
 msgid "pillar-page-categories"
 msgstr "pelarsidkategorier"
 
+# Blogs
+msgid "Blog"
+msgstr "Blogg"
+
+msgid "Blogs"
+msgstr "Bloggar"
+
 ###########
 # Our stuff

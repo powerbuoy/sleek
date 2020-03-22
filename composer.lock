@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "63eebb1bf8f23a7ea22ccc0cce8a3866",
+    "content-hash": "657621b34572600814eb89c88f96b238",
     "packages": [
         {
             "name": "icanboogie/inflector",
@@ -264,16 +264,16 @@
         },
         {
             "name": "powerbuoy/sleek-gallery",
-            "version": "v2.1.0",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-gallery.git",
-                "reference": "9c86df2ec140de7f4517b4ef3e9f1a49109f6851"
+                "reference": "64dabe0c2e6ec53c129a3d5be3ae90c8528491cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-gallery/zipball/9c86df2ec140de7f4517b4ef3e9f1a49109f6851",
-                "reference": "9c86df2ec140de7f4517b4ef3e9f1a49109f6851",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-gallery/zipball/64dabe0c2e6ec53c129a3d5be3ae90c8528491cd",
+                "reference": "64dabe0c2e6ec53c129a3d5be3ae90c8528491cd",
                 "shasum": ""
             },
             "require": {
@@ -296,7 +296,7 @@
                 }
             ],
             "description": "Improves media and gallery related output like the default gallery markup, wraps captioned images in figure/figcaption, removes gallery CSS and more.",
-            "time": "2020-03-09T10:05:02+00:00"
+            "time": "2020-03-19T20:49:25+00:00"
         },
         {
             "name": "powerbuoy/sleek-google-maps",
@@ -471,16 +471,16 @@
         },
         {
             "name": "powerbuoy/sleek-modules",
-            "version": "v3.7.0",
+            "version": "v4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-modules.git",
-                "reference": "2f6a55fc84da8ea040ed42a2ce51f2424d6bace5"
+                "reference": "c01b9e2d30ee18ca89b0aa2a9f9ca7e9a7a2ff55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/2f6a55fc84da8ea040ed42a2ce51f2424d6bace5",
-                "reference": "2f6a55fc84da8ea040ed42a2ce51f2424d6bace5",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/c01b9e2d30ee18ca89b0aa2a9f9ca7e9a7a2ff55",
+                "reference": "c01b9e2d30ee18ca89b0aa2a9f9ca7e9a7a2ff55",
                 "shasum": ""
             },
             "require": {
@@ -504,7 +504,7 @@
                 }
             ],
             "description": "Create modules by creating classes in /modules/.",
-            "time": "2020-03-13T12:24:36+00:00"
+            "time": "2020-03-20T16:09:42+00:00"
         },
         {
             "name": "powerbuoy/sleek-notices",
@@ -544,21 +544,21 @@
         },
         {
             "name": "powerbuoy/sleek-post-types",
-            "version": "v5.3.0",
+            "version": "v5.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-post-types.git",
-                "reference": "ab5de8a79650e7a49365275e30347362e19541ae"
+                "reference": "171a4cc4f78bd6aab8975333036e4f434fa578f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/ab5de8a79650e7a49365275e30347362e19541ae",
-                "reference": "ab5de8a79650e7a49365275e30347362e19541ae",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/171a4cc4f78bd6aab8975333036e4f434fa578f7",
+                "reference": "171a4cc4f78bd6aab8975333036e4f434fa578f7",
                 "shasum": ""
             },
             "require": {
                 "powerbuoy/sleek-acf": "^2.0.0",
-                "powerbuoy/sleek-modules": "^3.0.0",
+                "powerbuoy/sleek-modules": "^4.0.0",
                 "powerbuoy/sleek-utils": "^1.0.0"
             },
             "type": "library",
@@ -579,7 +579,7 @@
                 }
             ],
             "description": "Create post types by creating classes in /post-types/.",
-            "time": "2020-03-12T13:21:30+00:00"
+            "time": "2020-03-22T14:58:03+00:00"
         },
         {
             "name": "powerbuoy/sleek-settings",
@@ -652,16 +652,16 @@
         },
         {
             "name": "powerbuoy/sleek-utils",
-            "version": "v1.4.0",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-utils.git",
-                "reference": "70af17143ce0e0650fff5ee7c19408ec01a9f023"
+                "reference": "11b1a9bdb3babe5782c2dd30c23e7763d8191c2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-utils/zipball/70af17143ce0e0650fff5ee7c19408ec01a9f023",
-                "reference": "70af17143ce0e0650fff5ee7c19408ec01a9f023",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-utils/zipball/11b1a9bdb3babe5782c2dd30c23e7763d8191c2d",
+                "reference": "11b1a9bdb3babe5782c2dd30c23e7763d8191c2d",
                 "shasum": ""
             },
             "require": {
@@ -684,7 +684,7 @@
                 }
             ],
             "description": "Utility functions used internally by Sleek. Please check the code for documentation.",
-            "time": "2020-03-09T10:15:27+00:00"
+            "time": "2020-03-18T04:39:51+00:00"
         }
     ],
     "packages-dev": [],

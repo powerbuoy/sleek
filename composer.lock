@@ -264,16 +264,16 @@
         },
         {
             "name": "powerbuoy/sleek-gallery",
-            "version": "v2.4.1",
+            "version": "v2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-gallery.git",
-                "reference": "32b73fcc8ffd73fdfd16e620b2deb1bd62573760"
+                "reference": "17c2d3e316e6bb8ee98f11f6cd51cb3546fae099"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-gallery/zipball/32b73fcc8ffd73fdfd16e620b2deb1bd62573760",
-                "reference": "32b73fcc8ffd73fdfd16e620b2deb1bd62573760",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-gallery/zipball/17c2d3e316e6bb8ee98f11f6cd51cb3546fae099",
+                "reference": "17c2d3e316e6bb8ee98f11f6cd51cb3546fae099",
                 "shasum": ""
             },
             "require": {
@@ -296,7 +296,7 @@
                 }
             ],
             "description": "Improves media and gallery related output like the default gallery markup, wraps captioned images in figure/figcaption, removes gallery CSS and more.",
-            "time": "2020-03-24T17:24:24+00:00"
+            "time": "2020-03-24T17:33:24+00:00"
         },
         {
             "name": "powerbuoy/sleek-google-maps",

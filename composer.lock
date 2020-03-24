@@ -264,16 +264,16 @@
         },
         {
             "name": "powerbuoy/sleek-gallery",
-            "version": "v2.3.0",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-gallery.git",
-                "reference": "64dabe0c2e6ec53c129a3d5be3ae90c8528491cd"
+                "reference": "32b73fcc8ffd73fdfd16e620b2deb1bd62573760"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-gallery/zipball/64dabe0c2e6ec53c129a3d5be3ae90c8528491cd",
-                "reference": "64dabe0c2e6ec53c129a3d5be3ae90c8528491cd",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-gallery/zipball/32b73fcc8ffd73fdfd16e620b2deb1bd62573760",
+                "reference": "32b73fcc8ffd73fdfd16e620b2deb1bd62573760",
                 "shasum": ""
             },
             "require": {
@@ -296,7 +296,7 @@
                 }
             ],
             "description": "Improves media and gallery related output like the default gallery markup, wraps captioned images in figure/figcaption, removes gallery CSS and more.",
-            "time": "2020-03-19T20:49:25+00:00"
+            "time": "2020-03-24T17:24:24+00:00"
         },
         {
             "name": "powerbuoy/sleek-google-maps",
@@ -471,16 +471,16 @@
         },
         {
             "name": "powerbuoy/sleek-modules",
-            "version": "v4.1.1",
+            "version": "v4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-modules.git",
-                "reference": "c01b9e2d30ee18ca89b0aa2a9f9ca7e9a7a2ff55"
+                "reference": "5fbff5f4f7cf2f2198044214c46ea7095faa2d56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/c01b9e2d30ee18ca89b0aa2a9f9ca7e9a7a2ff55",
-                "reference": "c01b9e2d30ee18ca89b0aa2a9f9ca7e9a7a2ff55",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/5fbff5f4f7cf2f2198044214c46ea7095faa2d56",
+                "reference": "5fbff5f4f7cf2f2198044214c46ea7095faa2d56",
                 "shasum": ""
             },
             "require": {
@@ -504,7 +504,7 @@
                 }
             ],
             "description": "Create modules by creating classes in /modules/.",
-            "time": "2020-03-20T16:09:42+00:00"
+            "time": "2020-03-22T15:51:53+00:00"
         },
         {
             "name": "powerbuoy/sleek-notices",

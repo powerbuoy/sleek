@@ -277,6 +277,12 @@ msgstr "Fasta Moduler"
 msgid "Log in"
 msgstr "Logga in"
 
+msgid "View Archive"
+msgstr "Visa Arkiv"
+
+msgid "Edit Archive"
+msgstr "Redigera Arkiv"
+
 #############
 # Common CPTs
 # Guide

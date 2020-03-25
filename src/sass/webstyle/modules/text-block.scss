@@ -18,11 +18,11 @@
 
 	> figure {
 		position: absolute;
-		left: var(--site-padding);
-		top: var(--section-padding);
-		bottom: var(--section-padding);
-		right: calc(50% - (var(--grid-gap) / 2));
+		left: 0;
+		top: 0;
+		bottom: 0;
 
+		width: calc(50% - (var(--grid-gap) / 2));
 		margin: 0;
 
 		box-shadow: var(--shadow-large);

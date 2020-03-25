@@ -145,7 +145,7 @@ $auto-icons: (
 	--dialog-animation-duration: 0.5s; */
 
 	// Form
-/*	--form-field-bg: white;
+	--form-field-bg: white;
 	--form-field-padding-vertical: 0.75rem;
 	--form-field-padding-horizontal: 1.25rem;
 
@@ -154,14 +154,14 @@ $auto-icons: (
 	--form-field-font-weight: var(--body-font-weight);
 	--form-field-letter-spacing: var(--body-letter-spacing);
 	--form-field-line-height: var(--body-line-height);
-	--form-field-text-color: var(--text-color);
+	--form-field-text-color: #111;
 
 	--form-field-border-color: var(--color-border);
 	--form-field-border-radius: var(--border-radius);
 	--form-field-border-focus-color: var(--color-primary);
 
 	--select-arrow-size: 0.5rem;
-	--placeholder-color: var(--color-gray, #999); */
+	--placeholder-color: var(--color-gray, #999);
 
 	// Burger menu
 /*	--burger-menu-size: 24px;

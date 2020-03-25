@@ -1,26 +1,10 @@
 // Text-block
 #text-block {
-	@include section;
+	@include container;
 	@include clearfix;
 	@include fade-in-children;
 
 	position: relative;
-
-	> figure {
-		@include dont-fade-in;
-
-		margin: 0;
-
-		img {
-			@include img-background;
-
-			filter: brightness(0.4);
-		}
-	}
-
-	> figure ~ * {
-		@include text-color(white);
-	}
 
 	> h2 {
 		text-align: center;
@@ -30,6 +14,31 @@
 		@include text-highlight;
 
 		text-align: center;
+	}
+
+	> figure {
+		position: absolute;
+		left: var(--site-padding);
+		top: var(--section-padding);
+		bottom: var(--section-padding);
+		right: calc(50% - (var(--grid-gap) / 2));
+
+		margin: 0;
+
+		box-shadow: var(--shadow-large);
+
+		img {
+			@include img-background;
+		}
+	}
+
+	> figure ~ * {
+		padding-left: calc(50% + (var(--grid-gap) / 2));
+	}
+
+	> figure + h2,
+	> figure + h2 + p {
+		text-align: left;
 	}
 
 	// Code blocks

@@ -6,6 +6,7 @@
 
 	.wpcf7-not-valid-tip {
 		margin: var(--spacing-small) 0 0;
+		color: var(--color-error);
 	}
 
 	.ajax-loader {
@@ -127,7 +128,7 @@
 	}
 
 	.hs-error-msg {
-		color: color(error);
+		color: var(--color-error);
 	}
 }
 

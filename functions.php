@@ -30,10 +30,10 @@ add_theme_support('sleek/cleanup/comment_form_placeholders');
 # add_theme_support('sleek/cleanup/disable_comments');
 
 # Gallery
+# add_theme_support('sleek/gallery/slideshow');
 add_theme_support('sleek/oembed/responsive_video');
 # add_theme_support('sleek/oembed/youtube');
 # add_theme_support('sleek/oembed/vimeo');
-# add_theme_support('sleek/gallery/slideshow');
 
 # Login
 add_theme_support('sleek/login/styling');
@@ -58,9 +58,9 @@ add_theme_support('sleek/tinymce/clean_paste');
 
 ########
 # Assets
-add_action('wp_enqueue_scripts', function () {
+/* add_action('wp_enqueue_scripts', function () {
 	wp_enqueue_script('vue', 'https://cdn.jsdelivr.net/npm/vue@2.6.11', [], null, true);
-});
+}); */
 
 #############
 # Image sizes

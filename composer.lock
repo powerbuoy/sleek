@@ -471,16 +471,16 @@
         },
         {
             "name": "powerbuoy/sleek-modules",
-            "version": "v4.1.2",
+            "version": "v4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-modules.git",
-                "reference": "5fbff5f4f7cf2f2198044214c46ea7095faa2d56"
+                "reference": "3358ac3db3df6283fc1dc482df179857e4ef5b2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/5fbff5f4f7cf2f2198044214c46ea7095faa2d56",
-                "reference": "5fbff5f4f7cf2f2198044214c46ea7095faa2d56",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/3358ac3db3df6283fc1dc482df179857e4ef5b2c",
+                "reference": "3358ac3db3df6283fc1dc482df179857e4ef5b2c",
                 "shasum": ""
             },
             "require": {
@@ -504,7 +504,7 @@
                 }
             ],
             "description": "Create modules by creating classes in /modules/.",
-            "time": "2020-03-22T15:51:53+00:00"
+            "time": "2020-04-02T01:23:07+00:00"
         },
         {
             "name": "powerbuoy/sleek-notices",
@@ -544,16 +544,16 @@
         },
         {
             "name": "powerbuoy/sleek-post-types",
-            "version": "v5.3.3",
+            "version": "v5.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-post-types.git",
-                "reference": "171a4cc4f78bd6aab8975333036e4f434fa578f7"
+                "reference": "5a3dcf039bc706bce35f9bd3fa2e4bcaf239e730"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/171a4cc4f78bd6aab8975333036e4f434fa578f7",
-                "reference": "171a4cc4f78bd6aab8975333036e4f434fa578f7",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/5a3dcf039bc706bce35f9bd3fa2e4bcaf239e730",
+                "reference": "5a3dcf039bc706bce35f9bd3fa2e4bcaf239e730",
                 "shasum": ""
             },
             "require": {
@@ -579,7 +579,7 @@
                 }
             ],
             "description": "Create post types by creating classes in /post-types/.",
-            "time": "2020-03-22T14:58:03+00:00"
+            "time": "2020-03-27T09:51:51+00:00"
         },
         {
             "name": "powerbuoy/sleek-settings",

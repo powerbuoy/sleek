@@ -95,7 +95,7 @@ document.querySelectorAll('[data-toggle-hash]').forEach(el => {
 
 /////////
 // Dialog
-/* import Dialog, { DialogTrigger } from 'sleek-ui/src/js/dialog';
+import Dialog, { DialogTrigger } from 'sleek-ui/src/js/dialog';
 
 const templateDialog = document.createElement('div');
 templateDialog.classList.add('dialog');
@@ -110,7 +110,7 @@ document.querySelectorAll('a[href^="#dialog-"]').forEach(el => {
 
 document.querySelectorAll('div.dialog').forEach(el => {
 	new Dialog(el).mount();
-}); */
+});
 
 ////////////
 // Slideshow

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "657621b34572600814eb89c88f96b238",
+    "content-hash": "1ba87dac0dbe831eedb78ea8a345de14",
     "packages": [
         {
             "name": "icanboogie/inflector",
@@ -544,16 +544,16 @@
         },
         {
             "name": "powerbuoy/sleek-post-types",
-            "version": "v5.3.4",
+            "version": "v6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-post-types.git",
-                "reference": "5a3dcf039bc706bce35f9bd3fa2e4bcaf239e730"
+                "reference": "c34c73d4f5747dd4d18949df25acdabae45fd546"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/5a3dcf039bc706bce35f9bd3fa2e4bcaf239e730",
-                "reference": "5a3dcf039bc706bce35f9bd3fa2e4bcaf239e730",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/c34c73d4f5747dd4d18949df25acdabae45fd546",
+                "reference": "c34c73d4f5747dd4d18949df25acdabae45fd546",
                 "shasum": ""
             },
             "require": {
@@ -579,7 +579,7 @@
                 }
             ],
             "description": "Create post types by creating classes in /post-types/.",
-            "time": "2020-03-27T09:51:51+00:00"
+            "time": "2020-04-08T09:51:18+00:00"
         },
         {
             "name": "powerbuoy/sleek-settings",

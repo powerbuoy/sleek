@@ -90,6 +90,8 @@ class FontelloSassWebpackPlugin {
 				return console.error(err);
 			}
 
+			console.log('Successfully fetched ZIP, extracting...');
+
 			// Fetch ZIP
 			request.get(`${this.config.url}/${body}/get`)
 				// Unzip it
@@ -99,6 +101,8 @@ class FontelloSassWebpackPlugin {
 				.on('entry', (entry) => {
 					const basename = path.basename(entry.path);
 					const ext = path.extname(basename);
+
+					console.log('Parsing ' + basename);
 
 					// Copy the fontello.css to the sass path
 					if (basename === 'fontello.css') {

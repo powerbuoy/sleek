@@ -1,7 +1,4 @@
-// Normal button
-.button,
-button,
-input[type=submit] {
+@mixin button {
 	@include button-base;
 
 	&:hover {
@@ -9,11 +6,24 @@ input[type=submit] {
 	}
 }
 
-// Ghost button
-.button--ghost:not(:hover) {
-	--button-text-color: var(--button-color);
+@mixin button-ghost {
+	&:not(:hover) {
+		--button-text-color: var(--button-color);
 
-	background: transparent;
+		background: transparent;
+	}
+}
+
+// Normal button
+.button,
+button,
+input[type=submit] {
+	@include button;
+}
+
+// Ghost button
+.button--ghost {
+	@include button-ghost;
 }
 
 // Button colors

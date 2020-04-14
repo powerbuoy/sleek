@@ -19,7 +19,7 @@
 	}
 
 	# Get some search results
-	$searchTerm = str_replace(['/', '?'], ' ', $_SERVER['REQUEST_URI']);
+	$searchTerm = str_replace(['/', '?', '-', '_'], ' ', $_SERVER['REQUEST_URI']);
 	$searchResults = false;
 
 	if (!empty($searchTerm)) {

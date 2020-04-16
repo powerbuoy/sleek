@@ -7,8 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "fontello": "node fontello.js",
-    "module-thumbs": "php build-module-thumbs.php"
+    "fontello": "node fontello.js"
   },
   "repository": {
     "type": "git",

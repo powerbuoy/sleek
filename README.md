@@ -609,6 +609,14 @@ Create modules by creating classes in `/modules/`.
 
 #### Theme Support
 
+##### `sleek/modules/add_new_module_preview`
+
+Enable screenshots and descriptions of modules when clicking "Add a Module".
+
+##### `sleek/modules/global_modules`
+
+Enable "Global Modules" (WIP).
+
 ##### `sleek/modules/inline_edit`
 
 Enable inline editing of flexible modules.
@@ -617,53 +625,37 @@ Enable inline editing of flexible modules.
 
 Enable module preview in admin.
 
-### `sleek/modules/add_new_module_preview`
+#### Filters
 
-Enable screenshots and descriptions of modules when clicking "Add a Module".
+##### `sleek/modules/global_modules(array $modules)`
 
-#### Hooks
+Return an array of module names here to enable them as global modules.
 
-##### `sleek/modules/fields`
+##### `sleek/modules/dummy_field_value($value, $field, $module, $template, $level)`
+
+Return a `$value` from here to use that value when rendering the field with dummy data.
+
+##### `sleek/modules/fields(array $fields, $moduleName, $args)`
 
 Filter the ACF fields for modules before they're added. This allows you to add "global" fields to several modules at once.
 
-##### `sleek/modules/get_dummy_field/?type=?&name=?&module=?`
+#### Actions
 
-Filter dummy data used by `render_dummies()`.
-
-##### `sleek/modules/pre_render`
-
-Hook that runs before rendering a single module.
-
-##### `sleek/modules/pre_render_flexible`
-
-Hook that runs before rendering an array of flexible modules.
-
-##### `sleek/modules/pre_render_flexible_module`
-
-Hook that runs before rendering a single module in an an array of flexible modules.
+TODO...
 
 #### Functions
-
-##### `Sleek\Modules\has_module($module, $area, $id)`
-
-Check whether `$module` exists in `$area` at (optional) location `$id` (defaults to `get_the_ID()`).
 
 ##### `Sleek\Modules\render($module, $fields, $template)`
 
 Render module `$module` using (optional) fields `$fields` (or ACF location like a term, options page or set to `null` to fetch fields from `get_the_ID()`) using (optional) template `$template`.
 
-##### `Sleek\Modules\render_flexible($where, $id)`
+##### `Sleek\Modules\render_flexible($area, $id)`
 
-Render flexible modules contained in flexible content area `$where` using (optional) `$id` as ACF location.
+Render flexible modules contained in flexible content area `$area` using (optional) `$id` as ACF location.
 
 ##### `Sleek\Modules\get_module_fields(array $modules, $layout, $withTemplates)`
 
 Fetch ACF fields for all `$modules` and use layout `$layout` (`tabs`, `accordion`, `normal` or `flexible`). Optionally give every module group a `Template` dropdown using `$withTemplates = true`.
-
-##### `Sleek\Modules\get_module_templates($module)`
-
-Return all templates for `$module`.
 
 ##### `Sleek\Modules\render_dummies(array $modules)`
 
@@ -748,6 +740,10 @@ Create post types by creating classes in `/post-types/`.
 N/A
 
 #### Hooks
+
+##### `sleek/post_types/field_group`
+
+Filter the ACF field group for post types before they're added.
 
 ##### `sleek/post_types/fields`
 

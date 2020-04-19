@@ -56,11 +56,16 @@ html.admin-bar {
 	margin-top: 0 !important;
 
 	#wpadminbar {
-		opacity: 0;
-		transition: opacity 0.5s 0.1s ease;
+		transform: translateX(calc(100% - 35px));
+		transition: transform 0.5s 1s ease;
+
+		@media (--laptop-max) {
+			display: none;
+		}
 
 		&:hover {
-			opacity: 1;
+			transform: translate(0, 0);
+			transition-delay: 0s;
 		}
 	}
 }

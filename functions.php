@@ -143,6 +143,20 @@ add_action('acf/init', function () {
 			]
 		]
 	]); */
+
+	# Make site settings translatable
+	/*	add_filter('acf/validate_post_id', function ($postId) {
+		if ($postId == 'site_settings') {
+			$dl = acf_get_setting('default_language');
+			$cl = acf_get_setting('current_language');
+
+			if ($cl and $cl !== $dl) {
+				$postId .= '_' . $cl;
+			}
+		}
+
+		return $postId;
+	}); */
 });
 
 ##################################

@@ -154,7 +154,17 @@ module.exports = (env, argv) => {
 		config.devtool = 'source-map';
 	}
 	else {
-		config.plugins.push(new OptimizeCssAssetsPlugin());
+		// NOTE: Don't merge longhand
+		// https://github.com/cssnano/cssnano/issues/675
+		config.plugins.push(new OptimizeCssAssetsPlugin({
+			cssProcessorPluginOptions: {
+				preset: [
+					'default', {
+						mergeLonghand: false
+					}
+				]
+			}
+		}));
 	}
 
 	return config;

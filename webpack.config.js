@@ -112,7 +112,8 @@ var config = {
 							plugins: [
 								require('autoprefixer'),
 								require('postcss-custom-media'),
-								require('postcss-custom-selectors')
+								require('postcss-custom-selectors'),
+								require('css-has-pseudo/postcss')
 							],
 							sourceMap: true
 						}

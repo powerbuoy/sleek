@@ -8,7 +8,12 @@
 // Scroll-behavior
 import smoothscroll from 'smoothscroll-polyfill';
 smoothscroll.polyfill();
-import 'smoothscroll-anchor-polyfill'; */
+import 'smoothscroll-anchor-polyfill';
+
+// :has() pseudo class
+import cssHasPseudo from 'css-has-pseudo';
+
+cssHasPseudo(document); */
 
 // Syntax highlight
 import Prism from 'prismjs';

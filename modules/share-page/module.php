@@ -43,14 +43,15 @@ class SharePage extends Module {
 
 	public function data () {
 		return [
-			'urls' => self::getUrls($this->get_field('url'))
+			'urls' => self::get_urls($this->get_field('url'))
 		];
 	}
 
-	public static function getUrls ($url = null) {
+	public static function get_urls ($url = null) {
 		global $post;
 		global $wp;
 
+		# NOTE: https://github.com/bradvin/social-share-urls
 		$urls = [
 			'Facebook' => 'https://www.facebook.com/sharer.php?u={url}',
 			'Twitter' => 'https://twitter.com/intent/tweet?url={url}&text={title}',
@@ -60,11 +61,11 @@ class SharePage extends Module {
 		];
 
 		$url = $url ? $url : home_url(add_query_arg($_GET, $wp->request));
-		$title = wp_title(' - ', false, 'right');
+		$title = wp_title(' - ', false, 'right') . get_bloginfo('name');
 
 		foreach ($urls as $service => $u) {
 			if ($service == 'Email') {
-				$urls[$service] = str_replace(['{url}', '{title}'], [urlencode($url), urlencode($title)], $u);
+				$urls[$service] = str_replace(['{url}', '{title}'], [$url, $title], $u);
 			}
 			else {
 				$urls[$service] = str_replace(['{url}', '{title}'], [urlencode($url), urlencode($title)], $u);

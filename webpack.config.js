@@ -35,9 +35,11 @@ var config = {
 		}),
 
 		// Copy assets
-		new CopyWebpackPlugin([
-			{from: 'src/assets/', to: 'assets/', ignore: ['.DS_Store']}
-		]),
+		new CopyWebpackPlugin({
+			patterns: [
+				{from: 'src/assets/', to: 'assets/', globOptions: {ignore: ['.DS_Store']}}
+			]
+		}),
 
 		// Handle Vue SFC
 		new VueLoaderPlugin()
@@ -161,7 +163,8 @@ module.exports = (env, argv) => {
 			cssProcessorPluginOptions: {
 				preset: [
 					'default', {
-						mergeLonghand: false
+						mergeLonghand: false,
+						calc: false
 					}
 				]
 			}

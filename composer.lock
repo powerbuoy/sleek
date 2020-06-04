@@ -4,25 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "779cf0ff37106a8e0f2650d7b26aa8fa",
+    "content-hash": "9d15ec24207d5c63d8db510f4d72c8a1",
     "packages": [
         {
             "name": "icanboogie/inflector",
-            "version": "v1.5.0",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ICanBoogie/Inflector.git",
-                "reference": "fb6ca7977f8a7ebb46aff0183ee868d798f77ab8"
+                "reference": "9fa7e8fcf7a6ac06257ae77e9aa2ec90925b4327"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ICanBoogie/Inflector/zipball/fb6ca7977f8a7ebb46aff0183ee868d798f77ab8",
-                "reference": "fb6ca7977f8a7ebb46aff0183ee868d798f77ab8",
+                "url": "https://api.github.com/repos/ICanBoogie/Inflector/zipball/9fa7e8fcf7a6ac06257ae77e9aa2ec90925b4327",
+                "reference": "9fa7e8fcf7a6ac06257ae77e9aa2ec90925b4327",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "php": ">=5.3.4"
+                "php": ">=7.1"
             },
             "type": "library",
             "autoload": {
@@ -56,7 +56,7 @@
                 "singularize",
                 "underscore"
             ],
-            "time": "2019-05-21T19:05:31+00:00"
+            "time": "2019-10-04T09:43:33+00:00"
         },
         {
             "name": "powerbuoy/sleek-acf",
@@ -231,16 +231,16 @@
         },
         {
             "name": "powerbuoy/sleek-custom-logo",
-            "version": "v2.1.0",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-custom-logo.git",
-                "reference": "8ecdb0a1cd0ad64655dc06c7b24cd96a00fffbee"
+                "reference": "b9f9070499ac2f6c78f4fcd5586ba02e50b88ece"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-custom-logo/zipball/8ecdb0a1cd0ad64655dc06c7b24cd96a00fffbee",
-                "reference": "8ecdb0a1cd0ad64655dc06c7b24cd96a00fffbee",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-custom-logo/zipball/b9f9070499ac2f6c78f4fcd5586ba02e50b88ece",
+                "reference": "b9f9070499ac2f6c78f4fcd5586ba02e50b88ece",
                 "shasum": ""
             },
             "type": "library",
@@ -260,7 +260,7 @@
                 }
             ],
             "description": "Hooks into the_custom_logo() and improves it.",
-            "time": "2020-03-09T10:04:33+00:00"
+            "time": "2020-05-29T08:53:49+00:00"
         },
         {
             "name": "powerbuoy/sleek-gallery",
@@ -471,16 +471,16 @@
         },
         {
             "name": "powerbuoy/sleek-modules",
-            "version": "v5.1.0",
+            "version": "v5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-modules.git",
-                "reference": "3cf18da04cdd4703849d8b5f5e89b7e70e3f5736"
+                "reference": "b455c6d5cdff0dafc25aeb435e296aa6c1d3412d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/3cf18da04cdd4703849d8b5f5e89b7e70e3f5736",
-                "reference": "3cf18da04cdd4703849d8b5f5e89b7e70e3f5736",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/b455c6d5cdff0dafc25aeb435e296aa6c1d3412d",
+                "reference": "b455c6d5cdff0dafc25aeb435e296aa6c1d3412d",
                 "shasum": ""
             },
             "require": {
@@ -504,7 +504,7 @@
                 }
             ],
             "description": "Create modules by creating classes in /modules/.",
-            "time": "2020-05-05T12:15:47+00:00"
+            "time": "2020-05-06T09:36:28+00:00"
         },
         {
             "name": "powerbuoy/sleek-notices",
@@ -544,16 +544,16 @@
         },
         {
             "name": "powerbuoy/sleek-post-types",
-            "version": "v6.2.0",
+            "version": "v6.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-post-types.git",
-                "reference": "ea6cad6e57bfdd97a4fa0e9b8ac16107cc52c92c"
+                "reference": "e8b41b5ee5e9a7a44222313391a059d34739839b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/ea6cad6e57bfdd97a4fa0e9b8ac16107cc52c92c",
-                "reference": "ea6cad6e57bfdd97a4fa0e9b8ac16107cc52c92c",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/e8b41b5ee5e9a7a44222313391a059d34739839b",
+                "reference": "e8b41b5ee5e9a7a44222313391a059d34739839b",
                 "shasum": ""
             },
             "require": {
@@ -579,7 +579,7 @@
                 }
             ],
             "description": "Create post types by creating classes in /post-types/.",
-            "time": "2020-04-21T11:43:08+00:00"
+            "time": "2020-05-15T10:38:32+00:00"
         },
         {
             "name": "powerbuoy/sleek-settings",
@@ -652,20 +652,20 @@
         },
         {
             "name": "powerbuoy/sleek-utils",
-            "version": "v1.6.0",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-utils.git",
-                "reference": "cab5a0d21c74576476d90d9d43a0ad391741392c"
+                "reference": "354eb48234b276edee59a074d339efdd5cd3e327"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-utils/zipball/cab5a0d21c74576476d90d9d43a0ad391741392c",
-                "reference": "cab5a0d21c74576476d90d9d43a0ad391741392c",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-utils/zipball/354eb48234b276edee59a074d339efdd5cd3e327",
+                "reference": "354eb48234b276edee59a074d339efdd5cd3e327",
                 "shasum": ""
             },
             "require": {
-                "icanboogie/inflector": "^1.5"
+                "icanboogie/inflector": "^2.0"
             },
             "type": "library",
             "autoload": {
@@ -684,7 +684,7 @@
                 }
             ],
             "description": "Utility functions used internally by Sleek. Please check the code for documentation.",
-            "time": "2020-04-20T12:27:05+00:00"
+            "time": "2020-06-02T09:25:37+00:00"
         }
     ],
     "packages-dev": [],

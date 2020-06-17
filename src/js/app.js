@@ -77,7 +77,7 @@ new ScrollStats({farThreshold: 100}).mount(); */
 import Scrollspy from 'sleek-ui/src/js/scrollspy';
 
 document.querySelectorAll('section, article, header, footer, aside, article, div, nav').forEach(el => {
-	new Scrollspy(el, {threshold: 0.75}).mount();
+	new Scrollspy(el).mount();
 });
 
 /////////////////

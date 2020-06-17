@@ -52,20 +52,26 @@ class RelatedPages extends Module {
 		global $post;
 
 		if ($type === 'children') {
-			$postId = $id ?? $post->ID;
+			$postId = $id ? $id : $post->ID;
 		}
 		elseif ($type === 'siblings') {
 			$postId = $id ? get_post($id)->post_parent : $post->post_parent;
 		}
 
+		$args = [
+			'post_type' => 'page',
+			'post_parent' => $postId,
+			'orderby' => 'menu_order',
+			'order' => 'ASC',
+			'numberposts' => -1
+		];
+
+	/*	if (is_singular()) {
+			$args['post__not_in'] = [$post->ID];
+		} */
+
 		if ($postId) {
-			return get_posts([
-				'post_type' => 'page',
-				'post_parent' => $postId,
-				'orderby' => 'menu_order',
-				'order' => 'ASC',
-				'numberposts' => -1
-			]);
+			return get_posts($args);
 		}
 
 		return null;

@@ -30,26 +30,21 @@ html {
 	scroll-behavior: smooth;
 	--scroll-behavior: smooth; // Polyfill
 
-//	scroll-padding: var(--site-header-height-sticky) 0 0;
-//	--scroll-padding: var(--site-header-height-sticky) 0 0; // Polyfill
-
 	// Smaller text in low res
 	@media (--tablet-max) {
 		font-size: 80%;
-	//	scroll-padding: calc(var(--site-header-height-sticky) * .8) 0 0; // NOTE: * .8 because font-size is 80% here
-	//	--scroll-padding: calc(var(--site-header-height-sticky) * .8) 0 0; // Polyfill
 	}
 }
 
 // Prevent scrollbar (https://stackoverflow.com/a/46039555)
 // NOTE: This also prevents the use of position: sticky 😭
-@media (--laptop-max) {
+/* @media (--laptop-max) {
 	html,
 	body {
 		position: relative;
 		overflow-x: hidden;
 	}
-}
+} */
 
 // Hide adminbar
 html.admin-bar {

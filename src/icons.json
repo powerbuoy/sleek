@@ -221,6 +221,30 @@
       "css": "info",
       "code": 59413,
       "src": "fontawesome"
+    },
+    {
+      "uid": "3838a5aba604532d2dbae5904615ea39",
+      "css": "arrow-down",
+      "code": 59414,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "c21d309f797d3644dc8d28c4617738ce",
+      "css": "arrow-left",
+      "code": 59415,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "1d35198f5190ec004dd4ec742fbe19ca",
+      "css": "arrow-right",
+      "code": 59416,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "040e72500c863813088c9f9c9415f8e9",
+      "css": "arrow-up",
+      "code": 59417,
+      "src": "mfglabs"
     }
   ]
 }

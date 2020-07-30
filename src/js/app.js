@@ -173,6 +173,25 @@ if (typeof window.SLEEK_GOOGLE_MAPS_API_KEY !== 'undefined') {
 	};
 }
 
+//////////////
+// Video Embed
+/* import VideoEmbed from 'sleek-ui/src/js/video-embed';
+
+document.querySelectorAll('[data-oembed]').forEach(el => {
+	let data = {};
+
+	try {
+		data = JSON.parse(el.dataset.oembed);
+	}
+	catch {
+		data = {};
+	}
+
+	if (data && data.provider_name && (data.provider_name === 'YouTube' || data.provider_name === 'Vimeo')) {
+		new VideoEmbed(el, data).mount();
+	}
+}); */
+
 ////////////////
 // Import our JS
 import './*.js';

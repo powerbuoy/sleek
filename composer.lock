@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d15ec24207d5c63d8db510f4d72c8a1",
+    "content-hash": "86259ed5fb7252387d61f5ae6c7204df",
     "packages": [
         {
             "name": "icanboogie/inflector",
@@ -165,16 +165,16 @@
         },
         {
             "name": "powerbuoy/sleek-cleanup",
-            "version": "v2.1.0",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-cleanup.git",
-                "reference": "08d4d07a90457f13cff58354b58dc6a92fe63105"
+                "reference": "d9dd2c7db4cca70da7dcced48722fb767d10dc53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-cleanup/zipball/08d4d07a90457f13cff58354b58dc6a92fe63105",
-                "reference": "08d4d07a90457f13cff58354b58dc6a92fe63105",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-cleanup/zipball/d9dd2c7db4cca70da7dcced48722fb767d10dc53",
+                "reference": "d9dd2c7db4cca70da7dcced48722fb767d10dc53",
                 "shasum": ""
             },
             "type": "library",
@@ -194,7 +194,7 @@
                 }
             ],
             "description": "Cleans up a bunch of unnecessary WordPress stuff like inline emoji code, gallery markup and more.",
-            "time": "2020-03-09T10:03:29+00:00"
+            "time": "2020-06-25T11:20:43+00:00"
         },
         {
             "name": "powerbuoy/sleek-core",
@@ -264,16 +264,16 @@
         },
         {
             "name": "powerbuoy/sleek-gallery",
-            "version": "v2.4.2",
+            "version": "v3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-gallery.git",
-                "reference": "17c2d3e316e6bb8ee98f11f6cd51cb3546fae099"
+                "reference": "7000c2464b45445ba00163340e612ff192a68361"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-gallery/zipball/17c2d3e316e6bb8ee98f11f6cd51cb3546fae099",
-                "reference": "17c2d3e316e6bb8ee98f11f6cd51cb3546fae099",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-gallery/zipball/7000c2464b45445ba00163340e612ff192a68361",
+                "reference": "7000c2464b45445ba00163340e612ff192a68361",
                 "shasum": ""
             },
             "require": {
@@ -296,7 +296,7 @@
                 }
             ],
             "description": "Improves media and gallery related output like the default gallery markup, wraps captioned images in figure/figcaption, removes gallery CSS and more.",
-            "time": "2020-03-24T17:33:24+00:00"
+            "time": "2020-07-28T07:50:43+00:00"
         },
         {
             "name": "powerbuoy/sleek-google-maps",
@@ -471,16 +471,16 @@
         },
         {
             "name": "powerbuoy/sleek-modules",
-            "version": "v5.2.1",
+            "version": "v5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-modules.git",
-                "reference": "b455c6d5cdff0dafc25aeb435e296aa6c1d3412d"
+                "reference": "a0922d96fa78520aec927794a91e07f43cada514"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/b455c6d5cdff0dafc25aeb435e296aa6c1d3412d",
-                "reference": "b455c6d5cdff0dafc25aeb435e296aa6c1d3412d",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/a0922d96fa78520aec927794a91e07f43cada514",
+                "reference": "a0922d96fa78520aec927794a91e07f43cada514",
                 "shasum": ""
             },
             "require": {
@@ -504,7 +504,7 @@
                 }
             ],
             "description": "Create modules by creating classes in /modules/.",
-            "time": "2020-05-06T09:36:28+00:00"
+            "time": "2020-06-23T13:00:36+00:00"
         },
         {
             "name": "powerbuoy/sleek-notices",

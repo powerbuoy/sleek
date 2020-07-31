@@ -1,5 +1,6 @@
 #attachments,
-#page-menu {
+#page-menu,
+#menu {
 	@include section;
 	@include grid;
 	@include fade-in-children;
@@ -68,4 +69,8 @@
 
 #page-menu {
 	background-image: url(/wp-content/uploads/2020/03/ferenc-horvath-skcFiBu91AA-unsplash-scaled.jpg);
+}
+
+#menu {
+	background-image: url(/wp-content/uploads/2020/03/markus-winkler-W0Qd-Tpc434-unsplash-scaled.jpg);
 }

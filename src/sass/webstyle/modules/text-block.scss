@@ -12,7 +12,9 @@
 
 	> h2 + p {
 		@include text-highlight;
+	}
 
+	> h2 ~ p {
 		text-align: center;
 	}
 
@@ -37,7 +39,7 @@
 	}
 
 	> figure + h2,
-	> figure + h2 + p {
+	> figure + h2 ~ p {
 		text-align: left;
 	}
 

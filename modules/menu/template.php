@@ -1,4 +1,4 @@
-<nav>
+<nav id="menu">
 
 	<?php if ($title or $description) : ?>
 		<header>

@@ -5,7 +5,7 @@ class Instagram extends Module {
 	public function init () {
 		$this->dummy_data();
 
-		add_filter('wpiw_proxy', '__return_true');
+	#	add_filter('wpiw_proxy', '__return_true');
 	}
 
 	public function fields () {

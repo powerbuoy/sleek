@@ -188,7 +188,7 @@ document.querySelectorAll('[data-oembed]').forEach(el => {
 	}
 
 	if (data && data.provider_name && (data.provider_name === 'YouTube' || data.provider_name === 'Vimeo')) {
-		new VideoEmbed(el, data).mount();
+		new VideoEmbed(el, data, {api: false}).mount();
 	}
 });
 

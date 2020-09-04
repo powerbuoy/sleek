@@ -13,7 +13,7 @@
 			</header>
 		<?php endif ?>
 
-		<?php $html = do_shortcode("[meks_easy_photo_feed photos_number=$limit]") ?>
+		<?php $html = do_shortcode("[meks_easy_photo_feed photos_number=$limit container_size=2000]") ?>
 		<?php echo preg_replace('/(<[^>]*) style=("[^"]+"|\'[^\']+\')([^>]*>)/i', '$1$3', $html) ?>
 
 	</section>

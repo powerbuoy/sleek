@@ -12,7 +12,7 @@
 		@include fade-in-children;
 	}
 
-	ul {
+	.meks-instagram-widget {
 		@include grid;
 
 		@media (--tablet) {
@@ -26,7 +26,7 @@
 		margin: 0;
 		list-style: none;
 
-		li {
+		> div {
 			// Animation
 			transform: rotate(45deg) translate(50vw, 300%);
 			transition: transform 0.75s cubic-bezier(0, 1, 0, 1);
@@ -79,7 +79,7 @@
 	}
 
 	&.was-in-view {
-		ul li {
+		.meks-instagram-widget > div {
 			transform: rotate(0) translate(0, 0);
 		}
 	}

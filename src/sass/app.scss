@@ -66,5 +66,5 @@ html.admin-bar {
 
 // TEMP! First impressions and all
 body {
-	@include container($site-width * .75);
+	@include container;
 }

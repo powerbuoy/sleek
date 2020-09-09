@@ -46,21 +46,6 @@ document.querySelectorAll('[data-filter-items]').forEach(el => {
 	new FilterItems(el, document.querySelectorAll(el.dataset.filterItems)).mount();
 }); */
 
-/////////////////
-// RadialProgress
-// TODO
-/* import RadialProgress from 'sleek-ui/src/js/radial-progress';
-
-document.querySelectorAll('[data-radial-progress]').forEach(el => {
-	const radPro = new RadialProgress(el, parseInt(el.dataset.radialProgress || 0));
-
-	radPro.mount();
-
-	setTimeout(() => {
-		radPro.value = parseInt(el.dataset.to || 0);
-	}, 3000);
-}); */
-
 //////////////
 // ScrollStats
 /* import ScrollStats from 'sleek-ui/src/js/scroll-stats';

@@ -1,8 +1,3 @@
-/////////////
-// Site width
-$site-width: 1080px;
-$site-width-max: 90vw;
-
 ////////////
 // AutoIcons
 $auto-icons: (
@@ -58,7 +53,15 @@ $auto-icons: (
 @custom-media --desktop (min-width: 1260px);
 @custom-media --desktop-max (max-width: 1259px);
 
+/////////
+// Config
+$site-width: 1080px;
+
 :root {
+	// Site width
+	--site-width-min: 90vw;
+	--site-width-max: #{$site-width};
+
 	// Colors
 	--body-bg: #fefefe;
 
@@ -77,6 +80,11 @@ $auto-icons: (
 	--spacing-medium: 1.4rem;
 	--spacing-large: 4.2rem;
 	--spacing-x-large: 6.8rem;
+
+	// Layout spacing
+	--container-margin: var(--spacing-x-large);
+	--grid-gap: var(--spacing-large);
+	--section-padding: var(--spacing-x-large);
 
 	// Layout
 	--border-radius: 0.25rem;
@@ -111,11 +119,6 @@ $auto-icons: (
 	// Links
 	--link-color: #e91e63;
 	--link-color-hover: #e91e63;
-
-	// Inherited spacing
-	--container-margin: var(--spacing-x-large);
-	--grid-gap: var(--spacing-large);
-	--section-padding: var(--spacing-x-large);
 
 	// Button
 	--button-color: #e91e63;

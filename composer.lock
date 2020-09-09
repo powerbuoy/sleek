@@ -652,16 +652,16 @@
         },
         {
             "name": "powerbuoy/sleek-utils",
-            "version": "v1.7.0",
+            "version": "v1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-utils.git",
-                "reference": "354eb48234b276edee59a074d339efdd5cd3e327"
+                "reference": "643fb4e5e544a769374a5cd9372dbc459d77b2b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-utils/zipball/354eb48234b276edee59a074d339efdd5cd3e327",
-                "reference": "354eb48234b276edee59a074d339efdd5cd3e327",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-utils/zipball/643fb4e5e544a769374a5cd9372dbc459d77b2b0",
+                "reference": "643fb4e5e544a769374a5cd9372dbc459d77b2b0",
                 "shasum": ""
             },
             "require": {
@@ -684,7 +684,7 @@
                 }
             ],
             "description": "Utility functions used internally by Sleek. Please check the code for documentation.",
-            "time": "2020-06-02T09:25:37+00:00"
+            "time": "2020-09-01T19:19:00+00:00"
         }
     ],
     "packages-dev": [],

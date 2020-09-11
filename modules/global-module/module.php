@@ -1,4 +1,7 @@
 <?php
+/*
+	Description: Add any module or collection of modules that have been created in Global Modules.
+ */
 namespace Sleek\Modules;
 
 class GlobalModule extends Module {

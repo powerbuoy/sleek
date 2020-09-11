@@ -1,4 +1,7 @@
 <?php
+/*
+	Description: Embed a Google Map.
+ */
 namespace Sleek\Modules;
 
 class GoogleMap extends Module {

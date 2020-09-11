@@ -1,1 +1,0 @@
-Display specific posts.

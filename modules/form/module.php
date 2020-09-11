@@ -1,4 +1,7 @@
 <?php
+/*
+	Description: Embed a Contact Form 7, Hubspot or arbitrary form.
+ */
 namespace Sleek\Modules;
 
 class Form extends Module {

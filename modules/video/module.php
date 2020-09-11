@@ -1,4 +1,7 @@
 <?php
+/*
+	Description: Embed a Video.
+ */
 namespace Sleek\Modules;
 
 class Video extends Module {

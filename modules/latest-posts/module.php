@@ -1,4 +1,7 @@
 <?php
+/*
+	Description: Display the most recent posts.
+ */
 namespace Sleek\Modules;
 
 class LatestPosts extends Module {

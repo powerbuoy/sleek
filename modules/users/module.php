@@ -1,4 +1,7 @@
 <?php
+/*
+	Description: Display WordPress users.
+ */
 namespace Sleek\Modules;
 
 class Users extends Module {

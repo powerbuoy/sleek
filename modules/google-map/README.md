@@ -1,1 +1,0 @@
-Embed a Google Map.

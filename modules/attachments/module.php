@@ -1,4 +1,7 @@
 <?php
+/*
+	Description: Add a list of files for users to download.
+ */
 namespace Sleek\Modules;
 
 class Attachments extends Module {

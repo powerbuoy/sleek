@@ -1,4 +1,7 @@
 <?php
+/*
+	Description: Display specific posts.
+ */
 namespace Sleek\Modules;
 
 class FeaturedPosts extends Module {

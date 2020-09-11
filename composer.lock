@@ -60,16 +60,16 @@
         },
         {
             "name": "powerbuoy/sleek-acf",
-            "version": "v2.3.0",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-acf.git",
-                "reference": "4cbcef63b89d9b2369df98948eb8866866bdf753"
+                "reference": "1324599a58cfa44a34a1a05d3dbfd8dbe4556487"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-acf/zipball/4cbcef63b89d9b2369df98948eb8866866bdf753",
-                "reference": "4cbcef63b89d9b2369df98948eb8866866bdf753",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-acf/zipball/1324599a58cfa44a34a1a05d3dbfd8dbe4556487",
+                "reference": "1324599a58cfa44a34a1a05d3dbfd8dbe4556487",
                 "shasum": ""
             },
             "require": {
@@ -92,7 +92,7 @@
                 }
             ],
             "description": "Improves ACF in a number of ways like nicer flexible content titles, collapsed flexible content layouts, better looking relationship field and more.",
-            "time": "2020-09-10T09:22:19+00:00"
+            "time": "2020-09-11T11:59:31+00:00"
         },
         {
             "name": "powerbuoy/sleek-archive-filter",
@@ -471,16 +471,16 @@
         },
         {
             "name": "powerbuoy/sleek-modules",
-            "version": "v6.0.0",
+            "version": "v6.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-modules.git",
-                "reference": "7bfcb2b42608f06152fb5e0fa123f0c4c4ffb64e"
+                "reference": "e3f06701dd36ed4292cf55e1b03b267a9998eba2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/7bfcb2b42608f06152fb5e0fa123f0c4c4ffb64e",
-                "reference": "7bfcb2b42608f06152fb5e0fa123f0c4c4ffb64e",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/e3f06701dd36ed4292cf55e1b03b267a9998eba2",
+                "reference": "e3f06701dd36ed4292cf55e1b03b267a9998eba2",
                 "shasum": ""
             },
             "require": {
@@ -504,7 +504,7 @@
                 }
             ],
             "description": "Create modules by creating classes in /modules/.",
-            "time": "2020-09-11T11:35:36+00:00"
+            "time": "2020-09-11T12:09:55+00:00"
         },
         {
             "name": "powerbuoy/sleek-notices",

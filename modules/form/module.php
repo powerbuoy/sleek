@@ -21,35 +21,87 @@ class Form extends Module {
 				'name' => 'description',
 				'label' => __('Description', 'sleek'),
 				'type' => 'wysiwyg'
-			],
-			[
-				'name' => 'redirect_url',
-				'label' => __('Redirect URL', 'sleek'),
-				'type' => 'url'
-			],
-			[
-				'name' => 'form_embed_code',
-				'label' => __('Form Embed Code', 'sleek'),
-				'type' => 'textarea'
 			]
 		];
 
+		# Add form type radio button
+		if (shortcode_exists('contact-form-7') or \Sleek\Settings\get_setting('hubspot_portal_id')) {
+			$choices = ['custom' => __('Custom form', 'sleek')];
+
+			if (shortcode_exists('contact-form-7')) {
+				$choices['cf7'] = __('Contact form 7', 'sleek');
+			}
+
+			if (\Sleek\Settings\get_setting('hubspot_portal_id')) {
+				$choices['hs'] = __('HubSpot form', 'sleek');
+			}
+
+			$fields[] = [
+				'name' => 'form_type',
+				'type' => 'radio',
+				'choices' => $choices,
+				'default_value' => [
+					'custom'
+				]
+			];
+		}
+
+		# Add custom form embed code field
+		$fields[] = [
+			'name' => 'form_embed_code',
+			'label' => __('Form Embed Code', 'sleek'),
+			'type' => 'textarea',
+			'conditional_logic' => [[[
+				'field' => '{acf_key}_form_form_type',
+				'operator' => '==',
+				'value' => 'custom'
+			]]]
+		];
+
+		# Add CF7 field
 		if (shortcode_exists('contact-form-7')) {
+			$hasCf7OrHs = true;
 			$fields[] = [
 				'name' => 'wpcf7_form_id',
 				'label' => __('Contact Form 7', 'sleek'),
 				'type' => 'post_object',
 				'return_format' => 'id',
 				'post_type' => ['wpcf7_contact_form'],
-				'allow_null' => true
+				'allow_null' => true,
+				'conditional_logic' => [[[
+					'field' => '{acf_key}_form_form_type',
+					'operator' => '==',
+					'value' => 'cf7'
+				]]]
 			];
 		}
 
+		# Add HS field
 		if (\Sleek\Settings\get_setting('hubspot_portal_id')) {
+			$hasCf7OrHs = true;
 			$fields[] = [
 				'name' => 'hubspot_form_id',
 				'label' => __('Hubspot Form ID', 'sleek'),
-				'type' => 'text'
+				'type' => 'text',
+				'conditional_logic' => [[[
+					'field' => '{acf_key}_form_form_type',
+					'operator' => '==',
+					'value' => 'hs'
+				]]]
+			];
+		}
+
+		# Add redirect URL (only works with HS or CF7)
+		if ($hasCf7OrHs) {
+			$fields[] = [
+				'name' => 'redirect_url',
+				'label' => __('Redirect URL', 'sleek'),
+				'type' => 'url',
+				'conditional_logic' => [[[
+					'field' => '{acf_key}_form_form_type',
+					'operator' => '!=',
+					'value' => 'custom'
+				]]]
 			];
 		}
 

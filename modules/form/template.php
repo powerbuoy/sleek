@@ -40,50 +40,7 @@
 			<?php $portal_id = Sleek\Settings\get_setting('hubspot_portal_id') ?>
 
 			<?php if (!empty($portal_id)) : ?>
-				<!--[if lte IE 8]>
-					<script charset="utf-8" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-				<![endif]-->
-				<script charset="utf-8" src="//js.hsforms.net/forms/v2.js"></script>
-				<script>
-					// Create form
-					hbspt.forms.create({
-						portalId: '<?php echo $portal_id ?>',
-						formId: '<?php echo $hubspot_form_id ?>'
-
-						<?php if ($redirect_url) : ?>,
-							redirectUrl: '<?php echo $redirect_url ?>'
-						<?php endif ?>
-					});
-
-					// Add events
-					window.addEventListener('message', function (event) {
-						if (event.data.type === 'hsFormCallback' && event.data.id === '<?php echo $hubspot_form_id ?>') {
-							// Scroll into view unless redirect URL
-							<?php if (!isset($redirect_url) or empty($redirect_url)) : ?>
-								if (event.data.eventName === 'onFormSubmit') {
-									document.getElementById('hubspot-form').scrollIntoView();
-								}
-							<?php endif ?>
-
-							// Set additional form data
-							<?php if (isset($additional_data)) : ?>
-								if (event.data.eventName === 'onFormReady') {
-									var form = document.getElementById('hsForm_' + event.data.id);
-									var input;
-
-									<?php foreach ($additional_data as $k => $v) : ?>
-										<?php $v = is_array($v) ? json_encode($v) : $v ?>
-
-										if (input = form.querySelector('input[name="<?php echo $k ?>"]')) {
-											input.value = '<?php echo $v ?>';
-											input.dispatchEvent(new Event('input', {bubbles: true}));
-										}
-									<?php endforeach ?>
-								}
-							<?php endif ?>
-						}
-					});
-				</script>
+				<div data-hs-form data-hs-form-portal-id="<?php echo $portal_id ?>" data-hs-form-form-id="<?php echo $hubspot_form_id ?>" data-hs-form-redirect-url="<?php echo $redirect_url ?>"></div>
 			<?php else : ?>
 				<p class="error"><?php _e('Please make sure to enter a valid Hubspot Portal ID inside Settings -> Sleek', 'sleek') ?></p>
 			<?php endif ?>

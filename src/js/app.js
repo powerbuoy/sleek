@@ -178,7 +178,7 @@ document.querySelectorAll('[data-oembed]').forEach(el => {
 
 ///////////////////
 // Import Module JS
-// import '../../modules/**/*.js';
+import '../../modules/**/*.js';
 
 ////////////////////////
 // Import Vue Components

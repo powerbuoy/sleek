@@ -132,8 +132,8 @@ if (typeof window.SLEEK_GOOGLE_MAPS_API_KEY !== 'undefined') {
 	window.googleMapsInit = () => {
 		const observer = new IntersectionObserver(entries => {
 			entries.forEach(entry => {
-				if (entry.isIntersecting && !entry.target.classList.contains('google-map-loaded')) {
-					entry.target.classList.add('google-map-loaded');
+				if (entry.isIntersecting) {
+					observer.unobserve(entry.target);
 
 					let mapConfig = GoogleMap.parseMapEl(entry.target);
 

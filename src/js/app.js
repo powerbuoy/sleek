@@ -183,7 +183,7 @@ import './*.js';
 
 ///////////////////
 // Import Module JS
-// import '../../modules/**/*.js';
+import '../../modules/**/*.js';
 
 ////////////////////////
 // Import Vue Components

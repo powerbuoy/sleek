@@ -39,6 +39,7 @@ class Form extends Module {
 			$fields[] = [
 				'name' => 'form_type',
 				'type' => 'radio',
+				'layout' => 'horizontal',
 				'choices' => $choices,
 				'default_value' => [
 					'custom'

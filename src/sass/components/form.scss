@@ -37,6 +37,12 @@
 
 	.hs-input {
 		width: 100% !important;
+
+		&[type=radio],
+		&[type=checkbox] {
+			width: auto !important;
+			margin-right: var(--spacing-small);
+		}
 	}
 
 	// Legal checkbox

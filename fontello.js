@@ -12,7 +12,7 @@ class FontelloSassWebpackPlugin {
 			src: path.resolve(__dirname, 'src/icons.json'),
 			dest: path.resolve(__dirname, 'src/assets/fontello'),
 			sass: path.resolve(__dirname, 'src/sass/icons.scss'),
-			url: 'http://fontello.com'
+			url: 'https://fontello.com'
 		}, config);
 	}
 

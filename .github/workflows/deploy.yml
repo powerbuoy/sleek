@@ -1,0 +1,29 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ web ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1.1.0
+        with:
+          version: 15.x 
+
+      - name: Install
+        run: |
+          composer install
+          npm install
+
+      - name: Build
+        run: |
+          npm run fontello
+          npm run build
+
+      - name: Deploy
+        run: |
+          rsync -chav --delete --exclude /.git/ --exclude /node_modules/ ./ sleek@sleek.ssh.wpengine.net:/sites/sleek/wp-content/themes/sleek/

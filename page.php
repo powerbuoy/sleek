@@ -12,7 +12,7 @@
 
 </main>
 
-<script>console.log('It works! :D')</script>
+<script>console.log('It dont works! :D')</script>
 
 <?php get_sidebar() ?>
 <?php get_footer() ?>

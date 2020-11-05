@@ -1,4 +1,4 @@
-.git/
+/.git/
 /languages/
 /node_modules/
 /src/
@@ -9,4 +9,5 @@
 /webpack.config.js
 /fontello.js
 /README.md
+/deploy_key
 .DS_Store

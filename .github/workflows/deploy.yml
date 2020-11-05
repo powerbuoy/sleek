@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1.1.0
         with:
-          version: 15.x 
+          version: 15.x
 
       - name: Install
         run: |
@@ -25,5 +25,10 @@ jobs:
           npm run build
 
       - name: Deploy
+        env:
+          src: './'
+          dest: 'sleek@sleek.ssh.wpengine.net:/sites/sleek/wp-content/themes/sleek/'
         run: |
-          rsync -chav --delete --exclude /.git/ --exclude /node_modules/ ./ sleek@sleek.ssh.wpengine.net:/sites/sleek/wp-content/themes/sleek/
+          echo "${{secrets.DEPLOY_KEY}}" > deploy_key
+          chmod 600 ./deploy_key
+          rsync -chav --delete -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' --exclude /deploy_key --exclude /.git/ --exclude /node_modules/ ${{env.src}} ${{env.dest}}

@@ -12,5 +12,7 @@
 
 </main>
 
+<script>console.log('It works! :D')</script>
+
 <?php get_sidebar() ?>
 <?php get_footer() ?>

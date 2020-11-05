@@ -59,6 +59,8 @@ class Form extends Module {
 			]]]
 		];
 
+		$hasCf7OrHs = false;
+
 		# Add CF7 field
 		if (shortcode_exists('contact-form-7')) {
 			$hasCf7OrHs = true;

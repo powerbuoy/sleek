@@ -9,7 +9,6 @@ load_theme_textdomain('sleek', get_template_directory() . '/dist');
 
 ################
 # Sleek settings
-# Core
 add_theme_support('sleek/classic_editor');
 add_theme_support('sleek/jquery_cdn');
 add_theme_support('sleek/disable_jquery');
@@ -18,40 +17,28 @@ add_theme_support('sleek/nice_email_from');
 add_theme_support('sleek/disable_theme_editor');
 # add_theme_support('sleek/get_terms_post_type_arg');
 
-# ACF
 add_theme_support('sleek/acf/hide_admin');
 # add_theme_support('sleek/acf/fields/redirect_url');
-
-# ArchiveFilter
 # add_theme_support('sleek/archive_filter');
 
-# Cleanup
 add_theme_support('sleek/cleanup/comment_form_placeholders');
 # add_theme_support('sleek/cleanup/disable_comments');
 
-# Gallery
-# add_theme_support('sleek/gallery/slideshow');
-add_theme_support('sleek/oembed/responsive_video');
-# add_theme_support('sleek/oembed/data_src');
+# add_theme_support('sleek/gallery/slideshow'); # Convert galleries to slideshows
+add_theme_support('sleek/oembed/responsive_video'); # Adds div.video around embeds
+# add_theme_support('sleek/oembed/data_src'); # Replaces src attributes with data-src - use together with sleek-ui/vide-embed
 
-# Login
 add_theme_support('sleek/login/styling');
 # add_theme_support('sleek/login/require_login');
 
-# Modules
-add_theme_support('sleek/modules/module_preview');
-add_theme_support('sleek/modules/inline_edit');
+# add_theme_support('sleek/modules/module_preview'); # NOTE: Alpha
+# add_theme_support('sleek/modules/inline_edit'); # NOTE: Alpha
 add_theme_support('sleek/modules/add_new_module_preview');
-# add_theme_support('sleek/modules/global_modules');
+add_theme_support('sleek/modules/global_modules');
 
-# Notices
 add_theme_support('sleek/notices/outdated_browser_warning');
 # add_theme_support('sleek/notices/cookie_consent');
 
-# PostTypes
-# add_theme_support('sleek/post_types/settings_pages'); # TODO: ??
-
-# TinyMCE
 add_theme_support('sleek/tinymce/disable_colors');
 add_theme_support('sleek/tinymce/clean_paste');
 

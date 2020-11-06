@@ -36,8 +36,18 @@ jobs:
         id: fontello-cache
         uses: actions/cache@v2
         with:
-          path: dist/assets/fontello
+          path: |
+            src/sass/icons.scss
+            src/assets/fontello
           key: fontello-${{ hashFiles('src/icons.json') }}
+
+      # Cache Webpack
+      - name: Cache Webpack
+        id: webpack-cache
+        uses: actions/cache@v2
+        with:
+          path: dist
+          key: fontello-${{ hashFiles('src/**/*') }}
 
       # NPM Install
       - name: NPM Install
@@ -56,6 +66,7 @@ jobs:
 
       # Webpack
       - name: Run Webpack
+        if: steps.webpack-cache.outputs.cache-hit != 'true'
         run: npm run build
 
       # Deploy

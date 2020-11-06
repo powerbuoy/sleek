@@ -15,7 +15,9 @@ class TextBlocks extends Module {
 			[
 				'name' => 'description',
 				'label' => __('Description', 'sleek'),
-				'type' => 'wysiwyg'
+				'type' => 'wysiwyg',
+				'toolbar' => 'simple',
+				'media_upload' => false
 			],
 			[
 				'name' => 'text_blocks',
@@ -38,7 +40,9 @@ class TextBlocks extends Module {
 					[
 						'name' => 'description',
 						'label' => __('Description', 'sleek'),
-						'type' => 'wysiwyg'
+						'type' => 'wysiwyg',
+						'toolbar' => 'simple',
+						'media_upload' => false
 					]
 				]
 			]

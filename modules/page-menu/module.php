@@ -16,7 +16,9 @@ class PageMenu extends Module {
 			[
 				'name' => 'description',
 				'label' => __('Description', 'sleek'),
-				'type' => 'wysiwyg'
+				'type' => 'wysiwyg',
+				'toolbar' => 'simple',
+				'media_upload' => false
 			]
 		];
 	}

@@ -12,7 +12,5 @@
 
 </main>
 
-<script>console.log('Testing 13:15')</script>
-
 <?php get_sidebar() ?>
 <?php get_footer() ?>

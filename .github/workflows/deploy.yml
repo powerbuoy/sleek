@@ -14,10 +14,27 @@ jobs:
         with:
           version: 15.x
 
-      - name: Install
-        run: |
-          composer install
-          npm install
+      - name: Cache NPM
+        id: npm-cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: npm-${{ hashFiles('package-lock.json') }}
+
+      - name: Cache Composer
+        id: composer-cache
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('composer.lock') }}
+
+      - name: NPM Install
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: Composer Install
+        if: steps.composer-cache.outputs.cache-hit != 'true'
+        run: composer install
 
       - name: Build
         run: |

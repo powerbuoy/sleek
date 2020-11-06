@@ -75,7 +75,6 @@ jobs:
           # TODO: Default to repo name instead of "sleek"
           src: './'
           dest: 'sleek@sleek.ssh.wpengine.net:/sites/sleek/wp-content/themes/sleek/'
-        # TODO: Clear wpengine cache after rsync (ssh ... wp flush cache?)
         run: |
           echo "${{secrets.DEPLOY_KEY}}" > deploy_key
           chmod 600 ./deploy_key

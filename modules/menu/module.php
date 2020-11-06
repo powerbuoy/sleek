@@ -1,7 +1,6 @@
 <?php
-/*
-	Description: Add a menu to the page.
- */
+# Description: Add a menu to the page.
+
 namespace Sleek\Modules;
 
 class Menu extends Module {

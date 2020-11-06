@@ -1,7 +1,6 @@
 <?php
-/*
-	Description: Display social media links for sharing the current URL.
- */
+# Description: Display social media links for sharing the current URL.
+
 namespace Sleek\Modules;
 
 class SharePage extends Module {

@@ -1,7 +1,6 @@
 <?php
-/*
-	Description: Render a Vue component.
- */
+# Description: Render a Vue component.
+
 namespace Sleek\Modules;
 
 class VueComponent extends Module {

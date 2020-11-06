@@ -1,7 +1,6 @@
 <?php
-/*
-	Description: Display the next post in the order according to WordPress.
- */
+# Description: Display the next post in the order according to WordPress.
+
 namespace Sleek\Modules;
 
 class NextPost extends Module {

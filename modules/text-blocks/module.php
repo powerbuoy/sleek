@@ -1,7 +1,6 @@
 <?php
-/*
-	Description: Add several blocks of text.
- */
+# Description: Add several blocks of text.
+
 namespace Sleek\Modules;
 
 class TextBlocks extends Module {

@@ -1,7 +1,6 @@
 <?php
-/*
-	Description: Display social media links added to Yoast SEO.
- */
+# Description: Display social media links added to Yoast SEO.
+
 namespace Sleek\Modules;
 
 class SocialLinks extends Module {

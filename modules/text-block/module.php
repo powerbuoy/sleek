@@ -1,7 +1,6 @@
 <?php
-/*
-	Description: Add a block of text with an optional image.
- */
+# Description: Add a block of text with an optional image.
+
 namespace Sleek\Modules;
 
 class TextBlock extends Module {

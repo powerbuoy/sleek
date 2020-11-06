@@ -47,7 +47,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: dist
-          key: fontello-${{ hashFiles('src/**/*') }}
+          key: webpack-${{ hashFiles('src/**/*') }}
 
       # NPM Install
       - name: NPM Install

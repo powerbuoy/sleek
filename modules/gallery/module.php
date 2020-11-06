@@ -1,7 +1,6 @@
 <?php
-/*
-	Description: Display a gallery of images.
- */
+# Description: Display a gallery of images.
+
 namespace Sleek\Modules;
 
 class Gallery extends Module {

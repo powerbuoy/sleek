@@ -1,7 +1,6 @@
 <?php
-/*
-	Description: Display posts in the same category as the current post.
- */
+# Description: Display posts in the same category as the current post.
+
 namespace Sleek\Modules;
 
 class RelatedPosts extends Module {

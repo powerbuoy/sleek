@@ -1,7 +1,6 @@
 <?php
-/*
-	Description: Display a menu tree of pages around the current page.
- */
+# Description: Display a menu tree of pages around the current page.
+
 namespace Sleek\Modules;
 
 class PageMenu extends Module {

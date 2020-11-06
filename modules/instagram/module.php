@@ -1,7 +1,6 @@
 <?php
-/*
-	Description: Display your most recent Instagram pictures.
- */
+# Description: Display your most recent Instagram pictures.
+
 namespace Sleek\Modules;
 
 class Instagram extends Module {

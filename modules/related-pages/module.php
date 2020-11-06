@@ -1,7 +1,6 @@
 <?php
-/*
-	Description: Display either direct children or siblings of the current page.
- */
+# Description: Display either direct children or siblings of the current page.
+
 namespace Sleek\Modules;
 
 class RelatedPages extends Module {

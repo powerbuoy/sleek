@@ -15,13 +15,17 @@ class GoogleMap extends Module {
 			[
 				'name' => 'description',
 				'label' => __('Description', 'sleek'),
-				'type' => 'wysiwyg'
+				'type' => 'wysiwyg',
+				'toolbar' => 'simple',
+				'media_upload' => false
 			],
 			[
 				'name' => 'info_window',
 				'label' => __('Information Window', 'sleek'),
 				'instructions' => __("Enter a text that will be displayed in the map's info window.", 'sleek'),
-				'type' => 'wysiwyg'
+				'type' => 'wysiwyg',
+				'toolbar' => 'simple',
+				'media_upload' => false
 			],
 			[
 				'name' => 'google_map',

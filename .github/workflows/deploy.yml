@@ -10,7 +10,7 @@ jobs:
     env:
       SRC: './'
       PROD: 'sleek@sleek.ssh.wpengine.net:/sites/sleek/wp-content/themes/sleek/'
-      _STAGE: 'stagesleek@stagesleek.ssh.wpengine.net:/sites/stagesleek/wp-content/themes/sleek/'
+      STAGE: 'stagesleek@stagesleek.ssh.wpengine.net:/sites/stagesleek/wp-content/themes/sleek/'
 
     # Steps
     steps:
@@ -23,13 +23,13 @@ jobs:
         if: env.STAGE
         run: |
           echo "STAGE: ${{env.STAGE}}"
-          echo ${{github.event}}
+          echo ${{github.event_name}}
+          echo ${{github.event_path}}
 
       - name: PROD
-        if: env.STAGE
+        if: env.PROD
         run: |
           echo "PROD: ${{env.PROD}}"
-          echo ${{github.event}}
 
       # Cache NPM
       # - name: Cache NPM

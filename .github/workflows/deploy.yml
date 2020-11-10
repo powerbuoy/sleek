@@ -20,15 +20,12 @@ jobs:
       #     version: 15.x
 
       - name: STAGE
-        if: env.STAGE
+        if: env.STAGE && !startsWith(github.ref, 'refs/tags/v')
         run: |
           echo "STAGE: ${{env.STAGE}}"
-          echo ${{github.event_name}}
-          echo ${{github.event_path}}
-          echo ${{github.ref}}
 
       - name: PROD
-        if: env.PROD
+        if: env.PROD && startsWith(github.ref, 'refs/tags/v')
         run: |
           echo "PROD: ${{env.PROD}}"
 

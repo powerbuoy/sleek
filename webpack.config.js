@@ -146,16 +146,10 @@ var config = {
 module.exports = (env, argv) => {
 	// Dev only
 	if (argv.mode === 'development') {
-		// Watch
-		config.watch = true;
-		config.watchOptions = {
-			ignored: /node_modules/,
-			aggregateTimeout: 300
-		};
-
 		// Sourcemaps
 		config.devtool = 'source-map';
 	}
+	// Prod
 	else {
 		// NOTE: Don't merge longhand
 		// https://github.com/cssnano/cssnano/issues/675
@@ -169,6 +163,15 @@ module.exports = (env, argv) => {
 				]
 			}
 		}));
+	}
+
+	// Watch
+	if (argv.watch) {
+		config.watch = true;
+		config.watchOptions = {
+			ignored: /node_modules/,
+			aggregateTimeout: 300
+		};
 	}
 
 	return config;

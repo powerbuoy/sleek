@@ -23,7 +23,7 @@ const observer = new IntersectionObserver(entries => {
 		if (entry.isIntersecting) {
 			observer.unobserve(entry.target);
 
-			loadScript('//js.hsforms.net/forms/v2.js').then(() => {
+			loadScript('https://js.hsforms.net/forms/v2.js').then(() => {
 				const config = {
 					portalId: entry.target.dataset.hsFormPortalId,
 					formId: entry.target.dataset.hsFormFormId,

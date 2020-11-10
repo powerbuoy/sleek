@@ -1,6 +1,6 @@
 name: Deploy
 
-on: push
+on: [ push, release ]
 
 jobs:
   deploy:
@@ -25,6 +25,7 @@ jobs:
           echo "STAGE: ${{env.STAGE}}"
           echo ${{github.event_name}}
           echo ${{github.event_path}}
+          echo ${{github.ref}}
 
       - name: PROD
         if: env.PROD

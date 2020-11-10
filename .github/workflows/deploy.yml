@@ -1,9 +1,6 @@
 name: Deploy
 
-on:
-  push:
-    tags:
-    branches:
+on: push
 
 jobs:
   deploy:

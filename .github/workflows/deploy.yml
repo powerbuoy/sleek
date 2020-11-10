@@ -6,13 +6,14 @@ on:
     branches:
 
 jobs:
-  env:
-    SRC: './'
-    PROD: 'sleek@sleek.ssh.wpengine.net:/sites/sleek/wp-content/themes/sleek/'
-    STAGE: 'stagesleek@stagesleek.ssh.wpengine.net:/sites/stagesleek/wp-content/themes/sleek/'
-
   deploy:
     runs-on: ubuntu-latest
+
+    # Env
+    env:
+      SRC: './'
+      PROD: 'sleek@sleek.ssh.wpengine.net:/sites/sleek/wp-content/themes/sleek/'
+      STAGE: 'stagesleek@stagesleek.ssh.wpengine.net:/sites/stagesleek/wp-content/themes/sleek/'
 
     # Steps
     steps:

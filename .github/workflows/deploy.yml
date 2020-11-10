@@ -1,6 +1,6 @@
 name: Deploy
 
-on: [ push, release ]
+on: push
 
 jobs:
   deploy:
@@ -15,84 +15,76 @@ jobs:
     # Steps
     steps:
       - uses: actions/checkout@v2
-      # - uses: actions/setup-node@v1.1.0
-      #   with:
-      #     version: 15.x
-
-      - name: STAGE
-        if: env.STAGE && !startsWith(github.ref, 'refs/tags/v')
-        run: |
-          echo "STAGE: ${{env.STAGE}}"
-
-      - name: PROD
-        if: env.PROD && startsWith(github.ref, 'refs/tags/v')
-        run: |
-          echo "PROD: ${{env.PROD}}"
+      - uses: actions/setup-node@v1.1.0
+        with:
+          version: 15.x
 
       # Cache NPM
-      # - name: Cache NPM
-      #   id: npm-cache
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: node_modules
-      #     key: npm-${{ hashFiles('package-lock.json') }}
-      #
-      # # Cache Composer
-      # - name: Cache Composer
-      #   id: composer-cache
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: vendor
-      #     key: composer-${{ hashFiles('composer.lock') }}
-      #
-      # # Cache Fontello
-      # - name: Cache Fontello
-      #   id: fontello-cache
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: |
-      #       src/sass/icons.scss
-      #       src/assets/fontello
-      #     key: fontello-${{ hashFiles('src/icons.json') }}
-      #
-      # # Cache Webpack
-      # - name: Cache Webpack
-      #   id: webpack-cache
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: dist
-      #     key: webpack-${{ hashFiles('src/**/*') }}
-      #
-      # # NPM Install
-      # - name: NPM Install
-      #   if: steps.npm-cache.outputs.cache-hit != 'true'
-      #   run: npm install
-      #
-      # # Composer Install
-      # - name: Composer Install
-      #   if: steps.composer-cache.outputs.cache-hit != 'true'
-      #   run: composer install
-      #
-      # # Fontello
-      # - name: Download Fontello
-      #   if: steps.fontello-cache.outputs.cache-hit != 'true'
-      #   run: npm run fontello
-      #
-      # # Webpack
-      # - name: Run Webpack
-      #   if: steps.webpack-cache.outputs.cache-hit != 'true'
-      #   run: npm run build
-      #
-      # # Create SSH key
-      # - name: Create SSH Key
-      #   run: |
-      #       echo "${{secrets.DEPLOY_KEY}}" > deploy_key
-      #       chmod 600 ./deploy_key
-      #
-      # # Deploy to Stage
-      # - name: Deploy to Stage
-      #   run: rsync -chav --delete -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' --exclude-from='./.prodignore' ${{env.SRC}} ${{env.STAGE}}
-      #
-      # # Deploy to Prod
-      # - name: Deploy to Prod
-      #   run: rsync -chav --delete -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' --exclude-from='./.prodignore' ${{env.SRC}} ${{env.PROD}}
+      - name: Cache NPM
+        id: npm-cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: npm-${{ hashFiles('package-lock.json') }}
+
+      # Cache Composer
+      - name: Cache Composer
+        id: composer-cache
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('composer.lock') }}
+
+      # Cache Fontello
+      - name: Cache Fontello
+        id: fontello-cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            src/sass/icons.scss
+            src/assets/fontello
+          key: fontello-${{ hashFiles('src/icons.json') }}
+
+      # Cache Webpack
+      - name: Cache Webpack
+        id: webpack-cache
+        uses: actions/cache@v2
+        with:
+          path: dist
+          key: webpack-${{ hashFiles('src/**/*') }}
+
+      # NPM Install
+      - name: NPM Install
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm install
+
+      # Composer Install
+      - name: Composer Install
+        if: steps.composer-cache.outputs.cache-hit != 'true'
+        run: composer install
+
+      # Fontello
+      - name: Download Fontello
+        if: steps.fontello-cache.outputs.cache-hit != 'true'
+        run: npm run fontello
+
+      # Webpack
+      - name: Run Webpack
+        if: steps.webpack-cache.outputs.cache-hit != 'true'
+        run: npm run build
+
+      # Create SSH key
+      - name: Create SSH Key
+        run: |
+            echo "${{secrets.DEPLOY_KEY}}" > deploy_key
+            chmod 600 ./deploy_key
+
+      # Deploy to Stage
+      - name: Deploy to Stage
+        if: env.STAGE && !startsWith(github.ref, 'refs/tags/v')
+        run: rsync -chav --delete -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' --exclude-from='./.prodignore' ${{env.SRC}} ${{env.STAGE}}
+
+      # Deploy to Prod
+      - name: Deploy to Prod
+        if: env.PROD && startsWith(github.ref, 'refs/tags/v')
+        run: rsync -chav --delete -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' --exclude-from='./.prodignore' ${{env.SRC}} ${{env.PROD}}

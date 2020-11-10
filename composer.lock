@@ -523,16 +523,16 @@
         },
         {
             "name": "powerbuoy/sleek-modules",
-            "version": "v6.6.1",
+            "version": "v6.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-modules.git",
-                "reference": "8a73649132c8999e2ec67aba5dde8c01ff825f88"
+                "reference": "6119ac2cc3b459a25ca8478d0b948ece58d6bae6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/8a73649132c8999e2ec67aba5dde8c01ff825f88",
-                "reference": "8a73649132c8999e2ec67aba5dde8c01ff825f88",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/6119ac2cc3b459a25ca8478d0b948ece58d6bae6",
+                "reference": "6119ac2cc3b459a25ca8478d0b948ece58d6bae6",
                 "shasum": ""
             },
             "require": {
@@ -559,9 +559,9 @@
             "description": "Create modules by creating classes in /modules/.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-modules/issues",
-                "source": "https://github.com/powerbuoy/sleek-modules/tree/v6.6.1"
+                "source": "https://github.com/powerbuoy/sleek-modules/tree/v6.7.0"
             },
-            "time": "2020-10-27T00:12:39+00:00"
+            "time": "2020-11-10T12:32:10+00:00"
         },
         {
             "name": "powerbuoy/sleek-notices",

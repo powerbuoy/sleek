@@ -4,6 +4,7 @@ on: push
 
 jobs:
   deploy:
+    if: (env.STAGE && !startsWith(github.ref, 'refs/tags/v')) || (env.PROD && startsWith(github.ref, 'refs/tags/v'))
     runs-on: ubuntu-latest
 
     # Env

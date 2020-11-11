@@ -9,7 +9,8 @@ env:
 
 jobs:
   deploy:
-    if: (env.STAGE && !startsWith(github.ref, 'refs/tags/v')) || (env.PROD && startsWith(github.ref, 'refs/tags/v'))
+    # https://github.community/t/how-to-set-and-access-a-workflow-variable/17335/18
+    # if: (env.STAGE && !startsWith(github.ref, 'refs/tags/v')) || (env.PROD && startsWith(github.ref, 'refs/tags/v'))
     runs-on: ubuntu-latest
 
     # Steps

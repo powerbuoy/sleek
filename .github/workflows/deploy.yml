@@ -1,19 +1,16 @@
 name: Deploy
-
 on: push
+
+# Env
+env:
+  SRC: './'
+  PROD: 'sleek@sleek.ssh.wpengine.net:/sites/sleek/wp-content/themes/sleek/'
+  # STAGE: 'stagesleek@stagesleek.ssh.wpengine.net:/sites/stagesleek/wp-content/themes/sleek/'
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-
-    # Env
-    env:
-      SRC: './'
-      PROD: 'sleek@sleek.ssh.wpengine.net:/sites/sleek/wp-content/themes/sleek/'
-      # STAGE: 'stagesleek@stagesleek.ssh.wpengine.net:/sites/stagesleek/wp-content/themes/sleek/'
-
-    # Abort job early
     if: (env.STAGE && !startsWith(github.ref, 'refs/tags/v')) || (env.PROD && startsWith(github.ref, 'refs/tags/v'))
+    runs-on: ubuntu-latest
 
     # Steps
     steps:

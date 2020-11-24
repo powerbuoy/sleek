@@ -42,9 +42,7 @@ class Form extends Module {
 				'type' => 'radio',
 				'layout' => 'horizontal',
 				'choices' => $choices,
-				'default_value' => [
-					'custom'
-				]
+				'default_value' => 'custom'
 			];
 		}
 

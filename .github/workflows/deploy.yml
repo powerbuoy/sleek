@@ -11,14 +11,16 @@ jobs:
   deploy:
     # https://github.community/t/how-to-set-and-access-a-workflow-variable/17335/18
     # if: (env.STAGE && !startsWith(github.ref, 'refs/tags/v')) || (env.PROD && startsWith(github.ref, 'refs/tags/v'))
+    # NOTE: Remove this if-statement if you add a staging environment
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
 
     # Steps
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1.1.0
+      - uses: actions/setup-node@v1.4.4
         with:
-          version: 15.x
+          node-version: 15.x
 
       # Cache NPM
       - name: Cache NPM

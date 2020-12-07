@@ -19,12 +19,6 @@
       "src": "fontawesome"
     },
     {
-      "uid": "0fbfb1cd7a847c88ea4c141d0e1bbdb5",
-      "css": "instagram",
-      "code": 62253,
-      "src": "entypo"
-    },
-    {
       "uid": "e9107949dd6c9e8ab2b29ae07156e38c",
       "css": "linkedin",
       "code": 59395,
@@ -245,6 +239,12 @@
       "css": "arrow-up",
       "code": 59417,
       "src": "mfglabs"
+    },
+    {
+      "uid": "4c1ef492f1d2c39a2250ae457cee2a6e",
+      "css": "instagram",
+      "code": 61805,
+      "src": "fontawesome"
     }
   ]
 }

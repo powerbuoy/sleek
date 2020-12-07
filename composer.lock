@@ -64,16 +64,16 @@
         },
         {
             "name": "powerbuoy/sleek-acf",
-            "version": "v2.5.2",
+            "version": "v2.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-acf.git",
-                "reference": "4b3c59f47541db0b1c822e656fb57105d7fbcd91"
+                "reference": "2ec1e50e35fb75caf9d9813a36d567295133c194"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-acf/zipball/4b3c59f47541db0b1c822e656fb57105d7fbcd91",
-                "reference": "4b3c59f47541db0b1c822e656fb57105d7fbcd91",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-acf/zipball/2ec1e50e35fb75caf9d9813a36d567295133c194",
+                "reference": "2ec1e50e35fb75caf9d9813a36d567295133c194",
                 "shasum": ""
             },
             "require": {
@@ -98,9 +98,9 @@
             "description": "Improves ACF in a number of ways like nicer flexible content titles, collapsed flexible content layouts, better looking relationship field and more.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-acf/issues",
-                "source": "https://github.com/powerbuoy/sleek-acf/tree/v2.5.2"
+                "source": "https://github.com/powerbuoy/sleek-acf/tree/v2.5.3"
             },
-            "time": "2020-11-13T14:43:21+00:00"
+            "time": "2020-11-24T10:37:51+00:00"
         },
         {
             "name": "powerbuoy/sleek-archive-filter",

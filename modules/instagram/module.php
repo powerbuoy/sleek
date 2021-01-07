@@ -4,6 +4,12 @@
 namespace Sleek\Modules;
 
 class Instagram extends Module {
+	public function init () {
+		add_action('wp_enqueue_scripts', function () {
+			wp_dequeue_style('meks_instagram-widget-styles');
+		}, 99);
+	}
+
 	public function fields () {
 		return [
 			[

@@ -13,13 +13,21 @@ class Employee extends PostType {
 			return $args;
 		}, 10, 2);
 
-		# Show all employees in archive
+		# Show all employees in archive and sort by name
 		add_action('pre_get_posts', function ($query) {
 			if (!is_admin() and $query->is_main_query()) {
 				if (is_post_type_archive('employee')) {
 					$query->set('posts_per_page', -1);
 					$query->set('orderby', 'post_title');
 					$query->set('order', 'asc');
+
+					# NOTE: Even though we show all posts on the first page
+					# WP still genereates URLs for pages like /employees/page/123/
+					# Make them 404s
+					if (is_paged()) {
+						status_header(404);
+						$query->set_404();
+					}
 				}
 			}
 		});

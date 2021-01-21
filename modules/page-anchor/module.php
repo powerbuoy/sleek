@@ -1,5 +1,5 @@
 <?php
-# Description: Create a page anchor that authors can link to using `<a href="#page-anchor-anchor-name"></a>`.
+# Description: Create a page anchor that you can link to using #page-anchor-anchor-name.
 
 namespace Sleek\Modules;
 

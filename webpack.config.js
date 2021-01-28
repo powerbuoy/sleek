@@ -125,7 +125,10 @@ var config = {
 					{
 						loader: 'sass-loader',
 						options: {
-							sourceMap: true
+							sourceMap: true,
+							sassOptions: {
+								outputStyle: 'expanded'
+							}
 						}
 					},
 

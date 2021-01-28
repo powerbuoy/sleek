@@ -1,7 +1,5 @@
 name: Deploy
-on:
-  push:
-    branches: [ web ]
+on: push
 
 # Env
 env:

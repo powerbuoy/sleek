@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "11f6667f1f9c0d62e21a74d266b72e49",
+    "content-hash": "b6b3a77afe68969cd0b0f981923b6bc3",
     "packages": [
         {
             "name": "icanboogie/inflector",
@@ -218,16 +218,16 @@
         },
         {
             "name": "powerbuoy/sleek-core",
-            "version": "v3.0.0",
+            "version": "v4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-core.git",
-                "reference": "bc5fccf465a9fd50f89fbab00c31ad0eacedc99d"
+                "reference": "dfbc4e36a5acc46799c60f604e5cc63d5100e821"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/bc5fccf465a9fd50f89fbab00c31ad0eacedc99d",
-                "reference": "bc5fccf465a9fd50f89fbab00c31ad0eacedc99d",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/dfbc4e36a5acc46799c60f604e5cc63d5100e821",
+                "reference": "dfbc4e36a5acc46799c60f604e5cc63d5100e821",
                 "shasum": ""
             },
             "type": "library",
@@ -249,9 +249,9 @@
             "description": "Adds a bunch of theme support, includes translation files, enqueues scripts etc etc.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-core/issues",
-                "source": "https://github.com/powerbuoy/sleek-core/tree/v3.0.0"
+                "source": "https://github.com/powerbuoy/sleek-core/tree/v4.0.0"
             },
-            "time": "2020-10-11T14:01:31+00:00"
+            "time": "2021-02-10T13:32:31+00:00"
         },
         {
             "name": "powerbuoy/sleek-custom-logo",

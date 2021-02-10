@@ -7,6 +7,17 @@ class Form extends Module {
 	public function init () {
 		$this->hubspot_form_field();
 		$this->dummy_data();
+
+		# Remove CF7 CSS (NOTE: No need to remove JS as it is automatically removed when jQuery is)
+		add_filter('wpcf7_load_css', '__return_false');
+
+		# Add required attribute to CF7 forms
+		add_filter('wpcf7_form_elements', function ($content) {
+			# Add required attribute
+			$content = str_replace('aria-required="true"', 'required="true" aria-required="true"', $content);
+
+			return $content;
+		});
 	}
 
 	public function fields () {

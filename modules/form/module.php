@@ -8,8 +8,9 @@ class Form extends Module {
 		$this->hubspot_form_field();
 		$this->dummy_data();
 
-		# Remove CF7 CSS (NOTE: No need to remove JS as it is automatically removed when jQuery is)
+		# Remove CF7 CSS & JS
 		add_filter('wpcf7_load_css', '__return_false');
+		add_filter('wpcf7_load_js', '__return_false');
 
 		# Add required attribute to CF7 forms
 		add_filter('wpcf7_form_elements', function ($content) {

@@ -5,7 +5,7 @@ function loadScript (src) {
 		const existingScript = document.querySelector('script[src="' + src + '"]');
 
 		if (existingScript) {
-			if (typeof hbspt.forms === 'undefined') {
+			if (typeof hbspt === 'undefined' || typeof hbspt.forms === 'undefined') {
 				existingScript.addEventListener('load', () => resolve(existingScript));
 			}
 			else {

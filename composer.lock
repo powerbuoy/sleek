@@ -64,16 +64,16 @@
         },
         {
             "name": "powerbuoy/sleek-acf",
-            "version": "v2.6.3",
+            "version": "v2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-acf.git",
-                "reference": "823288060c9583f063caef6b475cd48ed7323be5"
+                "reference": "674d4a0e5fabb08814470c56bea36e7345e7dee6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-acf/zipball/823288060c9583f063caef6b475cd48ed7323be5",
-                "reference": "823288060c9583f063caef6b475cd48ed7323be5",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-acf/zipball/674d4a0e5fabb08814470c56bea36e7345e7dee6",
+                "reference": "674d4a0e5fabb08814470c56bea36e7345e7dee6",
                 "shasum": ""
             },
             "require": {
@@ -98,9 +98,9 @@
             "description": "Improves ACF in a number of ways like nicer flexible content titles, collapsed flexible content layouts, better looking relationship field and more.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-acf/issues",
-                "source": "https://github.com/powerbuoy/sleek-acf/tree/v2.6.3"
+                "source": "https://github.com/powerbuoy/sleek-acf/tree/v2.7.1"
             },
-            "time": "2021-03-02T13:13:10+00:00"
+            "time": "2021-03-10T15:30:05+00:00"
         },
         {
             "name": "powerbuoy/sleek-archive-filter",
@@ -523,16 +523,16 @@
         },
         {
             "name": "powerbuoy/sleek-modules",
-            "version": "v6.10.1",
+            "version": "v6.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-modules.git",
-                "reference": "ccba6d64498f2090ca8c0dd9d4f9b931b2cf3222"
+                "reference": "7787bab9fb50ad38a2ad6489327118e7ecb054f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/ccba6d64498f2090ca8c0dd9d4f9b931b2cf3222",
-                "reference": "ccba6d64498f2090ca8c0dd9d4f9b931b2cf3222",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/7787bab9fb50ad38a2ad6489327118e7ecb054f4",
+                "reference": "7787bab9fb50ad38a2ad6489327118e7ecb054f4",
                 "shasum": ""
             },
             "require": {
@@ -559,9 +559,9 @@
             "description": "Create modules by creating classes in /modules/.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-modules/issues",
-                "source": "https://github.com/powerbuoy/sleek-modules/tree/v6.10.1"
+                "source": "https://github.com/powerbuoy/sleek-modules/tree/v6.11.0"
             },
-            "time": "2021-01-20T11:09:54+00:00"
+            "time": "2021-03-10T15:36:41+00:00"
         },
         {
             "name": "powerbuoy/sleek-notices",

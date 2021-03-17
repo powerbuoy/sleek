@@ -144,9 +144,6 @@ class Form extends Module {
 
 					$forms = $forms->data;
 				}
-				else {
-					\Sleek\Utils\log('no forms');
-				}
 			}
 
 			# If we still have forms

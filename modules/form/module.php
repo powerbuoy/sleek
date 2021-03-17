@@ -132,17 +132,20 @@ class Form extends Module {
 
 			if (!$forms) {
 				# Or using HS api
-				$hs = \SevenShores\Hubspot\Factory::create(\Sleek\Settings\get_setting('hubspot_api_key'));
+				$hs = \SevenShores\Hubspot\Factory::create(\Sleek\Settings\get_setting('hubspot_api_key'), null, ['http_errors' => false]);
 				$forms = $hs->forms()->all([
 					'count' => 1000,
 					'property' => ['name', 'guid'] # NOTE: Doesn't work with forms...
 				], null, ['http_errors' => false], false);
 
 				# Set a transient
-				if ($forms) {
+				if ($forms->getStatusCode() === 200) {
 					set_transient('hubspot_forms_all', $forms->data, 60 * 60 * 24);
 
 					$forms = $forms->data;
+				}
+				else {
+					\Sleek\Utils\log('no forms');
 				}
 			}
 

@@ -4,8 +4,8 @@ on: push
 # Env
 env:
   SRC: './'
-  PROD: 'sleek@sleek.ssh.wpengine.net:/sites/sleek/wp-content/themes/sleek/'
-  # STAGE: 'stagesleek@stagesleek.ssh.wpengine.net:/sites/stagesleek/wp-content/themes/sleek/'
+  # PROD: 'SITE@SITE.ssh.wpengine.net:/sites/SITE/wp-content/themes/SITE/'
+  # STAGE: 'STAGESITE@STAGESITE.ssh.wpengine.net:/sites/STAGESITE/wp-content/themes/SITE/'
 
 jobs:
   deploy:

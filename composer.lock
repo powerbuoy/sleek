@@ -332,16 +332,16 @@
         },
         {
             "name": "powerbuoy/sleek-google-maps",
-            "version": "v2.3.0",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-google-maps.git",
-                "reference": "01a67b53022f8480aa0fe7446b0974ed02599214"
+                "reference": "5e5f9176b12affd179c2425b727eb5e15d0de626"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-google-maps/zipball/01a67b53022f8480aa0fe7446b0974ed02599214",
-                "reference": "01a67b53022f8480aa0fe7446b0974ed02599214",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-google-maps/zipball/5e5f9176b12affd179c2425b727eb5e15d0de626",
+                "reference": "5e5f9176b12affd179c2425b727eb5e15d0de626",
                 "shasum": ""
             },
             "require": {
@@ -366,9 +366,9 @@
             "description": "Adds a 'Google Maps API Key' setting to the admin.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-google-maps/issues",
-                "source": "https://github.com/powerbuoy/sleek-google-maps/tree/master"
+                "source": "https://github.com/powerbuoy/sleek-google-maps/tree/v2.4.0"
             },
-            "time": "2020-03-12T21:47:11+00:00"
+            "time": "2021-03-30T11:02:38+00:00"
         },
         {
             "name": "powerbuoy/sleek-google-search",
@@ -486,16 +486,16 @@
         },
         {
             "name": "powerbuoy/sleek-menu",
-            "version": "v1.4.6",
+            "version": "v1.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-menu.git",
-                "reference": "c26867ae25b351224f2e0da9646c1b7f7f336113"
+                "reference": "e08dbc903440939c196cab009086c355bb518f68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-menu/zipball/c26867ae25b351224f2e0da9646c1b7f7f336113",
-                "reference": "c26867ae25b351224f2e0da9646c1b7f7f336113",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-menu/zipball/e08dbc903440939c196cab009086c355bb518f68",
+                "reference": "e08dbc903440939c196cab009086c355bb518f68",
                 "shasum": ""
             },
             "type": "library",
@@ -517,22 +517,22 @@
             "description": "Cleans up the menu HTML by removing IDs and redundant classes. Also fixes active-classes on post type and taxonomy archives.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-menu/issues",
-                "source": "https://github.com/powerbuoy/sleek-menu/tree/v1.4.6"
+                "source": "https://github.com/powerbuoy/sleek-menu/tree/v1.4.7"
             },
-            "time": "2021-02-23T12:14:46+00:00"
+            "time": "2021-03-12T14:02:27+00:00"
         },
         {
             "name": "powerbuoy/sleek-modules",
-            "version": "v6.11.0",
+            "version": "v6.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-modules.git",
-                "reference": "7787bab9fb50ad38a2ad6489327118e7ecb054f4"
+                "reference": "22e17bd989c298265583119995c09d3d42d50c3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/7787bab9fb50ad38a2ad6489327118e7ecb054f4",
-                "reference": "7787bab9fb50ad38a2ad6489327118e7ecb054f4",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/22e17bd989c298265583119995c09d3d42d50c3a",
+                "reference": "22e17bd989c298265583119995c09d3d42d50c3a",
                 "shasum": ""
             },
             "require": {
@@ -559,9 +559,9 @@
             "description": "Create modules by creating classes in /modules/.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-modules/issues",
-                "source": "https://github.com/powerbuoy/sleek-modules/tree/v6.11.0"
+                "source": "https://github.com/powerbuoy/sleek-modules/tree/v6.12.0"
             },
-            "time": "2021-03-10T15:36:41+00:00"
+            "time": "2021-03-12T13:32:07+00:00"
         },
         {
             "name": "powerbuoy/sleek-notices",

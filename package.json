@@ -39,7 +39,6 @@
     "postcss-custom-selectors": "^6.0.0",
     "postcss-font-display": "^0.2.1",
     "postcss-loader": "^6.1.1",
-    "prettier": "^2.1.2",
     "request": "^2.88.2",
     "sass": "^1.26.10",
     "sass-loader": "^12.1.0",

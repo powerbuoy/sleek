@@ -45,7 +45,7 @@ var config = {
 		new VueLoaderPlugin()
 	],
 
-	// Externals
+	// Externals (NOTE: Deprecate)
 	externals: {
 		jquery: 'jQuery'
 	},
@@ -62,13 +62,16 @@ var config = {
 			// PO-files
 			{
 				test: /\.po$/,
-				loader: 'file-loader?name=[name].mo!po2mo-loader'
+				use: [
+					'file-loader?name=[name].mo',
+					'po2mo-loader'
+				]
 			},
 
 			// JS
 			{
 				test: /\.js$/,
-				exclude: /node_modules\/(?!sleek\-ui)/,
+				exclude: /node_modules\/(?!sleek\-ui)/, // NOTE: We need to run babel in sleek-ui...
 				use: [
 					// Babel
 					{
@@ -92,10 +95,7 @@ var config = {
 				use: [
 					// Extract CSS(???)
 					{
-						loader: MiniCssExtractPlugin.loader,
-						options: {
-							sourceMap: true
-						}
+						loader: MiniCssExtractPlugin.loader
 					},
 
 					// Enable importing CSS(???)
@@ -111,12 +111,25 @@ var config = {
 					{
 						loader: 'postcss-loader',
 						options: {
-							plugins: [
-								require('autoprefixer'),
-								require('postcss-custom-media'),
-								require('postcss-custom-selectors'),
-								require('css-has-pseudo/postcss')
-							],
+							postcssOptions: {
+								plugins: [
+									require('autoprefixer'),
+									require('postcss-custom-media'),
+									require('postcss-custom-selectors'),
+									require('css-has-pseudo/postcss'),
+									require('postcss-font-display')([
+										{
+											display: 'swap',
+											replace: false
+										},
+										{
+											test: 'fontello',
+											display: 'optional',
+											replace: false
+										}
+									])
+								]
+							},
 							sourceMap: true
 						}
 					},
@@ -151,30 +164,30 @@ module.exports = (env, argv) => {
 	if (argv.mode === 'development') {
 		// Sourcemaps
 		config.devtool = 'source-map';
-	}
-	// Prod
-	else {
-		// NOTE: Don't merge longhand
-		// https://github.com/cssnano/cssnano/issues/675
-		config.plugins.push(new OptimizeCssAssetsPlugin({
-			cssProcessorPluginOptions: {
-				preset: [
-					'default', {
-						mergeLonghand: false,
-						calc: false
-					}
-				]
-			}
-		}));
-	}
 
-	// Watch
-	if (argv.watch) {
+		// Watch
 		config.watch = true;
 		config.watchOptions = {
 			ignored: /node_modules/,
 			aggregateTimeout: 300
 		};
+	}
+	// Prod
+	else {
+		config.plugins.push(new OptimizeCssAssetsPlugin({
+			cssProcessorPluginOptions: {
+				preset: [
+					'default', {
+						// NOTE: Don't merge longhand
+						// https://github.com/cssnano/cssnano/issues/675
+						mergeLonghand: false,
+
+						// NOTE: Don't optimize calc()
+						calc: false
+					}
+				]
+			}
+		}));
 	}
 
 	return config;

@@ -15,21 +15,6 @@ import cssHasPseudo from 'css-has-pseudo';
 
 cssHasPseudo(document); */
 
-//////////
-// CountTo
-/* import CountTo from 'sleek-ui/src/js/count-to';
-
-document.querySelectorAll('[data-count-to]').forEach(el => {
-	new CountTo(el, {
-		from: 0,
-		to: el.dataset.countTo,
-		prefix: el.dataset.prefix || '',
-		suffix: el.dataset.suffix || '',
-		duration: 2,
-		locale: 'sv-SE'
-	}).mount();
-}); */
-
 //////////////////
 // DocumentOutline
 /* import DocumentOutline from 'sleek-ui/src/js/document-outline';

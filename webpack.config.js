@@ -124,7 +124,7 @@ var config = {
 										},
 										{
 											test: 'fontello',
-											display: 'optional',
+											display: 'block',
 											replace: false
 										}
 									])

@@ -20,20 +20,6 @@ import Prism from 'prismjs';
 import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-php';
 
-//////////
-// CountTo
-/* import CountTo from 'sleek-ui/src/js/count-to';
-
-document.querySelectorAll('[data-count-to]').forEach(el => {
-	new CountTo(el, {
-		from: 0,
-		to: el.dataset.countTo,
-		prefix: el.dataset.prefix || '',
-		suffix: el.dataset.suffix || '',
-		duration: 2,
-		locale: 'sv-SE'
-	}).mount();
-}); */
 
 //////////////////
 // DocumentOutline

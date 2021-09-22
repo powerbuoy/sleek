@@ -1,3 +1,31 @@
+/////////////
+// Components
+$components: (
+	"dialog": true,
+
+	"form": true,
+	"form-wpcf7": true,
+	"form-hs": true,
+
+	"google-map": true,
+	"google-map-kml": true,
+	"google-map-geolocation": true,
+
+	"slideshow": true,
+	"slideshow-buttons": true,
+	"slideshow-bullets": true,
+	"video-embed": true,
+
+	"wp-classes": true
+);
+
+/////////
+// Ratios
+$ratios: (
+	(16, 9),
+	(1, 1)
+);
+
 ////////////
 // AutoIcons
 $auto-icons: (

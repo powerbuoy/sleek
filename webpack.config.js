@@ -7,7 +7,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 // Base config
 var config = {
@@ -102,7 +103,6 @@ var config = {
 					{
 						loader: 'css-loader',
 						options: {
-							sourceMap: true,
 							url: false // Don't parse url()
 						}
 					},
@@ -129,8 +129,7 @@ var config = {
 										}
 									])
 								]
-							},
-							sourceMap: true
+							}
 						}
 					},
 
@@ -138,7 +137,6 @@ var config = {
 					{
 						loader: 'sass-loader',
 						options: {
-							sourceMap: true,
 							sassOptions: {
 								outputStyle: 'expanded'
 							}
@@ -147,10 +145,7 @@ var config = {
 
 					// Glob
 					{
-						loader: 'import-glob-loader',
-						options: {
-							sourceMap: true
-						}
+						loader: 'import-glob-loader'
 					}
 				]
 			}
@@ -172,23 +167,28 @@ module.exports = (env, argv) => {
 			aggregateTimeout: 300
 		};
 	}
-	// Prod
-	else {
-		config.plugins.push(new OptimizeCssAssetsPlugin({
-			cssProcessorPluginOptions: {
-				preset: [
-					'default', {
-						// NOTE: Don't merge longhand
-						// https://github.com/cssnano/cssnano/issues/675
-						mergeLonghand: false,
 
-						// NOTE: Don't optimize calc()
-						calc: false
-					}
-				]
-			}
-		}));
-	}
+	// Minimizers
+	config.optimization = {
+		minimizer: [
+			new TerserPlugin(),
+			new CssMinimizerPlugin({
+				minimizerOptions: {
+					preset: [
+						'default',
+						{
+							// NOTE: Don't merge longhand
+							// https://github.com/cssnano/cssnano/issues/675
+							mergeLonghand: false,
+
+							// NOTE: Don't optimize calc()
+							calc: false
+						},
+					],
+				},
+			}),
+		]
+	};
 
 	return config;
 };

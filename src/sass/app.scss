@@ -1,24 +1,16 @@
-///////////////////////
-// Import fonts & icons
-// @import url('https://fonts.googleapis.com/css?family=Srisakdi:400,700|Raleway:300,300i,600,900&display=swap');
+// Icons and config
 @import "icons";
-
-////////////////
-// Import config
 @import "config";
 
-////////////////
-// Import Vendor
+// Vendor
 @import "~sleek-ui/src/sass/sleek-ui";
 
-///////////////////
-// Import our stuff
+// Our stuff
 // @import "mixins/**/*.scss";
 @import "components/**/*.scss";
 @import "modules/**/*.scss";
 // @import "../../modules/**/*.scss";
 
-///////////////
 // Global stuff
 html {
 	// Nicer text
@@ -28,11 +20,6 @@ html {
 	// Smooth scroll
 	scroll-behavior: smooth;
 	--scroll-behavior: smooth; // Polyfill
-
-	// Smaller text in low res
-	@media (--tablet-max) {
-		font-size: 80%;
-	}
 }
 
 // Prevent scrollbar (https://stackoverflow.com/a/46039555)
@@ -62,9 +49,4 @@ html.admin-bar {
 			transition-delay: 0s;
 		}
 	}
-}
-
-// TEMP! First impressions and all
-body {
-	@include container;
 }

@@ -27,7 +27,7 @@ input[type=submit] {
 }
 
 // Button colors
-$button-colors: ("black": black, "white": white, "dark": darkgray, "subtle": lightgray);
+$button-colors: ("black": black, "white": white);
 
 @each $color-name, $color in $button-colors {
 	.button--#{$color-name} {
@@ -36,7 +36,6 @@ $button-colors: ("black": black, "white": white, "dark": darkgray, "subtle": lig
 }
 
 // Special case for bright buttons
-.button--white,
-.button--subtle {
+.button--white {
 	--button-text-color: var(--color-primary);
 }

@@ -186,7 +186,7 @@ module.exports = (env, argv) => {
 						},
 					],
 				},
-			}),
+			})
 		]
 	};
 

@@ -42,6 +42,8 @@ new ScrollStats({farThreshold: 100}).mount(); */
 /* import Scrollspy from 'sleek-ui/src/js/scrollspy';
 
 document.querySelectorAll('[data-scrollspy]').forEach(el => {
+	Array.from(el.children).forEach((child, index) => child.style.setProperty('--scrollspy-el-index', index));
+
 	new Scrollspy(el).mount();
 }); */
 

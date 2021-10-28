@@ -183,9 +183,9 @@ module.exports = (env, argv) => {
 
 							// NOTE: Don't optimize calc()
 							calc: false
-						},
-					],
-				},
+						}
+					]
+				}
 			})
 		]
 	};

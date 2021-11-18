@@ -35,9 +35,15 @@ class Form extends Module {
 				'type' => 'wysiwyg',
 				'toolbar' => 'simple',
 				'media_upload' => false
-			]
+			],
+			...$this->form_fields()
 		];
 
+		return $fields;
+	}
+
+	# Return only form fields (can be used by other modules like HeroForm)
+	public function form_fields($module = 'form') {
 		# Add form type radio button
 		if (shortcode_exists('contact-form-7') or \Sleek\Settings\get_setting('hubspot_portal_id')) {
 			$choices = ['custom' => __('Custom form', 'sleek')];
@@ -65,7 +71,7 @@ class Form extends Module {
 			'label' => __('Form Embed Code', 'sleek'),
 			'type' => 'textarea',
 			'conditional_logic' => [[[
-				'field' => '{acf_key}_form_form_type',
+				'field' => '{acf_key}_' . $module . '_form_type',
 				'operator' => '==',
 				'value' => 'custom'
 			]]]
@@ -84,7 +90,7 @@ class Form extends Module {
 				'post_type' => ['wpcf7_contact_form'],
 				'allow_null' => true,
 				'conditional_logic' => [[[
-					'field' => '{acf_key}_form_form_type',
+					'field' => '{acf_key}_' . $module . '_form_type',
 					'operator' => '==',
 					'value' => 'cf7'
 				]]]
@@ -99,7 +105,7 @@ class Form extends Module {
 				'label' => __('Hubspot Form ID', 'sleek'),
 				'type' => 'text',
 				'conditional_logic' => [[[
-					'field' => '{acf_key}_form_form_type',
+					'field' => '{acf_key}_' . $module . '_form_type',
 					'operator' => '==',
 					'value' => 'hs'
 				]]]
@@ -113,7 +119,7 @@ class Form extends Module {
 				'label' => __('Redirect URL', 'sleek'),
 				'type' => 'url',
 				'conditional_logic' => [[[
-					'field' => '{acf_key}_form_form_type',
+					'field' => '{acf_key}_' . $module . '_form_type',
 					'operator' => '!=',
 					'value' => 'custom'
 				]]]
@@ -123,26 +129,22 @@ class Form extends Module {
 		return $fields;
 	}
 
-	# TODO: Move to sleek-hubspot
+	# Autocomplete hubspot form ID field
 	private function hubspot_form_field () {
 		# If Hubspot API is installed
-		if (class_exists('\SevenShores\Hubspot\Factory') and \Sleek\Settings\get_setting('hubspot_api_key')) {
+		if (\Sleek\Settings\get_setting('hubspot_api_key')) {
 			# Grab all hubspot forms from transient
 			$forms = get_transient('hubspot_forms_all');
 
-			if (!$forms) {
-				# Or using HS api
-				$hs = \SevenShores\Hubspot\Factory::create(\Sleek\Settings\get_setting('hubspot_api_key'), null, ['http_errors' => false]);
-				$forms = $hs->forms()->all([
-					'count' => 1000,
-					'property' => ['name', 'guid'] # NOTE: Doesn't work with forms...
-				], null, ['http_errors' => false], false);
+			# Or using HS api
+			if (true or !$forms) {
+				$response = wp_remote_get('https://api.hubapi.com/marketing/v3/forms/?hapikey=' . \Sleek\Settings\get_setting('hubspot_api_key'));
 
-				# Set a transient
-				if ($forms->getStatusCode() === 200) {
-					set_transient('hubspot_forms_all', $forms->data, 60 * 60 * 24);
+				if ($response['response']['code'] === 200) {
+					$json = json_decode($response['body']);
+					$forms = $json->results;
 
-					$forms = $forms->data;
+					set_transient('hubspot_forms_all', $forms, 60 * 60 * 24);
 				}
 			}
 
@@ -153,7 +155,7 @@ class Form extends Module {
 					?>
 					<datalist id="hubspot-forms-list">
 						<?php foreach ($forms as $form) : ?>
-							<option value="<?php echo $form->guid ?>"><?php echo $form->name ?></option>
+							<option value="<?php echo $form->id ?>"><?php echo $form->name ?></option>
 						<?php endforeach ?>
 					</datalist>
 					<?php

@@ -137,7 +137,7 @@ class Form extends Module {
 			$forms = get_transient('hubspot_forms_all');
 
 			# Or using HS api
-			if (true or !$forms) {
+			if (!$forms) {
 				$response = wp_remote_get('https://api.hubapi.com/marketing/v3/forms/?hapikey=' . \Sleek\Settings\get_setting('hubspot_api_key'));
 
 				if ($response['response']['code'] === 200) {

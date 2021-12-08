@@ -25,6 +25,7 @@ class Attachments extends Module {
 				'sub_fields' => [
 					[
 						'name' => 'files_file',
+						'label' => __('File', 'sleek'),
 						'type' => 'file',
 						'return_format' => 'id'
 					]

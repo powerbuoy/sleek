@@ -181,7 +181,7 @@ class Form extends Module {
 					<form>
 						<p><input type="text" placeholder="Your Name"></p>
 						<p><input type="email" placeholder="Your E-mail"></p>
-						<p><textarea rows="20" cols="8" placeholder="Your Message"></textarea></p>
+						<p><textarea rows="6" cols="8" placeholder="Your Message"></textarea></p>
 						<p><button>Send</button></p>
 					</form>
 				';

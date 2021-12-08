@@ -141,16 +141,16 @@
         },
         {
             "name": "powerbuoy/sleek-archive-meta",
-            "version": "v3.2.0",
+            "version": "v3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-archive-meta.git",
-                "reference": "be5e5a248bdbb35e1294d4e382f99d90aeb6f3e0"
+                "reference": "4119f77809b572bba3c32adb0938ad6fbca23007"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-archive-meta/zipball/be5e5a248bdbb35e1294d4e382f99d90aeb6f3e0",
-                "reference": "be5e5a248bdbb35e1294d4e382f99d90aeb6f3e0",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-archive-meta/zipball/4119f77809b572bba3c32adb0938ad6fbca23007",
+                "reference": "4119f77809b572bba3c32adb0938ad6fbca23007",
                 "shasum": ""
             },
             "require": {
@@ -175,9 +175,9 @@
             "description": "Hooks into the the_archive_title() and the_archive_description() functions to provide better search results texts, remove prefixes and more.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-archive-meta/issues",
-                "source": "https://github.com/powerbuoy/sleek-archive-meta/tree/master"
+                "source": "https://github.com/powerbuoy/sleek-archive-meta/tree/v3.3.1"
             },
-            "time": "2020-04-27T10:24:07+00:00"
+            "time": "2021-10-29T11:19:47+00:00"
         },
         {
             "name": "powerbuoy/sleek-cleanup",
@@ -523,16 +523,16 @@
         },
         {
             "name": "powerbuoy/sleek-modules",
-            "version": "v7.0.1",
+            "version": "v7.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-modules.git",
-                "reference": "f4c267a1b37f5b9e9d83b4dab3502a64dec96e1f"
+                "reference": "f63de735d415b89fc7b38bba044fa475d77c1ef9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/f4c267a1b37f5b9e9d83b4dab3502a64dec96e1f",
-                "reference": "f4c267a1b37f5b9e9d83b4dab3502a64dec96e1f",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/f63de735d415b89fc7b38bba044fa475d77c1ef9",
+                "reference": "f63de735d415b89fc7b38bba044fa475d77c1ef9",
                 "shasum": ""
             },
             "require": {
@@ -559,9 +559,9 @@
             "description": "Create modules by creating classes in /modules/.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-modules/issues",
-                "source": "https://github.com/powerbuoy/sleek-modules/tree/v7.0.1"
+                "source": "https://github.com/powerbuoy/sleek-modules/tree/v7.0.2"
             },
-            "time": "2021-10-28T15:40:35+00:00"
+            "time": "2021-11-17T12:16:50+00:00"
         },
         {
             "name": "powerbuoy/sleek-notices",

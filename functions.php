@@ -5,7 +5,8 @@ require __DIR__ . '/vendor/autoload.php';
 
 ###################
 # Load translations
-load_theme_textdomain('sleek', get_template_directory() . '/dist');
+load_theme_textdomain('sleek', get_template_directory() . '/dist/lang/sleek/');
+load_theme_textdomain('sleek', get_template_directory() . '/dist/lang/');
 
 ################
 # Sleek settings

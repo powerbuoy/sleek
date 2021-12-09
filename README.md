@@ -59,8 +59,10 @@ This does _not_ watch, minifies and does not include any sourcemaps.
 
 ```shell
 themes/sleek/             # → Sleek root
-├── languages/            # → Translations
-│   └── sv_SE.po          # → Swedish translation of Sleek (add more po files as needed)
+├── lang/                 # → Translations
+│   └── sleek             # → Sleek packages translations
+│   │   └── sv_SE.po      # → Swedish translation of Sleek
+│   └── sv_SE.po          # → Theme translation (empty by default, use wp i18n make-pot to generate)
 ├── modules/              # → Modules
 │   ├── */                # → A folder indicates a module with both a class and one or more templates
 │   └── *.php             # → A single file module, template only

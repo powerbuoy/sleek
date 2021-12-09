@@ -1,18 +1,3 @@
-<?php
-	# Group search results by post type
-	$groups = [];
-
-	while (have_posts()) {
-		the_post();
-
-		if (!isset($groups[get_post_type()])) {
-			$groups[get_post_type()] = [];
-		}
-
-		$groups[get_post_type()][] = $post;
-	}
-?>
-
 <section id="search-results">
 
 	<header>
@@ -25,17 +10,9 @@
 	</header>
 
 	<?php if (have_posts()) : ?>
-		<?php foreach ($groups as $postType => $rows) : $postType = get_post_type_object($postType) ?>
-			<section>
-
-				<h2><?php echo $postType->labels->name ?></h2>
-
-				<?php foreach ($rows as $post) : setup_postdata($post) ?>
-					<?php get_template_part('modules/post', get_post_type()) ?>
-				<?php endforeach; wp_reset_postdata() ?>
-
-			</section>
-		<?php endforeach ?>
+		<?php while (have_posts()) : the_post() ?>
+			<?php get_template_part('modules/post', 'search') ?>
+		<?php endwhile ?>
 
 		<footer>
 

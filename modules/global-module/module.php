@@ -8,7 +8,7 @@ class GlobalModule extends Module {
 		return [
 			[
 				'name' => 'global_module',
-				'label' => __('Select Module', 'sleek'),
+				'label' => __('Select Module', 'sleek_admin'),
 				'type' => 'post_object',
 				'post_type' => 'sleek_global_module',
 				'return_format' => 'id'

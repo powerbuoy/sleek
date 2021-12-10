@@ -8,20 +8,20 @@ class NextPost extends Module {
 		return [
 			[
 				'name' => 'title',
-				'label' => __('Title', 'sleek'),
+				'label' => __('Title', 'sleek_admin'),
 				'type' => 'text'
 			],
 			[
 				'name' => 'description',
-				'label' => __('Description', 'sleek'),
+				'label' => __('Description', 'sleek_admin'),
 				'type' => 'wysiwyg',
 				'toolbar' => 'simple',
 				'media_upload' => false
 			],
 			[
 				'name' => 'next_post',
-				'label' => __('Next post', 'sleek'),
-				'instructions' => __('(Optional) Choose a post or let WordPress automatically choose the next post.', 'sleek'),
+				'label' => __('Next post', 'sleek_admin'),
+				'instructions' => __('(Optional) Choose a post or let WordPress automatically choose the next post.', 'sleek_admin'),
 				'type' => 'relationship',
 				'max' => 1
 			]

@@ -8,7 +8,7 @@ class PageAnchor extends Module {
 		return [
 			[
 				'name' => 'title',
-				'label' => __('Title', 'sleek'),
+				'label' => __('Title', 'sleek_admin'),
 				'type' => 'text'
 			]
 		];

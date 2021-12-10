@@ -26,12 +26,12 @@ class Form extends Module {
 		$fields = [
 			[
 				'name' => 'title',
-				'label' => __('Title', 'sleek'),
+				'label' => __('Title', 'sleek_admin'),
 				'type' => 'text'
 			],
 			[
 				'name' => 'description',
-				'label' => __('Description', 'sleek'),
+				'label' => __('Description', 'sleek_admin'),
 				'type' => 'wysiwyg',
 				'toolbar' => 'simple',
 				'media_upload' => false
@@ -46,14 +46,14 @@ class Form extends Module {
 	public function form_fields($module = 'form') {
 		# Add form type radio button
 		if (shortcode_exists('contact-form-7') or \Sleek\Settings\get_setting('hubspot_portal_id')) {
-			$choices = ['custom' => __('Custom form', 'sleek')];
+			$choices = ['custom' => __('Custom form', 'sleek_admin')];
 
 			if (shortcode_exists('contact-form-7')) {
-				$choices['cf7'] = __('Contact form 7', 'sleek');
+				$choices['cf7'] = __('Contact form 7', 'sleek_admin');
 			}
 
 			if (\Sleek\Settings\get_setting('hubspot_portal_id')) {
-				$choices['hs'] = __('HubSpot form', 'sleek');
+				$choices['hs'] = __('HubSpot form', 'sleek_admin');
 			}
 
 			$fields[] = [
@@ -68,7 +68,7 @@ class Form extends Module {
 		# Add custom form embed code field
 		$fields[] = [
 			'name' => 'form_embed_code',
-			'label' => __('Form Embed Code', 'sleek'),
+			'label' => __('Form Embed Code', 'sleek_admin'),
 			'type' => 'textarea',
 			'conditional_logic' => [[[
 				'field' => '{acf_key}_' . $module . '_form_type',
@@ -84,7 +84,7 @@ class Form extends Module {
 			$hasCf7OrHs = true;
 			$fields[] = [
 				'name' => 'wpcf7_form_id',
-				'label' => __('Contact Form 7', 'sleek'),
+				'label' => __('Contact Form 7', 'sleek_admin'),
 				'type' => 'post_object',
 				'return_format' => 'id',
 				'post_type' => ['wpcf7_contact_form'],
@@ -102,7 +102,7 @@ class Form extends Module {
 			$hasCf7OrHs = true;
 			$fields[] = [
 				'name' => 'hubspot_form_id',
-				'label' => __('Hubspot Form ID', 'sleek'),
+				'label' => __('Hubspot Form ID', 'sleek_admin'),
 				'type' => 'text',
 				'conditional_logic' => [[[
 					'field' => '{acf_key}_' . $module . '_form_type',
@@ -116,7 +116,7 @@ class Form extends Module {
 		if ($hasCf7OrHs) {
 			$fields[] = [
 				'name' => 'redirect_url',
-				'label' => __('Redirect URL', 'sleek'),
+				'label' => __('Redirect URL', 'sleek_admin'),
 				'type' => 'url',
 				'conditional_logic' => [[[
 					'field' => '{acf_key}_' . $module . '_form_type',

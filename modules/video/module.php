@@ -8,20 +8,20 @@ class Video extends Module {
 		return [
 			[
 				'name' => 'title',
-				'label' => __('Title', 'sleek'),
+				'label' => __('Title', 'sleek_admin'),
 				'type' => 'text'
 			],
 			[
 				'name' => 'description',
-				'label' => __('Description', 'sleek'),
+				'label' => __('Description', 'sleek_admin'),
 				'type' => 'wysiwyg',
 				'toolbar' => 'simple',
 				'media_upload' => false
 			],
 			[
 				'name' => 'code',
-				'label' => __('Video', 'sleek'),
-				'instructions' => __('Copy the YouTube/Vimeo URL and paste it here.', 'sleek'),
+				'label' => __('Video', 'sleek_admin'),
+				'instructions' => __('Copy the YouTube/Vimeo URL and paste it here.', 'sleek_admin'),
 				'type' => 'oembed'
 			]
 		];

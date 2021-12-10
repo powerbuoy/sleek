@@ -8,25 +8,25 @@ class SharePage extends Module {
 		return [
 			[
 				'name' => 'title',
-				'label' => __('Title', 'sleek'),
+				'label' => __('Title', 'sleek_admin'),
 				'type' => 'text'
 			],
 			[
 				'name' => 'description',
-				'label' => __('Description', 'sleek'),
+				'label' => __('Description', 'sleek_admin'),
 				'type' => 'wysiwyg',
 				'toolbar' => 'simple',
 				'media_upload' => false
 			],
 			[
 				'name' => 'url',
-				'label' => __('(Optional) enter a specific URL to share', 'sleek'),
-				'instructions' => __('If left empty the URL of the page will be used.', 'sleek'),
+				'label' => __('(Optional) enter a specific URL to share', 'sleek_admin'),
+				'instructions' => __('If left empty the URL of the page will be used.', 'sleek_admin'),
 				'type' => 'url'
 			],
 			[
 				'name' => 'services',
-				'label' => __('Select sharing methods', 'sleek'),
+				'label' => __('Select sharing methods', 'sleek_admin'),
 				'type' => 'checkbox',
 				# NOTE: Key => Value is required for default_value to work for some reason... (simply 'Facebook', 'Twitter' etc won't work)
 				'choices' => [

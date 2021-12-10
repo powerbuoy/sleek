@@ -8,19 +8,19 @@ class RelatedPages extends Module {
 		return [
 			[
 				'name' => 'title',
-				'label' => __('Title', 'sleek'),
+				'label' => __('Title', 'sleek_admin'),
 				'type' => 'text'
 			],
 			[
 				'name' => 'description',
-				'label' => __('Description', 'sleek'),
+				'label' => __('Description', 'sleek_admin'),
 				'type' => 'wysiwyg',
 				'toolbar' => 'simple',
 				'media_upload' => false
 			],
 			[
 				'name' => 'type',
-				'label' => __('Type of pages', 'sleek'),
+				'label' => __('Type of pages', 'sleek_admin'),
 				'type' => 'radio',
 				'allow_null' => false,
 				'other_choice' => false,
@@ -28,14 +28,14 @@ class RelatedPages extends Module {
 				'layout' => 'horizontal',
 				'return_format' => 'value',
 				'choices' => [
-					'children' => __('Children', 'sleek'),
-					'siblings' => __('Siblings', 'sleek')
+					'children' => __('Children', 'sleek_admin'),
+					'siblings' => __('Siblings', 'sleek_admin')
 				]
 			],
 			[
 				'name' => 'related_page_id',
-				'label' => __('Page', 'sleek'),
-				'instructions' => __('Select the page whose related pages you want to display or leave empty to display the current page\'s related pages.', 'sleek'),
+				'label' => __('Page', 'sleek_admin'),
+				'instructions' => __('Select the page whose related pages you want to display or leave empty to display the current page\'s related pages.', 'sleek_admin'),
 				'type' => 'post_object',
 				'post_type' => ['page'],
 				'required' => false,

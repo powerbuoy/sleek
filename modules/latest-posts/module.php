@@ -8,25 +8,25 @@ class LatestPosts extends Module {
 		return [
 			[
 				'name' => 'title',
-				'label' => __('Title', 'sleek'),
+				'label' => __('Title', 'sleek_admin'),
 				'type' => 'text'
 			],
 			[
 				'name' => 'description',
-				'label' => __('Description', 'sleek'),
+				'label' => __('Description', 'sleek_admin'),
 				'type' => 'wysiwyg',
 				'toolbar' => 'simple',
 				'media_upload' => false
 			],
 			[
 				'name' => 'limit',
-				'label' => __('Number of Posts', 'sleek'),
+				'label' => __('Number of Posts', 'sleek_admin'),
 				'type' => 'number',
 				'default_value' => 3
 			],
 			[
 				'name' => 'category',
-				'label' => __('Category', 'sleek'),
+				'label' => __('Category', 'sleek_admin'),
 				'type' => 'taxonomy',
 				'taxonomy' => 'category',
 				'field_type' => 'multi_select',

@@ -15,8 +15,8 @@
 				}, false);
 			</script>
 		<?php endif ?>
-	<?php else : ?>
-		<p class="error"><?php printf(__('Please make sure to activate the Contact Form 7 plugin to enable this module: %s', 'sleek'), '<a href="https://wordpress.org/plugins/contact-form-7/">wordpress.org/plugins/contact-form-7/</a>') ?></p>
+	<?php elseif (current_user_can('edit_posts')) : ?>
+		<p class="error"><?php printf(__('Please make sure to activate the Contact Form 7 plugin to enable this module: %s', 'sleek_admin'), '<a href="https://wordpress.org/plugins/contact-form-7/">wordpress.org/plugins/contact-form-7/</a>') ?></p>
 	<?php endif ?>
 <?php endif ?>
 
@@ -25,7 +25,7 @@
 
 	<?php if (!empty($portal_id)) : ?>
 		<div data-hs-form data-hs-form-portal-id="<?php echo $portal_id ?>" data-hs-form-form-id="<?php echo $hubspot_form_id ?>" data-hs-form-redirect-url="<?php echo $redirect_url ?>"></div>
-	<?php else : ?>
-		<p class="error"><?php _e('Please make sure to enter a valid Hubspot Portal ID inside Settings -> Sleek', 'sleek') ?></p>
+	<?php elseif (current_user_can('edit_posts')) : ?>
+		<p class="error"><?php _e('Please make sure to enter a valid Hubspot Portal ID inside Settings -> Sleek', 'sleek_admin') ?></p>
 	<?php endif ?>
 <?php endif ?>

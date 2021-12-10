@@ -14,7 +14,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 var config = {
 	// In
 	entry: {
-		app: ['./src/js/app.js', './src/sass/app.scss'].concat(glob.sync('./languages/*.po'))
+		app: ['./src/js/app.js', './src/sass/app.scss'].concat(glob.sync('./lang/**/*.po'))
 	},
 
 	// n out
@@ -64,7 +64,12 @@ var config = {
 			{
 				test: /\.po$/,
 				use: [
-					'file-loader?name=[name].mo',
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[path][name].mo'
+						}
+					},
 					'po2mo-loader'
 				]
 			},

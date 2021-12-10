@@ -8,13 +8,13 @@ class PageMenu extends Module {
 		return [
 			[
 				'name' => 'title',
-				'label' => __('Title', 'sleek'),
-				'instructions' => __("Enter a custom title above the menu or leave blank to display the parent page's title.", 'sleek'),
+				'label' => __('Title', 'sleek_admin'),
+				'instructions' => __("Enter a custom title above the menu or leave blank to display the parent page's title.", 'sleek_admin'),
 				'type' => 'text'
 			],
 			[
 				'name' => 'description',
-				'label' => __('Description', 'sleek'),
+				'label' => __('Description', 'sleek_admin'),
 				'type' => 'wysiwyg',
 				'toolbar' => 'simple',
 				'media_upload' => false

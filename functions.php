@@ -6,7 +6,8 @@ require __DIR__ . '/vendor/autoload.php';
 
 ###################
 # Load translations
-load_theme_textdomain('sleek', get_template_directory() . '/dist');
+load_theme_textdomain('sleek', get_template_directory() . '/dist/lang/');
+load_theme_textdomain('sleek_admin', get_template_directory() . '/dist/lang/admin/');
 
 ################
 # Sleek settings
@@ -57,15 +58,11 @@ Sleek\ImageSizes\register(1920, 1080, ['center', 'center']/*, [
 	'square' => ['width' => 1920, 'height' => 1920],
 ]*/);
 
-##################
-# Sidebars & menus
-# register_sidebar(['name' => __('Header', 'sleek'), 'id' => 'header']);
-register_sidebar(['name' => __('Footer', 'sleek'), 'id' => 'footer']);
-register_sidebar(['name' => __('Sidebar', 'sleek'), 'id' => 'sidebar']);
-
+#######
+# Menus
 register_nav_menus([
-	'header_menu' => __('Header menu', 'sleek'),
-	'footer_menu' => __('Footer menu', 'sleek')
+	'header_menu' => __('Header menu', 'sleek_admin'),
+	'footer_menu' => __('Footer menu', 'sleek_admin')
 ]);
 
 ################

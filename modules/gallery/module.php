@@ -8,19 +8,19 @@ class Gallery extends Module {
 		return [
 			[
 				'name' => 'title',
-				'label' => __('Title', 'sleek'),
+				'label' => __('Title', 'sleek_admin'),
 				'type' => 'text'
 			],
 			[
 				'name' => 'description',
-				'label' => __('Description', 'sleek'),
+				'label' => __('Description', 'sleek_admin'),
 				'type' => 'wysiwyg',
 				'toolbar' => 'simple',
 				'media_upload' => false
 			],
 			[
 				'name' => 'images',
-				'label' => __('Images', 'sleek'),
+				'label' => __('Images', 'sleek_admin'),
 				'type' => 'gallery'
 			]
 		];

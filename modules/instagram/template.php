@@ -17,6 +17,6 @@
 		<?php echo preg_replace('/(<[^>]*) style=("[^"]+"|\'[^\']+\')([^>]*>)/i', '$1$3', $html) ?>
 
 	</section>
-<?php else : ?>
-	<p class="error"><?php printf(__('Please make sure to activate the Meks Easy Photo Feed Widget to enable this module: %s', 'sleek'), '<a href="https://wordpress.org/plugins/meks-easy-instagram-widget/">wordpress.org/plugins/meks-easy-instagram-widget/</a>') ?></p>
+<?php elseif (current_user_can('edit_posts')) : ?>
+	<p class="error"><?php printf(__('Please make sure to activate the Meks Easy Photo Feed Widget to enable this module: %s', 'sleek_admin'), '<a href="https://wordpress.org/plugins/meks-easy-instagram-widget/">wordpress.org/plugins/meks-easy-instagram-widget/</a>') ?></p>
 <?php endif ?>

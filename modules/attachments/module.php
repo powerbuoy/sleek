@@ -8,23 +8,24 @@ class Attachments extends Module {
 		return [
 			[
 				'name' => 'title',
-				'label' => __('Title', 'sleek'),
+				'label' => __('Title', 'sleek_admin'),
 				'type' => 'text'
 			],
 			[
 				'name' => 'description',
-				'label' => __('Description', 'sleek'),
+				'label' => __('Title', 'sleek_admin'),
 				'type' => 'wysiwyg',
 				'toolbar' => 'simple',
 				'media_upload' => false
 			],
 			[
 				'name' => 'files',
-				'label' => __('Files', 'sleek'),
+				'label' => __('Title', 'sleek_admin'),
 				'type' => 'repeater',
 				'sub_fields' => [
 					[
 						'name' => 'files_file',
+						'label' => __('Title', 'sleek_admin'),
 						'type' => 'file',
 						'return_format' => 'id'
 					]

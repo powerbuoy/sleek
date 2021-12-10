@@ -1,0 +1,417 @@
+# Copyright (C) 2021 Andreas Lagerkvist
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Sleek 9999999.0.0 (disable theme updates - check github for actual version number)\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sleek\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-12-10T13:09:16+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: sleek_admin\n"
+
+#. Theme Name of the theme
+msgid "Sleek"
+msgstr ""
+
+#. Theme URI of the theme
+msgid "https://github.com/powerbuoy/sleek/"
+msgstr ""
+
+#. Description of the theme
+msgid "The WordPress Theme for Developers."
+msgstr ""
+
+#. Author of the theme
+msgid "Andreas Lagerkvist"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://github.com/powerbuoy/"
+msgstr ""
+
+#: functions.php:57
+msgid "Header menu"
+msgstr ""
+
+#: functions.php:58
+msgid "Footer menu"
+msgstr ""
+
+#: modules/attachments/module.php:11
+#: modules/attachments/module.php:16
+#: modules/attachments/module.php:23
+#: modules/attachments/module.php:28
+#: modules/featured-posts/module.php:11
+#: modules/form/module.php:29
+#: modules/gallery/module.php:11
+#: modules/google-map/module.php:11
+#: modules/instagram/module.php:17
+#: modules/latest-posts/module.php:11
+#: modules/menu/module.php:11
+#: modules/next-post/module.php:11
+#: modules/page-anchor/module.php:11
+#: modules/page-menu/module.php:11
+#: modules/related-pages/module.php:11
+#: modules/related-posts/module.php:11
+#: modules/share-page/module.php:11
+#: modules/social-links/module.php:11
+#: modules/text-block/module.php:11
+#: modules/text-blocks/module.php:11
+#: modules/text-blocks/module.php:30
+#: modules/users/module.php:11
+#: modules/video/module.php:11
+#: modules/vue-component/module.php:11
+#: _vendor/powerbuoy/sleek-post-types/settings-pages.php:52
+msgid "Title"
+msgstr ""
+
+#: modules/featured-posts/module.php:16
+#: modules/form/module.php:34
+#: modules/gallery/module.php:16
+#: modules/google-map/module.php:16
+#: modules/instagram/module.php:22
+#: modules/latest-posts/module.php:16
+#: modules/menu/module.php:16
+#: modules/next-post/module.php:16
+#: modules/page-menu/module.php:17
+#: modules/related-pages/module.php:16
+#: modules/related-posts/module.php:16
+#: modules/share-page/module.php:16
+#: modules/social-links/module.php:16
+#: modules/text-block/module.php:22
+#: modules/text-blocks/module.php:16
+#: modules/text-blocks/module.php:41
+#: modules/users/module.php:16
+#: modules/video/module.php:16
+#: modules/vue-component/module.php:16
+#: _vendor/powerbuoy/sleek-post-types/settings-pages.php:63
+msgid "Description"
+msgstr ""
+
+#: modules/featured-posts/module.php:23
+msgid "Posts"
+msgstr ""
+
+#: modules/form/module.php:49
+msgid "Custom form"
+msgstr ""
+
+#: modules/form/module.php:52
+msgid "Contact form 7"
+msgstr ""
+
+#: modules/form/module.php:56
+msgid "HubSpot form"
+msgstr ""
+
+#: modules/form/module.php:71
+msgid "Form Embed Code"
+msgstr ""
+
+#: modules/form/module.php:87
+msgid "Contact Form 7"
+msgstr ""
+
+#: modules/form/module.php:105
+msgid "Hubspot Form ID"
+msgstr ""
+
+#: modules/form/module.php:119
+msgid "Redirect URL"
+msgstr ""
+
+#: modules/form/__form.php:19
+msgid "Please make sure to activate the Contact Form 7 plugin to enable this module: %s"
+msgstr ""
+
+#: modules/form/__form.php:29
+msgid "Please make sure to enter a valid Hubspot Portal ID inside Settings -> Sleek"
+msgstr ""
+
+#: modules/gallery/module.php:23
+msgid "Images"
+msgstr ""
+
+#: modules/global-module/module.php:11
+msgid "Select Module"
+msgstr ""
+
+#: modules/google-map/module.php:23
+msgid "Information Window"
+msgstr ""
+
+#: modules/google-map/module.php:24
+msgid "Enter a text that will be displayed in the map's info window."
+msgstr ""
+
+#: modules/google-map/module.php:31
+msgid "Location"
+msgstr ""
+
+#: modules/google-map/module.php:32
+msgid "Choose a location to display on the map. Note that you will need a valid Google Maps API Key entered in Settings -> Sleek -> Google maps api key."
+msgstr ""
+
+#: modules/google-map/template.php:33
+msgid "No latitude or longitude specified for map."
+msgstr ""
+
+#: modules/google-map/template.php:38
+msgid "Please make sure to enter a valid Google Maps API Key inside Settings -> Sleek"
+msgstr ""
+
+#: modules/instagram/module.php:29
+msgid "Number of Images"
+msgstr ""
+
+#: modules/instagram/template.php:21
+msgid "Please make sure to activate the Meks Easy Photo Feed Widget to enable this module: %s"
+msgstr ""
+
+#: modules/latest-posts/module.php:23
+#: modules/related-posts/module.php:23
+msgid "Number of Posts"
+msgstr ""
+
+#: modules/latest-posts/module.php:29
+msgid "Category"
+msgstr ""
+
+#: modules/menu/module.php:23
+msgid "Menu"
+msgstr ""
+
+#: modules/next-post/module.php:23
+msgid "Next post"
+msgstr ""
+
+#: modules/next-post/module.php:24
+msgid "(Optional) Choose a post or let WordPress automatically choose the next post."
+msgstr ""
+
+#: modules/page-menu/module.php:12
+msgid "Enter a custom title above the menu or leave blank to display the parent page's title."
+msgstr ""
+
+#: modules/page-menu/template.php:26
+msgid "This page does not have any relatives. You can remove this module until you add some."
+msgstr ""
+
+#: modules/related-pages/module.php:23
+msgid "Type of pages"
+msgstr ""
+
+#: modules/related-pages/module.php:31
+msgid "Children"
+msgstr ""
+
+#: modules/related-pages/module.php:32
+msgid "Siblings"
+msgstr ""
+
+#: modules/related-pages/module.php:37
+msgid "Page"
+msgstr ""
+
+#: modules/related-pages/module.php:38
+msgid "Select the page whose related pages you want to display or leave empty to display the current page's related pages."
+msgstr ""
+
+#: modules/related-pages/template.php:22
+msgid "This page does not have any siblings or children. You can remove this module until you add some."
+msgstr ""
+
+#: modules/related-posts/template.php:22
+msgid "No related posts found."
+msgstr ""
+
+#: modules/share-page/module.php:23
+msgid "(Optional) enter a specific URL to share"
+msgstr ""
+
+#: modules/share-page/module.php:24
+msgid "If left empty the URL of the page will be used."
+msgstr ""
+
+#: modules/share-page/module.php:29
+msgid "Select sharing methods"
+msgstr ""
+
+#: modules/share-page/template.php:28
+msgid "You haven't selected any services."
+msgstr ""
+
+#: modules/social-links/template.php:28
+msgid "You haven't added any Social Media URLs to Yoast SEO."
+msgstr ""
+
+#: modules/text-block/module.php:16
+#: modules/text-blocks/module.php:35
+#: _vendor/powerbuoy/sleek-post-types/settings-pages.php:57
+msgid "Image"
+msgstr ""
+
+#: modules/text-blocks/module.php:23
+msgid "Text Blocks"
+msgstr ""
+
+#: modules/text-blocks/module.php:24
+msgid "Add a text block"
+msgstr ""
+
+#: modules/users/module.php:23
+msgid "Users"
+msgstr ""
+
+#: modules/video/module.php:23
+msgid "Video"
+msgstr ""
+
+#: modules/video/module.php:24
+msgid "Copy the YouTube/Vimeo URL and paste it here."
+msgstr ""
+
+#: modules/vue-component/module.php:23
+msgid "Component"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-google-maps/sleek-google-maps.php:7
+msgid "Google Maps API Key"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-modules/global-modules.php:18
+#: _vendor/powerbuoy/sleek-modules/global-modules.php:19
+#: _vendor/powerbuoy/sleek-modules/global-modules.php:31
+#: _vendor/powerbuoy/sleek-modules/global-modules.php:39
+#: _vendor/powerbuoy/sleek-modules/global-modules.php:40
+msgid "Global Modules"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-modules/inline-edit-flex-module.php:157
+#: _vendor/powerbuoy/sleek-modules/inline-edit-flex-module.php:248
+msgid "Edit %s"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-modules/inline-edit-flex-module.php:161
+msgid "Editing %s inside %s belonging to %s"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-modules/render-dummies.php:49
+#: _vendor/powerbuoy/sleek-modules/sleek-module.php:148
+msgid "Default Template"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-modules/render-dummies.php:247
+msgid "Read more"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-modules/render-dummies.php:247
+msgid "Click here"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-modules/render-dummies.php:247
+msgid "Contact us"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-modules/sleek-modules.php:180
+msgid "No config"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-modules/sleek-modules.php:181
+msgid "This module requires no configuration."
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-modules/sleek-modules.php:210
+msgid "Template"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-notices/sleek-notices.php:8
+msgid "Cookie consent text"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-notices/sleek-notices.php:11
+msgid "Outdated browser warning"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-post-types/admin-bar-links.php:36
+msgid "View Archive"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-post-types/admin-bar-links.php:46
+#: _vendor/powerbuoy/sleek-post-types/admin-bar-links.php:55
+msgid "Edit Archive"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-post-types/admin-bar-links.php:64
+#: _vendor/powerbuoy/sleek-post-types/admin-bar-links.php:71
+msgid "Edit %s Settings"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-post-types/register-fields.php:31
+msgid "%s information"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-post-types/register-fields.php:46
+msgid "Sticky Modules"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-post-types/register-fields.php:61
+msgid "Sticky Archive Modules"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-post-types/register-fields.php:81
+#: _vendor/powerbuoy/sleek-post-types/register-fields.php:99
+#: _vendor/powerbuoy/sleek-post-types/register-fields.php:128
+#: _vendor/powerbuoy/sleek-post-types/register-fields.php:146
+msgid "Add a module"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-post-types/register-fields.php:109
+#: _vendor/powerbuoy/sleek-post-types/register-fields.php:156
+msgid "Modules"
+msgstr ""
+
+#. Translators: For example "All [blog categories]"
+#: _vendor/powerbuoy/sleek-post-types/register-taxonomies.php:49
+msgid "All %s"
+msgstr ""
+
+#. Translators: For example "[Blog] Settings"
+#: _vendor/powerbuoy/sleek-post-types/settings-pages.php:24
+msgid "%s Settings"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-post-types/settings-pages.php:73
+msgid "Archive Settings"
+msgstr ""
+
+#. Translators: This is the title of the settings page (Settings -> Sleek inside the WP admin) for the theme Sleek
+#: _vendor/powerbuoy/sleek-settings/sleek-settings.php:37
+#: _vendor/powerbuoy/sleek-settings/sleek-settings.php:40
+msgid "Sleek settings"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-settings/sleek-settings.php:44
+msgid "Save settings"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-settings/sleek-settings.php:64
+msgid "Code inside <head>"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-settings/sleek-settings.php:65
+msgid "Code just before </body>"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-tinymce/sleek-tinymce.php:144
+msgid "Button"
+msgstr ""
+
+#: _vendor/powerbuoy/sleek-tinymce/sleek-tinymce.php:149
+msgid "Button ghost"
+msgstr ""

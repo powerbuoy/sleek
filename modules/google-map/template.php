@@ -30,10 +30,10 @@
 
 			</div>
 		<?php else : ?>
-			<p class="error"><?php _e('No latitude or longitude specified for map.', 'sleek') ?></p>
+			<p class="error"><?php _e('No latitude or longitude specified for map.', 'sleek_admin') ?></p>
 		<?php endif ?>
 
 	</section>
-<?php else : ?>
-	<p class="error"><?php _e('Please make sure to enter a valid Google Maps API Key inside Settings -> Sleek', 'sleek') ?></p>
+<?php elseif (current_user_can('edit_posts')) : ?>
+	<p class="error"><?php _e('Please make sure to enter a valid Google Maps API Key inside Settings -> Sleek', 'sleek_admin') ?></p>
 <?php endif ?>

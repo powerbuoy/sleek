@@ -30,6 +30,9 @@ $ composer install
 # Install front-end dependencies
 $ npm install
 
+# Download Fontello icons
+$ npm run fontello
+
 # Build assets
 $ npm run build
 
@@ -59,8 +62,10 @@ This does _not_ watch, minifies and does not include any sourcemaps.
 
 ```shell
 themes/sleek/             # → Sleek root
-├── languages/            # → Translations
-│   └── sv_SE.po          # → Swedish translation of Sleek (add more po files as needed)
+├── lang/                 # → Translations
+│   └── admin             # → Translations of strings used only inside the admin
+│   │   └── sv_SE.po      # → Swedish translation of admin strings
+│   └── sv_SE.po          # → Swedish theme translation
 ├── modules/              # → Modules
 │   ├── */                # → A folder indicates a module with both a class and one or more templates
 │   └── *.php             # → A single file module, template only
@@ -76,7 +81,7 @@ themes/sleek/             # → Sleek root
 ├── vendor/               # → PHP dependencies installed by composer (don't touch, don't commit)
 ├── node_modules/         # → Front-end dependencies installed by NPM (don't touch, don't commit)
 ├── .gitignore            # → Files and folders to ignore during git commits
-├── .prodignore           # → Files and folders to ignore during sleek-deploy
+├── .prodignore           # → Files and folders to ignore during deploy
 ├── composer.json         # → Specify PHP dependencies here using composer (related: composer.lock)
 ├── package.json          # → Specify front-end dependencies here using NPM (related: package-lock.json)
 ├── webpack.config.js     # → Webpack build script

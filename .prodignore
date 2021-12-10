@@ -1,6 +1,6 @@
 /.git/
 /.github/
-/languages/
+/lang/
 /node_modules/
 /src/
 /.gitignore

@@ -54,8 +54,8 @@ Sleek\ImageSizes\register(1920, 1080, ['center', 'center']/*, [
 #######
 # Menus
 register_nav_menus([
-	'header_menu' => __('Header menu', 'sleek'),
-	'footer_menu' => __('Footer menu', 'sleek')
+	'header_menu' => __('Header menu', 'sleek_admin'),
+	'footer_menu' => __('Footer menu', 'sleek_admin')
 ]);
 
 ################

@@ -16,7 +16,7 @@
 		<?php foreach ($rows as $post) : setup_postdata($post) ?>
 			<?php get_template_part('modules/post', get_post_type()) ?>
 		<?php endforeach; wp_reset_postdata() ?>
-	<?php else : ?>
+	<?php elseif (current_user_can('edit_posts')) : ?>
 		<p class="error"><?php _e('This page does not have any siblings or children. You can remove this module until you add some.', 'sleek') ?></p>
 	<?php endif ?>
 

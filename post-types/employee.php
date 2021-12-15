@@ -46,17 +46,17 @@ class Employee extends PostType {
 		return [
 			[
 				'name' => 'job_title',
-				'label' => __('Job Title', 'sleek'),
+				'label' => __('Job Title', 'sleek_admin'),
 				'type' => 'text'
 			],
 			[
 				'name' => 'phone',
-				'label' => __('Phone', 'sleek'),
+				'label' => __('Phone', 'sleek_admin'),
 				'type' => 'text'
 			],
 			[
 				'name' => 'email',
-				'label' => __('E-mail', 'sleek'),
+				'label' => __('E-mail', 'sleek_admin'),
 				'type' => 'email'
 			]
 		];

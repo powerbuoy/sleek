@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "fontello": "node fontello.js"
+    "fontello": "node fontello.js",
+    "make-pot": "wp sleek make-cpt-strings && wp i18n make-pot . lang/sleek.pot --include=vendor/powerbuoy --domain=sleek",
+    "make-pot-admin": "wp i18n make-pot . lang/admin/sleek_admin.pot --include=vendor/powerbuoy --domain=sleek_admin"
   },
   "repository": {
     "type": "git",

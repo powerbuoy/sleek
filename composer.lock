@@ -605,16 +605,16 @@
         },
         {
             "name": "powerbuoy/sleek-post-types",
-            "version": "v6.4.2",
+            "version": "v6.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-post-types.git",
-                "reference": "34d092c74759ea858529f8781c043b84a5f74e8e"
+                "reference": "75fef92f34ee07db78d979a4180d584eab423b93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/34d092c74759ea858529f8781c043b84a5f74e8e",
-                "reference": "34d092c74759ea858529f8781c043b84a5f74e8e",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/75fef92f34ee07db78d979a4180d584eab423b93",
+                "reference": "75fef92f34ee07db78d979a4180d584eab423b93",
                 "shasum": ""
             },
             "require": {
@@ -642,22 +642,22 @@
             "description": "Create post types by creating classes in /post-types/.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-post-types/issues",
-                "source": "https://github.com/powerbuoy/sleek-post-types/tree/v6.4.2"
+                "source": "https://github.com/powerbuoy/sleek-post-types/tree/v6.5.0"
             },
-            "time": "2021-12-10T12:54:34+00:00"
+            "time": "2021-12-15T22:26:23+00:00"
         },
         {
             "name": "powerbuoy/sleek-settings",
-            "version": "v1.2.1",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-settings.git",
-                "reference": "d85c2ae1a38438f79288e9228b3fb7d959741a7d"
+                "reference": "3bef8fdf5bcb354d525bf2c5d3a2e07c3d7d0fef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-settings/zipball/d85c2ae1a38438f79288e9228b3fb7d959741a7d",
-                "reference": "d85c2ae1a38438f79288e9228b3fb7d959741a7d",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-settings/zipball/3bef8fdf5bcb354d525bf2c5d3a2e07c3d7d0fef",
+                "reference": "3bef8fdf5bcb354d525bf2c5d3a2e07c3d7d0fef",
                 "shasum": ""
             },
             "require": {
@@ -682,9 +682,9 @@
             "description": "Adds an options page to the admin (Settings -> Sleek) with some built-in settings.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-settings/issues",
-                "source": "https://github.com/powerbuoy/sleek-settings/tree/v1.2.1"
+                "source": "https://github.com/powerbuoy/sleek-settings/tree/v1.2.2"
             },
-            "time": "2021-12-10T12:56:47+00:00"
+            "time": "2021-12-10T13:06:03+00:00"
         },
         {
             "name": "powerbuoy/sleek-tinymce",

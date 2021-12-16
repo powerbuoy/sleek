@@ -7,8 +7,8 @@
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "fontello": "node fontello.js",
-    "make-pot": "wp sleek make-cpt-strings && wp i18n make-pot . lang/sleek.pot --include=vendor/powerbuoy --domain=sleek",
-    "make-pot-admin": "wp i18n make-pot . lang/admin/sleek_admin.pot --include=vendor/powerbuoy --domain=sleek_admin"
+    "make-pot": "cp -r vendor/powerbuoy ___sleek && wp sleek make-cpt-strings && wp i18n make-pot . lang/sleek.pot --domain=sleek && rm -r ___sleek",
+    "make-pot-admin": "cp -r vendor/powerbuoy ___sleek && wp i18n make-pot . lang/admin/sleek_admin.pot --domain=sleek_admin && rm -r ___sleek"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     "css": "^3.0.0",
     "css-has-pseudo": "^1.0.0",
     "css-loader": "^6.2.0",
-    "css-minimizer-webpack-plugin": "^3.0.2",
+    "css-minimizer-webpack-plugin": "^3.2.0",
     "cssnano": "^5.0.8",
     "file-loader": "^6.0.0",
     "glob": "^7.1.6",
@@ -41,6 +41,7 @@
     "postcss-custom-media": "^8.0.0",
     "postcss-custom-selectors": "^6.0.0",
     "postcss-font-display": "^0.2.1",
+    "postcss-inset": "^1.0.0",
     "postcss-loader": "^6.1.1",
     "request": "^2.88.2",
     "sass": "^1.26.10",
@@ -50,7 +51,7 @@
     "vue-loader": "^15.9.3",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.11",
-    "webpack": "^5.52.1",
+    "webpack": "^5.64.3",
     "webpack-cli": "^4.8.0"
   },
   "dependencies": {

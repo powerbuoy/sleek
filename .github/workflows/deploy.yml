@@ -54,7 +54,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: dist
-          key: webpack-${{ hashFiles('src/**/*') }}-${{ hashFiles('modules/**/*.scss') }}-${{ hashFiles('modules/**/*.js') }}
+          key: webpack-${{ hashFiles('src/**/*') }}-${{ hashFiles('modules/**/*.scss') }}-${{ hashFiles('modules/**/*.js') }}-${{ hashFiles('lang/*.po') }}
 
       # NPM Install
       - name: NPM Install

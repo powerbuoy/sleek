@@ -29,7 +29,7 @@ add_theme_support('sleek/cleanup/comment_form_placeholders');
 add_theme_support('sleek/oembed/responsive_video'); # Adds div.video around embeds
 # add_theme_support('sleek/oembed/data_src'); # Replaces src attributes with data-src - use together with sleek-ui/vide-embed
 
-add_theme_support('sleek/login/styling');
+# add_theme_support('sleek/login/styling');
 # add_theme_support('sleek/login/require_login');
 
 # add_theme_support('sleek/modules/module_preview'); # NOTE: Alpha

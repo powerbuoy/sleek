@@ -449,16 +449,16 @@
         },
         {
             "name": "powerbuoy/sleek-login",
-            "version": "v2.3.0",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-login.git",
-                "reference": "9a22ea3cd6c8a4aae1599a5bd295e4b014b1e5aa"
+                "reference": "f30d554b022e99047978d050255a2a3c2a8e3180"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-login/zipball/9a22ea3cd6c8a4aae1599a5bd295e4b014b1e5aa",
-                "reference": "9a22ea3cd6c8a4aae1599a5bd295e4b014b1e5aa",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-login/zipball/f30d554b022e99047978d050255a2a3c2a8e3180",
+                "reference": "f30d554b022e99047978d050255a2a3c2a8e3180",
                 "shasum": ""
             },
             "type": "library",
@@ -480,9 +480,9 @@
             "description": "Improves the login screen and hides admin bar from subscribers, also redirects them to the home page upon login.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-login/issues",
-                "source": "https://github.com/powerbuoy/sleek-login/tree/master"
+                "source": "https://github.com/powerbuoy/sleek-login/tree/v2.3.1"
             },
-            "time": "2020-04-09T11:57:55+00:00"
+            "time": "2022-01-31T15:34:55+00:00"
         },
         {
             "name": "powerbuoy/sleek-menu",

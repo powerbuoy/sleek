@@ -65,6 +65,8 @@ register_nav_menus([
 	'footer_menu' => __('Footer menu', 'sleek_admin')
 ]);
 
+register_sidebar(['name' => __('Sidebar', 'sleek_admin'), 'id' => 'sidebar']);
+
 ################
 # Sleek settings
 /* add_action('admin_init', function () {

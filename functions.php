@@ -15,7 +15,7 @@ add_theme_support('sleek/classic_editor');
 add_theme_support('sleek/jquery_cdn');
 add_theme_support('sleek/disable_jquery');
 add_theme_support('sleek/disable_404_guessing');
-add_theme_support('sleek/nice_email_from');
+# add_theme_support('sleek/nice_email_from'); NOTE: This overrides whatever from is set in CF7
 add_theme_support('sleek/disable_theme_editor');
 # add_theme_support('sleek/get_terms_post_type_arg');
 

@@ -55,7 +55,6 @@ $button-colors: ("black": black, "white": white);
 //////////
 // Buttons
 .buttons {
-	overflow: hidden;
 	margin: 0 calc(var(--spacing-x-small) * -1) calc(var(--spacing-small) * -1);
 
 	> a {

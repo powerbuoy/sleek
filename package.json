@@ -38,6 +38,7 @@
     "mini-css-extract-plugin": "^2.3.0",
     "po2mo-loader": "^1.0.3",
     "postcss": "^8.3.7",
+    "postcss-clamp": "^4.1.0",
     "postcss-custom-media": "^8.0.0",
     "postcss-custom-selectors": "^6.0.0",
     "postcss-font-display": "^0.2.1",

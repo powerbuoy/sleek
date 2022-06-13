@@ -122,6 +122,8 @@ var config = {
 									require('postcss-custom-media'),
 									require('postcss-custom-selectors'),
 									require('css-has-pseudo/postcss'),
+									require('postcss-inset')(),
+									require('postcss-clamp')(),
 									require('postcss-font-display')([
 										{
 											display: 'swap',

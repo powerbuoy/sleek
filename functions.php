@@ -14,7 +14,7 @@ add_theme_support('sleek/classic_editor');
 add_theme_support('sleek/jquery_cdn');
 add_theme_support('sleek/disable_jquery');
 add_theme_support('sleek/disable_404_guessing');
-# add_theme_support('sleek/nice_email_from'); NOTE: This overrides whatever from is set in CF7
+# add_theme_support('sleek/nice_email_from'); NOTE: This overrides whatever from is set in CF7 so don't use probably
 add_theme_support('sleek/disable_theme_editor');
 # add_theme_support('sleek/get_terms_post_type_arg');
 
@@ -47,6 +47,7 @@ add_theme_support('sleek/tinymce/clean_paste');
 #############
 # Image sizes
 Sleek\ImageSizes\register(1920, 1080, ['center', 'center']/*, [
+	'original' => ['width' => 1920, 'height' => 9999, 'crop' => false],
 	'portrait' => ['width' => 1080, 'height' => 1920, 'crop' => ['center', 'top']],
 	'square' => ['width' => 1920, 'height' => 1920],
 ]*/);

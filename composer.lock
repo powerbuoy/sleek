@@ -26,11 +26,11 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "lib/"
-                ],
                 "files": [
                     "lib/helpers.php"
+                ],
+                "classmap": [
+                    "lib/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -64,16 +64,16 @@
         },
         {
             "name": "powerbuoy/sleek-acf",
-            "version": "v2.7.2",
+            "version": "v2.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-acf.git",
-                "reference": "0099071bd69ce8dedffe5897d872e900371b69c8"
+                "reference": "edc4e19698e7374debae4a73a3e3e7734d07e5e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-acf/zipball/0099071bd69ce8dedffe5897d872e900371b69c8",
-                "reference": "0099071bd69ce8dedffe5897d872e900371b69c8",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-acf/zipball/edc4e19698e7374debae4a73a3e3e7734d07e5e0",
+                "reference": "edc4e19698e7374debae4a73a3e3e7734d07e5e0",
                 "shasum": ""
             },
             "require": {
@@ -98,9 +98,9 @@
             "description": "Improves ACF in a number of ways like nicer flexible content titles, collapsed flexible content layouts, better looking relationship field and more.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-acf/issues",
-                "source": "https://github.com/powerbuoy/sleek-acf/tree/v2.7.2"
+                "source": "https://github.com/powerbuoy/sleek-acf/tree/v2.8.2"
             },
-            "time": "2021-12-09T13:21:47+00:00"
+            "time": "2022-11-17T14:07:43+00:00"
         },
         {
             "name": "powerbuoy/sleek-archive-filter",
@@ -141,16 +141,16 @@
         },
         {
             "name": "powerbuoy/sleek-archive-meta",
-            "version": "v3.4.0",
+            "version": "v3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-archive-meta.git",
-                "reference": "6a249ef7aaa109295481cc993752ef27c6e78612"
+                "reference": "bf4701a474e866d862ae285961b784b637be4ca9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-archive-meta/zipball/6a249ef7aaa109295481cc993752ef27c6e78612",
-                "reference": "6a249ef7aaa109295481cc993752ef27c6e78612",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-archive-meta/zipball/bf4701a474e866d862ae285961b784b637be4ca9",
+                "reference": "bf4701a474e866d862ae285961b784b637be4ca9",
                 "shasum": ""
             },
             "require": {
@@ -175,22 +175,22 @@
             "description": "Hooks into the the_archive_title() and the_archive_description() functions to provide better search results texts, remove prefixes and more.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-archive-meta/issues",
-                "source": "https://github.com/powerbuoy/sleek-archive-meta/tree/v3.4.0"
+                "source": "https://github.com/powerbuoy/sleek-archive-meta/tree/v3.5.0"
             },
-            "time": "2021-12-10T12:32:34+00:00"
+            "time": "2022-02-16T00:59:39+00:00"
         },
         {
             "name": "powerbuoy/sleek-cleanup",
-            "version": "v4.0.0",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-cleanup.git",
-                "reference": "b9fb22386a624656ec1ecd5fcbfac72dbb794ca2"
+                "reference": "ce46be3766959c0da3c72ab6eb9f8a9ea1868c01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-cleanup/zipball/b9fb22386a624656ec1ecd5fcbfac72dbb794ca2",
-                "reference": "b9fb22386a624656ec1ecd5fcbfac72dbb794ca2",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-cleanup/zipball/ce46be3766959c0da3c72ab6eb9f8a9ea1868c01",
+                "reference": "ce46be3766959c0da3c72ab6eb9f8a9ea1868c01",
                 "shasum": ""
             },
             "type": "library",
@@ -212,22 +212,22 @@
             "description": "Cleans up a bunch of unnecessary WordPress stuff like inline emoji code, gallery markup and more.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-cleanup/issues",
-                "source": "https://github.com/powerbuoy/sleek-cleanup/tree/v4.0.0"
+                "source": "https://github.com/powerbuoy/sleek-cleanup/tree/v4.1.0"
             },
-            "time": "2021-02-10T11:13:44+00:00"
+            "time": "2022-05-30T09:06:22+00:00"
         },
         {
             "name": "powerbuoy/sleek-core",
-            "version": "v4.1.0",
+            "version": "v4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-core.git",
-                "reference": "2f711b6e7d2ce103821936225f3e5c5f5a2b844c"
+                "reference": "76cb0fda8cc3e810b1b090b6d5a17c43858d161e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/2f711b6e7d2ce103821936225f3e5c5f5a2b844c",
-                "reference": "2f711b6e7d2ce103821936225f3e5c5f5a2b844c",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/76cb0fda8cc3e810b1b090b6d5a17c43858d161e",
+                "reference": "76cb0fda8cc3e810b1b090b6d5a17c43858d161e",
                 "shasum": ""
             },
             "type": "library",
@@ -249,9 +249,9 @@
             "description": "Adds a bunch of theme support, includes translation files, enqueues scripts etc etc.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-core/issues",
-                "source": "https://github.com/powerbuoy/sleek-core/tree/v4.1.0"
+                "source": "https://github.com/powerbuoy/sleek-core/tree/v4.2.0"
             },
-            "time": "2021-09-21T10:49:08+00:00"
+            "time": "2022-11-17T14:04:14+00:00"
         },
         {
             "name": "powerbuoy/sleek-custom-logo",
@@ -523,16 +523,16 @@
         },
         {
             "name": "powerbuoy/sleek-modules",
-            "version": "v7.0.3",
+            "version": "v7.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-modules.git",
-                "reference": "74915cf3d65af161726613f134c0ba3db959470a"
+                "reference": "e55bfe936d5976284b45211162d608d8e1af4eb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/74915cf3d65af161726613f134c0ba3db959470a",
-                "reference": "74915cf3d65af161726613f134c0ba3db959470a",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/e55bfe936d5976284b45211162d608d8e1af4eb9",
+                "reference": "e55bfe936d5976284b45211162d608d8e1af4eb9",
                 "shasum": ""
             },
             "require": {
@@ -559,9 +559,9 @@
             "description": "Create modules by creating classes in /modules/.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-modules/issues",
-                "source": "https://github.com/powerbuoy/sleek-modules/tree/v7.0.3"
+                "source": "https://github.com/powerbuoy/sleek-modules/tree/v7.2.2"
             },
-            "time": "2021-12-10T12:37:17+00:00"
+            "time": "2023-11-13T13:03:31+00:00"
         },
         {
             "name": "powerbuoy/sleek-notices",
@@ -605,16 +605,16 @@
         },
         {
             "name": "powerbuoy/sleek-post-types",
-            "version": "v6.5.0",
+            "version": "v6.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/powerbuoy/sleek-post-types.git",
-                "reference": "75fef92f34ee07db78d979a4180d584eab423b93"
+                "reference": "bd3033d1bf3f6140f75626ae88c69a48b9886b4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/75fef92f34ee07db78d979a4180d584eab423b93",
-                "reference": "75fef92f34ee07db78d979a4180d584eab423b93",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/bd3033d1bf3f6140f75626ae88c69a48b9886b4a",
+                "reference": "bd3033d1bf3f6140f75626ae88c69a48b9886b4a",
                 "shasum": ""
             },
             "require": {
@@ -642,9 +642,9 @@
             "description": "Create post types by creating classes in /post-types/.",
             "support": {
                 "issues": "https://github.com/powerbuoy/sleek-post-types/issues",
-                "source": "https://github.com/powerbuoy/sleek-post-types/tree/v6.5.0"
+                "source": "https://github.com/powerbuoy/sleek-post-types/tree/v6.6.1"
             },
-            "time": "2021-12-15T22:26:23+00:00"
+            "time": "2023-08-21T11:32:04+00:00"
         },
         {
             "name": "powerbuoy/sleek-settings",

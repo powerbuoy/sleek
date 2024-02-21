@@ -43,7 +43,7 @@ class Form extends Module {
 	}
 
 	# Return only form fields (can be used by other modules like HeroForm)
-	public function form_fields($module = 'form') {
+	public function form_fields ($module = 'form') {
 		# Add form type radio button
 		if (shortcode_exists('contact-form-7') or \Sleek\Settings\get_setting('hubspot_portal_id')) {
 			$choices = ['custom' => __('Custom form', 'sleek_admin')];

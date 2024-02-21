@@ -1,20 +1,5 @@
 'use strict';
 
-///////////////////
-// Import polyfills
-// querySelector(':scope')
-/* import 'element-qsa-scope';
-
-// Scroll-behavior
-import smoothscroll from 'smoothscroll-polyfill';
-smoothscroll.polyfill();
-import 'smoothscroll-anchor-polyfill';
-
-// :has() pseudo class
-import cssHasPseudo from 'css-has-pseudo';
-
-cssHasPseudo(document); */
-
 //////////////////
 // DocumentOutline
 /* import DocumentOutline from 'sleek-ui/src/js/document-outline';

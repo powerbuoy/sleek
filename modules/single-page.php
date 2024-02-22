@@ -1,4 +1,4 @@
-<?php while (have_posts()) : the_post() ?>
+<?php while (have_posts()) : the_post(); if (get_the_content()) : ?>
 	<section id="single-<?php echo get_post_type() ?>">
 
 		<header>
@@ -27,4 +27,4 @@
 		<?php endif ?>
 
 	</section>
-<?php endwhile ?>
+<?php endif; endwhile ?>

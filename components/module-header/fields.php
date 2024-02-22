@@ -8,7 +8,8 @@
 				[
 					'name' => 'kicker',
 					'label' => __('Kicker', 'sleek_admin'),
-					'type' => 'text'
+					'type' => 'text',
+					'instructions' => __('The kicker will only be visible if the title is filled out.', 'sleek_admin')
 				],
 				[
 					'name' => 'title',

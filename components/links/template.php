@@ -10,7 +10,7 @@
 
 		<?php $i = 0; foreach ($args['links'] as $link) : ?>
 			<a href="<?php echo $link['link']['url'] ?>"
-				class="button"
+				class="<?php echo $link['link_style'] ?>"
 				<?php if (!empty($link['link']['target'])) : ?>
 					target="<?php echo $link['link']['target'] ?>"
 				<?php endif ?>

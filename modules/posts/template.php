@@ -1,5 +1,5 @@
 <?php if ($rows) : ?>
-	<section id="latest-posts">
+	<section id="posts">
 
 		<?php if ($title or $description) : ?>
 			<header>

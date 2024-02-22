@@ -12,14 +12,14 @@ class InviseModule extends Module {
 			],
 			...$this->content_fields(),
 			[
-				'name' => 'style_tab',
-				'label' => __('Style', 'sleek_admin'),
+				'name' => 'styles_tab',
+				'label' => __('Styles', 'sleek_admin'),
 				'type' => 'tab',
 				'placement' => 'top'
 			],
 			[
-				'name' => 'style',
-				'label' => __('Style', 'sleek_admin'),
+				'name' => 'styles',
+				'label' => __('Styles', 'sleek_admin'),
 				'type' => 'group',
 				'sub_fields' => $this->style_fields(),
 				'wrapper' => [
@@ -43,8 +43,8 @@ class InviseModule extends Module {
 	public function style_fields () {
 		return [
 			[
-				'name' => 'no_style',
-				'label' => __('No style', 'sleek_admin'),
+				'name' => 'no_styles',
+				'label' => __('No styles', 'sleek_admin'),
 				'type' => 'message',
 				'message' => __('There is nothing to style.', 'sleek_admin')
 			]

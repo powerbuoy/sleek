@@ -3,6 +3,10 @@
 # Vendor
 require __DIR__ . '/vendor/autoload.php';
 
+#####
+# Inc
+require __DIR__ . '/inc/invise-module.php';
+
 ###################
 # Load translations
 load_theme_textdomain('sleek', get_template_directory() . '/dist/lang/');

@@ -3,8 +3,8 @@
 
 namespace Sleek\Modules;
 
-class Attachments extends Module {
-	public function fields () {
+class Attachments extends InviseModule {
+	public function content_fields () {
 		return [
 			[
 				'name' => 'title',
@@ -13,19 +13,20 @@ class Attachments extends Module {
 			],
 			[
 				'name' => 'description',
-				'label' => __('Title', 'sleek_admin'),
+				'label' => __('Description', 'sleek_admin'),
 				'type' => 'wysiwyg',
 				'toolbar' => 'simple',
 				'media_upload' => false
 			],
 			[
 				'name' => 'files',
-				'label' => __('Title', 'sleek_admin'),
+				'label' => __('Files', 'sleek_admin'),
 				'type' => 'repeater',
+				'required' => true,
 				'sub_fields' => [
 					[
-						'name' => 'files_file',
-						'label' => __('Title', 'sleek_admin'),
+						'name' => 'file',
+						'label' => __('File', 'sleek_admin'),
 						'type' => 'file',
 						'return_format' => 'id'
 					]

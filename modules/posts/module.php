@@ -54,7 +54,7 @@ class Posts extends Module {
 				'conditional_logic' => [
 					[
 						[
-							'field' => '{acf_key}_' . $this->moduleName . '_type_of_posts',
+							'field' => '{acf_key}_' . $this->snakeName . '_type_of_posts',
 							'operator' => '==',
 							'value' => 'auto',
 						]
@@ -90,7 +90,7 @@ class Posts extends Module {
 				'conditional_logic' => [
 					[
 						[
-							'field' => '{acf_key}_' . $this->moduleName . '_type_of_posts',
+							'field' => '{acf_key}_' . $this->snakeName . '_type_of_posts',
 							'operator' => '==',
 							'value' => 'featured',
 						]
@@ -116,7 +116,7 @@ class Posts extends Module {
 				'conditional_logic' => [
 					[
 						[
-							'field' => '{acf_key}_' . $this->moduleName . '_type_of_posts',
+							'field' => '{acf_key}_' . $this->snakeName . '_type_of_posts',
 							'operator' => '==',
 							'value' => 'related',
 						]

@@ -29,7 +29,6 @@ class SocialLinks extends Module {
 
 	public static function get_links () {
 		$tmp = get_option('wpseo_social');
-		\Sleek\Utils\log($tmp);
 		$links = [];
 		$nicenames = [
 			'linkedin' => 'LinkedIn',

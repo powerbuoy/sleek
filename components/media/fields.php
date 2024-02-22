@@ -15,14 +15,13 @@
 	];
 
 	if ($config['ratio']) {
-		$fields = array_merge($fields, (include get_stylesheet_directory() . '/components/ratio.php')());
+		$fields = array_merge($fields, (include get_stylesheet_directory() . '/components/ratio.php')([
+			'conditional_logic' => [[[
+				'field' => '{acf_key}_' . $moduleName . '_media_media',
+				'operator' => '!=empty'
+			]]]
+		]));
 	}
-
-	# Optional portrait media file
-	$condition = [[[
-		'field' => '{acf_key}_' . $moduleName . '_media_media', # NOTE: First media is the group
-		'operator' => '!=empty'
-	]]];
 
 	$fields[] = [
 		'name' => 'media_portrait',
@@ -30,13 +29,19 @@
 		'instructions' => __('Optionally select another image or video to be used in portrait mode.', 'sleek_admin'),
 		'type' => 'file',
 		'return_format' => 'id',
-		'conditional_logic' => $condition
+		'conditional_logic' => [[[
+			'field' => '{acf_key}_' . $moduleName . '_media_media',
+			'operator' => '!=empty'
+		]]]
 	];
 
 	if ($config['ratio']) {
 		$fields = array_merge($fields, (include get_stylesheet_directory() . '/components/ratio.php')([
 			'name' => 'ratio_portrait',
-			'conditional_logic' => $condition
+			'conditional_logic' => [[[
+				'field' => '{acf_key}_' . $moduleName . '_media_media_portrait',
+				'operator' => '!=empty'
+			]]]
 		]));
 	}
 

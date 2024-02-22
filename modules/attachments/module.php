@@ -3,8 +3,8 @@
 
 namespace Sleek\Modules;
 
-class Attachments extends InviseModule {
-	public function content_fields () {
+class Attachments extends Module {
+	public function fields () {
 		return [
 			[
 				'name' => 'title',

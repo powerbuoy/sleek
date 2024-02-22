@@ -9,6 +9,7 @@
 // @import "mixins/**/*.scss";
 @import "components/**/*.scss";
 @import "modules/**/*.scss";
+// @import "../../components/**/*.scss";
 // @import "../../modules/**/*.scss";
 
 // Global stuff
@@ -21,23 +22,13 @@ html {
 	scroll-behavior: smooth;
 }
 
-// Prevent scrollbar (https://stackoverflow.com/a/46039555)
-// NOTE: This also prevents the use of position: sticky 😭
-/* @media (--laptop-max) {
-	html,
-	body {
-		position: relative;
-		overflow-x: hidden;
-	}
-} */
-
 // Hide adminbar
 html.admin-bar {
 	margin-top: 0 !important;
 
 	#wpadminbar {
 		transform: translateX(calc(100% - 35px));
-		transition: transform 0.5s 1s ease;
+		transition: transform 0.5s 0.5s ease;
 
 		@media (--laptop-max) {
 			display: none;

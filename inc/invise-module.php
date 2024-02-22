@@ -1,4 +1,7 @@
 <?php
+# This is a middle-layer between a finished module and Sleek.Module that adds
+# Content and Style tabs as well as methods to add fields to both.
+# See modules/invise-example-module for an example that uses this class as well as components.
 namespace Sleek\Modules;
 
 class InviseModule extends Module {

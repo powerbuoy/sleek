@@ -53,7 +53,7 @@ class Posts extends Module {
 				'conditional_logic' => [
 					[
 						[
-							'field' => '{acf_key}_posts_type_of_posts',
+							'field' => '{acf_key}_' . $this->moduleName . '_type_of_posts',
 							'operator' => '==',
 							'value' => 'latest',
 						]
@@ -86,7 +86,7 @@ class Posts extends Module {
 				'conditional_logic' => [
 					[
 						[
-							'field' => '{acf_key}_posts_type_of_posts',
+							'field' => '{acf_key}_' . $this->moduleName . '_type_of_posts',
 							'operator' => '==',
 							'value' => 'featured',
 						]
@@ -111,7 +111,7 @@ class Posts extends Module {
 				'conditional_logic' => [
 					[
 						[
-							'field' => '{acf_key}_posts_type_of_posts',
+							'field' => '{acf_key}_' . $this->moduleName . '_type_of_posts',
 							'operator' => '==',
 							'value' => 'related',
 						]

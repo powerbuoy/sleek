@@ -37,29 +37,31 @@ class Posts extends Module {
 				'type' => 'radio',
 				'layout' => 'horizontal',
 				'choices' => [
-					'latest' => __('Show the latest posts', 'sleek_admin'),
+					'auto' => __('Show X posts based on filters', 'sleek_admin'),
 					'featured' => __('Select which posts to show', 'sleek_admin'),
 					'related' => __('Show posts related to another post', 'sleek_admin'),
-					# 'user' => __('Show posts from a specific user', 'sleek_admin')
+				#	'user' => __('Show posts from a specific user', 'sleek_admin')
 				],
-				'default_value' => 'latest'
+				'default_value' => 'auto'
 			],
 
-			# Latest
+			######
+			# Auto
 			[
-				'name' => 'latest_group',
-				'label' => __('Latest posts', 'sleek_admin'),
+				'name' => 'auto_group',
+				'label' => __('Auto posts', 'sleek_admin'),
 				'type' => 'group',
 				'conditional_logic' => [
 					[
 						[
 							'field' => '{acf_key}_' . $this->moduleName . '_type_of_posts',
 							'operator' => '==',
-							'value' => 'latest',
+							'value' => 'auto',
 						]
 					]
 				],
 				'sub_fields' => [
+					# TODO: Hide this if only one post-type
 					[
 						'name' => 'post_types',
 						'label' => __('Post types', 'sleek_admin'),
@@ -74,10 +76,12 @@ class Posts extends Module {
 						'type' => 'number',
 						'default_value' => 3,
 						'required' => true
-					]
+					],
+					# TODO: orderby, category, date-span, only upcoming? only passed? (events for example)
 				]
 			],
 
+			##########
 			# Featured
 			[
 				'name' => 'featured_group',
@@ -103,6 +107,7 @@ class Posts extends Module {
 				]
 			],
 
+			#########
 			# Related
 			[
 				'name' => 'related_group',
@@ -144,9 +149,9 @@ class Posts extends Module {
 		$rows = null;
 		$type = $this->get_field('type_of_posts');
 
-		# Latest
-		if ($type === 'latest') {
-			$args = $this->get_field('latest_group');
+		# Auto
+		if ($type === 'auto') {
+			$args = $this->get_field('auto_group');
 
 			$rows = get_posts([
 				'post_type' => $args['post_types'],
@@ -177,12 +182,13 @@ class Posts extends Module {
 	public static function get_related_posts ($limit = 3, $postId = null) {
 		global $post;
 
+		# Default to "current" post (NOTE: This breaks on non single pages)
 		if (!$postId) {
 			$postId = $post->ID;
 		}
 
 		$args = [
-			'post_type' => get_post_type(),
+			'post_type' => get_post_type($postId),
 			'numberposts' => $limit,
 			'tax_query' => [
 				'relation' => 'OR'
@@ -192,25 +198,27 @@ class Posts extends Module {
 		# Ignore same post
 		if (is_single() or is_page()) {
 			$args['post__not_in'] = [$postId];
-
-			# Use the same category as the currently viewed post
-			$tax = 'category';
-
-			if (get_post_type() !== 'post') {
-				$tax = get_post_type() . '_category';
-			}
-
-			$ids = wp_get_post_terms($postId, $tax, ['fields' => 'ids']);
-
-			if ($ids and !is_wp_error($ids)) {
-				$args['tax_query'][] = [
-					'taxonomy' => $tax,
-					'field' => 'term_id',
-					'terms' => $ids
-				];
-			}
 		}
 
-		return get_posts($args);
+		# Use the same category as the currently viewed post
+		$tax = 'category';
+
+		if (get_post_type($postId) !== 'post') {
+			$tax = get_post_type($postId) . '_category';
+		}
+
+		$ids = wp_get_post_terms($postId, $tax, ['fields' => 'ids']);
+
+		if ($ids and !is_wp_error($ids)) {
+			$args['tax_query'][] = [
+				'taxonomy' => $tax,
+				'field' => 'term_id',
+				'terms' => $ids
+			];
+
+			return get_posts($args);
+		}
+
+		return null;
 	}
 }

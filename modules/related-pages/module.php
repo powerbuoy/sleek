@@ -70,6 +70,7 @@ class RelatedPages extends Module {
 			'numberposts' => -1
 		];
 
+		# NOTE: Hide page we're on (or not?)
 	/*	if (is_singular()) {
 			$args['post__not_in'] = [$post->ID];
 		} */

@@ -29,7 +29,12 @@ class Posts extends Module {
 				'media_upload' => false,
 				'toolbar' => 'basic'
 			],
+			...$this->posts_fields()
+		];
+	}
 
+	public function posts_fields () {
+		return [
 			# Type of posts
 			[
 				'name' => 'type_of_posts',
@@ -37,7 +42,7 @@ class Posts extends Module {
 				'type' => 'radio',
 				'layout' => 'horizontal',
 				'choices' => [
-					'auto' => __('Show X posts based on filters', 'sleek_admin'),
+					'auto' => __('Show posts based on filters', 'sleek_admin'),
 					'featured' => __('Select which posts to show', 'sleek_admin'),
 					'related' => __('Show posts related to another post', 'sleek_admin'),
 				#	'user' => __('Show posts from a specific user', 'sleek_admin')
@@ -81,32 +86,6 @@ class Posts extends Module {
 				]
 			],
 
-			##########
-			# Featured
-			[
-				'name' => 'featured_group',
-				'label' => __('Featured posts', 'sleek_admin'),
-				'type' => 'group',
-				'conditional_logic' => [
-					[
-						[
-							'field' => '{acf_key}_' . $this->snakeName . '_type_of_posts',
-							'operator' => '==',
-							'value' => 'featured',
-						]
-					]
-				],
-				'sub_fields' => [
-					[
-						'name' => 'featured_rows',
-						'label' => __('Featured posts', 'sleek_admin'),
-						'type' => 'relationship',
-						'post_type' => array_keys($this->postTypes),
-						'required' => true
-					]
-				]
-			],
-
 			#########
 			# Related
 			[
@@ -141,10 +120,39 @@ class Posts extends Module {
 				]
 			],
 
-			# TODO: User
+			######
+			# User
+			# TODO
+
+			##########
+			# Featured
+			[
+				'name' => 'featured_group',
+				'label' => __('Featured posts', 'sleek_admin'),
+				'type' => 'group',
+				'conditional_logic' => [
+					[
+						[
+							'field' => '{acf_key}_' . $this->snakeName . '_type_of_posts',
+							'operator' => '==',
+							'value' => 'featured',
+						]
+					]
+				],
+				'sub_fields' => [
+					[
+						'name' => 'featured_rows',
+						'label' => __('Featured posts', 'sleek_admin'),
+						'type' => 'relationship',
+						'post_type' => array_keys($this->postTypes),
+						'required' => true
+					]
+				]
+			],
 		];
 	}
 
+	# Populate the rows data
 	public function data () {
 		$rows = null;
 		$type = $this->get_field('type_of_posts');
@@ -179,6 +187,7 @@ class Posts extends Module {
 		];
 	}
 
+	# Get posts from same category (and post type) as current post (or $postId)
 	public static function get_related_posts ($limit = 3, $postId = null) {
 		global $post;
 

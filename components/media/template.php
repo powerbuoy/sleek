@@ -1,10 +1,9 @@
 <?php
 	$args = array_merge([
-		'media' => null,
-		'styles' => []
+		'media' => null
 	], $args);
 ?>
 
 <?php if ($args['media']) : ?>
-	<figure class="media">...</figure>
+	<figure>...</figure>
 <?php endif ?>

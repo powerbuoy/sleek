@@ -3,17 +3,16 @@
 		'media' => null,
 		'size' => 'large',
 		'size_portrait' => 'medium',
-		'class' => 'media'
+		'class' => 'media',
+		'video_args' => [
+			'autoplay',
+			'muted',
+			'disablepictureinpicture',
+			'disableremoteplayback',
+			'playsinline',
+			'loop'
+		]
 	], $args);
-
-	$video_args = [
-		'autoplay',
-		'muted',
-		'disablepictureinpicture',
-		'disableremoteplayback',
-		'playsinline',
-		'loop'
-	];
 
 	$media_id = null;
 	$media_url = null;
@@ -22,6 +21,7 @@
 	$media_portrait_url = null;
 	$media_portrait_classes = [];
 
+	# Default media
 	if (!empty($args['media']['media'])) {
 		$media_id = $args['media']['media'];
 		$media_url = wp_get_attachment_url($args['media']['media']);
@@ -32,6 +32,7 @@
 		}
 	}
 
+	# Portrait
 	if (!empty($args['media']['media_portrait'])) {
 		$media_portrait_id = $args['media']['media_portrait'];
 		$media_portrait_url = wp_get_attachment_url($args['media']['media_portrait']);
@@ -53,7 +54,7 @@
 					src="<?php echo $media_url ?>"
 					width="<?php echo $media_meta['width'] ?>"
 					height="<?php echo $media_meta['height'] ?>"
-					<?php echo implode(' ', $video_args) ?>
+					<?php echo implode(' ', $args['video_args']) ?>
 				></video>
 			<?php else : ?>
 				<?php echo wp_get_attachment_image($media_id, $args['size']) ?>
@@ -66,7 +67,7 @@
 						src="<?php echo $media_portrait_url ?>"
 						width="<?php echo $media_portrait_meta['width'] ?>"
 						height="<?php echo $media_portrait_meta['height'] ?>"
-						<?php echo implode(' ', $video_args) ?>
+						<?php echo implode(' ', $args['video_args']) ?>
 					></video>
 				<?php else : ?>
 					<?php echo wp_get_attachment_image($media_portrait_id, $args['size_portrait']) ?>

@@ -33,6 +33,10 @@
 			width: auto;
 			max-height: 2rem;
 			fill: var(--site-header-color);
+
+			path {
+				stroke: none;
+			}
 		}
 	}
 }

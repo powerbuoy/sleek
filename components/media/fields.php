@@ -11,7 +11,7 @@
 	foreach ($mimes as $ext => $mime) {
 		if (strpos($mime, 'video') !== false or strpos($mime, 'image') !== false) {
 			$exts = explode('|', $ext);
-			$mediaExts[] = array_merge($mediaExts, $exts);
+			$mediaExts = array_merge($mediaExts, $exts);
 		}
 	}
 
@@ -22,7 +22,7 @@
 			'label' => __('Image or Video', 'sleek_admin'),
 			'type' => 'file',
 			'return_format' => 'id',
-			# TODO: MIME_TYPES only image and video
+			'mime_types' => implode(',', $mediaExts) # NOTE: The property is called mime_types, but the expected value is a comma-separated list of extensions
 		]
 	];
 
@@ -42,6 +42,7 @@
 		'instructions' => __('Optionally select another image or video to be used in portrait mode.', 'sleek_admin'),
 		'type' => 'file',
 		'return_format' => 'id',
+		'mime_types' => implode(',', $mediaExts),
 		'conditional_logic' => [[[
 			'field' => '{acf_key}_' . $moduleName . '_media_media',
 			'operator' => '!=empty'

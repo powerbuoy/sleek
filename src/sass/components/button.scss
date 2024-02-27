@@ -25,3 +25,12 @@ input[type=submit] {
 .button--ghost {
 	@include button-ghost;
 }
+
+// Small button
+.button--small {
+	--button-scale: 0.75;
+
+	font-size: calc(var(--button-scale) * var(--button-font-size));
+	padding-inline: calc(var(--button-scale) * var(--button-padding-x));
+	padding-block: calc(var(--button-scale) * var(--button-padding-y));
+}

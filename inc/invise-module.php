@@ -6,7 +6,7 @@ namespace Sleek\Modules;
 
 class InviseModule extends Module {
 	public function fields () {
-		return [
+		$fields = [
 			[
 				'name' => 'content_tab',
 				'label' => __('Content', 'sleek_admin'),
@@ -30,6 +30,10 @@ class InviseModule extends Module {
 				]
 			]
 		];
+
+		# \Sleek\Utils\log($fields);
+
+		return $fields;
 	}
 
 	public function content_fields () {

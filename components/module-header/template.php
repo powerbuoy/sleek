@@ -17,11 +17,7 @@
 	<header class="<?php echo implode(' ', $classes) ?>">
 
 		<?php if (!empty($args['module_header']['kicker']) and !empty($args['module_header']['title'])) : ?>
-			<p class="text--kicker">
-				<strong>
-					<?php echo $args['module_header']['kicker'] ?>
-				</strong>
-			</p>
+			<p class="text--kicker"><?php echo $args['module_header']['kicker'] ?></p>
 		<?php endif ?>
 
 		<?php if (!empty($args['module_header']['title'])) : ?>

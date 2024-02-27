@@ -8,4 +8,28 @@
 		grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 		gap: var(--spacing-large);
 	}
+
+	article {
+		display: flex;
+		flex-direction: column;
+		padding: var(--spacing-medium);
+		box-shadow: var(--shadow-small);
+		border-radius: 0.25rem;
+
+		> * {
+			width: 100%;
+		}
+
+		> figure {
+			margin: calc(var(--spacing-medium) * -1);
+			margin-bottom: var(--spacing-medium);
+			border-radius: 0.25rem 0.25rem 0 0;
+			width: calc(100% + var(--spacing-medium) * 2);
+			overflow: hidden;
+		}
+
+		> .links {
+			margin-top: auto;
+		}
+	}
 }

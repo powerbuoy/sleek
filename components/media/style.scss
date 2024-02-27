@@ -1,3 +1,23 @@
 figure.media {
 
 }
+
+@media (orientation: portrait)
+	.portrait\:hide {
+		display: none;
+	}
+
+	.portrait\:show {
+		display: block;
+	}
+}
+
+@media (orientation: landscape)
+	.portrait\:hide {
+		display: block;
+	}
+
+	.portrait\:show {
+		display: none;
+	}
+}

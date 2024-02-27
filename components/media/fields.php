@@ -10,7 +10,8 @@
 			'name' => 'media',
 			'label' => __('Image or Video', 'sleek_admin'),
 			'type' => 'file',
-			'return_format' => 'id'
+			'return_format' => 'id',
+			# TODO: MIME_TYPES only image and video
 		]
 	];
 

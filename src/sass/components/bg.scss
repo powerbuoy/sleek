@@ -1,0 +1,44 @@
+.bg--dark {
+	--text-color: white;
+	--heading-color: white;
+	--link-color: white;
+
+	background-color: black;
+	color: var(--text-color);
+}
+
+// Media
+.bg--media,
+.bg--media-light {
+	position: relative;
+
+	> figure.bg {
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+
+		img,
+		video {
+			object-fit: cover;
+			object-position: center center;
+		}
+	}
+}
+
+// Dark media
+.bg--media {
+	--text-color: white;
+	--heading-color: white;
+	--link-color: white;
+
+	color: var(--text-color);
+}
+
+// Light media
+.bg--media-light {
+	--text-color: black;
+	--heading-color: black;
+	--link-color: black;
+
+	color: var(--text-color);
+}

@@ -4,6 +4,17 @@
 		'additional_fields' => []
 	], $args);
 
+	# Work out all the media mime types
+	$mimes = wp_get_mime_types();
+	$mediaExts = [];
+
+	foreach ($mimes as $ext => $mime) {
+		if (strpos($mime, 'video') !== false or strpos($mime, 'image') !== false) {
+			$exts = explode('|', $ext);
+			$mediaExts[] = array_merge($mediaExts, $exts);
+		}
+	}
+
 	# Main media file
 	$fields = [
 		[
@@ -24,6 +35,7 @@
 		]));
 	}
 
+	# Portrait media
 	$fields[] = [
 		'name' => 'media_portrait',
 		'label' => __('Portrait Media', 'sleek_admin'),
@@ -46,8 +58,10 @@
 		]));
 	}
 
+	# Potential additional fields
 	$fields = array_merge($fields, $config['additional_fields']);
 
+	# Return as group
 	return [
 		[
 			'name' => 'media',

@@ -1,6 +1,6 @@
 <header id="site-header">
 
-	<?php the_custom_logo() ?>
+	<?php the_custom_logo(['inline_svg' => true]) ?>
 
 	<?php if (get_bloginfo('description')) : ?>
 		<p><?php echo get_bloginfo('description') ?></p>

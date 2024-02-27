@@ -30,4 +30,6 @@
 		'styles' => $styles['links']
 	]) ?>
 
+	<pre><?php var_dump(wp_get_mime_types()) ?></pre>
+
 </section>

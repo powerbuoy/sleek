@@ -1,0 +1,38 @@
+// NOTE: TODO: HACK: This is all just an example, adjust to your design of course
+:root {
+	--site-header-bg: white;
+	--site-header-color: black;
+}
+
+#site-header {
+	--text-color: var(--site-header-color);
+	--link-color: var(--site-header-color);
+
+	background: var(--site-header-bg);
+	color: var(--site-header-color);
+
+	position: sticky;
+	top: 0;
+	z-index: 99;
+
+	display: flex;
+	align-self: center;
+	justify-content: space-between;
+	gap: var(--spacing-medium);
+
+	padding: var(--spacing-medium) var(--site-padding);
+	box-shadow: var(--shadow-small);
+
+	// Logo
+	.site-logo {
+		display: block;
+
+		img,
+		svg {
+			display: block;
+			width: auto;
+			max-height: 2rem;
+			fill: var(--site-header-color);
+		}
+	}
+}

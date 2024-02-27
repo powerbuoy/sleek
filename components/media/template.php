@@ -1,12 +1,4 @@
 <?php
-	function sleek_media_component_is_video ($meta) {
-		if (isset($meta['mime_type']) and strpos($meta['mime_type'], 'video') !== false) {
-			return true;
-		}
-
-		return false;
-	}
-
 	$args = array_merge([
 		'media' => null,
 		'size' => 'large',
@@ -56,7 +48,7 @@
 <?php if ($media_url) : ?>
 	<figure class="<?php echo $args['class'] ?>">
 		<div class="<?php echo implode(' ', $media_classes) ?>">
-			<?php if (sleek_media_component_is_video($media_meta)) : ?>
+			<?php if (isset($media_meta['mime_type']) and strpos($media_meta['mime_type'], 'video') !== false) : ?>
 				<video
 					src="<?php echo $media_url ?>"
 					width="<?php echo $media_meta['width'] ?>"
@@ -69,7 +61,7 @@
 		</div>
 		<?php if ($media_portrait_url) : ?>
 			<div class="<?php echo implode(' ', $media_portrait_classes) ?>">
-				<?php if (sleek_media_component_is_video($media_portrait_meta)) : ?>
+				<?php if (isset($media_portrait_meta['mime_type']) and strpos($media_portrait_meta['mime_type'], 'video') !== false) : ?>
 					<video
 						src="<?php echo $media_portrait_url ?>"
 						width="<?php echo $media_portrait_meta['width'] ?>"

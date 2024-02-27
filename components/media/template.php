@@ -10,7 +10,8 @@
 	$args = array_merge([
 		'media' => null,
 		'size' => 'large',
-		'size_portrait' => 'medium'
+		'size_portrait' => 'medium',
+		'class' => 'media'
 	], $args);
 
 	$video_args = [
@@ -53,7 +54,7 @@
 ?>
 
 <?php if ($media_url) : ?>
-	<figure class="media">
+	<figure class="<?php echo $args['class'] ?>">
 		<div class="<?php echo implode(' ', $media_classes) ?>">
 			<?php if (sleek_media_component_is_video($media_meta)) : ?>
 				<video

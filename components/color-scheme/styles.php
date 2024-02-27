@@ -6,6 +6,7 @@
 			'type' => 'group',
 			'sub_fields' => [
 				...(include get_stylesheet_directory() . '/components/media/fields.php')($moduleName . '_styles_color_scheme', [
+					'ratio' => false,
 					'additional_fields' => [
 						[
 							'name' => 'light_media',

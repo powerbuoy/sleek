@@ -1,7 +1,7 @@
 <?php return function ($moduleName, $args = []) {
 	$config = array_merge([
-		'module_name' => null,
-		'ratio' => true
+		'ratio' => true,
+		'additional_fields' => []
 	], $args);
 
 	# Main media file
@@ -45,6 +45,8 @@
 			]]]
 		]));
 	}
+
+	$fields = array_merge($fields, $config['additional_fields']);
 
 	return [
 		[

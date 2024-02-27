@@ -1,4 +1,8 @@
-<section id="invise-example-module">
+<section id="invise-example-module" class="<?php echo sleek_module_class($styles) ?>">
+
+	<?php get_template_part('components/color-scheme/template', null, [
+		'styles' => $styles['color_scheme']
+	]) ?>
 
 	<?php get_template_part('components/module-header/template', null, [
 		'module_header' => $module_header,

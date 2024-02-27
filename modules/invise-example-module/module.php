@@ -37,6 +37,7 @@ class InviseExampleModule extends InviseModule {
 
 	public function style_fields () {
 		return [
+			...(include get_stylesheet_directory() . '/components/color-scheme/styles.php')($this->snakeName),
 			...(include get_stylesheet_directory() . '/components/module-header/styles.php')(),
 			...(include get_stylesheet_directory() . '/components/links/styles.php')()
 		];

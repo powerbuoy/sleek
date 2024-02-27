@@ -5,7 +5,9 @@ require __DIR__ . '/vendor/autoload.php';
 
 #####
 # Inc
+# NOTE: These are optional examples, currently only used by the invise-example-module
 require __DIR__ . '/inc/invise-module.php';
+require __DIR__ . '/inc/module-class.php';
 
 ###################
 # Load translations

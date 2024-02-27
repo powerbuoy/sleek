@@ -3,10 +3,18 @@
 		'links' => null,
 		'styles' => []
 	], $args);
+
+	$classes = [
+		'links'
+	];
+
+	if (!empty($args['styles']['text_align']) and $args['styles']['text_align'] !== 'inherit') {
+		$classes[] = 'text--' . $args['styles']['text_align'];
+	}
 ?>
 
 <?php if ($args['links']) : ?>
-	<nav class="links">
+	<nav class="<?php echo implode(' ', $classes) ?>">
 
 		<?php $i = 0; foreach ($args['links'] as $link) : ?>
 			<a href="<?php echo $link['link']['url'] ?>"

@@ -18,7 +18,8 @@
 		'muted',
 		'disablepictureinpicture',
 		'disableremoteplayback',
-		'playsinline'
+		'playsinline',
+		'loop'
 	];
 
 	$media_id = null;
@@ -41,7 +42,7 @@
 	if (!empty($args['media']['media_portrait'])) {
 		$media_portrait_id = $args['media']['media_portrait'];
 		$media_portrait_url = wp_get_attachment_url($args['media']['media_portrait']);
-		$media_portrait_meta = wp_get_attachment_metadata($args['media']['media']);
+		$media_portrait_meta = wp_get_attachment_metadata($args['media']['media_portrait']);
 		$media_classes[] = 'portrait:hide';
 		$media_portrait_classes[] = 'portrait:show';
 

@@ -5,7 +5,8 @@
 		'conditional_logic' => false,
 		'ratios' => [
 			'auto' => __('Auto', 'sleek_admin'),
-			'16-9' => '16:9'
+			'16-9' => '16:9',
+			'1-1' => '1:1'
 		]
 	], $args);
 

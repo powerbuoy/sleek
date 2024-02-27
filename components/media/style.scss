@@ -2,7 +2,7 @@ figure.media {
 
 }
 
-@media (orientation: portrait)
+@media (orientation: portrait) {
 	.portrait\:hide {
 		display: none;
 	}
@@ -12,7 +12,7 @@ figure.media {
 	}
 }
 
-@media (orientation: landscape)
+@media (orientation: landscape) {
 	.portrait\:hide {
 		display: block;
 	}

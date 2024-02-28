@@ -1,44 +1,78 @@
-.bg--dark {
-	--text-color: white;
-	--heading-color: white;
-	--link-color: white;
+@scope (.bg--dark) {
+	:scope {
+		--text-color: white;
+		--heading-color: white;
+		--link-color: white;
 
-	background-color: black;
-	color: var(--text-color);
+		background-color: black;
+		color: var(--text-color);
+	}
+}
+
+@scope (.bg--light) {
+	:scope {
+		--text-color: black;
+		--heading-color: black;
+		--link-color: black;
+
+		background-color: white;
+		color: var(--text-color);
+	}
 }
 
 // Media
-.bg--media,
-.bg--media-light {
-	position: relative;
+@scope (
+	.bg--media,
+	.bg--media-light
+) {
+	:scope {
+		position: relative;
 
-	> figure.bg {
-		position: absolute;
-		inset: 0;
-		z-index: -1;
+		> figure.bg {
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+			margin: 0;
 
-		img,
-		video {
-			object-fit: cover;
-			object-position: center center;
+			div,
+			img,
+			video {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center center;
+			}
 		}
 	}
 }
 
 // Dark media
-.bg--media {
-	--text-color: white;
-	--heading-color: white;
-	--link-color: white;
+@scope (.bg--media) {
+	:scope {
+		--text-color: white;
+		--heading-color: white;
+		--link-color: white;
 
-	color: var(--text-color);
+		color: var(--text-color);
+	}
 }
 
 // Light media
-.bg--media-light {
-	--text-color: black;
-	--heading-color: black;
-	--link-color: black;
+@scope (.bg--media-light) {
+	:scope {
+		--text-color: black;
+		--heading-color: black;
+		--link-color: black;
 
-	color: var(--text-color);
+		color: var(--text-color);
+	}
+}
+
+// BG overlay
+.bg--overlay {
+	background-color: rgba(0, 0, 0, 0.5);
+
+	&.bg--media-light {
+		background-color: rgba(255, 255, 255, 0.5);
+	}
 }

@@ -9,7 +9,7 @@
 	<div>
 
 		<?php foreach ($new_rows as $row) : ?>
-			<article>
+			<article class="bg--light">
 
 				<?php get_template_part('components/media/template', null, ['media' => $row['media']]) ?>
 

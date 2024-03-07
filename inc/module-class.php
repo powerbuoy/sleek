@@ -1,9 +1,10 @@
 <?php function sleek_module_class ($styles) {
 	$classes = [];
+	$cos = 'container'; # Default to container
 
 	# We have a background image
 	if (!empty($styles['color_scheme']['media']['media'])) {
-		$classes[] = 'section';
+		$cos = 'section';
 
 		if ($styles['color_scheme']['media']['light_media']) {
 			$classes[] = 'bg--media-light';
@@ -18,20 +19,26 @@
 	}
 	# We have a background color
 	elseif (!empty($styles['color_scheme']['bg_color']) and $styles['color_scheme']['bg_color'] !== 'transparent') {
-		$classes[] = 'section';
+		$cos = 'section';
 		$classes[] = 'bg--' . $styles['color_scheme']['bg_color'];
 	}
-	# Transparent
-	else {
-		$classes[] = 'container';
+
+	# Text align
+	if (!empty($styles['text_align']) and $styles['text_align'] !== 'inherit') {
+		$classes[] = 'text--' . $styles['text_align'];
 	}
 
-	# TODO:
 	# Media position
-	# Media alignment
-	# Module spacing top
-	# Module spacing bottom
-	# Module size
+	if (!empty($styles['media_position'])) {
+		$classes[] = 'media-position--' . $styles['media_position'];
+	}
 
-	return implode(' ', $classes);
+	# Media alignment??
+
+	# Module size
+	if (!empty($styles['module_size']) and $styles['module_size'] !== 'full') {
+		$cos .= '--' . $styles['module_size'];
+	}
+
+	return $cos . ' ' . implode(' ', $classes);
 }

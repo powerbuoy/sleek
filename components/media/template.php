@@ -4,6 +4,7 @@
 		'size' => 'large',
 		'size_portrait' => 'medium',
 		'class' => 'media',
+		'loading' => 'lazy',
 		'video_args' => [
 			'autoplay',
 			'muted',
@@ -57,7 +58,7 @@
 					<?php echo implode(' ', $args['video_args']) ?>
 				></video>
 			<?php else : ?>
-				<?php echo wp_get_attachment_image($media_id, $args['size']) ?>
+				<?php echo wp_get_attachment_image($media_id, $args['size'], false, ['loading' => $args['loading']]) ?>
 			<?php endif ?>
 		</div>
 		<?php if ($media_portrait_url) : ?>
@@ -70,7 +71,7 @@
 						<?php echo implode(' ', $args['video_args']) ?>
 					></video>
 				<?php else : ?>
-					<?php echo wp_get_attachment_image($media_portrait_id, $args['size_portrait']) ?>
+					<?php echo wp_get_attachment_image($media_portrait_id, $args['size_portrait'], false, ['loading' => $args['loading']]) ?>
 				<?php endif ?>
 			</div>
 		<?php endif ?>

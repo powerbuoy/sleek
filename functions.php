@@ -68,8 +68,8 @@ register_nav_menus([
 ################
 # Sleek settings
 /* add_action('admin_init', function () {
-	Sleek\Settings\add_setting('hubspot_portal_id', 'text', __('Hubspot Portal ID', 'sleek'));
-	Sleek\Settings\add_setting('hubspot_api_key', 'text', __('Hubspot API Key', 'sleek'));
+	Sleek\Settings\add_setting('hubspot_portal_id', 'text', __('Hubspot Portal ID', 'sleek_admin'));
+	Sleek\Settings\add_setting('hubspot_api_key', 'text', __('Hubspot API Key', 'sleek_admin'));
 });
 
 # ... use them
@@ -84,7 +84,7 @@ add_action('wp_head', function () {
 add_action('acf/init', function () {
 	# Site Settings Page
 /*	acf_add_options_page([
-		'page_title' => __('Site Settings', 'sleek'),
+		'page_title' => __('Site Settings', 'sleek_admin'),
 		'menu_slug' => 'site_settings',
 		'post_id' => 'site_settings'
 	]); */
@@ -92,7 +92,7 @@ add_action('acf/init', function () {
 	# Site Setting Fields
 /*	acf_add_local_field_group([
 		'key' => 'site_settings',
-		'title' => __('Site Settings', 'sleek'),
+		'title' => __('Site Settings', 'sleek_admin'),
 		'location' => [[['param' => 'options_page', 'operator' => '==', 'value' => 'site_settings']]],
 		'menu_order' => 0,
 		'fields' => [
@@ -100,8 +100,8 @@ add_action('acf/init', function () {
 				'key' => 'site_settings_message',
 				'name' => 'message',
 				'type' => 'message',
-				'label' => __('Nothing here', 'sleek'),
-				'message' => __('Nothing here yet.', 'sleek')
+				'label' => __('Nothing here', 'sleek_admin'),
+				'message' => __('Nothing here yet.', 'sleek_admin')
 			]
 		]
 	]); */
@@ -109,7 +109,7 @@ add_action('acf/init', function () {
 	# Sidebar Modules
 /*	acf_add_local_field_group([
 		'key' => 'group_sidebar_modules',
-		'title' => __('Sidebar Modules', 'sleek'),
+		'title' => __('Sidebar Modules', 'sleek_admin'),
 		'location' => [[['param' => 'options_page', 'operator' => '==', 'value' => 'site_settings']]],
 		'menu_order' => 1,
 		'fields' => [
@@ -117,8 +117,8 @@ add_action('acf/init', function () {
 				'key' => 'sidebar_modules',
 				'name' => 'sidebar_modules',
 				'type' => 'flexible_content',
-				'label' => __('Sidebar Modules', 'sleek'),
-				'button_label' => __('Add a module', 'sleek'),
+				'label' => __('Sidebar Modules', 'sleek_admin'),
+				'button_label' => __('Add a module', 'sleek_admin'),
 				'layouts' => Sleek\Acf\generate_keys(
 					Sleek\Modules\get_module_fields([
 						'text-block' # Add more modules as needed
@@ -143,24 +143,3 @@ add_action('acf/init', function () {
 		return $postId;
 	}); */
 });
-
-##################################
-# Add common fields to all modules
-/* add_filter('sleek/modules/fields', function ($fields, $module) {
-	# Add background image to these modules
-	if (in_array($module, ['text-block', 'text-blocks'])) {
-		array_unshift($fields, [
-			'name' => 'background_color',
-			'label' => __('Background Color', 'sleek'),
-			'type' => 'select',
-			'choices' => [
-				'transparent' => __('Transparent', 'sleek'),
-				'light' => __('Light', 'sleek'),
-				'dark' => __('Dark', 'sleek')
-			],
-			'default_value' => 'transparent'
-		]);
-	}
-
-	return $fields;
-}, 10, 2); */

@@ -16,7 +16,7 @@
 <?php if ($args['links']) : ?>
 	<nav class="<?php echo implode(' ', $args['wrapper_classes']) ?>">
 
-		<?php $i = 0; foreach ($args['links'] as $link) : ?>
+		<?php $i = 0; foreach ($args['links'] as $link) : if (!empty($link['link']['url'])) : ?>
 			<?php
 				$classes = [];
 				$classes[] = $link['link_style'];
@@ -40,7 +40,21 @@
 			>
 				<?php echo $link['link']['title'] ?>
 			</a>
-		<?php endforeach ?>
+		<?php endif; endforeach ?>
 
 	</nav>
 <?php endif ?>
+
+<?php
+/*
+Before $classes[]:
+
+for some reason the "i" in icon-- is stripped with this code??
+
+class="
+	<?php echo $link['link_style'] ?>
+	<?php echo strpos($link['link_style'], 'button') !== false ? implode(' ', $args['button_classes']) : '' ?>
+	<?php echo !empty($link['icon']) ? 'icon-' . $link['icon'] : '' ?>
+"
+*/
+?>

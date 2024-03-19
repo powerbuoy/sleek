@@ -35,7 +35,11 @@
 
 		</figure>
 
-		<p><a href="<?php echo get_attached_file($post->ID) ?>"><?php _e('Download', 'sleek') ?></a></p>
+		<p>
+			<a href="<?php echo get_attached_file($post->ID) ?>" download>
+				<?php _e('Download', 'sleek') ?>
+			</a>
+		</p>
 
 	</section>
 <?php endwhile ?>

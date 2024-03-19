@@ -5,17 +5,17 @@ msgstr ""
 "Project-Id-Version: Sleek 9999999.0.0 (disable theme updates - check github "
 "for actual version number)\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sleek\n"
+"POT-Creation-Date: 2024-03-19T23:37:35+00:00\n"
+"PO-Revision-Date: 2024-03-20 00:38+0100\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-12-10T13:06:21+00:00\n"
-"PO-Revision-Date: 2021-12-10 14:24+0100\n"
-"X-Generator: Poedit 3.0\n"
-"X-Domain: sleek\n"
-"Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: sv\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Domain: sleek\n"
 
 #. Theme Name of the theme
 msgid "Sleek"
@@ -37,6 +37,38 @@ msgstr "Andreas Lagerkvist"
 msgid "https://github.com/powerbuoy/"
 msgstr "https://github.com/powerbuoy/"
 
+#. Translators: The name of the "Employee" post type
+#: dist/lang/cpt-strings.php:3
+msgid "Employee"
+msgstr ""
+
+#. Translators: The plural name of the "Employee" post type
+#: dist/lang/cpt-strings.php:6
+msgid "Employees"
+msgstr ""
+
+#. Translators: The URL of the "Employee" post type archive
+#: dist/lang/cpt-strings.php:9
+msgctxt "url"
+msgid "employees"
+msgstr ""
+
+#. Translators: The name of the "Employee Business Area" taxonomy
+#: dist/lang/cpt-strings.php:12
+msgid "Employee Business Area"
+msgstr ""
+
+#. Translators: The plural name of the "Employee Business Area" taxonomy
+#: dist/lang/cpt-strings.php:15
+msgid "Employee Business Areas"
+msgstr ""
+
+#. Translators: The URL of the "Employee Business Area" taxonomy archive
+#: dist/lang/cpt-strings.php:18
+msgctxt "url"
+msgid "employee-business-areas"
+msgstr ""
+
 #: modules/archive.php:18
 msgid "All"
 msgstr "Alla"
@@ -45,7 +77,7 @@ msgstr "Alla"
 msgid "Sorry, nothing was found here."
 msgstr "Ledsen, inget gick att hitta här."
 
-#: modules/post.php:39 _vendor/powerbuoy/sleek-notices/sleek-notices.php:28
+#: modules/post.php:39 ___sleek/sleek-notices/sleek-notices.php:28
 msgid "Read more"
 msgstr "Läs mer"
 
@@ -65,21 +97,9 @@ msgstr "Filnamn"
 msgid "Filesize"
 msgstr "Filstorlek"
 
-#: modules/single-attachment.php:38
+#: modules/single-attachment.php:40
 msgid "Download"
 msgstr "Ladda ned"
-
-#: post-types/employee.php:49
-msgid "Job Title"
-msgstr "Jobbtitel"
-
-#: post-types/employee.php:54
-msgid "Phone"
-msgstr "Telefon"
-
-#: post-types/employee.php:59
-msgid "E-mail"
-msgstr "E-post"
 
 #: post-types/post.php:20
 msgid "Blogs"
@@ -90,38 +110,38 @@ msgid "Blog"
 msgstr "Blogg"
 
 #. Translators: This is the search results description when there are more than zero search results
-#: _vendor/powerbuoy/sleek-archive-meta/sleek-archive-meta.php:22
+#: ___sleek/sleek-archive-meta/sleek-archive-meta.php:22
 msgid "Search results (%s) for: %s"
 msgstr "Sökresultat (%s) för: %s"
 
 #. Translators: This is the search results description when the user didn't enter a search term
-#: _vendor/powerbuoy/sleek-archive-meta/sleek-archive-meta.php:27
+#: ___sleek/sleek-archive-meta/sleek-archive-meta.php:27
 msgid "Empty search"
 msgstr "Tom sökning"
 
 #. Translators: This is the search results description when there are zero search results
-#: _vendor/powerbuoy/sleek-archive-meta/sleek-archive-meta.php:33
+#: ___sleek/sleek-archive-meta/sleek-archive-meta.php:33
 msgid "No search results for: <strong>\"%s\"</strong>"
 msgstr "Inga sökresultat för: <strong>\"%s\"</strong>"
 
-#: _vendor/powerbuoy/sleek-archive-meta/sleek-archive-meta.php:74
+#: ___sleek/sleek-archive-meta/sleek-archive-meta.php:79
 msgid "Displaying results %d through %d."
 msgstr "Visar sökresultat %d till %d."
 
-#: _vendor/powerbuoy/sleek-archive-meta/sleek-archive-meta.php:78
+#: ___sleek/sleek-archive-meta/sleek-archive-meta.php:83
 msgid ""
 "You didn't search for anything in particular so I'm showing you everything."
 msgstr "Du sökte inte efter något speciellt så jag visar allt."
 
-#: _vendor/powerbuoy/sleek-archive-meta/sleek-archive-meta.php:83
+#: ___sleek/sleek-archive-meta/sleek-archive-meta.php:88
 msgid "We couldn't find any matching search results for your query."
 msgstr "Vi kunde inte hitta några matchande sökresultat för din sökning."
 
-#: _vendor/powerbuoy/sleek-cleanup/sleek-cleanup.php:27
+#: ___sleek/sleek-cleanup/sleek-cleanup.php:27
 msgid "Log in"
 msgstr "Logga in"
 
-#: _vendor/powerbuoy/sleek-notices/sleek-notices.php:27
+#: ___sleek/sleek-notices/sleek-notices.php:27
 msgid ""
 "We use cookies to bring you the best possible experience when browsing our "
 "site."
@@ -129,11 +149,11 @@ msgstr ""
 "Vi använder cookies för att kunna erbjuda dig en så bra upplevelse som "
 "möjligt på vår hemsida."
 
-#: _vendor/powerbuoy/sleek-notices/sleek-notices.php:28
+#: ___sleek/sleek-notices/sleek-notices.php:28
 msgid "Accept"
 msgstr "Acceptera"
 
-#: _vendor/powerbuoy/sleek-notices/sleek-notices.php:76
+#: ___sleek/sleek-notices/sleek-notices.php:76
 msgid ""
 "<strong>Oops!</strong> Your browser is not supported. For a richer browsing "
 "experience, please consider upgrading to a better, modern browser like <a "

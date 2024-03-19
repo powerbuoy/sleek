@@ -1,4 +1,4 @@
-# Copyright (C) 2021 Andreas Lagerkvist
+# Copyright (C) 2024 Andreas Lagerkvist
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
@@ -9,9 +9,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-12-10T13:09:16+00:00\n"
+"POT-Creation-Date: 2024-03-19T23:38:11+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
+"X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: sleek_admin\n"
 
 #. Theme Name of the theme
@@ -34,30 +34,119 @@ msgstr ""
 msgid "https://github.com/powerbuoy/"
 msgstr ""
 
-#: functions.php:57
-msgid "Header menu"
+#: components/color-scheme/styles.php:5
+msgid "Color scheme"
 msgstr ""
 
-#: functions.php:58
-msgid "Footer menu"
+#: components/color-scheme/styles.php:13
+#: components/color-scheme/styles.php:15
+msgid "Light media"
 msgstr ""
 
+#: components/color-scheme/styles.php:14
+msgid "Check this if the media is light. Dark text will then be used."
+msgstr ""
+
+#: components/color-scheme/styles.php:24
+msgid "Media overlay"
+msgstr ""
+
+#: components/color-scheme/styles.php:26
+msgid "Enable media overlay"
+msgstr ""
+
+#: components/color-scheme/styles.php:41
+msgid "Transparent"
+msgstr ""
+
+#: components/color-scheme/styles.php:42
+msgid "Dark"
+msgstr ""
+
+#: components/links/fields.php:21
+#: components/links/styles.php:5
+msgid "Links"
+msgstr ""
+
+#: components/links/fields.php:26
+#: components/links/fields.php:36
+msgid "Link"
+msgstr ""
+
+#: components/links/fields.php:31
+msgid "Link style"
+msgstr ""
+
+#: components/links/fields.php:34
+#: ___sleek/sleek-tinymce/sleek-tinymce.php:144
+msgid "Button"
+msgstr ""
+
+#: components/links/fields.php:35
+#: ___sleek/sleek-tinymce/sleek-tinymce.php:149
+msgid "Button ghost"
+msgstr ""
+
+#: components/links/fields.php:41
+msgid "Icon"
+msgstr ""
+
+#: components/media-position.php:9
+msgid "Media position"
+msgstr ""
+
+#: components/media-position.php:12
+#: components/text-align.php:13
+msgid "Left"
+msgstr ""
+
+#: components/media-position.php:13
+#: components/text-align.php:15
+msgid "Right"
+msgstr ""
+
+#: components/media/fields.php:22
+msgid "Image or Video"
+msgstr ""
+
+#: components/media/fields.php:41
+msgid "Portrait Media"
+msgstr ""
+
+#: components/media/fields.php:42
+msgid "Optionally select another image or video to be used in portrait mode."
+msgstr ""
+
+#: components/media/fields.php:69
+msgid "Media"
+msgstr ""
+
+#: components/module-header/fields.php:5
+#: components/module-header/styles.php:5
+msgid "Module Header"
+msgstr ""
+
+#: components/module-header/fields.php:10
+msgid "Kicker"
+msgstr ""
+
+#: components/module-header/fields.php:12
+msgid "The kicker will only be visible if the title is filled out."
+msgstr ""
+
+#: components/module-header/fields.php:16
 #: modules/attachments/module.php:11
-#: modules/attachments/module.php:16
-#: modules/attachments/module.php:23
-#: modules/attachments/module.php:28
-#: modules/featured-posts/module.php:11
 #: modules/form/module.php:29
 #: modules/gallery/module.php:11
 #: modules/google-map/module.php:11
 #: modules/instagram/module.php:17
-#: modules/latest-posts/module.php:11
+#: modules/invise-example-module/module.php:19
 #: modules/menu/module.php:11
 #: modules/next-post/module.php:11
 #: modules/page-anchor/module.php:11
 #: modules/page-menu/module.php:11
+#: modules/posts/module.php:22
 #: modules/related-pages/module.php:11
-#: modules/related-posts/module.php:11
 #: modules/share-page/module.php:11
 #: modules/social-links/module.php:11
 #: modules/text-block/module.php:11
@@ -66,21 +155,22 @@ msgstr ""
 #: modules/users/module.php:11
 #: modules/video/module.php:11
 #: modules/vue-component/module.php:11
-#: _vendor/powerbuoy/sleek-post-types/settings-pages.php:52
+#: ___sleek/sleek-post-types/settings-pages.php:52
 msgid "Title"
 msgstr ""
 
-#: modules/featured-posts/module.php:16
+#: components/module-header/fields.php:21
+#: modules/attachments/module.php:16
 #: modules/form/module.php:34
 #: modules/gallery/module.php:16
 #: modules/google-map/module.php:16
 #: modules/instagram/module.php:22
-#: modules/latest-posts/module.php:16
+#: modules/invise-example-module/module.php:25
 #: modules/menu/module.php:16
 #: modules/next-post/module.php:16
 #: modules/page-menu/module.php:17
+#: modules/posts/module.php:27
 #: modules/related-pages/module.php:16
-#: modules/related-posts/module.php:16
 #: modules/share-page/module.php:16
 #: modules/social-links/module.php:16
 #: modules/text-block/module.php:22
@@ -89,12 +179,73 @@ msgstr ""
 #: modules/users/module.php:16
 #: modules/video/module.php:16
 #: modules/vue-component/module.php:16
-#: _vendor/powerbuoy/sleek-post-types/settings-pages.php:63
+#: ___sleek/sleek-post-types/settings-pages.php:63
 msgid "Description"
 msgstr ""
 
-#: modules/featured-posts/module.php:23
-msgid "Posts"
+#: components/ratio.php:4
+msgid "Ratio"
+msgstr ""
+
+#: components/ratio.php:7
+msgid "Auto"
+msgstr ""
+
+#: components/text-align.php:9
+msgid "Text align"
+msgstr ""
+
+#: components/text-align.php:12
+msgid "Inherit"
+msgstr ""
+
+#: components/text-align.php:14
+msgid "Center"
+msgstr ""
+
+#: functions.php:64
+msgid "Header menu"
+msgstr ""
+
+#: functions.php:65
+msgid "Footer menu"
+msgstr ""
+
+#: inc/invise-module.php:12
+msgid "Content"
+msgstr ""
+
+#: inc/invise-module.php:19
+#: inc/invise-module.php:25
+msgid "Styles"
+msgstr ""
+
+#: inc/invise-module.php:43
+msgid "No content"
+msgstr ""
+
+#: inc/invise-module.php:45
+msgid "There is nothing to do here."
+msgstr ""
+
+#: inc/invise-module.php:54
+msgid "No styles"
+msgstr ""
+
+#: inc/invise-module.php:56
+msgid "There is nothing to style."
+msgstr ""
+
+#: modules/attachments/module.php:23
+msgid "Files"
+msgstr ""
+
+#: modules/attachments/module.php:29
+msgid "File"
+msgstr ""
+
+#: modules/employees/module.php:13
+msgid "Employees"
 msgstr ""
 
 #: modules/form/module.php:49
@@ -173,13 +324,17 @@ msgstr ""
 msgid "Please make sure to activate the Meks Easy Photo Feed Widget to enable this module: %s"
 msgstr ""
 
-#: modules/latest-posts/module.php:23
-#: modules/related-posts/module.php:23
-msgid "Number of Posts"
+#: modules/invise-example-module/module.php:12
+#: modules/invise-example-module/module.php:47
+msgid "Rows"
 msgstr ""
 
-#: modules/latest-posts/module.php:29
-msgid "Category"
+#: modules/invise-example-module/module.php:52
+msgid "Ratio for all Media"
+msgstr ""
+
+#: modules/invise-example-module/module.php:56
+msgid "Ratio for all Portrait Media"
 msgstr ""
 
 #: modules/menu/module.php:23
@@ -200,6 +355,52 @@ msgstr ""
 
 #: modules/page-menu/template.php:26
 msgid "This page does not have any relatives. You can remove this module until you add some."
+msgstr ""
+
+#: modules/posts/module.php:13
+msgid "Posts"
+msgstr ""
+
+#: modules/posts/module.php:41
+msgid "Type of Posts"
+msgstr ""
+
+#: modules/posts/module.php:45
+msgid "Show posts based on filters"
+msgstr ""
+
+#: modules/posts/module.php:46
+msgid "Select which posts to show"
+msgstr ""
+
+#: modules/posts/module.php:47
+msgid "Show posts related to another post"
+msgstr ""
+
+#: modules/posts/module.php:57
+msgid "Auto posts"
+msgstr ""
+
+#: modules/posts/module.php:72
+msgid "Post types"
+msgstr ""
+
+#: modules/posts/module.php:80
+#: modules/posts/module.php:115
+msgid "Limit"
+msgstr ""
+
+#: modules/posts/module.php:93
+msgid "Related posts"
+msgstr ""
+
+#: modules/posts/module.php:107
+msgid "Original post"
+msgstr ""
+
+#: modules/posts/module.php:131
+#: modules/posts/module.php:145
+msgid "Featured posts"
 msgstr ""
 
 #: modules/related-pages/module.php:23
@@ -226,10 +427,6 @@ msgstr ""
 msgid "This page does not have any siblings or children. You can remove this module until you add some."
 msgstr ""
 
-#: modules/related-posts/template.php:22
-msgid "No related posts found."
-msgstr ""
-
 #: modules/share-page/module.php:23
 msgid "(Optional) enter a specific URL to share"
 msgstr ""
@@ -252,7 +449,7 @@ msgstr ""
 
 #: modules/text-block/module.php:16
 #: modules/text-blocks/module.php:35
-#: _vendor/powerbuoy/sleek-post-types/settings-pages.php:57
+#: ___sleek/sleek-post-types/settings-pages.php:57
 msgid "Image"
 msgstr ""
 
@@ -280,138 +477,145 @@ msgstr ""
 msgid "Component"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-google-maps/sleek-google-maps.php:7
+#: post-types/employee.php:49
+msgid "Job Title"
+msgstr ""
+
+#: post-types/employee.php:54
+msgid "Phone"
+msgstr ""
+
+#: post-types/employee.php:59
+msgid "E-mail"
+msgstr ""
+
+#: ___sleek/sleek-google-maps/sleek-google-maps.php:7
 msgid "Google Maps API Key"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-modules/global-modules.php:18
-#: _vendor/powerbuoy/sleek-modules/global-modules.php:19
-#: _vendor/powerbuoy/sleek-modules/global-modules.php:31
-#: _vendor/powerbuoy/sleek-modules/global-modules.php:39
-#: _vendor/powerbuoy/sleek-modules/global-modules.php:40
+#: ___sleek/sleek-modules/global-modules.php:18
+#: ___sleek/sleek-modules/global-modules.php:19
+#: ___sleek/sleek-modules/global-modules.php:31
+#: ___sleek/sleek-modules/global-modules.php:39
 msgid "Global Modules"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-modules/inline-edit-flex-module.php:157
-#: _vendor/powerbuoy/sleek-modules/inline-edit-flex-module.php:248
+#: ___sleek/sleek-modules/global-modules.php:40
+msgid "Add Global Module"
+msgstr ""
+
+#: ___sleek/sleek-modules/inline-edit-flex-module.php:157
+#: ___sleek/sleek-modules/inline-edit-flex-module.php:248
 msgid "Edit %s"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-modules/inline-edit-flex-module.php:161
+#: ___sleek/sleek-modules/inline-edit-flex-module.php:161
 msgid "Editing %s inside %s belonging to %s"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-modules/render-dummies.php:49
-#: _vendor/powerbuoy/sleek-modules/sleek-module.php:148
+#: ___sleek/sleek-modules/render-dummies.php:49
+#: ___sleek/sleek-modules/sleek-module.php:150
 msgid "Default Template"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-modules/render-dummies.php:247
+#: ___sleek/sleek-modules/render-dummies.php:247
 msgid "Read more"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-modules/render-dummies.php:247
+#: ___sleek/sleek-modules/render-dummies.php:247
 msgid "Click here"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-modules/render-dummies.php:247
+#: ___sleek/sleek-modules/render-dummies.php:247
 msgid "Contact us"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-modules/sleek-modules.php:180
+#: ___sleek/sleek-modules/sleek-modules.php:174
 msgid "No config"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-modules/sleek-modules.php:181
+#: ___sleek/sleek-modules/sleek-modules.php:175
 msgid "This module requires no configuration."
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-modules/sleek-modules.php:210
+#: ___sleek/sleek-modules/sleek-modules.php:202
 msgid "Template"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-notices/sleek-notices.php:8
+#: ___sleek/sleek-notices/sleek-notices.php:8
 msgid "Cookie consent text"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-notices/sleek-notices.php:11
+#: ___sleek/sleek-notices/sleek-notices.php:11
 msgid "Outdated browser warning"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-post-types/admin-bar-links.php:36
+#: ___sleek/sleek-post-types/admin-bar-links.php:36
 msgid "View Archive"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-post-types/admin-bar-links.php:46
-#: _vendor/powerbuoy/sleek-post-types/admin-bar-links.php:55
+#: ___sleek/sleek-post-types/admin-bar-links.php:46
+#: ___sleek/sleek-post-types/admin-bar-links.php:55
 msgid "Edit Archive"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-post-types/admin-bar-links.php:64
-#: _vendor/powerbuoy/sleek-post-types/admin-bar-links.php:71
+#: ___sleek/sleek-post-types/admin-bar-links.php:64
+#: ___sleek/sleek-post-types/admin-bar-links.php:71
 msgid "Edit %s Settings"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-post-types/register-fields.php:31
+#: ___sleek/sleek-post-types/register-fields.php:31
 msgid "%s information"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-post-types/register-fields.php:46
+#: ___sleek/sleek-post-types/register-fields.php:46
 msgid "Sticky Modules"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-post-types/register-fields.php:61
+#: ___sleek/sleek-post-types/register-fields.php:61
 msgid "Sticky Archive Modules"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-post-types/register-fields.php:81
-#: _vendor/powerbuoy/sleek-post-types/register-fields.php:99
-#: _vendor/powerbuoy/sleek-post-types/register-fields.php:128
-#: _vendor/powerbuoy/sleek-post-types/register-fields.php:146
+#: ___sleek/sleek-post-types/register-fields.php:81
+#: ___sleek/sleek-post-types/register-fields.php:99
+#: ___sleek/sleek-post-types/register-fields.php:128
+#: ___sleek/sleek-post-types/register-fields.php:146
 msgid "Add a module"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-post-types/register-fields.php:109
-#: _vendor/powerbuoy/sleek-post-types/register-fields.php:156
+#: ___sleek/sleek-post-types/register-fields.php:109
+#: ___sleek/sleek-post-types/register-fields.php:156
 msgid "Modules"
 msgstr ""
 
 #. Translators: For example "All [blog categories]"
-#: _vendor/powerbuoy/sleek-post-types/register-taxonomies.php:49
+#: ___sleek/sleek-post-types/register-taxonomies.php:54
 msgid "All %s"
 msgstr ""
 
 #. Translators: For example "[Blog] Settings"
-#: _vendor/powerbuoy/sleek-post-types/settings-pages.php:24
+#: ___sleek/sleek-post-types/settings-pages.php:24
 msgid "%s Settings"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-post-types/settings-pages.php:73
+#: ___sleek/sleek-post-types/settings-pages.php:73
 msgid "Archive Settings"
 msgstr ""
 
 #. Translators: This is the title of the settings page (Settings -> Sleek inside the WP admin) for the theme Sleek
-#: _vendor/powerbuoy/sleek-settings/sleek-settings.php:37
-#: _vendor/powerbuoy/sleek-settings/sleek-settings.php:40
+#: ___sleek/sleek-settings/sleek-settings.php:37
+#: ___sleek/sleek-settings/sleek-settings.php:40
 msgid "Sleek settings"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-settings/sleek-settings.php:44
+#: ___sleek/sleek-settings/sleek-settings.php:44
 msgid "Save settings"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-settings/sleek-settings.php:64
+#: ___sleek/sleek-settings/sleek-settings.php:64
 msgid "Code inside <head>"
 msgstr ""
 
-#: _vendor/powerbuoy/sleek-settings/sleek-settings.php:65
+#: ___sleek/sleek-settings/sleek-settings.php:65
 msgid "Code just before </body>"
-msgstr ""
-
-#: _vendor/powerbuoy/sleek-tinymce/sleek-tinymce.php:144
-msgid "Button"
-msgstr ""
-
-#: _vendor/powerbuoy/sleek-tinymce/sleek-tinymce.php:149
-msgid "Button ghost"
 msgstr ""

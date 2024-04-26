@@ -1,6 +1,8 @@
 <?php return function ($moduleName, $args = []) {
 	$config = array_merge([
 		'ratio' => true,
+		'name' => 'media',
+		'label' => __('Media', 'sleek_admin'),
 		'additional_fields' => []
 	], $args);
 
@@ -29,7 +31,7 @@
 	if ($config['ratio']) {
 		$fields = array_merge($fields, (include get_stylesheet_directory() . '/components/ratio.php')([
 			'conditional_logic' => [[[
-				'field' => '{acf_key}_' . $moduleName . '_media_media',
+				'field' => '{acf_key}_' . $moduleName . '_' . $config['name'] . '_media',
 				'operator' => '!=empty'
 			]]]
 		]));
@@ -44,7 +46,7 @@
 		'return_format' => 'id',
 		'mime_types' => implode(',', $mediaExts),
 		'conditional_logic' => [[[
-			'field' => '{acf_key}_' . $moduleName . '_media_media',
+			'field' => '{acf_key}_' . $moduleName . '_' . $config['name'] . '_media',
 			'operator' => '!=empty'
 		]]]
 	];
@@ -53,7 +55,7 @@
 		$fields = array_merge($fields, (include get_stylesheet_directory() . '/components/ratio.php')([
 			'name' => 'ratio_portrait',
 			'conditional_logic' => [[[
-				'field' => '{acf_key}_' . $moduleName . '_media_media_portrait',
+				'field' => '{acf_key}_' . $moduleName . '_' . $config['name'] . '_media_portrait',
 				'operator' => '!=empty'
 			]]]
 		]));
@@ -65,8 +67,8 @@
 	# Return as group
 	return [
 		[
-			'name' => 'media',
-			'label' => __('Media', 'sleek_admin'),
+			'name' => $config['name'],
+			'label' => $config['label'],
 			'type' => 'group',
 			'sub_fields' => $fields
 		]

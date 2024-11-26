@@ -28,5 +28,9 @@
 			<div class="wysiwyg"><?php echo $args['module_header']['description'] ?></div>
 		<?php endif ?>
 
+		<?php if (!empty($args['module_header']['links'])) : ?>
+			<?php get_template_part('components/links/template', null, ['links' => $args['module_header']['links']]) ?>
+		<?php endif ?>
+
 	</header>
 <?php endif ?>

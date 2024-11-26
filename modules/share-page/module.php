@@ -64,7 +64,7 @@ class SharePage extends Module {
 			'Email' => 'mailto:?subject={title}&body={url}'
 		];
 
-		$url = $url ? $url : home_url(add_query_arg($_GET, $wp->request));
+		$url = $url ? $url : home_url($wp->request);
 		$title = wp_title(' - ', false, 'right') . get_bloginfo('name');
 
 		foreach ($urls as $service => $u) {

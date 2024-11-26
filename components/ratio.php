@@ -3,7 +3,8 @@
 		'name' => 'ratio',
 		'label' => __('Ratio', 'sleek_admin'),
 		'conditional_logic' => false,
-		'ratios' => [
+		'default_value' => 'auto',
+		'choices' => [
 			'auto' => __('Auto', 'sleek_admin'),
 			'16-9' => '16:9',
 			'1-1' => '1:1',
@@ -16,8 +17,8 @@
 		'name' => $config['name'],
 		'label' => $config['label'],
 		'type' => 'select',
-		'choices' => $config['ratios'],
-		'default_value' => 'auto'
+		'choices' => $config['choices'],
+		'default_value' => $config['default_value']
 	];
 
 	if ($config['conditional_logic']) {

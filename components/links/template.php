@@ -17,7 +17,7 @@
 	<nav class="<?php echo implode(' ', $args['wrapper_classes']) ?>">
 
 		<?php $i = 0; foreach ($args['links'] as $link) : if (!empty($link['link']['url'])) : ?>
-			<?php get_template_part('components/link/template', null, ['link' => $link]) ?>
+			<?php get_template_part('components/link/template', null, ['link' => $link, 'button_classes' => $args['button_classes']]) ?>
 		<?php endif; endforeach ?>
 
 	</nav>

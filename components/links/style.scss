@@ -1,10 +1,14 @@
+:root {
+	--links-margin: var(--spacing-large);
+}
+
 nav.links {
 	display: flex;
 	align-items: center;
 	justify-content: left;
 	flex-wrap: wrap;
 	gap: var(--spacing-medium);
-	margin-top: var(--links-margin, var(--spacing-large));
+	margin-top: var(--links-margin);
 
 	&.text--center,
 	.text--center & {

@@ -22,7 +22,7 @@
 			'type' => 'link'
 		],
 		[
-			'name' => 'link_style',
+			'name' => 'style',
 			'label' => __('Link style', 'sleek_admin'),
 			'type' => 'select',
 			'choices' => [

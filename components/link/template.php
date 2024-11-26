@@ -8,10 +8,10 @@
 <?php if ($args['link']) : ?>
 	<?php
 		$classes = [];
-		$classes[] = $args['link']['link_style'];
+		$classes[] = $args['link']['style'];
 
 		# If it's any type of button, add potential button_classes
-		if (strpos($args['link']['link_style'], 'button') !== false and $args['button_classes']) {
+		if (strpos($args['link']['style'], 'button') !== false and $args['button_classes']) {
 			$classes = array_merge($classes, $args['button_classes']);
 		}
 

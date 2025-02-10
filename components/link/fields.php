@@ -8,6 +8,7 @@
 
 		if (!empty($data->glyphs) and is_array($data->glyphs)) {
 			foreach ($data->glyphs as $ico) {
+				# TODO: Cache this!!
 				$icons[$ico->css] = \Sleek\Utils\convert_case($ico->css, 'title');
 			}
 
